@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Demonstrates using a relative layout to create a form -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:padding="10px">
+
+    <TextView android:id="@+id/input_label" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:text="Input:"/>
+
+    <EditText android:id="@+id/input_entry" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              android:layout_below="@id/input_label"/>
+  
+    <Button android:id="@+id/encrypti" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_below="@id/input_entry"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10px"
+            android:text="Encrypt" />
+
+    <Button android:id="@+id/decrypti" 
+           android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/encrypti"
+            android:layout_alignTop="@id/encrypti"
+            android:text="Decrypt" />
+            
+    <Button android:id="@+id/get" 
+           android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/decrypti"
+            android:layout_alignTop="@id/decrypti"
+            android:text="Get" />
+            
+            
+    <Button android:id="@+id/outToIn" 
+           android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/get"
+            android:layout_alignTop="@id/get"
+            android:text="Out->In" />
+
+    <TextView android:id="@+id/output_label" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:text="Output:"
+              android:layout_below="@id/outToIn"/>
+
+    <EditText android:id="@+id/output_entry" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              android:layout_below="@id/output_label"/>   
+              
+    <TextView android:id="@+id/username_label" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:layout_below="@id/output_entry"
+              android:text="OR - Username:"/>
+
+    <EditText android:id="@+id/username_entry" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              android:layout_below="@id/username_label"/>
+              
+    <TextView android:id="@+id/password_label" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:layout_below="@id/username_entry"
+              android:text="Password:"/>
+
+    <EditText android:id="@+id/password_entry" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              android:layout_below="@id/password_label"/>
+              
+    <TextView android:id="@+id/unique_name_label" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:layout_below="@id/password_entry"
+              android:text="Unique Name"/>
+
+    <EditText android:id="@+id/unique_name_entry" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              android:layout_below="@id/unique_name_label"/>
+     <Button android:id="@+id/set" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+              android:layout_below="@id/unique_name_entry"
+            android:text="Set" />
+     <CheckBox android:id="@+id/check_service"
+     		android:layout_width="wrap_content"
+     		android:layout_height="wrap_content"
+     		android:layout_below="@id/set"
+     		android:text="Connect to service directly" />  
+            
+    <!-- Spoof_me calls AskPassword directly. Luckily this throws a
+         security exception, because AskPassword had not specified the
+         MAIN action intent filter. -->
+    <Button android:id="@+id/spoof_me" 
+    	    android:visibility="gone"
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/set"
+            android:layout_alignTop="@id/set"
+            android:text="Spoof me" />
+  
+</RelativeLayout>
