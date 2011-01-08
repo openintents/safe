@@ -1,0 +1,7 @@
+"Category","Description","Website","Username","Password","Notes"
+"Personal","eBay","http://www.ebay.com","elogin","dummy_pwe","This is a simple test file that should work quite simply."
+"Personal","Amazon","http://www.amazon.com","aummy_login","dummy_pwa","Buy all kinds of stuff"
+"Business","Intranet","http://www.myintranet.com","intralogin","ingrapass",""
+"Business","Extranet","http://www.yahoo.com","yummy_login","dummy_pwy",""
+"Business","Payroll","http://www.google.com","gdummy_login","dummy_pwg",""
+"Business","Fin Admin","http://www.google.com","finlog","finpass","This is the financial system with secret beans."

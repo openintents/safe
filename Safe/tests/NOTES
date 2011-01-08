@@ -1,0 +1,8 @@
+To perform import testing, execute the following one at a time, 
+doing an Import each time.
+
+adb push oisafe-test1.csv /sdcard/oisafe.csv
+adb push oisafe-test2.csv /sdcard/oisafe.csv
+adb push oisafe-test3.csv /sdcard/oisafe.csv
+adb push oisafe-test4.csv /sdcard/oisafe.csv
+

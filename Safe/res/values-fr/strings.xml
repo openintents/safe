@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* $Id: strings.xml 2889 2010-12-30 18:15:04Z rmceoin $
+* 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Abdessamad Derraz https://launchpad.net/~derraz
+  François Blondel https://launchpad.net/~francoisblondel
+  Peli https://launchpad.net/~peli0101
+  beudbeud https://launchpad.net/~beudbeud</string>
+	
+    <!-- Strings for OI About -->
+	<string name="about_comments">OI Safe conserve toutes vos données privées cryptées.</string>  
+	<string name="about_website_label">OI Safe chez OpenIntents</string> 
+    
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+    <string name="app_name">OI Safe</string>
+    <string name="empty_safe">Pas de mot de passe actuel pour cette catégorie.</string>
+    <string name="empty_category">Pas de catégories présentes. S\'il vous plaît en ajouter une via le menu-&gt;Add</string>
+    <string name="password_lock">Vérouiller</string>
+    <string name="password_view">Afficher</string>
+    <string name="password_edit">Modifier</string>
+    <string name="password_add">Ajouter</string>
+    <string name="password_delete">Supprimer</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwords">Les mots de passe</string>
+    <string name="master_password">Mot de passe principal</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="website">Site</string>
+    <string name="description">Description</string>
+    <string name="notes">Notes</string>
+    <string name="save">Sauver</string>
+    <string name="invalid_password">Mot de passe incorrect. S\'il vous plaît essayez de nouveau.</string>
+    <string name="notify_blank_pass">Le mot de passe doit comporter au moins 4 caractères</string>
+    <string name="notify_blank_desc">La description ne peut pas être vide</string>
+    <string name="notify_blank_name">Le nom ne peut pas être vide</string>
+    <string name="first_time">S\'il vous plaît entrer un mot de passe ci-dessous, il sera utilisés pour garder vos mots de passe de sécurité.</string>
+    <string name="logoff_explanation">Vous êtes actuellement connecté sur OI Safe, ce qui signifie que d\'autres applications peuvent leur demander de crypter/décrypter les mots de passe et les données. Verrouillez pour empêcher de nouveaux accès jusqu\'à ce que vous tapez votre mot de passe.</string>
+    <string name="remote_ask">Une autre application qui vous demande d\'utiliser la clé maîtresse. S\'il vous plaît entrez votre mot de passe pour le déverrouiller.</string>
+    <string name="categories">Catégories</string>
+	<string name="category">Catégorie</string>
+    <string name="category_business">Entreprise</string>
+    <string name="category_personal">Personnel</string>
+    <string name="name">Nom</string>
+    <string name="category_not_empty">Catégorie n\'est pas vide. Vous devez supprimer les mots de passe en premier.</string>
+	<string name="cannot_decrypt_category">Impossible de déchiffrer la catégorie</string>
+	<string name="cannot_decrypt_password">Impossible de déchiffrer un mot de passe</string>
+	<string name="error_export">Erreur d\'exportation de la base de données</string>
+	<string name="export_database">Export de la base de données</string>
+	<string name="export_msg">Cela permettra l\'exportation de la base de données de mot de passe à un fichier texte en clair. C\'EST TRÈS DANGEREUX. Assurez-vous de supprimer le fichier une fois que vous l\'avez fait. Êtes-vous sûr que de vouloir l\'exporter?</string>
+	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
+	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_database">Import de la bases de données</string>
+	<string name="import_file_missing">L\'import de fichiers est manquant:</string>
+	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_error_first_line">La première ligne à un champ manquant.</string>
+	<string name="dialog_import_title">Import</string>
+	<string name="dialog_import_msg">Voulez-vous remplacer la base de données (importation à partir de %s)?</string>
+	<string name="yes">Oui</string>
+	<string name="no">Non</string>
+	<string name="import_progress">S\'il vous plaît veuillez patienter pendant l\'importation de ...</string>
+	<string name="import_no_categories">Pas de catégories trouvées.</string>
+	<string name="import_no_entries">Aucune entrées trouvée dans CSV.</string>
+	<string name="import_too_many_categories">Un trop grand nombre de catégories.</string>
+	<string name="import_not_enough_fields">Pas assez de champs</string>
+	<string name="import_blank_category">Catégorie vide</string>
+	<string name="import_blank_description">Description vide</string>
+	<string name="dialog_delete_database_title">Supprimer la base de données</string>
+	<string name="dialog_delete_database_msg">Etes-vous vraiment sûr que vous voulez supprimer la base de données? Cela ne peut pas être annulée.</string>
+	<string name="added">Ajouté</string>
+	<string name="entries">entrées</string>
+	<string name="import_complete">Import complète</string>
+	<string name="import_delete_csv">Comme il n\'est pas sûr de garder les mots de passe en texte clair dans des fichiers CSV, voulez-vous les supprimer</string>
+	<string name="edit_entry">Modifier l\'entrée</string>
+	<string name="view_entry">Voir l\'entrée</string>
+	<string name="help">Aide</string>
+	<string name="close">Fermer</string>
+	<string name="go">Aller</string>
+	<string name="dialog_delete_password_title">Supprimer le mot de passe</string>
+	<string name="dialog_delete_password_msg">Êtes-vous sûr de vouloir supprimer ce mot de passe?</string>
+	<string name="change_password">Changer le mot de passe principal</string>
+	<string name="chg_pass_explaination">Utilisez cette option pour changer le mot de passe que vous utilisez pour déverrouiller OI Safe. Vos données seront cryptées avec le nouveau mot de passe. Plus votre mot de passe est complexe, plus sûr seront vos données.</string>
+	<string name="old_password">Ancien mot de passe</string>
+	<string name="new_password">Nouveau mot de passe</string>
+	<string name="verify_password">Vérifier le mot de passe</string>
+	<string name="new_verify_mismatch">Vos mots de passe ne correspondent pas.</string>
+    <string name="invalid_old_password">L\'ancien mot de passe est incorrect. S\'il vous plaît essayez de nouveau.</string>
+    <string name="error_changing_password">Erreur lors du changement de mot de passe</string>
+    <string name="password_changed">Mot de passe changé</string>
+    <string name="confirm">Confirmer</string>
+    <string name="confirm_pass_fail">Les entrées de mot de passe ne correspondent pas.</string>
+    <string name="backup">Sauvegarde</string>
+    <string name="backup_progress">Sauvegarde de</string>
+    <string name="backup_complete">Complet. Les mots de passe sont sauvegardés:</string>
+    <string name="backup_failed">La sauvegarde a échoué:</string>
+    <string name="restore">Restaurer</string>
+    <string name="filename">Nom du fichier</string>
+    <string name="restore_no_file">Le fichier de sauvegarde n\'a pas été trouvée. Vous devez effectuer une sauvegarde avant de le créer. Ou de copier une sauvegarde de sur votre PC.</string>
+    <string name="restore_set_password">S\'il vous plaît fournissez le mot de passe utilisé par le fichier de sauvegarde. Votre mot de passe principal sera intégré à l\'intérieur.</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Impossible d\'ouvrir le fichier: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Version non pris en charge: %s</string>
+    
+    <string name="restore_error">Erreur de restauration.</string>
+    <string name="restore_decrypt_error">Mauvais mot de passe.</string>
+    <string name="dialog_restore_database_title">Restaurer la base de données</string>
+    <string name="dialog_restore_database_msg">Êtes-vous sûr de vouloir remplacer les données actuelles?</string>
+    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
+    <string name="restore_complete">Complet. Mots de passe restaurés: %s</string>
+    <string name="copied_to_clipboard">Copier dans le presse-papier</string>
+    <string name="invalid_website">Site invalide</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Ouvrir</string>
+    
+    <string name="database_version_error_title">Erreur de version de la base de données</string>
+    <string name="database_version_error_msg">Désolé, mais la version de la base de données n\'est pas supporté. Vous devez installer la version associée à cette base de données.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Déplacer</string>
+	
+	<string name="move_select">Sélectionner la catégorie</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Déplacé vers %s</string>
+	
+	<string name="preferences">Paramètres</string>
+	<string name="pref_title_external_access">Autoriser l\'accès externe</string>
+	<string name="pref_summary_external_access">Autoriser les autres applications à sécuriser vos données avec OI Safe</string>
+	<string name="dialog_title_external_access">OI Safe: Une autre application demande l\'accès.</string>
+	<string name="dialog_summary_external_access">Autoriser les autres applications à sécuriser vos données avec OI Safe.</string>
+	<string name="dialog_comment_external_access">Cela peut aussi être réglée dans le menu OI Safe / Paramètres.</string>
+	
+	<!-- Preference title -->
+	<string name="pref_title_lock_timeout">Délai du verrouillage automatique</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">Nombre de minutes avant que l\'expiration du délai ne se produit et la que la sécurité soit verrouillé</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Délai du verrouillage automatique</string>
+	
+	<!-- Preference title -->
+	<string name="pref_title_lock_on_screen_lock">Verrouiller sur l\'écran de verrouillage</string>
+	
+	<!-- Preference summary for lock on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Verrouiller lorsque l\'écran se verrouille</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Clavier</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Utilisez le clavier pour entrer le mot de passe principal</string>
+	
+	<!-- Preference title -->
+	<string name="pref_title_keypad_mute">Clavier éteint</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Couper les sons du clavier</string>
+
+	<string name="pref_title_autobackup">Auto backup</string>
+	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
+
+	<string name="pref_title_autobackup_days">Auto backup days</string>
+	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
+	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	
+	
+	<string name="intent_decrypt">Décrypt (OI Safe)</string>
+	<string name="intent_encrypt">Encrypt (OI Safe)</string>
+	<string name="intent_get_password">Obtenir un mot de passe (OI Safe)</string>
+	<string name="intent_set_password">Définir le mot de passe (OI Safe)</string>
+	<string name="intent_restart_timer">Redémarre le minuteur (OI Safe)</string>
+	<string name="open_safe">Ouvrir OI Safe</string>
+	<string name="lock">Vérouiller</string>
+	<string name="continue_text">Continuer</string>
+	<string name="generate_password">Générer un mot de passe</string>
+	<string name="pass_gen_length">Longueur du mot de passe</string>
+	<string name="pass_gen_uppercase">Majuscules [A-Z]</string>
+	<string name="pass_gen_lowercase">Minuscules [a-z]</string>
+	<string name="pass_gen_numbers">Numéros [0-9]</string>
+	<string name="pass_gen_symbols">Symboles [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Copier dans l\'entrée actuelle</string>
+	<string name="pass_gen_copy_to_clipboard">Copier dans le Presse-papiers</string>
+	<string name="cancel">Quitter</string>
+	<string name="discard_changes">Annuler les modifications</string>
+	<string name="entry_saved">Entrée sauvé</string>
+	<string name="entry_save_error">Unable to save due to database error</string>
+	<string name="last_edited">Dernière édition</string>
+	<string name="last_edited_unknown">inconnu</string>
+	<string name="crypto_error">Erreur crypto:</string>
+	<string name="uniquename">Nom unique</string>
+	<string name="package_access">Accès au paquet</string>
+	<string name="not_found">Non trouvé</string>
+	<string name="dialog_title_first_time_warning">Nouvelle clé maîtresse</string>
+	<string name="dialog_summary_first_time_warning">Une nouvelle clé principale aléatoire a été créé. Utilisez le menu &gt; de sauvegarde et stocker cette clé en lieu sûr. Sans cette clé, vous perdez vos données cryptées.</string>
+	<string name="switch_mode">Changer de mode</string>
+	<string name="decrypt_progress">Décryptage ...</string>
+	<string name="search">Rechercher</string>
+	<string name="search_progress">Recherche en cours…</string>
+	<string name="search_hint">Type de critères de recherche</string>
+	<string name="search_nothing_found">Rien n\'a été trouvé</string>
+	<string name="mute">Mute</string>
+	<string name="sounds">Sounds</string>
+	<string name="previous">Previous</string>
+	<string name="next">Next</string>
+	<string name="autobackup">AutoBackup</string>
+	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
+	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
+	<string name="autobackup_turnoff">Turn off autobackup</string>
+	
+	
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	
+	<!-- EULA -->
+	<string name="eula_title">OI Safe EULA</string>
+	<string name="eula_accept">Accepter</string>
+	<string name="eula_refuse">Quitter</string>
+	
+	<!-- Update -->
+		<string name="update_box_text">S\'il vous plaît vérifiez manuellement les mises à jour ou installez OI Update pour les notifications automatique . Version actuelle: %s</string>
+	<string name="update_check_now">Vérifier maintenant.</string>
+	<string name="update_get_updater">Obtenir OI Updater.</string>
+	<string name="update_error">Télécharger l\'application indisponible.</string>
+	<string name="update">Vérifier les mises à jour</string>
+	
+    <!-- About -->
+    <string name="about">À propos de</string>
+	<string name="aboutapp_not_available">La version %s\n\nest incompatible pour afficher plein d\'infos (contact, crédits, licence).</string>
+    <string name="aboutapp_get">Obtenir OI About</string>
+    
+    <!-- File Manager -->
+    <string name="filemanager_not_available">Pas de gestionnaire de fichiers compatibles disponibles.</string>
+    <string name="filemanager_get_oi_filemanager">Obtenir OI File Manager</string>
+    
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<string name="oi_safe_permission_service">Accès au mot de passe principal</string>
+	<string name="oi_safe_permission_service_descr">Permet à l\'application d\'accéder à la clé principale utilisée pour le chiffrement et le déchiffrement. Il ne devrait jamais être utilisée, sauf par OI Safe.</string>	
+	<string name="oi_safe_permission_intents">crypter et décrypter des données</string>
+    <string name="oi_safe_permission_intents_descr">Permet à l\'application de crypter et décrypter le texte, les mots de passe et les accès qu\'ils ont stockées dans OI Safe.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>  
+    </string-array>
+
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 day</item>
+        <item>7 days</item>
+        <item>30 days</item>
+        <item>60 days</item>
+    </string-array>
+
+        
+</resources>

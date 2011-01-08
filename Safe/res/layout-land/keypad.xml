@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* $Id$
+* 
+* Copyright (C) 2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical">
+   
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1,2,3">
+
+    <TableRow>
+		<ImageView android:id="@+id/entry_icon"
+			android:src="@drawable/icon_safe" />
+        <Button android:id="@+id/keypad1"
+        	android:text="1" />
+        <Button android:id="@+id/keypad2"
+        	android:text="2" />
+        <Button android:id="@+id/keypad3"
+        	android:text="3" />
+    </TableRow>
+    <TableRow>
+		<TextView android:id="@+id/entry_header"
+    		android:text="@string/app_name"
+			android:textSize="24px" />
+        <Button android:id="@+id/keypad4"
+        	android:text="4" />
+        <Button android:id="@+id/keypad5"
+        	android:text="5" />
+        <Button android:id="@+id/keypad6"
+        	android:text="6" />
+    </TableRow>
+    <TableRow>
+        <Button android:id="@+id/keypad7"
+        	android:layout_column="1"
+        	android:text="7" />
+        <Button android:id="@+id/keypad8"
+        	android:text="8" />
+        <Button android:id="@+id/keypad9"
+        	android:text="9" />
+    </TableRow>
+    <TableRow>
+        <Button android:id="@+id/keypad_star"
+        	android:layout_column="1"
+        	android:text="*" />
+        <Button android:id="@+id/keypad0"
+        	android:text="0" />
+        <Button android:id="@+id/keypad_pound"
+        	android:text="#" />
+    </TableRow>
+    <TableRow>
+		<ImageView android:id="@+id/switch_button"
+			android:layout_height="48dp"
+			android:layout_width="48dp"
+			android:src="@android:drawable/ic_menu_directions"
+			/>
+    
+        <Button android:id="@+id/keypad_continue"
+        	android:layout_column="1"
+        	android:layout_span="3"
+        	android:text="@string/continue_text" />
+    </TableRow>
+</TableLayout>
+</ScrollView>

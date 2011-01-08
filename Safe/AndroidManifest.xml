@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.openintents.safe" 
+    android:versionName="1.2.6" android:versionCode="16">
+    <!-- History:
+    1.2.6 [16]: 2010-12-28
+    1.2.5 [15]: 2010-04-03
+    1.2.4 [13]: 2009-11-27
+    1.2.3 [12]: 2009-11-23
+    1.2.2 [11]: 2009-10-29
+    1.2.1 [10]: 2009-10-23
+    1.2.0 [9]: 2009-08-22
+    1.1.1 [8]: 2009-05-30
+    1.1.0 [6]: 2009-03-17
+    1.0.0 [4]: 2009-02-02
+     -->
+    <application android:icon="@drawable/icon_safe" android:allowClearUserData="true" android:debuggable="true" android:label="@string/app_name">
+    	
+        <!-- aTrackDog metadata -->
+        <meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
+           android:value="14" />
+        
+        <!-- OI About metadata -->
+		<meta-data android:name="org.openintents.metadata.COMMENTS"
+                       android:value="@string/about_comments" />
+        <meta-data android:name="org.openintents.metadata.COPYRIGHT"
+                       android:value="@string/about_copyright" />
+        <meta-data android:name="org.openintents.metadata.AUTHORS"
+                       android:resource="@array/about_authors" />
+        <meta-data android:name="org.openintents.metadata.DOCUMENTERS"
+                       android:resource="@array/about_documenters" />
+        <meta-data android:name="org.openintents.metadata.TRANSLATORS"
+                       android:resource="@array/about_translators" />
+        <meta-data android:name="org.openintents.metadata.ARTISTS"
+                       android:resource="@array/about_artists" />
+        <meta-data android:name="org.openintents.metadata.WEBSITE_LABEL"
+                       android:value="@string/about_website_label" />
+        <meta-data android:name="org.openintents.metadata.WEBSITE_URL"
+                       android:value="@string/about_website_url" />
+        <meta-data android:name="org.openintents.metadata.LICENSE"
+                       android:resource="@raw/license_short" />
+        <meta-data android:name="org.openintents.metadata.EMAIL"
+                       android:value="@string/about_email" />
+                   
+        <activity class=".Safe" android:name="Safe" android:label="@string/app_name"
+        		android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        	<!-- Launcher activity is only defined for FrontDoor below,
+        	     in order to avoid duplicate entry in the application menu. -->
+        	<!-- 
+         	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+		        <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+             -->
+        </activity>
+        <!-- alias is to handle versions 1.2.4 and earlier which used to use
+             FrontDoor as the initial activity -->
+        <activity-alias android:label="@string/app_name"
+                android:name="FrontDoor"
+                android:targetActivity="Safe" >
+         	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+		        <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+		
+        <activity class=".IntentHandler" android:name="IntentHandler" android:label="@string/app_name"
+                  android:permission="org.openintents.safe.ACCESS_INTENTS">
+            <intent-filter android:label="@string/intent_encrypt">
+                <action android:name="org.openintents.action.ENCRYPT" />
+                <category android:name="android.intent.category.DEFAULT" />
+        	</intent-filter>
+        	<intent-filter android:label="@string/intent_encrypt">
+                <action android:name="org.openintents.action.ENCRYPT" />
+                <category android:name="android.intent.category.DEFAULT" />
+        		<data android:scheme="file" />
+            </intent-filter>
+        	<intent-filter android:label="@string/intent_decrypt">
+                <action android:name="org.openintents.action.DECRYPT" />
+                <category android:name="android.intent.category.DEFAULT" />
+        	</intent-filter>
+        	<intent-filter android:label="@string/intent_decrypt">
+                <action android:name="org.openintents.action.DECRYPT" />
+                <category android:name="android.intent.category.DEFAULT" />
+        		<data android:scheme="file" />
+            </intent-filter>
+        	<intent-filter android:label="@string/intent_get_password">
+                <action android:name="org.openintents.action.GET_PASSWORD" />
+                <category android:name="android.intent.category.DEFAULT" />
+        	</intent-filter>
+        	<intent-filter android:label="@string/intent_set_password">
+                <action android:name="org.openintents.action.SET_PASSWORD" />
+                <category android:name="android.intent.category.DEFAULT" />
+        	</intent-filter>       	
+        </activity>
+        
+        <activity class=".PassGen" android:name="PassGen" android:label="@string/app_name" />
+        <activity class=".CategoryEdit" android:name="CategoryEdit" android:label="@string/app_name" />
+        <activity class=".PassView" android:name="PassView" android:label="@string/app_name" />
+        <activity class=".PassList" android:name="PassList" android:label="@string/app_name" />
+        <activity class=".PassEdit" android:name="PassEdit" android:label="@string/app_name" />
+        <activity class=".CategoryList" android:name="CategoryList" android:label="@string/app_name" />
+        <activity class=".Search" android:name="Search" android:label="@string/app_name" />
+        <activity class=".AskPassword" android:name="AskPassword" android:label="@string/app_name" android:windowSoftInputMode="adjustPan"/>
+        <activity class=".Help" android:name="Help" android:label="@string/app_name" />
+        <activity class=".ChangePass" android:name="ChangePass" android:label="@string/app_name" />
+        <activity class=".Restore" android:name="Restore" android:label="@string/app_name" />
+        <activity class=".Preferences" android:name="Preferences" android:label="@string/app_name" />
+        <activity class=".LogOffActivity" android:name="LogOffActivity" android:label="@string/app_name" />
+        <activity android:name=".dialog.DialogHostingActivity" android:label="@string/app_name"
+        		android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
+        <activity android:name="org.openintents.distribution.EulaActivity" android:label="@string/eula_title" />
+        
+        <service class=".service.ServiceDispatchImpl" android:name=".service.ServiceDispatchImpl"
+            android:label="@string/app_name"
+			android:permission="org.openintents.safe.ACCESS_SERVICE">
+            <intent-filter>
+                <action android:name="org.openintents.safe.service.ServiceDispatchImpl" />
+            </intent-filter> 
+        </service>    
+        
+    	<provider android:name=".CryptoContentProvider" android:authorities="org.openintents.safe"></provider>
+        <provider android:name="org.openintents.safe.backup.MyBackupPro"  
+            android:authorities="org.openintents.safe.backup.MyBackupPro"
+        /> 
+    </application> 
+
+    <permission android:name="org.openintents.safe.ACCESS_INTENTS"
+			android:protectionLevel="dangerous"
+			android:label="@string/oi_safe_permission_intents"
+        	android:description="@string/oi_safe_permission_intents_descr" >
+     </permission>
+   	
+    <permission android:name="org.openintents.safe.ACCESS_SERVICE"
+			android:process=":remote"  android:exported="true"
+			android:protectionLevel="signature"
+			android:label="@string/oi_safe_permission_service"
+        	android:description="@string/oi_safe_permission_service_descr">		
+   	</permission>
+    <uses-permission android:name="org.openintents.safe.ACCESS_INTENTS" />
+    <uses-permission android:name="org.openintents.safe.ACCESS_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+<uses-sdk android:targetSdkVersion="4" android:minSdkVersion="3"></uses-sdk>
+<supports-screens android:normalScreens="true" android:smallScreens="true" android:largeScreens="true"></supports-screens>
+</manifest> 

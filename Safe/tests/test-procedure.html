@@ -1,0 +1,68 @@
+<html>
+<body>
+<h1>Test Procedure</h1>
+
+<!--
+	This is just my first stab at an enumerated list of things to test for.
+	Randy
+-->
+<ol>
+<li>Uninstall OI Safe from emulator or device:
+<pre>
+adb uninstall org.openintents.safe
+</pre>
+<p>You may want to Backup the database first with Menu->Backup</p>
+</li>
+
+<li>Install OI Safe and launch.
+<p>In Eclipse: right-click project OI Safe -> Run As -> Android Application</p>
+<p>Or if build-private.properties is configured: project OI Safe -> (right-click)
+build.xml -> Run As -> Ant Build</p>
+</li>
+
+<li>
+<p>Launch OI Safe. Should be presented with EULA.  Hit Cancel.  Application should quit.</p>
+</li>
+
+<li>
+<p>Launch OI Safe.  At EULA, hit Accept.  Should be presented with
+AskPassword activity asking to create Master Password.
+Leave fields empty.</p>
+</li>
+
+<li>Hit Continue.  Toast should remind user to provide at
+least 4 characters of password.</li>
+
+<li>Type password in Master Password, leave Confirm empty.  Hit Continue.
+Toast should tell user that passwords do not match.</li>
+
+<li>Type correct password into Continue field.  Hit Continue.
+CategoryList should activiate with a dialog letting user know that
+they should backup.   Hit OK.
+</li>
+
+<li>At CategoryList, hit Menu->Add.  CategoryEdit should launch.</li>
+
+<li>Leave blank and hit Save.  Toast should complain about being empty.
+Provide a name and hit Save.  Should fall back to CategoryList with the new
+category in the list.</li>
+
+<li>Long-click the newly created category and hit Delete.   Because it's empty
+it should disappear from the list.</li>
+
+
+<li>Uninstall OI Safe and reinstall.  Launch.   Instead of providing a new Master
+Password, hit Restore.  Restore Activity should launch.
+</li>
+
+<li>Provide wrong password for oisafe.xml.  Hit Restore.  Toast should indicate bad password.
+</li>
+
+<li>Provide correct password for oisafe.xml.  Hit Restore.  Dialog should prompt to overwrite
+existing data.  Hit No.  Should drop back.  Hit Restore and hit Yes.  CategoryList 
+should launch with restored data.</li>
+
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+0.1.0 [Nov 20, 2007] - Initial release of Password Safe
+0.2.0 [Sept 4, 2008] - Updated to work with Android 0.9 thanks to Randy McEoin
+0.2.1 [Sept 5, 2008] - Fixed delete, fixed bug where new entries wouldn't show
+ up immediately. 
+0.2.2 [Sept 16, 2008] - Added categories and export to CSV.
+0.2.3 [Oct 21, 2008] - Assorted bug fixes.  Bumped database to version 2. 
+ Initial Market Version.
+0.3.0 [Nov 2, 2008] - Improved Import/Export, Help Screen, 
+ [I7] Password Generator,
+ [I10] Fixed issue where initial screen ate back button
+ [I13] Fixed issue with passwords/categories not being saved after orientation change
+ Made Delete menu option disabled on list views if there is no item selected
+ Launching browser from password edit screen copies password to clip board
+0.4.0 [Nov 15, 2008]
+ [I14] Added the ChangePass activity allowing user to change the
+       password used to unlock the app and encrypt the data
+ [I19] User is not prompted before deleting a password
+ [I20] During import a progress dialog is displayed
+0.5.0 [Nov 22, 2008]
+ [I23] Added the ability for an encrypted backup/restore
+ [I24] Offer a ContextMenu on CategoryList when user long presses
+ [I25] Fixed crashing when user hits Go on an invalid URL in PassEdit
+0.6.0 [Dec 18, 2008]
+ Changed encryption method to use a generated master key.  User provides
+ a master password that decrypts the master key.  The master key is used
+ to encrypt/decrypt the password entries.
+ Database is now version 3.   No upgrade path provided, user must export/import. 
+0.7.0 [Jan 16, 2009]
+ Rename APWS to OI Safe.
+ 

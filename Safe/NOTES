@@ -1,0 +1,21 @@
+
+To grab the database to work with it locally::
+
+adb pull /data/data/org.openintents.safe/databases/safe .
+
+
+Then to open it with sqlite3::
+
+sqlite3 safe
+
+To delete the database and force a clean start::
+
+adb shell rm /data/data/org.openintents.safe/databases/safe
+
+To uninstall the application completely::
+
+adb uninstall org.openintents.safe
+
+To make the keyword Id update::
+
+svn propset svn:keywords Id org/openintents/safe/filename.java
