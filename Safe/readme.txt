@@ -26,9 +26,10 @@ To obtain the current release, visit
 
 ---------------------------------------------------------
 release: 1.2.6
-date: 2010-12-??
+date: 2011-??
 - added auto backup
 - fixed change master password bug
+- support Android 2.3
 - translations into various languages.
 
 ---------------------------------------------------------

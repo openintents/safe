@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe" 
-    android:versionName="1.2.6" android:versionCode="16">
+    android:versionName="1.2.6-rc1" android:versionCode="16">
     <!-- History:
-    1.2.6 [16]: 2010-12-28
+    1.2.6-rc1 [16]: 2010-12-28
     1.2.5 [15]: 2010-04-03
     1.2.4 [13]: 2009-11-27
     1.2.3 [12]: 2009-11-23
@@ -18,7 +18,7 @@
     	
         <!-- aTrackDog metadata -->
         <meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
-           android:value="14" />
+           android:value="16" />
         
         <!-- OI About metadata -->
 		<meta-data android:name="org.openintents.metadata.COMMENTS"
