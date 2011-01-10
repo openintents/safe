@@ -131,7 +131,8 @@ public class DialogHostingActivity extends Activity {
 			dialog = new GetFromMarketDialog(this, 
 					RD.string.filemanager_not_available,
 					RD.string.filemanager_get_oi_filemanager,
-					RD.string.filemanager_market_uri);
+					RD.string.filemanager_market_uri,
+					RD.string.filemanager_developer_uri);
 			break;
 		case DIALOG_ID_ALLOW_EXTERNAL_ACCESS:
 			dialog = new AllowExternalAccessDialog(this);

@@ -22,8 +22,8 @@
 	<!-- ***************************
 	     About information
 	     *************************** -->
-	<string name="about_copyright">Copyright © 2008-2009 OpenIntents.org</string> 
-	<string name="about_website_url">http://www.openintents.org/en/node/205</string>
+	<string name="about_copyright">Copyright © 2008-2011 OpenIntents.org</string> 
+	<string name="about_website_url">http://www.openintents.org/en/safe</string>
 	<string name="about_email">support@openintents.org</string>
 
 	
@@ -52,15 +52,8 @@
 	     *************************** -->
 	<!-- Update -->
 	<string name="update_app_url">market://search?q=pname:org.openintents.safe</string>
-	<string name="update_checker_url">market://search?q=pname:org.openintents.updatechecker</string>
-
-    <!-- About -->
-    <string name="aboutapp_market_uri">market://search?q=pname:org.openintents.about</string>
-
-    <!-- File Manager -->
-    <string name="filemanager_market_uri">market://search?q=pname:org.openintents.filemanager</string>
-
-
+	<string name="update_app_developer_url">http://www.openintents.org/en/safe</string>
+	
 	<!-- ***************************
 	     Preferences
 	     *************************** -->

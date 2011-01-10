@@ -31,6 +31,13 @@
 	<string name="about_website_label">OI Safe at OpenIntents</string> 
     
 	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	
+	<!-- EULA -->
+	<string name="eula_title">OI Safe EULA</string>
+	
+	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
     <string name="app_name">OI Safe</string>
@@ -231,35 +238,6 @@
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
 	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">OI Safe EULA</string>
-	<string name="eula_accept">Accept</string>
-	<string name="eula_refuse">Cancel</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Please check manually for updates or install OI Update
-for automatic notifications.
-Current version: %s
-	</string>
-	<string name="update_check_now">Check now.</string>
-	<string name="update_get_updater">Get OI Updater.</string>
-	<string name="update_error">Download application not available.</string>
-	<string name="update">Check updates</string>
-	
-    <!-- About -->
-    <string name="about">About</string>
-	<string name="aboutapp_not_available">Version %s\n\nNo compatible extension available to display full info (contact, credits, license).</string>
-    <string name="aboutapp_get">Get OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">No compatible file manager is available.</string>
-    <string name="filemanager_get_oi_filemanager">Get OI File Manager</string>
-    
 	<!-- ***************************
 	     Permissions
 	     *************************** -->

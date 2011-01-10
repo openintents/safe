@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="lib/OISafeMyBackupPro.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="OI Distribution Library_src"/>
+	<classpathentry kind="lib" path="libs/OISafeMyBackupPro.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
