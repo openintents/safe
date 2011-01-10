@@ -29,7 +29,7 @@
 
     <TableRow>
 		<ImageView android:id="@+id/entry_icon"
-			android:src="@drawable/icon_safe" />
+			android:src="@drawable/ic_launcher_safe" />
         <Button android:id="@+id/keypad1"
         	android:text="1" />
         <Button android:id="@+id/keypad2"
