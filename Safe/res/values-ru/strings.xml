@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
-* $Id: strings.xml 2889 2010-12-30 18:15:04Z rmceoin $
-* 
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,6 +29,13 @@
 	<string name="about_comments">OI Safe хранит ваши личные данные зашифрованными.</string>  
 	<string name="about_website_label">OI Safe на OpenIntents</string> 
     
+	<!-- ***************************
+	     Distribution
+	     *************************** -->
+	
+	<!-- EULA -->
+	<string name="eula_title">Лицензионное соглашение OI Safe</string>
+	
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
@@ -152,7 +157,7 @@
 	<string name="pref_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe</string>
 	<string name="dialog_title_external_access">OI Safe: Другое приложение запрашивает доступ.</string>
 	<string name="dialog_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe.</string>
-	<string name="dialog_comment_external_access">Это можно так же установить в OI Safe Меню / Настройки</string>
+	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
 	
 	<!-- Preference title -->
 	<string name="pref_title_lock_timeout">Время автоблокировки</string>
@@ -232,32 +237,6 @@
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
 	
-	
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">Лицензионное соглашение OI Safe</string>
-	<string name="eula_accept">Принять</string>
-	<string name="eula_refuse">Отменить</string>
-	
-	<!-- Update -->
-		<string name="update_box_text">Проверяйте обновления вручную или установите OI Update для автоматического уведомления. Текущая версия: %s</string>
-	<string name="update_check_now">Проверить сейчас</string>
-	<string name="update_get_updater">Получить OI Updater.</string>
-	<string name="update_error">Приложение загрузчик отсутствует</string>
-	<string name="update">Проверить обновления</string>
-	
-    <!-- About -->
-    <string name="about">О программе</string>
-	<string name="aboutapp_not_available">Версия %s\n\n Отсутствует совместимое расширение для отображения полной информации (контакты, авторы, лицензия).</string>
-    <string name="aboutapp_get">Получить OI About</string>
-    
-    <!-- File Manager -->
-    <string name="filemanager_not_available">Нет совместимого менеджера файлов.</string>
-    <string name="filemanager_get_oi_filemanager">Получить файл-менеджер OI</string>
-    
 	<!-- ***************************
 	     Permissions
 	     *************************** -->
