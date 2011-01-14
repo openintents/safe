@@ -71,7 +71,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 	private long[] rowids=null;
 	private int listPosition=-1;
 
-	ViewFlipper flipper;
+	ViewFlipper flipper=null;
 	private SimpleGestureFilter detector;
 	private static int ANIMATION_DURATION=300;
 	private boolean usernameCopiedToClipboard=false;
@@ -138,9 +138,23 @@ public class PassView extends Activity implements SimpleGestureListener {
 		}
 		if (debug) Log.d(TAG,"rowids.length="+rowids.length);
 
+
+		detector = new SimpleGestureFilter(this,this);
+
+		entryEdited=false;
+
+	}
+	
+	private void initFlipper() {
+		
 		if (debug) Log.d(TAG,"creating flipper");
 		flipper = new ViewFlipper(this);
 		View currentView = createView(listPosition,null);
+		if (currentView==null) {
+			// failed to create the view
+			finish();
+			return;
+		}
 		flipper.addView(currentView);
 
 		if (listPosition>0) { // is there a previous?
@@ -171,21 +185,20 @@ public class PassView extends Activity implements SimpleGestureListener {
 			View nextView = createView(listPosition+2,null);
 			flipper.addView(nextView,flipper.getChildCount());
 		}
-
-		detector = new SimpleGestureFilter(this,this);
 		
 		setContentView(flipper);
 		if (debug) Log.d(TAG,"flipper.getChildCount="+flipper.getChildCount());
-
-		entryEdited=false;
-
 	}
+
 	private View createView(int position, View view) {
 		if (view==null) {
 			LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			view = inflater.inflate(R.layout.pass_view,null);
 		}
-		populateFields(rowids[position],view);
+		if (populateFields(rowids[position],view)==false) {
+			// failed to retreive record
+			return null;
+		}
 		Button previousButton = (Button) view.findViewById(R.id.prev_pass);
 		if (position>0) {	// is there a previous?
 			previousButton.setEnabled(true);
@@ -350,6 +363,9 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 		Passwords.Initialize(this);
 
+		if (flipper==null) {
+			initFlipper();
+		}
 		// update in case it was edited
 //		View current=this.flipper.getCurrentView();
 //		populateFields(RowId,current);
@@ -457,14 +473,14 @@ public class PassView extends Activity implements SimpleGestureListener {
 	/**
 	 * 
 	 */
-	private void populateFields(long rowIdx, View view) {
+	private boolean populateFields(long rowIdx, View view) {
 		if (debug) Log.d(TAG,"populateFields("+rowIdx+","+view+")");
 		if (rowIdx > 0) {
 			if (debug) Log.d(TAG,"rowIdx="+rowIdx);
 			PassEntry row = Passwords.getPassEntry(rowIdx, true, false);
 			if (row==null) {
 				if (debug) Log.d(TAG,"populateFields: row=null");
-				return;
+				return false;
 			}
     		ArrayList<String> packageAccess = Passwords.getPackageAccess(rowIdx);
     		
@@ -486,6 +502,9 @@ public class PassView extends Activity implements SimpleGestureListener {
     		uniqueNameText = (TextView) view.findViewById(R.id.uniquename);
     		packageAccessText = (TextView) view.findViewById(R.id.packageaccess);
 
+    		if (debug) {
+    			Log.d(TAG,"populateFields: descriptionText="+descriptionText);
+    		}
 			descriptionText.setText(row.plainDescription);
 			websiteText.setText(row.plainWebsite);
 			usernameText.setText(row.plainUsername);
@@ -522,6 +541,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 						": "+packages);
 			}
 		}
+		return true;
 	}
 
 	/**
