@@ -65,57 +65,57 @@
 	    android:stretchColumns="0,1,2">
 	    <TableRow>
 	        <Button android:id="@+id/keypad1"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="1" />
 	        <Button android:id="@+id/keypad2"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="2" />
 	        <Button android:id="@+id/keypad3"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="3" />
 	    </TableRow>
 	    <TableRow>
 	        <Button android:id="@+id/keypad4"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="4" />
 	        <Button android:id="@+id/keypad5"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="5" />
 	        <Button android:id="@+id/keypad6"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="6" />
 	    </TableRow>
 	    <TableRow>
 	        <Button android:id="@+id/keypad7"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="7" />
 	        <Button android:id="@+id/keypad8"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="8" />
 	        <Button android:id="@+id/keypad9"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="9" />
 	    </TableRow>
 	    <TableRow>
 	        <Button android:id="@+id/keypad_star"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="*" />
 	        <Button android:id="@+id/keypad0"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="0" />
 	        <Button android:id="@+id/keypad_pound"
-				android:padding="20sp"
+				android:padding="10sp"
 				android:textSize="30sp"
 	        	android:text="#" />
 	    </TableRow>
