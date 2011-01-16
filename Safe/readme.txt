@@ -26,15 +26,22 @@ To obtain the current release, visit
 
 ---------------------------------------------------------
 release: 1.2.6
-date: 2011-??
+date: 2011-01-16
 - added auto backup
 - fixed change master password bug
+- swipe left/right or up/down to move from password
+  to password.
+- on-screen switch button to switch from numeric
+  keypad mode.
+- support small screens (issue 259)
+- don't copy password if user name is copied (issue 291)
+- fixed bugs in issues 281, 276
 - support Android 2.3
 - translations into various languages.
 
 ---------------------------------------------------------
 release: 1.2.5
-date: 2009-12-??
+date: 2010-04-03
 - fixed latent service notification
 - translations: Japanese, Occitan (post 1500), Romanian, 
   Russian
