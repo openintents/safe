@@ -1,0 +1,205 @@
+/*
+ * This allows for the testing of OI Safe.   Both Safe and SafeTest should
+ * be imported.
+ * 
+ * It is assumed that a master password has already been set.   Update the
+ * variable below accordingly.
+ * 
+ * The test also assumes English is being used.
+ * 
+ * On the SafeTest project, select Run As --> Run As Android JUnit Test
+ * 
+ * @author Randy McEoin
+ * 
+ */
+
+package org.openintents.safe.test;
+
+import org.openintents.safe.CategoryList;
+import com.jayway.android.robotium.solo.Solo;
+
+import android.test.ActivityInstrumentationTestCase2;
+import android.test.suitebuilder.annotation.Smoke;
+import android.util.Log;
+
+public class SafeTest extends ActivityInstrumentationTestCase2<CategoryList>{
+
+	private final String TAG="SafeTest";
+	private final String masterPassword="1234";
+	
+	private Solo solo;
+
+	public SafeTest() {
+		super("org.openintents.safe", CategoryList.class);
+	}
+
+	public void setUp() throws Exception {
+		solo = new Solo(getInstrumentation(), getActivity());
+	}
+
+	private void unlockIfNeeded() throws Exception {
+		if (solo.searchButton("Continue")) {
+			Log.d(TAG,"unlocking");
+			solo.enterText(0, masterPassword);
+			solo.clickOnButton("Continue");
+		}
+	}
+
+	@Smoke
+	public void testAAAAUnlock() throws Exception {
+		unlockIfNeeded();
+	}
+	
+	@Smoke
+	public void testCategoryAdd() throws Exception {
+//		unlockIfNeeded();
+		
+		solo.assertCurrentActivity("Expected CategoryList activity", "CategoryList");
+		
+		solo.clickOnMenuItem("Add");
+		solo.assertCurrentActivity("Expected CategoryEdit activity", "CategoryEdit");
+		solo.enterText(0, "Category 1");
+		solo.clickOnButton(0);
+
+		solo.clickOnMenuItem("Add"); 
+		solo.assertCurrentActivity("Expected CategoryEdit activity", "CategoryEdit");
+		solo.enterText(0, "Category 2");
+		solo.clickOnButton(0);
+
+		boolean expected = true;
+		boolean actual = solo.searchText("Category 1") && solo.searchText("Category 2");
+		assertEquals("Category 1 and/or Category 2 are not found", expected, actual);
+	 }
+	
+	@Smoke 
+	public void testCategoryEdit() throws Exception {
+//		unlockIfNeeded();
+		solo.clickLongOnText("Category 1");
+
+//		solo.setActivityOrientation(Solo.LANDSCAPE); // Change orientation of activity
+		solo.clickOnText("Edit"); // Change title
+		solo.enterText(0, " test"); //In first text field (0), add test.
+		solo.clickOnButton(0);
+
+		boolean expected = true;
+		boolean actual = solo.searchText("Category 1 test"); // (Regexp) case insensitive
+		assertEquals("Note 1 test is not found", expected, actual);
+	}
+
+
+	@Smoke
+	public void test_CategoryRemove() throws Exception {
+//		unlockIfNeeded();
+		solo.clickLongOnText("Category 1.*");
+		solo.clickOnText("Delete");
+		boolean expected = false;
+		boolean actual = solo.searchText("Category 1 test");
+		assertEquals("Category 1 Test is found", expected, actual);
+		solo.clickLongOnText("Category 2");
+		solo.clickOnText("Delete");
+		actual = solo.searchText("Category 2");
+		assertEquals("Category 2 is found", expected, actual);
+	}
+
+	@Smoke
+	public void testPasswordAdd() throws Exception {
+//		unlockIfNeeded();
+		
+		solo.clickOnMenuItem("Add");
+		solo.assertCurrentActivity("Expected CategoryEdit activity", "CategoryEdit");
+		solo.enterText(0, "Category for Passwords");
+		solo.clickOnButton(0);
+
+		boolean expected = true;
+		boolean actual = solo.searchText("Category for Passwords");
+		assertEquals("Category for Passwords are not found", expected, actual);
+		 
+		solo.clickOnText("Category for Passwords");
+		solo.assertCurrentActivity("Expected PassList activity", "PassList");
+
+		for (int i=1; i<4; i++) {
+			solo.clickOnMenuItem("Add");
+			solo.assertCurrentActivity("Expected PassEdit activity", "PassEdit");
+
+			String entry="ptest"+i;
+			String entryDescription=entry+" description";
+			solo.enterText(0, entryDescription);
+			solo.enterText(1, "http://www.google.com/");
+			solo.enterText(2, entry+" user");
+			solo.enterText(3, entry+" password");
+			solo.enterText(4, entry+" note");
+			solo.goBack();
+			solo.assertCurrentActivity("Expected PassList activity", "PassList");
+			
+			expected = true;
+			actual = solo.searchText(entryDescription);
+			assertEquals(entryDescription+"is not found", expected, actual);
+		}
+	}
+
+	@Smoke
+	public void testPasswordEdit() throws Exception {
+		solo.clickOnText("Category for Passwords");
+		solo.assertCurrentActivity("Expected PassList activity", "PassList");
+
+		solo.clickLongOnText("ptest1");
+		solo.clickOnText("Edit");
+		solo.assertCurrentActivity("Expected PassEdit activity", "PassEdit");
+
+		solo.enterText(0, " modified");
+		solo.goBack();
+		solo.assertCurrentActivity("Expected PassList activity", "PassList");
+
+		boolean expected = true;
+		boolean actual = solo.searchText("ptest1 description modified");
+		assertEquals("edited password not found", expected, actual);
+
+//		solo.clickLongOnText("ptest2");
+		solo.clickInList(2);
+		solo.assertCurrentActivity("Expected PassView activity", "PassView");
+
+		solo.clickOnMenuItem("Edit");
+		solo.clickOnText("Edit");
+		solo.assertCurrentActivity("Expected PassEdit activity", "PassEdit");
+
+		solo.enterText(0, " modified");
+		solo.goBack();
+		solo.goBack();
+		solo.assertCurrentActivity("Expected PassList activity", "PassList");
+
+		expected = true;
+		actual = solo.searchText("ptest2 description modified");
+		assertEquals("edited password2 not found", expected, actual);
+
+	}
+	
+	/**
+	 * Remove all passwords present in test category
+	 * 
+	 * @throws Exception
+	 */
+	@Smoke
+	public void test_PasswordRemove() throws Exception {
+		solo.clickOnText("Category for Passwords");
+		solo.assertCurrentActivity("Expected PassList activity", "PassList");
+	
+		while(solo.searchText("ptest")) {
+			solo.clickLongOnTextAndPress("ptest", 2);
+			solo.clickOnButton("Yes");
+		}
+		boolean expected = true;
+		boolean actual = solo.searchText("No Passwords");
+		assertEquals("Passwords still found", expected, actual);
+	}
+	
+	@Override
+	public void tearDown() throws Exception {
+		try {
+			solo.finalize(); 	//Robotium will finish all the activities that have been open
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		getActivity().finish();
+		super.tearDown();
+	} 
+}
