@@ -26,7 +26,7 @@ To obtain the current release, visit
 
 ---------------------------------------------------------
 release: 1.2.6
-date: 2011-01-16
+date: 2011-01-20
 - added auto backup
 - fixed change master password bug
 - swipe left/right or up/down to move from password
