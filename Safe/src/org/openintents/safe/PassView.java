@@ -367,8 +367,10 @@ public class PassView extends Activity implements SimpleGestureListener {
 			initFlipper();
 		}
 		// update in case it was edited
-//		View current=this.flipper.getCurrentView();
-//		populateFields(RowId,current);
+		if (entryEdited) {
+			View current=this.flipper.getCurrentView();
+			populateFields(RowId,current);
+		}
 	}
 
 	@Override
@@ -463,8 +465,10 @@ public class PassView extends Activity implements SimpleGestureListener {
 	    		finish();
 	    	}
 			if ((resultCode == RESULT_OK) || (PassEdit.entryEdited)){
-				View current=this.flipper.getCurrentView();
-				populateFields(RowId,current);
+				if (flipper!=null) {
+					View current=this.flipper.getCurrentView();
+					populateFields(RowId,current);
+				}
 				entryEdited=true;
 			}
 		}

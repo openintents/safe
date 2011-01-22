@@ -64,6 +64,8 @@ public class IntentHandler extends Activity {
     private static ServiceDispatch service=null;
     private ServiceDispatchConnection conn=null;
 	private Intent mServiceIntent;
+	
+	private boolean delayedFinish=false;
 
     SharedPreferences mPreferences;
 	
@@ -91,6 +93,14 @@ public class IntentHandler extends Activity {
 				if (service == null) {
 					mServiceIntent = data;
 					// setServiceParametersFromExtrasAndDispatchAction() is called in onServiceConnected.
+					
+					// when Safe has been completely killed by the OS and is brought back to life,
+					// it seems to be able to invoke the AskPassword without IntentHandler having
+					// resumed, so the service is not re-attached.
+					//
+					// without this, the user will be stuck at IntentHandler without any UI shown
+					// honestly not totally sure why.
+					delayedFinish=true;
 					return;
 				}
 				
@@ -470,6 +480,11 @@ public class IntentHandler extends Activity {
 			Log.d(TAG, "onResume()");
 		
 		initService(); // start up the PWS service so other applications can query.
+		if (delayedFinish==true) {
+			delayedFinish=false;
+			setResult(RESULT_OK);
+			finish();
+		}
 	}
 	
 	@Override
