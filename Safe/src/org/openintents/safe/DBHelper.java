@@ -105,7 +105,7 @@ public class DBHelper {
 //    private static final String CIPHER_ACCESS_DROP =
 //    	"drop table " + TABLE_CIPHER_ACCESS + ";";
 
-    private SQLiteDatabase db;
+    private SQLiteDatabase db=null;
     private static boolean needsPrePopulation=false;
     private static boolean needsUpgrade=false;
 
@@ -483,6 +483,7 @@ public class DBHelper {
 	 */
 	public List<PassEntry> fetchAllRows(Long CategoryId){
 	    ArrayList<PassEntry> ret = new ArrayList<PassEntry>();
+	    if (db==null) { return ret; }
 	    try {
 	        Cursor c;
 	        if (CategoryId==0)
