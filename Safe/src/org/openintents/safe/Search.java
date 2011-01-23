@@ -181,6 +181,8 @@ public class Search extends ListActivity {
 		passView.putExtra(PassList.KEY_ID, results.get(position).id);
 		if (debug) Log.d(TAG,"onListItemClick: category="+results.get(position).category);
 		passView.putExtra(PassList.KEY_CATEGORY_ID, results.get(position).category);
+		passView.putExtra(PassList.KEY_ROWIDS, PassList.getRowsIds(results));
+		passView.putExtra(PassList.KEY_LIST_POSITION, position);
 		startActivityForResult(passView,REQUEST_VIEW_PASSWORD);
 	}
 

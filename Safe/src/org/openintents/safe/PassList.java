@@ -450,8 +450,8 @@ public class PassList extends ListActivity {
 		})
 		.show();
     }
-    
-	private long[] getRowsIds() {
+
+	public static long[] getRowsIds(List<PassEntry> rows) {
 		if (debug) Log.d(TAG,"getRowsIds() rows="+rows);
 		if (rows!=null) {
 	    	long[] ids=new long[rows.size()];
@@ -471,7 +471,7 @@ public class PassList extends ListActivity {
 		Intent vi = new Intent(this, PassView.class);
 		vi.putExtra(KEY_ID, rows.get(position).id);
 		vi.putExtra(KEY_CATEGORY_ID, CategoryId);
-		vi.putExtra(KEY_ROWIDS, getRowsIds());
+		vi.putExtra(KEY_ROWIDS, getRowsIds(rows));
 		vi.putExtra(KEY_LIST_POSITION, position);
 		startActivityForResult(vi,REQUEST_VIEW_PASSWORD);
 	}
