@@ -19,10 +19,9 @@ package org.openintents.safe;
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
 
-import org.openintents.distribution.EulaActivity;
+import org.openintents.distribution.DistributionLibraryActivity;
 import org.openintents.util.VersionUtils;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -33,13 +32,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
-import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -56,7 +55,7 @@ import android.widget.Toast;
  * 
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class AskPassword extends Activity {
+public class AskPassword extends DistributionLibraryActivity {
 
 	private boolean debug = false;
 	private static String TAG = "AskPassword";
@@ -67,7 +66,10 @@ public class AskPassword extends Activity {
     // Menu Item order
     public static final int SWITCH_MODE_INDEX = Menu.FIRST;
     public static final int MUTE_INDEX = Menu.FIRST + 1;
-    
+	private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST BE LAST
+	
+	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
+	
     public static final int VIEW_NORMAL = 0;
     public static final int VIEW_KEYPAD = 1;
     
@@ -97,8 +99,12 @@ public class AskPassword extends Activity {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+
+        mDistribution.setFirst(MENU_DISTRIBUTION_START, DIALOG_DISTRIBUTION_START);
         
-		if (!EulaActivity.checkEula(this, getIntent())) {
+        // Check whether EULA has been accepted
+        // or information about new version can be presented.
+        if (mDistribution.showEulaOrNewVersion()) {
             return;
         }
 			
@@ -392,8 +398,11 @@ public class AskPassword extends Activity {
 				.setIcon(android.R.drawable.ic_lock_silent_mode);
 		}
 		miMute.setVisible(viewMode==VIEW_KEYPAD);
-		
-		return super.onCreateOptionsMenu(menu);
+
+ 		// Add distribution menu items last.
+ 		mDistribution.onCreateOptionsMenu(menu);
+ 		
+		return true;
     }
 	
 	private void switchView() {

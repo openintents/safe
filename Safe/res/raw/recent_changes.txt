@@ -1,0 +1,37 @@
+---------------------------------------------------------
+release: 1.2.6
+date: 2011-01-16
+- added auto backup
+- fixed change master password bug
+- swipe left/right or up/down to move from password
+  to password.
+- on-screen switch button to switch from numeric
+  keypad mode.
+- support small screens (issue 259)
+- don't copy password if user name is copied (issue 291)
+- fixed bugs in issues 281, 276
+- support Android 2.3
+- translations into various languages.
+
+---------------------------------------------------------
+release: 1.2.5
+date: 2010-04-03
+- fixed latent service notification
+- translations: Japanese, Occitan (post 1500), Romanian, 
+  Russian
+
+---------------------------------------------------------
+release: 1.2.4
+date: 2009-11-27
+- fixed WRITE_EXTERNAL_STORAGE permission
+- translations: Spanish
+
+---------------------------------------------------------
+For the complete list of changes and a list of frequently asked questions, please visit:
+http://www.openintents.org
+
+You can help to improve the translation into your language at Launchpad:
+https://translations.launchpad.net/openintents/trunk
+
+The source code of this free and open source application is available at:
+http://code.google.com/p/openintents

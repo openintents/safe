@@ -1,15 +1,14 @@
 package org.openintents.safe.dialog;
 
-import org.openintents.distribution.GetFromMarketDialog;
-import org.openintents.distribution.RD;
+import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.FileManagerIntents;
 import org.openintents.util.IntentUtils;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -128,11 +127,8 @@ public class DialogHostingActivity extends Activity {
 			break;
 		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
 			if (debug) Log.i(TAG, "fmd - create");
-			dialog = new GetFromMarketDialog(this, 
-					RD.string.filemanager_not_available,
-					RD.string.filemanager_get_oi_filemanager,
-					RD.string.filemanager_market_uri,
-					RD.string.filemanager_developer_uri);
+			dialog = new DownloadOIAppDialog(this,
+					DownloadOIAppDialog.OI_FILEMANAGER);
 			break;
 		case DIALOG_ID_ALLOW_EXTERNAL_ACCESS:
 			dialog = new AllowExternalAccessDialog(this);
@@ -164,6 +160,7 @@ public class DialogHostingActivity extends Activity {
 		case DIALOG_ID_OPEN:
 			break;
 		case DIALOG_ID_NO_FILE_MANAGER_AVAILABLE:
+			DownloadOIAppDialog.onPrepareDialog(this, dialog);
 			break;
 		}
 	}
