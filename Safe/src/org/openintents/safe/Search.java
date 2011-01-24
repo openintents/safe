@@ -192,6 +192,7 @@ public class Search extends ListActivity {
 		
 		if (((requestCode==REQUEST_VIEW_PASSWORD)&&(PassView.entryEdited)) ||
 			(resultCode==RESULT_OK)) {
+			searchCriteria = etSearchCriteria.getText().toString().trim().toLowerCase();
 			searchThreadStart();
 		}
 	}
