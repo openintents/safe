@@ -25,6 +25,13 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
+release: 1.2.7
+date: 2011-01-25
+- fixed bug that prevented to open search results
+  (issue 311)
+- further bug fixes (issue 312)
+
+---------------------------------------------------------
 release: 1.2.6
 date: 2011-01-20
 - added auto backup

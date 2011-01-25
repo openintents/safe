@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe" 
-    android:versionName="1.2.6" android:versionCode="17">
+    android:versionName="1.2.7" android:versionCode="18">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+    1.2.7 [18]: 2011-01-25
     1.2.6 [17]: 2011-01-20
-    1.2.6-rc1 [16]: 2011-01-16
     1.2.5 [15]: 2010-04-03
     1.2.4 [13]: 2009-11-27
     1.2.3 [12]: 2009-11-23
