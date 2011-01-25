@@ -172,6 +172,36 @@ public class SafeTest extends ActivityInstrumentationTestCase2<CategoryList>{
 		assertEquals("edited password2 not found", expected, actual);
 
 	}
+
+	@Smoke
+	public void testSearch() throws Exception {
+	//	unlockIfNeeded();
+		solo.clickOnMenuItem("Search");
+		
+		solo.enterText(0, "ptest3");
+		solo.clickOnButton("Search");
+		solo.assertCurrentActivity("Expected Search activity", "Search");
+
+		solo.clickInList(1);
+		solo.assertCurrentActivity("Expected PassView activity", "PassView");
+
+		boolean expected = true;
+		boolean actual = solo.searchText("ptest3 description");
+		assertEquals("description not found", expected, actual);
+
+		solo.goBack();
+		solo.assertCurrentActivity("Expected Search activity", "Search");
+
+		solo.setActivityOrientation(Solo.LANDSCAPE);
+		solo.clickInList(1);
+		solo.assertCurrentActivity("Expected PassView activity", "PassView");
+
+		expected = true;
+		actual = solo.searchText("ptest3 description");
+		assertEquals("description not found", expected, actual);
+		
+		solo.setActivityOrientation(Solo.PORTRAIT);
+	}
 	
 	/**
 	 * Remove all passwords present in test category
