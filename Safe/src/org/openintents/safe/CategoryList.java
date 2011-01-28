@@ -547,7 +547,7 @@ public class CategoryList extends ListActivity {
 		
 		if (IntentUtils.isIntentAvailable(this, new Intent(AboutMiniIntents.ACTION_SHOW_ABOUT_DIALOG))) {
 			// Only show "About" dialog, if OI About (or compatible) is installed.
-			menu.add(0, ABOUT_INDEX, 0, R.string.about).setIcon(
+			menu.add(0, ABOUT_INDEX, 0, R.string.oi_distribution_about).setIcon(
 	 				android.R.drawable.ic_menu_info_details);
 		}
 		

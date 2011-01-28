@@ -46,13 +46,6 @@
     </string-array>
 
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	<!-- Update -->
-	<string name="update_app_url">market://search?q=pname:org.openintents.safe</string>
-	<string name="update_app_developer_url">http://www.openintents.org/en/safe</string>
-	
-	<!-- ***************************
 	     Preferences
 	     *************************** -->
 
