@@ -32,13 +32,6 @@
 	<string name="about_website_label">OI Safe chez OpenIntents</string> 
     
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">OI Safe EULA</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
     <string name="app_name">OI Safe</string>

@@ -23,6 +23,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Fitoschido https://launchpad.net/~fitoschido
+  Javier Martínez Arrieta https://launchpad.net/~javote87
   Monkey https://launchpad.net/~monkey-libre
   Paco Molinero https://launchpad.net/~franciscomol
   Peli https://launchpad.net/~peli0101
@@ -33,13 +34,6 @@
 	<string name="about_comments">OI salvaguarda todos tus datos privados encriptados</string>  
 	<string name="about_website_label">OI Safe en OpenIntents</string> 
     
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">OI Safe EULA</string>
-	
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
@@ -137,7 +131,7 @@
     <string name="restore_decrypt_error">Contraseña incorrecta</string>
     <string name="dialog_restore_database_title">Restaurar base de datos</string>
     <string name="dialog_restore_database_msg">¿Está seguro de reemplazar la información actual?</string>
-    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
+    <string name="restore_found">Se han encontrado %1$s contraseñas en la copia de seguridad de día %2$s</string>
     <string name="restore_complete">Completado. Contraseñas restauradas: %s</string>
     <string name="copied_to_clipboard">copiado al portapapeles</string>
     <string name="invalid_website">Página web incorrecta</string>
@@ -190,12 +184,12 @@
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
 	<string name="pref_summary_keypad_mute">Silenciar sonidos de teclado</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
+	<string name="pref_title_autobackup">Copia de seguridad automática</string>
 	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
 
 	<string name="pref_title_autobackup_days">Auto backup days</string>
-	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_summary_autobackup_days">Días de espera antes de la siguiente copia de seguridad automática</string>
+	<string name="pref_dialog_title_autobackup_days">Dñias de copia de seguridad automática</string>
 	
 	
 	<string name="intent_decrypt">Desencriptar (OI Safe)</string>
@@ -232,13 +226,13 @@
 	<string name="search_progress">Buscando...</string>
 	<string name="search_hint">Ingrese criterio de búsqueda</string>
 	<string name="search_nothing_found">No se encontró nada</string>
-	<string name="mute">Mute</string>
-	<string name="sounds">Sounds</string>
-	<string name="previous">Previous</string>
+	<string name="mute">Silenciar</string>
+	<string name="sounds">Sonidos</string>
+	<string name="previous">Anterior</string>
 	<string name="next">Next</string>
 	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
-	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
+	<string name="backup_never">Aún no se ha hecho ninguna copia de seguridad.¿Desea realizarla ahora?</string>
+	<string name="backup_in_days">La última copia de seguridad se hizo hace %d días.¿Desea realizarla ahora?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
 	
 	<!-- ***************************

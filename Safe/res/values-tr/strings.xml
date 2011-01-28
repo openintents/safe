@@ -32,20 +32,13 @@ Launchpad Contributions:
 	<string name="about_website_label">OI Safe at OpenIntents</string> 
     
 	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">OI Kasa kullanıcı lisans anlaşması (EULA)</string>
-	
-	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
     <string name="app_name">OI Kasa</string>
     <string name="empty_safe">No Passwords present for this category.</string>
     <string name="empty_category">No categories present.  Please add one via Menu-&gt;Add</string>
     <string name="password_lock">Kilitle</string>
-    <string name="password_view">View</string>
+    <string name="password_view">Göster</string>
     <string name="password_edit">Düzenle</string>
     <string name="password_add">Ekle</string>
     <string name="password_delete">Sil</string>
@@ -95,7 +88,7 @@ Launchpad Contributions:
 	<string name="dialog_delete_database_title">Veritabanını sil</string>
 	<string name="dialog_delete_database_msg">Are you really sure you want to delete the database?  This cannot be undone.</string>
 	<string name="added">Eklendi</string>
-	<string name="entries">entries</string>
+	<string name="entries">girdiler</string>
 	<string name="import_complete">Import complete</string>
 	<string name="import_delete_csv">Since it is not secure to keep passwords in clear text CSV files, would you like to delete</string>
 	<string name="edit_entry">Girdiyi Düzenle</string>
@@ -152,7 +145,7 @@ Launchpad Contributions:
 	<string name="move_select">Kategori seçin</string>
 	
 	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Moved to %s</string>
+	<string name="moved_to">%s taşındı</string>
 	
 	<string name="preferences">Ayarlar</string>
 	<string name="pref_title_external_access">Allow external access</string>
@@ -182,18 +175,18 @@ Launchpad Contributions:
 	<string name="pref_summary_keypad">Use a keypad to enter Master Password</string>
 	
 	<!-- Preference title -->
-	<string name="pref_title_keypad_mute">Keypad Mute</string>
+	<string name="pref_title_keypad_mute">Tuş takımı sessiz</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
 	<string name="pref_summary_keypad_mute">Mute keypad sounds</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
+	<string name="pref_title_autobackup">Otomatik yedekleme</string>
 	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
+	<string name="pref_title_autobackup_days">Otomatik yedekleme günü</string>
 	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_dialog_title_autobackup_days">Otomatik Yedekleme Günü</string>
 	
 	
 	<string name="intent_decrypt">Decrypt (OI Safe)</string>
@@ -230,10 +223,10 @@ Launchpad Contributions:
 	<string name="search_progress">Aranıyor...</string>
 	<string name="search_hint">Type search criteria</string>
 	<string name="search_nothing_found">Hiç bir şey bulunamadı</string>
-	<string name="mute">Mute</string>
-	<string name="sounds">Sounds</string>
-	<string name="previous">Previous</string>
-	<string name="next">Next</string>
+	<string name="mute">Sessiz</string>
+	<string name="sounds">Sesler</string>
+	<string name="previous">Önceki</string>
+	<string name="next">Sonraki</string>
 	<string name="autobackup">AutoBackup</string>
 	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
@@ -262,10 +255,10 @@ Launchpad Contributions:
     </string-array>
 
     <string-array name="pref_entries_autobackup_days">
-        <item>1 day</item>
-        <item>7 days</item>
-        <item>30 days</item>
-        <item>60 days</item>
+        <item>1 gün</item>
+        <item>7 gün</item>
+        <item>30 gün</item>
+        <item>60 gün</item>
     </string-array>
 
         

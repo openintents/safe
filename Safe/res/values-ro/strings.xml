@@ -23,19 +23,13 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Peli https://launchpad.net/~peli0101
+  Pricop Alexandru-Mihai https://launchpad.net/~pricop2008
   iulargsb https://launchpad.net/~iulargsb</string>
 	
     <!-- Strings for OI About -->
 	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
 	<string name="about_website_label">OI Safe pe OpenIntents</string> 
     
-	<!-- ***************************
-	     Distribution
-	     *************************** -->
-	
-	<!-- EULA -->
-	<string name="eula_title">OI Safe ALUF</string>
-	
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
@@ -67,7 +61,7 @@
     <string name="category_business">Business</string>
     <string name="category_personal">Personal</string>
     <string name="name">Nume</string>
-    <string name="category_not_empty">Category is not empty.   You must delete the passwords first.</string>
+    <string name="category_not_empty">Categoria nu este goală. Trebuie sa stergeţi parola prima dată.</string>
 	<string name="cannot_decrypt_category">Cannot decrypt category</string>
 	<string name="cannot_decrypt_password">Cannot decrypt password</string>
 	<string name="error_export">Error exporting database</string>
