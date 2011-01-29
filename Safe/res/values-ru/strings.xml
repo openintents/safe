@@ -66,11 +66,11 @@
 	<string name="error_export">Ошибка экспорта базы данных</string>
 	<string name="export_database">Экспортировать базу данных</string>
 	<string name="export_msg">База данных будет экспортирована как простой текст. ЭТО ОЧЕНЬ ОПАСНО. Не забудьте удалить файл. Вы уверены, что хотите экспортировать?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="export_success">Экспорт в \'%s\' прошёл успешно. Внимание! Файл не зашифрован.</string>
+	<string name="export_file_error">Не могу создать файл экспорта \'oisafe.csv\' на SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_database">Импорт базы данных</string>
 	<string name="import_file_missing">Отсутствует файл импорта:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_file_error">Не могу импортировать файл \'oisafe.csv\' с SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_error_first_line">В первой строке не хватает полей.</string>
 	<string name="dialog_import_title">Импорт</string>
 	<string name="dialog_import_msg">Вы хотите заменить базу данных (импортировать из %s)?</string>
@@ -150,7 +150,7 @@
 	<string name="pref_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe</string>
 	<string name="dialog_title_external_access">OI Safe: Другое приложение запрашивает доступ.</string>
 	<string name="dialog_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe.</string>
-	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
+	<string name="dialog_comment_external_access">Это можно так же установить в OI Safe Меню / Настройки</string>
 	
 	<!-- Preference title -->
 	<string name="pref_title_lock_timeout">Время автоблокировки</string>

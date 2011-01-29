@@ -66,11 +66,11 @@
 	<string name="error_export">Fehler beim Exportieren der Datenbank</string>
 	<string name="export_database">Datenbank exportieren</string>
 	<string name="export_msg">Hiermit wird die Passwort Datenbank in eine Klartext Datei exportiert. DAS IST SEHR GEFÄHRLICH. Löschen Sie diese Datei, sobald Sie fertig sind. Sind Sie sicher, dass Sie exportieren wollen?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="export_success">Export nach \'%s\' erfolgreich. Achtung! Die Datei ist nicht verschlüsselt.</string>
+	<string name="export_file_error">Die Datei \'oisafe.csv\' kann auf der SD Karte nicht erstellt werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
 	<string name="import_database">Datenbank importieren</string>
 	<string name="import_file_missing">Datei zum Importieren fehlt:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_file_error">Die Datei \'oisafe.csv\' kann nicht von der SD Karte importiert werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
 	<string name="import_error_first_line">Die erste Zeile ist unvollständig.</string>
 	<string name="dialog_import_title">Importieren</string>
 	<string name="dialog_import_msg">Soll die Datenbank ersetzt werden (importiert von %s)?</string>
@@ -150,7 +150,7 @@
 	<string name="pref_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern</string>
 	<string name="dialog_title_external_access">OI Safe: Eine andere Anwendung verlangt Zugriff.</string>
 	<string name="dialog_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern.</string>
-	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
+	<string name="dialog_comment_external_access">Das kann auch in OI Safe unter Menü / Einstellungen gesetzt werden.</string>
 	
 	<!-- Preference title -->
 	<string name="pref_title_lock_timeout">Zeit bis zum automatischen sperren</string>

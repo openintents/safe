@@ -68,11 +68,11 @@
 	<string name="error_export">Erreur d\'exportation de la base de données</string>
 	<string name="export_database">Export de la base de données</string>
 	<string name="export_msg">Cela permettra l\'exportation de la base de données de mot de passe à un fichier texte en clair. C\'EST TRÈS DANGEREUX. Assurez-vous de supprimer le fichier une fois que vous l\'avez fait. Êtes-vous sûr que de vouloir l\'exporter?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="export_success">Exportation vers \'%s\' terminer. Attention! Le fichier n\'est pas crypté.</string>
+	<string name="export_file_error">Impossible de créer le fichier d\'exportation \'oisafe.csv\' sur SDCARD. Vous pouvez essayer de débrancher le cable USB de l\'ordinateur.</string>
 	<string name="import_database">Import de la bases de données</string>
 	<string name="import_file_missing">L\'import de fichiers est manquant:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_file_error">Impossible d\'importer le fichier \'oisafe.csv\' de SDCARD. Vous pouvez essayer de débrancher le cable USB de l\'ordinateur.</string>
 	<string name="import_error_first_line">La première ligne à un champ manquant.</string>
 	<string name="dialog_import_title">Import</string>
 	<string name="dialog_import_msg">Voulez-vous remplacer la base de données (importation à partir de %s)?</string>
@@ -152,7 +152,7 @@
 	<string name="pref_summary_external_access">Autoriser les autres applications à sécuriser vos données avec OI Safe</string>
 	<string name="dialog_title_external_access">OI Safe: Une autre application demande l\'accès.</string>
 	<string name="dialog_summary_external_access">Autoriser les autres applications à sécuriser vos données avec OI Safe.</string>
-	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
+	<string name="dialog_comment_external_access">Cela peut aussi être réglée dans le menu OI Safe / Paramètres.</string>
 	
 	<!-- Preference title -->
 	<string name="pref_title_lock_timeout">Délai du verrouillage automatique</string>

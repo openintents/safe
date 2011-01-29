@@ -66,11 +66,11 @@
 	<string name="error_export">データベースのエクスポートでエラー</string>
 	<string name="export_database">データベースをエクスポート</string>
 	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="export_success">\'%s\' へのエクスポートに成功しました。エクスポートしたファイルは暗号化されていないので注意してください。</string>
+	<string name="export_file_error">SDカードへの\'oisafe.csv\'のエスクポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
 	<string name="import_database">データベースをインポート</string>
 	<string name="import_file_missing">ファイルのインポートに失敗:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
+	<string name="import_file_error">SDカードからの\'oisafe.csv\'のインポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
 	<string name="import_error_first_line">最初の行のフィールドが異常です。</string>
 	<string name="dialog_import_title">インポート</string>
 	<string name="dialog_import_msg">データベースを置き換えてもいいですか (%s からのインポート)？</string>
