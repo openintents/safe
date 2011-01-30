@@ -707,4 +707,10 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 	public void onDoubleTap() {
 	}
+
+	public boolean onSearchRequested() {
+		Intent search = new Intent(this, Search.class);
+		startActivity(search);
+		return true;
+	}
 }

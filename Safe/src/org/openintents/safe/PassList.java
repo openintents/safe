@@ -544,4 +544,10 @@ public class PassList extends ListActivity {
 			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		}
 	}
+
+	public boolean onSearchRequested() {
+		Intent search = new Intent(this, Search.class);
+		startActivity(search);
+		return true;
+	}
 }

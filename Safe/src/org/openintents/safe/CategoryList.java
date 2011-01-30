@@ -635,8 +635,7 @@ public class CategoryList extends ListActivity {
 		    startActivity(help);
 			break;
 		case SEARCH_INDEX:
-		    Intent search = new Intent(this, Search.class);
-		    startActivity(search);
+			onSearchRequested();
 			break;
 		case EXPORT_INDEX:
 			Dialog exportDialog = new AlertDialog.Builder(CategoryList.this)
@@ -1095,5 +1094,11 @@ public class CategoryList extends ListActivity {
 		}else{
 			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		}
+	}
+
+	public boolean onSearchRequested() {
+		Intent search = new Intent(this, Search.class);
+		startActivity(search);
+		return true;
 	}
 }
