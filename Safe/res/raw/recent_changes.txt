@@ -1,6 +1,18 @@
 ---------------------------------------------------------
+release: 1.2.8
+date: ?
+- support hardware search button if available
+
+---------------------------------------------------------
+release: 1.2.7
+date: 2011-01-25
+- fixed bug that prevented to open search results
+  (issue 311)
+- further bug fixes (issue 312)
+
+---------------------------------------------------------
 release: 1.2.6
-date: 2011-01-16
+date: 2011-01-20
 - added auto backup
 - fixed change master password bug
 - swipe left/right or up/down to move from password
@@ -12,19 +24,6 @@ date: 2011-01-16
 - fixed bugs in issues 281, 276
 - support Android 2.3
 - translations into various languages.
-
----------------------------------------------------------
-release: 1.2.5
-date: 2010-04-03
-- fixed latent service notification
-- translations: Japanese, Occitan (post 1500), Romanian, 
-  Russian
-
----------------------------------------------------------
-release: 1.2.4
-date: 2009-11-27
-- fixed WRITE_EXTERNAL_STORAGE permission
-- translations: Spanish
 
 ---------------------------------------------------------
 For the complete list of changes and a list of frequently asked questions, please visit:

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe" 
-    android:versionName="1.2.7" android:versionCode="18">
+    android:versionName="1.2.8-beta" android:versionCode="19">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+    1.2.8-beta [19]: ?
     1.2.7 [18]: 2011-01-25
     1.2.6 [17]: 2011-01-20
     1.2.5 [15]: 2010-04-03
@@ -20,7 +21,7 @@
     	
         <!-- aTrackDog metadata -->
         <meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
-           android:value="16" />
+           android:value="19" />
         
         <!-- OI About metadata -->
 		<meta-data android:name="org.openintents.metadata.COMMENTS"

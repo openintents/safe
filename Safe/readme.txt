@@ -25,6 +25,11 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
+release: 1.2.8
+date: ?
+- support hardware search button if available
+
+---------------------------------------------------------
 release: 1.2.7
 date: 2011-01-25
 - fixed bug that prevented to open search results
