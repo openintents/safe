@@ -30,13 +30,13 @@
   miwie https://launchpad.net/~mw-miwie
   victor tejada yau https://launchpad.net/~victormtyau</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI salvaguarda todos tus datos privados encriptados</string>  
-	<string name="about_website_label">OI Safe en OpenIntents</string> 
-    
+	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
     <string name="app_name">OI Safe</string>
     <string name="empty_safe">No hay contraseñas presentes para esta categoría.</string>
     <string name="empty_category">No presenta categorias. Por favor agrega una via Menu-&gt; agregar</string>
@@ -157,7 +157,7 @@
 	<string name="dialog_summary_external_access">Permitir a otra aplicacion asegurar tus datos con OI safe</string>
 	<string name="dialog_comment_external_access">Esto podria ser establecida in OI safe´menu /</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for auto lock timeout -->
 	<string name="pref_title_lock_timeout">Tiempo de espera de bloqueo automático</string>
 	
 	<!-- Preference summary for auto lock timeout -->
@@ -165,10 +165,10 @@
 	
 	<string name="pref_dialog_title_lock_timeout">Tiempo de espera de bloqueo automático</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
 	<string name="pref_title_lock_on_screen_lock">Bloquear con pantalla bloqueada</string>
 	
-	<!-- Preference summary for lock on screen lock -->
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
 	<string name="pref_summary_lock_on_screen_lock">Bloquear cuando la pantalla se bloquee</string>
 	
 	<!-- Preference title: use a numeric keypad to enter the password -->
@@ -177,7 +177,7 @@
 	<!-- Preference summary: for a numeric keypad -->
 	<string name="pref_summary_keypad">Usar un teclado para ingresar la contraseña maestra</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for keypad mute -->
 	<string name="pref_title_keypad_mute">Silenciar el teclado</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
@@ -240,8 +240,10 @@
 	     *************************** -->
 
 	<!-- OI Safe -->
+	<!-- Permission to access master password -->
 	<string name="oi_safe_permission_service">accese la contraseña maestra</string>
 	<string name="oi_safe_permission_service_descr">Permite a la aplicación accesar la contraseña maestra usada para encriptar y desencriptar. No debería ser usada nunca, a excepción de OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
 	<string name="oi_safe_permission_intents">cifrar y descifrar datos</string>
     <string name="oi_safe_permission_intents_descr">Permitir a la aplicación encriptar y desencriptar texto, y acceder a las contraseñas que se han almacenado en OI Safe.</string>	
 
@@ -249,6 +251,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
         <item>1 minuto</item>
         <item>5 minutos</item>
@@ -257,6 +260,7 @@
         <item>30 minutos</item>  
     </string-array>
 
+	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
         <item>1 day</item>
         <item>7 days</item>

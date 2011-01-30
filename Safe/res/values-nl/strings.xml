@@ -22,54 +22,52 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Peli https://launchpad.net/~peli0101
-  Pricop Alexandru-Mihai https://launchpad.net/~pricop2008
-  iulargsb https://launchpad.net/~iulargsb</string>
+  Henk van der Velden https://launchpad.net/~henkvandervelden86</string>
 	
     <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
+	<string name="about_comments">OI kluis houdt al je privé data geëncrypt.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">No Passwords present for this category.</string>
-    <string name="empty_category">No categories present.  Please add one via Menu-&gt;Add</string>
-    <string name="password_lock">Lock</string>
-    <string name="password_view">View</string>
-    <string name="password_edit">Modifică</string>
-    <string name="password_add">Adaugă</string>
-    <string name="password_delete">Delete</string>
-    <string name="password">Parolă</string>
-    <string name="passwords">Parole</string>
-    <string name="master_password">Master Password</string>
-    <string name="username">Utilizator</string>
-    <string name="website">Pagină web</string>
-    <string name="description">Descriere</string>
-    <string name="notes">Note</string>
-    <string name="save">Salvează</string>
-    <string name="invalid_password">Invalid password.  Please try again.</string>
-    <string name="notify_blank_pass">Password must be at least 4 characters</string>
-    <string name="notify_blank_desc">Description cannot be blank</string>
-    <string name="notify_blank_name">Name cannot be blank</string>
-    <string name="first_time">Please enter a password below, which will be used to keep your passwords safe.</string>
-    <string name="logoff_explanation">You are currently logged into OI Safe, meaning that other applications can request their passwords and decrypt/encrypt data. Lock to prevent further access until you type in your password again.</string>
-    <string name="remote_ask">Another application is asking to use the master key. Please type in your password to unlock it.</string>
-    <string name="categories">Categorii</string>
+    <string name="app_name">OI kluis</string>
+    <string name="empty_safe">Geen wachtwoorden aanwezig voor deze catagorie.</string>
+    <string name="empty_category">Nog geen catagorieën aanwezig. Voeg er een toe via Menu-&gt;Add</string>
+    <string name="password_lock">Vergrendel</string>
+    <string name="password_view">Bekijken</string>
+    <string name="password_edit">Bewerken</string>
+    <string name="password_add">Toevoegen</string>
+    <string name="password_delete">Verwijderen</string>
+    <string name="password">Wachtwoord</string>
+    <string name="passwords">Wachtwoorden</string>
+    <string name="master_password">Hoofd wachtwoord</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="website">Website</string>
+    <string name="description">Beschrijving</string>
+    <string name="notes">Notities</string>
+    <string name="save">Opslaan</string>
+    <string name="invalid_password">Ongeldig wachtwoord. Probeer het opnieuw.</string>
+    <string name="notify_blank_pass">Wachtwoord moet tenminste 4 karakters lang zijn</string>
+    <string name="notify_blank_desc">Beschrijving mag niet leeg zijn</string>
+    <string name="notify_blank_name">Naam mag niet leeg zijn</string>
+    <string name="first_time">Voer een wachtwoord in om je wachtwoorden veilig te stellen.</string>
+    <string name="logoff_explanation">Je bent ingelogged in OI Kluis, dit betekent dat andere applicaties hun wachtwoorden en encryptie data kunnen opvragen. Sluit om verdere toegang te voorkomen, totdat je je wachtwoord nogmaals typt.</string>
+    <string name="remote_ask">Een andere applicatie vraagt om het hoofd wachtwoord. Voer het wachtwoord nogmaals in om te ontgrendelen.</string>
+    <string name="categories">Categorieën</string>
 	<string name="category">Categorie</string>
-    <string name="category_business">Business</string>
-    <string name="category_personal">Personal</string>
-    <string name="name">Nume</string>
-    <string name="category_not_empty">Categoria nu este goală. Trebuie sa stergeţi parola prima dată.</string>
-	<string name="cannot_decrypt_category">Cannot decrypt category</string>
-	<string name="cannot_decrypt_password">Cannot decrypt password</string>
-	<string name="error_export">Error exporting database</string>
-	<string name="export_database">Export Database</string>
-	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
-	<string name="import_database">Import Database</string>
+    <string name="category_business">Zakelijk</string>
+    <string name="category_personal">Persoonlijk</string>
+    <string name="name">Naam</string>
+    <string name="category_not_empty">Catagorie is niet leeg. Je moet eerst de wachtwoorden verwijderen.</string>
+	<string name="cannot_decrypt_category">Kan de catagorie niet decrypten.</string>
+	<string name="cannot_decrypt_password">Kan het wachtwoord niet decrypten</string>
+	<string name="error_export">Fout bij het exporteren van de database</string>
+	<string name="export_database">Exporteer database</string>
+	<string name="export_msg">Dit zal de wachtwoord database exporteren naar een tekst bestand. DIT IS ZEER GEVAARLIJK. Zorg ervoor dat je het bestand verwijdert nadat je klaar bent. Weet u zeker dat je wilt exporteren?</string>
+	<string name="export_success">Export naar \'%s\' gelukt. Waarschuwing! Het bestand is niet geëncrypt.</string>
+	<string name="export_file_error">Niet in staat om het bestand \'oisafe.csv\' te exporteren naar de SDcard. Is de telefoon losgekoppeld van de computer?</string>
+	<string name="import_database">Database importeren</string>
 	<string name="import_file_missing">Import file is missing:</string>
 	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
 	<string name="import_error_first_line">First line is missing fields.</string>
@@ -92,28 +90,28 @@
 	<string name="import_delete_csv">Since it is not secure to keep passwords in clear text CSV files, would you like to delete</string>
 	<string name="edit_entry">Edit Entry</string>
 	<string name="view_entry">View Entry</string>
-	<string name="help">Ajutor</string>
-	<string name="close">Închide</string>
+	<string name="help">Help</string>
+	<string name="close">Close</string>
 	<string name="go">Go</string>
 	<string name="dialog_delete_password_title">Delete Password</string>
 	<string name="dialog_delete_password_msg">Are you sure you want to delete this password?</string>
 	<string name="change_password">Change Master Password</string>
 	<string name="chg_pass_explaination">Use this to change the password you use to unlock OI Safe.   Your data will be re-encrypted with the new password.  The more complex your password is, the safer your data will be.</string>
-	<string name="old_password">Parola veche</string>
-	<string name="new_password">Parola nouă</string>
+	<string name="old_password">Old password</string>
+	<string name="new_password">New password</string>
 	<string name="verify_password">Verify password</string>
 	<string name="new_verify_mismatch">New and Verify passwords do not match.</string>
     <string name="invalid_old_password">Old password is invalid.  Please try again.</string>
-    <string name="error_changing_password">Eroare la schimbarea parolei</string>
+    <string name="error_changing_password">Error changing password</string>
     <string name="password_changed">Master Password changed</string>
-    <string name="confirm">Confirmă</string>
-    <string name="confirm_pass_fail">Parolele nu se potrivesc.</string>
-    <string name="backup">Copie de siguranță</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_pass_fail">Password entries do not match.</string>
+    <string name="backup">Backup</string>
     <string name="backup_progress">Backing up to </string>
     <string name="backup_complete">Complete.  Passwords backed up: </string>
     <string name="backup_failed">Backup failed: </string>
     <string name="restore">Restore</string>
-    <string name="filename">Nume fișier</string>
+    <string name="filename">Filename</string>
     <string name="restore_no_file">Backup file not found.  You need to perform a backup first to create it.  Or copy a backup from your PC.</string>
     <string name="restore_set_password">Please provide the password used by the backup file.  Your master password will be set to this.</string>
     
@@ -133,20 +131,20 @@
     <string name="invalid_website">Invalid website</string>
     
     <!-- Menu label to open a category -->
-    <string name="open">Deschide</string>
+    <string name="open">Open</string>
     
     <string name="database_version_error_title">Database Version Error</string>
     <string name="database_version_error_msg">Sorry, but the version of the database is not supported.   You must install the version associated with this database.</string>
 	
 	<!-- Menu label to move a password to another category -->
-	<string name="move">Mută</string>
+	<string name="move">Move</string>
 	
 	<string name="move_select">Select Category</string>
 	
 	<!-- Toast that password has been moved to another category -->
 	<string name="moved_to">Moved to %s</string>
 	
-	<string name="preferences">Configurări</string>
+	<string name="preferences">Settings</string>
 	<string name="pref_title_external_access">Allow external access</string>
 	<string name="pref_summary_external_access">Allow other applications to secure your data with OI Safe</string>
 	<string name="dialog_title_external_access">OI Safe: Another application requests access.</string>
@@ -194,8 +192,8 @@
 	<string name="intent_set_password">Set password (OI Safe)</string>
 	<string name="intent_restart_timer">Restart timer (OI Safe)</string>
 	<string name="open_safe">Open OI Safe</string>
-	<string name="lock">Lock</string>
-	<string name="continue_text">Continuă</string>
+	<string name="lock">Vergrendel</string>
+	<string name="continue_text">Continue</string>
 	<string name="generate_password">Generate Password</string>
 	<string name="pass_gen_length">Password Length</string>
 	<string name="pass_gen_uppercase">Uppercase [A-Z]</string>
@@ -203,8 +201,8 @@
 	<string name="pass_gen_numbers">Numbers [0-9]</string>
 	<string name="pass_gen_symbols">Symbols [!@#$%^\*]</string>
 	<string name="pass_gen_copy_to_current_entry">Copy to Current Entry</string>
-	<string name="pass_gen_copy_to_clipboard">Copiază în clipboard</string>
-	<string name="cancel">Renunță</string>
+	<string name="pass_gen_copy_to_clipboard">Copy to Clipboard</string>
+	<string name="cancel">Cancel</string>
 	<string name="discard_changes">Discard changes</string>
 	<string name="entry_saved">Entry saved</string>
 	<string name="entry_save_error">Unable to save due to database error</string>
@@ -218,8 +216,8 @@
 	<string name="dialog_summary_first_time_warning">A new random master key has been created. Use menu &gt; backup and store this key in a safe place. Without this key you may lose encrypted data.</string>
 	<string name="switch_mode">Switch mode</string>
 	<string name="decrypt_progress">Decrypting...</string>
-	<string name="search">Caută</string>
-	<string name="search_progress">Caut...</string>
+	<string name="search">Search</string>
+	<string name="search_progress">Searching...</string>
 	<string name="search_hint">Type search criteria</string>
 	<string name="search_nothing_found">Nothing found</string>
 	<string name="mute">Mute</string>
@@ -240,8 +238,8 @@
 	<string name="oi_safe_permission_service">access the master password</string>
 	<string name="oi_safe_permission_service_descr">Allows the application to access the master key used for encryption and decryption. Should never be used except by OI Safe.</string>	
 	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">criptează și decriptează date</string>
-    <string name="oi_safe_permission_intents_descr">Permite aplicațiilor să cripteze și să decripteze text, și să acceseze parolele pe care le-au salvat in OI Safe.</string>	
+	<string name="oi_safe_permission_intents">encrypt and decrypt data</string>
+    <string name="oi_safe_permission_intents_descr">Allows the application to encrypt and decrypt text, and access the passwords they have stored in OI Safe.</string>	
 
 	<!-- ***************************
 	     Preferences
@@ -249,11 +247,11 @@
 
 	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
-        <item>1 minut</item>
-        <item>5 minute</item>
-        <item>10 minute</item>
-        <item>15 minute</item>
-        <item>30 de minute</item>  
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>  
     </string-array>
 
 	<!-- Number of days before next autobackup is prompted -->

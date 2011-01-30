@@ -25,13 +25,13 @@
   Peli https://launchpad.net/~peli0101
   Vasily Bogantsev https://launchpad.net/~bas-eurogym</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe хранит ваши личные данные зашифрованными.</string>  
-	<string name="about_website_label">OI Safe на OpenIntents</string> 
-    
+	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
     <string name="app_name">OI Safe</string>
     <string name="empty_safe">В этой категории нет паролей.</string>
     <string name="empty_category">Нет ни одной категоории. Добавьте категорию через Меню/Добавить</string>
@@ -152,7 +152,7 @@
 	<string name="dialog_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe.</string>
 	<string name="dialog_comment_external_access">Это можно так же установить в OI Safe Меню / Настройки</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for auto lock timeout -->
 	<string name="pref_title_lock_timeout">Время автоблокировки</string>
 	
 	<!-- Preference summary for auto lock timeout -->
@@ -160,10 +160,10 @@
 	
 	<string name="pref_dialog_title_lock_timeout">Время автоблокировки</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
 	<string name="pref_title_lock_on_screen_lock">Блокировать с экраном</string>
 	
-	<!-- Preference summary for lock on screen lock -->
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
 	<string name="pref_summary_lock_on_screen_lock">Блокировать когда блокируется экран</string>
 	
 	<!-- Preference title: use a numeric keypad to enter the password -->
@@ -172,7 +172,7 @@
 	<!-- Preference summary: for a numeric keypad -->
 	<string name="pref_summary_keypad">Использовать клавиатуру OI Safe для ввода Мастер Пароля</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for keypad mute -->
 	<string name="pref_title_keypad_mute">Бесшумная клавиатура</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
@@ -235,8 +235,10 @@
 	     *************************** -->
 
 	<!-- OI Safe -->
+	<!-- Permission to access master password -->
 	<string name="oi_safe_permission_service">доступ к Мастер Паролю</string>
 	<string name="oi_safe_permission_service_descr">Даёт приложению доступ к Мастер Ключу используемому для шифрования и дешифрования. Не должно использоваться иначе как через OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
 	<string name="oi_safe_permission_intents">шифровать и дешифровать данные</string>
     <string name="oi_safe_permission_intents_descr">Позволяет приложениям шифровать и дешифровать текст, а так же получать доступ к паролям которые они сохранили в OI Safe.</string>	
 
@@ -244,6 +246,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
         <item>1 минута</item>
         <item>5 минут</item>
@@ -252,6 +255,7 @@
         <item>30 минут</item>  
     </string-array>
 
+	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
         <item>1 day</item>
         <item>7 days</item>

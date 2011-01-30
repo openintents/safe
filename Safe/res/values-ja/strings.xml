@@ -25,13 +25,13 @@
   Peli https://launchpad.net/~peli0101
   bkiw https://launchpad.net/~bkiw</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
-	<string name="about_website_label">OpenIntentsのOI Safe</string> 
-    
+	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
     <string name="app_name">OI Safe</string>
     <string name="empty_safe">No Passwords present for this category.</string>
     <string name="empty_category">No categories present.  Please add one via Menu-&gt;Add</string>
@@ -152,7 +152,7 @@
 	<string name="dialog_summary_external_access">他のアプリケーションからOI Safeを介したセキュアなデータへのアクセスを許可する。</string>
 	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for auto lock timeout -->
 	<string name="pref_title_lock_timeout">オートロックのタイムアウト</string>
 	
 	<!-- Preference summary for auto lock timeout -->
@@ -160,10 +160,10 @@
 	
 	<string name="pref_dialog_title_lock_timeout">オートロックのタイムアウト</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
 	<string name="pref_title_lock_on_screen_lock">Lock on screen lock</string>
 	
-	<!-- Preference summary for lock on screen lock -->
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
 	<string name="pref_summary_lock_on_screen_lock">Lock when the screen locks</string>
 	
 	<!-- Preference title: use a numeric keypad to enter the password -->
@@ -172,7 +172,7 @@
 	<!-- Preference summary: for a numeric keypad -->
 	<string name="pref_summary_keypad">マスターパスワードの入力にキーパッドを使う</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for keypad mute -->
 	<string name="pref_title_keypad_mute">Keypad Mute</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
@@ -235,8 +235,10 @@
 	     *************************** -->
 
 	<!-- OI Safe -->
+	<!-- Permission to access master password -->
 	<string name="oi_safe_permission_service">マスターパスワードへのアクセス</string>
 	<string name="oi_safe_permission_service_descr">Allows the application to access the master key used for encryption and decryption. Should never be used except by OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
 	<string name="oi_safe_permission_intents">暗号化・複合化データ</string>
     <string name="oi_safe_permission_intents_descr">他のアプリケーションがテキストを暗号化・複合化し、OI Safeにより保存されたパスワードにアクセスする事を許可する。</string>	
 
@@ -244,6 +246,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
         <item>1 分</item>
         <item>5 分</item>
@@ -252,6 +255,7 @@
         <item>30 分</item>  
     </string-array>
 
+	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
         <item>1 day</item>
         <item>7 days</item>

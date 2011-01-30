@@ -27,13 +27,13 @@
   Peli https://launchpad.net/~peli0101
   beudbeud https://launchpad.net/~beudbeud</string>
 	
-    <!-- Strings for OI About -->
+    <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe conserve toutes vos données privées cryptées.</string>  
-	<string name="about_website_label">OI Safe chez OpenIntents</string> 
-    
+	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
     <string name="app_name">OI Safe</string>
     <string name="empty_safe">Pas de mot de passe actuel pour cette catégorie.</string>
     <string name="empty_category">Pas de catégories présentes. S\'il vous plaît en ajouter une via le menu-&gt;Add</string>
@@ -154,7 +154,7 @@
 	<string name="dialog_summary_external_access">Autoriser les autres applications à sécuriser vos données avec OI Safe.</string>
 	<string name="dialog_comment_external_access">Cela peut aussi être réglée dans le menu OI Safe / Paramètres.</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for auto lock timeout -->
 	<string name="pref_title_lock_timeout">Délai du verrouillage automatique</string>
 	
 	<!-- Preference summary for auto lock timeout -->
@@ -162,10 +162,10 @@
 	
 	<string name="pref_dialog_title_lock_timeout">Délai du verrouillage automatique</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
 	<string name="pref_title_lock_on_screen_lock">Verrouiller sur l\'écran de verrouillage</string>
 	
-	<!-- Preference summary for lock on screen lock -->
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
 	<string name="pref_summary_lock_on_screen_lock">Verrouiller lorsque l\'écran se verrouille</string>
 	
 	<!-- Preference title: use a numeric keypad to enter the password -->
@@ -174,7 +174,7 @@
 	<!-- Preference summary: for a numeric keypad -->
 	<string name="pref_summary_keypad">Utilisez le clavier pour entrer le mot de passe principal</string>
 	
-	<!-- Preference title -->
+	<!-- Preference title for keypad mute -->
 	<string name="pref_title_keypad_mute">Clavier éteint</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
@@ -237,8 +237,10 @@
 	     *************************** -->
 
 	<!-- OI Safe -->
+	<!-- Permission to access master password -->
 	<string name="oi_safe_permission_service">Accès au mot de passe principal</string>
 	<string name="oi_safe_permission_service_descr">Permet à l\'application d\'accéder à la clé principale utilisée pour le chiffrement et le déchiffrement. Il ne devrait jamais être utilisée, sauf par OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
 	<string name="oi_safe_permission_intents">crypter et décrypter des données</string>
     <string name="oi_safe_permission_intents_descr">Permet à l\'application de crypter et décrypter le texte, les mots de passe et les accès qu\'ils ont stockées dans OI Safe.</string>	
 
@@ -246,6 +248,7 @@
 	     Preferences
 	     *************************** -->
 
+	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
         <item>1 minute</item>
         <item>5 minutes</item>
@@ -254,6 +257,7 @@
         <item>30 minutes</item>  
     </string-array>
 
+	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
         <item>1 day</item>
         <item>7 days</item>
