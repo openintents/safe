@@ -364,6 +364,7 @@ public class DBHelper {
      */
     public List<CategoryEntry> fetchAllCategoryRows(){
         ArrayList<CategoryEntry> ret = new ArrayList<CategoryEntry>();
+	    if (db==null) { return ret; }
         try {
 	        Cursor c =
 	            db.query(TABLE_CATEGORIES, new String[] {
