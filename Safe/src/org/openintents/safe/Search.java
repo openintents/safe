@@ -19,6 +19,7 @@ package org.openintents.safe;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import org.openintents.intents.CryptoIntents;
@@ -38,7 +39,6 @@ import android.view.View;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -60,9 +60,9 @@ public class Search extends ListActivity {
 
 	private EditText etSearchCriteria;
 	private String searchCriteria="";
-	private List<PassEntry> results=null;
-	private ArrayAdapter<String> entries=null;
-	
+	private List<SearchEntry> results=null;
+	private SearchListItemAdapter searchAdapter=null;
+
 	Intent frontdoor;
     private Intent restartTimerIntent=null;
 	
@@ -71,8 +71,11 @@ public class Search extends ListActivity {
     	public void handleMessage(Message msg) {
     		switch (msg.what) {
     		case MSG_SEARCH_COMPLETE:
-    			setListAdapter(entries);
-    			if ((entries!=null) && (entries.isEmpty())) {
+    			searchAdapter = 
+    			    new SearchListItemAdapter(Search.this, R.layout.search_row,
+    			    		results);
+    			setListAdapter(searchAdapter);
+    			if ((searchAdapter!=null) && (searchAdapter.isEmpty())) {
     				Toast.makeText(Search.this, R.string.search_nothing_found,
    						Toast.LENGTH_LONG).show();
     			}
@@ -107,7 +110,7 @@ public class Search extends ListActivity {
 		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
 
 		etSearchCriteria = (EditText) findViewById(R.id.search_criteria);
-		results=new ArrayList<PassEntry>();
+		results=new ArrayList<SearchEntry>();
 
 		Button goButton = (Button) findViewById(R.id.go_button);
 		goButton.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +173,22 @@ public class Search extends ListActivity {
         Passwords.Initialize(this);
     }
 
+	public static long[] getRowsIds(List<SearchEntry> rows) {
+		if (debug) Log.d(TAG,"getRowsIds() rows="+rows);
+		if (rows!=null) {
+	    	long[] ids=new long[rows.size()];
+			Iterator<SearchEntry> searchIter=rows.iterator();
+			int i=0;
+			while (searchIter.hasNext()) {
+				ids[i]=searchIter.next().id;
+				i++;
+			}
+			return ids;
+		} else {
+			return null;
+		}
+	}
+
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 
@@ -180,8 +199,8 @@ public class Search extends ListActivity {
 		Intent passView = new Intent(this, PassView.class);
 		passView.putExtra(PassList.KEY_ID, results.get(position).id);
 		if (debug) Log.d(TAG,"onListItemClick: category="+results.get(position).category);
-		passView.putExtra(PassList.KEY_CATEGORY_ID, results.get(position).category);
-		passView.putExtra(PassList.KEY_ROWIDS, PassList.getRowsIds(results));
+		passView.putExtra(PassList.KEY_CATEGORY_ID, results.get(position).categoryId);
+		passView.putExtra(PassList.KEY_ROWIDS, getRowsIds(results));
 		passView.putExtra(PassList.KEY_LIST_POSITION, position);
 		startActivityForResult(passView,REQUEST_VIEW_PASSWORD);
 	}
@@ -272,15 +291,20 @@ public class Search extends ListActivity {
 						password.contains(searchCriteria) ||
 						note.contains(searchCriteria)) {
 					if (debug) Log.d(TAG,"matches: "+passRow.plainDescription);
-					results.add(passRow);
+					SearchEntry searchRow=new SearchEntry();
+					searchRow.name=passRow.plainDescription;
+					searchRow.id=passRow.id;
+					searchRow.category=catRow.plainName;
+					searchRow.categoryId=catRow.id;
+					results.add(searchRow);
 					continue;
 				}
 			}
 		}
 
-		Collections.sort(results, new Comparator<PassEntry>() {
-		    public int compare(PassEntry o1, PassEntry o2) {
-		    	return o1.plainDescription.compareToIgnoreCase(o2.plainDescription);
+		Collections.sort(results, new Comparator<SearchEntry>() {
+		    public int compare(SearchEntry o1, SearchEntry o2) {
+		    	return o1.name.compareToIgnoreCase(o2.name);
 		    }});
 
 		updateListFromResults();
@@ -294,26 +318,19 @@ public class Search extends ListActivity {
 	@SuppressWarnings("unchecked")
 	private void restoreMe() {  
 		if (getLastNonConfigurationInstance()!=null) {  
-			results=(List<PassEntry>)getLastNonConfigurationInstance();
+			results=(List<SearchEntry>)getLastNonConfigurationInstance();
 			updateListFromResults();
-			setListAdapter(entries);
+			setListAdapter(searchAdapter);
 		}  
 	}
 	
 	private void updateListFromResults() {
 		if (results==null) {
-//		if ((results==null) || (results.size()==0)) {
 			return;
 		}
-
-		List<String> passDescriptions=new ArrayList<String>();
-
-		for (PassEntry passRow : results) {
-			passDescriptions.add(passRow.plainDescription);
-		}
-		entries = 
-			new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-				passDescriptions);
+		searchAdapter = 
+		    new SearchListItemAdapter(Search.this, R.layout.search_row,
+		    		results);
 	}
 	
 	@Override

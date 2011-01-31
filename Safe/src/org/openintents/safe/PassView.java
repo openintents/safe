@@ -339,7 +339,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 	protected void onPause() {
 		super.onPause();
 
-		if (debug) Log.d(TAG,"onResume()");
+		if (debug) Log.d(TAG,"onPause()");
 
 		try {
 			unregisterReceiver(mIntentReceiver);

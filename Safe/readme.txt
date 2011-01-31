@@ -29,6 +29,7 @@ release: 1.2.8
 date: ?
 - new application icon for Android 2.0 or higher.
 - support hardware search button if available
+- search results now show category
 
 ---------------------------------------------------------
 release: 1.2.7
