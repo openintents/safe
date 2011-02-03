@@ -56,7 +56,7 @@ public class Passwords {
 	
 	private static DBHelper dbHelper=null;
 	
-	public static void Initialize(Context ctx) {
+	public static boolean Initialize(Context ctx) {
 		if (debug) Log.d(TAG,"Initialize()");
 
 		if (ch==null) {
@@ -79,6 +79,9 @@ public class Passwords {
 				
 		if (dbHelper==null) {
 			dbHelper = new DBHelper(ctx);
+			if (dbHelper.isDatabaseOpen()==false) {
+				return false;
+			}
 		}
 		if (passEntries==null) {
 			passEntries = new HashMap<Long, PassEntry>();
@@ -92,6 +95,7 @@ public class Passwords {
 			packageAccessEntries = new HashMap<Long, ArrayList<PackageAccessEntry>>();
 			InitPackageAccess();
 		}
+		return true;
 	}
 
 	/**

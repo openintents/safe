@@ -111,7 +111,21 @@ public class AskPassword extends DistributionLibraryActivity {
 		if (debug) Log.d(TAG,"onCreate("+icicle+")");
 
 		dbHelper = new DBHelper(this);
-			
+		if (dbHelper.isDatabaseOpen()==false) {
+			Dialog dbError = new AlertDialog.Builder(this)
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setTitle(R.string.database_error_title)
+				.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						finish();
+					}
+				})
+				.setMessage(R.string.database_error_msg)
+				.create();
+			dbError.show();
+			return;
+		}
+
 		ch = new CryptoHelper();
 		if (dbHelper.needsUpgrade()) {
 			switch (dbHelper.fetchVersion()) {
@@ -346,6 +360,10 @@ public class AskPassword extends DistributionLibraryActivity {
 
 		if (dbHelper == null) {
 			dbHelper = new DBHelper(this);
+		}
+		if (dbHelper.isDatabaseOpen()==false) {
+			if (debug) Log.d(TAG, "eek! database is not open");
+			return;
 		}
 		if (viewMode==VIEW_NORMAL) {
 			// clear pbeKey in case user had typed it, strayed

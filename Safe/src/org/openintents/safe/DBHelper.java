@@ -21,11 +21,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDiskIOException;
 import android.util.Log;
 
 /**
@@ -38,6 +40,8 @@ import android.util.Log;
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class DBHelper {
+
+	private static final boolean debug = false;
 
     private static final String DATABASE_NAME = "safe";
     private static final String TABLE_DBVERSION = "dbversion";
@@ -143,12 +147,22 @@ public class DBHelper {
 			}
 			c.close();
 			
-
+		}catch (SQLiteDiskIOException e)
+		{
+			Log.d(TAG,"SQLite DiskIO exception: " + e.getLocalizedMessage());
+			if (debug) Log.d(TAG,"SQLite DiskIO exception: db=" + db);
 		} catch (SQLException e)
 		{
 			Log.d(TAG,"SQLite exception: " + e.getLocalizedMessage());
 		}
     }
+
+	public boolean isDatabaseOpen()
+	{
+		boolean isOpen=(db!=null);
+		if (debug) Log.d(TAG,"isDatabaseOpen=="+isOpen);
+		return (db!=null);
+	}
 
     private void CreateDatabase(SQLiteDatabase db)
     {
@@ -207,6 +221,7 @@ public class DBHelper {
      * Close database connection
      */
     public void close() {
+    	if (db==null) return;
     	try {
     		db.close();
 	    } catch (SQLException e)
@@ -242,6 +257,7 @@ public class DBHelper {
      */
     public String fetchSalt() {
     	String salt="";
+    	if (db==null) { return salt; }
         try {
 			Cursor c = db.query(true, TABLE_SALT, new String[] {"salt"},
 				null, null, null, null, null,null);
@@ -324,6 +340,7 @@ public class DBHelper {
         ContentValues initialValues = new ContentValues();
 
     	long rowID=-1;
+    	if (db==null) { return rowID; }
         Cursor c =
         	db.query(true, TABLE_CATEGORIES, new String[] {
         			"id", "name"}, "name='" + entry.name + "'" , null, null, null, null, null);
@@ -631,6 +648,7 @@ public class DBHelper {
 	public HashMap<Long, ArrayList<String>> fetchPackageAccessAll() {
 		HashMap<Long, ArrayList<String>> pkgsAll=new HashMap<Long, ArrayList<String>>();
 
+		if (db==null) { return pkgsAll; }
 		Cursor c = null;
 		try {
 			c =
