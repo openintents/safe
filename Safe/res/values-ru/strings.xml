@@ -130,6 +130,8 @@
     <string name="restore_complete">Завершено. Паролей восстановлено: %s</string>
     <string name="copied_to_clipboard">скопировано в буфер</string>
     <string name="invalid_website">Неправильный сайт</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Открыть</string>

@@ -22,7 +22,8 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Henk van der Velden https://launchpad.net/~henkvandervelden86</string>
+  Henk van der Velden https://launchpad.net/~henkvandervelden86
+  Peli https://launchpad.net/~peli0101</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI kluis houdt al je privé data geëncrypt.</string>  
@@ -129,6 +130,8 @@
     <string name="restore_complete">Complete.  Passwords restored: %s</string>
     <string name="copied_to_clipboard">copied to Clipboard</string>
     <string name="invalid_website">Invalid website</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Open</string>

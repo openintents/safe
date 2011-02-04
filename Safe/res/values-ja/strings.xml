@@ -130,6 +130,8 @@
     <string name="restore_complete">パスワードの復元が完了: %s</string>
     <string name="copied_to_clipboard">クリップボードにコピーしました</string>
     <string name="invalid_website">不正なwebsite</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">開く</string>

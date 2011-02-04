@@ -135,6 +135,8 @@
     <string name="restore_complete">Completado. Contraseñas restauradas: %s</string>
     <string name="copied_to_clipboard">copiado al portapapeles</string>
     <string name="invalid_website">Página web incorrecta</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Abrir</string>

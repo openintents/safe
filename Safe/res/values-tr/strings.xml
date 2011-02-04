@@ -132,6 +132,8 @@ Launchpad Contributions:
     <string name="restore_complete">Complete.  Passwords restored: %s</string>
     <string name="copied_to_clipboard">Panoya kopyalandı</string>
     <string name="invalid_website">Geçersiz web sitesi</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Aç</string>

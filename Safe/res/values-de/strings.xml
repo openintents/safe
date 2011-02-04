@@ -130,6 +130,8 @@
     <string name="restore_complete">Fertig. Passwörter wiederhergestellt: %s</string>
     <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
     <string name="invalid_website">Ungültige Webseite</string>
+    <string name="database_error_title">Database Error</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Öffnen</string>
