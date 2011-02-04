@@ -32,6 +32,7 @@ date: ?
   (requires Android 2.2 or higher)
 - support hardware search button if available
 - search results now show category
+- better handling of low memory
 
 ---------------------------------------------------------
 release: 1.2.7
