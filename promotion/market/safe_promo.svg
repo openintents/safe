@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="safe_promo_01a.svg">
+   sodipodi:docname="safe_promo.svg">
   <defs
      id="defs4">
     <filter
@@ -123,23 +123,23 @@
     <linearGradient
        id="linearGradient3944">
       <stop
-         style="stop-color:#3d3d3d;stop-opacity:1;"
+         style="stop-color:#7c7c7c;stop-opacity:1;"
          offset="0"
          id="stop3946" />
       <stop
          id="stop4040"
          offset="0.25"
-         style="stop-color:#5f5f5f;stop-opacity:1;" />
+         style="stop-color:#a4a4a4;stop-opacity:1;" />
       <stop
          id="stop4036"
          offset="0.5"
-         style="stop-color:#a4a4a4;stop-opacity:1;" />
+         style="stop-color:#cfcfcf;stop-opacity:1;" />
       <stop
-         style="stop-color:#757575;stop-opacity:1;"
+         style="stop-color:#c3c3c3;stop-opacity:1;"
          offset="0.75"
          id="stop4038" />
       <stop
-         style="stop-color:#7d7d7d;stop-opacity:1;"
+         style="stop-color:#979797;stop-opacity:1;"
          offset="1"
          id="stop3948" />
     </linearGradient>
@@ -251,9 +251,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="103.72935"
-     inkscape:cy="62.117147"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="77.715742"
+     inkscape:cy="43.555176"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -455,6 +455,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Ebene#2"
+     style="display:inline"
      sodipodi:insensitive="true">
     <text
        xml:space="preserve"

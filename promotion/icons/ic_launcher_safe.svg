@@ -15,7 +15,7 @@
    id="svg2985"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="ic_launcher_safe_01g.svg">
+   sodipodi:docname="ic_launcher_safe.svg">
   <defs
      id="defs2987">
     <linearGradient
@@ -68,23 +68,23 @@
       <stop
          id="stop3946"
          offset="0"
-         style="stop-color:#3d3d3d;stop-opacity:1;" />
+         style="stop-color:#7c7c7c;stop-opacity:1;" />
       <stop
-         style="stop-color:#5f5f5f;stop-opacity:1;"
+         style="stop-color:#a4a4a4;stop-opacity:1;"
          offset="0.25"
          id="stop4040" />
       <stop
-         style="stop-color:#a4a4a4;stop-opacity:1;"
+         style="stop-color:#cfcfcf;stop-opacity:1;"
          offset="0.5"
          id="stop4036" />
       <stop
          id="stop4038"
          offset="0.75"
-         style="stop-color:#757575;stop-opacity:1;" />
+         style="stop-color:#c3c3c3;stop-opacity:1;" />
       <stop
          id="stop3948"
          offset="1"
-         style="stop-color:#7d7d7d;stop-opacity:1;" />
+         style="stop-color:#979797;stop-opacity:1;" />
     </linearGradient>
     <linearGradient
        id="linearGradient3932">
@@ -189,7 +189,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="4"
-     inkscape:cx="32.962214"
+     inkscape:cx="41.336364"
      inkscape:cy="32.807349"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -197,8 +197,8 @@
      inkscape:grid-bbox="true"
      inkscape:window-width="898"
      inkscape:window-height="641"
-     inkscape:window-x="1"
-     inkscape:window-y="36"
+     inkscape:window-x="252"
+     inkscape:window-y="78"
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
