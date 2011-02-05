@@ -294,7 +294,7 @@ public class DBHelper {
 
     /**
      * 
-     * @return
+     * @return The master key.   If none is set, then return an empty string.
      */
     public String fetchMasterKey() {
     	String key="";
@@ -313,10 +313,6 @@ public class DBHelper {
 		return key;
     }
     
-    /**
-     * 
-     * @param PBEKey
-     */
     public void storeMasterKey(String MasterKey) {
 		ContentValues args = new ContentValues();
         try {
@@ -334,7 +330,7 @@ public class DBHelper {
     /**
      * Doesn't add the category if it already exists.
      * @param entry
-     * @returns row id
+     * @return row id of the added category
      */
     public long addCategory(CategoryEntry entry) {
         ContentValues initialValues = new ContentValues();
@@ -364,7 +360,7 @@ public class DBHelper {
 
     /**
      * 
-     * @param Id
+     * @param Id id of a category to delete
      */
     public void deleteCategory(long Id) {
         try {
@@ -377,7 +373,7 @@ public class DBHelper {
 
     /**
      * 
-     * @return
+     * @return a list of all categories
      */
     public List<CategoryEntry> fetchAllCategoryRows(){
         ArrayList<CategoryEntry> ret = new ArrayList<CategoryEntry>();
@@ -407,7 +403,7 @@ public class DBHelper {
     /**
      * 
      * @param Id
-     * @return
+     * @return A CategoryEntry.  If Id was not found then CategoryEntry.id will equal -1.
      */
     public CategoryEntry fetchCategory(long Id) {
         CategoryEntry row = new CategoryEntry();
@@ -497,7 +493,8 @@ public class DBHelper {
 
 	/**
 	 * 
-	 * @return
+	 * @return A list of all password entries filtered by the CategoryId.
+	 * If CategoryId is 0, then return all entries in the database.
 	 */
 	public List<PassEntry> fetchAllRows(Long CategoryId){
 	    ArrayList<PassEntry> ret = new ArrayList<PassEntry>();
@@ -546,7 +543,8 @@ public class DBHelper {
 	/**
 	 * 
 	 * @param Id
-	 * @return
+	 * @return The password entry matching the Id.  If not found, then
+	 * the returned PassEntry.id will equal -1.
 	 */
 	public PassEntry fetchPassword(long Id) {
 	    PassEntry row = new PassEntry();

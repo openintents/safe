@@ -308,6 +308,9 @@ public class IntentHandler extends Activity {
 
 			if (thisIntent.hasExtra(CryptoIntents.EXTRA_SESSION_KEY)) {
 				String sessionkey = ch.getCurrentSessionKey();
+				if (sessionkey==null) {
+					return RESULT_CANCELED;
+				}
 				callbackIntent.putExtra(CryptoIntents.EXTRA_SESSION_KEY, sessionkey);
 				
 				// Warning! This overwrites any data intent set previously.

@@ -185,7 +185,7 @@ public class CryptoHelper {
     /**
      * 
      * @param message
-     * @return
+     * @return MD5 digest of message in a byte array
      * @throws NoSuchAlgorithmException
      * @throws IOException
      */
@@ -219,7 +219,7 @@ public class CryptoHelper {
     /**
      * 
      * @param bytes
-     * @return
+     * @return String version in Hex format of input byte array
      */
     public static String toHexString(byte bytes[]) {
 	
@@ -308,12 +308,15 @@ public class CryptoHelper {
      * The session key is used when encrypting or decrypting files
      * through the content provider.
      * 
-     * @return current session key.
+     * @return current session key.   If there is none, return null.
      */
     public String getCurrentSessionKey() {
-    	//return sessionKey;
-    	
-    	return ServiceDispatchImpl.ch.sessionKey;  // Return a global session key created in ServiceDispatchImpl
+
+    	if (ServiceDispatchImpl.ch != null) {
+    		// Return a global session key created in ServiceDispatchImpl
+    		return ServiceDispatchImpl.ch.sessionKey; 
+    	}
+    	return null;
     	// This should be the same session key as is used in CryptoContentProvider.
     	// TODO: Clean up the code above?
     }

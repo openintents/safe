@@ -399,7 +399,8 @@ public class Passwords {
 		return null;
 	}
 	/**
-	 * @param entry PassEntry
+	 * @param passEntry the entry to placed into the password cache.  If id is 0,
+	 * then it will be added, otherwise it will update existing entry.
 	 * @return long row id of newly added or updated entry,
 	 * equal to -1 if a sql error occurred
 	 */
