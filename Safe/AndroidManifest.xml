@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe" 
     android:installLocation="auto"
-    android:versionName="1.2.8-beta" android:versionCode="19">
+    android:versionName="1.2.8" android:versionCode="20">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
-    1.2.8-beta [19]: ?
+    1.2.8 [20]: 2011-02-05
+    1.2.8-beta [19]: 2011-02-05
     1.2.7 [18]: 2011-01-25
     1.2.6 [17]: 2011-01-20
     1.2.5 [15]: 2010-04-03
