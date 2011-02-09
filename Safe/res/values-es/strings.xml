@@ -135,8 +135,8 @@
     <string name="restore_complete">Completado. Contraseñas restauradas: %s</string>
     <string name="copied_to_clipboard">copiado al portapapeles</string>
     <string name="invalid_website">Página web incorrecta</string>
-    <string name="database_error_title">Database Error</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="database_error_title">Error en la base de datos</string>
+    <string name="database_error_msg">Error de base de datos ¿Sin espacio?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Abrir</string>
@@ -187,9 +187,9 @@
 	<string name="pref_summary_keypad_mute">Silenciar sonidos de teclado</string>
 
 	<string name="pref_title_autobackup">Copia de seguridad automática</string>
-	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
+	<string name="pref_summary_autobackup">Preguntar automáticamente si se desea hacer una copia de seguridad de las contraseñas</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
+	<string name="pref_title_autobackup_days">Días de copia de seguridad automática</string>
 	<string name="pref_summary_autobackup_days">Días de espera antes de la siguiente copia de seguridad automática</string>
 	<string name="pref_dialog_title_autobackup_days">Dñias de copia de seguridad automática</string>
 	
@@ -213,7 +213,7 @@
 	<string name="cancel">Cancelar</string>
 	<string name="discard_changes">Descartar cambios</string>
 	<string name="entry_saved">Entrada guardada</string>
-	<string name="entry_save_error">Unable to save due to database error</string>
+	<string name="entry_save_error">Imposible guardar por error en la base de datos</string>
 	<string name="last_edited">Último editado</string>
 	<string name="last_edited_unknown">desconocido</string>
 	<string name="crypto_error">Error de codificación:</string>
@@ -231,11 +231,11 @@
 	<string name="mute">Silenciar</string>
 	<string name="sounds">Sonidos</string>
 	<string name="previous">Anterior</string>
-	<string name="next">Next</string>
-	<string name="autobackup">AutoBackup</string>
+	<string name="next">Siguiente</string>
+	<string name="autobackup">Copia de seguridad automática</string>
 	<string name="backup_never">Aún no se ha hecho ninguna copia de seguridad.¿Desea realizarla ahora?</string>
 	<string name="backup_in_days">La última copia de seguridad se hizo hace %d días.¿Desea realizarla ahora?</string>
-	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="autobackup_turnoff">Finalizar copia de seguridad automática</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -264,10 +264,10 @@
 
 	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
-        <item>1 day</item>
-        <item>7 days</item>
-        <item>30 days</item>
-        <item>60 days</item>
+        <item>1 día</item>
+        <item>7 días</item>
+        <item>30 días</item>
+        <item>60 días</item>
     </string-array>
 
         
