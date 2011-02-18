@@ -132,8 +132,8 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 				this.listener.onSwipe(SWIPE_UP);
 			else
 				this.listener.onSwipe(SWIPE_DOWN);
-
-			result = true;
+			// don't actually use this
+			result = false;
 		}
 
 		return result;

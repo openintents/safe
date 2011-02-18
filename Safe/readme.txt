@@ -25,6 +25,11 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
+release: 1.2.9
+date: 2011-??-??
+- removed up/down swipe in PassView
+
+---------------------------------------------------------
 release: 1.2.8
 date: 2011-02-05
 - new application icon for Android 2.0 or higher.

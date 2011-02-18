@@ -693,14 +693,8 @@ public class PassView extends Activity implements SimpleGestureListener {
 		case SimpleGestureFilter.SWIPE_RIGHT:
 			showPreviousView(true);
 			break;
-		case SimpleGestureFilter.SWIPE_DOWN:
-			showPreviousView(false);
-			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			showNextView(true);
-			break;
-		case SimpleGestureFilter.SWIPE_UP:
-			showNextView(false);
 			break;
 		} 
 	}

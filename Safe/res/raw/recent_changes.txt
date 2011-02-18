@@ -1,4 +1,9 @@
 ---------------------------------------------------------
+release: 1.2.9
+date: 2011-??-??
+- removed up/down swipe in PassView
+
+---------------------------------------------------------
 release: 1.2.8
 date: 2011-02-05
 - new application icon for Android 2.0 or higher.
@@ -13,21 +18,6 @@ date: 2011-01-25
 - fixed bug that prevented to open search results
   (issue 311)
 - further bug fixes (issue 312)
-
----------------------------------------------------------
-release: 1.2.6
-date: 2011-01-20
-- added auto backup
-- fixed change master password bug
-- swipe left/right or up/down to move from password
-  to password.
-- on-screen switch button to switch from numeric
-  keypad mode.
-- support small screens (issue 259)
-- don't copy password if user name is copied (issue 291)
-- fixed bugs in issues 281, 276
-- support Android 2.3
-- translations into various languages.
 
 ---------------------------------------------------------
 For the complete list of changes and a list of frequently asked questions, please visit:
