@@ -50,6 +50,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.text.ClipboardManager;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -696,6 +697,16 @@ public class CategoryList extends ListActivity {
 
     
     private void lockAndShutFrontDoor () {
+        
+        /* Clear the clipboard, if it contains the last password used */
+        ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        
+        if (cb.hasText()) {
+            String clipboardText = cb.getText().toString();
+            if (clipboardText.equals(Safe.last_used_password))
+                cb.setText("");
+        }
+        
     	Intent serviceIntent = new Intent();
 		serviceIntent.setClass(this, ServiceDispatchImpl.class );
 	    stopService(serviceIntent);

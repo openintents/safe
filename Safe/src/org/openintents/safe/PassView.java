@@ -59,7 +59,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 	private static boolean debug = false;
 	private static String TAG = "PassView";
-
+	
 	public static final int EDIT_PASSWORD_INDEX = Menu.FIRST;
 	public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
 
@@ -581,6 +581,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 		ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 		cb.setText(value);
+		Safe.last_used_password = value;
 	}
 
 	@Override

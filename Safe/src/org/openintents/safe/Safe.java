@@ -36,7 +36,8 @@ public class Safe extends Activity {
 
     private static final String TAG = "FrontDoor";
 	private static final boolean debug = false;
-
+	public static String last_used_password = null;
+	
 //	public static final String KEY_AUTOLOCK = "autolock";
 	
 	/** Called when the activity is first created. */

@@ -6,6 +6,7 @@ import org.openintents.util.VersionUtils;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,6 +31,16 @@ public class LogOffActivity extends Activity {
 	        
 	    	logoffButton.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View arg0) {
+			        
+			        /* Clear the clipboard, if it contains the last password used */
+			        ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+			        
+			        if (cb.hasText()) {
+			            String clipboardText = cb.getText().toString();
+			            if (clipboardText.equals(Safe.last_used_password))
+			                cb.setText("");
+			        }
+			        
 					Intent serviceIntent = new Intent();
 					serviceIntent.setClass(LogOffActivity.this, ServiceDispatchImpl.class );
 					stopService(serviceIntent);
