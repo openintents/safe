@@ -28,6 +28,8 @@ To obtain the current release, visit
 release: 1.2.9
 date: 2011-??-??
 - removed up/down swipe in PassView
+- delete password from clipboard when logging out
+  (issue 297, patch by Rachee Singh)
 
 ---------------------------------------------------------
 release: 1.2.8
