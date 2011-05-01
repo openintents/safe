@@ -28,7 +28,7 @@ Launchpad Contributions:
   zeugma https://launchpad.net/~sunder67</string>
 	
     <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
+	<string name="about_comments">OI kasa tüm özel verilerinizi şifreler.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -70,7 +70,7 @@ Launchpad Contributions:
 	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
 	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
 	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
-	<string name="import_database">Import Database</string>
+	<string name="import_database">Veritabanı Al</string>
 	<string name="import_file_missing">Import file is missing:</string>
 	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
 	<string name="import_error_first_line">First line is missing fields.</string>
@@ -79,7 +79,7 @@ Launchpad Contributions:
 	<string name="yes">Evet</string>
 	<string name="no">Hayır</string>
 	<string name="import_progress">Please wait while importing...</string>
-	<string name="import_no_categories">Kategori bulunamadı</string>
+	<string name="import_no_categories">Kategori bulunamadı.</string>
 	<string name="import_no_entries">No entries found in CSV.</string>
 	<string name="import_too_many_categories">Too many categories.</string>
 	<string name="import_not_enough_fields">Not enough fields</string>
