@@ -25,11 +25,10 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
-release: 1.2.9
-date: 2011-??-??
+release: 1.2.9-rc1
+date: 2011-05-01
 - removed up/down swipe in PassView
-- delete password from clipboard when logging out
-  (issue 297, patch by Rachee Singh)
+- delete password from clipboard when logging out (issue 297, patch by Rachee Singh)
 
 ---------------------------------------------------------
 release: 1.2.8
@@ -43,8 +42,7 @@ date: 2011-02-05
 ---------------------------------------------------------
 release: 1.2.7
 date: 2011-01-25
-- fixed bug that prevented to open search results
-  (issue 311)
+- fixed bug that prevented to open search results (issue 311)
 - further bug fixes (issue 312)
 
 ---------------------------------------------------------

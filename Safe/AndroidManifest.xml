@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe" 
     android:installLocation="auto"
-    android:versionCode="21" android:versionName="1.2.9-beta">
+    android:versionCode="22" android:versionName="1.2.9-rc1">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+    1.2.9-rc1 [22]: 2011-05-01
     1.2.9-beta [21]: 2011-02-17
     1.2.8 [20]: 2011-02-05
-    1.2.8-beta [19]: 2011-02-05
     1.2.7 [18]: 2011-01-25
     1.2.6 [17]: 2011-01-20
     1.2.5 [15]: 2010-04-03
@@ -32,7 +32,7 @@
     	
         <!-- aTrackDog metadata -->
         <meta-data android:name="com.a0soft.gphone.aTrackDog.testVersion"
-           android:value="21" />
+           android:value="22" />
         
         <!-- OI About metadata -->
 		<meta-data android:name="org.openintents.metadata.COMMENTS"
