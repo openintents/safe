@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.openintents.safe" 
+    package="org.openintents.safe"
     android:installLocation="auto"
-    android:versionCode="22" android:versionName="1.2.9-rc1">
+    android:versionName="1.2.9"
+    android:versionCode="23">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+    1.2.9 [23]: 2011-05-28
     1.2.9-rc1 [22]: 2011-05-01
     1.2.9-beta [21]: 2011-02-17
     1.2.8 [20]: 2011-02-05
