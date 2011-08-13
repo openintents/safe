@@ -22,13 +22,11 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Fitoschido https://launchpad.net/~fitoschido
   Javier Martínez Arrieta https://launchpad.net/~javote87
   Monkey https://launchpad.net/~monkey-libre
   Paco Molinero https://launchpad.net/~franciscomol
   Peli https://launchpad.net/~peli0101
-  miwie https://launchpad.net/~mw-miwie
-  victor tejada yau https://launchpad.net/~victormtyau</string>
+  miwie https://launchpad.net/~mw-miwie</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI salvaguarda todos tus datos privados encriptados</string>  

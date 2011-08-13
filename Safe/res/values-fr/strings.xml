@@ -22,7 +22,7 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Abdessamad Derraz https://launchpad.net/~derraz
+  Baptiste Fontaine https://launchpad.net/~bfontaine
   François Blondel https://launchpad.net/~francoisblondel
   Peli https://launchpad.net/~peli0101
   beudbeud https://launchpad.net/~beudbeud</string>
@@ -133,7 +133,7 @@
     <string name="copied_to_clipboard">Copier dans le presse-papier</string>
     <string name="invalid_website">Site invalide</string>
     <string name="database_error_title">Database Error</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="database_error_msg">Erreur de base de données. Plus de place ?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Ouvrir</string>
