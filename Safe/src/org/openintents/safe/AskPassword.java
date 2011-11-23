@@ -481,6 +481,10 @@ public class AskPassword extends DistributionLibraryActivity {
 	 * @return
 	 */
 	private boolean checkUserPassword(String password) {
+		if (dbHelper==null) {
+			// not sure what can cause this condition, but a NPE has been observed
+			return false;
+		}
 		String encryptedMasterKey = dbHelper.fetchMasterKey();
 		String decryptedMasterKey = "";
 		if (debug) Log.d(TAG,"checkUserPassword: encryptedMasterKey="+encryptedMasterKey);
