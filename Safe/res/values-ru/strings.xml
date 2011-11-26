@@ -24,7 +24,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Alexander Sapronov https://launchpad.net/~warmonger
   OpenIntents devs https://launchpad.net/~openintents-devs
-  Peli https://launchpad.net/~peli0101</string>
+  Peli https://launchpad.net/~peli0101
+  Sergey Popov https://launchpad.net/~fil0soff</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe хранит ваши личные данные зашифрованными.</string>  
@@ -132,7 +133,7 @@
     <string name="copied_to_clipboard">скопировано в буфер</string>
     <string name="invalid_website">Неправильный сайт</string>
     <string name="database_error_title">Ошибка базы данных</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="database_error_msg">Ошибка базы данных. Недостаточно места?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Открыть</string>
@@ -183,7 +184,7 @@
 	<string name="pref_summary_keypad_mute">Выключить звуки клавиатуры</string>
 
 	<string name="pref_title_autobackup">Автоматическое резервное копирование</string>
-	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
+	<string name="pref_summary_autobackup">Автоматически запрашивать резервное копирование паролей.</string>
 
 	<string name="pref_title_autobackup_days">Auto backup days</string>
 	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
@@ -225,7 +226,7 @@
 	<string name="search_hint">Введите информацию для поиска</string>
 	<string name="search_nothing_found">Ничего не найдено</string>
 	<string name="mute">Приглушить звук</string>
-	<string name="sounds">Sounds</string>
+	<string name="sounds">Звуки</string>
 	<string name="previous">Previous</string>
 	<string name="next">Next</string>
 	<string name="autobackup">AutoBackup</string>

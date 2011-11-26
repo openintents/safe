@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  zhangchun https://launchpad.net/~zhangchun</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">OI安全让您的私人数据加密。</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI安全</string>
+    <string name="empty_safe">没有密码。</string>
+    <string name="empty_category">没有分类，请点击菜单 - &gt;添加</string>
+    <string name="password_lock">锁定</string>
+    <string name="password_view">查看</string>
+    <string name="password_edit">编辑</string>
+    <string name="password_add">添加</string>
+    <string name="password_delete">删除</string>
+    <string name="password">密码</string>
+    <string name="passwords">密码</string>
+    <string name="master_password">主密码</string>
+    <string name="username">用户名</string>
+    <string name="website">网站</string>
+    <string name="description">描述</string>
+    <string name="notes">便笺</string>
+    <string name="save">保存</string>
+    <string name="invalid_password">错误的密码。请再试一次。</string>
+    <string name="notify_blank_pass">密码最少要4个字符。</string>
+    <string name="notify_blank_desc">描述不能为空</string>
+    <string name="notify_blank_name">名字不能为空</string>
+    <string name="first_time">请在下面输入密码，这样确保密码安全。</string>
+    <string name="logoff_explanation">你已登录OI安全，其他应用程序可以请求他们的密码和解密/加密数据。输入您的密码锁，才可以访问。</string>
+    <string name="remote_ask">另一个应用程序要求使用主密码。请输入您的密码来解锁。</string>
+    <string name="categories">分类</string>
+	<string name="category">分类</string>
+    <string name="category_business">业务</string>
+    <string name="category_personal">个人</string>
+    <string name="name">名称</string>
+    <string name="category_not_empty">类别不是空的，首先删除密码。</string>
+	<string name="cannot_decrypt_category">无法解密类别</string>
+	<string name="cannot_decrypt_password">无法解密密码</string>
+	<string name="error_export">导出数据出错</string>
+	<string name="export_database">导出数据</string>
+	<string name="export_msg">导出纯文本文件的密码数据库。非常危险的的。请确保您删除的文件再使用。导出吗？</string>
+	<string name="export_success">成功导出\'%s\' 。警告！该文件是不加密的。</string>
+	<string name="export_file_error">无法在SD卡上创建输出文件\'oisafe.csv“。断开USB。</string>
+	<string name="import_database">导入数据库</string>
+	<string name="import_file_missing">导入文件丢失：</string>
+	<string name="import_file_error">无法从SD卡导入文件“oisafe.csv。断开USB。</string>
+	<string name="import_error_first_line">第一行是丢失的字段。</string>
+	<string name="dialog_import_title">导入</string>
+	<string name="dialog_import_msg">替换数据（用导入文件 %s）？</string>
+	<string name="yes">是</string>
+	<string name="no">否</string>
+	<string name="import_progress">导入时请等待...</string>
+	<string name="import_no_categories">没找到类别。</string>
+	<string name="import_no_entries">没有找到CSV。</string>
+	<string name="import_too_many_categories">太多类别。</string>
+	<string name="import_not_enough_fields">空间不足</string>
+	<string name="import_blank_category">空白类别</string>
+	<string name="import_blank_description">空白描述</string>
+	<string name="dialog_delete_database_title">删除数据</string>
+	<string name="dialog_delete_database_msg">删除数据？这个操作无法撤销。</string>
+	<string name="added">已添加</string>
+	<string name="entries">选项</string>
+	<string name="import_complete">导入完成</string>
+	<string name="import_delete_csv">清除CSV文件可能有风险，删除吗？</string>
+	<string name="edit_entry">编辑项目</string>
+	<string name="view_entry">查看选项</string>
+	<string name="help">帮助</string>
+	<string name="close">关闭</string>
+	<string name="go">开始</string>
+	<string name="dialog_delete_password_title">删除密码</string>
+	<string name="dialog_delete_password_msg">删除密码？</string>
+	<string name="change_password">更改主密码</string>
+	<string name="chg_pass_explaination">使用此来更改密码。您的数据将用新密码重新加密。更复杂的密码数据更安全。</string>
+	<string name="old_password">旧密码</string>
+	<string name="new_password">新密码</string>
+	<string name="verify_password">检验密码</string>
+	<string name="new_verify_mismatch">新密码和验证密码不匹配。</string>
+    <string name="invalid_old_password">旧密码是无效的。请再试一次。</string>
+    <string name="error_changing_password">更改密码出错</string>
+    <string name="password_changed">主密码已更改</string>
+    <string name="confirm">确认</string>
+    <string name="confirm_pass_fail">两次密码不符。</string>
+    <string name="backup">备份</string>
+    <string name="backup_progress">备份到</string>
+    <string name="backup_complete">完成。密码备份：</string>
+    <string name="backup_failed">备份失败：</string>
+    <string name="restore">恢复</string>
+    <string name="filename">文件名</string>
+    <string name="restore_no_file">未找到备份文件。你需要先进行备份。或从电脑复制备份。</string>
+    <string name="restore_set_password">请提供备份文件所使用的密码。主密码将被设置为。</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">无法打开文件：: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">版本不支持：: %s</string>
+    
+    <string name="restore_error">恢复出错。</string>
+    <string name="restore_decrypt_error">错误的密码。</string>
+    <string name="dialog_restore_database_title">恢复数据库</string>
+    <string name="dialog_restore_database_msg">替换当前数据？</string>
+    <string name="restore_found">找到%1$s密码，在备份的旧 %2$s.</string>
+    <string name="restore_complete">完成，密码已恢复: %s</string>
+    <string name="copied_to_clipboard">复制到剪贴板</string>
+    <string name="invalid_website">无效的网址</string>
+    <string name="database_error_title">数据库错误</string>
+    <string name="database_error_msg">数据库错误。空间不足？</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">打开</string>
+    
+    <string name="database_version_error_title">数据库版本错误</string>
+    <string name="database_version_error_msg">不支持数据库。安装与这个版本相关的数据库。</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">移动</string>
+	
+	<string name="move_select">选择分类</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">移到%s</string>
+	
+	<string name="preferences">设置</string>
+	<string name="pref_title_external_access">允许外部访问</string>
+	<string name="pref_summary_external_access">允许其他应用程序使用OI安全</string>
+	<string name="dialog_title_external_access">OI安全：其他应用程序请求访问。</string>
+	<string name="dialog_summary_external_access">允许其他应用程序使用OI安全</string>
+	<string name="dialog_comment_external_access">可以在OI安全的菜单/设置中设置。</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">自己锁定超时</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">发生超时前几分钟安全被锁定</string>
+	
+	<string name="pref_dialog_title_lock_timeout">自己锁定超时</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">锁定屏幕</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">锁定屏幕锁</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">按键</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">使用按键输入主密码</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">键盘静音</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">键盘静音</string>
+
+	<string name="pref_title_autobackup">自动备份</string>
+	<string name="pref_summary_autobackup">自动提示备份密码</string>
+
+	<string name="pref_title_autobackup_days">自动提示备份天数</string>
+	<string name="pref_summary_autobackup_days">等待下一个自动备份的天数</string>
+	<string name="pref_dialog_title_autobackup_days">自动备份的天数</string>
+	
+	
+	<string name="intent_decrypt">解密（OI安全）</string>
+	<string name="intent_encrypt">加密（OI安全）</string>
+	<string name="intent_get_password">忘记密码（OI安全）？</string>
+	<string name="intent_set_password">设置密码（OI安全）</string>
+	<string name="intent_restart_timer">重启时间（OI安全）</string>
+	<string name="open_safe">打开OI安全</string>
+	<string name="lock">锁定</string>
+	<string name="continue_text">继续</string>
+	<string name="generate_password">生成密码</string>
+	<string name="pass_gen_length">密码长度</string>
+	<string name="pass_gen_uppercase">大写字母[A - Z]</string>
+	<string name="pass_gen_lowercase">小写字母[A - Z]</string>
+	<string name="pass_gen_numbers">数字[0-9]</string>
+	<string name="pass_gen_symbols">符号[!@#$%^\ *]</string>
+	<string name="pass_gen_copy_to_current_entry">复制到当前条目</string>
+	<string name="pass_gen_copy_to_clipboard">复制到剪贴板</string>
+	<string name="cancel">取消</string>
+	<string name="discard_changes">删除修改</string>
+	<string name="entry_saved">保存</string>
+	<string name="entry_save_error">由于数据库错误，无法保存</string>
+	<string name="last_edited">最近编辑</string>
+	<string name="last_edited_unknown">未知</string>
+	<string name="crypto_error">加密错误：</string>
+	<string name="uniquename">唯一名称</string>
+	<string name="package_access">包访问</string>
+	<string name="not_found">未找到</string>
+	<string name="dialog_title_first_time_warning">新的主密码</string>
+	<string name="dialog_summary_first_time_warning">已经创建了一个新的随机主密码。使用“菜单&gt;”备份“，并存储。如果没有这个密码，你可能会失去加密的数据。</string>
+	<string name="switch_mode">切换模式</string>
+	<string name="decrypt_progress">解密... ...</string>
+	<string name="search">搜索</string>
+	<string name="search_progress">正在搜索...</string>
+	<string name="search_hint">输入搜索标准</string>
+	<string name="search_nothing_found">未发现</string>
+	<string name="mute">静音</string>
+	<string name="sounds">Sounds</string>
+	<string name="previous">上一个</string>
+	<string name="next">下一个</string>
+	<string name="autobackup">自动备份</string>
+	<string name="backup_never">没有备份，备份？</string>
+	<string name="backup_in_days">最近备份是 %d 天之前。现在备份？</string>
+	<string name="autobackup_turnoff">关闭自动备份</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">访问主密码</string>
+	<string name="oi_safe_permission_service_descr">允许应用程序访问主密钥用于加密和解密。一般不应该使用，除非OI安全。</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">加密和解密数据</string>
+    <string name="oi_safe_permission_intents_descr">允许应用程序进行文本加密和解密，并访问他们OI安全会存储密码。</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 分钟</item>
+        <item>5 分钟</item>
+        <item>10 分钟</item>
+        <item>15 分钟</item>
+        <item>30 分钟</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 天</item>
+        <item>7天</item>
+        <item>30 天</item>
+        <item>60天</item>
+    </string-array>
+
+        
+</resources>
