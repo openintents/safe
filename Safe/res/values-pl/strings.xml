@@ -23,7 +23,8 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Andrzej Ziółek https://launchpad.net/~andro-v-zik
-  Damian Skrodzki https://launchpad.net/~damienix</string>
+  Damian Skrodzki https://launchpad.net/~damienix
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe szyfruje wszystkie twoje prywatne dane.</string>  

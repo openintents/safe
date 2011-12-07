@@ -25,6 +25,7 @@
   DHermit https://launchpad.net/~dhermit
   Kim Linoh https://launchpad.net/~psychokim
   OpenIntents devs https://launchpad.net/~openintents-devs
+  Patrick Eigensatz https://launchpad.net/~p.eigensatz
   Peli https://launchpad.net/~peli0101
   appricoo https://launchpad.net/~appricoo</string>
 	
@@ -129,12 +130,12 @@
     <string name="restore_decrypt_error">Schlechtes Passwort</string>
     <string name="dialog_restore_database_title">Datenbank wiederherstellen</string>
     <string name="dialog_restore_database_msg">Sind Sie sicher, dass Sie die bestehenden Einträge ersetzen wollen?</string>
-    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
+    <string name="restore_found">%1$s Passwörter in der Sicherung vom %2$s gefunden.</string>
     <string name="restore_complete">Fertig. Passwörter wiederhergestellt: %s</string>
     <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
     <string name="invalid_website">Ungültige Webseite</string>
     <string name="database_error_title">Datenbankfehler</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="database_error_msg">Datenbankfehler. Ist keine Speicherplatz mehr verfügbar?</string>
     
     <!-- Menu label to open a category -->
     <string name="open">Öffnen</string>
@@ -184,12 +185,12 @@
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
 	<string name="pref_summary_keypad_mute">Ziffernblock stumm schalten</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
+	<string name="pref_title_autobackup">Automatisches Backup</string>
 	<string name="pref_summary_autobackup">Automatisch nach Password-Sicherung fragen</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
-	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_title_autobackup_days">Tage für automatisches Backup</string>
+	<string name="pref_summary_autobackup_days">Anzahl Tage zwischen den automatischen Backups</string>
+	<string name="pref_dialog_title_autobackup_days">Tage für die automatischen Backups</string>
 	
 	
 	<string name="intent_decrypt">Entschlüsseln (OI Safe)</string>
@@ -211,7 +212,7 @@
 	<string name="cancel">Abbrechen</string>
 	<string name="discard_changes">Änderungen verwerfen</string>
 	<string name="entry_saved">Eintrag gespeichert</string>
-	<string name="entry_save_error">Unable to save due to database error</string>
+	<string name="entry_save_error">Auf Grund eines Datenbankfehlers konnte nicht gespeichert werden</string>
 	<string name="last_edited">Zuletzt bearbeitet</string>
 	<string name="last_edited_unknown">unbekannt</string>
 	<string name="crypto_error">Verschlüsselungsfehler:</string>
@@ -230,9 +231,9 @@
 	<string name="sounds">Klänge</string>
 	<string name="previous">Vorheriger Titel</string>
 	<string name="next">Nächster</string>
-	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
-	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
+	<string name="autobackup">Automatisches Backup</string>
+	<string name="backup_never">Bisher wurde noch kein Backup durchgeführt. Wollen Sie jetzt eines erstellen?</string>
+	<string name="backup_in_days">Die letzte Sicherung wurde vor %d Tagen erstellt. Wollen Sie jetzt eine Sicherung erstellen?</string>
 	<string name="autobackup_turnoff">automatische Sicherung ausschalten</string>
 	
 	<!-- ***************************
