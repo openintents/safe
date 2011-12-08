@@ -132,7 +132,7 @@
     <string name="restore_decrypt_error">Лоша парола.</string>
     <string name="dialog_restore_database_title">Възстанови базата данни</string>
     <string name="dialog_restore_database_msg">Сигурни ли сте, че искате да замените текущите  данни?</string>
-    <string name="restore_found">Намерени %s1$s пароли от архив с дата %2$s</string>
+    <string name="restore_found">Намерени %1$s пароли от архив с дата %2$s</string>
     <string name="restore_complete">Завършено. Възстановени пароли: %s</string>
     <string name="copied_to_clipboard">копирано в Клипборда</string>
     <string name="invalid_website">Невалиден уебсайт.</string>
