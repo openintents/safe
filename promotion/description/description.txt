@@ -1,0 +1,50 @@
+# OI Safe
+#
+# Application name and promo text are extracted from the application strings.
+#
+# (Put each sentence in a separate line. Each sentence is translated separately)
+#
+# Description of application
+OI Safe safely protects all of your passwords and other private data using industry standard AES encryption.
+It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad.
+
+This application is ad free and does not require the internet permission.
+
+For the complete list of changes and a list of frequently asked questions, please visit:
+http://www.openintents.org
+
+You can help to improve the translation into your language at Launchpad:
+https://translations.launchpad.net/openintents/trunk
+
+The source code of this free and open source application is available at:
+http://code.google.com/p/openintents
+
+Features:
+* Securely protect data using AES encryption.
+* Freely move data entries between categories.
+* Import/Export data entries and databases.
+* Backup/Restore entries.
+* Includes secure password generator.
+* Automatic timeout to protect encrypted documents.
+* Encrypt OI Notepad notes.
+* Support for Obscura picture safe.
+* MyBackup Pro.
+
+Available extensions for "OI File Manager":
+* Show the license information with "OI About".
+
+Applications that work with "OI File Manager":
+* Encrypt notes created in "OI Notepad".
+
+Keywords:
+# Keywords: List several related key words and variations in your language and in English that people might search for.
+* safe, encrpytion, password, protection
+# Keep these keywords untranslated, or list the English version and a translation of the company name into your language in variations that people might search for.
+* OI, IO, OpenIntents, Open Intents
+
+International versions:
+#$ international
+
+Search strings for Market:
+# (these are not translated into other languages)
+#$ include description_extensions.txt
