@@ -1,0 +1,48 @@
+# Application:
+OI सुरक्षित
+
+# Promo text:
+ओआई सेफ आपके सारे व्यक्तिगत डाटा को गोपनीय रखता है
+
+# Description:
+OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+
+यह अनुप्रयोग विज्ञापन मुक्त है और  इसे  इंटरनेट की अनुमति की आवश्यकता नहीं है| 
+
+परिवर्तन और अक्सर पूछे जाने वाले प्रश्नों की पूरी सूची के लिए, कृपया यहाँ पर जाएँ: 
+http://www.openintents.org
+
+आप Launchpad पर अपनी भाषा के अनुवाद को बेहतर बनाने में मदद कर सकते हैं: 
+https://translations.launchpad.net/openintents/trunk
+
+इस स्वतंत्र और खुला स्रोत अनुप्रयोग का स्रोत कोड यहाँ पर उपलब्ध है: 
+http://code.google.com/p/openintents
+
+सुविधाएँ: 
+* Securely protect data using AES encryption.
+* Freely move data entries between categories.
+* Import/Export data entries and databases.
+* Backup/Restore entries.
+* Includes secure password generator.
+* Automatic timeout to protect encrypted documents.
+* Encrypt OI Notepad notes.
+* Support for Obscura picture safe.
+* MyBackup Pro.
+
+"OI File Manager" के लिए उपलब्ध एक्सटेंशन: 
+* "OI About" के साथ लाइसेंस जानकारी दिखाएँ .
+
+आवेदन ""OI File Manager" के साथ काम करता है: 
+* Encrypt notes created in "OI Notepad".
+
+कीवर्ड: 
+* safe, encrpytion, password, protection
+* OI, IO, OpenIntents, Open Intents
+
+अंतर्राष्ट्रीय संस्करण: 
+OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+
+
+बाजार के लिए स्ट्रिंग्स को  खोजें : 
+* Uses OI About
+* Extension for OI Notepad

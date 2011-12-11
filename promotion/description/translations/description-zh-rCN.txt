@@ -1,0 +1,48 @@
+# Application:
+OI安全
+
+# Promo text:
+OI安全让您的私人数据加密。
+
+# Description:
+OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+
+应用程序的广告是免费的，不需要网络权限。 
+
+完整列表的更改，请访问： 
+http://www.openintents.org
+
+可以翻译成您的语言： 
+https://translations.launchpad.net/openintents/trunk
+
+开放源码应用程序的源代码是： 
+http://code.google.com/p/openintents
+
+功能 
+* Securely protect data using AES encryption.
+* Freely move data entries between categories.
+* Import/Export data entries and databases.
+* Backup/Restore entries.
+* Includes secure password generator.
+* Automatic timeout to protect encrypted documents.
+* Encrypt OI Notepad notes.
+* Support for Obscura picture safe.
+* MyBackup Pro.
+
+Available extensions for "OI File Manager": 
+* Show the license information with "OI About".
+
+Applications that work with "OI File Manager": 
+* Encrypt notes created in "OI Notepad".
+
+关键字： 
+* safe, encrpytion, password, protection
+* OI, IO, OpenIntents, Open Intents
+
+国际版本： 
+OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+
+
+Search strings for Market: 
+* Uses OI About
+* Extension for OI Notepad

@@ -1,0 +1,41 @@
+OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+
+באפליקציה זאת אין פרסומות והיא לא דורשת אישור אינטרנט. 
+
+לרשימה המלאה של שינויים ולרשימה של שאלות נפוצות אנא לכו אל: 
+http://www.openintents.org
+
+אתם יכולים לעזור לשפר את התרגום בשפתכם ב-Launchpad: 
+https://translations.launchpad.net/openintents/trunk
+
+קוד המקור של אפליקציה חינמית ובלע תקוד פתוח זמין אצל: 
+http://code.google.com/p/openintents
+
+מאפיינים: 
+* Securely protect data using AES encryption.
+* Freely move data entries between categories.
+* Import/Export data entries and databases.
+* Backup/Restore entries.
+* Includes secure password generator.
+* Automatic timeout to protect encrypted documents.
+* Encrypt OI Notepad notes.
+* Support for Obscura picture safe.
+* MyBackup Pro.
+
+Available extensions for "OI File Manager": 
+* Show the license information with "OI About".
+
+Applications that work with "OI File Manager": 
+* Encrypt notes created in "OI Notepad".
+
+מילות מפתח: 
+* safe, encrpytion, password, protection
+* OI, IO, OpenIntents, Open Intents
+
+גרסאות בין-לאומיות: 
+OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+
+
+Search strings for Market: 
+* Uses OI About
+* Extension for OI Notepad

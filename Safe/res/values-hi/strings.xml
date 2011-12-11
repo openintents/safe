@@ -21,214 +21,216 @@
 	     *************************** -->
 	
 	<!-- Automatically filled in by Launchpad: -->
-	<string name="about_translators">translator-credits</string>
+	<string name="about_translators">Launchpad Contributions:
+  Shitiz Garg https://launchpad.net/~l95s
+  happy  nawani https://launchpad.net/~nawanihappy</string>
 	
     <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
+	<string name="about_comments">ओआई सेफ आपके सारे व्यक्तिगत डाटा को गोपनीय रखता है</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
 	     *************************** -->
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">No Passwords present for this category.</string>
-    <string name="empty_category">No categories present.  Please add one via Menu-&gt;Add</string>
-    <string name="password_lock">Lock</string>
-    <string name="password_view">View</string>
-    <string name="password_edit">Edit</string>
-    <string name="password_add">Add</string>
-    <string name="password_delete">Delete</string>
-    <string name="password">Password</string>
-    <string name="passwords">Passwords</string>
-    <string name="master_password">Master Password</string>
-    <string name="username">Username</string>
-    <string name="website">Website</string>
-    <string name="description">Description</string>
-    <string name="notes">Notes</string>
-    <string name="save">Save</string>
-    <string name="invalid_password">Invalid password.  Please try again.</string>
-    <string name="notify_blank_pass">Password must be at least 4 characters</string>
-    <string name="notify_blank_desc">Description cannot be blank</string>
-    <string name="notify_blank_name">Name cannot be blank</string>
-    <string name="first_time">Please enter a password below, which will be used to keep your passwords safe.</string>
-    <string name="logoff_explanation">You are currently logged into OI Safe, meaning that other applications can request their passwords and decrypt/encrypt data. Lock to prevent further access until you type in your password again.</string>
-    <string name="remote_ask">Another application is asking to use the master key. Please type in your password to unlock it.</string>
-    <string name="categories">Categories</string>
-	<string name="category">Category</string>
-    <string name="category_business">Business</string>
-    <string name="category_personal">Personal</string>
-    <string name="name">Name</string>
-    <string name="category_not_empty">Category is not empty.   You must delete the passwords first.</string>
-	<string name="cannot_decrypt_category">Cannot decrypt category</string>
-	<string name="cannot_decrypt_password">Cannot decrypt password</string>
-	<string name="error_export">Error exporting database</string>
-	<string name="export_database">Export Database</string>
-	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
-	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
-	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
-	<string name="import_database">Import Database</string>
-	<string name="import_file_missing">Import file is missing:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
-	<string name="import_error_first_line">First line is missing fields.</string>
-	<string name="dialog_import_title">Import</string>
-	<string name="dialog_import_msg">Do you want to replace the database (import from %s)?</string>
-	<string name="yes">Yes</string>
-	<string name="no">No</string>
-	<string name="import_progress">Please wait while importing...</string>
-	<string name="import_no_categories">No categories found.</string>
-	<string name="import_no_entries">No entries found in CSV.</string>
-	<string name="import_too_many_categories">Too many categories.</string>
-	<string name="import_not_enough_fields">Not enough fields</string>
-	<string name="import_blank_category">Blank category</string>
-	<string name="import_blank_description">Blank description</string>
-	<string name="dialog_delete_database_title">Delete Database</string>
-	<string name="dialog_delete_database_msg">Are you really sure you want to delete the database?  This cannot be undone.</string>
-	<string name="added">Added</string>
-	<string name="entries">entries</string>
-	<string name="import_complete">Import complete</string>
-	<string name="import_delete_csv">Since it is not secure to keep passwords in clear text CSV files, would you like to delete</string>
-	<string name="edit_entry">Edit Entry</string>
-	<string name="view_entry">View Entry</string>
-	<string name="help">Help</string>
-	<string name="close">Close</string>
-	<string name="go">Go</string>
-	<string name="dialog_delete_password_title">Delete Password</string>
-	<string name="dialog_delete_password_msg">Are you sure you want to delete this password?</string>
-	<string name="change_password">Change Master Password</string>
-	<string name="chg_pass_explaination">Use this to change the password you use to unlock OI Safe.   Your data will be re-encrypted with the new password.  The more complex your password is, the safer your data will be.</string>
-	<string name="old_password">Old password</string>
-	<string name="new_password">New password</string>
-	<string name="verify_password">Verify password</string>
-	<string name="new_verify_mismatch">New and Verify passwords do not match.</string>
-    <string name="invalid_old_password">Old password is invalid.  Please try again.</string>
-    <string name="error_changing_password">Error changing password</string>
-    <string name="password_changed">Master Password changed</string>
-    <string name="confirm">Confirm</string>
-    <string name="confirm_pass_fail">Password entries do not match.</string>
-    <string name="backup">Backup</string>
-    <string name="backup_progress">Backing up to </string>
-    <string name="backup_complete">Complete.  Passwords backed up: </string>
-    <string name="backup_failed">Backup failed: </string>
-    <string name="restore">Restore</string>
-    <string name="filename">Filename</string>
-    <string name="restore_no_file">Backup file not found.  You need to perform a backup first to create it.  Or copy a backup from your PC.</string>
-    <string name="restore_set_password">Please provide the password used by the backup file.  Your master password will be set to this.</string>
+    <string name="app_name">OI सुरक्षित</string>
+    <string name="empty_safe">इस श्रेणी के लिए कोई पासवर्ड उपलब्ध नहीं है</string>
+    <string name="empty_category">कोई श्रेणी उपलब्ध नहीं| कृपया सूची द्वारा जोड़ें-&gt;Add</string>
+    <string name="password_lock">बंद करें</string>
+    <string name="password_view">दृश्य</string>
+    <string name="password_edit">संपादित करें</string>
+    <string name="password_add">जोड़ें</string>
+    <string name="password_delete">मिटाएँ</string>
+    <string name="password">पासवर्ड</string>
+    <string name="passwords">पासवर्ड</string>
+    <string name="master_password">मुख्य पासवर्ड</string>
+    <string name="username">उपयोक्तानाम</string>
+    <string name="website">वेबसाइट</string>
+    <string name="description">वर्णन</string>
+    <string name="notes">टिप्पणियाँ</string>
+    <string name="save">सहेजें</string>
+    <string name="invalid_password">गलत पासवर्ड| कृपया फिर प्रयास करें</string>
+    <string name="notify_blank_pass">पासवर्ड कम से कम ४ अक्षरों का होना चाहिए</string>
+    <string name="notify_blank_desc">विवरण खाली नहीं हो सकता</string>
+    <string name="notify_blank_name">नाम खाली नहीं हो सकता</string>
+    <string name="first_time">कृपया नीचे एक पासवर्ड डालें, जो आपके पासवर्डों को सुरक्षित रखने के लिए प्रयोग होगा</string>
+    <string name="logoff_explanation">अभी आप ओअई सेफ में लोग इन हैं, अर्थात अन्य अनुप्रयोग अपने पासवर्ड मांग सकते हैं और डाटा को गूढ़/विगूढ़ कर सकते हैं| आप पासवर्ड फिर से टाइप ना करें तब तक आगे पहुँच रोकने के लिए लॉक करें</string>
+    <string name="remote_ask">दूसरा अनुप्रयोग मुख्या पासवर्ड को इस्तेमाल करने कि अनुमति मांग रहा है| कृपया अपना पासवर्ड लिखे</string>
+    <string name="categories">श्रेणी</string>
+	<string name="category">श्रेणी</string>
+    <string name="category_business">व्यप्यर</string>
+    <string name="category_personal">निजी</string>
+    <string name="name">नाम</string>
+    <string name="category_not_empty">श्रेणी खाली नहीं है| आपको पासवर्ड पहले हटानी पड़ेंगे</string>
+	<string name="cannot_decrypt_category">श्रेणी विकोड ना हो पाई</string>
+	<string name="cannot_decrypt_password">पासवर्ड विकोड ना हो पाई</string>
+	<string name="error_export">डाटाबेस निर्यते हुए त्रुटि</string>
+	<string name="export_database">डाटाबेस निर्यात</string>
+	<string name="export_msg">यह पासवर्ड को डाटाबेस में साफ पद फाइल में निर्यात करे गा| यह बहुत खतरनाक हैं| इस फाइल को इस्तेमाल करने के बाद मिटाना धियान रखना| क्या आप निर्यात करना चाहते हैं?</string>
+	<string name="export_success">\'%s\' निर्यात सफल| सूचना! यह फाइल गोपनीय नहीं है</string>
+	<string name="export_file_error">फाइल \'oisafe.csv\' सड कार्ड में निर्यात ना हो सकी| आप USB को कंप्यूटर से काटने कि कोशिश कर सकते हैं</string>
+	<string name="import_database">आयात डाटाबेस</string>
+	<string name="import_file_missing">आयात फाइल लापता है:</string>
+	<string name="import_file_error">फाइल \'oisafe.csv\' सड कार्ड में आयात ना हो सकी| आप USB को कंप्यूटर से काटने कि कोशिश कर सकते हैं</string>
+	<string name="import_error_first_line">पहली लाइन के शेत्र लापता है</string>
+	<string name="dialog_import_title">आयात</string>
+	<string name="dialog_import_msg">क्या आप डाटाबेस को बदलना चाहते है (%s से आयत)?</string>
+	<string name="yes">हाँ</string>
+	<string name="no">नहीं</string>
+	<string name="import_progress">आयात करते सम्हे कृपया इंतज़ार करें...</string>
+	<string name="import_no_categories">कोई श्रेणी ना मिली</string>
+	<string name="import_no_entries">CSV में कोई एंट्री ना मिली</string>
+	<string name="import_too_many_categories">बहुत ज़रा श्रेणी है</string>
+	<string name="import_not_enough_fields">काफी शेत्र नहीं हैं</string>
+	<string name="import_blank_category">खाली श्रेणी</string>
+	<string name="import_blank_description">खाली वर्णन</string>
+	<string name="dialog_delete_database_title">खाली डाटाबेस</string>
+	<string name="dialog_delete_database_msg">क्या आप इस डाटाबेस को हटाना चाहते हैं? यह निष्ट नहीं किया जा सकता</string>
+	<string name="added">जोड़ा गया</string>
+	<string name="entries">एंट्रिस</string>
+	<string name="import_complete">अयार्ट पूरा हुआ</string>
+	<string name="import_delete_csv">क्योंकि पासवर्ड को साफ़ CSV फाइल में रखना उचित नहीं है, क्या आप इसे हटाना चाहेंगे?</string>
+	<string name="edit_entry">एंट्री संपादन करें</string>
+	<string name="view_entry">एंट्री देखें</string>
+	<string name="help">मदद</string>
+	<string name="close">बंद</string>
+	<string name="go">जाएँ</string>
+	<string name="dialog_delete_password_title">पासवर्ड हटाएँ</string>
+	<string name="dialog_delete_password_msg">क्या आप सचमुच इस पासवर्ड को हटाना चाहते हैं?</string>
+	<string name="change_password">मुख्य पासवर्ड बदलिए</string>
+	<string name="chg_pass_explaination">इसका इस्तेमाल आप ओई सेफ के पासवर्ड को बदलने के लिए कर सकते हैं| आपका डाटा फिरसे गोपनीय कर दिया जायगा| जितना जटिल आपका पासवर्ड होगा, उतना ही आपका सुरक्षित रहेगा</string>
+	<string name="old_password">पुराना पासवर्ड</string>
+	<string name="new_password">नया पासवर्ड</string>
+	<string name="verify_password">पासवर्ड सत्यापित करे</string>
+	<string name="new_verify_mismatch">नया और सत्यापित पासवर्ड नहीं मिले</string>
+    <string name="invalid_old_password">पुराना पासवर्ड गलत है| कृपया फिरसे कोशिश करें</string>
+    <string name="error_changing_password">पासवर्ड बदलने में त्रुटि</string>
+    <string name="password_changed">मुख्या पासवर्ड बदल गया</string>
+    <string name="confirm">पुष्टि करें</string>
+    <string name="confirm_pass_fail">पासवर्ड एंट्रिया नहीं मिलती</string>
+    <string name="backup">बैकुप</string>
+    <string name="backup_progress">बैकुप हो रहा है</string>
+    <string name="backup_complete">पूरा हुआ| आपके यह पासवर्ड बैकुप हुए:</string>
+    <string name="backup_failed">बैकुप नाकाम हुआ:</string>
+    <string name="restore">वापस लायें</string>
+    <string name="filename">फाइल का नाम</string>
+    <string name="restore_no_file">बैकुप फाइल नहीं मिली| आपको पहले बच्कुप करना पड़े गा उसकी बनाने के लिए| या आप कंप्यूटर से नक़ल कर सकते हैं</string>
+    <string name="restore_set_password">कृपया पासवर्ड दे बच्कुप फाइल को इस्तेमाल करने के लिए| आपका मुख्य पासवर्ड इसमें बदल्दिया जायेगा</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Unable to open file: %s</string>
+    <string name="restore_unable_to_open">फाइल खुलने में नाकामी: %s</string>
     
     <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Version not supported: %s</string>
+    <string name="restore_bad_version">यह संस्करण समर्थित नहीं हैं: %s</string>
     
-    <string name="restore_error">Restore error.</string>
-    <string name="restore_decrypt_error">Bad password.</string>
-    <string name="dialog_restore_database_title">Restore Database</string>
-    <string name="dialog_restore_database_msg">Are you sure you want to replace the current data?</string>
-    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
-    <string name="restore_complete">Complete.  Passwords restored: %s</string>
-    <string name="copied_to_clipboard">copied to Clipboard</string>
-    <string name="invalid_website">Invalid website</string>
-    <string name="database_error_title">Database Error</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="restore_error">बहलते हुए त्रुटि</string>
+    <string name="restore_decrypt_error">गलत पासवर्ड</string>
+    <string name="dialog_restore_database_title">पुराना डाटाबेस डालें</string>
+    <string name="dialog_restore_database_msg">क्या आप वर्तमान के डाटा को प्रतिस्थापित करना चाहते हैं?</string>
+    <string name="restore_found">%2$s के बैकुप में %1$s पास्वोर्ड्स मिलें</string>
+    <string name="restore_complete">पूरा हुआ. %s पास्वोर्ड्स बहले गए</string>
+    <string name="copied_to_clipboard">क्लिपबोर्ड में नकला गया</string>
+    <string name="invalid_website">वेबसाइट गलत हैं</string>
+    <string name="database_error_title">डेटाबेस त्रुटि</string>
+    <string name="database_error_msg">डाटाबेस त्रुटि| क्या जगह खतम हैं?</string>
     
     <!-- Menu label to open a category -->
-    <string name="open">Open</string>
+    <string name="open">खोलें</string>
     
-    <string name="database_version_error_title">Database Version Error</string>
-    <string name="database_version_error_msg">Sorry, but the version of the database is not supported.   You must install the version associated with this database.</string>
+    <string name="database_version_error_title">डाटाबेस संस्करण त्रुटि</string>
+    <string name="database_version_error_msg">माफ की जिए, लेकिन यह डाटाबेस का संस्करण समर्थित नहीं हैं| आपको सही संस्करण को इंस्टाल करना पड़ेगा</string>
 	
 	<!-- Menu label to move a password to another category -->
-	<string name="move">Move</string>
+	<string name="move">खिसकाएँ</string>
 	
-	<string name="move_select">Select Category</string>
+	<string name="move_select">श्रेणी चुनिए</string>
 	
 	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Moved to %s</string>
+	<string name="moved_to">%s में भेज दिया गया है</string>
 	
-	<string name="preferences">Settings</string>
-	<string name="pref_title_external_access">Allow external access</string>
-	<string name="pref_summary_external_access">Allow other applications to secure your data with OI Safe</string>
-	<string name="dialog_title_external_access">OI Safe: Another application requests access.</string>
-	<string name="dialog_summary_external_access">Allow other applications to secure your data with OI Safe.</string>
-	<string name="dialog_comment_external_access">This can also be set in OI Safe\'s Menu / Settings.</string>
+	<string name="preferences">सेटिंग्स</string>
+	<string name="pref_title_external_access">बाहरी उपयोग प्रदान दे</string>
+	<string name="pref_summary_external_access">दूसरे अनुप्रयोग को आपका डाटा सुरक्षित करने कि अनुमति दें</string>
+	<string name="dialog_title_external_access">ओई सेफ: दूसरा अनुप्रयोग पहुँचने कि अनुमति मांग रहा है</string>
+	<string name="dialog_summary_external_access">दूसरी अनुप्रयोग को आपका डाटा सुरक्षित करने कि अनुमति दें</string>
+	<string name="dialog_comment_external_access">यह ओई सेफ कि मेनू/सेत्तिंग्स से भी बदला जा सकता है</string>
 	
 	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Auto lock timeout</string>
+	<string name="pref_title_lock_timeout">अपने आप लोकक करने का समये</string>
 	
 	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Number of minutes before timeout occurs and safe is locked</string>
+	<string name="pref_summary_lock_timeout">मिनटों कि संख्या जिसके बाद टाइमआउट होता है और सेफ लोकक हो जाती है</string>
 	
-	<string name="pref_dialog_title_lock_timeout">Auto lock timeout</string>
+	<string name="pref_dialog_title_lock_timeout">अपने आप लोकक करने का समये</string>
 	
 	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Lock on screen lock</string>
+	<string name="pref_title_lock_on_screen_lock">स्क्रीन बंद में बंद करें</string>
 	
 	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Lock when the screen locks</string>
+	<string name="pref_summary_lock_on_screen_lock">स्क्रीन बंद में लोकक करें</string>
 	
 	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Keypad</string>
+	<string name="pref_title_keypad">कीपैड</string>
 	
 	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Use a keypad to enter Master Password</string>
+	<string name="pref_summary_keypad">मुख्या पासवर्ड भरते समये कीपैड का इस्तेमाल करें</string>
 	
 	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Keypad Mute</string>
+	<string name="pref_title_keypad_mute">कीपैड शांत</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Mute keypad sounds</string>
+	<string name="pref_summary_keypad_mute">कीपैड कि आवाज़ बंद</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
-	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
+	<string name="pref_title_autobackup">अपने आप बैकुप</string>
+	<string name="pref_summary_autobackup">अपने आप बैकुप का पासवर्ड को पूछे</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
-	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_title_autobackup_days">अपने आप बैकुप करने के दिन</string>
+	<string name="pref_summary_autobackup_days">दिनों कि संख्या अपने आप बच्कुप करने से पहले</string>
+	<string name="pref_dialog_title_autobackup_days">अपने आप बच्कुप के दिन</string>
 	
 	
-	<string name="intent_decrypt">Decrypt (OI Safe)</string>
-	<string name="intent_encrypt">Encrypt (OI Safe)</string>
-	<string name="intent_get_password">Get password (OI Safe)</string>
-	<string name="intent_set_password">Set password (OI Safe)</string>
-	<string name="intent_restart_timer">Restart timer (OI Safe)</string>
-	<string name="open_safe">Open OI Safe</string>
-	<string name="lock">Lock</string>
-	<string name="continue_text">Continue</string>
-	<string name="generate_password">Generate Password</string>
-	<string name="pass_gen_length">Password Length</string>
-	<string name="pass_gen_uppercase">Uppercase [A-Z]</string>
-	<string name="pass_gen_lowercase">Lowercase [a-z]</string>
-	<string name="pass_gen_numbers">Numbers [0-9]</string>
-	<string name="pass_gen_symbols">Symbols [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Copy to Current Entry</string>
-	<string name="pass_gen_copy_to_clipboard">Copy to Clipboard</string>
-	<string name="cancel">Cancel</string>
-	<string name="discard_changes">Discard changes</string>
-	<string name="entry_saved">Entry saved</string>
-	<string name="entry_save_error">Unable to save due to database error</string>
-	<string name="last_edited">Last edited</string>
-	<string name="last_edited_unknown">unknown</string>
-	<string name="crypto_error">Crypto error:</string>
-	<string name="uniquename">Unique name</string>
-	<string name="package_access">Package access</string>
-	<string name="not_found">not found</string>
-	<string name="dialog_title_first_time_warning">New master key</string>
-	<string name="dialog_summary_first_time_warning">A new random master key has been created. Use menu &gt; backup and store this key in a safe place. Without this key you may lose encrypted data.</string>
-	<string name="switch_mode">Switch mode</string>
-	<string name="decrypt_progress">Decrypting...</string>
-	<string name="search">Search</string>
-	<string name="search_progress">Searching...</string>
-	<string name="search_hint">Type search criteria</string>
-	<string name="search_nothing_found">Nothing found</string>
-	<string name="mute">Mute</string>
-	<string name="sounds">Sounds</string>
-	<string name="previous">Previous</string>
-	<string name="next">Next</string>
-	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
-	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
-	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="intent_decrypt">विकोड (ओई सेफ)</string>
+	<string name="intent_encrypt">गोपनीय (ओई सेफ)</string>
+	<string name="intent_get_password">पासवर्ड लाए (ओई सेफ)</string>
+	<string name="intent_set_password">पासवर्ड रखें (ओई सेफ)</string>
+	<string name="intent_restart_timer">गाढ़ी फिरसे शुरू करें (ओई सेफ)</string>
+	<string name="open_safe">ओई सेफ खोलें</string>
+	<string name="lock">बंद करें</string>
+	<string name="continue_text">आगे बढ़ें</string>
+	<string name="generate_password">पासवर्ड बनायें</string>
+	<string name="pass_gen_length">पासवर्ड कि लम्बाई</string>
+	<string name="pass_gen_uppercase">उपरी केस [A-Z]</string>
+	<string name="pass_gen_lowercase">निचारी केस [a-z]</string>
+	<string name="pass_gen_numbers">संख्या [०-९]</string>
+	<string name="pass_gen_symbols">प्रतींको [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">वर्त्तमान कि एंट्री में नकलें</string>
+	<string name="pass_gen_copy_to_clipboard">क्लिपबोर्ड पर नकल बनाएं</string>
+	<string name="cancel">रद्द</string>
+	<string name="discard_changes">परिवर्तन फेंक दें</string>
+	<string name="entry_saved">एंट्री बचाली हैं</string>
+	<string name="entry_save_error">डाटाबेस त्रुटि के कारण बचा नहीं सकें</string>
+	<string name="last_edited">आखी संपादन</string>
+	<string name="last_edited_unknown">अज्ञात</string>
+	<string name="crypto_error">क्रिप्टो त्रुटि:</string>
+	<string name="uniquename">अनूठा नाम</string>
+	<string name="package_access">पैकेज पहुँच</string>
+	<string name="not_found">नहीं मिला</string>
+	<string name="dialog_title_first_time_warning">नयी मुख्य चाबी</string>
+	<string name="dialog_summary_first_time_warning">एक नयी क्रमरहित मुख्य चाबी बना दी गयी है| इस चाबी को सुरक्षित स्थान में रखने के लियें मेनू &gt; बैकुप का प्रयोग करें| इस चाबी के बिना आप अपना डाटा खो सकते हैं</string>
+	<string name="switch_mode">बदलाव मोड</string>
+	<string name="decrypt_progress">विकोड हो रहा है...</string>
+	<string name="search">खोंजे</string>
+	<string name="search_progress">खोजा रहे हैं...</string>
+	<string name="search_hint">खोजने का मापदंड लिखें</string>
+	<string name="search_nothing_found">कुछ नहीं मिला</string>
+	<string name="mute">मूक</string>
+	<string name="sounds">आवाजें</string>
+	<string name="previous">पिछला</string>
+	<string name="next">अगला</string>
+	<string name="autobackup">अपने आप बैकप</string>
+	<string name="backup_never">अभी तक कोई बैकअप नहीं हुआ है| क्या आप अभी बैकअप करना चाहेंगे?</string>
+	<string name="backup_in_days">आखरी बैकअप %d गिन पहले था| क्या आप अभी बैकअप करना चाहेंगे?</string>
+	<string name="autobackup_turnoff">स्वतः बैकअप बंद करें</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -236,11 +238,11 @@
 
 	<!-- OI Safe -->
 	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">access the master password</string>
-	<string name="oi_safe_permission_service_descr">Allows the application to access the master key used for encryption and decryption. Should never be used except by OI Safe.</string>	
+	<string name="oi_safe_permission_service">मुख्य पासवर्ड प्राप्त करें</string>
+	<string name="oi_safe_permission_service_descr">यह दूसरे अनुप्रयोग को गूढ़ और विगूढ़ करने के लिए मुख्य चाबी को प्राप्त करने देता है| यह ओआई सेफ के आलावा कभी भी इस्तेमाल नहीं होना चाहिए</string>	
 	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">encrypt and decrypt data</string>
-    <string name="oi_safe_permission_intents_descr">Allows the application to encrypt and decrypt text, and access the passwords they have stored in OI Safe.</string>	
+	<string name="oi_safe_permission_intents">डाटा गूढ़ तथा विगूढ़ करें</string>
+    <string name="oi_safe_permission_intents_descr">अनुप्रयोग को व्याख्या को  गूढ़ तथा विगूढ़ करने देता है तथा ओआई सुरक्षा में संचित पासवर्डों तक जाने देता है</string>	
 
 	<!-- ***************************
 	     Preferences
@@ -248,19 +250,19 @@
 
 	<!-- Time until auto lockout -->
     <string-array name="pref_entries_lock_timeout">
-        <item>1 minute</item>
-        <item>5 minutes</item>
-        <item>10 minutes</item>
-        <item>15 minutes</item>
-        <item>30 minutes</item>  
+        <item>१ मिनट</item>
+        <item>५ मिनट</item>
+        <item>१० मिनट</item>
+        <item>१५ मिनट</item>
+        <item>३० मिनट</item>  
     </string-array>
 
 	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
-        <item>1 day</item>
-        <item>7 days</item>
-        <item>30 days</item>
-        <item>60 days</item>
+        <item>१ दिन</item>
+        <item>७ दिन</item>
+        <item>३० दिन</item>
+        <item>६० दिन</item>
     </string-array>
 
         

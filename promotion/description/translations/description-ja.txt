@@ -1,0 +1,7 @@
+# Application:
+OI Safe
+
+# Promo text:
+OI Safe keeps all your private data encrypted.
+
+# Description:

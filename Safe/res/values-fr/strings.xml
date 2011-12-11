@@ -22,11 +22,13 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Abdessamad Derraz https://launchpad.net/~derraz
   Baptiste Fontaine https://launchpad.net/~bfontaine
   François Blondel https://launchpad.net/~francoisblondel
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
-  beudbeud https://launchpad.net/~beudbeud</string>
+  beudbeud https://launchpad.net/~beudbeud
+  kartik https://launchpad.net/~b-ballkartik96</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Safe conserve toutes vos données privées cryptées.</string>  
@@ -129,11 +131,11 @@
     <string name="restore_decrypt_error">Mauvais mot de passe.</string>
     <string name="dialog_restore_database_title">Restaurer la base de données</string>
     <string name="dialog_restore_database_msg">Êtes-vous sûr de vouloir remplacer les données actuelles?</string>
-    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
+    <string name="restore_found">Trouvé% 1 $ s mots de passe de sauvegarde datée% 2 $ s.</string>
     <string name="restore_complete">Complet. Mots de passe restaurés: %s</string>
     <string name="copied_to_clipboard">Copier dans le presse-papier</string>
     <string name="invalid_website">Site invalide</string>
-    <string name="database_error_title">Database Error</string>
+    <string name="database_error_title">Erreur base de données</string>
     <string name="database_error_msg">Erreur de base de données. Plus de place ?</string>
     
     <!-- Menu label to open a category -->
@@ -184,12 +186,12 @@
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
 	<string name="pref_summary_keypad_mute">Couper les sons du clavier</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
-	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
+	<string name="pref_title_autobackup">sauvegarde automatique</string>
+	<string name="pref_summary_autobackup">Invite automatiquement les mots de passe de sauvegarde</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
-	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_title_autobackup_days">Jour de sauvegarde automatique</string>
+	<string name="pref_summary_autobackup_days">Nombre de jours à attendre avant la prochaine sauvegarde automatique</string>
+	<string name="pref_dialog_title_autobackup_days">Jour de sauvegarde automatique</string>
 	
 	
 	<string name="intent_decrypt">Décrypt (OI Safe)</string>
@@ -211,7 +213,7 @@
 	<string name="cancel">Quitter</string>
 	<string name="discard_changes">Annuler les modifications</string>
 	<string name="entry_saved">Entrée sauvé</string>
-	<string name="entry_save_error">Unable to save due to database error</string>
+	<string name="entry_save_error">Impossible d\'enregistrer base de données due à une erreur</string>
 	<string name="last_edited">Dernière édition</string>
 	<string name="last_edited_unknown">inconnu</string>
 	<string name="crypto_error">Erreur crypto:</string>
@@ -224,16 +226,16 @@
 	<string name="decrypt_progress">Décryptage ...</string>
 	<string name="search">Rechercher</string>
 	<string name="search_progress">Recherche en cours…</string>
-	<string name="search_hint">Type de critères de recherche</string>
+	<string name="search_hint">Tapiez de critères de recherche</string>
 	<string name="search_nothing_found">Rien n\'a été trouvé</string>
-	<string name="mute">Mute</string>
-	<string name="sounds">Sounds</string>
-	<string name="previous">Previous</string>
-	<string name="next">Next</string>
-	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
-	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
-	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="mute">Muet</string>
+	<string name="sounds">Sons</string>
+	<string name="previous">Antérieur</string>
+	<string name="next">Prochain</string>
+	<string name="autobackup">Sauvegarde automatique</string>
+	<string name="backup_never">Pas de sauvegarde a été effectuée ce jour. Voulez-vous sauvegarder maintenant?</string>
+	<string name="backup_in_days">La dernière sauvegarde a été il ya% d jours. Voulez-vous sauvegarder maintenant?</string>
+	<string name="autobackup_turnoff">Éteignez auto sauvegarde</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -262,10 +264,10 @@
 
 	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
-        <item>1 day</item>
-        <item>7 days</item>
-        <item>30 days</item>
-        <item>60 days</item>
+        <item>1 jour</item>
+        <item>7 jours</item>
+        <item>30 jours</item>
+        <item>60 jours</item>
     </string-array>
 
         
