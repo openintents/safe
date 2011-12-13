@@ -131,7 +131,7 @@
     <string name="restore_decrypt_error">Mauvais mot de passe.</string>
     <string name="dialog_restore_database_title">Restaurer la base de données</string>
     <string name="dialog_restore_database_msg">Êtes-vous sûr de vouloir remplacer les données actuelles?</string>
-    <string name="restore_found">Trouvé% 1 $ s mots de passe de sauvegarde datée% 2 $ s.</string>
+    <string name="restore_found">Trouvé %1$s mots de passe de sauvegarde datée %2$s.</string>
     <string name="restore_complete">Complet. Mots de passe restaurés: %s</string>
     <string name="copied_to_clipboard">Copier dans le presse-papier</string>
     <string name="invalid_website">Site invalide</string>
