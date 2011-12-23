@@ -45,8 +45,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
@@ -98,6 +100,10 @@ public class CategoryList extends ListActivity {
     public static final int REQUEST_ADD_CATEGORY = 2;
     public static final int REQUEST_OPEN_CATEGORY = 3;
     public static final int REQUEST_RESTORE = 4;
+	public static final int REQUEST_IMPORT_FILENAME = 5;
+	public static final int REQUEST_EXPORT_FILENAME = 6;
+	public static final int REQUEST_BACKUP_FILENAME = 7;
+	
     
     protected static final int MSG_IMPORT = 0x101; 
     protected static final int MSG_FILLDATA = MSG_IMPORT + 1; 
@@ -109,10 +115,7 @@ public class CategoryList extends ListActivity {
 
     public static final int MAX_CATEGORIES = 256;
 
-    private static final String EXPORT_FILENAME = "/sdcard/oisafe.csv";
-    public static final String BACKUP_BASENAME = "oisafe";
     private static final String PASSWORDSAFE_IMPORT_FILENAME = "/sdcard/passwordsafe.csv";
-    public String backupFullname="";
     
     public static final String KEY_ID = "id";  // Intent keys
 
@@ -442,7 +445,7 @@ public class CategoryList extends ListActivity {
             case BACKUP_PROGRESS_KEY: {
                 ProgressDialog dialog = new ProgressDialog(this);
                 dialog.setMessage(getString(R.string.backup_progress)+
-                		" "+backupFullname);
+						" "+Preferences.getBackupPath(this));
                 dialog.setIndeterminate(false);
                 dialog.setCancelable(false);
                 return dialog;
@@ -688,10 +691,9 @@ public class CategoryList extends ListActivity {
 		startActivityForResult(passList,REQUEST_OPEN_CATEGORY);
     }
     
-    private String backupDatabase() {
+	private String backupDatabase(String filename){
     	Backup backup=new Backup(this);
-    	
-    	backup.write(backupFullname);
+		backup.write(filename);
     	return backup.getResult();
     }
 
@@ -722,13 +724,21 @@ public class CategoryList extends ListActivity {
 	 * and permit the updating of the progress dialog.
 	 */
 	private void backupThreadStart(){
-    	File externalStorageDirectory=Environment.getExternalStorageDirectory();
-    	backupFullname=externalStorageDirectory.getAbsolutePath()+"/"+BACKUP_BASENAME+".xml";
-
-    	showDialog(BACKUP_PROGRESS_KEY);
+		String filename = Preferences.getBackupPath(this);
+		Intent intent = new Intent("org.openintents.action.PICK_FILE");
+		intent.setData(Uri.parse("file://"+filename));
+		intent.putExtra("org.openintents.extra.TITLE", R.string.import_file_select);
+		if(intentCallable(intent))
+			startActivityForResult(intent, REQUEST_BACKUP_FILENAME);
+		else
+			backupThreadStartHelper(filename);
+	}
+	
+	private void backupThreadStartHelper(final String filename){
+		showDialog(BACKUP_PROGRESS_KEY);
 		backupThread = new Thread(new Runnable() {
 			public void run() {
-				String result=backupDatabase();
+				String result=backupDatabase(filename);
 				dismissDialog(BACKUP_PROGRESS_KEY);
 
 				Message m = new Message();
@@ -744,7 +754,7 @@ public class CategoryList extends ListActivity {
 		backupThread.start();
 	}
 
-    private void restoreDatabase() {
+	private void restoreDatabase(){
 //    	Restore restore=new Restore(myViewUpdateHandler, this);
     	
 //    	restore.read(BACKUP_FILENAME, masterKey);
@@ -762,18 +772,54 @@ public class CategoryList extends ListActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
     	super.onActivityResult(requestCode, resultCode, i);
-
-    	if (resultCode == RESULT_OK) {
+		
+		String path;
+		
+		/* Don't know what it is good for, just necessary
+		 * to get the same behavior as the one before this patch*/
+		if(resultCode == RESULT_OK
+   			 && requestCode == REQUEST_ONCREATE
+   			 || requestCode == REQUEST_EDIT_CATEGORY
+   			 || requestCode == REQUEST_ADD_CATEGORY
+   	    	 || requestCode == REQUEST_OPEN_CATEGORY
+   	    	 || requestCode == REQUEST_RESTORE)
     		fillData();
-    		if (requestCode==REQUEST_EDIT_CATEGORY) {
-    			setSelection(lastPosition);
-    		}
-    	}
-    	if (requestCode==REQUEST_OPEN_CATEGORY) {
+		
+	   	switch(requestCode){
+	   	case REQUEST_EDIT_CATEGORY:
+	   		if(resultCode==RESULT_OK)
+	    			setSelection(lastPosition);
+	   		break;
+	   		
+	   	case REQUEST_OPEN_CATEGORY:
     		// update in case passwords were added/deleted and caused the counts to update
-    		if (catAdapter!=null) {
-    			catAdapter.notifyDataSetChanged();
-    		}
+	   		if (catAdapter!=null)
+	    			catAdapter.notifyDataSetChanged();
+	   		break;
+	   		
+	   	case REQUEST_BACKUP_FILENAME:
+	   		if(resultCode == RESULT_OK){
+	   			path = i.getData().getPath();
+	   			backupThreadStartHelper(path);
+	   			Preferences.setBackupPath(this, path);
+	   		}
+	   		break;
+	   		
+	   	case REQUEST_EXPORT_FILENAME:
+	   		if(resultCode == RESULT_OK){
+	   			path = i.getData().getPath();
+	   			exportDatabaseToFile(path);
+	   			Preferences.setExportPath(this, path);
+	   		}
+	           break;
+	           
+	   	case REQUEST_IMPORT_FILENAME:
+	   		if(resultCode == RESULT_OK){
+	   			path = i.getData().getPath();
+	    		importFile(path);
+	   			Preferences.setExportPath(this, path);
+	   		}
+	   		break;
     	}
     }
 
@@ -791,9 +837,20 @@ public class CategoryList extends ListActivity {
 	    return Passwords.putCategoryEntry(entry);
     }
     
-	public boolean exportDatabase(){
+	public void exportDatabase(){
 		if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
-		String filename=EXPORT_FILENAME;
+		String filename=Preferences.getExportPath(this);
+
+		Intent intent = new Intent("org.openintents.action.PICK_FILE");
+		intent.setData(Uri.parse("file://"+filename));
+		intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
+		if(intentCallable(intent))
+			startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
+		else
+			exportDatabaseToFile(filename);
+	}
+	
+	private void exportDatabaseToFile(final String filename){
 		try {
 			CSVWriter writer = new CSVWriter(new FileWriter(filename), ',');
 
@@ -828,12 +885,11 @@ public class CategoryList extends ListActivity {
 			e.printStackTrace();
 	        Toast.makeText(CategoryList.this, R.string.export_file_error,
 	                Toast.LENGTH_SHORT).show();
-			return false;
+	        return;
 		}
 		String msg=getString(R.string.export_success, filename);
         Toast.makeText(CategoryList.this, msg,
                 Toast.LENGTH_LONG).show();
-		return true;
 	}
 
 	private void deleteDatabaseNow(){
@@ -862,39 +918,22 @@ public class CategoryList extends ListActivity {
 	}
 		
 	public void importDatabase(){
+		String defaultExportFilename = Preferences.getExportPath(this);
 		final String filename;
-		File oiImport=new File(EXPORT_FILENAME);
+		File oiImport=new File(defaultExportFilename);
 		File pwsImport=new File(PASSWORDSAFE_IMPORT_FILENAME);
 		if (oiImport.exists() || !pwsImport.exists()) {
-			filename=EXPORT_FILENAME;
+			filename=defaultExportFilename;
 		}else{
 			filename=PASSWORDSAFE_IMPORT_FILENAME;
 		}
-		File csvFile=new File(filename);
-		if (!csvFile.exists()) {
-			String msg=getString(R.string.import_file_missing) + " " +
-				filename;
-	        Toast.makeText(CategoryList.this, msg,
-	                Toast.LENGTH_LONG).show();
-			return;
-		}
-		Dialog about = new AlertDialog.Builder(this)
-			.setIcon(R.drawable.passicon)
-			.setTitle(R.string.dialog_import_title)
-			.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int whichButton) {
-					deleteDatabase4Import(filename);
-				}
-			})
-			.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int whichButton) {
-					importDeletedDatabase=false;
-					importDatabaseThreadStart(filename);
-				}
-			}) 
-			.setMessage(getString(R.string.dialog_import_msg, filename))
-			.create();
-		about.show();
+		Intent intent = new Intent("org.openintents.action.PICK_FILE");
+		intent.setData(Uri.parse("file://"+filename));
+		intent.putExtra("org.openintents.extra.TITLE", R.string.import_file_select);
+		if(intentCallable(intent))
+			startActivityForResult(intent, REQUEST_IMPORT_FILENAME);
+		else
+			importFile(filename);
 	}
 
 	/**
@@ -1111,5 +1150,39 @@ public class CategoryList extends ListActivity {
 		Intent search = new Intent(this, Search.class);
 		startActivity(search);
 		return true;
+	}
+	
+	private boolean intentCallable(Intent intent){
+		List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent,   
+				PackageManager.MATCH_DEFAULT_ONLY); 
+		return list.size() > 0;
+	}
+	
+	private void importFile(final String filename){
+		File csvFile=new File(filename);
+		if (!csvFile.exists()) {
+			String msg=getString(R.string.import_file_missing) + " " +
+				filename;
+	        Toast.makeText(CategoryList.this, msg,
+	                Toast.LENGTH_LONG).show();
+			return;
+		}
+		Dialog about = new AlertDialog.Builder(this)
+			.setIcon(R.drawable.passicon)
+			.setTitle(R.string.dialog_import_title)
+			.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+					deleteDatabase4Import(filename);
+				}
+			})
+			.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+					importDeletedDatabase=false;
+					importDatabaseThreadStart(filename);
+				}
+			}) 
+			.setMessage(getString(R.string.dialog_import_msg, filename))
+			.create();
+		about.show();
 	}
 }

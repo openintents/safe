@@ -25,6 +25,12 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ---------------------------------------------------------
+release: 1.3.0
+date: 201?-??-??
+- uses OI Filemanager for backup/restore/import/export file selection
+  (issue 186, GCI patch by Matěj Konečný)
+  
+---------------------------------------------------------
 release: 1.2.9
 date: 2011-05-28
 - removed up/down swipe in PassView

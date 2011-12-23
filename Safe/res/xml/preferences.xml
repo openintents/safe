@@ -67,7 +67,13 @@
 			android:entryValues="@array/pref_entryvalues_autobackup_days"
 			android:dialogTitle="@string/pref_dialog_title_autobackup_days"
 			android:defaultValue="7"
-			android:dependency="autobackup"/>    
+			android:dependency="autobackup"/>
+		<Preference
+			android:title="@string/pref_title_backup_path"
+			android:key="backup_path"/>
+		<Preference
+			android:title="@string/pref_title_export_path"
+			android:key="export_path"/>    
 
     </PreferenceCategory>
 </PreferenceScreen>

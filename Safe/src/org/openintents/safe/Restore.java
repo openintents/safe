@@ -16,10 +16,10 @@
  */
 package org.openintents.safe;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -39,8 +39,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -58,11 +60,12 @@ public class Restore extends Activity {
 	
 	private DBHelper dbHelper=null;
 	private String masterKey="";
-	private String filename=null;
 	private RestoreDataSet restoreDataSet=null;
 	private boolean firstTime=false;
 
     public static final String KEY_FIRST_TIME = "first_time";  // Intent keys
+	
+	public static final int REQUEST_RESTORE_FILENAME = 0;
 
 	Intent frontdoor;
     private Intent restartTimerIntent=null;
@@ -99,46 +102,15 @@ public class Restore extends Activity {
 			getResources().getString(R.string.restore);
 		setTitle(title);
 		
-		if (filename==null) {
-	    	File externalStorageDirectory=Environment.getExternalStorageDirectory();
-	    	filename=externalStorageDirectory.getAbsolutePath()+"/"+
-	    		CategoryList.BACKUP_BASENAME+".xml";
-		}
-		TextView filenameText;
-		filenameText = (TextView) findViewById(R.id.restore_filename);
-		filenameText.setText(filename);
-
-		TextView restoreInfoText;
-		restoreInfoText = (TextView) findViewById(R.id.restore_info);
-
-		EditText passwordText;
-		passwordText = (EditText) findViewById(R.id.restore_password);
+		String backupPath = Preferences.getBackupPath(this);
+		Intent intent = new Intent("org.openintents.action.PICK_FILE");
+		intent.setData(Uri.parse("file://"+backupPath));
+		intent.putExtra("org.openintents.extra.TITLE", R.string.restore_select_file);
+		if(intentCallable(intent))
+			startActivityForResult(intent, REQUEST_RESTORE_FILENAME);
+		else
+			restore(backupPath);
 		
-		Button restoreButton;
-		restoreButton = (Button) findViewById(R.id.restore_button);
-
-		if (!backupFileExists(filename)) {
-			passwordText.setVisibility(0);
-			restoreButton.setVisibility(0);
-			restoreInfoText.setText(R.string.restore_no_file);
-			return;
-		}
-
-		restoreInfoText.setText(R.string.restore_set_password);
-
-		passwordText.setVisibility(1);
-		restoreButton.setVisibility(1);
-
-		restoreButton.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View arg0) {
-				EditText passwordText;
-				passwordText = (EditText) findViewById(R.id.restore_password);
-
-				String masterPassword = passwordText.getText().toString();
-				read(filename, masterPassword);
-			}
-		});
     }
 
 	@Override
@@ -374,5 +346,67 @@ public class Restore extends Activity {
 		}else{
 			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent i){
+		super.onActivityResult(requestCode, resultCode, i);
+		switch(requestCode){
+		case REQUEST_RESTORE_FILENAME:
+			if(resultCode == RESULT_OK){
+				String path = i.getData().getPath();
+				restore(path);
+				Preferences.setBackupPath(this, path);
+			} else{
+				setResult(RESULT_CANCELED);
+				finish();
+			}
+			break;
+		}
+	}
+	
+	private void restore(final String filename){
+		TextView filenameText;
+		filenameText = (TextView) findViewById(R.id.restore_filename);
+		filenameText.setText(filename);
+
+		TextView restoreInfoText;
+		restoreInfoText = (TextView) findViewById(R.id.restore_info);
+
+		EditText passwordText;
+		passwordText = (EditText) findViewById(R.id.restore_password);
+		
+		Button restoreButton;
+		restoreButton = (Button) findViewById(R.id.restore_button);
+
+		if (!backupFileExists(filename)) {
+			passwordText.setVisibility(0);
+			restoreButton.setVisibility(0);
+			restoreInfoText.setText(R.string.restore_no_file);
+			return;
+		}
+
+		restoreInfoText.setText(R.string.restore_set_password);
+
+		passwordText.setVisibility(1);
+		restoreButton.setVisibility(1);
+
+		restoreButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View arg0) {
+				EditText passwordText;
+				passwordText = (EditText) findViewById(R.id.restore_password);
+
+				String masterPassword = passwordText.getText().toString();
+				read(filename, masterPassword);
+			}
+		});
+	}
+	
+	
+	private boolean intentCallable(Intent intent){
+		List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent,   
+				PackageManager.MATCH_DEFAULT_ONLY); 
+		return list.size() > 0;
 	}
 }

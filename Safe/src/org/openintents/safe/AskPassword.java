@@ -300,9 +300,7 @@ public class AskPassword extends DistributionLibraryActivity {
 	}
 	
 	private void checkForBackup() {
-    	File externalStorageDirectory=Environment.getExternalStorageDirectory();
-    	String backupFullname=externalStorageDirectory.getAbsolutePath()+"/"+
-    		CategoryList.BACKUP_BASENAME+".xml";
+		String backupFullname=Preferences.getBackupPath(this);
 		File restoreFile=new File(backupFullname);
 		if (!restoreFile.exists()) {
 			return;
