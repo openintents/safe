@@ -239,6 +239,7 @@
 	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
 	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
@@ -273,6 +274,6 @@
         <item>30 days</item>
         <item>60 days</item>
     </string-array>
-
+        
         
 </resources>

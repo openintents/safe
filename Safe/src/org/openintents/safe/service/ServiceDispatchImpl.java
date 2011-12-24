@@ -105,7 +105,7 @@ public class ServiceDispatchImpl extends Service {
 
     private void startTimer () {
 		if (debug) Log.d(TAG,"startTimer with timeoutUntilStop="+timeoutUntilStop);
-    	t = new CountDownTimer(timeoutUntilStop, 10000) {
+    	t = new CountDownTimer(timeoutUntilStop, 1000) {
     		public void onTick(long millisUntilFinished) {
     			//doing nothing.
     			  if (debug) Log.d(TAG, "tick: " + millisUntilFinished );

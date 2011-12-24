@@ -29,6 +29,8 @@ release: 1.3.0
 date: 201?-??-??
 - uses OI Filemanager for backup/restore/import/export file selection
   (issue 186, GCI patch by Matěj Konečný)
+- added a timer to the logoff intent to show how long until the OI Safe
+  service will be stopped (issue 175, GCI patch by Darriel)
   
 ---------------------------------------------------------
 release: 1.2.9

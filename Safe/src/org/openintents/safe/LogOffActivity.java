@@ -6,6 +6,7 @@ import org.openintents.util.VersionUtils;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 
 
 public class LogOffActivity extends Activity {
+	private Handler mHandler = new Handler();
+	
 	   @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public class LogOffActivity extends Activity {
 	        Button logoffButton = (Button) findViewById(R.id.logoff_button);
 	        Button gotoPWS      = (Button) findViewById(R.id.goto_pws);
 
+	        mHandler.postDelayed(mUpdateTimeTask, 0);
 	        
 	    	logoffButton.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View arg0) {
@@ -66,4 +70,25 @@ public class LogOffActivity extends Activity {
 	    			finish();
 	    		}});
 	   }
+	
+	
+	public final Runnable mUpdateTimeTask = new Runnable() {
+		public void run() {
+
+			TextView time = (TextView) findViewById(R.id.lock_timeout);
+			long millis = ServiceDispatchImpl.timeRemaining;
+			int seconds = (int) (millis / 1000) % 60;
+			int minutes = (int) (millis / 60000);
+
+			if (seconds < 10) {
+				time.setText(getString(R.string.lock_timeout, 
+					Integer.toString(minutes) + ":0" + Integer.toString(seconds)));
+			} else {
+				time.setText(getString(R.string.lock_timeout, 
+					Integer.toString(minutes) + ":" + Integer.toString(seconds)));
+			}
+
+			mHandler.postDelayed(this, 1000);
+		}
+	};
 }
