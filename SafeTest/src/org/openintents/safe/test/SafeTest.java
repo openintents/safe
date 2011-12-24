@@ -16,11 +16,14 @@
 package org.openintents.safe.test;
 
 import org.openintents.safe.CategoryList;
+import org.openintents.safe.R;
+
 import com.jayway.android.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
+import android.widget.Button;
 
 public class SafeTest extends ActivityInstrumentationTestCase2<CategoryList>{
 
@@ -37,17 +40,42 @@ public class SafeTest extends ActivityInstrumentationTestCase2<CategoryList>{
 		solo = new Solo(getInstrumentation(), getActivity());
 	}
 
-	private void unlockIfNeeded() throws Exception {
-		if (solo.searchButton("Continue")) {
+	private void unlockIfNeeded() throws Exception {		
+		
+		String confirm = getActivity().getString(R.string.oi_distribution_eula_accept);
+		if (solo.searchButton(confirm)){
+			solo.clickOnButton(confirm);
+		}
+		
+		String cont = getActivity().getString(R.string.oi_distribution_newversion_continue);
+		if (solo.searchButton(cont)){
+			solo.clickOnButton(cont);
+		}
+		
+		
+		String continueText = getActivity().getString(R.string.continue_text);
+		String restore = getActivity().getString(R.string.restore);
+		if (solo.searchButton(restore, true)){
+			solo.enterText(0, masterPassword);
+			solo.enterText(1, masterPassword);
+			solo.clickOnButton(continueText);
+			
+			solo.clickOnButton(getActivity().getString(android.R.string.ok));
+			
+		}
+			
+		if (solo.searchButton(continueText)) {
 			Log.d(TAG,"unlocking");
 			solo.enterText(0, masterPassword);
-			solo.clickOnButton("Continue");
+			solo.clickOnButton(continueText);
 		}
+				
 	}
 
 	@Smoke
 	public void testAAAAUnlock() throws Exception {
 		unlockIfNeeded();
+		solo.assertCurrentActivity("Expected CategoryList", CategoryList.class);
 	}
 	
 	@Smoke

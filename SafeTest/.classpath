@@ -9,5 +9,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/SafeTest/Robotium-Solo2.1/robotium-solo-2.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
