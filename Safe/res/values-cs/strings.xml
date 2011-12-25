@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Matěj Konečný https://launchpad.net/~matejkon</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">OI Sejf uchovává všechna vaše soukromá data zašifrovaná.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI Sejf</string>
+    <string name="empty_safe">V této kategorii nejsou žádná hesla.</string>
+    <string name="empty_category">Neexistují žádné kategorie. Přidejte prosím jednu pomocí Menu-&gt;Přidat</string>
+    <string name="password_lock">Zamknout</string>
+    <string name="password_view">Zobrazit</string>
+    <string name="password_edit">Upravit</string>
+    <string name="password_add">Přidat</string>
+    <string name="password_delete">Odstranit</string>
+    <string name="password">Heslo</string>
+    <string name="passwords">Hesla</string>
+    <string name="master_password">Hlavní heslo</string>
+    <string name="username">Uživatelské jméno</string>
+    <string name="website">Webová stránka</string>
+    <string name="description">Popis</string>
+    <string name="notes">Poznámky</string>
+    <string name="save">Uložit</string>
+    <string name="invalid_password">Špatné heslo. Zkuste to prosím znovu.</string>
+    <string name="notify_blank_pass">Heslo musí mít nejméně čtyři znaky</string>
+    <string name="notify_blank_desc">Popis nemůže být prázdný</string>
+    <string name="notify_blank_name">Jméno nemůže být prázdné</string>
+    <string name="first_time">Níže vložte prosím heslo, které bude použito na uchování vašich hesel v bezpečí.</string>
+    <string name="logoff_explanation">V současné době jste přihlášen/a do OI Sejfu, což znamená, že ostatní aplikace mohou požadovat jejich hesla nebo šifrovat/dešifrovat data. Zamkněte aplikaci pro znemožnění dalších přístupů, dokud znovu nevložíte své heslo.</string>
+    <string name="remote_ask">Jiná aplikace požaduje použít hlavní klíč. Vložte prosím své heslo pro jeho odemčení.</string>
+    <string name="categories">Kategorie</string>
+	<string name="category">Kategorie</string>
+    <string name="category_business">Pracovní</string>
+    <string name="category_personal">Osobní</string>
+    <string name="name">Jméno</string>
+    <string name="category_not_empty">Kategorie není prázdná. Nejprve můsite smazat hesla.</string>
+	<string name="cannot_decrypt_category">Nemohu dešífrovat kategorii</string>
+	<string name="cannot_decrypt_password">Nemohu dešifrovat heslo</string>
+	<string name="error_export">Problém při exportování databáze</string>
+	<string name="export_database">Exportovat databázi</string>
+	<string name="export_file_select">Select a file for export</string>
+	<string name="export_msg">Toto exportuje databázi hesel do obyčejného textového souboru. JE TO VELMI NEBEZPEČNÉ. Nezapomeňte ten soubor smazat, jen co ho nebudete potřebovat. Opravdu chcete exportovat databázi?</string>
+	<string name="export_success">Export do souboru \'%s\' byl úspěšný. Pozor! Ten soubor není zašifrován.</string>
+	<string name="export_file_error">Nepodařilo se vytvořit exportní soubor \'oisafe.csv\' na SD kartě. Zkuste odpojit USB z počítače.</string>
+	<string name="import_database">Importovat databázi</string>
+	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_missing">Importovaný soubor chybí:</string>
+	<string name="import_file_error">Nepodařilo se importovat soubor \'oisafe.csv\' z SD karty. Zkuste odpojit USB z počítače.</string>
+	<string name="import_error_first_line">První řádek jsou chybějící políčka.</string>
+	<string name="dialog_import_title">Importovat</string>
+	<string name="dialog_import_msg">Chcete přepsat databázi (importovat z %s)?</string>
+	<string name="yes">Ano</string>
+	<string name="no">Ne</string>
+	<string name="import_progress">Čekejte prosím během importu...</string>
+	<string name="import_no_categories">Nenalezeny žádné kategorie.</string>
+	<string name="import_no_entries">Nenalezeny žádné vstupy v CSV.</string>
+	<string name="import_too_many_categories">Příliš mnoho kategorií.</string>
+	<string name="import_not_enough_fields">Nedostatek políček</string>
+	<string name="import_blank_category">Prázdná kategorie</string>
+	<string name="import_blank_description">Prázdný popis</string>
+	<string name="dialog_delete_database_title">Odstranit databázi</string>
+	<string name="dialog_delete_database_msg">Opravdu chcete odstranit databázi? Tato operace se nedá vrátit zpět.</string>
+	<string name="added">Přidáno</string>
+	<string name="entries">položek</string>
+	<string name="import_complete">Import dokončen</string>
+	<string name="import_delete_csv">Protože není bezpečné uchovávat hesla v čistě textových CSV souborech, chcete odstranit</string>
+	<string name="edit_entry">Upravit položku</string>
+	<string name="view_entry">Zobrazit položku</string>
+	<string name="help">Nápověda</string>
+	<string name="close">Zavřít</string>
+	<string name="go">Jít</string>
+	<string name="dialog_delete_password_title">Odstranit heslo</string>
+	<string name="dialog_delete_password_msg">Opravdu chcete odstranit toto heslo?</string>
+	<string name="change_password">Změnit hlavní heslo</string>
+	<string name="chg_pass_explaination">Použijte toto pro změnu hesla, které používáte na odemčení OI Sejfu. Vaše data budou znovu zašifrována pomocí nového hesla. Čím složitější je nové heslo, tím bezpečnější budou data.</string>
+	<string name="old_password">Staré heslo</string>
+	<string name="new_password">Nové heslo</string>
+	<string name="verify_password">Oveřit heslo</string>
+	<string name="new_verify_mismatch">Nové a ověřovací heslo se neshodují.</string>
+    <string name="invalid_old_password">Staré heslo je špatné. Zkuste to prosím znovu.</string>
+    <string name="error_changing_password">Chyba při změně hesla</string>
+    <string name="password_changed">Hlavní heslo změněno</string>
+    <string name="confirm">Potvrdit</string>
+    <string name="confirm_pass_fail">Zadaná hesla se neshodují.</string>
+    <string name="backup">Záloha</string>
+    <string name="backup_progress">Zálohováno do</string>
+    <string name="backup_complete">Hotovo. Hesla zazálohována:</string>
+    <string name="backup_failed">Záloha se nezdařila:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
+    <string name="restore">Obnovit</string>
+    <string name="filename">Název souboru</string>
+    <string name="restore_no_file">Zálohovací soubor nenalezen. Nejprve musíte provést zálohování, aby se vytvořil. Nebo zkopírovat zálohu z vašeho PC.</string>
+    <string name="restore_set_password">Vložte prosím heslo použité zálohovacím souborem. Vaše hlavní heslo bude nastaveno na toto.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Nepodařilo se otevřít soubor: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Verze nepodporována: %s</string>
+    
+    <string name="restore_error">Chyba při obnovování.</string>
+    <string name="restore_decrypt_error">Špatné heslo.</string>
+    <string name="dialog_restore_database_title">Obnovit Databázi</string>
+    <string name="dialog_restore_database_msg">Opravdu chcete přepsat současná data?</string>
+    <string name="restore_found">Nalezeno %1$s hesel ze zálohy datované k %2$s.</string>
+    <string name="restore_complete">Hotovo. Hesla obnovena: %s</string>
+    <string name="copied_to_clipboard">zkopírováno do schránky</string>
+    <string name="invalid_website">Nesprávná webová stránka</string>
+    <string name="database_error_title">Chyba databáze</string>
+    <string name="database_error_msg">Chyba databáze. Málo místa?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Otevřít</string>
+    
+    <string name="database_version_error_title">Chyba verze databáze</string>
+    <string name="database_version_error_msg">Je nám líto, ale verze této databáze není podporována. Musíte nainstalovat verzi spojenou s touto databází.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Přesunout</string>
+	
+	<string name="move_select">Zvolit kategorii</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Přesunuto do %s</string>
+	
+	<string name="preferences">Nastavení</string>
+	<string name="pref_title_external_access">Povolit vnější přístup</string>
+	<string name="pref_summary_external_access">Povolit ostatním aplikacím zabezpečovat vaše data s OI Sejfem</string>
+	<string name="dialog_title_external_access">OI Sejf: Jiná aplikace požaduje přístup.</string>
+	<string name="dialog_summary_external_access">Povolit ostatním aplikacím uchovávat vaše data v OI Sejfu.</string>
+	<string name="dialog_comment_external_access">Toto může být nastaveno také v menu OI Sejfu / Nastavení.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">Automaticky uzamknout za</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">Počet minut, než je OI Sejf uzamčen</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Automaticky uzamknout za</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">Zamknout při uzamčení obrazovky</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Zamknout, když se zamkne obrazovka</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Numerická klávesnice</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Použít numerickou klávesnici pro vložení hlavního hesla</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">Ztišit numerickou klávesnici</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Vypnout zvuky numerické klávesnice</string>
+
+	<string name="pref_title_autobackup">Automaticky zálohovat</string>
+	<string name="pref_summary_autobackup">Automaticky nabídnout zálohování hesel</string>
+
+	<string name="pref_title_autobackup_days">Interval automatické zálohy</string>
+	<string name="pref_summary_autobackup_days">Počet dní mezi automatickými zálohami</string>
+	<string name="pref_dialog_title_autobackup_days">Interval automatické zálohy</string>
+	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
+	
+	<string name="intent_decrypt">Dešifrovat (OI Sejf)</string>
+	<string name="intent_encrypt">Zašifrovat (OI Sejf)</string>
+	<string name="intent_get_password">Získat heslo (OI Sejf)</string>
+	<string name="intent_set_password">Nastavit heslo (OI Sejf)</string>
+	<string name="intent_restart_timer">Restartovat časovač (OI Sejf)</string>
+	<string name="open_safe">Otevřít OI Sejf</string>
+	<string name="lock">Zamknout</string>
+	<string name="continue_text">Pokračovat</string>
+	<string name="generate_password">Vygenerovat heslo</string>
+	<string name="pass_gen_length">Délka hesla</string>
+	<string name="pass_gen_uppercase">Velká písmena [A-Z]</string>
+	<string name="pass_gen_lowercase">Malá písmena [a-z]</string>
+	<string name="pass_gen_numbers">Čísla [0-9]</string>
+	<string name="pass_gen_symbols">Symboly [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Zkopírovat do současné položky</string>
+	<string name="pass_gen_copy_to_clipboard">Zkopírovat do schránky</string>
+	<string name="cancel">Zrušit</string>
+	<string name="discard_changes">Zahodit změny</string>
+	<string name="entry_saved">Položka uložena</string>
+	<string name="entry_save_error">Uložení se nezdařilo kvůli chybě databáze</string>
+	<string name="last_edited">Naposledy upraveno</string>
+	<string name="last_edited_unknown">neznámé</string>
+	<string name="crypto_error">Šifrovací chyba:</string>
+	<string name="uniquename">Jedinečné jméno</string>
+	<string name="package_access">Přístup k balíčku</string>
+	<string name="not_found">nenalezeno</string>
+	<string name="dialog_title_first_time_warning">Nové hlavní heslo</string>
+	<string name="dialog_summary_first_time_warning">Nový náhodný hlavní klíč byl vytvořen. Použijte menu &gt; záloha a uchovejte tento klíč na bezpečném místě. Bez tohoto klíče můžete ztratit zašifrovaná data.</string>
+	<string name="switch_mode">Přepnout režim</string>
+	<string name="decrypt_progress">Dešifruji...</string>
+	<string name="search">Hledat</string>
+	<string name="search_progress">Hledám...</string>
+	<string name="search_hint">Napište vyhledávací kritéria</string>
+	<string name="search_nothing_found">Nic nenalezeno</string>
+	<string name="mute">Ztlumit</string>
+	<string name="sounds">Zvuky</string>
+	<string name="previous">Předchozí</string>
+	<string name="next">Další</string>
+	<string name="autobackup">Automatická záloha</string>
+	<string name="backup_never">Žádná záloha zatím nebyla provedena. Chcete zálohovat nyní?</string>
+	<string name="backup_in_days">Poslední záloha je %d dní stará. Chcete zálohovat nyní?</string>
+	<string name="autobackup_turnoff">Vypnout automatickou zálohu</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">přistupovat ke hlavnímu heslu</string>
+	<string name="oi_safe_permission_service_descr">Povoluje aplikaci přistupovat k hlavnímu klíči použitému pro šifrování. Nemělo by být nikdy použito kromě OI Sejfu.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">šifrovat a dešifrovat data</string>
+    <string name="oi_safe_permission_intents_descr">Povoluje aplikaci šifrovat a dešifrovat text a přistupovat k heslům, které má uložené v OI Sejfu.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 minuta</item>
+        <item>5 minut</item>
+        <item>10 minut</item>
+        <item>15 minut</item>
+        <item>30 minut</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 den</item>
+        <item>7 dní</item>
+        <item>30 dní</item>
+        <item>60 dní</item>
+    </string-array>
+        
+        
+</resources>

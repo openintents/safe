@@ -66,10 +66,12 @@
 	<string name="cannot_decrypt_password">Nie można odszyfrować hasła</string>
 	<string name="error_export">Błąd podczas eksportowania bazy.</string>
 	<string name="export_database">Eksportuj bazę danych</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">Ta opcja wyeksportuje bazę haseł do pliku tekstowego. TA OPERACJA JEST NIEBEZPIECZNA. Upewnij się, że usunąłeś plik jeśli nie będzie już tobie potrzebny. Czy na pewno chcesz wyeksportować?</string>
 	<string name="export_success">Eksportowanie do \'%s\' zakończone pomyślnie. Ostrzeżenie! Ten plik nie jest zaszyfrowany.</string>
 	<string name="export_file_error">Nie można utworzyć pliku eksportowego \'oisafe.csv\' na karcie pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
 	<string name="import_database">Importuj bazę danych</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Brak pliku do zaimportowania:</string>
 	<string name="import_file_error">Nie można zaimportować pliku \'oisafe.csv\' z karty pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
 	<string name="import_error_first_line">W pierwszej linii brakuje pól.</string>
@@ -112,10 +114,14 @@
     <string name="backup_progress">Tworzenie kopii zapasowych do</string>
     <string name="backup_complete">Zakończono. Hasła w kopiach zapasowych:</string>
     <string name="backup_failed">Archiwizowanie nie powiodło się:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Przywróć</string>
     <string name="filename">Nazwa pliku</string>
     <string name="restore_no_file">Plik kopii zapasowej nie został odnaleziony. Musisz najpierw wykonać archiwizację by go stworzyć. Lub skopiować kopię zapasową z twojego komputera.</string>
     <string name="restore_set_password">Proszę podać hasło używane przez plik kopii zapasowej. Twoje hasło główne będzie do niego dostosowane.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Nie można otworzyć pliku: %s</string>
@@ -189,6 +195,9 @@
 	<string name="pref_summary_autobackup_days">Liczba dni oczekiwania przed następnym archiwizowaniem</string>
 	<string name="pref_dialog_title_autobackup_days">Dni automatycznego archiwizowania</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Odszyfruj (OI Sejf)</string>
 	<string name="intent_encrypt">Szyfruj (OI Sejf)</string>
@@ -232,6 +241,8 @@
 	<string name="backup_never">Nie stworzono jeszcze kopii zapasowej. Chcesz archiwizować teraz?</string>
 	<string name="backup_in_days">Ostatnie archiwizowanie było %d dni temu. Chcesz archiwizować teraz?</string>
 	<string name="autobackup_turnoff">Wyłącz automatyczne archiwizowanie</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -265,6 +276,6 @@
         <item>30 dni</item>
         <item>60 dni</item>
     </string-array>
-
+        
         
 </resources>

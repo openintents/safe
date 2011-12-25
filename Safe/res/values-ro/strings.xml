@@ -71,10 +71,12 @@
 	<string name="cannot_decrypt_password">Parola nu poate fi decriptată</string>
 	<string name="error_export">Eroare la exportarea bazei de data</string>
 	<string name="export_database">Exportă baze de date</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">Acesta va exporta baza de date cu parole într-un fişier text clar (plaintext). ACEASTĂ OPERAȚIUNE ESTE PERICULOASĂ. Asiguraţi-vă că ştergeţi fişierul după ce aţi terminat de lucrat cu el. Sunteţi sigur că doriţi să exportaţi?</string>
 	<string name="export_success">Exportul către „%s” a fost făcut cu succes. Atenție! Fișierul nu este criptat.</string>
 	<string name="export_file_error">Nu se poate crea fişierul de export „oisafe.csv” pe SDCARD. Ați putea încerca deconectarea USBului de la calculator.</string>
 	<string name="import_database">Importă baze de date</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Importă fișierele lipsă:</string>
 	<string name="import_file_error">Imposibil de a importa fişierul „oisafe.csv” de la SDCARD. Ati putea încerca deconectarea USBului de la calculator.</string>
 	<string name="import_error_first_line">Prima linie din câmp lipsește.</string>
@@ -117,10 +119,14 @@
     <string name="backup_progress">Copiere de rezervă către</string>
     <string name="backup_complete">Complet. Parolele de rezervă au fost copiate:</string>
     <string name="backup_failed">Copierea de rezervă a eșuat</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Restabilește</string>
     <string name="filename">Nume fișier</string>
     <string name="restore_no_file">Fișierul de rezervă nu a fost găsit. Trebuie să efectuați o copiere de rezervă pentru a crea unul. Sau copiați unul de rezervă din PC-ul dumneavoastră</string>
     <string name="restore_set_password">Introduceți parola folosită de către fișierul de rezervă. Parola dumneavoastră principală va fi setată ca acesta.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Nu se poate deschide fișierul: %s</string>
@@ -194,6 +200,9 @@
 	<string name="pref_summary_autobackup_days">Numărul de zile de așteptat până la următoarea autocopiere de rezervă</string>
 	<string name="pref_dialog_title_autobackup_days">Zile în care se efectuează autocopierea de rezervă</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Decriptează (OI Safe)</string>
 	<string name="intent_encrypt">Criptează (OI Safe)</string>
@@ -237,6 +246,8 @@
 	<string name="backup_never">Nicio copiere de rezervă nu a fost efectuată pană acum. Doriți să efectuați una acum ?</string>
 	<string name="backup_in_days">Ultima copiere de rezervă a fost efectuată în urmă cu %d (de) zile în urmă. Doriți să  efectuați una acum ?</string>
 	<string name="autobackup_turnoff">Oprește autocopierea de rezervă</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -270,6 +281,6 @@
         <item>30 de zile</item>
         <item>60 de zile</item>
     </string-array>
-
+        
         
 </resources>

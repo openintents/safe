@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Lacko545 https://launchpad.net/~lackorauch</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">OI Trezor uchová všetky vaše súkromné údaje zašifrované.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI Trezor</string>
+    <string name="empty_safe">V súčastnosti nie sú žiadne heslá pre túto kategóriu.</string>
+    <string name="empty_category">Niesú žiadne kategórie. Prosím pridejte nejakú pomocou Menu-&gt;Pridať</string>
+    <string name="password_lock">Uzamknúť</string>
+    <string name="password_view">Zobraziť</string>
+    <string name="password_edit">Upraviť</string>
+    <string name="password_add">Pridať</string>
+    <string name="password_delete">Zmazať</string>
+    <string name="password">Heslo</string>
+    <string name="passwords">Heslá</string>
+    <string name="master_password">Hlavné Heslo</string>
+    <string name="username">Meno používateľa</string>
+    <string name="website">Webová stránka</string>
+    <string name="description">Popis</string>
+    <string name="notes">Poznámky</string>
+    <string name="save">Uložiť</string>
+    <string name="invalid_password">Nesprávne heslo. Prosím skúste znovu.</string>
+    <string name="notify_blank_pass">Heslo musí mať aspoň 4 znaky.</string>
+    <string name="notify_blank_desc">Popis nesmie byť prázdny</string>
+    <string name="notify_blank_name">Meno nesmie byť prázdne</string>
+    <string name="first_time">Prosím dole vložte heslo, ktoré bude použité na uchovanie vašich hesiel v bezpečí.</string>
+    <string name="logoff_explanation">Práve ste prihlásení do OI Trezoru, to znamená že ostatné aplikácie môžu požiadať o svoje heslá a šifrovať/dešifrovať údaje. Uzamknite pre zabránenie ďalšieho prístupu, až kým nezadáte svoje heslo znovu.</string>
+    <string name="remote_ask">Iná aplikácia žiada o použitie hlavného kľúča. Prosím napíšte svoje heslo pre odomknutie.</string>
+    <string name="categories">Kategórie</string>
+	<string name="category">Kategória</string>
+    <string name="category_business">Práca</string>
+    <string name="category_personal">Osobné</string>
+    <string name="name">Meno</string>
+    <string name="category_not_empty">Kategória nieje prázdna. Musíte najprv zmazať heslo.</string>
+	<string name="cannot_decrypt_category">Nieje možné dešifrovať kategóriu</string>
+	<string name="cannot_decrypt_password">Nieje možné dešifrovať heslo</string>
+	<string name="error_export">Chyba pri exportovaní databázi</string>
+	<string name="export_database">Exportovať databázu</string>
+	<string name="export_file_select">Select a file for export</string>
+	<string name="export_msg">Toto exportuje databázu hesiel do čistého textového súboru. TOTO JE VEĽMI NEBEZPEČNÉ. Uistite sa že zmažete tento súbor akonáhle s ním skončíte. Ste si istí že chcete exportovať?</string>
+	<string name="export_success">Export do \'%s\' bol úspešný. Varovanie! Súbor nie je zašifrovaný.</string>
+	<string name="export_file_error">Nebolo možné vytvoriť exportovaný súbor \'oisafe.csv\' na SD karte. Môžete skúsiť odpojiť USB z počítača.</string>
+	<string name="import_database">Importovať databázu</string>
+	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_missing">Importovaný súbor chýba:</string>
+	<string name="import_file_error">Nebolo možné importovať súbor \'oisafe.csv\' z SD karty. Môžete skúsiť odpojiť USB z počítača.</string>
+	<string name="import_error_first_line">V prvom riadku chýbajú polia.</string>
+	<string name="dialog_import_title">Importovať</string>
+	<string name="dialog_import_msg">Chcete prepísať databázu (importovať z %s)?</string>
+	<string name="yes">Áno</string>
+	<string name="no">Nie</string>
+	<string name="import_progress">Prosím počkajte kým sa importuje...</string>
+	<string name="import_no_categories">Žiadne kategórie neboli nájdené.</string>
+	<string name="import_no_entries">Žiadne položky neboli nájdené v CSV.</string>
+	<string name="import_too_many_categories">Priveľa kategórií.</string>
+	<string name="import_not_enough_fields">Nie je dosť polí.</string>
+	<string name="import_blank_category">Prázdna kategória</string>
+	<string name="import_blank_description">Prázdny popis</string>
+	<string name="dialog_delete_database_title">Zmazať Databázu</string>
+	<string name="dialog_delete_database_msg">Naozaj chcete zmazať databázu? Toto nemôže byť zvrátené.</string>
+	<string name="added">Pridané</string>
+	<string name="entries">položky</string>
+	<string name="import_complete">Importovanie dokončené</string>
+	<string name="import_delete_csv">Keďže nieje bezpečné uchovávať heslá v čiste textových CSV súbooch, chceli by ste</string>
+	<string name="edit_entry">Upraviť Položku</string>
+	<string name="view_entry">Zobraziť Položku</string>
+	<string name="help">Pomoc</string>
+	<string name="close">Zatvoriť</string>
+	<string name="go">Vykonať</string>
+	<string name="dialog_delete_password_title">Zmazať Heslo</string>
+	<string name="dialog_delete_password_msg">Naozaj chcete zmazať toto heslo?</string>
+	<string name="change_password">Zmeniť Hlavné Heslo</string>
+	<string name="chg_pass_explaination">Použite toto pre zmenu hesla ktoré používate pre odomknute OI Trezoru. Vaše údaje budú znovu zašifrované s novým heslom. Čím zložitejšie je heslo, tým bezečnejšie sú vaše dáta uložené.</string>
+	<string name="old_password">Staré heslo</string>
+	<string name="new_password">Nové heslo</string>
+	<string name="verify_password">Overiť heslo</string>
+	<string name="new_verify_mismatch">Nové a heslo pre overenie nie sú rovnaké.</string>
+    <string name="invalid_old_password">Staré heslo je nesprávne. Prosím skúste znovu.</string>
+    <string name="error_changing_password">Chyba pri zmene hesla</string>
+    <string name="password_changed">Hlavné Heslo zmenené</string>
+    <string name="confirm">Potvrdiť</string>
+    <string name="confirm_pass_fail">Zadané heslá sa nezhodujú.</string>
+    <string name="backup">Záloha</string>
+    <string name="backup_progress">Zálohujem do</string>
+    <string name="backup_complete">Dokončené. Heslá zazálohované:</string>
+    <string name="backup_failed">Zálohovanie zlyhalo:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
+    <string name="restore">Obnoviť</string>
+    <string name="filename">Názov súboru</string>
+    <string name="restore_no_file">Záloha nenájdená. Musíte najprv vykonať zálohu aby ste ju mohli vytvoriť. Alebo skopírujte zálohu z vášho PC.</string>
+    <string name="restore_set_password">Prosím vložte heslo používané zálohovaným súborom. Toto heslo bude nastavené ako vaše hlavné heslo.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Nebolo možné otvoriť súbor: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Verzia nepodporovaná: %s</string>
+    
+    <string name="restore_error">Obnoviť chybu.</string>
+    <string name="restore_decrypt_error">Zlé heslo.</string>
+    <string name="dialog_restore_database_title">Obnoviť databazu</string>
+    <string name="dialog_restore_database_msg">Naozaj chcete prepísať aktualne údaje?</string>
+    <string name="restore_found">Nájdené %1$s hesiel zo zálohy z %2$s.</string>
+    <string name="restore_complete">Dokončené. Heslá obnovené: %s</string>
+    <string name="copied_to_clipboard">skopírované do Schránky</string>
+    <string name="invalid_website">Neplatná internetová stránka</string>
+    <string name="database_error_title">Chyba Databázy</string>
+    <string name="database_error_msg">Chyba databázy. Máte dosť miesta?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Otvoriť</string>
+    
+    <string name="database_version_error_title">Chyba Verzie Databázy</string>
+    <string name="database_version_error_msg">Prepáčte, ale verzia databázy nieje podporovaná. Musíte nainštalovať verziu združenú s touto databázou.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Presunúť</string>
+	
+	<string name="move_select">Vybrať kategóriu</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Presunuté do %s</string>
+	
+	<string name="preferences">Nastavenia</string>
+	<string name="pref_title_external_access">Povoliť externý prístup</string>
+	<string name="pref_summary_external_access">Povoliť ostatným aplikáciam zabezpečiť vaše údaje s OI Trezorom.</string>
+	<string name="dialog_title_external_access">OI Trezor: Ďalšia žiadosť o prístup aplikácie.</string>
+	<string name="dialog_summary_external_access">Povoliť ostatným aplikáciam zabezpečiť vaše údaje s OI Trezorom.</string>
+	<string name="dialog_comment_external_access">Toto môže byť taktiež nastavené v Menu OI Trezora / Nastavenia.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">Prestávka automatického uzamknutia</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">Počet minút pred tým než skončí prestávka a trezor sa zamkne.</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Prestávka automatického uzamknutia</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">Zamknúť pri zamknutí obrazovky</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Zamknúť keď sa zamkne obrazovka</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Numerická klávesnica</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Použite numerickú klávesnicu pre vloženie Hlavného Hesla</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">Stíšiť Numerickú Klávesnicu</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Stíši zvuky numerickej klávesnice</string>
+
+	<string name="pref_title_autobackup">Automatické zálohovanie</string>
+	<string name="pref_summary_autobackup">Automaticky požiadať o zálohu hesiel</string>
+
+	<string name="pref_title_autobackup_days">Dni automatického zálohovania</string>
+	<string name="pref_summary_autobackup_days">Počet dní ktoré mám počkať pred ďalším automatickým zálohovaním</string>
+	<string name="pref_dialog_title_autobackup_days">Dni Automatického Zálohovania</string>
+	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
+	
+	<string name="intent_decrypt">Dešifrovať (OI Trezor)</string>
+	<string name="intent_encrypt">Šifrovať (OI Trezor)</string>
+	<string name="intent_get_password">Získať heslo (OI Trezor)</string>
+	<string name="intent_set_password">Zvoliť heslo (OI Trezor)</string>
+	<string name="intent_restart_timer">Reštartovať časovač (OI Trezor)</string>
+	<string name="open_safe">Otvoriť OI Trezor</string>
+	<string name="lock">Uzamknúť</string>
+	<string name="continue_text">Pokračovať</string>
+	<string name="generate_password">Generovať Heslo</string>
+	<string name="pass_gen_length">Dĺžka Hesla</string>
+	<string name="pass_gen_uppercase">Veľké písmo [A-Z]</string>
+	<string name="pass_gen_lowercase">Malé písmo [a-z]</string>
+	<string name="pass_gen_numbers">Čísla [0-9]</string>
+	<string name="pass_gen_symbols">Symboly [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Kopírovať do Aktuálnej Položky</string>
+	<string name="pass_gen_copy_to_clipboard">Kopírovať do schránky</string>
+	<string name="cancel">Zrušiť</string>
+	<string name="discard_changes">Zahodiť zmeny</string>
+	<string name="entry_saved">Položka bola uložená</string>
+	<string name="entry_save_error">Nebolo možné uložiť kôli chybe databázy</string>
+	<string name="last_edited">Naposledy upravené</string>
+	<string name="last_edited_unknown">neznáme</string>
+	<string name="crypto_error">Chyba šifrovania:</string>
+	<string name="uniquename">Jedinečné meno</string>
+	<string name="package_access">Prístup k balíčkom</string>
+	<string name="not_found">nenájdené</string>
+	<string name="dialog_title_first_time_warning">Nový hlavný kľúč</string>
+	<string name="dialog_summary_first_time_warning">Nový náhodný hlavný kľúč bol vytvorený. Použite menu &gt; zazálohujte a uchovajte tento kľúč na bezpečnom mieste. Bez tohto kľúča by ste mohli prísť o svoje zašifrované údaje.</string>
+	<string name="switch_mode">Prepnúť mód</string>
+	<string name="decrypt_progress">Dešifrujem...</string>
+	<string name="search">Hľadať</string>
+	<string name="search_progress">Hľadá sa...</string>
+	<string name="search_hint">Vožte kritéria hľadania</string>
+	<string name="search_nothing_found">Nič nenájdené</string>
+	<string name="mute">Stíšiť</string>
+	<string name="sounds">Zvuky</string>
+	<string name="previous">Predchádzajúci</string>
+	<string name="next">Ďalší</string>
+	<string name="autobackup">AutomatickéZálohovanie</string>
+	<string name="backup_never">Žiadne zálohovanie nebolo dosiaľ vykonané. Chceli by ste zálohovať teraz?</string>
+	<string name="backup_in_days">Posledné zálohovanie bolo pred %d dňami. Chceli by ste zálohovať teraz?</string>
+	<string name="autobackup_turnoff">Vypnúť automatické zálohovanie</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">prístup k hlavnému heslu</string>
+	<string name="oi_safe_permission_service_descr">Povolí aplikácii pristupovať k hlavnému heslu použitému pre šifrovanie a dešifrovanie. Nemalo by byť nikdy použité okrem OI Trezoru.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">šifrovať a dešifrovať údaje</string>
+    <string name="oi_safe_permission_intents_descr">Povolí aplikácii šifrovať a dešifrovať text, a pristupovať k heslám ktoré majú uložené v OI Trezore.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 minúta</item>
+        <item>5 minút</item>
+        <item>10 minút</item>
+        <item>15 minút</item>
+        <item>30 minút</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 deň</item>
+        <item>7 dní</item>
+        <item>30 dní</item>
+        <item>60 dní</item>
+    </string-array>
+        
+        
+</resources>

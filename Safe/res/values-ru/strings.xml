@@ -22,6 +22,7 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Alexander \'FONTER\' Zinin https://launchpad.net/~spore-09
   Alexander Sapronov https://launchpad.net/~warmonger
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
@@ -67,10 +68,12 @@
 	<string name="cannot_decrypt_password">Невозможно расшифровать пароль</string>
 	<string name="error_export">Ошибка экспорта базы данных</string>
 	<string name="export_database">Экспортировать базу данных</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">База данных будет экспортирована как простой текст. ЭТО ОЧЕНЬ ОПАСНО. Не забудьте удалить файл. Вы уверены, что хотите экспортировать?</string>
 	<string name="export_success">Экспорт в \'%s\' прошёл успешно. Внимание! Файл не зашифрован.</string>
 	<string name="export_file_error">Не могу создать файл экспорта \'oisafe.csv\' на SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_database">Импорт базы данных</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Отсутствует файл импорта:</string>
 	<string name="import_file_error">Не могу импортировать файл \'oisafe.csv\' с SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_error_first_line">В первой строке не хватает полей.</string>
@@ -113,10 +116,14 @@
     <string name="backup_progress">Сохраняю резервную копию в</string>
     <string name="backup_complete">Завершено. Резервная копия паролей сохранена в:</string>
     <string name="backup_failed">Резервная копия не создана:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Восстановить</string>
     <string name="filename">Имя файла</string>
     <string name="restore_no_file">Файл резервной копии не найден. Сначала нужно создать резервную копию или скопировать её с вашего компьютера.</string>
     <string name="restore_set_password">Введите пароль файла резервной копии. Он станет вашим Мастер Паролем.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Не могу открыть файл: %s</string>
@@ -128,7 +135,7 @@
     <string name="restore_decrypt_error">Плохой пароль</string>
     <string name="dialog_restore_database_title">Восстановить базу данных</string>
     <string name="dialog_restore_database_msg">Вы уверены, что хотите заменить текущие данные?</string>
-    <string name="restore_found">Found %1$s passwords from backup dated %2$s.</string>
+    <string name="restore_found">Найденно %1$ паролей из резервной копии %1$.</string>
     <string name="restore_complete">Завершено. Паролей восстановлено: %s</string>
     <string name="copied_to_clipboard">скопировано в буфер</string>
     <string name="invalid_website">Неправильный сайт</string>
@@ -186,10 +193,13 @@
 	<string name="pref_title_autobackup">Автоматическое резервное копирование</string>
 	<string name="pref_summary_autobackup">Автоматически запрашивать резервное копирование паролей.</string>
 
-	<string name="pref_title_autobackup_days">Auto backup days</string>
-	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
-	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
+	<string name="pref_title_autobackup_days">Дни автоматического резервного копирования</string>
+	<string name="pref_summary_autobackup_days">Количество дней, до следующего автоматического резервного копирования</string>
+	<string name="pref_dialog_title_autobackup_days">Дни Автоматического Резервирования</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Расшифровать (OI Safe)</string>
 	<string name="intent_encrypt">Зашифровать (OI Safe)</string>
@@ -210,7 +220,7 @@
 	<string name="cancel">Отменить</string>
 	<string name="discard_changes">Отменить изменения</string>
 	<string name="entry_saved">Запись сохранена</string>
-	<string name="entry_save_error">Unable to save due to database error</string>
+	<string name="entry_save_error">Не удалось сохранить из-за ошибки базы данных</string>
 	<string name="last_edited">Последнее редактирование</string>
 	<string name="last_edited_unknown">Неизвестно</string>
 	<string name="crypto_error">Ошибка шифрования</string>
@@ -227,12 +237,14 @@
 	<string name="search_nothing_found">Ничего не найдено</string>
 	<string name="mute">Приглушить звук</string>
 	<string name="sounds">Звуки</string>
-	<string name="previous">Previous</string>
-	<string name="next">Next</string>
-	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
-	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
-	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="previous">Предыдущий</string>
+	<string name="next">Далее</string>
+	<string name="autobackup">Автоматическое резервирование</string>
+	<string name="backup_never">Резервное копирование ещё не было выполненно. Выполнить резервное копирование сейчас?</string>
+	<string name="backup_in_days">Последнее резервное копирование было %d дней назад. Выполнить резервное копирование сейчас?</string>
+	<string name="autobackup_turnoff">Выключить автоматическое резервное копирование</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -261,11 +273,11 @@
 
 	<!-- Number of days before next autobackup is prompted -->
     <string-array name="pref_entries_autobackup_days">
-        <item>1 day</item>
-        <item>7 days</item>
-        <item>30 days</item>
-        <item>60 days</item>
+        <item>1 день</item>
+        <item>7 дней</item>
+        <item>30 дней</item>
+        <item>60 дней</item>
     </string-array>
-
+        
         
 </resources>

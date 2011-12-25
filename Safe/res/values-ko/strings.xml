@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Jihyeok Seo https://launchpad.net/~limeburst</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">OI 금고는 당신의 모든 비밀 정보를 암호화하여 보관합니다.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI 금고</string>
+    <string name="empty_safe">이 카테고리에 대한 비밀번호가 없습니다.</string>
+    <string name="empty_category">카테고리가 아직 없습니다. 메뉴-&gt;추가 에서 카테고리를 만드세요.</string>
+    <string name="password_lock">잠그기</string>
+    <string name="password_view">보기</string>
+    <string name="password_edit">수정</string>
+    <string name="password_add">더하기</string>
+    <string name="password_delete">지우기</string>
+    <string name="password">비밀번호</string>
+    <string name="passwords">비밀번호</string>
+    <string name="master_password">마스터 비밀번호</string>
+    <string name="username">사용자 이름</string>
+    <string name="website">웹사이트</string>
+    <string name="description">설명</string>
+    <string name="notes">쪽지</string>
+    <string name="save">저장</string>
+    <string name="invalid_password">비밀번호가 맞지 않습니다. 다시 시도해 주세요.</string>
+    <string name="notify_blank_pass">비밀번호는 4글자 이상이어야 합니다.</string>
+    <string name="notify_blank_desc">설명에 내용을 입력해 주세요.</string>
+    <string name="notify_blank_name">이름에 내용을 입력해 주세요.</string>
+    <string name="first_time">아래에 비밀번호를 입력해 주세요. 이 비밀번호는 다른 비밀번호들을 보호하는 데 쓰입니다.</string>
+    <string name="logoff_explanation">당신은 OI 금고에 로그인 되어 있습니다. 다시 비밀번호를 입력하여 금고를 잠그기 전까지는 다른 앱들이 비밀번호를 사용하고 데이터를 암호화 및 복호화 할 수 있습니다.</string>
+    <string name="remote_ask">다른 앱이 마스터 비밀번호 사용 권한을 요청하고 있습니다. 허용하시려면 비밀번호를 입력해 주세요.</string>
+    <string name="categories">카테고리</string>
+	<string name="category">카테고리</string>
+    <string name="category_business">업무</string>
+    <string name="category_personal">개인</string>
+    <string name="name">이름</string>
+    <string name="category_not_empty">카테고리가 비어 있지 않습니다. 비밀번호들을 먼저 삭제해 주세요.</string>
+	<string name="cannot_decrypt_category">카테고리를 복호화 할 수 없습니다.</string>
+	<string name="cannot_decrypt_password">비밀번호를 복호화 할 수 없습니다.</string>
+	<string name="error_export">데이터베이스를 내보내는 도중 에러가 발생하였습니다.</string>
+	<string name="export_database">데이터베이스 내보내기</string>
+	<string name="export_file_select">Select a file for export</string>
+	<string name="export_msg">비밀번호 데이터베이스를 평문으로 이루어진 파일에 내보냅니다. 이것은 매우 위험합니다. 파일을 사용한 뒤 꼭 삭제하시길 바랍니다. 정말 내보내시겠습니까?</string>
+	<string name="export_success">\'%s\' 로 내보내기 완료. 주의! 이 파일은 암호화되있지 않습니다.</string>
+	<string name="export_file_error">SD 카드에 내보내기 파일 \'oisafe.csv\' 생성에 실패하였습니다. USB를 컴퓨터에서 뽑아 보세요.</string>
+	<string name="import_database">데이터베이스 불러오기</string>
+	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_missing">불러오기 파일을 찾을 수 없습니다:</string>
+	<string name="import_file_error">SD 카드에서 \'oisafe.csv\' 파일을 불러오는 데 실패하였습니다. USB를 컴퓨터에서 뽑아 보세요.</string>
+	<string name="import_error_first_line">첫 줄에 내용을 입력해 주세요.</string>
+	<string name="dialog_import_title">불러오기</string>
+	<string name="dialog_import_msg">데이터베이스를 교체하시겠습니까(%s 에서 불러오기)?</string>
+	<string name="yes">네</string>
+	<string name="no">아니오</string>
+	<string name="import_progress">불러오는 동안 잠시 기다려 주세요...</string>
+	<string name="import_no_categories">카테고리가 없습니다.</string>
+	<string name="import_no_entries">CSV에 내용이 없습니다.</string>
+	<string name="import_too_many_categories">카테고리가 너무 많습니다.</string>
+	<string name="import_not_enough_fields">필드가 부족합니다.</string>
+	<string name="import_blank_category">카테고리가 비어 있습니다.</string>
+	<string name="import_blank_description">설명이 비어 있습니다.</string>
+	<string name="dialog_delete_database_title">데이터베이스 삭제하기</string>
+	<string name="dialog_delete_database_msg">데이터베이스를 삭제하시겠습니까? 이 행동은 되돌릴 수 없습니다.</string>
+	<string name="added">추가되었습니다</string>
+	<string name="entries">항목</string>
+	<string name="import_complete">불러오기 완료</string>
+	<string name="import_delete_csv">평문으로 이루어진 CSV 파일에 비밀번호를 저장하는 것은 안전하지 않으므로, 삭제하시겠습니까</string>
+	<string name="edit_entry">항목 편집</string>
+	<string name="view_entry">항목 보기</string>
+	<string name="help">도움말</string>
+	<string name="close">닫기</string>
+	<string name="go">이동</string>
+	<string name="dialog_delete_password_title">비밀번호 삭제</string>
+	<string name="dialog_delete_password_msg">비밀번호를 삭제하시겠습니까?</string>
+	<string name="change_password">마스터 비밀번호 바꾸기</string>
+	<string name="chg_pass_explaination">OI 금고를 여는데 사용하는 비밀번호를 바꿀 때 쓰세요. 바뀐 비밀번호로 데이터를 다시 암호화합니다. 비밀번호가 복잡할수록, 데이터는 더 안전해집니다.</string>
+	<string name="old_password">기존 비밀번호</string>
+	<string name="new_password">새 비밀번호</string>
+	<string name="verify_password">비밀번호 확인</string>
+	<string name="new_verify_mismatch">입력한 비밀번호가 일치하지 않습니다.</string>
+    <string name="invalid_old_password">기존 비밀번호가 맞지 않습니다. 다시 시도해 주세요.</string>
+    <string name="error_changing_password">암호를 바꾸는 중 오류가 발생했습니다.</string>
+    <string name="password_changed">마스터 비밀번호가 변경되었습니다.</string>
+    <string name="confirm">확인</string>
+    <string name="confirm_pass_fail">비밀번호 항목이 맞지 않습니다.</string>
+    <string name="backup">백업</string>
+    <string name="backup_progress">여기에 백업하는 중</string>
+    <string name="backup_complete">완료. 비밀번호가 백업되었습니다:</string>
+    <string name="backup_failed">백업에 실패하였습니다:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
+    <string name="restore">복구하기</string>
+    <string name="filename">파일 이름</string>
+    <string name="restore_no_file">백업 파일을 찾을 수 없습니다. 백업을 하거나, PC 에서 백업을 복사해 올 수 있습니다.</string>
+    <string name="restore_set_password">백업 파일에 사용된 비밀번호를 입력하세요. 마스터 비밀번호가 이 비밀번호로 설정됩니다.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">파일을 열 수 없습니다: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">호환되지 않는 버전입니다: %s</string>
+    
+    <string name="restore_error">복구 에러.</string>
+    <string name="restore_decrypt_error">비밀번호 오류.</string>
+    <string name="dialog_restore_database_title">데이터베이스 복원</string>
+    <string name="dialog_restore_database_msg">현재 데이터를 교체하시겠습니까?</string>
+    <string name="restore_found">%2$s 에 백업한 파일에서 %1$s 개 비밀번호 찾음.</string>
+    <string name="restore_complete">비밀번호 복원 완료: %s</string>
+    <string name="copied_to_clipboard">클립보드에 복사되었습니다.</string>
+    <string name="invalid_website">유효하지 않은 웹사이트</string>
+    <string name="database_error_title">데이터베이스 오류</string>
+    <string name="database_error_msg">데이터베이스 에러. 디스크 공간 부족?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">열기</string>
+    
+    <string name="database_version_error_title">데이터베이스 버전 에러</string>
+    <string name="database_version_error_msg">이 버전의 데이터베이스는 지원하지 않습니다. 이 버전의 데이터베이스와 호환되는 버전의 앱을 설치해주시기 바랍니다.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">옮기기</string>
+	
+	<string name="move_select">카테고리 선택</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">%s 로 옮겼습니다.</string>
+	
+	<string name="preferences">설정</string>
+	<string name="pref_title_external_access">외부 접근 허용하기</string>
+	<string name="pref_summary_external_access">다른 앱들이 데이터를 OI 금고에 안전하게 저장할 수 있게 합니다.</string>
+	<string name="dialog_title_external_access">OI 금고: 다른 앱이 접근을 요청합니다.</string>
+	<string name="dialog_summary_external_access">다른 앱들이 데이터를 OI 금고에 안전하게 저장할 수 있게 합니다.</string>
+	<string name="dialog_comment_external_access">OI 금고의 메뉴 / 설정 에서도 설정할 수 있습니다.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">자동 잠금 타임아웃</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">금고가 자동으로 잠길 때 까지 걸리는 시간(분)</string>
+	
+	<string name="pref_dialog_title_lock_timeout">자동 잠금 타임아웃</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">화면이 잠길때 잠그기</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">화면이 잠길때 금고도 잠급니다</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">키패드</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">마스터 비밀번호를 입력할 때 키패드 사용하기</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">키패드 음소거</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">키패드 소리 없애기</string>
+
+	<string name="pref_title_autobackup">자동 백업</string>
+	<string name="pref_summary_autobackup">비밀번호 백업 자동으로 묻기</string>
+
+	<string name="pref_title_autobackup_days">자동 백업 날들</string>
+	<string name="pref_summary_autobackup_days">다음 자동 백업까지의 일 수</string>
+	<string name="pref_dialog_title_autobackup_days">자동 백업 날들</string>
+	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
+	
+	<string name="intent_decrypt">복호화 (OI 금고)</string>
+	<string name="intent_encrypt">암호화 (OI 금고)</string>
+	<string name="intent_get_password">비밀번호 받기 (OI 금고)</string>
+	<string name="intent_set_password">비밀번호 설정 (OI 금고)</string>
+	<string name="intent_restart_timer">타이머 재시작 (OI 금고)</string>
+	<string name="open_safe">OI 금고 열기</string>
+	<string name="lock">잠그기</string>
+	<string name="continue_text">계속</string>
+	<string name="generate_password">비밀번호 생성하기</string>
+	<string name="pass_gen_length">비밀번호 길이</string>
+	<string name="pass_gen_uppercase">대문자 [A-Z]</string>
+	<string name="pass_gen_lowercase">소문자 [a-z]</string>
+	<string name="pass_gen_numbers">숫자 [0-9]</string>
+	<string name="pass_gen_symbols">특수문자 [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">현재 항목에 복사하기</string>
+	<string name="pass_gen_copy_to_clipboard">클립보드로 복사하기</string>
+	<string name="cancel">취소</string>
+	<string name="discard_changes">변경 사항 무시</string>
+	<string name="entry_saved">항목이 저장되었습니다</string>
+	<string name="entry_save_error">데이터베이스 에러로 인해 저장할 수 없습니다</string>
+	<string name="last_edited">최근 수정</string>
+	<string name="last_edited_unknown">알 수 없음</string>
+	<string name="crypto_error">암호화 에러:</string>
+	<string name="uniquename">고유 이름</string>
+	<string name="package_access">패키지 액세스</string>
+	<string name="not_found">찾을 수 없습니다</string>
+	<string name="dialog_title_first_time_warning">새 마스터 비밀번호</string>
+	<string name="dialog_summary_first_time_warning">새로운 무작위의 마스터 비밀번호가 생성되었습니다. 메뉴 &gt; 백업 에서 이 비밀번호를 안전한 장소에 저장하세요. 이 비밀번호가 없으면 암호화된 데이터를 잃을 수 있습니다.</string>
+	<string name="switch_mode">모드 전환</string>
+	<string name="decrypt_progress">복호화 중...</string>
+	<string name="search">검색</string>
+	<string name="search_progress">검색 중...</string>
+	<string name="search_hint">검색어를 입력하세요</string>
+	<string name="search_nothing_found">검색 결과가 없습니다</string>
+	<string name="mute">음소거</string>
+	<string name="sounds">소리</string>
+	<string name="previous">이전</string>
+	<string name="next">다음</string>
+	<string name="autobackup">자동 백업</string>
+	<string name="backup_never">백업을 한번도 하지 않았습니다. 지금 백업하시겠습니까?</string>
+	<string name="backup_in_days">가장 최근 백업이 %d 일 전이었습니다. 지금 백업하시겠습니까?</string>
+	<string name="autobackup_turnoff">자동 백업 끄기</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">마스터 비밀번호 액세스</string>
+	<string name="oi_safe_permission_service_descr">앱이 암호화와 복호화에 사용되는 마스터 비밀번호에 접근하는 것을 허용합니다. OI 금고 외에는 사용하지 않아야 합니다.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">데이터 암호화 및 복호화</string>
+    <string name="oi_safe_permission_intents_descr">앱이 글을 암호화/복호화 하고 앱이 OI 금고에 저장한 비밀번호를 사용할 수 있게 합니다.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1분</item>
+        <item>5분</item>
+        <item>10분</item>
+        <item>15분</item>
+        <item>30분</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1일</item>
+        <item>7일</item>
+        <item>30일</item>
+        <item>60일</item>
+    </string-array>
+        
+        
+</resources>

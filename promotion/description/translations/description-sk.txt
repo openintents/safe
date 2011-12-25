@@ -1,0 +1,48 @@
+# Application:
+OI Trezor
+
+# Promo text:
+OI Trezor uchová všetky vaše súkromné údaje zašifrované.
+
+# Description:
+OI Trezor bezpečne chráni všetky Vaše heslá a iné osobné dáta pomocou priemyselných štandardov AES šifrovania. Tiež sa správa ako rozšírenie ku OI Poznámkový Blok na šifrovanie poznámok vytvorených v OI Poznámkový Blok. 
+
+Táto aplikácia neobsahuje reklamy a nepotrebuje povolenie na používanie internetu. 
+
+Pre úplný zoznam zmien a zoznam často kladených otázok, navštívte prosím: 
+http://www.openintents.org
+
+Môžete pomôcť zlepšit preklad do vášho jazyka na Launchpad-e: 
+https://translations.launchpad.net/openintents/trunk
+
+Zdrojový kód tejto neplatenej a voľne prístupnej aplikácie je dostupný na: 
+http://code.google.com/p/openintents
+
+Vlastnosti: 
+* Bezpečne chráni dáta pomocou AES šifrovania.
+* Voľne presúvajte dátové záznamy medzi kategóriami.
+* Importovať/exportovať dátové záznamy a databázy.
+* Zálohovať/obnoviť záznamy.
+* Obsahuje generátor bezpečného hesla.
+* Automatická prestávka na ochranu šifrovaných dokumentov.
+* Šifrovať poznámky z OI Poznámkový Blok.
+* Podpora pre Obscura obrázková bezpečnosť.
+* Moja Záloha Pro.
+
+Dostupné rozšírenia pre "OI Správca Súborov": 
+* Zobraziť informácie o licencií s "OI About".
+
+Aplikácie ktoré pracujú s "OI Správca Súborov": 
+* Šifrovať poznámky vytvorené v "OI Poznámkový Blok".
+
+Kľúčové slová 
+* trezor, bezpečnosť, šifrovanie, heslo, ochrana, zabezpečenie
+* OI, IO, OpenIntents, Open Intents, openintents, openIntents, Openintents
+
+Medzinárodné verzie: 
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+
+
+Vyhľadávanie reťazcov pre Obchod: 
+* Uses OI About
+* Extension for OI Notepad

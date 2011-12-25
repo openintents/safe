@@ -1,0 +1,7 @@
+# Application:
+OI Sejf
+
+# Promo text:
+OI Sejf uchovává všechna vaše soukromá data zašifrovaná.
+
+# Description:

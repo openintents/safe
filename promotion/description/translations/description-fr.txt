@@ -5,44 +5,44 @@ OI Safe
 OI Safe conserve toutes vos données privées cryptées.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI Safe protège en toute sécurité tous vos mots de passe et autres données privées à l'aide standard de l'industrie de cryptage AES. Il agit aussi comme une extension de l'OI Notepad pour crypter les notes créées dans l'OI Notepad. 
 
-This application is ad free and does not require the internet permission. 
+Cette application est petite annonce gratuite et ne nécessite pas l'autorisation d'Internet. 
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+Pour la liste complète des changements et une liste de questions fréquemment posées, s'il vous plaît visitez: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Vous pouvez contribuer à améliorer la traduction dans votre langue au Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-The source code of this free and open source application is available at: 
+Le code source de cette application libre et open source est disponible à l'adresse: 
 http://code.google.com/p/openintents
 
-Features: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
-* Import/Export data entries and databases.
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
-* Support for Obscura picture safe.
+caractéristiques: 
+* Solidement protéger les données en utilisant le cryptage AES.
+* Librement déplacer des entrées de données entre les catégories.
+* Importer / Exporter les entrées de données et bases de données.
+* Sauvegarde / Restauration des entrées.
+* Comprend un générateur de mot de passe sécurisé.
+* Temporisation automatique pour protéger les documents cryptés.
+* Crypter OI Notepad notes.
+* Prise en charge de sécurité image Obscura.
 * MyBackup Pro.
 
-Available extensions for "OI File Manager": 
-* Show the license information with "OI About".
+Extensions disponibles pour  "OI File Manager ": 
+* Voir les informations de licence avec "OI propos ".
 
-Applications that work with "OI File Manager": 
-* Encrypt notes created in "OI Notepad".
+Applications qui fonctionnent avec  "OI File Manager ": 
+* Crypter des notes créées dans "OI Notepad ".
 
-Keywords: 
-* safe, encrpytion, password, protection
+Mots-clés: 
+* sécurité, le cryptage, mot de passe, protection
 * OI, IO, OpenIntents, Open Intents
 
-International versions: 
-OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+Les versions internationales: 
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
 
 
-Search strings for Market: 
+Les chaînes de recherche pour le marché: 
 * Uses OI About
 * Extension for OI Notepad

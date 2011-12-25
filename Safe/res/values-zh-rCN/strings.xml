@@ -65,10 +65,12 @@
 	<string name="cannot_decrypt_password">无法解密密码</string>
 	<string name="error_export">导出数据出错</string>
 	<string name="export_database">导出数据</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">导出纯文本文件的密码数据库。非常危险的的。请确保您删除的文件再使用。导出吗？</string>
 	<string name="export_success">成功导出\'%s\' 。警告！该文件是不加密的。</string>
 	<string name="export_file_error">无法在SD卡上创建输出文件\'oisafe.csv“。断开USB。</string>
 	<string name="import_database">导入数据库</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">导入文件丢失：</string>
 	<string name="import_file_error">无法从SD卡导入文件“oisafe.csv。断开USB。</string>
 	<string name="import_error_first_line">第一行是丢失的字段。</string>
@@ -111,10 +113,14 @@
     <string name="backup_progress">备份到</string>
     <string name="backup_complete">完成。密码备份：</string>
     <string name="backup_failed">备份失败：</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">恢复</string>
     <string name="filename">文件名</string>
     <string name="restore_no_file">未找到备份文件。你需要先进行备份。或从电脑复制备份。</string>
     <string name="restore_set_password">请提供备份文件所使用的密码。主密码将被设置为。</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">无法打开文件：: %s</string>
@@ -188,6 +194,9 @@
 	<string name="pref_summary_autobackup_days">等待下一个自动备份的天数</string>
 	<string name="pref_dialog_title_autobackup_days">自动备份的天数</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">解密（OI安全）</string>
 	<string name="intent_encrypt">加密（OI安全）</string>
@@ -231,6 +240,8 @@
 	<string name="backup_never">没有备份，备份？</string>
 	<string name="backup_in_days">最近备份是 %d 天之前。现在备份？</string>
 	<string name="autobackup_turnoff">关闭自动备份</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -264,6 +275,6 @@
         <item>30 天</item>
         <item>60天</item>
     </string-array>
-
+        
         
 </resources>

@@ -1,0 +1,41 @@
+OI Siguran bezbedno štiti sve vaše pasworde i ostale privatne podatke koristeći standardni industrijiski AES šifrarnik. Takođe se ponaša kao dodatak za OI Blokče da bi šifrirao bilješke korišćene u OI Blokčet-u. 
+
+Ova aplikacija nema reklame i zahtijeva internet konkciju. 
+
+Za punu listu promena i listu ubičaeno pitanih pitanja, molimo posetite: 
+http://www.openintents.org
+
+Možete pomoći u poboljšanju prevoda u vaš jezik na Launchpad-u: 
+https://translations.launchpad.net/openintents/trunk
+
+Izvorni kod ovog programa je besplatan i otvoreni izvor aplikacije je dostupan na: 
+http://code.google.com/p/openintents
+
+Značajke: 
+* Bezbedno zaštiti podatke koristeći AES šifrarnik.
+* Slobodno pomerite unose podataka između kategorija.
+* Uvezi/Izvezi unose podataka i baze podataka.
+* Povrati unose.
+* Sadrži bezbeni generator lozinke.
+* Automatski iskljuši kod zaštićenih šifriranih dokumenata.
+* Šifriraj OI Blokče bilješke.
+* Prodška za Obscura sef slika.
+* MyBakup Pro.
+
+Dostupni dodatci za "OI Menadžer Datoteka": 
+* Prikaži informacije licence sa "OI About":
+
+Aplikacije koje rade sa "OI Menadžer Datoteka": 
+* Šifrirane bilješke u "OI Blokče".
+
+Ključne riječi: 
+* safe, encrpytion, password, protection
+* OI, IO, OpenIntents, Open Intents
+
+Internacionalna verzija: 
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+
+
+Pretraži tekst na Marketu: 
+* Uses OI About
+* Extension for OI Notepad

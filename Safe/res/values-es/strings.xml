@@ -68,10 +68,12 @@
 	<string name="cannot_decrypt_password">No se puede descifrar la contraseña</string>
 	<string name="error_export">Error al exportar la base de datos</string>
 	<string name="export_database">Exportar base de datos</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">Esto exportará la base de datos de contraseñas a un archivo de texto plano. ESTO ES MUY PELIGROSO. Asegúrese de eliminar el archivo después de utilizarlo. ¿Está seguro que desea exportar?</string>
 	<string name="export_success">Exportación de \'%s\' satisfactora. ¡Advertencia! El archivo no está codificado.</string>
 	<string name="export_file_error">No se pudo crear el archivo de exportación \'oisafe.csv\' en SDCARD. Podría tratar de desconectar el USB de su computadora.</string>
 	<string name="import_database">Importar base de datos</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">El archivo de importacion no se encuentra</string>
 	<string name="import_file_error">No se pudo importar el archivo \'oisafe.csv\' desde SDCARD. Podría tratar de desconectar el USB de su computadora.</string>
 	<string name="import_error_first_line">En la primera linea faltan campos perdidos</string>
@@ -114,10 +116,14 @@
     <string name="backup_progress">Respaldando a</string>
     <string name="backup_complete">Completado. Las contraseñas se respaldaron a:</string>
     <string name="backup_failed">Respaldo fallido:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Restaurar</string>
     <string name="filename">Nombre del archivo</string>
     <string name="restore_no_file">Archivo de respaldo no encontrado. Necesita realizar primero crear un respaldo. O copiar un respaldo de su PC.</string>
     <string name="restore_set_password">Por favor provee la contraseña usada para el archivo de backup. tu contraseña maestra establecera esto</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Incapaz de abrir el archivo: %s</string>
@@ -191,6 +197,9 @@
 	<string name="pref_summary_autobackup_days">Días de espera antes de la siguiente copia de seguridad automática</string>
 	<string name="pref_dialog_title_autobackup_days">Dñias de copia de seguridad automática</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Desencriptar (OI Safe)</string>
 	<string name="intent_encrypt">Encriptar (OI Safe)</string>
@@ -234,6 +243,8 @@
 	<string name="backup_never">Aún no se ha hecho ninguna copia de seguridad.¿Desea realizarla ahora?</string>
 	<string name="backup_in_days">La última copia de seguridad se hizo hace %d días.¿Desea realizarla ahora?</string>
 	<string name="autobackup_turnoff">Finalizar copia de seguridad automática</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -267,6 +278,6 @@
         <item>30 días</item>
         <item>60 días</item>
     </string-array>
-
+        
         
 </resources>

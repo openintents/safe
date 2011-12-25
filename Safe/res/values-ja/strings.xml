@@ -65,10 +65,12 @@
 	<string name="cannot_decrypt_password">パスワードを複合化できません</string>
 	<string name="error_export">データベースのエクスポートでエラー</string>
 	<string name="export_database">データベースをエクスポート</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
 	<string name="export_success">\'%s\' へのエクスポートに成功しました。エクスポートしたファイルは暗号化されていないので注意してください。</string>
 	<string name="export_file_error">SDカードへの\'oisafe.csv\'のエスクポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
 	<string name="import_database">データベースをインポート</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">ファイルのインポートに失敗:</string>
 	<string name="import_file_error">SDカードからの\'oisafe.csv\'のインポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
 	<string name="import_error_first_line">最初の行のフィールドが異常です。</string>
@@ -111,10 +113,14 @@
     <string name="backup_progress">Backing up to </string>
     <string name="backup_complete">パスワードのバックアップが完了:</string>
     <string name="backup_failed">バックアップに失敗:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">復元</string>
     <string name="filename">ファイル名</string>
     <string name="restore_no_file">バックアップファイルが見つかりません。バックアップを実行するかPCからコピーしてください。</string>
     <string name="restore_set_password">Please provide the password used by the backup file.  Your master password will be set to this.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">ファイルを開けません: %s</string>
@@ -188,6 +194,9 @@
 	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
 	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">複合化 (OI Safe)</string>
 	<string name="intent_encrypt">暗号化 (OI Safe)</string>
@@ -231,6 +240,8 @@
 	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -264,6 +275,6 @@
         <item>30 days</item>
         <item>60 days</item>
     </string-array>
-
+        
         
 </resources>

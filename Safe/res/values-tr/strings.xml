@@ -69,10 +69,12 @@ Launchpad Contributions:
 	<string name="cannot_decrypt_password">Şifre çözülemiyor.</string>
 	<string name="error_export">Veri tabanı hatası.</string>
 	<string name="export_database">Veri tabanını farklı kaydet.</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">Bu yaptığınız şifre veri tabanını plaintext dosyası şeklinde kaydedecek. BU YAPTIĞINIZ ÇOK TEHLİKELİ. Dosya ile işiniz bittikten sonra sildiğinizden emin olun.Kaydetmek istediğinizden emin misiniz?</string>
 	<string name="export_success">\'%s\' başarılı bir şekilde dışa aktarıldı. Uyarı! Dosya şifrelenmedi.</string>
 	<string name="export_file_error">SDCARD üzerinde dışa aktarılan \'oisafe.csv\' dosyası  oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
 	<string name="import_database">Veritabanı Al</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">İçe alınan dosya eksik:</string>
 	<string name="import_file_error">SDCARD üzerinde içe aktarılan  \'oisafe.csv\' dosyası oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
 	<string name="import_error_first_line">İlk satır eksik.</string>
@@ -115,10 +117,14 @@ Launchpad Contributions:
     <string name="backup_progress">Yedekleniyor</string>
     <string name="backup_complete">Tamamlandı.Şifre yedeklendi:</string>
     <string name="backup_failed">Yedekleme başarısız oldu.</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Geri yükleme</string>
     <string name="filename">Dosya adı</string>
     <string name="restore_no_file">Yedeklenen dosya bulunamadı.</string>
     <string name="restore_set_password">Lütfen yedekleme dosyasını kullanarak şifreyi temin ediniz.An şifreniz bu olarak ayarlanacak.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Dosya açılmaya uygun değil: %s</string>
@@ -179,7 +185,7 @@ Launchpad Contributions:
 	<string name="pref_summary_keypad">Ana şifreyi girmek için tuş takımını kullanın.</string>
 	
 	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Tuş takımı sessiz</string>
+	<string name="pref_title_keypad_mute">Tuş takımı Sessiz</string>
 	
 	<!-- Preference summary: Make the keypad sounds mute. 
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
@@ -192,6 +198,9 @@ Launchpad Contributions:
 	<string name="pref_summary_autobackup_days">Bir sonraki yedeklemeye kalan gün sayısı.</string>
 	<string name="pref_dialog_title_autobackup_days">Otomatik Yedekleme Günü</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Şifreyi Çözmek(OI Kasa)</string>
 	<string name="intent_encrypt">Şifrelemek(OI Kasa)</string>
@@ -235,6 +244,8 @@ Launchpad Contributions:
 	<string name="backup_never">Henüz hiç bir yedekleme yapılmadı .Şimdi yedekleme yapmak istiyor musunuz?</string>
 	<string name="backup_in_days">Son yedeklem %d gün önce yapıldı.Şimdi yedekleme yapmak istermisiniz?</string>
 	<string name="autobackup_turnoff">Otomatik yedeklemeyi kapatma.</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -268,6 +279,6 @@ Launchpad Contributions:
         <item>30 gün</item>
         <item>60 gün</item>
     </string-array>
-
+        
         
 </resources>

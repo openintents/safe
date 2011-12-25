@@ -72,10 +72,12 @@
 	<string name="cannot_decrypt_password">Неможе да декриптира паролата</string>
 	<string name="error_export">Грешка при експортиране на база данни</string>
 	<string name="export_database">Експорт на базата данни</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">Това ще експортира базата данни с пароли в прав текст, в файл. ТОВА Е МНОГО ОПАСНО. Бъдете сигурни, че ще истриете файла, след като свършите с него. Сигурни ли сте, че искате да експортирате?</string>
 	<string name="export_success">Експортирането  към \'%s\' е успешно. Внимание! Файлът не е криптиран.</string>
 	<string name="export_file_error">Не може да се създаде файл за извличане \'oisafe.csv\' на SD картата.Опитайте да изключите USB от компютъра.</string>
 	<string name="import_database">Импортиране на база данни</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Файлът за импортиране липсва.</string>
 	<string name="import_file_error">Не може да импортира файла \'oisafe.csv\' от SD картата.Опитайте да изключите USB от компютъра.</string>
 	<string name="import_error_first_line">Липсват полета на първи ред.</string>
@@ -118,10 +120,14 @@
     <string name="backup_progress">Архивиране</string>
     <string name="backup_complete">Готово.Паролите са архивирани.</string>
     <string name="backup_failed">Архивирането е неуспешно:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Възстановяване</string>
     <string name="filename">Име на файл</string>
     <string name="restore_no_file">Резервно копие не е намерено.Трябва първо да направите резервно копие, или го копирайте от вашия компютър.</string>
     <string name="restore_set_password">Моля да предоставите паролата, използвана от архивния файл.Вашата главна парола, ще бъде променена.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Не може да отвори файла:%s</string>
@@ -195,6 +201,9 @@
 	<string name="pref_summary_autobackup_days">Брой дни за изчакване, преди следващото автоматично архивиране</string>
 	<string name="pref_dialog_title_autobackup_days">Дни на автоматично архивиране</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Разкодирай (OI Safe)</string>
 	<string name="intent_encrypt">Криптирай (OI Safe)</string>
@@ -238,6 +247,8 @@
 	<string name="backup_never">Не е извършено архивиране. Бихте ли искали да архивирате сега?</string>
 	<string name="backup_in_days">Последното архивиране беше преди %d дни. Желаете ли да архивирате сега?</string>
 	<string name="autobackup_turnoff">Изключете на автоматично архивиране</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -271,6 +282,6 @@
         <item>30 дни</item>
         <item>60 дни</item>
     </string-array>
-
+        
         
 </resources>

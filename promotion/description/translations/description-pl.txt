@@ -5,7 +5,7 @@ OI Safe
 OI Safe szyfruje wszystkie twoje prywatne dane.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu standardowego szyfrowania AES. Działa również jako rozszerzenie do Ol Notepad aby szyfrować notatki w nim utworzone. 
 
 Ta aplikacja jest darmowa i nie wymaga dostępu do internetu. 
 
@@ -19,28 +19,28 @@ Kod źródłowy tej darmowej i open-source-owej aplikacji jest dostępny pod adr
 http://code.google.com/p/openintents
 
 Cechy: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
-* Import/Export data entries and databases.
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
-* Support for Obscura picture safe.
+* Bezpieczna ochrona danych przy użyciu szyfrowania AES.
+* Swobodnie przenosić dane pomiędzy kategoriami.
+* Import / Eksport wpisów danych i baz danych.
+* Kopia zapasowa / Przywracanie wpisów.
+* Włączając generatora bezpiecznych haseł.
+* Automatyczny timeout żeby chronić zaszyfrowane dokumenty.
+* Szyfrowanie notatek Ol Notepad.
+* Wsparcie dla bezpiecznego obrazu Obscura.
 * MyBackup Pro.
 
 Dostępne rozszerzenia dla "Ol File Manager": 
 * Pokaż informacje licencyjne z "O Ol".
 
 Aplikacje, który pracują z "Ol File Manager": 
-* Encrypt notes created in "OI Notepad".
+* Szyfruj notatki utworzone w "Ol Notepad".
 
 Słowa kluczowe: 
-* safe, encrpytion, password, protection
+* bezpieczne, szyfrowanie, hasła, ochrona
 * OI, IO, OpenIntents, Open Intents
 
 Wersje międzynarodowe: 
-OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
 
 
 Wyszukane ciągi znakó w Markecie: 

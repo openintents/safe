@@ -22,8 +22,9 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Shitiz Garg https://launchpad.net/~l95s
-  happy  nawani https://launchpad.net/~nawanihappy</string>
+  happynawani https://launchpad.net/~happynawani</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">ओआई सेफ आपके सारे व्यक्तिगत डाटा को गोपनीय रखता है</string>  
@@ -65,10 +66,12 @@
 	<string name="cannot_decrypt_password">पासवर्ड विकोड ना हो पाई</string>
 	<string name="error_export">डाटाबेस निर्यते हुए त्रुटि</string>
 	<string name="export_database">डाटाबेस निर्यात</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">यह पासवर्ड को डाटाबेस में साफ पद फाइल में निर्यात करे गा| यह बहुत खतरनाक हैं| इस फाइल को इस्तेमाल करने के बाद मिटाना धियान रखना| क्या आप निर्यात करना चाहते हैं?</string>
 	<string name="export_success">\'%s\' निर्यात सफल| सूचना! यह फाइल गोपनीय नहीं है</string>
 	<string name="export_file_error">फाइल \'oisafe.csv\' सड कार्ड में निर्यात ना हो सकी| आप USB को कंप्यूटर से काटने कि कोशिश कर सकते हैं</string>
 	<string name="import_database">आयात डाटाबेस</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">आयात फाइल लापता है:</string>
 	<string name="import_file_error">फाइल \'oisafe.csv\' सड कार्ड में आयात ना हो सकी| आप USB को कंप्यूटर से काटने कि कोशिश कर सकते हैं</string>
 	<string name="import_error_first_line">पहली लाइन के शेत्र लापता है</string>
@@ -111,10 +114,14 @@
     <string name="backup_progress">बैकुप हो रहा है</string>
     <string name="backup_complete">पूरा हुआ| आपके यह पासवर्ड बैकुप हुए:</string>
     <string name="backup_failed">बैकुप नाकाम हुआ:</string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">वापस लायें</string>
     <string name="filename">फाइल का नाम</string>
     <string name="restore_no_file">बैकुप फाइल नहीं मिली| आपको पहले बच्कुप करना पड़े गा उसकी बनाने के लिए| या आप कंप्यूटर से नक़ल कर सकते हैं</string>
     <string name="restore_set_password">कृपया पासवर्ड दे बच्कुप फाइल को इस्तेमाल करने के लिए| आपका मुख्य पासवर्ड इसमें बदल्दिया जायेगा</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">फाइल खुलने में नाकामी: %s</string>
@@ -188,6 +195,9 @@
 	<string name="pref_summary_autobackup_days">दिनों कि संख्या अपने आप बच्कुप करने से पहले</string>
 	<string name="pref_dialog_title_autobackup_days">अपने आप बच्कुप के दिन</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">विकोड (ओई सेफ)</string>
 	<string name="intent_encrypt">गोपनीय (ओई सेफ)</string>
@@ -231,6 +241,8 @@
 	<string name="backup_never">अभी तक कोई बैकअप नहीं हुआ है| क्या आप अभी बैकअप करना चाहेंगे?</string>
 	<string name="backup_in_days">आखरी बैकअप %d गिन पहले था| क्या आप अभी बैकअप करना चाहेंगे?</string>
 	<string name="autobackup_turnoff">स्वतः बैकअप बंद करें</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -264,6 +276,6 @@
         <item>३० दिन</item>
         <item>६० दिन</item>
     </string-array>
-
+        
         
 </resources>

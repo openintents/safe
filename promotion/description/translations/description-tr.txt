@@ -5,7 +5,7 @@ OI Kasa
 OI kasa tüm özel verilerinizi şifreler.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI Safe güvenli bir şekilde sizin şifrelerini korur ve AES endüstri standardı şifrelemesini kullanarak diğer özel verileride korur. Ayrıca OI Notepad içindeki şifrelenmiş notları OI Notepad 'in uzantısı olarak görür. 
 
 Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
 
@@ -19,30 +19,30 @@ Bunun kaynak kodu ücretsizdir ve açık kaynak uygulamalarına şuradan ulaşab
 http://code.google.com/p/openintents
 
 Özellikler: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
-* Import/Export data entries and databases.
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
-* Support for Obscura picture safe.
+* AES şifreleme kullanarak verileri güvenli bir şekilde  korumak
+* Serbestçe katagoriler arasında veri girişlerini taşıbilirsiniz.
+* İçe aktarım/Dışa aktarım veri girişi ve veritabanı.
+* Yedekleme/Geri yükleme girdileri.
+* Güvenli şifre üreticisi içerir.
+* Şifrelenmiş belgeleri korumak için otomatik zaman aşımı.
+* OI Notepad  notlarını şifrele.
+* Obscura resim güvenliği için destekli.
 * MyBackup Pro.
 
-Available extensions for "OI File Manager": 
-* Show the license information with "OI About".
+"OI File Manager" için uygun eklentiler: 
+* "OI About" ile lisans bilgilerini görüntüle.
 
-Applications that work with "OI File Manager": 
-* Encrypt notes created in "OI Notepad".
+"OI File Manager" ile birlikte çalışan uygulamalar: 
+* "OI Notepad" içinde şifreli notlar oluşturuldu.
 
 Anahtar kelimeler: 
-* safe, encrpytion, password, protection
+* güvenlik, şifreleme, şifre, koruma
 * OI, IO, OpenIntents, Open Intents
 
 Uluslararası versiyonlar: 
-OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
 
 
-Search strings for Market: 
+Market için arama metinleri: 
 * Uses OI About
 * Extension for OI Notepad

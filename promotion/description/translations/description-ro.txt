@@ -5,7 +5,7 @@ OI Safe
 OI Safe păstrează toate datele dumneavostră criptate.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI Safe vă protejează toate parolele si alte date private folosind standardul industrial de criptare AES. Acționează de asemenea ca o extensie către OI Noptepad pentru a cripta notițele create în OI Notepad. 
 
 Această aplicație nu conține reclame și nu necesită permisiunea de internet. 
 
@@ -19,28 +19,28 @@ Codul sursă al acestei aplicații gratuite și cu sursă deschisă este disponi
 http://code.google.com/p/openintents
 
 Caracteristici: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
-* Import/Export data entries and databases.
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
-* Support for Obscura picture safe.
+* Protejează datele în siguranță folosind criptarea AES.
+* Mută liber intrări de date între categorii.
+* Importă/Exportă intrări de date și baze de date.
+* Copie de rezervă/Restabilire intrări.
+* Include generator de parole sigure.
+* Limită de timp automată pentru a proteja documentele criptate.
+* Criptează notițele OI Notepad.
+* Ajutor pentru siguranța imaginii Obscura.
 * MyBackup Pro.
 
 Extensii disponibile pentru „OI File Manager”: 
 * Arată informaţiile de licenţă cu „OI About”.
 
 Aplicaţii care funcţionează cu „OI File Manager”: 
-* Encrypt notes created in "OI Notepad".
+* Criptează notițele create în „OI Notepad”
 
 Cuvinte cheie: 
-* safe, encrpytion, password, protection
+* sigur, criptare, parolă, protecție
 * OI, IO, OpenIntents, Open Intents
 
 Versiuni internaționale: 
-OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
 
 
 Caută șiruri pentru Market: 

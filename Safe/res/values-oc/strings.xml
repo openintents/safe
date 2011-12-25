@@ -64,10 +64,12 @@
 	<string name="cannot_decrypt_password">Cannot decrypt password</string>
 	<string name="error_export">Error exporting database</string>
 	<string name="export_database">Export Database</string>
+	<string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">This will export the password database to a plaintext file.  THIS IS VERY DANGEROUS.  Make sure that you delete the file after you are done with it.   Are you sure you want to export?</string>
 	<string name="export_success">Export to \'%s\' successful.   Warning!   The file is not encrypted.</string>
 	<string name="export_file_error">Unable to create export file \'oisafe.csv\' on SDCARD.  You might try disconnecting USB from computer.</string>
 	<string name="import_database">Import Database</string>
+	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Import file is missing:</string>
 	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
 	<string name="import_error_first_line">First line is missing fields.</string>
@@ -110,10 +112,14 @@
     <string name="backup_progress">Salvament de</string>
     <string name="backup_complete">Complete.  Passwords backed up: </string>
     <string name="backup_failed">Backup failed: </string>
+	<string name="backup_select_file">Select a file for backup</string>
+	<string name="backup_error">Error while backing up</string>
     <string name="restore">Restablir</string>
     <string name="filename">Nom del fichièr</string>
     <string name="restore_no_file">Backup file not found.  You need to perform a backup first to create it.  Or copy a backup from your PC.</string>
     <string name="restore_set_password">Please provide the password used by the backup file.  Your master password will be set to this.</string>
+	<string name="restore_select_file">Select a file for restore</string>
+	<string name="restore_error">Error while restoring</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Unable to open file: %s</string>
@@ -187,6 +193,9 @@
 	<string name="pref_summary_autobackup_days">Number of days to wait before next auto backup</string>
 	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
 	
+	<string name="pref_title_backup_path">Default backup path</string>
+	<string name="pref_title_export_path">Default export path</string>
+	    
 	
 	<string name="intent_decrypt">Decrypt (OI Safe)</string>
 	<string name="intent_encrypt">Encrypt (OI Safe)</string>
@@ -230,6 +239,8 @@
 	<string name="backup_never">No backup has been performed yet.   Would you like to backup now?</string>
 	<string name="backup_in_days">The last backup was %d days ago.   Would you like to backup now?</string>
 	<string name="autobackup_turnoff">Turn off autobackup</string>
+	<string name="lock_timeout">Time to autolock: %s </string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	
 	<!-- ***************************
 	     Permissions
@@ -263,6 +274,6 @@
         <item>30 days</item>
         <item>60 days</item>
     </string-array>
-
+        
         
 </resources>

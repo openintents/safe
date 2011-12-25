@@ -21,7 +21,7 @@ http://code.google.com/p/openintents
 Возможности: 
 * Securely protect data using AES encryption.
 * Freely move data entries between categories.
-* Import/Export data entries and databases.
+* Импорт / экспорт данных записей и баз данных
 * Backup/Restore entries.
 * Includes secure password generator.
 * Automatic timeout to protect encrypted documents.
@@ -32,7 +32,7 @@ http://code.google.com/p/openintents
 Available extensions for "OI File Manager": 
 * Show the license information with "OI About".
 
-Applications that work with "OI File Manager": 
+Приложения работающие с "OI File Manager": 
 * Encrypt notes created in "OI Notepad".
 
 Ключевые слова: 
@@ -40,7 +40,7 @@ Applications that work with "OI File Manager":
 * Copy text 	 OI, IO, OpenIntents, Open Intents
 
 Переведенные версии: 
-OI Kasa, OI Safe, OI Sarvu, OI kluis, OI Безопасност, OI सुरक्षित, OI安全
+OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
 
 
 Search strings for Market: 
