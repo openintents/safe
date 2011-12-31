@@ -47,30 +47,30 @@ public class Backup {
 		myCtx=ctx;
 	}
 
-    public boolean write(String filename) {
-    	if (debug) Log.d(TAG,"write("+filename+",)");
-    	
+	public boolean write(String filename) {
+		if (debug) Log.d(TAG,"write("+filename+",)");
+
 		try {
-            FileOutputStream str = new FileOutputStream(filename);
-            org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
-            serializer.setOutput(str, "utf-8");
-            serializer.startDocument(null, Boolean.valueOf(true));
-            serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
-            serializer.startTag(null, "OISafe");
-            
-            serializer.attribute(null, "version", Integer.toString(CURRENT_VERSION));
-            
-            Date today;
-            String dateOut;
-            DateFormat dateFormatter;
+			FileOutputStream str = new FileOutputStream(filename);
+			org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
+			serializer.setOutput(str, "utf-8");
+			serializer.startDocument(null, Boolean.valueOf(true));
+			serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
+			serializer.startTag(null, "OISafe");
+			
+			serializer.attribute(null, "version", Integer.toString(CURRENT_VERSION));
+			
+			Date today;
+			String dateOut;
+			DateFormat dateFormatter;
 
-            dateFormatter = DateFormat.getDateTimeInstance(DateFormat.DEFAULT,
-            					   DateFormat.FULL);
-            today = new Date();
-            dateOut = dateFormatter.format(today);
+			dateFormatter = DateFormat.getDateTimeInstance(DateFormat.DEFAULT,
+					DateFormat.FULL);
+			today = new Date();
+			dateOut = dateFormatter.format(today);
 
-            serializer.attribute(null, "date", dateOut);
-            
+			serializer.attribute(null, "date", dateOut);
+
 			String masterKeyEncrypted = Passwords.fetchMasterKeyEncrypted();
 			serializer.startTag(null, "MasterKey");
 			serializer.text(masterKeyEncrypted);
@@ -155,9 +155,9 @@ public class Backup {
 
 			TimeZone tz = TimeZone.getDefault(); 
 			int julianDay = Time.getJulianDay((new Date()).getTime(), tz.getRawOffset());
-	    	if (debug) Log.d(TAG,"julianDay="+julianDay);
+			if (debug) Log.d(TAG,"julianDay="+julianDay);
 
-	    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
+			SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
 			SharedPreferences.Editor editor = sp.edit();
 			editor.putInt(Preferences.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
 			editor.commit();
@@ -171,8 +171,8 @@ public class Backup {
 			return false;
 		}
 		return true;
-    }
-    public String getResult() {
-    	return result;
-    }
+	}
+	public String getResult() {
+		return result;
+	}
 }

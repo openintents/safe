@@ -20,14 +20,14 @@ package org.openintents.safe;
  * @author Randy McEoin
  */
 public class CategoryEntry extends Object {
-    public long id=-1;
-    public String name;
-    public boolean nameNeedsDecrypt;
-    public String plainName;
-    public boolean plainNameNeedsEncrypt=true;
-    int count=0;
+	public long id=-1;
+	public String name;
+	public boolean nameNeedsDecrypt;
+	public String plainName;
+	public boolean plainNameNeedsEncrypt=true;
+	int count=0;
 
-    public String getName() {
+	public String getName() {
 		return name;
 	}
 	
