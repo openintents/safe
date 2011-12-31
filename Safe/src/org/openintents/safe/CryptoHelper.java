@@ -67,93 +67,93 @@ import estreamj.framework.ESJException;
 public class CryptoHelper {
 
 	private static final boolean debug = false;
-    private static String TAG = "CryptoHelper";
-    
-    public static final String OISAFE_EXTENSION = ".oisafe";
-    
-    protected static PBEKeySpec pbeKeySpec;
-    protected static PBEParameterSpec pbeParamSpec;
-    protected static SecretKeyFactory keyFac;
+	private static String TAG = "CryptoHelper";
 
-    public final static int EncryptionMedium=1;
-    public final static int EncryptionStrong=2;
+	public static final String OISAFE_EXTENSION = ".oisafe";
 
-    protected static String algorithmMedium = "PBEWithMD5And128BitAES-CBC-OpenSSL";
+	protected static PBEKeySpec pbeKeySpec;
+	protected static PBEParameterSpec pbeParamSpec;
+	protected static SecretKeyFactory keyFac;
+
+	public final static int EncryptionMedium=1;
+	public final static int EncryptionStrong=2;
+
+	protected static String algorithmMedium = "PBEWithMD5And128BitAES-CBC-OpenSSL";
 //  protected static String algorithm = "PBEWithSHA1And128BitAES-CBC-BC";  // slower
 	protected static String algorithmStrong = "PBEWithSHA1And256BitAES-CBC-BC";
 	private String algorithm = "";
-    protected static String desAlgorithm = "DES";
-    protected static String password = null;
-    protected static SecretKey pbeKey;
-    protected static Cipher pbeCipher;
-    private boolean status=false;	// status of the last encrypt/decrypt
+	protected static String desAlgorithm = "DES";
+	protected static String password = null;
+	protected static SecretKey pbeKey;
+	protected static Cipher pbeCipher;
+	private boolean status=false;	// status of the last encrypt/decrypt
 
-    private static byte[] salt = null; 
+	private static byte[] salt = null; 
 
-    private static final int count = 20;
-    
-    /**
-     * Session key for content provider.
-     */
-    private String sessionKey = null;
-    
+	private static final int count = 20;
 
-    /**
-     * Constructor which defaults to a medium encryption level.
-     */
-    public CryptoHelper() {
+	/**
+	 * Session key for content provider.
+	 */
+	private String sessionKey = null;
+
+
+	/**
+	 * Constructor which defaults to a medium encryption level.
+	 */
+	public CryptoHelper() {
 //    	initialize(EncryptionMedium);
-    }
-    /**
-     * Constructor which allows the specification of the encryption level.
-     * 
-     * @param strength encryption strength
-     * @param salt salt to be used
-     */
-    public void init(int strength, String salt) throws CryptoHelperException {
-    	try {
+	}
+	/**
+	 * Constructor which allows the specification of the encryption level.
+	 * 
+	 * @param strength encryption strength
+	 * @param salt salt to be used
+	 */
+	public void init(int strength, String salt) throws CryptoHelperException {
+		try {
 			setSalt(salt);
-	        initialize(strength);
+			initialize(strength);
 		} catch (CryptoHelperException e) {
 			e.printStackTrace();
 			throw e;
 		}
-    }
-    /**
-     * Initialize the class.  Sets the encryption level for the instance
-     * and generates the secret key factory.
-     * 
-     * @param Strength
-     */
-    private void initialize(int Strength) {
-    	switch (Strength) {
-    	case EncryptionMedium:
-    		algorithm=algorithmMedium;
-    		break;
-    	case EncryptionStrong:
-    		algorithm=algorithmStrong;
-    		break;
-    	}
+	}
+	/**
+	 * Initialize the class.  Sets the encryption level for the instance
+	 * and generates the secret key factory.
+	 * 
+	 * @param Strength
+	 */
+	private void initialize(int Strength) {
+		switch (Strength) {
+		case EncryptionMedium:
+			algorithm=algorithmMedium;
+			break;
+		case EncryptionStrong:
+			algorithm=algorithmStrong;
+			break;
+		}
 		pbeParamSpec = new PBEParameterSpec(salt,count);
 		try {
-		    keyFac = SecretKeyFactory
-		    .getInstance(algorithm,"BC");
+			keyFac = SecretKeyFactory
+					.getInstance(algorithm,"BC");
 		} catch (NoSuchAlgorithmException e) {
-		    Log.e(TAG,"CryptoHelper(): "+e.toString());
+			Log.e(TAG,"CryptoHelper(): "+e.toString());
 		} catch (NoSuchProviderException e) {
-		    Log.e(TAG,"CryptoHelper(): "+e.toString());		
+			Log.e(TAG,"CryptoHelper(): "+e.toString());		
 		}
-    }
+	}
 
-    /**
-     * Generate a random salt for use with the cipher.
-     * 
-     * @author Randy McEoin
-     * @return String version of the 8 byte salt
-     */
-    public static String generateSalt() throws NoSuchAlgorithmException {
-    	byte[] salt = new byte[8];
-    	SecureRandom sr;
+	/**
+	 * Generate a random salt for use with the cipher.
+	 * 
+	 * @author Randy McEoin
+	 * @return String version of the 8 byte salt
+	 */
+	public static String generateSalt() throws NoSuchAlgorithmException {
+		byte[] salt = new byte[8];
+		SecureRandom sr;
 		try {
 			sr = SecureRandom.getInstance("SHA1PRNG");
 			sr.nextBytes(salt);
@@ -163,12 +163,12 @@ public class CryptoHelper {
 			throw e;
 		}
 		return toHexString(salt);
-    }
-    /**
-     * @author Isaac Potoczny-Jones
-     * 
-     * @return null if failure, otherwise hex string version of key
-     */
+	}
+	/**
+	 * @author Isaac Potoczny-Jones
+	 * 
+	 * @return null if failure, otherwise hex string version of key
+	 */
 	public static String generateMasterKey () throws NoSuchAlgorithmException {
 		try {
 			KeyGenerator keygen;
@@ -182,14 +182,14 @@ public class CryptoHelper {
 		}
 	}
 
-    /**
-     * 
-     * @param message
-     * @return MD5 digest of message in a byte array
-     * @throws NoSuchAlgorithmException
-     * @throws IOException
-     */
-    public static byte[] md5String(String message) {
+	/**
+	 * 
+	 * @param message
+	 * @return MD5 digest of message in a byte array
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 */
+	public static byte[] md5String(String message) {
 	
 		byte[] input = message.getBytes();
 	
@@ -198,43 +198,43 @@ public class CryptoHelper {
 		DigestInputStream	dIn = null;
 	
 		try {
-		    hash = MessageDigest.getInstance("MD5");
+			hash = MessageDigest.getInstance("MD5");
 	
-		    bIn = new ByteArrayInputStream(input);
-		    dIn = new DigestInputStream(bIn, hash);
+			bIn = new ByteArrayInputStream(input);
+			dIn = new DigestInputStream(bIn, hash);
 	
-		    for(int i=0;i<input.length;i++) {
-		    	dIn.read();
-		    }
+			for(int i=0;i<input.length;i++) {
+				dIn.read();
+			}
 	
 		} catch (NoSuchAlgorithmException e) {
-		    Log.e(TAG,"md5String(): "+e.toString());
+			Log.e(TAG,"md5String(): "+e.toString());
 		} catch (IOException e) {
-		    Log.e(TAG,"md5String(): "+e.toString());
+			Log.e(TAG,"md5String(): "+e.toString());
 		}
 	
 		return dIn.getMessageDigest().digest();
-    }
+	}
 
-    /**
-     * 
-     * @param bytes
-     * @return String version in Hex format of input byte array
-     */
-    public static String toHexString(byte bytes[]) {
+	/**
+	 * 
+	 * @param bytes
+	 * @return String version in Hex format of input byte array
+	 */
+	public static String toHexString(byte bytes[]) {
 	
 		StringBuffer retString = new StringBuffer();
 		for (int i = 0; i < bytes.length; ++i) {
-		    retString.append(Integer
-			    .toHexString(0x0100 + (bytes[i] & 0x00FF))
-			    .substring(1));
+			retString.append(Integer
+					.toHexString(0x0100 + (bytes[i] & 0x00FF))
+					.substring(1));
 		}
 		return retString.toString();
-    }
-    
-    public static byte[] hexStringToBytes(String hex) {
-    	
-    	byte [] bytes = new byte [hex.length() / 2];
+	}
+
+	public static byte[] hexStringToBytes(String hex) {
+
+		byte [] bytes = new byte [hex.length() / 2];
 		int j = 0;
 		for (int i = 0; i < hex.length(); i += 2)
 		{
@@ -255,101 +255,101 @@ public class CryptoHelper {
 				return bytes;
 			}
 		}
-    	return bytes;
-    }
+		return bytes;
+	}
 
-    /**
-     * Set the password to be used as an encryption key
-     * 
-     * @param pass - might be a user-entered key, or one generated by generateMasterKey.
-     * @throws Exception
-     */
-    public void setPassword(String pass) {
-    	if (debug) Log.d(TAG,"setPassword("+pass+")");
+	/**
+	 * Set the password to be used as an encryption key
+	 * 
+	 * @param pass - might be a user-entered key, or one generated by generateMasterKey.
+	 * @throws Exception
+	 */
+	public void setPassword(String pass) {
+		if (debug) Log.d(TAG,"setPassword("+pass+")");
 		password = pass;
 		pbeKeySpec = new PBEKeySpec(password.toCharArray());
 		try {
-		    pbeKey = keyFac.generateSecret(pbeKeySpec);
-		    pbeCipher = Cipher
-		    .getInstance(algorithm,"BC");
+			pbeKey = keyFac.generateSecret(pbeKeySpec);
+			pbeCipher = Cipher
+					.getInstance(algorithm,"BC");
 		} catch (InvalidKeySpecException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		} catch (NoSuchAlgorithmException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		} catch (NoSuchProviderException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		} catch (NoSuchPaddingException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		}
 		
 		// Every time we set a new password, also the session key changes:
 		sessionKey = createNewSessionKey();
-    }
+	}
 
-    private void setSalt(String saltIn) throws CryptoHelperException {
-    	if (saltIn==null) {
+	private void setSalt(String saltIn) throws CryptoHelperException {
+		if (saltIn==null) {
 			String msg = "Salt must not be null.";
-		    throw new CryptoHelperException(msg);
-    	}
+			throw new CryptoHelperException(msg);
+		}
 		byte[] byteSaltIn=hexStringToBytes(saltIn);
 
 		if (byteSaltIn.length != 8) {
 			String msg = "Salt must be 8 bytes in length.";
-		    throw new CryptoHelperException(msg);
+			throw new CryptoHelperException(msg);
 		}
 		salt=byteSaltIn;
 		if (debug) Log.d(TAG,"setSalt: salt="+toHexString(salt));
-    }
-    
-    /**
-     * Returns the current session key, which is only valid until the
-     * user logs out of OI Safe.
-     * 
-     * The session key is used when encrypting or decrypting files
-     * through the content provider.
-     * 
-     * @return current session key.   If there is none, return null.
-     */
-    public String getCurrentSessionKey() {
+	}
 
-    	if (ServiceDispatchImpl.ch != null) {
-    		// Return a global session key created in ServiceDispatchImpl
-    		return ServiceDispatchImpl.ch.sessionKey; 
-    	}
-    	return null;
-    	// This should be the same session key as is used in CryptoContentProvider.
-    	// TODO: Clean up the code above?
-    }
-    
-    /**
-     * Creates a new random session key
-     * @return
-     */
-    private String createNewSessionKey() {
-    	try {
-    		// simply create a new salt:
-    		return generateSalt();
-    	} catch (NoSuchAlgorithmException e) {
-    		return "12345"; // better than nothing... :-/
-    	}
-    }
-    
-    /**
-     * encrypt a string
-     * 
-     * @param plaintext
-     * @return encrypted String
-     * @throws Exception
-     */
-    public String encrypt(String plaintext) throws CryptoHelperException {
+	/**
+	 * Returns the current session key, which is only valid until the
+	 * user logs out of OI Safe.
+	 * 
+	 * The session key is used when encrypting or decrypting files
+	 * through the content provider.
+	 * 
+	 * @return current session key.   If there is none, return null.
+	 */
+	public String getCurrentSessionKey() {
+
+		if (ServiceDispatchImpl.ch != null) {
+			// Return a global session key created in ServiceDispatchImpl
+			return ServiceDispatchImpl.ch.sessionKey; 
+		}
+		return null;
+		// This should be the same session key as is used in CryptoContentProvider.
+		// TODO: Clean up the code above?
+	}
+
+	/**
+	 * Creates a new random session key
+	 * @return
+	 */
+	private String createNewSessionKey() {
+		try {
+			// simply create a new salt:
+			return generateSalt();
+		} catch (NoSuchAlgorithmException e) {
+			return "12345"; // better than nothing... :-/
+		}
+	}
+
+	/**
+	 * encrypt a string
+	 * 
+	 * @param plaintext
+	 * @return encrypted String
+	 * @throws Exception
+	 */
+	public String encrypt(String plaintext) throws CryptoHelperException {
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before running encrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before running encrypt.";
+			throw new CryptoHelperException(msg);
 		}
 		if (salt==null) {
-		    String msg = "Must call setSalt before running encrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setSalt before running encrypt.";
+			throw new CryptoHelperException(msg);
 		}
 		byte[] ciphertext = {};
 		if (plaintext==null) {
@@ -357,39 +357,39 @@ public class CryptoHelper {
 		}
 	
 		try {
-		    pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
-		    ciphertext = pbeCipher.doFinal(plaintext.getBytes());
-		    status=true;
+			pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
+			ciphertext = pbeCipher.doFinal(plaintext.getBytes());
+			status=true;
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"encrypt(): "+e.toString());
+			Log.e(TAG,"encrypt(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"encrypt(): "+e.toString());
+			Log.e(TAG,"encrypt(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"encrypt(): "+e.toString());
+			Log.e(TAG,"encrypt(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"encrypt(): "+e.toString());
+			Log.e(TAG,"encrypt(): "+e.toString());
 		}
 	
 		String stringCiphertext=toHexString(ciphertext);
 		return stringCiphertext;
-    }
+	}
 
-    /**
-     * unencrypt previously encrypted string
-     * 
-     * @param ciphertext
-     * @return decrypted String
-     * @throws Exception
-     */
-    public String decrypt(String ciphertext) throws CryptoHelperException {
+	/**
+	 * unencrypt previously encrypted string
+	 * 
+	 * @param ciphertext
+	 * @return decrypted String
+	 * @throws Exception
+	 */
+	public String decrypt(String ciphertext) throws CryptoHelperException {
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before running decrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before running decrypt.";
+			throw new CryptoHelperException(msg);
 		}
 		if (salt==null) {
-		    String msg = "Must call setSalt before running decrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setSalt before running decrypt.";
+			throw new CryptoHelperException(msg);
 		}
 	
 		if ((ciphertext==null) || (ciphertext.length()==0)) {
@@ -399,47 +399,47 @@ public class CryptoHelper {
 		byte[] plaintext = {};
 		
 		try {
-		    pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
-		    plaintext = pbeCipher.doFinal(byteCiphertext);
-		    status=true;
+			pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
+			plaintext = pbeCipher.doFinal(byteCiphertext);
+			status=true;
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		}
 	
 		return new String(plaintext);
-    }
+	}
 
-    /**
-     * Status of the last encrypt or decrypt.
-     * 
-     * @return true if last operation was successful
-     */
-    public boolean getStatus() {
-    	return status;
-    }
-    
+	/**
+	 * Status of the last encrypt or decrypt.
+	 * 
+	 * @return true if last operation was successful
+	 */
+	public boolean getStatus() {
+		return status;
+	}
 
-    /**
-     * encrypt a string using a random session key
-     * 
-     * @author Peli
-     * 
-     * @param plaintext
-     * @return encrypted String
-     * @throws Exception
-     */
-    public String encryptWithSessionKey(String plaintext) throws CryptoHelperException {
-    	if (debug) Log.i(TAG, "Encrypt with session key");
+
+	/**
+	 * encrypt a string using a random session key
+	 * 
+	 * @author Peli
+	 * 
+	 * @param plaintext
+	 * @return encrypted String
+	 * @throws Exception
+	 */
+	public String encryptWithSessionKey(String plaintext) throws CryptoHelperException {
+		if (debug) Log.i(TAG, "Encrypt with session key");
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before runing encrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before runing encrypt.";
+			throw new CryptoHelperException(msg);
 		}
 		byte[] cipherSessionKey = {};
 		byte[] ciphertext = {};
@@ -464,38 +464,38 @@ public class CryptoHelper {
 		PBEKeySpec sessionPbeKeySpec = new PBEKeySpec(sessionKeyString.toCharArray());
 		SecretKey sessionPbeKey = null;
 		try {
-		    sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
+			sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
 		} catch (InvalidKeySpecException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		}
-		    
+
 		// Encrypt the session key using the master key
-	    try {
+		try {
 			pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
-		    cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
+			cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 		}
-		
+
 		// Now encrypt the text using the session key
-	    try {
+		try {
 			pbeCipher.init(Cipher.ENCRYPT_MODE, sessionPbeKey, pbeParamSpec);
-		    ciphertext = pbeCipher.doFinal(plaintext.getBytes());
-		    status=true;
+			ciphertext = pbeCipher.doFinal(plaintext.getBytes());
+			status=true;
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
+			Log.e(TAG,"encryptWithSessionKey2(): "+e.toString());
 		}
 	
 		String stringCipherVersion = "A";
@@ -510,23 +510,23 @@ public class CryptoHelper {
 		sb.append(stringCipherSessionKey);
 		sb.append(stringCiphertext);
 		return sb.toString();
-    }
+	}
 
-    /**
-     * unencrypt encrypted string previously encrypted with
-     * encryptWithSessionKey()
-     * 
-     * @author Peli
-     * 
-     * @param ciphertext
-     * @return decrypted String
-     * @throws Exception
-     */
-    public String decryptWithSessionKey(String ciphertext) throws CryptoHelperException {
+	/**
+	 * unencrypt encrypted string previously encrypted with
+	 * encryptWithSessionKey()
+	 * 
+	 * @author Peli
+	 * 
+	 * @param ciphertext
+	 * @return decrypted String
+	 * @throws Exception
+	 */
+	public String decryptWithSessionKey(String ciphertext) throws CryptoHelperException {
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before running decrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before running decrypt.";
+			throw new CryptoHelperException(msg);
 		}
 	
 		if ((ciphertext==null) || (ciphertext=="")) {
@@ -555,17 +555,17 @@ public class CryptoHelper {
 		byte[] byteSessionKey = {};
 		
 		try {
-		    pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
-		    byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
-		    status=true;
+			pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
+			byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
+			status=true;
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		}
 
 		// Convert the session key into a Pbe key
@@ -573,9 +573,9 @@ public class CryptoHelper {
 		PBEKeySpec sessionPbeKeySpec = new PBEKeySpec(stringSessionKey.toCharArray());
 		SecretKey sessionPbeKey = null;
 		try {
-		    sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
+			sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
 		} catch (InvalidKeySpecException e) {
-		    Log.e(TAG,"setPassword(): "+e.toString());
+			Log.e(TAG,"setPassword(): "+e.toString());
 		}
 
 		// Use the session key to decrypt the text
@@ -583,40 +583,40 @@ public class CryptoHelper {
 		byte[] plaintext = {};
 		
 		try {
-		    pbeCipher.init(Cipher.DECRYPT_MODE, sessionPbeKey, pbeParamSpec);
-		    plaintext = pbeCipher.doFinal(byteCiphertext);
-		    status=true;
+			pbeCipher.init(Cipher.DECRYPT_MODE, sessionPbeKey, pbeParamSpec);
+			plaintext = pbeCipher.doFinal(byteCiphertext);
+			status=true;
 		} catch (IllegalBlockSizeException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (BadPaddingException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidKeyException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		} catch (InvalidAlgorithmParameterException e) {
-		    Log.e(TAG,"decrypt(): "+e.toString());
+			Log.e(TAG,"decrypt(): "+e.toString());
 		}
 		
 		return new String(plaintext);
-    }
-    
+	}
 
-    /**
-     * encrypt a file using a random session key
-     * 
-     * @author Peli
-     * 
-     * @param contentResolver is used to be able to read the stream
-     * @param fileUri is the stream or file to read from
-     * @return Uri to the created plaintext file
-     * @throws Exception
-     */
-    public Uri encryptFileWithSessionKey(ContentResolver contentResolver, Uri fileUri)
-    	throws CryptoHelperException {
-    	if (debug) Log.d(TAG, "Encrypt with session key");
+
+	/**
+	 * encrypt a file using a random session key
+	 * 
+	 * @author Peli
+	 * 
+	 * @param contentResolver is used to be able to read the stream
+	 * @param fileUri is the stream or file to read from
+	 * @return Uri to the created plaintext file
+	 * @throws Exception
+	 */
+	public Uri encryptFileWithSessionKey(ContentResolver contentResolver, Uri fileUri)
+		throws CryptoHelperException {
+		if (debug) Log.d(TAG, "Encrypt with session key");
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before runing encrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before runing encrypt.";
+			throw new CryptoHelperException(msg);
 		}
 		
 		String outputPath = "";
@@ -651,20 +651,20 @@ public class CryptoHelper {
 				Log.e(TAG,"generateMasterKey(): "+e.toString());
 				return null;
 			}
-			    
+
 			// Encrypt the session key using the master key
-		    try {
+			try {
 				pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
-			    cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
-			    status=true;
+				cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
+				status=true;
 			} catch (IllegalBlockSizeException e) {
-			    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+				Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 			} catch (BadPaddingException e) {
-			    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+				Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 			} catch (InvalidKeyException e) {
-			    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+				Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 			} catch (InvalidAlgorithmParameterException e) {
-			    Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
+				Log.e(TAG,"encryptWithSessionKey(): "+e.toString());
 			}
 			if (status==false) {
 				return null;
@@ -682,8 +682,8 @@ public class CryptoHelper {
 			
 			Trivium tri = new Trivium();
 			try {
-			    tri.setupKey(Trivium.MODE_ENCRYPT,
-			    		sessionKeyEncoded, 0);
+				tri.setupKey(Trivium.MODE_ENCRYPT,
+						sessionKeyEncoded, 0);
 				tri.setupNonce(sessionKeyEncoded, 10);
 				
 				// Create the byte array to hold the data
@@ -694,9 +694,9 @@ public class CryptoHelper {
 				int offset = 0;
 				int numRead = 0;
 				while ((numRead = is.read(bytesIn, 0, bytesLen)) >= 0) {
-				    tri.process(bytesIn, 0,
-				    		bytesOut, 0, numRead);
-				    
+					tri.process(bytesIn, 0,
+							bytesOut, 0, numRead);
+
 					os.write(bytesOut, 0, numRead);
 					offset += numRead;
 				}
@@ -714,9 +714,9 @@ public class CryptoHelper {
 				SecureDelete.delete(new File(fileUri.getPath()));
 				status=true;
 				
-		    } catch (ESJException e) {
+			} catch (ESJException e) {
 				Log.e(TAG, "Error encrypting file", e);
-	    	}
+			}
 		} catch (FileNotFoundException e) {
 			Log.e(TAG, "File not found", e);
 		} catch (IOException e) {
@@ -727,7 +727,7 @@ public class CryptoHelper {
 			return null;
 		}
 		return Uri.fromFile(new File(outputPath)); //Uri.parse("file://" + outputPath); // TODO: UUEncode
-    }
+	}
 	/**
 	 * @return
 	 */
@@ -738,41 +738,41 @@ public class CryptoHelper {
 			randomPart=generateSalt();
 		} catch (NoSuchAlgorithmException e1) {
 			e1.printStackTrace();
-		    String msg = "Decrypt error: "+e1.getLocalizedMessage();
-		    throw new CryptoHelperException(msg);
+			String msg = "Decrypt error: "+e1.getLocalizedMessage();
+			throw new CryptoHelperException(msg);
 		}
 		
 		return Environment
 		.getExternalStorageDirectory().toString() + "/tmp-" + randomPart;
 	}
 
-    /**
-     * Dencrypt a file previously encrypted with
-     * encryptFileWithSessionKey().
-     * 
-     * Creates a new file without the .oisafe extension.
-     * 
-     * @author Peli
-     * 
-     * @param ctx Context of activity in order to store temp file
-     * @param fileUri Uri to either a stream or a file to read from
-     * @return If decryption is successful, returns Uri of a content 
-     * 		provider to read the plaintext file.  Upon failure,
-     * 		return null.
-     * @throws Exception
-     */
-    public Uri decryptFileWithSessionKey(Context ctx, Uri fileUri) throws CryptoHelperException {
-    	if (debug) Log.d(TAG, "fileUri="+fileUri.toString());
-    	ContentResolver contentResolver = ctx.getContentResolver();
+	/**
+	 * Dencrypt a file previously encrypted with
+	 * encryptFileWithSessionKey().
+	 * 
+	 * Creates a new file without the .oisafe extension.
+	 * 
+	 * @author Peli
+	 * 
+	 * @param ctx Context of activity in order to store temp file
+	 * @param fileUri Uri to either a stream or a file to read from
+	 * @return If decryption is successful, returns Uri of a content 
+	 * 		provider to read the plaintext file.  Upon failure,
+	 * 		return null.
+	 * @throws Exception
+	 */
+	public Uri decryptFileWithSessionKey(Context ctx, Uri fileUri) throws CryptoHelperException {
+		if (debug) Log.d(TAG, "fileUri="+fileUri.toString());
+		ContentResolver contentResolver = ctx.getContentResolver();
 
-    	String inputPath = null;
+		String inputPath = null;
 		String outputPath = null;
 		Uri resultUri = null;
-    	boolean result = false;
-    	
-    	try {
-	    	InputStream is;
-	    	if (fileUri.getScheme().equals("file")) {
+		boolean result = false;
+		
+		try {
+			InputStream is;
+			if (fileUri.getScheme().equals("file")) {
 				inputPath = fileUri.getPath();
 				is = new java.io.FileInputStream(inputPath);
 				if (debug) Log.d(TAG, "Decrypt: Input from " + inputPath);
@@ -823,34 +823,34 @@ public class CryptoHelper {
 			//ctx.deleteFile(sessionFile);
 		}
 		
-    	return resultUri;
-    }
-    
-    /**
-     * Dencrypt a file previously encrypted with
-     * encryptFileWithSessionKey().
-     * 
-     * The original file is not modified
-     * 
-     * @author Peli
-     * 
-     * @param ctx Context of activity in order to store temp file
-     * @param fileUri Uri to either a stream or a file to read from
-     * @return If decryption is successful, returns Uri of a content 
-     * 		provider to read the plaintext file.  Upon failure,
-     * 		return null.
-     * @throws Exception
-     */
-    public Uri decryptFileWithSessionKeyThroughContentProvider(Context ctx, Uri fileUri) throws CryptoHelperException {
-    	if (debug) Log.d(TAG, "fileUri="+fileUri.toString());
-    	ContentResolver contentResolver = ctx.getContentResolver();
-    	
-    	String sessionFile = "";
+		return resultUri;
+	}
+
+	/**
+	 * Dencrypt a file previously encrypted with
+	 * encryptFileWithSessionKey().
+	 * 
+	 * The original file is not modified
+	 * 
+	 * @author Peli
+	 * 
+	 * @param ctx Context of activity in order to store temp file
+	 * @param fileUri Uri to either a stream or a file to read from
+	 * @return If decryption is successful, returns Uri of a content 
+	 * 		provider to read the plaintext file.  Upon failure,
+	 * 		return null.
+	 * @throws Exception
+	 */
+	public Uri decryptFileWithSessionKeyThroughContentProvider(Context ctx, Uri fileUri) throws CryptoHelperException {
+		if (debug) Log.d(TAG, "fileUri="+fileUri.toString());
+		ContentResolver contentResolver = ctx.getContentResolver();
+		
+		String sessionFile = "";
 		Uri resultUri = null;
-    	boolean result = false;
-    	
-    	try {
-	    	InputStream is;
+		boolean result = false;
+		
+		try {
+			InputStream is;
 			if (fileUri.getScheme().equals("file")) {
 				is = new java.io.FileInputStream(fileUri.getPath());
 				if (debug) Log.d(TAG, "Decrypt: Input from " + fileUri.getPath());
@@ -866,8 +866,8 @@ public class CryptoHelper {
 				decryptSession=generateSalt();
 			} catch (NoSuchAlgorithmException e1) {
 				e1.printStackTrace();
-			    String msg = "Decrypt error: "+e1.getLocalizedMessage();
-			    throw new CryptoHelperException(msg);
+				String msg = "Decrypt error: "+e1.getLocalizedMessage();
+				throw new CryptoHelperException(msg);
 			}
 			sessionFile = CryptoContentProvider.SESSION_FILE+"."+decryptSession;
 			if (debug) Log.d(TAG, "Decrypt: Output to " + sessionFile);
@@ -901,29 +901,29 @@ public class CryptoHelper {
 			ctx.deleteFile(sessionFile);
 		}
 		
-    	return resultUri;
-    }
-    
-    /**
-     * Unencrypt a file previously encrypted with
-     * encryptFileWithSessionKey().
-     * 
-     * @author Peli
-     * 
-     * @param ctx Context of activity in order to store temp file
-     * @param fileUri Uri to either a stream or a file to read from
-     * @param useContentProvider true for using Content Provider,
-     *        false for creating a file without ".oisafe" extension and
-     *        deleting the original file.
-     * @return True if successful, otherwise false.
-     * @throws Exception
-     */
-    public boolean decryptStreamWithSessionKey(Context ctx, InputStream is, OutputStream os) throws CryptoHelperException {
+		return resultUri;
+	}
+
+	/**
+	 * Unencrypt a file previously encrypted with
+	 * encryptFileWithSessionKey().
+	 * 
+	 * @author Peli
+	 * 
+	 * @param ctx Context of activity in order to store temp file
+	 * @param fileUri Uri to either a stream or a file to read from
+	 * @param useContentProvider true for using Content Provider,
+	 *        false for creating a file without ".oisafe" extension and
+	 *        deleting the original file.
+	 * @return True if successful, otherwise false.
+	 * @throws Exception
+	 */
+	public boolean decryptStreamWithSessionKey(Context ctx, InputStream is, OutputStream os) throws CryptoHelperException {
 		if (debug) Log.d(TAG, "decryptStreamWithSessionKey");
 		status=false; // assume failure
 		if(password == null) {
-		    String msg = "Must call setPassword before running decrypt.";
-		    throw new CryptoHelperException(msg);
+			String msg = "Must call setPassword before running decrypt.";
+			throw new CryptoHelperException(msg);
 		}
 
 		try {
@@ -970,24 +970,24 @@ public class CryptoHelper {
 			byte[] byteSessionKey = {};
 			
 			try {
-			    pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
-			    byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
-			    status=true;
+				pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
+				byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
+				status=true;
 			} catch (IllegalBlockSizeException e) {
-			    Log.e(TAG,"decrypt(): "+e.toString());
+				Log.e(TAG,"decrypt(): "+e.toString());
 			} catch (BadPaddingException e) {
-			    Log.e(TAG,"decrypt(): "+e.toString());
+				Log.e(TAG,"decrypt(): "+e.toString());
 			} catch (InvalidKeyException e) {
-			    Log.e(TAG,"decrypt(): "+e.toString());
+				Log.e(TAG,"decrypt(): "+e.toString());
 			} catch (InvalidAlgorithmParameterException e) {
-			    Log.e(TAG,"decrypt(): "+e.toString());
+				Log.e(TAG,"decrypt(): "+e.toString());
 			}
 	
 			// Now decrypt the message
 			Trivium tri = new Trivium();
 			try {
-			    tri.setupKey(Trivium.MODE_DECRYPT,
-			    		byteSessionKey, 0);
+				tri.setupKey(Trivium.MODE_DECRYPT,
+						byteSessionKey, 0);
 				tri.setupNonce(byteSessionKey, 10);
 				
 				// Create the byte array to hold the data
@@ -998,9 +998,9 @@ public class CryptoHelper {
 				int offset = 0;
 				numRead = 0;
 				while ((numRead = is.read(bytesIn, 0, bytesLen)) >= 0) {
-				    tri.process(bytesIn, 0,
-				    		bytesOut, 0, numRead);
-				    
+					tri.process(bytesIn, 0,
+							bytesOut, 0, numRead);
+
 					os.write(bytesOut, 0, numRead);
 					offset += numRead;
 				}
@@ -1011,14 +1011,14 @@ public class CryptoHelper {
 				}
 				status=true;
 				
-		    } catch (ESJException e) {
+			} catch (ESJException e) {
 				Log.e(TAG, "Error decrypting file", e);
-	    	}
-		    
+			}
+
 		} catch (IOException e) {
 			Log.e(TAG, "IOException", e);
 		}
 		
 		return status;
-    }
+	}
 }

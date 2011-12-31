@@ -57,7 +57,7 @@ public class ChangePass extends Activity {
 	String oldPassword;
 	String newPassword;
 
-    Handler myViewUpdateHandler = new Handler(){
+	Handler myViewUpdateHandler = new Handler(){
 		// @Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -69,25 +69,25 @@ public class ChangePass extends Activity {
 			}
 			super.handleMessage(msg);
 		}
-    }; 
+	}; 
 
-    Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	Intent frontdoor;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
-    /** 
-     * Called when the activity is first created. 
-     */
-    @Override
-    public void onCreate(Bundle icicle) {
+	/** 
+	 * Called when the activity is first created. 
+	 */
+	@Override
+	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
 		if (debug) Log.d(TAG,"onCreate()");
@@ -104,15 +104,15 @@ public class ChangePass extends Activity {
 		Button changePasswordButton = (Button) findViewById(R.id.change_password_button);
 		
 		changePasswordButton.setOnClickListener(new View.OnClickListener() {
-		    public void onClick(View arg0) {
-		    	performChangePass();
-		    }
+			public void onClick(View arg0) {
+				performChangePass();
+			}
 		});
 		
-    }
-    
-    @Override
-    protected void onPause() {
+	}
+
+	@Override
+	protected void onPause() {
 		super.onPause();
 		
 		if (debug) Log.d(TAG,"onPause()");
@@ -129,10 +129,10 @@ public class ChangePass extends Activity {
 		} catch (IllegalArgumentException e) {
 			//if (debug) Log.d(TAG,"IllegalArgumentException");
 		}
-    }
+	}
 
-    @Override
-    protected void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
 
 		if (debug) Log.d(TAG,"onResume()");
@@ -141,33 +141,33 @@ public class ChangePass extends Activity {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
-        
-        Passwords.Initialize(this);
-    }
-    
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case CHANGE_PASS_PROGRESS_KEY: {
-                ProgressDialog dialog = new ProgressDialog(this);
-                dialog.setMessage("Please wait while re-encrypting...");
-                dialog.setIndeterminate(false);
-                dialog.setCancelable(false);
-                return dialog;
-            }
-        }
-        return null;
-    }
-    
-    /**
-     * Check the old, new and verify fields then try to re-encrypt
-     * the data.
-     */
-    private void performChangePass() {
-    	if (debug) Log.d(TAG,"performChangePass()");
-    	
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
+
+		Passwords.Initialize(this);
+	}
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+			case CHANGE_PASS_PROGRESS_KEY: {
+				ProgressDialog dialog = new ProgressDialog(this);
+				dialog.setMessage("Please wait while re-encrypting...");
+				dialog.setIndeterminate(false);
+				dialog.setCancelable(false);
+				return dialog;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Check the old, new and verify fields then try to re-encrypt
+	 * the data.
+	 */
+	private void performChangePass() {
+		if (debug) Log.d(TAG,"performChangePass()");
+		
 		EditText oldPassword = (EditText) findViewById(R.id.old_password);
 		EditText newPassword = (EditText) findViewById(R.id.new_password);
 		EditText verifyPassword = (EditText) findViewById(R.id.verify_password);
@@ -177,24 +177,24 @@ public class ChangePass extends Activity {
 		String verifyPlain = verifyPassword.getText().toString();
 
 		if (newPlain.compareTo(verifyPlain) != 0) {
-            Toast.makeText(ChangePass.this, R.string.new_verify_mismatch,
-                    Toast.LENGTH_SHORT).show();
-            return;
+			Toast.makeText(ChangePass.this, R.string.new_verify_mismatch,
+					Toast.LENGTH_SHORT).show();
+			return;
 		}
 		if (newPlain.length() < 4) {
-            Toast.makeText(ChangePass.this, R.string.notify_blank_pass,
-                    Toast.LENGTH_SHORT).show();
-            return;
+			Toast.makeText(ChangePass.this, R.string.notify_blank_pass,
+					Toast.LENGTH_SHORT).show();
+			return;
 		}
 		if (!checkUserPassword(oldPlain)) {
-            Toast.makeText(ChangePass.this, R.string.invalid_old_password,
-                    Toast.LENGTH_SHORT).show();
-            return;
+			Toast.makeText(ChangePass.this, R.string.invalid_old_password,
+					Toast.LENGTH_SHORT).show();
+			return;
 		}
 //		changePassThreadStart(oldPlain, newPlain);
 		changeMasterPassword(oldPlain, newPlain);
-    }
-    
+	}
+
 	/**
 	 * Start a separate thread to import the database.   By running
 	 * the import in a thread it allows the main UI thread to return
@@ -203,7 +203,7 @@ public class ChangePass extends Activity {
 	 * @param oldPass clear text old password
 	 * @param newPass clear text new password
 	 */
-    /*
+	/*
 	private void changePassThreadStart(String oldPass, String newPass){
 		if (debug) Log.d(TAG,"changePassThreadStart(,)");
 		showDialog(CHANGE_PASS_PROGRESS_KEY);
@@ -226,8 +226,8 @@ public class ChangePass extends Activity {
 	}
 	*/
 
-    private boolean changeMasterPassword(String oldPass, String newPass) {
-    	
+	private boolean changeMasterPassword(String oldPass, String newPass) {
+
 		DBHelper dbHelper= new DBHelper(this);
 
 		CryptoHelper ch = new CryptoHelper();
@@ -269,23 +269,23 @@ public class ChangePass extends Activity {
 		Toast.makeText(ChangePass.this, R.string.error_changing_password,
 				Toast.LENGTH_LONG).show();
 		return false;
-    }
-    
-    /**
-     * This is an older function.   We'll want to re-use this when we
-     * allow the user to regenerate the master key.
-     * 
-     * @param oldPass
-     * @param newPass
-     */
-    public void changePassword(String oldPass, String newPass) {
-    	if (debug) Log.d(TAG,"changePassword(,)");
-    	
+	}
+
+	/**
+	 * This is an older function.   We'll want to re-use this when we
+	 * allow the user to regenerate the master key.
+	 * 
+	 * @param oldPass
+	 * @param newPass
+	 */
+	public void changePassword(String oldPass, String newPass) {
+		if (debug) Log.d(TAG,"changePassword(,)");
+
 		DBHelper dbHelper= new DBHelper(this);
 
 		CryptoHelper ch = new CryptoHelper();
 
-	    List<CategoryEntry> categoryRows;
+		List<CategoryEntry> categoryRows;
 		categoryRows = dbHelper.fetchAllCategoryRows();
 
 		List<PassEntry> passRows;
@@ -298,30 +298,30 @@ public class ChangePass extends Activity {
 		ch.setPassword(oldPass);
 
 		for (CategoryEntry row : categoryRows) {
-		    row.plainName = "";
-		    try {
+			row.plainName = "";
+			try {
 				row.plainName = ch.decrypt(row.name);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				if (debug) Log.e(TAG,e.toString());
 				Toast.makeText(this,getString(R.string.crypto_error)
 					+ e.getMessage(), Toast.LENGTH_SHORT).show();
 				return;
-		    }
+			}
 		}
 
 		for (PassEntry row : passRows) {
-		    try {
+			try {
 				row.plainDescription = ch.decrypt(row.description);
 				row.plainWebsite = ch.decrypt(row.website);
 				row.plainUsername = ch.decrypt(row.username);
 				row.plainPassword = ch.decrypt(row.password);
 				row.plainNote = ch.decrypt(row.note);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				if (debug) Log.e(TAG,e.toString());
 				Toast.makeText(this,getString(R.string.crypto_error)
 					+ e.getMessage(), Toast.LENGTH_SHORT).show();
 				return;
-		    }
+			}
 		}
 
 		/**
@@ -331,29 +331,29 @@ public class ChangePass extends Activity {
 		ch.setPassword(newPass);
 
 		for (CategoryEntry row : categoryRows) {
-		    try {
+			try {
 				row.name = ch.encrypt(row.plainName);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				if (debug) Log.e(TAG,e.toString());
 				Toast.makeText(this,getString(R.string.crypto_error)
 					+ e.getMessage(), Toast.LENGTH_SHORT).show();
 				return;
-		    }
+			}
 		}
 
 		for (PassEntry row : passRows) {
-		    try {
+			try {
 				row.description = ch.encrypt(row.plainDescription);
 				row.website = ch.encrypt(row.plainWebsite);
 				row.username = ch.encrypt(row.plainUsername);
 				row.password = ch.encrypt(row.plainPassword);
 				row.note = ch.encrypt(row.plainNote);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				if (debug) Log.e(TAG,e.toString());
 				Toast.makeText(this,getString(R.string.crypto_error)
 					+ e.getMessage(), Toast.LENGTH_SHORT).show();
 				return;
-		    }
+			}
 		}
 
 		/**
@@ -392,18 +392,18 @@ public class ChangePass extends Activity {
 		CategoryList.setMasterKey(newPass);
 
 		dbHelper.close();
-    }
-    
-    /**
-     * Check the provided clear text password with the one stored
-     * in the database.
-     * 
-     * @param pass = clear text password
-     * @return True if password is correct.
-     */
-    private boolean checkUserPassword(String pass) {
-    	if (debug) Log.d(TAG,"checkUserPassword()");
-    	
+	}
+
+	/**
+	 * Check the provided clear text password with the one stored
+	 * in the database.
+	 * 
+	 * @param pass = clear text password
+	 * @return True if password is correct.
+	 */
+	private boolean checkUserPassword(String pass) {
+		if (debug) Log.d(TAG,"checkUserPassword()");
+		
 		DBHelper dbHelper= new DBHelper(this);
 		String confirmKey = dbHelper.fetchMasterKey();
 
@@ -425,7 +425,7 @@ public class ChangePass extends Activity {
 		return false;
 	}
 
-    @Override
+	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
 

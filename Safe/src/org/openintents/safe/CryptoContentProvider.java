@@ -111,77 +111,77 @@ public class CryptoContentProvider extends ContentProvider {
 			String cryptSession;
 			String sessionFile;
 			String originalFile;
-	        int modeBits = 0;
+			int modeBits = 0;
 			switch (sUriMatcher.match(uri)) {
 				case ENCRYPT_ID:
 					if (debug) Log.d(TAG,"openFile: ENCRYPT");
-			        modeBits = ParcelFileDescriptor.MODE_WRITE_ONLY |
-			        	ParcelFileDescriptor.MODE_CREATE;
-			        cryptSession = uri.getPathSegments().get(1);
-			        sessionFile=SESSION_FILE+"."+cryptSession;
-			        path += "/"+sessionFile;
+					modeBits = ParcelFileDescriptor.MODE_WRITE_ONLY |
+						ParcelFileDescriptor.MODE_CREATE;
+					cryptSession = uri.getPathSegments().get(1);
+					sessionFile=SESSION_FILE+"."+cryptSession;
+					path += "/"+sessionFile;
 					break;
 				case DECRYPT_ID:
 					if (debug) Log.d(TAG,"openFile: DECRYPT");
-			        modeBits = ParcelFileDescriptor.MODE_READ_ONLY;
-			        cryptSession = uri.getPathSegments().get(1);
-			        sessionFile=SESSION_FILE+"."+cryptSession;
-			        path += "/"+sessionFile;
+					modeBits = ParcelFileDescriptor.MODE_READ_ONLY;
+					cryptSession = uri.getPathSegments().get(1);
+					sessionFile=SESSION_FILE+"."+cryptSession;
+					path += "/"+sessionFile;
 					break;
 				case DECRYPT_FILE_ID:
 					if (debug) Log.d(TAG,"openFile: DECRYPT_FILE");
-			        modeBits = ParcelFileDescriptor.MODE_READ_ONLY;
-			        originalFile = "file://" + uri.getQueryParameter("file");
-			        String sessionKey = uri.getQueryParameter("sessionkey");
-			        // TODO: Check that sessionKey is valid.
-			        
-			        // Decrypt file
-			        CryptoHelper ch = ServiceDispatchImpl.ch; // Use the global crypto helper that is connected to the single service we have.
-			        
-			        if (ch == null) {
-			        	if (debug) Log.d(TAG, "OI Safe currently logged out.");
-			        	return null;
-			        }
-			        
-			        if (!sessionKey.equals(ch.getCurrentSessionKey())) {
-			        	if (debug) Log.d(TAG, "Session keys do not match! " + sessionKey + " != " + ch.getCurrentSessionKey());
-			        	return null;
-			        }
-			        
-			        if (debug) Log.d(TAG, "Original file path: " + originalFile);
+					modeBits = ParcelFileDescriptor.MODE_READ_ONLY;
+					originalFile = "file://" + uri.getQueryParameter("file");
+					String sessionKey = uri.getQueryParameter("sessionkey");
+					// TODO: Check that sessionKey is valid.
+
+					// Decrypt file
+					CryptoHelper ch = ServiceDispatchImpl.ch; // Use the global crypto helper that is connected to the single service we have.
+
+					if (ch == null) {
+						if (debug) Log.d(TAG, "OI Safe currently logged out.");
+						return null;
+					}
+
+					if (!sessionKey.equals(ch.getCurrentSessionKey())) {
+						if (debug) Log.d(TAG, "Session keys do not match! " + sessionKey + " != " + ch.getCurrentSessionKey());
+						return null;
+					}
+
+					if (debug) Log.d(TAG, "Original file path: " + originalFile);
 					if (CategoryList.isSignedIn()==false) {
 						Intent frontdoor = new Intent(getContext(), Safe.class);
 						frontdoor.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						getContext().startActivity(frontdoor);		
-			        	throw new CryptoHelperException("Not logged in.");
-			    	}
+						throw new CryptoHelperException("Not logged in.");
+					}
 
-			        if (ch == null) {
-			        	throw new CryptoHelperException("CryptoHelper not available. Are you logged in?");
-			        }
-			        if (debug) Log.d(TAG, "Decrypt..");
-			        Uri newuri = ch.decryptFileWithSessionKeyThroughContentProvider(this.getContext(), Uri.parse(originalFile));
-			        cryptSession = newuri.getPathSegments().get(1);
-			        sessionFile=SESSION_FILE+"."+cryptSession;
-			        path += "/"+sessionFile;
-			        if (debug) Log.d(TAG, "New path: " + path);
+					if (ch == null) {
+						throw new CryptoHelperException("CryptoHelper not available. Are you logged in?");
+					}
+					if (debug) Log.d(TAG, "Decrypt..");
+					Uri newuri = ch.decryptFileWithSessionKeyThroughContentProvider(this.getContext(), Uri.parse(originalFile));
+					cryptSession = newuri.getPathSegments().get(1);
+					sessionFile=SESSION_FILE+"."+cryptSession;
+					path += "/"+sessionFile;
+					if (debug) Log.d(TAG, "New path: " + path);
 					break;
 				default:
 					throw new IllegalArgumentException("Unknown URI " + uri);
 			}
 
 			if (debug) Log.d(TAG,"openFile: path="+path);
-	        pfd=ParcelFileDescriptor.open(new File(path), modeBits);
-	        // This is pretty sneaky.  After opening the file,
-	        // we'll immediately delete the file.
-	        // Files are not truly deleted if there is an open file
-	        // handle.   The file will not be deleted until the
-	        // file handle is closed.   And then it magically
-	        // disappears.   This makes for a one time use
-	        // content provider.
-	        if (!getContext().deleteFile(sessionFile)) {
-	        	if (debug) Log.e(TAG,"openFile: unable to delete: "+sessionFile);
-	        }
+			pfd=ParcelFileDescriptor.open(new File(path), modeBits);
+			// This is pretty sneaky.  After opening the file,
+			// we'll immediately delete the file.
+			// Files are not truly deleted if there is an open file
+			// handle.   The file will not be deleted until the
+			// file handle is closed.   And then it magically
+			// disappears.   This makes for a one time use
+			// content provider.
+			if (!getContext().deleteFile(sessionFile)) {
+				if (debug) Log.e(TAG,"openFile: unable to delete: "+sessionFile);
+			}
 		} catch (FileNotFoundException e) {
 			if (debug) Log.d(TAG,"openFile: FileNotFound");
 			throw e;
