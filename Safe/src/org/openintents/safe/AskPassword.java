@@ -29,7 +29,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,19 +60,19 @@ public class AskPassword extends DistributionLibraryActivity {
 	private static String TAG = "AskPassword";
 	public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
 
-    public static final int REQUEST_RESTORE = 0;
+	public static final int REQUEST_RESTORE = 0;
 
-    // Menu Item order
-    public static final int SWITCH_MODE_INDEX = Menu.FIRST;
-    public static final int MUTE_INDEX = Menu.FIRST + 1;
+	// Menu Item order
+	public static final int SWITCH_MODE_INDEX = Menu.FIRST;
+	public static final int MUTE_INDEX = Menu.FIRST + 1;
 	private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST BE LAST
 	
 	private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
 	
-    public static final int VIEW_NORMAL = 0;
-    public static final int VIEW_KEYPAD = 1;
-    
-    private int viewMode = VIEW_NORMAL;
+	public static final int VIEW_NORMAL = 0;
+	public static final int VIEW_KEYPAD = 1;
+
+	private int viewMode = VIEW_NORMAL;
 
 	private EditText pbeKey;
 	private DBHelper dbHelper=null;
@@ -100,13 +99,13 @@ public class AskPassword extends DistributionLibraryActivity {
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
-        mDistribution.setFirst(MENU_DISTRIBUTION_START, DIALOG_DISTRIBUTION_START);
-        
-        // Check whether EULA has been accepted
-        // or information about new version can be presented.
-        if (mDistribution.showEulaOrNewVersion()) {
-            return;
-        }
+		mDistribution.setFirst(MENU_DISTRIBUTION_START, DIALOG_DISTRIBUTION_START);
+
+		// Check whether EULA has been accepted
+		// or information about new version can be presented.
+		if (mDistribution.showEulaOrNewVersion()) {
+			return;
+		}
 			
 		if (debug) Log.d(TAG,"onCreate("+icicle+")");
 
@@ -137,23 +136,23 @@ public class AskPassword extends DistributionLibraryActivity {
 		masterKey = dbHelper.fetchMasterKey();
 
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean prefKeypad = sp.getBoolean(Preferences.PREFERENCE_KEYPAD, false);
-        boolean prefKeypadMute = sp.getBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, false);
-        mute=prefKeypadMute;
-        
-        if (prefKeypad) {
-        	viewMode=VIEW_KEYPAD;
-        }
+		boolean prefKeypad = sp.getBoolean(Preferences.PREFERENCE_KEYPAD, false);
+		boolean prefKeypadMute = sp.getBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, false);
+		mute=prefKeypadMute;
+
+		if (prefKeypad) {
+			viewMode=VIEW_KEYPAD;
+		}
 		if (masterKey.length() == 0) {
 			firstTime=true;
-		}		
+		}
 		if ((viewMode==VIEW_NORMAL) || (firstTime)) {
 			normalInit();
 		} else {
 			keypadInit();
 		}
 	}
-	
+
 	private void normalInit() {
 		// Setup layout
 		setContentView(R.layout.front_door);
@@ -188,23 +187,23 @@ public class AskPassword extends DistributionLibraryActivity {
 		}
 		if (firstTime) {
 			confirmPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-			        if (actionId == EditorInfo.IME_ACTION_DONE) {
+				public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+					if (actionId == EditorInfo.IME_ACTION_DONE) {
 						handleContinue();
-			            return true;
-			        }
-			        return false;
-			    }
+						return true;
+					}
+					return false;
+				}
 			});
 		}else{
 			pbeKey.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-			        if (actionId == EditorInfo.IME_ACTION_DONE) {
+				public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+					if (actionId == EditorInfo.IME_ACTION_DONE) {
 						handleContinue();
-			            return true;
-			        }
-			        return false;
-			    }
+						return true;
+					}
+					return false;
+				}
 			});
 		}
 		Button continueButton = (Button) findViewById(R.id.continue_button);
@@ -227,10 +226,10 @@ public class AskPassword extends DistributionLibraryActivity {
 		if (PBEKey.length() < 4) {
 			Toast.makeText(AskPassword.this, R.string.notify_blank_pass,
 					Toast.LENGTH_SHORT).show();
-		    Animation shake = AnimationUtils
-	        .loadAnimation(AskPassword.this, R.anim.shake);
-	        
-	        findViewById(R.id.password).startAnimation(shake);
+			Animation shake = AnimationUtils
+					.loadAnimation(AskPassword.this, R.anim.shake);
+
+			findViewById(R.id.password).startAnimation(shake);
 			return;
 		}
 
@@ -276,10 +275,10 @@ public class AskPassword extends DistributionLibraryActivity {
 			// message if it's wrong
 			Toast.makeText(AskPassword.this, R.string.invalid_password,
 					Toast.LENGTH_SHORT).show();
-	        Animation shake = AnimationUtils
-	        .loadAnimation(AskPassword.this, R.anim.shake);
-	        
-	        findViewById(R.id.password).startAnimation(shake);
+			Animation shake = AnimationUtils
+					.loadAnimation(AskPassword.this, R.anim.shake);
+
+			findViewById(R.id.password).startAnimation(shake);
 			return;
 		}
 		gotPassword();
@@ -415,11 +414,11 @@ public class AskPassword extends DistributionLibraryActivity {
 		}
 		miMute.setVisible(viewMode==VIEW_KEYPAD);
 
- 		// Add distribution menu items last.
- 		mDistribution.onCreateOptionsMenu(menu);
- 		
+		// Add distribution menu items last.
+		mDistribution.onCreateOptionsMenu(menu);
+		
 		return true;
-    }
+	}
 	
 	private void switchView() {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -437,8 +436,8 @@ public class AskPassword extends DistributionLibraryActivity {
 			if (debug) Log.d(TAG,"commitment issues");
 		}
 	}
-	
-    public boolean onOptionsItemSelected(MenuItem item) {
+
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
 		case SWITCH_MODE_INDEX:
 			switchView();
@@ -446,8 +445,8 @@ public class AskPassword extends DistributionLibraryActivity {
 		case MUTE_INDEX:
 			SharedPreferences msp = PreferenceManager.getDefaultSharedPreferences(this);
 			SharedPreferences.Editor mspe=msp.edit();
-	        mspe.putBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, !mute);
-	        mute=!mute;
+			mspe.putBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, !mute);
+			mute=!mute;
 			if (!mspe.commit()) {
 				if (debug) Log.d(TAG,"mute commitment issues");
 			}
@@ -457,7 +456,7 @@ public class AskPassword extends DistributionLibraryActivity {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
-    }
+	}
 
 	private void databaseVersionError() {
 		Dialog about = new AlertDialog.Builder(this)
@@ -501,19 +500,19 @@ public class AskPassword extends DistributionLibraryActivity {
 		return false;
 	}
 	
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent i) {
-    	super.onActivityResult(requestCode, resultCode, i);
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+		super.onActivityResult(requestCode, resultCode, i);
 
-    	if ((requestCode== REQUEST_RESTORE) && (resultCode == RESULT_OK)) {
-    		Log.d(TAG,"returning masterkey: "+CategoryList.getMasterKey());
+		if ((requestCode== REQUEST_RESTORE) && (resultCode == RESULT_OK)) {
+			Log.d(TAG,"returning masterkey: "+CategoryList.getMasterKey());
 			Intent callbackIntent = new Intent();
 			callbackIntent.putExtra("salt", CategoryList.getSalt());
 			callbackIntent.putExtra("masterKey", CategoryList.getMasterKey());
 			setResult(RESULT_OK, callbackIntent);
-    		finish();
-    	}
-    }
+			finish();
+		}
+	}
 
 	/////////////// Keypad Functions /////////////////////
 
@@ -525,7 +524,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		}
 
 		keypadPassword="";
-    	
+		
 		setContentView(R.layout.keypad);
 
 		TextView header = (TextView) findViewById(R.id.entry_header);
@@ -631,7 +630,7 @@ public class AskPassword extends DistributionLibraryActivity {
 			}
 		});
 	}
-    
+
 	private void keypadOnDestroy() {
 		if (mpDigitBeep!=null) {
 			mpDigitBeep.release();
@@ -655,11 +654,11 @@ public class AskPassword extends DistributionLibraryActivity {
 			if (!mute) {
 				mpErrorBeep.start();
 			}
-		    Animation shake = AnimationUtils
-	        	.loadAnimation(AskPassword.this, R.anim.shake);
-	        findViewById(R.id.keypad_continue).startAnimation(shake);
+			Animation shake = AnimationUtils
+					.loadAnimation(AskPassword.this, R.anim.shake);
+			findViewById(R.id.keypad_continue).startAnimation(shake);
 
-	        keypadPassword="";
+			keypadPassword="";
 		}
 	}
 }
