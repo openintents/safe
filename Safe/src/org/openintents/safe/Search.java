@@ -64,35 +64,35 @@ public class Search extends ListActivity {
 	private SearchListItemAdapter searchAdapter=null;
 
 	Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	private Intent restartTimerIntent=null;
 	
-    public Handler myViewUpdateHandler = new Handler(){
-    	// @Override
-    	public void handleMessage(Message msg) {
-    		switch (msg.what) {
-    		case MSG_SEARCH_COMPLETE:
-    			searchAdapter = 
-    			    new SearchListItemAdapter(Search.this, R.layout.search_row,
-    			    		results);
-    			setListAdapter(searchAdapter);
-    			if ((searchAdapter!=null) && (searchAdapter.isEmpty())) {
-    				Toast.makeText(Search.this, R.string.search_nothing_found,
-   						Toast.LENGTH_LONG).show();
-    			}
-    			break;
-    		}
-    		super.handleMessage(msg);
-    	}
-    }; 
+	public Handler myViewUpdateHandler = new Handler(){
+		// @Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case MSG_SEARCH_COMPLETE:
+				searchAdapter = 
+				    new SearchListItemAdapter(Search.this, R.layout.search_row,
+				    		results);
+				setListAdapter(searchAdapter);
+				if ((searchAdapter!=null) && (searchAdapter.isEmpty())) {
+					Toast.makeText(Search.this, R.string.search_nothing_found,
+						Toast.LENGTH_LONG).show();
+				}
+				break;
+			}
+			super.handleMessage(msg);
+		}
+	}; 
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -121,22 +121,22 @@ public class Search extends ListActivity {
 		});
 
 		etSearchCriteria.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-		    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-		        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-		        	// hide the soft keyboard
-		        	InputMethodManager imm =
-		        		(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		        	imm.toggleSoftInput(0, 0);
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+					// hide the soft keyboard
+					InputMethodManager imm =
+						(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.toggleSoftInput(0, 0);
 					searchCriteria = etSearchCriteria.getText().toString().trim().toLowerCase();
 					searchThreadStart();
-		            return true;
-		        }
-		        return false;
-		    }
+					return true;
+				}
+				return false;
+			}
 		});
 
 		restoreMe();
-    }
+	}
 
 	@Override
 	protected void onPause() {
@@ -158,7 +158,7 @@ public class Search extends ListActivity {
 	}
 
 	@Override
-    protected void onResume() {
+	protected void onResume() {
 		super.onResume();
 		
 		if (debug) Log.d(TAG,"onResume()");
@@ -167,16 +167,16 @@ public class Search extends ListActivity {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 
-        Passwords.Initialize(this);
-    }
+		Passwords.Initialize(this);
+	}
 
 	public static long[] getRowsIds(List<SearchEntry> rows) {
 		if (debug) Log.d(TAG,"getRowsIds() rows="+rows);
 		if (rows!=null) {
-	    	long[] ids=new long[rows.size()];
+			long[] ids=new long[rows.size()];
 			Iterator<SearchEntry> searchIter=rows.iterator();
 			int i=0;
 			while (searchIter.hasNext()) {
@@ -276,9 +276,9 @@ public class Search extends ListActivity {
 			if (debug) Log.d(TAG,"doSearch: category="+catRow.plainName);
 			List<PassEntry> passwords=Passwords.getPassEntries(catRow.id, true, false);
 			for (PassEntry passRow : passwords) {
-		    	if (searchThread.isInterrupted()) {
-		    		return;
-		    	}
+				if (searchThread.isInterrupted()) {
+					return;
+				}
 
 				String description=passRow.plainDescription.toLowerCase();
 				String website=passRow.plainWebsite.toLowerCase();
@@ -303,9 +303,9 @@ public class Search extends ListActivity {
 		}
 
 		Collections.sort(results, new Comparator<SearchEntry>() {
-		    public int compare(SearchEntry o1, SearchEntry o2) {
-		    	return o1.name.compareToIgnoreCase(o2.name);
-		    }});
+			public int compare(SearchEntry o1, SearchEntry o2) {
+				return o1.name.compareToIgnoreCase(o2.name);
+			}});
 
 		updateListFromResults();
 	}
@@ -329,8 +329,8 @@ public class Search extends ListActivity {
 			return;
 		}
 		searchAdapter = 
-		    new SearchListItemAdapter(Search.this, R.layout.search_row,
-		    		results);
+			new SearchListItemAdapter(Search.this, R.layout.search_row,
+					results);
 	}
 	
 	@Override

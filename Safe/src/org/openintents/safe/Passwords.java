@@ -43,7 +43,7 @@ import android.widget.Toast;
 public class Passwords {
 
 	private static final boolean debug = false;
-    private static final String TAG = "Passwords";
+	private static final String TAG = "Passwords";
 
 	private static HashMap<Long, PassEntry> passEntries=null;
 	
@@ -72,8 +72,8 @@ public class Passwords {
 				cryptoInitialized=true;
 			} catch (Exception e) {
 				e.printStackTrace();
-	            Toast.makeText(ctx, "CategoryList: " + ctx.getString(R.string.crypto_error),
-	                    Toast.LENGTH_SHORT).show();
+				Toast.makeText(ctx, "CategoryList: " + ctx.getString(R.string.crypto_error),
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 				
@@ -170,9 +170,9 @@ public class Passwords {
 		}
 		List<CategoryEntry> catList=new ArrayList<CategoryEntry>(categories);
 		Collections.sort(catList, new Comparator<CategoryEntry>() {
-		    public int compare(CategoryEntry o1, CategoryEntry o2) {
-		        return o1.plainName.compareToIgnoreCase(o2.plainName);
-		    }});
+			public int compare(CategoryEntry o1, CategoryEntry o2) {
+				return o1.plainName.compareToIgnoreCase(o2.plainName);
+			}});
 		return catList;
 	}
 	
@@ -232,12 +232,12 @@ public class Passwords {
 		}
 		if (catEntry.nameNeedsDecrypt) {
 			if (debug) Log.d(TAG,"decrypt cat");
-		    try {
+			try {
 				catEntry.plainName = ch.decrypt(catEntry.name);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				Log.e(TAG,e.toString());
-		    }
-		    catEntry.nameNeedsDecrypt=false;
+			}
+			catEntry.nameNeedsDecrypt=false;
 			categoryEntries.put(id, catEntry);
 		}
 		catEntry.count=dbHelper.getCategoryCount(id);
@@ -247,12 +247,12 @@ public class Passwords {
 	public static long putCategoryEntry(CategoryEntry catEntry) {
 		if (catEntry.plainNameNeedsEncrypt) {
 			if (debug) Log.d(TAG,"encrypt cat");
-		    try {
+			try {
 				catEntry.name = ch.encrypt(catEntry.plainName);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				Log.e(TAG,e.toString());
-		    }
-		    catEntry.plainNameNeedsEncrypt=false;
+			}
+			catEntry.plainNameNeedsEncrypt=false;
 		}
 		if (catEntry.id==-1) {
 			catEntry.id=dbHelper.addCategory(catEntry);
@@ -306,9 +306,9 @@ public class Passwords {
 		}
 		if (decrypt==true) {
 			Collections.sort(passList, new Comparator<PassEntry>() {
-			    public int compare(PassEntry o1, PassEntry o2) {
-			        return o1.plainDescription.compareToIgnoreCase(o2.plainDescription);
-			    }});
+				public int compare(PassEntry o1, PassEntry o2) {
+					return o1.plainDescription.compareToIgnoreCase(o2.plainDescription);
+				}});
 		}
 		return passList;
 	}
@@ -353,27 +353,27 @@ public class Passwords {
 		}
 		if (passEntry.needsDecryptDescription) {
 			//if (debug) Log.d(TAG,"decrypt pass description");
-		    try {
+			try {
 				passEntry.plainDescription = ch.decrypt(passEntry.description);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				Log.e(TAG,e.toString());
-		    }
-		    passEntry.needsDecryptDescription=false;
+			}
+			passEntry.needsDecryptDescription=false;
 			passEntries.put(id, passEntry);
 		}
 		if (!descriptionOnly && passEntry.needsDecrypt) {
 			if (debug) Log.d(TAG,"decrypt pass");
-		    try {
+			try {
 				passEntry.plainDescription = ch.decrypt(passEntry.description);
 				passEntry.plainWebsite=ch.decrypt(passEntry.website);
 				passEntry.plainUsername=ch.decrypt(passEntry.username);
 				passEntry.plainPassword=ch.decrypt(passEntry.password);
 				passEntry.plainNote=ch.decrypt(passEntry.note);
 				passEntry.plainUniqueName=ch.decrypt(passEntry.uniqueName);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				Log.e(TAG,e.toString());
-		    }
-		    passEntry.needsDecrypt=false;
+			}
+			passEntry.needsDecrypt=false;
 			passEntries.put(id, passEntry);
 		}
 		return passEntry;
@@ -408,17 +408,17 @@ public class Passwords {
 		if (debug) Log.d(TAG,"putPassEntry("+passEntry.id+")");
 		if (passEntry.needsEncrypt) {
 			if (debug) Log.d(TAG,"encrypt pass");
-		    try {
+			try {
 				passEntry.description = ch.encrypt(passEntry.plainDescription);
 				passEntry.website = ch.encrypt(passEntry.plainWebsite);
 				passEntry.username = ch.encrypt(passEntry.plainUsername);
 				passEntry.password = ch.encrypt(passEntry.plainPassword);
 				passEntry.note = ch.encrypt(passEntry.plainNote);
 				passEntry.uniqueName = ch.encrypt(passEntry.plainUniqueName);
-		    } catch (CryptoHelperException e) {
+			} catch (CryptoHelperException e) {
 				Log.e(TAG,e.toString());
-		    }
-		    passEntry.needsEncrypt=false;
+			}
+			passEntry.needsEncrypt=false;
 		}
 		// Format the current time.
 		Date date = new Date();
@@ -505,9 +505,9 @@ public class Passwords {
 				if (packEntry.needsDecrypt) {
 					try {
 						packEntry.plainPackageAccess=ch.decrypt(packEntry.packageAccess);
-				    } catch (CryptoHelperException e) {
+					} catch (CryptoHelperException e) {
 						Log.e(TAG,e.toString());
-				    }
+					}
 				}
 				packageAccess.add(packEntry.plainPackageAccess);
 			}
@@ -524,13 +524,13 @@ public class Passwords {
 	
 	public static void addPackageAccess(Long id, String packageName) {
 		String encryptedPackageName="";
-	    try {
+		try {
 			encryptedPackageName = ch.encrypt(packageName);
 			dbHelper.addPackageAccess(id, encryptedPackageName);
-	    } catch (CryptoHelperException e) {
+		} catch (CryptoHelperException e) {
 			Log.e(TAG,e.toString());
-	    	return;
-	    }
+			return;
+		}
 
 		ArrayList<PackageAccessEntry> packageNames;
 		if (packageAccessEntries.containsKey(id)) {

@@ -16,54 +16,54 @@ import android.widget.ImageButton;
 public class FilenameDialog extends AlertDialog implements OnClickListener {
 //	private static final String TAG = "FilenameDialog";
 
-    private static final String BUNDLE_TAGS = "tags";
-    
+	private static final String BUNDLE_TAGS = "tags";
+
 	protected static final int DIALOG_ID_NO_FILE_MANAGER_AVAILABLE = 2;
-    
-    Context mContext;
-    
-    EditText mEditText;
-    
-    public FilenameDialog(Context context) {
-        super(context);
-        mContext = context;
-        
-        //setTitle(context.getText(R.string.menu_edit_tags));
-        setButton(context.getText(android.R.string.ok), this);
-        setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
-        setIcon(R.drawable.ic_launcher_folder_small);
-        
-        LayoutInflater inflater = 
-                (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.dialog_filename, null);
-        setView(view);
 
-        mEditText = (EditText) view.findViewById(R.id.file_path);
-        
-        //SharedPreferences pm = PreferenceManager.getDefaultSharedPreferences(this);
-        //mEditText.setText(pm.getString(PREFERENCE_FILENAME, DEFAULT_FILENAME));
+	Context mContext;
 
-        ImageButton buttonFileManager = (ImageButton) view.findViewById(R.id.file_manager);
-        
-        buttonFileManager.setOnClickListener(new View.OnClickListener() {
+	EditText mEditText;
+
+	public FilenameDialog(Context context) {
+		super(context);
+		mContext = context;
+
+		//setTitle(context.getText(R.string.menu_edit_tags));
+		setButton(context.getText(android.R.string.ok), this);
+		setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
+		setIcon(R.drawable.ic_launcher_folder_small);
+
+		LayoutInflater inflater = 
+				(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View view = inflater.inflate(R.layout.dialog_filename, null);
+		setView(view);
+
+		mEditText = (EditText) view.findViewById(R.id.file_path);
+
+		//SharedPreferences pm = PreferenceManager.getDefaultSharedPreferences(this);
+		//mEditText.setText(pm.getString(PREFERENCE_FILENAME, DEFAULT_FILENAME));
+
+		ImageButton buttonFileManager = (ImageButton) view.findViewById(R.id.file_manager);
+
+		buttonFileManager.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View arg0) {
 				openFileManager();
 			}
-        });
+		});
 
-    }
-    
-          
+	}
+
+
 	public void onClick(DialogInterface dialog, int which) {
-    	if (which == BUTTON1) {
-    		openOrSave();
-    	}
+		if (which == BUTTON1) {
+			openOrSave();
+		}
 		
 	}
-    
-    void openOrSave() {
-    }
+
+	void openOrSave() {
+	}
 
 	private void openFileManager() {
 		showNoFileManagerAvailableDialog();
@@ -95,15 +95,15 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
 	}
 	
 	@Override
-    public Bundle onSaveInstanceState() {
-        Bundle state = super.onSaveInstanceState();
-        state.putString(BUNDLE_TAGS, "");
-        return state;
-    }
-    
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+	public Bundle onSaveInstanceState() {
+		Bundle state = super.onSaveInstanceState();
+		state.putString(BUNDLE_TAGS, "");
+		return state;
+	}
+
+	@Override
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
 //        String tags = savedInstanceState.getString(BUNDLE_TAGS);
-    }
+	}
 }

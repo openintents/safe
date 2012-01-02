@@ -63,21 +63,21 @@ public class Restore extends Activity {
 	private RestoreDataSet restoreDataSet=null;
 	private boolean firstTime=false;
 
-    public static final String KEY_FIRST_TIME = "first_time";  // Intent keys
+	public static final String KEY_FIRST_TIME = "first_time";  // Intent keys
 	
 	public static final int REQUEST_RESTORE_FILENAME = 0;
 
 	Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -87,8 +87,8 @@ public class Restore extends Activity {
 
 		firstTime = icicle != null ? icicle.getBoolean(Restore.KEY_FIRST_TIME) : false;
 		if (firstTime == false) {
-		    Bundle extras = getIntent().getExtras();            
-		    firstTime = extras != null ? extras.getBoolean(Restore.KEY_FIRST_TIME) : false;
+			Bundle extras = getIntent().getExtras();
+			firstTime = extras != null ? extras.getBoolean(Restore.KEY_FIRST_TIME) : false;
 		}
 
 		frontdoor = new Intent(this, Safe.class);
@@ -111,7 +111,7 @@ public class Restore extends Activity {
 		else
 			restore(backupPath);
 		
-    }
+	}
 
 	@Override
 	protected void onPause() {
@@ -124,7 +124,7 @@ public class Restore extends Activity {
 		}
 	}
 
-    @Override
+	@Override
 	protected void onResume() {
 		super.onResume();
 		
@@ -134,11 +134,11 @@ public class Restore extends Activity {
 			startActivity(frontdoor);		
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 	}
 
-    private boolean backupFileExists(String filename) {
+	private boolean backupFileExists(String filename) {
 		FileReader fr;
 		try {
 			fr = new FileReader(filename);
@@ -149,11 +149,11 @@ public class Restore extends Activity {
 			return false;
 		}
 		return true;
-    }
+	}
 
-    public boolean read(String filename, String masterPassword) {
+	public boolean read(String filename, String masterPassword) {
 		if (debug) Log.d(TAG,"read("+filename+",)");
-    	
+
 		FileReader fr;
 		try {
 			fr = new FileReader(filename);
@@ -202,7 +202,7 @@ public class Restore extends Activity {
 			Toast.makeText(Restore.this, getString(R.string.restore_bad_version,
 				Integer.toString(restoreDataSet.getVersion())),
 				Toast.LENGTH_LONG).show();
-        	return false;
+			return false;
 		}
 		CategoryEntry firstCatEntry= null;
 		if (restoreDataSet.getCategories().size() > 0) {
@@ -231,9 +231,9 @@ public class Restore extends Activity {
 		if (ch.getStatus()==false) {
 			Toast.makeText(Restore.this, getString(R.string.restore_decrypt_error),
 					Toast.LENGTH_LONG).show();
-	        Animation shake = AnimationUtils
-	        	.loadAnimation(Restore.this, R.anim.shake);
-	        findViewById(R.id.restore_password).startAnimation(shake);
+			Animation shake = AnimationUtils
+				.loadAnimation(Restore.this, R.anim.shake);
+			findViewById(R.id.restore_password).startAnimation(shake);
 
 			return false;
 		}
@@ -268,8 +268,8 @@ public class Restore extends Activity {
 		String msg=getString(R.string.restore_found, 
 				Integer.toString(restoreDataSet.getTotalEntries()),
 				restoreDataSet.getDate())
-        	+"\n"+
-			getString(R.string.dialog_restore_database_msg);
+				+"\n"+
+				getString(R.string.dialog_restore_database_msg);
 		Dialog confirm = new AlertDialog.Builder(Restore.this)
 		.setIcon(android.R.drawable.ic_menu_manage)
 		.setTitle(R.string.dialog_restore_database_title)
@@ -289,7 +289,7 @@ public class Restore extends Activity {
 
 		return true;
 	}
-    
+
 	private void restoreDatabase() {
 		dbHelper.beginTransaction();
 		dbHelper.deleteDatabase();
@@ -327,9 +327,9 @@ public class Restore extends Activity {
 		// Don't need to show warning anymore to back up, because user has used
 		// restore already.
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean(Preferences.PREFERENCE_FIRST_TIME_WARNING, true);
-        editor.commit();
+		SharedPreferences.Editor editor = sp.edit();
+		editor.putBoolean(Preferences.PREFERENCE_FIRST_TIME_WARNING, true);
+		editor.commit();
 
 		setResult(RESULT_OK);
 		finish();

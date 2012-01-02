@@ -49,8 +49,8 @@ public class SecureDelete {
 				random.nextBytes(key);
 				random.nextBytes(nonce);
 				
-			    tri.setupKey(Trivium.MODE_DECRYPT,
-			    		key, 0);
+				tri.setupKey(Trivium.MODE_DECRYPT,
+						key, 0);
 				tri.setupNonce(nonce, 0);
 
 				int buffersize = 1024;
@@ -62,9 +62,9 @@ public class SecureDelete {
 					if (max > buffersize) max = buffersize;
 					//random.nextBytes(bytes);
 
-				    tri.process(bytes, 0,
-				    		bytes, 0, max);
-				    
+					tri.process(bytes, 0,
+							bytes, 0, max);
+
 					buffer.put(bytes, 0, max);
 				}
 				buffer.force();

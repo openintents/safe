@@ -15,7 +15,7 @@ import android.view.MotionEvent;
  * @author Amir Sadrinia
  */
 public class SimpleGestureFilter extends SimpleOnGestureListener{
-   
+
 	public final static int SWIPE_UP    = 1;
 	public final static int SWIPE_DOWN  = 2;
 	public final static int SWIPE_LEFT  = 3;
@@ -162,7 +162,7 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 		if (this.mode == MODE_DYNAMIC){        // we owe an ACTION_UP, so we fake an       
 			arg0.setAction(ACTION_FAKE);      //action which will be converted to an ACTION_UP later.                                    
 			this.context.dispatchTouchEvent(arg0);  
-		}   
+		}
 
 		return false;
 	}
@@ -171,5 +171,5 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 		void onSwipe(int direction);
 		void onDoubleTap();
 	}
-	 
+
 }

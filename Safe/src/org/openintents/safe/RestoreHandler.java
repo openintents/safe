@@ -27,46 +27,46 @@ public class RestoreHandler extends DefaultHandler {
 	private static boolean debug = false;
 	private static final String TAG = "Restore";
 
-    // ===========================================================
-    // Fields
-    // ===========================================================
-    
-    private boolean in_oisafe = false;
-    private boolean in_salt = false;
-    private boolean in_masterkey = false;
-    private boolean in_category = false;
-    private boolean in_entry = false;
-    private boolean in_rowid = false;
-    private boolean in_description = false;
-    private boolean in_website = false;
-    private boolean in_username = false;
-    private boolean in_password = false;
-    private boolean in_note = false;
-    private boolean in_uniquename = false;
-    private boolean in_packageaccess = false;
-    
-    private RestoreDataSet myRestoreDataSet = new RestoreDataSet();
+	// ===========================================================
+	// Fields
+	// ===========================================================
 
-    // ===========================================================
-    // Getter & Setter
-    // ===========================================================
+	private boolean in_oisafe = false;
+	private boolean in_salt = false;
+	private boolean in_masterkey = false;
+	private boolean in_category = false;
+	private boolean in_entry = false;
+	private boolean in_rowid = false;
+	private boolean in_description = false;
+	private boolean in_website = false;
+	private boolean in_username = false;
+	private boolean in_password = false;
+	private boolean in_note = false;
+	private boolean in_uniquename = false;
+	private boolean in_packageaccess = false;
 
-    public RestoreDataSet getParsedData() {
-         return this.myRestoreDataSet;
-    }
+	private RestoreDataSet myRestoreDataSet = new RestoreDataSet();
 
-    // ===========================================================
-    // Methods
-    // ===========================================================
-    @Override
-    public void startDocument() throws SAXException {
-         this.myRestoreDataSet = new RestoreDataSet();
-    }
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
 
-    @Override
-    public void endDocument() throws SAXException {
-         // Nothing to do
-    }
+	public RestoreDataSet getParsedData() {
+		return this.myRestoreDataSet;
+	}
+
+	// ===========================================================
+	// Methods
+	// ===========================================================
+	@Override
+	public void startDocument() throws SAXException {
+		this.myRestoreDataSet = new RestoreDataSet();
+	}
+
+	@Override
+	public void endDocument() throws SAXException {
+		// Nothing to do
+	}
 
 	/** Called on opening tags like:
 	* &lt;tag>
@@ -132,7 +132,7 @@ public class RestoreHandler extends DefaultHandler {
 			in_packageaccess = true;
 		}
 	}
-    
+
 	/** Called on closing tags like:
 	 * &lt;/tag> 
 	 */

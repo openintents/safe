@@ -20,12 +20,12 @@ package org.openintents.safe;
  * @author Randy McEoin
  */
 public class SearchEntry extends Object {
-    public long id=-1;
-    public String name;
-    public String category;
-    public long categoryId=-1;
+	public long id=-1;
+	public String name;
+	public String category;
+	public long categoryId=-1;
 
-    public String getName() {
+	public String getName() {
 		return name;
 	}
 	

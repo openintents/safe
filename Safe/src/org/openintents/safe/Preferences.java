@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -57,63 +56,63 @@ public class Preferences extends PreferenceActivity
 	public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
 
 	Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
 		frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
 		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
 
-        // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.preferences);
-		
+		// Load the preferences from an XML resource
+		addPreferencesFromResource(R.xml.preferences);
+
 		Preference backupPathPref = findPreference(PREFERENCE_BACKUP_PATH);
 		backupPathPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-		    public boolean onPreferenceClick(Preference pref){
-		    	Intent intent = new Intent("org.openintents.action.PICK_FILE");
-		    	intent.setData(Uri.parse("file://"+getBackupPath(Preferences.this)));
-		    	intent.putExtra("org.openintents.extra.TITLE", R.string.backup_select_file);
-		    	if(intentCallable(intent))
-		    		startActivityForResult(intent, REQUEST_BACKUP_FILENAME);
-		    	else
-		    		askForFileManager();
-		        return false;
-		    }
+			public boolean onPreferenceClick(Preference pref){
+				Intent intent = new Intent("org.openintents.action.PICK_FILE");
+				intent.setData(Uri.parse("file://"+getBackupPath(Preferences.this)));
+				intent.putExtra("org.openintents.extra.TITLE", R.string.backup_select_file);
+				if(intentCallable(intent))
+					startActivityForResult(intent, REQUEST_BACKUP_FILENAME);
+				else
+					askForFileManager();
+				return false;
+			}
 		});
 
 		Preference exportPathPref = findPreference(PREFERENCE_EXPORT_PATH);
 		exportPathPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-		    public boolean onPreferenceClick(Preference pref){
-		    	Intent intent = new Intent("org.openintents.action.PICK_FILE");
-		    	intent.setData(Uri.parse("file://"+getExportPath(Preferences.this)));
-		    	intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
-		    	if(intentCallable(intent))
-		    		startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
-		    	else
-		    		askForFileManager();
-		        return false;
-		    }
+			public boolean onPreferenceClick(Preference pref){
+				Intent intent = new Intent("org.openintents.action.PICK_FILE");
+				intent.setData(Uri.parse("file://"+getExportPath(Preferences.this)));
+				intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
+				if(intentCallable(intent))
+					startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
+				else
+					askForFileManager();
+				return false;
+			}
 		});
 		
 
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		changePreferenceSummaryToCurrentValue(backupPathPref, getBackupPath(this));
 		changePreferenceSummaryToCurrentValue(exportPathPref, getExportPath(this));
-    }
+	}
 
-    @Override
+	@Override
 	protected void onResume() {
 		super.onResume();
 
@@ -121,8 +120,8 @@ public class Preferences extends PreferenceActivity
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 	}
 
 	@Override

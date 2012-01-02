@@ -34,8 +34,8 @@ public class DialogHostingActivity extends Activity {
 	 */
 	private boolean mIsPausing = false;
 	
-    EditText mEditText;
-    
+	EditText mEditText;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
