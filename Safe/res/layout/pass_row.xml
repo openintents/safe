@@ -21,14 +21,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal" android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
-	
+
 <ImageView android:id="@+id/entry_icon"
 	android:src="@+drawable/passicon.png"
 	android:layout_height="16px"
 	android:layout_width="16px"/>
-	
+
 <TextView android:id="@+id/entry_desc"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"/>
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"/>
 
 </LinearLayout>

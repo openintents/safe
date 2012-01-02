@@ -34,7 +34,7 @@
 			<TextView android:id="@+id/logoff_header"
 				android:paddingBottom="10px"
 				android:paddingTop="10px"
-                android:layout_toRightOf="@id/logoff_icon"
+				android:layout_toRightOf="@id/logoff_icon"
 				android:textSize="20px" 
 				android:layout_width="fill_parent"
 				android:layout_weight="1"
@@ -42,32 +42,32 @@
 		</TableRow>
 	</TableLayout>
 
-    <TextView android:id="@+id/logoff_explanation"
+	<TextView android:id="@+id/logoff_explanation"
 		android:text="@string/logoff_explanation" 
 		android:paddingBottom="10px"
 		android:layout_width="fill_parent"
-        android:layout_below="@id/logoff_table"
+		android:layout_below="@id/logoff_table"
 		android:layout_height="wrap_content" />
-    
+
 
 	<LinearLayout android:id="@+id/linearLayout1" 
-	    android:layout_below="@id/logoff_explanation" 
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content" 
+		android:layout_below="@id/logoff_explanation" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
 		android:orientation="horizontal">
 		<Button android:id="@+id/logoff_button" 
-		  	android:text="@string/lock"
+			android:text="@string/lock"
 			android:layout_width="0dip"
 			android:layout_weight="1"
 			android:layout_height="wrap_content" />
-		
-	    <Button android:id="@+id/goto_pws" 
-		  	android:text="@string/open_safe"
+
+		<Button android:id="@+id/goto_pws" 
+			android:text="@string/open_safe"
 			android:layout_width="0dip"
 			android:layout_weight="1"
 			android:layout_height="wrap_content" />	
 	</LinearLayout>
-	
+
 	<!-- 
 	<Button android:id="@+id/logoff_button" 
 	  	android:text="Lock"

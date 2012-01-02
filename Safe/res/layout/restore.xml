@@ -44,8 +44,8 @@
 
 	<Button android:id="@+id/restore_button" 
 		android:visibility="invisible" 
-	  	android:text="@string/restore"
+		android:text="@string/restore"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
-		
+
 </LinearLayout>	

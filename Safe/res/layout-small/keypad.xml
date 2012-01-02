@@ -19,37 +19,37 @@
 -->
 
  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:fillViewport="true"
-    android:scrollbars="vertical">
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:fillViewport="true"
+	android:scrollbars="vertical">
 
 <LinearLayout
 	android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-   	<LinearLayout 
-  		android:layout_width="fill_parent"
-  		android:layout_height="wrap_content"
-  		android:orientation="horizontal">
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
 		<ImageView android:id="@+id/entry_icon"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
 			android:src="@drawable/ic_launcher_safe"
 			/>
 		<TextView android:id="@+id/entry_header"
-    		android:layout_width="wrap_content" 
-    		android:layout_height="wrap_content" 
-    		android:text="@string/app_name"
-    		android:paddingTop="10dp"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:text="@string/app_name"
+			android:paddingTop="10dp"
 			android:textSize="24dp"
 			android:gravity="center_horizontal"
-    		/>
-   		<LinearLayout
-   			android:layout_width="fill_parent"
-   			android:layout_height="wrap_content"
-   			android:orientation="horizontal"
-   			android:gravity="right">
+			/>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="right">
 			<ImageView android:id="@+id/switch_button"
 				android:layout_gravity="right"
 				android:layout_height="48dp"
@@ -59,71 +59,71 @@
 		</LinearLayout>
 	</LinearLayout>
 	<TableLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:gravity="center"
-	    android:stretchColumns="0,1,2">
-	    <TableRow>
-	        <Button android:id="@+id/keypad1"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="center"
+		android:stretchColumns="0,1,2">
+		<TableRow>
+			<Button android:id="@+id/keypad1"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="1" />
-	        <Button android:id="@+id/keypad2"
+				android:text="1" />
+			<Button android:id="@+id/keypad2"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="2" />
-	        <Button android:id="@+id/keypad3"
+				android:text="2" />
+			<Button android:id="@+id/keypad3"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="3" />
-	    </TableRow>
-	    <TableRow>
-	        <Button android:id="@+id/keypad4"
+				android:text="3" />
+		</TableRow>
+		<TableRow>
+			<Button android:id="@+id/keypad4"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="4" />
-	        <Button android:id="@+id/keypad5"
+				android:text="4" />
+			<Button android:id="@+id/keypad5"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="5" />
-	        <Button android:id="@+id/keypad6"
+				android:text="5" />
+			<Button android:id="@+id/keypad6"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="6" />
-	    </TableRow>
-	    <TableRow>
-	        <Button android:id="@+id/keypad7"
+				android:text="6" />
+		</TableRow>
+		<TableRow>
+			<Button android:id="@+id/keypad7"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="7" />
-	        <Button android:id="@+id/keypad8"
+				android:text="7" />
+			<Button android:id="@+id/keypad8"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="8" />
-	        <Button android:id="@+id/keypad9"
+				android:text="8" />
+			<Button android:id="@+id/keypad9"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="9" />
-	    </TableRow>
-	    <TableRow>
-	        <Button android:id="@+id/keypad_star"
+				android:text="9" />
+		</TableRow>
+		<TableRow>
+			<Button android:id="@+id/keypad_star"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="*" />
-	        <Button android:id="@+id/keypad0"
+				android:text="*" />
+			<Button android:id="@+id/keypad0"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="0" />
-	        <Button android:id="@+id/keypad_pound"
+				android:text="0" />
+			<Button android:id="@+id/keypad_pound"
 				android:padding="10sp"
 				android:textSize="30sp"
-	        	android:text="#" />
-	    </TableRow>
-	    <TableRow>
-	        <Button android:id="@+id/keypad_continue"
-	        	android:layout_span="3"
-	        	android:text="@string/continue_text" />
-	    </TableRow>
+				android:text="#" />
+		</TableRow>
+		<TableRow>
+			<Button android:id="@+id/keypad_continue"
+				android:layout_span="3"
+				android:text="@string/continue_text" />
+		</TableRow>
 	</TableLayout>
 </LinearLayout>
 </ScrollView>

@@ -18,9 +18,9 @@
 *
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical">
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical">
 
 <LinearLayout android:id="@+id/entry_head"
 		android:layout_width="fill_parent" 
@@ -64,13 +64,13 @@
 		android:layout_height="wrap_content" />
 
 	<Button android:id="@+id/continue_button" 
-	  	android:text="Continue"
+		android:text="Continue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
 
 	<Button android:id="@+id/restore_button" 
 		android:visibility="gone" 
-	  	android:text="@string/restore"
+		android:text="@string/restore"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
 </LinearLayout>

@@ -31,15 +31,15 @@
 					android:text="@string/name" />
 				<EditText android:id="@+id/name"
 					android:hint="@string/name"
-				  	android:layout_width="wrap_content"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-        			android:singleLine="true" 
+					android:singleLine="true" 
 					android:layout_weight="1"/>
 			</TableRow>
 	</TableLayout>
 
 	<Button android:id="@+id/save_category" 
-	  	android:text="@string/save"
+		android:text="@string/save"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />
 

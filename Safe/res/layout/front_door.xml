@@ -18,9 +18,9 @@
 *
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical">
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical">
 
 <LinearLayout
 	android:orientation="vertical" android:layout_width="fill_parent"
@@ -48,7 +48,7 @@
 		android:visibility="gone" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />	
-    <TextView android:id="@+id/remote"
+	<TextView android:id="@+id/remote"
 		android:text="@string/remote_ask" 
 		android:paddingBottom="10px"
 		android:visibility="gone" 
@@ -69,12 +69,12 @@
 		android:layout_height="wrap_content" />
 
 	<Button android:id="@+id/continue_button" 
-	  	android:text="@string/continue_text"
+		android:text="@string/continue_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
 	<Button android:id="@+id/restore_button" 
 		android:visibility="gone" 
-	  	android:text="@string/restore"
+		android:text="@string/restore"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
 </LinearLayout>

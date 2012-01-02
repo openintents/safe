@@ -18,51 +18,51 @@
 
 <resources>
 	<!-- ***************************
-	     About information
-	     *************************** -->
-	<string name="about_copyright">Copyright © 2008-2011 OpenIntents.org</string> 
+		About information
+		*************************** -->
+	<string name="about_copyright">Copyright © 2008&#8211;2012 OpenIntents.org</string> 
 	<string name="about_website_url">http://www.openintents.org/en/safe</string>
 	<string name="about_email">support@openintents.org</string>
 
 	
-    <string-array name="about_authors"><!-- Add your name here if you helped out -->
-        <item>Steven Osborn - http://steven.bitsetters.com</item>
-        <item>Randy McEoin</item>
-        <item>Isaac Potoczny-Jones - http://www.syntaxpolice.org</item>
-        <item>Peli</item>
-    </string-array>
-    
-    <string-array name="about_documenters"><!-- Add your name here if you helped out -->
-        <!-- <item></item> -->
-    </string-array>
-    
-    <string-array name="about_translators"><!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->
-        <!-- <item></item>  -->
-    </string-array>
-    
-    <string-array name="about_artists"><!-- Add your name here if you helped out -->
-        <item>David Vignoni - http://www.icon-king.com</item>
-        <item>Peli</item>
-    </string-array>
+	<string-array name="about_authors"><!-- Add your name here if you helped out -->
+		<item>Steven Osborn - http://steven.bitsetters.com</item>
+		<item>Randy McEoin</item>
+		<item>Isaac Potoczny-Jones - http://www.syntaxpolice.org</item>
+		<item>Peli</item>
+	</string-array>
+
+	<string-array name="about_documenters"><!-- Add your name here if you helped out -->
+		<!-- <item></item> -->
+	</string-array>
+
+	<string-array name="about_translators"><!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->
+		<!-- <item></item>  -->
+	</string-array>
+
+	<string-array name="about_artists"><!-- Add your name here if you helped out -->
+		<item>David Vignoni - http://www.icon-king.com</item>
+		<item>Peli</item>
+	</string-array>
 
 	<!-- ***************************
-	     Preferences
-	     *************************** -->
+		Preferences
+		*************************** -->
 
 	<!-- couldn't seem to get int-array to work, which would be better -->
-    <string-array name="pref_entryvalues_lock_timeout">
-        <item>1</item>
-        <item>5</item>
-        <item>10</item>
-        <item>15</item>
-        <item>30</item>  
-    </string-array>
+	<string-array name="pref_entryvalues_lock_timeout">
+		<item>1</item>
+		<item>5</item>
+		<item>10</item>
+		<item>15</item>
+		<item>30</item>  
+	</string-array>
 
-    <string-array name="pref_entryvalues_autobackup_days">
-        <item>1</item>
-        <item>7</item>
-        <item>30</item>
-        <item>60</item>
-    </string-array>
-    
+	<string-array name="pref_entryvalues_autobackup_days">
+		<item>1</item>
+		<item>7</item>
+		<item>30</item>
+		<item>60</item>
+	</string-array>
+
 </resources>

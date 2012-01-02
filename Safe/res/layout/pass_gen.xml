@@ -19,10 +19,10 @@
 -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical">
-    
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical">
+
 <LinearLayout 
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
@@ -35,7 +35,7 @@
 					android:layout_height="wrap_content"
 					android:text="@string/pass_gen_length" />
 				<EditText android:id="@+id/pass_length"
-				 	android:singleLine="true"
+					android:singleLine="true"
 					android:layout_width="3pt"
 					android:layout_height="wrap_content" 
 					android:layout_weight="0"
@@ -58,7 +58,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content" android:checked="true"/>
 			</TableRow>
-			
+
 			<TableRow>
 				<TextView android:layout_width="wrap_content"
 					android:layout_height="wrap_content" 
@@ -67,7 +67,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content" android:checked="true"/>
 			</TableRow>
-			
+
 			<TableRow>
 				<TextView android:layout_width="wrap_content"
 					android:layout_height="wrap_content" 
@@ -83,19 +83,19 @@
 		android:layout_height="wrap_content"
 		android:singleLine="true"
 		android:editable="false"/>
-		
+
 	<Button android:id="@+id/copy_entry" 
-	  	android:text="@string/pass_gen_copy_to_current_entry"
+		android:text="@string/pass_gen_copy_to_current_entry"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />
-		
+
 	<Button android:id="@+id/copy_clip" 
-	  	android:text="@string/pass_gen_copy_to_clipboard"
+		android:text="@string/pass_gen_copy_to_clipboard"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />
-		
+
 	<Button android:id="@+id/cancel" 
-	  	android:text="@string/cancel"
+		android:text="@string/cancel"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />
 
