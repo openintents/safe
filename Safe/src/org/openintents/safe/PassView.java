@@ -77,16 +77,16 @@ public class PassView extends Activity implements SimpleGestureListener {
 	private boolean usernameCopiedToClipboard=false;
 	
 	Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -228,9 +228,9 @@ public class PassView extends Activity implements SimpleGestureListener {
 		public void onClick(View arg0) {
 			View current=flipper.getCurrentView();
 			TextView passwordText;
-    		TextView websiteText;
-    		websiteText = (TextView) current.findViewById(R.id.website);
-    		passwordText = (TextView) current.findViewById(R.id.password);
+			TextView websiteText;
+			websiteText = (TextView) current.findViewById(R.id.website);
+			passwordText = (TextView) current.findViewById(R.id.password);
 
 			String link = websiteText.getText().toString();
 			if (link == null || link.equals("") || link.equals("http://")) {
@@ -358,8 +358,8 @@ public class PassView extends Activity implements SimpleGestureListener {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 
 		Passwords.Initialize(this);
 
@@ -460,10 +460,10 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 		if (debug) Log.d(TAG,"onActivityResult()");
 		if (requestCode == REQUEST_EDIT_PASS) {
-	    	if (resultCode==PassEdit.RESULT_DELETED) {
+			if (resultCode==PassEdit.RESULT_DELETED) {
 				entryEdited=true;
-	    		finish();
-	    	}
+				finish();
+			}
 			if ((resultCode == RESULT_OK) || (PassEdit.entryEdited)){
 				if (flipper!=null) {
 					View current=this.flipper.getCurrentView();
@@ -486,29 +486,29 @@ public class PassView extends Activity implements SimpleGestureListener {
 				if (debug) Log.d(TAG,"populateFields: row=null");
 				return false;
 			}
-    		ArrayList<String> packageAccess = Passwords.getPackageAccess(rowIdx);
-    		
-    		TextView descriptionText;
-    		TextView passwordText;
-    		TextView usernameText;
-    		TextView websiteText;
-    		TextView noteText;
-    		TextView lastEditedText;
-    		TextView uniqueNameText;
-    		TextView packageAccessText;
+			ArrayList<String> packageAccess = Passwords.getPackageAccess(rowIdx);
+			
+			TextView descriptionText;
+			TextView passwordText;
+			TextView usernameText;
+			TextView websiteText;
+			TextView noteText;
+			TextView lastEditedText;
+			TextView uniqueNameText;
+			TextView packageAccessText;
 
-    		descriptionText = (TextView) view.findViewById(R.id.description);
-    		websiteText = (TextView) view.findViewById(R.id.website);
-    		usernameText = (TextView) view.findViewById(R.id.username);
-    		passwordText = (TextView) view.findViewById(R.id.password);
-    		noteText = (TextView) view.findViewById(R.id.note);
-    		lastEditedText = (TextView) view.findViewById(R.id.last_edited);
-    		uniqueNameText = (TextView) view.findViewById(R.id.uniquename);
-    		packageAccessText = (TextView) view.findViewById(R.id.packageaccess);
+			descriptionText = (TextView) view.findViewById(R.id.description);
+			websiteText = (TextView) view.findViewById(R.id.website);
+			usernameText = (TextView) view.findViewById(R.id.username);
+			passwordText = (TextView) view.findViewById(R.id.password);
+			noteText = (TextView) view.findViewById(R.id.note);
+			lastEditedText = (TextView) view.findViewById(R.id.last_edited);
+			uniqueNameText = (TextView) view.findViewById(R.id.uniquename);
+			packageAccessText = (TextView) view.findViewById(R.id.packageaccess);
 
-    		if (debug) {
-    			Log.d(TAG,"populateFields: descriptionText="+descriptionText);
-    		}
+			if (debug) {
+				Log.d(TAG,"populateFields: descriptionText="+descriptionText);
+			}
 			descriptionText.setText(row.plainDescription);
 			websiteText.setText(row.plainWebsite);
 			usernameText.setText(row.plainUsername);

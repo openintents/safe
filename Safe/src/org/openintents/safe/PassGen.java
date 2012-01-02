@@ -67,16 +67,16 @@ public class PassGen extends Activity {
 	Button cancel;
 
 	Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
 	private final OnClickListener update_click = new OnClickListener() {
 		public void onClick(View v) {
@@ -125,7 +125,7 @@ public class PassGen extends Activity {
 	};
 		
 	
-    public void onCreate(Bundle icicle) {
+	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		
 		frontdoor = new Intent(this, Safe.class);
@@ -160,59 +160,59 @@ public class PassGen extends Activity {
 		copy_clip.setOnClickListener(copy_clip_listener);
 		copy_entry.setOnClickListener(copy_entry_listener);
 		cancel.setOnClickListener(cancel_listener);
-    }
-    
-    /**
-     * 
-     */
-    protected void genPassword() {
-    	charset = "";
-    	StringBuilder pass = new StringBuilder();
-    	if(pass_upper.isChecked()) {
-    		charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    	}
-    	if(pass_lower.isChecked()) {
-    		charset += "abcdefghijklmnopqrstuvwxyz";
-    	}
-    	if(pass_num.isChecked()) {
-    		charset += "0123456789";
-    	}
-    	if(pass_symbol.isChecked()) {
-    		charset += "!@#$%^&*";
-    	}
-    	
-    	if (charset.length() == 0) {
-    		return;
-    	}
-    	int len=0;
-    	try {
-    		len = Integer.parseInt(pass_len.getText().toString());
-    	} catch (NumberFormatException e) {
-    		e.printStackTrace();
-    	}
-    	
-        SecureRandom generator = null;
+	}
+
+	/**
+	 * 
+	 */
+	protected void genPassword() {
+		charset = "";
+		StringBuilder pass = new StringBuilder();
+		if(pass_upper.isChecked()) {
+			charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		}
+		if(pass_lower.isChecked()) {
+			charset += "abcdefghijklmnopqrstuvwxyz";
+		}
+		if(pass_num.isChecked()) {
+			charset += "0123456789";
+		}
+		if(pass_symbol.isChecked()) {
+			charset += "!@#$%^&*";
+		}
+		
+		if (charset.length() == 0) {
+			return;
+		}
+		int len=0;
+		try {
+			len = Integer.parseInt(pass_len.getText().toString());
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		SecureRandom generator = null;
 		try {
 			generator = SecureRandom.getInstance("SHA1PRNG");
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-    	for(int i=0;i<len;i++) {
-    		int pos = generator.nextInt(charset.length());
-    		pass.append(charset.charAt(pos));
-    	}
+		for(int i=0;i<len;i++) {
+			int pos = generator.nextInt(charset.length());
+			pass.append(charset.charAt(pos));
+		}
 
-    	pass_view.setText(pass.toString());
-    }
-    
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-    	super.onSaveInstanceState(outState);
+		pass_view.setText(pass.toString());
+	}
 
-    }
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
 
-    @Override
-    protected void onPause() {
+	}
+
+	@Override
+	protected void onPause() {
 		super.onPause();
 
 		try {
@@ -220,27 +220,27 @@ public class PassGen extends Activity {
 		} catch (IllegalArgumentException e) {
 			if (debug) Log.d(TAG,"IllegalArgumentException");
 		}
-    }
+	}
 
-    @Override
-    protected void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
 
 		if (CategoryList.isSignedIn()==false) {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
-    }
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		return false;
-    }
+	}
 
-    @Override
+	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
 

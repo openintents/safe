@@ -61,13 +61,13 @@ public class IntentHandler extends Activity {
 	private CryptoHelper ch;
 	
 	// service elements
-    private static ServiceDispatch service=null;
-    private ServiceDispatchConnection conn=null;
+	private static ServiceDispatch service=null;
+	private ServiceDispatchConnection conn=null;
 	private Intent mServiceIntent;
 	
 	private boolean delayedFinish=false;
 
-    SharedPreferences mPreferences;
+	SharedPreferences mPreferences;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -124,7 +124,7 @@ public class IntentHandler extends Activity {
 				// actionDispatch() is called in onServiceConnected.
 			} else if (salt == null) {
 				try {
-		        	salt = service.getSalt();
+					salt = service.getSalt();
 					masterKey = service.getPassword();
 		if (debug) Log.d(TAG,"starting actiondispatch");
 					actionDispatch();
@@ -193,24 +193,24 @@ public class IntentHandler extends Activity {
 	
 	protected void actionDispatch () {    
 		final Intent thisIntent = getIntent();
-        final String action = thisIntent.getAction();
-    	Intent callbackIntent = getIntent(); 
-    	int callbackResult = RESULT_CANCELED;
+		final String action = thisIntent.getAction();
+		Intent callbackIntent = getIntent(); 
+		int callbackResult = RESULT_CANCELED;
 		PassList.setSalt(salt);
-        CategoryList.setSalt(salt);
+		CategoryList.setSalt(salt);
 		PassList.setMasterKey(masterKey);
-        CategoryList.setMasterKey(masterKey);
-        
-        if (debug) Log.d(TAG,"actionDispatch()");
-        if ((salt==null) || (salt=="")) {
-        	return;
-        }
-        if (ch == null) {
-    		ch = new CryptoHelper();
-        }
-        try {
+		CategoryList.setMasterKey(masterKey);
+		
+		if (debug) Log.d(TAG,"actionDispatch()");
+		if ((salt==null) || (salt=="")) {
+			return;
+		}
+		if (ch == null) {
+			ch = new CryptoHelper();
+		}
+		try {
 			ch.init(CryptoHelper.EncryptionMedium,salt);
-    		ch.setPassword(masterKey);
+			ch.setPassword(masterKey);
 		} catch (CryptoHelperException e1) {
 			e1.printStackTrace();
 			Toast.makeText(this, getString(R.string.crypto_error)
@@ -218,44 +218,44 @@ public class IntentHandler extends Activity {
 			return;
 		}
 
-        boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+		boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 
-        if (action == null || action.equals(Intent.ACTION_MAIN)){
-        	//TODO: When launched from debugger, action is null. Other such cases?
-        	Intent i = new Intent(getApplicationContext(),
-        			CategoryList.class);
-        	startActivity(i);
-        } else if (action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
-        	if (debug) Log.d(TAG,"autolock");
-        	finish();
-        } else if (externalAccess){
+		if (action == null || action.equals(Intent.ACTION_MAIN)){
+			//TODO: When launched from debugger, action is null. Other such cases?
+			Intent i = new Intent(getApplicationContext(),
+					CategoryList.class);
+			startActivity(i);
+		} else if (action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
+			if (debug) Log.d(TAG,"autolock");
+			finish();
+		} else if (externalAccess){
 
-        	// which action?
-        	if (action.equals (CryptoIntents.ACTION_ENCRYPT)) {
-        		callbackResult = encryptIntent(thisIntent, callbackIntent);
-        	} else if (action.equals (CryptoIntents.ACTION_DECRYPT)) {
-        		callbackResult = decryptIntent(thisIntent, callbackIntent);
-        	} else if (action.equals (CryptoIntents.ACTION_GET_PASSWORD)
-        			|| action.equals (CryptoIntents.ACTION_SET_PASSWORD)) {
-        		try {
-        			callbackIntent = getSetPassword (thisIntent, callbackIntent);
-                	callbackResult = RESULT_OK;
-        		} catch (CryptoHelperException e) {
-        			Log.e(TAG, e.toString(), e);
-        			Toast.makeText(IntentHandler.this,
-        					"There was a crypto error while retreiving the requested password: " + e.getMessage(),
-        					Toast.LENGTH_SHORT).show();
-        		} catch (Exception e) {
-        			Log.e(TAG, e.toString(), e);
-        			//TODO: Turn this into a proper error dialog.
-        			Toast.makeText(IntentHandler.this,
-        					"There was an error in retreiving the requested password: " + e.getMessage(),
-        					Toast.LENGTH_SHORT).show();
-        		}
-        	}
-        	setResult(callbackResult, callbackIntent);
-        }
-        finish();
+			// which action?
+			if (action.equals (CryptoIntents.ACTION_ENCRYPT)) {
+				callbackResult = encryptIntent(thisIntent, callbackIntent);
+			} else if (action.equals (CryptoIntents.ACTION_DECRYPT)) {
+				callbackResult = decryptIntent(thisIntent, callbackIntent);
+			} else if (action.equals (CryptoIntents.ACTION_GET_PASSWORD)
+					|| action.equals (CryptoIntents.ACTION_SET_PASSWORD)) {
+				try {
+					callbackIntent = getSetPassword (thisIntent, callbackIntent);
+					callbackResult = RESULT_OK;
+				} catch (CryptoHelperException e) {
+					Log.e(TAG, e.toString(), e);
+					Toast.makeText(IntentHandler.this,
+							"There was a crypto error while retreiving the requested password: " + e.getMessage(),
+							Toast.LENGTH_SHORT).show();
+				} catch (Exception e) {
+					Log.e(TAG, e.toString(), e);
+					//TODO: Turn this into a proper error dialog.
+					Toast.makeText(IntentHandler.this,
+							"There was an error in retreiving the requested password: " + e.getMessage(),
+							Toast.LENGTH_SHORT).show();
+				}
+			}
+			setResult(callbackResult, callbackIntent);
+		}
+		finish();
 	}
 
 
@@ -332,7 +332,7 @@ public class IntentHandler extends Activity {
 	 * @return callbackResult
 	 */
 	private int decryptIntent(final Intent thisIntent, Intent callbackIntent) {
-    	int callbackResult = RESULT_CANCELED;
+		int callbackResult = RESULT_CANCELED;
 		try {
 
 			if (thisIntent.hasExtra(CryptoIntents.EXTRA_TEXT)) {
@@ -381,90 +381,90 @@ public class IntentHandler extends Activity {
 	
 	private Intent getSetPassword (Intent thisIntent, Intent callbackIntent) throws CryptoHelperException, Exception {
 		String action = thisIntent.getAction();
-        //TODO: Consider moving this elsewhere. Maybe DBHelper? Also move strings to resource.
-        //DBHelper dbHelper = new DBHelper(this);
-        if (debug) Log.d(TAG, "GET_or_SET_PASSWORD");
-        String username = null;
-        String password = null;
+		//TODO: Consider moving this elsewhere. Maybe DBHelper? Also move strings to resource.
+		//DBHelper dbHelper = new DBHelper(this);
+		if (debug) Log.d(TAG, "GET_or_SET_PASSWORD");
+		String username = null;
+		String password = null;
 
-        String clearUniqueName = thisIntent.getStringExtra (CryptoIntents.EXTRA_UNIQUE_NAME);
+		String clearUniqueName = thisIntent.getStringExtra (CryptoIntents.EXTRA_UNIQUE_NAME);
 
-        if (clearUniqueName == null) throw new Exception ("EXTRA_UNIQUE_NAME not set.");
-        
-    	PassEntry row = Passwords.findPassWithUniqueName(clearUniqueName);
-    	boolean passExists = (row!=null);
+		if (clearUniqueName == null) throw new Exception ("EXTRA_UNIQUE_NAME not set.");
 
-        String callingPackage = getCallingPackage();
-    	if (passExists) { // check for permission to access this password.
-    		ArrayList<String> packageAccess = Passwords.getPackageAccess(row.id);
-    		if ((packageAccess==null) ||
-    			(! PassEntry.checkPackageAccess(packageAccess, callingPackage))) {
-    			throw new Exception ("It is currently not permissible for this application to request this password.");
-    		}
-            /*TODO: check if this package is in the package_access table corresponding to this password:
-             * "Application 'org.syntaxpolice.ServiceTest' wants to access the
-    				password for 'opensocial'.
-    				[ ] Grant access this time.
-    				[ ] Always grant access.
-    				[ ] Always grant access to all passwords in org.syntaxpolice.ServiceTest category?
-    				[ ] Don't grant access"
-             */
-    	} else {
-    		row = new PassEntry();
-    	}
-    	
-        if (action.equals (CryptoIntents.ACTION_GET_PASSWORD)) {
-        	if (passExists) {
-        		username = row.plainUsername;
-        		password = row.plainPassword;
-        	} else throw new Exception ("Could not find password with the unique name: " + clearUniqueName);
+		PassEntry row = Passwords.findPassWithUniqueName(clearUniqueName);
+		boolean passExists = (row!=null);
 
-        	// stashing the return values:
-        	callbackIntent.putExtra(CryptoIntents.EXTRA_USERNAME, username);
-        	callbackIntent.putExtra(CryptoIntents.EXTRA_PASSWORD, password);
-        } else if (action.equals (CryptoIntents.ACTION_SET_PASSWORD)) {
-            String clearUsername  = thisIntent.getStringExtra (CryptoIntents.EXTRA_USERNAME);
-            String clearPassword = thisIntent.getStringExtra (CryptoIntents.EXTRA_PASSWORD);
-            if (clearPassword == null) {
-            		throw new Exception ("PASSWORD extra must be set.");
-            }  
-            row.plainUsername = clearUsername == null ? "" : clearUsername;
-            row.plainPassword = clearPassword;
-            // since this package is setting the password, it automatically gets access to it:
-        	if (passExists) { //exists already 
-        		if (clearUsername.equals("") && clearPassword.equals("")) {
-        			Passwords.deletePassEntry(row.id);
-        		} else {
-        			Passwords.putPassEntry(row);
-        		}
-        	} else {// add a new one
-                row.plainUniqueName = clearUniqueName;
-	            row.plainDescription=clearUniqueName; //for display purposes
-                // TODO: Should we send these fields in extras also?  If so, probably not using 
-                // the openintents namespace?  If another application were to implement a keystore
-                // they might not want to use these.
-	            row.plainWebsite = ""; 
-	            row.plainNote = "";
+		String callingPackage = getCallingPackage();
+		if (passExists) { // check for permission to access this password.
+			ArrayList<String> packageAccess = Passwords.getPackageAccess(row.id);
+			if ((packageAccess==null) ||
+				(! PassEntry.checkPackageAccess(packageAccess, callingPackage))) {
+				throw new Exception ("It is currently not permissible for this application to request this password.");
+			}
+			/*TODO: check if this package is in the package_access table corresponding to this password:
+			 * "Application 'org.syntaxpolice.ServiceTest' wants to access the
+					password for 'opensocial'.
+					[ ] Grant access this time.
+					[ ] Always grant access.
+					[ ] Always grant access to all passwords in org.syntaxpolice.ServiceTest category?
+					[ ] Don't grant access"
+			 */
+		} else {
+			row = new PassEntry();
+		}
 
-	            String category="Application Data";
-	            CategoryEntry c = Passwords.getCategoryEntryByName(category);
-	            if (c==null) {
-	            	c = new CategoryEntry();
-		            c.plainName = "Application Data";
-		            c.id = Passwords.putCategoryEntry(c); //doesn't add category if it already exists
-	            }
-	            row.category = c.id;
-	            row.id = 0;	// entry is truly new
-	            row.id = Passwords.putPassEntry(row);
-        	}  
-    		ArrayList<String> packageAccess = Passwords.getPackageAccess(row.id);
-    		if ((packageAccess==null) ||
-    			(! PassEntry.checkPackageAccess(packageAccess, callingPackage))) {
-            	Passwords.addPackageAccess(row.id, callingPackage);
-    		}
-    
-        }
-        return (callbackIntent);
+		if (action.equals (CryptoIntents.ACTION_GET_PASSWORD)) {
+			if (passExists) {
+				username = row.plainUsername;
+				password = row.plainPassword;
+			} else throw new Exception ("Could not find password with the unique name: " + clearUniqueName);
+
+			// stashing the return values:
+			callbackIntent.putExtra(CryptoIntents.EXTRA_USERNAME, username);
+			callbackIntent.putExtra(CryptoIntents.EXTRA_PASSWORD, password);
+		} else if (action.equals (CryptoIntents.ACTION_SET_PASSWORD)) {
+			String clearUsername  = thisIntent.getStringExtra (CryptoIntents.EXTRA_USERNAME);
+			String clearPassword = thisIntent.getStringExtra (CryptoIntents.EXTRA_PASSWORD);
+			if (clearPassword == null) {
+					throw new Exception ("PASSWORD extra must be set.");
+			}
+			row.plainUsername = clearUsername == null ? "" : clearUsername;
+			row.plainPassword = clearPassword;
+			// since this package is setting the password, it automatically gets access to it:
+			if (passExists) { //exists already 
+				if (clearUsername.equals("") && clearPassword.equals("")) {
+					Passwords.deletePassEntry(row.id);
+				} else {
+					Passwords.putPassEntry(row);
+				}
+			} else {// add a new one
+				row.plainUniqueName = clearUniqueName;
+				row.plainDescription=clearUniqueName; //for display purposes
+				// TODO: Should we send these fields in extras also?  If so, probably not using 
+				// the openintents namespace?  If another application were to implement a keystore
+				// they might not want to use these.
+				row.plainWebsite = ""; 
+				row.plainNote = "";
+
+				String category="Application Data";
+				CategoryEntry c = Passwords.getCategoryEntryByName(category);
+				if (c==null) {
+					c = new CategoryEntry();
+					c.plainName = "Application Data";
+					c.id = Passwords.putCategoryEntry(c); //doesn't add category if it already exists
+				}
+				row.category = c.id;
+				row.id = 0;	// entry is truly new
+				row.id = Passwords.putPassEntry(row);
+			}
+			ArrayList<String> packageAccess = Passwords.getPackageAccess(row.id);
+			if ((packageAccess==null) ||
+				(! PassEntry.checkPackageAccess(packageAccess, callingPackage))) {
+				Passwords.addPackageAccess(row.id, callingPackage);
+			}
+
+		}
+		return (callbackIntent);
 	}
 	
 	@Override
@@ -502,16 +502,16 @@ public class IntentHandler extends Activity {
 	//--------------------------- service stuff ------------
 	private void initService() {
 
-        boolean isLocal = isIntentLocal();
-        if (conn==null) {
+		boolean isLocal = isIntentLocal();
+		if (conn==null) {
 			conn = new ServiceDispatchConnection(isLocal);
 			Intent i = new Intent();
 			i.setClass(this, ServiceDispatchImpl.class);
 			startService(i);
 			bindService( i, conn, Context.BIND_AUTO_CREATE);
-        } else {
-        	if (debug) Log.d(TAG,"service already running");
-        }
+		} else {
+			if (debug) Log.d(TAG,"service already running");
+		}
 	}
 
 	/**
@@ -519,7 +519,7 @@ public class IntentHandler extends Activity {
 	 */
 	private boolean isIntentLocal() {
 		String action = getIntent().getAction();
-        boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN);
+		boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN);
 		return isLocal;
 	}
 
@@ -574,25 +574,25 @@ public class IntentHandler extends Activity {
 						if (debug) Log.d(TAG, "ask for password");
 						// Don't prompt but cancel
 						setResult(RESULT_CANCELED);
-				        finish();
+						finish();
 					}
 
 				} else {
 					if (debug) Log.d(TAG, "service already started");
 					//service already started, so don't need to ask pw.
 
-			        boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
-			        
-			        if (askPassIsLocal || externalAccess) {
-			        	salt = service.getSalt();
+					boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+					
+					if (askPassIsLocal || externalAccess) {
+						salt = service.getSalt();
 						masterKey = service.getPassword();
 						if (debug) Log.d(TAG,"starting actiondispatch from service");
 
 						actionDispatch();
-			        } else {
-			        	if (debug) Log.d(TAG, "onServiceConnected: showDialogAllowExternalAccess()");
-			        	showDialogAllowExternalAccess();
-			        }
+					} else {
+						if (debug) Log.d(TAG, "onServiceConnected: showDialogAllowExternalAccess()");
+						showDialogAllowExternalAccess();
+					}
 				}
 			} catch (RemoteException e) {
 				Log.d(TAG, e.toString());

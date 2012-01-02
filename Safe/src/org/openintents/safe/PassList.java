@@ -62,43 +62,43 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 public class PassList extends ListActivity {
 
 	private static final boolean debug = false;
-    private static final String TAG = "PassList";
+	private static final String TAG = "PassList";
 
-    // Menu Item order
-    public static final int VIEW_PASSWORD_INDEX = Menu.FIRST;
-    public static final int EDIT_PASSWORD_INDEX = Menu.FIRST + 1;
-    public static final int ADD_PASSWORD_INDEX = Menu.FIRST + 2;
-    public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 3;   
-    public static final int MOVE_PASSWORD_INDEX = Menu.FIRST + 4;
-    
-    public static final int REQUEST_VIEW_PASSWORD = 1;
-    public static final int REQUEST_EDIT_PASSWORD = 2;
-    public static final int REQUEST_ADD_PASSWORD = 3;
-    public static final int REQUEST_MOVE_PASSWORD = 4;
+	// Menu Item order
+	public static final int VIEW_PASSWORD_INDEX = Menu.FIRST;
+	public static final int EDIT_PASSWORD_INDEX = Menu.FIRST + 1;
+	public static final int ADD_PASSWORD_INDEX = Menu.FIRST + 2;
+	public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 3;   
+	public static final int MOVE_PASSWORD_INDEX = Menu.FIRST + 4;
 
-    protected static final int MSG_UPDATE_LIST = 0x101; 
+	public static final int REQUEST_VIEW_PASSWORD = 1;
+	public static final int REQUEST_EDIT_PASSWORD = 2;
+	public static final int REQUEST_ADD_PASSWORD = 3;
+	public static final int REQUEST_MOVE_PASSWORD = 4;
 
-    private static final int DECRYPT_PROGRESS_KEY = 0;
-    
-    public static final String KEY_ID = "id";  // Intent keys
-    public static final String KEY_CATEGORY_ID = "categoryId";  // Intent keys
-    public static final String KEY_ROWIDS = "rowids";
-    public static final String KEY_LIST_POSITION = "position";
+	protected static final int MSG_UPDATE_LIST = 0x101; 
 
-    private Long CategoryId=null;
+	private static final int DECRYPT_PROGRESS_KEY = 0;
 
-    Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	public static final String KEY_ID = "id";  // Intent keys
+	public static final String KEY_CATEGORY_ID = "categoryId";  // Intent keys
+	public static final String KEY_ROWIDS = "rowids";
+	public static final String KEY_LIST_POSITION = "position";
 
-    private static String salt;
-    private static String masterKey;
-    
+	private Long CategoryId=null;
+
+	Intent frontdoor;
+	private Intent restartTimerIntent=null;
+
+	private static String salt;
+	private static String masterKey;
+
 	private Thread fillerThread=null;
 
-    private List<PassEntry> rows=null;
-    private int lastPosition=0;
+	private List<PassEntry> rows=null;
+	private int lastPosition=0;
 
-    // passDescriptions is updated by the background thread
+	// passDescriptions is updated by the background thread
 	List<String> passDescriptions=new ArrayList<String>();
 	// passDescriptions4Adapter must only be modified by the UI thread
 	List<String> passDescriptions4Adapter=new ArrayList<String>();
@@ -111,10 +111,10 @@ public class PassList extends ListActivity {
 					fillerThread=null;
 					passDescriptions4Adapter.clear();
 					passDescriptions4Adapter.addAll(passDescriptions);
-			    	ArrayAdapter<String> entries = 
-			    		new ArrayAdapter<String>(PassList.this, android.R.layout.simple_list_item_1,
-			    				passDescriptions4Adapter);
-			    	setListAdapter(entries);
+					ArrayAdapter<String> entries = 
+						new ArrayAdapter<String>(PassList.this, android.R.layout.simple_list_item_1,
+								passDescriptions4Adapter);
+					setListAdapter(entries);
 					if (debug) Log.d(TAG,"lastPosition="+lastPosition);
 					if (lastPosition>2) {
 						setSelection(lastPosition-1);
@@ -126,28 +126,28 @@ public class PassList extends ListActivity {
 		}
 	}; 
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				startActivity(frontdoor);
+			}
+		}
+	};
 
-    /** 
-     * Called when the activity is first created. 
-     */
-    @Override
-    public void onCreate(Bundle icicle) {
+	/** 
+	 * Called when the activity is first created. 
+	 */
+	@Override
+	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		
 		if (debug) Log.d(TAG,"onCreate("+icicle+")");
 
 		CategoryId = icicle != null ? icicle.getLong(CategoryList.KEY_ID) : null;
 		if (CategoryId == null) {
-		    Bundle extras = getIntent().getExtras();            
-		    CategoryId = extras != null ? extras.getLong(CategoryList.KEY_ID) : null;
+			Bundle extras = getIntent().getExtras();
+			CategoryId = extras != null ? extras.getLong(CategoryList.KEY_ID) : null;
 		}
 		if (debug) Log.d(TAG,"CategoryId="+CategoryId);
 		if ((CategoryId==null) || (CategoryId<1)) {
@@ -167,8 +167,8 @@ public class PassList extends ListActivity {
 		registerForContextMenu(list);
 		
 		sendBroadcast (restartTimerIntent);
-    }
-    
+	}
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -182,8 +182,8 @@ public class PassList extends ListActivity {
 		}
 	}
 
-    @Override
-    protected void onPause() {
+	@Override
+	protected void onPause() {
 		super.onPause();
 		
 		if (debug) Log.d(TAG,"onPause()");
@@ -199,10 +199,10 @@ public class PassList extends ListActivity {
 			//if (debug) Log.d(TAG,"IllegalArgumentException");
 		}
 		removeDialog(DECRYPT_PROGRESS_KEY);
-    }
+	}
 
-    @Override
-    protected void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
 		
 		if (debug) Log.d(TAG,"onResume()");
@@ -211,8 +211,8 @@ public class PassList extends ListActivity {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 
 		Passwords.Initialize(this);
 
@@ -222,24 +222,24 @@ public class PassList extends ListActivity {
 			categoryName;
 		setTitle(title);
 
-        ListAdapter la=getListAdapter();
-        if (la!=null) {
-        	if (debug) Log.d(TAG,"onResume: count="+la.getCount());
-        } else {
-        	if (debug) Log.d(TAG,"onResume: no list");
-        	fillData();
-        }
-    }
-    
-    @Override
-    public void onStop() {
+		ListAdapter la=getListAdapter();
+		if (la!=null) {
+			if (debug) Log.d(TAG,"onResume: count="+la.getCount());
+		} else {
+			if (debug) Log.d(TAG,"onResume: no list");
+			fillData();
+		}
+	}
+
+	@Override
+	public void onStop() {
 		super.onStop();
 		
 		if (debug) Log.d(TAG,"onStop()");
-    }
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View view,
-    		ContextMenuInfo menuInfo) {
+	}
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View view,
+			ContextMenuInfo menuInfo) {
 
 		AdapterView.AdapterContextMenuInfo info;
 		info = (AdapterView.AdapterContextMenuInfo) menuInfo;
@@ -257,30 +257,30 @@ public class PassList extends ListActivity {
 		menu.add(0, MOVE_PASSWORD_INDEX, 0, R.string.move)  
 			.setIcon(android.R.drawable.ic_menu_more)
 			.setAlphabeticShortcut('m');
-    }
+	}
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		onOptionsItemSelected(item);
 		return true;
-    }
+	}
 
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-	        case DECRYPT_PROGRESS_KEY: {
-	            ProgressDialog dialog = new ProgressDialog(this);
-	            dialog.setMessage(getString(R.string.decrypt_progress));
-	            dialog.setIndeterminate(false);
-	            dialog.setCancelable(true);
-	            return dialog;
-	        }
-        }
-        return null;
-    }
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+			case DECRYPT_PROGRESS_KEY: {
+				ProgressDialog dialog = new ProgressDialog(this);
+				dialog.setMessage(getString(R.string.decrypt_progress));
+				dialog.setIndeterminate(false);
+				dialog.setCancelable(true);
+				return dialog;
+			}
+		}
+		return null;
+	}
 
-    /**
-     * Populates the password ListView
-     */
+	/**
+	 * Populates the password ListView
+	 */
 	private void fillData() {
 		if (fillerThread!=null) {
 			if (fillerThread.isAlive()) {
@@ -319,28 +319,28 @@ public class PassList extends ListActivity {
 		fillerThread.start();
 	}
 
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
+	@Override
+	public boolean onMenuOpened(int featureId, Menu menu) {
 		if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 
-    	if (menu == null) {
-        	return super.onMenuOpened(featureId, menu);
-    	}
+		if (menu == null) {
+			return super.onMenuOpened(featureId, menu);
+		}
 		MenuItem miDel  = menu.findItem(DEL_PASSWORD_INDEX);
 		MenuItem miMove = menu.findItem(MOVE_PASSWORD_INDEX);
-    	if (getSelectedItemPosition() > -1) {
-    		miDel.setEnabled(true);
-    		miMove.setEnabled(true);
-    	} else {
-    		miDel.setEnabled(false);
-    		miMove.setEnabled(false);
-    	}
-    	return super.onMenuOpened(featureId, menu);
-    }
-    
-    
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+		if (getSelectedItemPosition() > -1) {
+			miDel.setEnabled(true);
+			miMove.setEnabled(true);
+		} else {
+			miDel.setEnabled(false);
+			miMove.setEnabled(false);
+		}
+		return super.onMenuOpened(featureId, menu);
+	}
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
 		menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add)
@@ -354,30 +354,30 @@ public class PassList extends ListActivity {
 			.setShortcut('4', 'm');
 	
 		return super.onCreateOptionsMenu(menu);
-    }
+	}
 
-    static void setSalt(String saltIn) {
+	static void setSalt(String saltIn) {
 		salt = saltIn;
-    }
+	}
 
-    static String getSalt() {
+	static String getSalt() {
 		return salt;
-    }
+	}
 
-    static void setMasterKey(String key) {
+	static void setMasterKey(String key) {
 		masterKey = key;
-    }
+	}
 
-    static String getMasterKey() {
+	static String getMasterKey() {
 		return masterKey;
-    }
+	}
 
-    private void addPassword() {
+	private void addPassword() {
 		Intent i = new Intent(this, PassEdit.class);
 		i.putExtra(PassList.KEY_ID, (long)-1);
 		i.putExtra(PassList.KEY_CATEGORY_ID, CategoryId);
-	    startActivityForResult(i,REQUEST_ADD_PASSWORD);
-    }
+		startActivityForResult(i,REQUEST_ADD_PASSWORD);
+	}
 	/**
 	 * Prompt the user with a dialog asking them if they really want
 	 * to delete the password.
@@ -406,34 +406,34 @@ public class PassList extends ListActivity {
 	 * delete the password, otherwise just finish this Activity.
 	 */
 	public void deletePassword2(int position){
-	    try {
-	    	lastPosition=position;
-	    	delPassword(rows.get(position).id);
-	    } catch (IndexOutOfBoundsException e) {
+		try {
+			lastPosition=position;
+			delPassword(rows.get(position).id);
+		} catch (IndexOutOfBoundsException e) {
 			// This should only happen when there are no
 			// entries to delete.
 			Log.w(TAG,e.toString());
-	    }
+		}
 	}
 
-    private void delPassword(long Id) {
+	private void delPassword(long Id) {
 		Passwords.deletePassEntry(Id);
 		fillData();
-    }
-    
-    /**
-     * Prompt the user with Categories to move the specified 
-     * password to and then update the password entry accordingly.
-     * 
-     * @param passwordId
-     */
-    private void movePassword(final long passwordId) {
-        final HashMap<String, Long> categoryToId=Passwords.getCategoryNameToId();
-        String categoryName=Passwords.getCategoryEntry(CategoryId).plainName;
-        categoryToId.remove(categoryName);
-        Set<String> categories=categoryToId.keySet();
-        final String[] items=(String[])categories.toArray(new String[categories.size()]);
-        Arrays.sort(items, String.CASE_INSENSITIVE_ORDER);
+	}
+
+	/**
+	 * Prompt the user with Categories to move the specified 
+	 * password to and then update the password entry accordingly.
+	 * 
+	 * @param passwordId
+	 */
+	private void movePassword(final long passwordId) {
+		final HashMap<String, Long> categoryToId=Passwords.getCategoryNameToId();
+		String categoryName=Passwords.getCategoryEntry(CategoryId).plainName;
+		categoryToId.remove(categoryName);
+		Set<String> categories=categoryToId.keySet();
+		final String[] items=(String[])categories.toArray(new String[categories.size()]);
+		Arrays.sort(items, String.CASE_INSENSITIVE_ORDER);
 
 		new AlertDialog.Builder(PassList.this)
 		.setTitle(R.string.move_select)
@@ -443,18 +443,18 @@ public class PassList extends ListActivity {
 				long newCategoryId=categoryToId.get(items[which]);
 				Passwords.updatePassCategory(passwordId, newCategoryId);
 				String result=getString(R.string.moved_to, items[which]);
-     			Toast.makeText(PassList.this, result,
-         				Toast.LENGTH_LONG).show();
+				Toast.makeText(PassList.this, result,
+						Toast.LENGTH_LONG).show();
 				fillData();
 			}
 		})
 		.show();
-    }
+	}
 
 	public static long[] getRowsIds(List<PassEntry> rows) {
 		if (debug) Log.d(TAG,"getRowsIds() rows="+rows);
 		if (rows!=null) {
-	    	long[] ids=new long[rows.size()];
+			long[] ids=new long[rows.size()];
 			Iterator<PassEntry> passIter=rows.iterator();
 			int i=0;
 			while (passIter.hasNext()) {
@@ -476,7 +476,7 @@ public class PassList extends ListActivity {
 		startActivityForResult(vi,REQUEST_VIEW_PASSWORD);
 	}
 	
-    public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item) {
 		if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		int position=-1;
@@ -489,12 +489,12 @@ public class PassList extends ListActivity {
 
 		switch(item.getItemId()) {
 		case ADD_PASSWORD_INDEX:
-		    addPassword();
-		    break;
+			addPassword();
+			break;
 		case VIEW_PASSWORD_INDEX:
 			viewPassword(position);
 			lastPosition=position;
-		    break;
+			break;
 		case EDIT_PASSWORD_INDEX:
 			Intent i = new Intent(this, PassEdit.class);
 			i.putExtra(KEY_ID, rows.get(position).id);
@@ -504,35 +504,35 @@ public class PassList extends ListActivity {
 			break;
 		case DEL_PASSWORD_INDEX:
 			deletePassword(position);
-		    break;
+			break;
 		case MOVE_PASSWORD_INDEX:
 			movePassword(rows.get(position).id);
 			lastPosition=position;
 			break;
 		}
 		return super.onOptionsItemSelected(item);
-    }
+	}
 
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 	
-	    viewPassword(position);
-    }
+		viewPassword(position);
+	}
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent i) {
-    	super.onActivityResult(requestCode, resultCode, i);
-    	//Log.d(TAG, "onActivityResult. requestCode: " + requestCode + ", resultCode: " + resultCode);
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+		super.onActivityResult(requestCode, resultCode, i);
+		//Log.d(TAG, "onActivityResult. requestCode: " + requestCode + ", resultCode: " + resultCode);
 
-    	if (((requestCode==REQUEST_VIEW_PASSWORD)&&(PassView.entryEdited)) ||
-    	    	((requestCode==REQUEST_EDIT_PASSWORD)&&(PassEdit.entryEdited)) ||
-    	    	((requestCode==REQUEST_ADD_PASSWORD)&&(PassEdit.entryEdited)) ||
-    			(resultCode==RESULT_OK)) {
-    		fillData();
-    	}
-    }
+		if (((requestCode==REQUEST_VIEW_PASSWORD)&&(PassView.entryEdited)) ||
+				((requestCode==REQUEST_EDIT_PASSWORD)&&(PassEdit.entryEdited)) ||
+				((requestCode==REQUEST_ADD_PASSWORD)&&(PassEdit.entryEdited)) ||
+				(resultCode==RESULT_OK)) {
+			fillData();
+		}
+	}
 
-    @Override
+	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
 
