@@ -42,24 +42,24 @@ public class Help extends Activity {
 	private static boolean debug = false;
 	private static String TAG = "Help";
 	
-    // Menu Item order
-    public static final int CLOSE_HELP_INDEX = Menu.FIRST;
+	// Menu Item order
+	public static final int CLOSE_HELP_INDEX = Menu.FIRST;
 
-    Intent frontdoor;
-    private Intent restartTimerIntent=null;
+	Intent frontdoor;
+	private Intent restartTimerIntent=null;
 
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-            	 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-            	 startActivity(frontdoor);
-            }
-        }
-    };
-    
-    @Override
-    public void onCreate(Bundle icicle) {
-    	super.onCreate(icicle);
+	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+				 if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				 startActivity(frontdoor);
+			}
+		}
+	};
+	
+	@Override
+	public void onCreate(Bundle icicle) {
+		super.onCreate(icicle);
 
 		frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
@@ -72,39 +72,39 @@ public class Help extends Activity {
 		setTitle(title);
 
 		
-        // Programmatically load text from an asset and place it into the
-        // text view.  Note that the text we are loading is ASCII, so we
-        // need to convert it to UTF-16.
-        try {
-            InputStream is = getAssets().open("help.html");
-            
-            // We guarantee that the available method returns the total
-            // size of the asset...  of course, this does mean that a single
-            // asset can't be more than 2 gigs.
-            int size = is.available();
-            
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            
-            // Convert the buffer into a Java string.
-            String text = new String(buffer);
-            
-            final String mimeType = "text/html";
-            final String encoding = "utf-8";
-            
-            // Finally stick the string into the text view.
-            WebView wv = (WebView)findViewById(R.id.help);
-            wv.loadData(text, mimeType, encoding);
-        } catch (IOException e) {
-            // Should never happen!
-            throw new RuntimeException(e);
-        }
+		// Programmatically load text from an asset and place it into the
+		// text view.  Note that the text we are loading is ASCII, so we
+		// need to convert it to UTF-16.
+		try {
+			InputStream is = getAssets().open("help.html");
 
-    }
+			// We guarantee that the available method returns the total
+			// size of the asset...  of course, this does mean that a single
+			// asset can't be more than 2 gigs.
+			int size = is.available();
 
-    @Override
+			// Read the entire asset into a local byte buffer.
+			byte[] buffer = new byte[size];
+			is.read(buffer);
+			is.close();
+
+			// Convert the buffer into a Java string.
+			String text = new String(buffer);
+
+			final String mimeType = "text/html";
+			final String encoding = "utf-8";
+
+			// Finally stick the string into the text view.
+			WebView wv = (WebView)findViewById(R.id.help);
+			wv.loadData(text, mimeType, encoding);
+		} catch (IOException e) {
+			// Should never happen!
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	@Override
 	protected void onPause() {
 		super.onPause();
 		try {
@@ -124,12 +124,12 @@ public class Help extends Activity {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 	
 		menu.add(0,CLOSE_HELP_INDEX, 0, R.string.close)
@@ -137,17 +137,17 @@ public class Help extends Activity {
 			.setShortcut('0', 'w');
 		
 		return super.onCreateOptionsMenu(menu);
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
+	}
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
 		case CLOSE_HELP_INDEX:
 			finish();
 			break;
 		}
 		return super.onOptionsItemSelected(item);
-    }
+	}
 
-    @Override
+	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
 
