@@ -528,7 +528,6 @@ public class CategoryList extends ListActivity {
 
 		menu.add(0, DEL_CATEGORY_INDEX, 0, R.string.password_delete)  
 			.setIcon(android.R.drawable.ic_menu_delete)
-			.setShortcut('3', 'd')
 			.setEnabled(false);
 		
 		menu.add(0, HELP_INDEX, 0, R.string.help)
