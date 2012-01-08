@@ -2,6 +2,47 @@
 OI Safe
 
 # Promo text:
-OI Safe keeps all your private data encrypted.
+OI Safeはプライベートなデータを暗号化した状態に保ってくれます。
 
 # Description:
+OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+
+このアプリケーションは広告を含まず、インターネット許可を必要としません。 
+
+すべての変更リストや質問リストを見るには： 
+http://www.openintents.org
+
+あなたもこの言語の翻訳を Launchpad で改善することができます： 
+https://translations.launchpad.net/openintents/trunk
+
+この無料でオープンソースのアプリケーションのソースコードは以下の場所から取得できます： 
+http://code.google.com/p/openintents
+
+機能： 
+* AES 暗号を使ってデータを安全に暗号化。
+* Freely move data entries between categories.
+* データエントリーやデータベースをインポート・エクスポート。
+* エントリーをバックアップ・復元。
+* 安全パスワード作成機能が含まれています。
+* 暗号化されたドキュメントを保護するための自動タイムアウト。
+* OI メモ帳のノートを暗号化。
+* Obscura 画像金庫のサポート。
+* マイバックアップ プロ
+
+"OI ファイルマネージャー" の利用可能な拡張子： 
+* "OI 情報" のライセンス情報を表示する。
+
+"OI ファイルマネージャー" と動作するアプリケーション： 
+* "OI メモ帳" で作成されたノートを暗号化する。
+
+キーワード: 
+* safe, encrpytion, password, protection
+* OI, IO, OpenIntents, Open Intents
+
+国際バージョン： 
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+
+
+マーケット用に文字列を検索： 
+* Uses OI About
+* Extension for OI Notepad

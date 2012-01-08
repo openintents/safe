@@ -1,17 +1,17 @@
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
 
-This application is ad free and does not require the internet permission. 
+Tämä sovellus on mainos ilmainen eikä vaadi internet lupaa. 
 
-For the complete list of changes and a list of frequently asked questions, please visit: 
+Täydellinen luettelo muutoksista ja luettelo usein kysyttyihin kysymyksiin osoitteessa: 
 http://www.openintents.org
 
-You can help to improve the translation into your language at Launchpad: 
+Voit auttaa parantamaan käännös omalla kielelläsi Launchpad: 
 https://translations.launchpad.net/openintents/trunk
 
-The source code of this free and open source application is available at: 
+Lähdekoodi tämän ilmaisen ja avoimen lähdekoodin sovellus on saatavilla osoitteessa: 
 http://code.google.com/p/openintents
 
-Features: 
+Ominaisuudet: 
 * Securely protect data using AES encryption.
 * Freely move data entries between categories.
 * Import/Export data entries and databases.
@@ -28,14 +28,14 @@ Available extensions for "OI File Manager":
 Applications that work with "OI File Manager": 
 * Encrypt notes created in "OI Notepad".
 
-Keywords: 
+Avainsanat: 
 * safe, encrpytion, password, protection
 * OI, IO, OpenIntents, Open Intents
 
-International versions: 
-OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+Kansainvälinen versiot: 
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
 
 
-Search strings for Market: 
+Etsintä jousille Markkinoiden: 
 * Uses OI About
 * Extension for OI Notepad

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  kenn dhia https://launchpad.net/~kendhia</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">حماية OI بقي جميع بياناتك الشخصية مشفرة.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">حماية OI</string>
+    <string name="empty_safe">لا توجد أي كلمة مرور حالية لهته الفئة.</string>
+    <string name="empty_category">لا توجد أي فئة حالية .رجاءا أضف واحدة عبر القائمة -&gt;أضف</string>
+    <string name="password_lock">أغلق</string>
+    <string name="password_view">عرض</string>
+    <string name="password_edit">تعديل</string>
+    <string name="password_add">إضافة</string>
+    <string name="password_delete">حذف</string>
+    <string name="password">كلمة السر</string>
+    <string name="passwords">كلمات المرور</string>
+    <string name="master_password">كلمة المرور الرئيسية</string>
+    <string name="username">إسم المستخدم</string>
+    <string name="website">موق الكتروني</string>
+    <string name="description">الوصف</string>
+    <string name="notes">الملاحظات</string>
+    <string name="save">حفظ</string>
+    <string name="invalid_password">كلمة المرور خاطئة. رجاءا حاول مرة أخرى</string>
+    <string name="notify_blank_pass">كلمة المرور يجب أن تكون على الأقل أكثر من 4 رموز</string>
+    <string name="notify_blank_desc">لا يمكن ان تبقى خانة الوصف فارغة.</string>
+    <string name="notify_blank_name">لا يمكن أي تبقى خانة الاسم فارغة.</string>
+    <string name="first_time">رجاءا قم باخال كلمة سر في الأسفل ، كلمة السر هته تبقي كلمات السر الخاصة بك محمية.</string>
+    <string name="logoff_explanation">انت الان تهم بالدخول الى حماية OI، هذا يعني أن التطبيقات الأخرى بامكانها طلب كلمات السر الخاصة بها و تشفير/فك تفير البيانات. غلق لمنع الدخول الخارجي الى غاية تقوم بكتابة كلمة المرور مرة أخرى.</string>
+    <string name="remote_ask">تطبيق آخر يطلب كلمة السر الرئيسية لاستعمالها. رجاءا أدخل كلمة السر لفتحها.</string>
+    <string name="categories">الفئات</string>
+	<string name="category">الفئة</string>
+    <string name="category_business">الأعمال</string>
+    <string name="category_personal">شخصي</string>
+    <string name="name">الإسم</string>
+    <string name="category_not_empty">الفئة ليست فارغة .يجب عليك حذف كلمة السر أولا.</string>
+	<string name="cannot_decrypt_category">لا يمكن فك تشفير الفئة</string>
+	<string name="cannot_decrypt_password">لا يمكن فك تشفير كلمة السر</string>
+	<string name="error_export">لا يمكن فك تشفير كلمة السر</string>
+	<string name="export_database">تصدير قاعدة البيانات</string>
+	<string name="export_file_select">اختر ملف للتصدير</string>
+	<string name="export_msg">سيتم تصدير قاعدة بيانات كلمات السر الى ملف نص. هته العملية خطيرة جدا. تأكد من حذف الملف بعد الانتهاء منه . هل أنت متأكد من رغبتك في تصدير القاعدة ؟</string>
+	<string name="export_success">تصدير  \'%s\' بنجاح . تحذير! هذا الملف غير مشفر.</string>
+	<string name="export_file_error">لا يمكن انشاء ملف تصدير   \'oisafe.csv\' في SDCARD.  يجب عليك فصل USB من الجهاز.</string>
+	<string name="import_database">استيراد قاعدة</string>
+	<string name="import_file_select">اختر ملف للاستيراد</string>
+	<string name="import_file_missing">ملف الاستيراد مفقود :</string>
+	<string name="import_file_error">لا يمكن انشاء ملف تصدير   \'oisafe.csv\' في SDCARD.  يجب عليك فصل USB من الجهاز.</string>
+	<string name="import_error_first_line">لا يوجد أي حقل في السطر الأول.</string>
+	<string name="dialog_import_title">استيراد</string>
+	<string name="dialog_import_msg">هل تود استبدال قاعدة البيانات (المستوردة من %s )؟</string>
+	<string name="yes">نعم</string>
+	<string name="no">لا</string>
+	<string name="import_progress">رجاءا انتظر أثناء الاستيراد...</string>
+	<string name="import_no_categories">لم يتم العثور على فئات.</string>
+	<string name="import_no_entries">لم يتم العثور على أي مدخلات في CSV .</string>
+	<string name="import_too_many_categories">فئات كثيرة.</string>
+	<string name="import_not_enough_fields">مدخلات غير كافية.</string>
+	<string name="import_blank_category">فئة فارغة.</string>
+	<string name="import_blank_description">وصف فارغ.</string>
+	<string name="dialog_delete_database_title">أحذف قاعدة البيانات.</string>
+	<string name="dialog_delete_database_msg">هل أنت متأكد أنك تود حذف قاعدة البيانات ؟ هذا الأمر لا يمكن التراجع عنه.</string>
+	<string name="added">تمت الإضافة</string>
+	<string name="entries">المدخلات</string>
+	<string name="import_complete">انتهى الاستيراد</string>
+	<string name="import_delete_csv">لأنه ليس آمنا أن تترك كلمات السر في ملف نص CSV ، هل تود الحذف</string>
+	<string name="edit_entry">تعديل المدخل</string>
+	<string name="view_entry">عرض المدخل</string>
+	<string name="help">المساعدة</string>
+	<string name="close">إغلاق</string>
+	<string name="go">اذهب</string>
+	<string name="dialog_delete_password_title">أحذف كلمة السر.</string>
+	<string name="dialog_delete_password_msg">هل أنت متأكد أنك تود حذف كلمة السر هته ؟</string>
+	<string name="change_password">تغيير كلمة السر الرئيسية</string>
+	<string name="chg_pass_explaination">استعمل هته لتغيير كلمة السر لفتح حماية OI .. بياناتك سيتم اعادة تشفيرها مع كلمة السر الجديدة. كلما تكون كلمة السر معقدة أكثر ، بياناتك تكون محمية أكثر.</string>
+	<string name="old_password">كلمة المرور القديمة</string>
+	<string name="new_password">كلمة مرور جديدة</string>
+	<string name="verify_password">التحقق من كلمة المرور</string>
+	<string name="new_verify_mismatch">كلمة السر الجديدة وكلمة التحقق عير متطابقتان.</string>
+    <string name="invalid_old_password">كلمة السر القديمة خاطئة. رجاءا حاول مرة أخرى.</string>
+    <string name="error_changing_password">خطأ أثناء تغيير كلمة السر</string>
+    <string name="password_changed">تم تغيير كلمة السر الرئيسية</string>
+    <string name="confirm">تأكيد</string>
+    <string name="confirm_pass_fail">كلمات السر المدخلة غير متطابقة.</string>
+    <string name="backup">نسخة إحتياطية</string>
+    <string name="backup_progress">خذ نسخة احتياطية الى</string>
+    <string name="backup_complete">انتهى. تم أحذ نسخة احتياطية عن كلمات المرور :</string>
+    <string name="backup_failed">فشل أخذ نسخة احتياطية :</string>
+	<string name="backup_select_file">اختر ملف للنسخة الاحتياطية</string>
+	<string name="backup_error">خطأ أثناء أخذ نسخة احتياطية</string>
+    <string name="restore">استرجاع</string>
+    <string name="filename">إسم الملف</string>
+    <string name="restore_no_file">لم يتم العثور على ملف النسخة الاحتياطية. يجب أن تقوم بعمل نسخة احتياطية لانشائها. أو انسخ واحدة من حاسوبك.</string>
+    <string name="restore_set_password">رجاءا قدم كلمة السر المستعملة من ملف النسخة الاحتياطية. سيتم ظبط كلمة السر الرئيسية على  كلمة السر هته.</string>
+	<string name="restore_select_file">اختر ملف للاسترجاع.</string>
+	<string name="restore_error">خطأ  أثناء الاسترجاع.</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">غير قادر على فتح الملف : %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">نسخة غير مدعومة : %s</string>
+    
+    <string name="restore_error">خطأ في الاسترجاع.</string>
+    <string name="restore_decrypt_error">كلمة سر سيئة.</string>
+    <string name="dialog_restore_database_title">استرجاع قاعدة البيانات.</string>
+    <string name="dialog_restore_database_msg">هل أنت متأكد أنك تود استبدال البيانات الحالية ؟</string>
+    <string name="restore_found">تم العثور على %1$s من النسخة الاحتياطية تحت تاريخ.%2$s</string>
+    <string name="restore_complete">انتهى. كلمات السر المسترجعة هي : %s</string>
+    <string name="copied_to_clipboard">نسخ إلى الحافظة</string>
+    <string name="invalid_website">موقع التكروني خاطئ</string>
+    <string name="database_error_title">خطأ في قاعدة البيانات</string>
+    <string name="database_error_msg">Database error.  Out of space?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">فتح</string>
+    
+    <string name="database_version_error_title">خطأ في نسخة قاعدة البيانات</string>
+    <string name="database_version_error_msg">عذرا، لكن نسخةقاعدة البيانات غير مدعومة. يجب عليك تثبيت النسخة المرتبطة مع قاعدة البيانات.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">نقل</string>
+	
+	<string name="move_select">اختيار الفئة</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">انقل الى %s</string>
+	
+	<string name="preferences">الإعدادات</string>
+	<string name="pref_title_external_access">السماح بالدخول الخارجي</string>
+	<string name="pref_summary_external_access">السماح للتطبيقات الأخرى بحماية بياناتك باستعمال حمياة OI</string>
+	<string name="dialog_title_external_access">حماية OI: تطبيق آخر يطلب الدخول.</string>
+	<string name="dialog_summary_external_access">السماح للتطبيقات الأخرى بحماية بياناتك باستعمال حماية OI.</string>
+	<string name="dialog_comment_external_access">يمكن ظبط هذه أيضامن قائمة حماية OI  قائمة/ الاعدادات.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">مهلة القفل التلقائي</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">عدد الدقائق قبل انتهاء المهلة و يتم غلق  الحماية.</string>
+	
+	<string name="pref_dialog_title_lock_timeout">مهلة القفل التلقائي</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">غلق قفل الشاشة</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">غلق عند غلق الشاشة.</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">لوحة مفاتيح</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">استعمل لوحة المفاتيح لادخال كلمة السر الرئيسية</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">كتم لوحة المفاتيح</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">كتم أصوات لوحة المفاتيح</string>
+
+	<string name="pref_title_autobackup">أخذ نسخة احتياطية أوتوماتيكيا</string>
+	<string name="pref_summary_autobackup">موجه تلقائيا لأخذ نسخة احتياطية لكلمات المرور</string>
+
+	<string name="pref_title_autobackup_days">أيام أخذ نسخة احتياطية</string>
+	<string name="pref_summary_autobackup_days">عدد الأيام المنتظرة قبل المرة القادة لأخذ نسخة احتياطية تلقائيا</string>
+	<string name="pref_dialog_title_autobackup_days">أيام أخذ نسخة احتياطية تلقائيا</string>
+	
+	<string name="pref_title_backup_path">مسار النسخة الاحتياطية الافتراضي</string>
+	<string name="pref_title_export_path">مسار التصدير الافتراضي</string>
+	    
+	
+	<string name="intent_decrypt">فك التشفير(حماية OI)</string>
+	<string name="intent_encrypt">تشفير (حمياة OI)</string>
+	<string name="intent_get_password">الحصول على كلمة المرور (حماية OI)</string>
+	<string name="intent_set_password">ظبط كلمة المرور (حماية OI)</string>
+	<string name="intent_restart_timer">موقت اعادة التشغيل (حماية OI)</string>
+	<string name="open_safe">فتح حماية OI</string>
+	<string name="lock">أغلق</string>
+	<string name="continue_text">إستمرار</string>
+	<string name="generate_password">توليد كلمة المرور</string>
+	<string name="pass_gen_length">طور كلمة المرور</string>
+	<string name="pass_gen_uppercase">حروف كبيرة [Z-A]</string>
+	<string name="pass_gen_lowercase">حروف صغيرة [z-a]</string>
+	<string name="pass_gen_numbers">أرقام[9-0]</string>
+	<string name="pass_gen_symbols">الرموز[!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">نسخ الى المدخل الجالي</string>
+	<string name="pass_gen_copy_to_clipboard">نسخ إلي الحافظة</string>
+	<string name="cancel">الغاء</string>
+	<string name="discard_changes">إهمل التغييرات</string>
+	<string name="entry_saved">تم حفظ المدخل</string>
+	<string name="entry_save_error">غير قادر على الحفظ بسبب خطأ في قاعدة البيانات</string>
+	<string name="last_edited">التعديلات الأخيرة</string>
+	<string name="last_edited_unknown">غير معروف</string>
+	<string name="crypto_error">أخطاء التشفير :</string>
+	<string name="uniquename">اسم وحيد</string>
+	<string name="package_access">الدخول الى الحزمة</string>
+	<string name="not_found">غير موجود</string>
+	<string name="dialog_title_first_time_warning">كلمة سر رئيسية جديدة</string>
+	<string name="dialog_summary_first_time_warning">تم انشاء كلمة سر رئيسية عشوائية.استعمل القائمة &gt; نسخة احتياطية لحفظ المفتاح في مكان آمن. بدون هذا المفتاح قد تفقد البيانات المشفرة.</string>
+	<string name="switch_mode">تبديل الوضع</string>
+	<string name="decrypt_progress">فك التشفير...</string>
+	<string name="search">بحث</string>
+	<string name="search_progress">جاري البحث...</string>
+	<string name="search_hint">كتابة معايير البحث</string>
+	<string name="search_nothing_found">لم يتم العثور على أي شيء</string>
+	<string name="mute">كتم</string>
+	<string name="sounds">الأصوات</string>
+	<string name="previous">السابق</string>
+	<string name="next">التالي</string>
+	<string name="autobackup">اخذ نسخة احتياطية أوتوماتيكيا</string>
+	<string name="backup_never">لم يتم تنفيذ أي نسخة احتياطية بعد. هل تود أخذ نسخة احتياطية الآن ؟</string>
+	<string name="backup_in_days">آخر نسخة احتياطية كانت منذ %d يوم. هل تود أخذ نسخة الآن.</string>
+	<string name="autobackup_turnoff">تعطيل أخذ نسخة احتياطية تلقائيا</string>
+	<string name="lock_timeout">الوقت للقفل التلقائي:%s</string>
+	<string name="download_oi_filemanager">عند عدم التعحميل، سيتم استعمالها من طرف الموضع الافتراضي.</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">الدخول الى كلمة السر الرئيسية.</string>
+	<string name="oi_safe_permission_service_descr">السباح للتطبيق بالدخول االى كلمة المرور الرئيسية لتشفير وفك تشفير .يجب عدم استعمالها ماعدى من طرف حماية OI.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">تشفير وفك تشفير البيانات</string>
+    <string name="oi_safe_permission_intents_descr">السماح للتطبيقات بالتشفير وفك تشفير النصوص، والدخول الى كلمات المرور المحفوظة من طرفهم في حماية OI.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>دقيقة واحدة</item>
+        <item>5 دقائق</item>
+        <item>10 دقائق</item>
+        <item>15 دقيقة</item>
+        <item>30 دقيقة</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>يوم واحد</item>
+        <item>7 أيام</item>
+        <item>30 يوما</item>
+        <item>60 يوما</item>
+    </string-array>
+        
+        
+</resources>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Alexander Geroimenko https://launchpad.net/~geroimenko</string>
+	
+    <!-- Short explanation of the application -->
+	<string name="about_comments">OI Safe захоўвае вашы дадзеныя ў зашыфраваным выглядзе.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI Safe</string>
+    <string name="empty_safe">У гэтай катэгорыі няма пароляў.</string>
+    <string name="empty_category">Няма ні адной катэгорыі. Дадайце катэгорыю праз Меню-&gt;Дадаць</string>
+    <string name="password_lock">Заблакіраваць</string>
+    <string name="password_view">Прагляд</string>
+    <string name="password_edit">Праўка</string>
+    <string name="password_add">Дадаць</string>
+    <string name="password_delete">Выдаліць</string>
+    <string name="password">Пароль</string>
+    <string name="passwords">Паролі</string>
+    <string name="master_password">Мастэр ключ</string>
+    <string name="username">Імя карыстальніка:</string>
+    <string name="website">Сайт</string>
+    <string name="description">Апісанне</string>
+    <string name="notes">Нататкі</string>
+    <string name="save">Захаваць</string>
+    <string name="invalid_password">Памылковы пароль. Паспрабуйце зноў.</string>
+    <string name="notify_blank_pass">Пароль павінен складацца з чатырох ці больш сімвалаў.</string>
+    <string name="notify_blank_desc">Апісанне не можа быць пустым</string>
+    <string name="notify_blank_name">Імя не можа быць пустым</string>
+    <string name="first_time">Калі ласка, увядзіце ніжэй пароль, які будзе выкарыстоўвацца для забеспячэння бяспекі вашых пароляў.</string>
+    <string name="logoff_explanation">Вы зайшлі ў OI Safe, іншыя прыкладанні могуць атрымліваць свае паролі і шыфраваць/дэшыфвраваць дадзеныя. Заблакіруйце каб пазбегнуць далейшы доступ, пакуль вы не ўвядзіце пароль яшчэ раз.</string>
+    <string name="remote_ask">Другое прыкладанне запрошвае Мастэр Ключ. Калі ласка, увядзіце пароль, каб даць доступ да яго.</string>
+    <string name="categories">Катэгорыі</string>
+	<string name="category">Катэгорыя</string>
+    <string name="category_business">Бізнэс</string>
+    <string name="category_personal">Прыватны</string>
+    <string name="name">Імя</string>
+    <string name="category_not_empty">Катэгорыя не пуста. Вы павінны адразу выдаліць паролі.</string>
+	<string name="cannot_decrypt_category">Немагчыма дэшыфраваць катэгорыю</string>
+	<string name="cannot_decrypt_password">Немагчыма дэкадаваць пароль</string>
+	<string name="error_export">Памылка экспартавання базы дадзеных</string>
+	<string name="export_database">Экспартаваць базу дадзеных</string>
+	<string name="export_file_select">Выберыце файл для экспартавання</string>
+	<string name="export_msg">База дадзеных будзе экспартавана як просты тэкст. ГЭТА ВЕЛЬМІ НЕБЯСПЕЧНА. Не забудзьце вылаліць файл. Вы ўпэўнены, што жадаеце экспартаваць файл?</string>
+	<string name="export_success">Экспартаванне ў \'%s\' паспяхова завершана. Увага! Файл не зашыфраваны.</string>
+	<string name="export_file_error">Немагчыма стварыць файл экспарту \'oisafe.csv\' на SDCARD. Паспрабуйце адключыць USB ад кампутару.</string>
+	<string name="import_database">Імпартаваць базу дадзеных.</string>
+	<string name="import_file_select">Выберыце файл для імпарту</string>
+	<string name="import_file_missing">Файл імпарту адсутнічае:</string>
+	<string name="import_file_error">Немагчыма імпартаваць файл \'oisafe.csv\' з SDCARD. Паспрабуйце адключыць USB ад кампутара.</string>
+	<string name="import_error_first_line">У першым радке не хапае палёў.</string>
+	<string name="dialog_import_title">Імпарт</string>
+	<string name="dialog_import_msg">Вы жадаеце замяніць базу дадзеных (імпартаваць з %s)?</string>
+	<string name="yes">Да</string>
+	<string name="no">Не</string>
+	<string name="import_progress">Калі ласка, пачакайце, пакуль імпартуецца...</string>
+	<string name="import_no_categories">Не знойдзена ні адной катэгорыі.</string>
+	<string name="import_no_entries">Не знойдзена запісаў у CSV.</string>
+	<string name="import_too_many_categories">Зададта шмат катэгорый.</string>
+	<string name="import_not_enough_fields">Не хапае палёў.</string>
+	<string name="import_blank_category">Пустая катэгорыя</string>
+	<string name="import_blank_description">Пустое апісанне</string>
+	<string name="dialog_delete_database_title">Выдаліць базу дадзеных</string>
+	<string name="dialog_delete_database_msg">Вы ўпэўнены, што жадаеце выдаліць базу дадзеных? Гэта неабарачальнае дзеянне.</string>
+	<string name="added">Дабаўлена</string>
+	<string name="entries">запісаў</string>
+	<string name="import_complete">Імпартаванне завершана</string>
+	<string name="import_delete_csv">Храненне пароляў у незашифрованым файле CSV небяспечна, ці жадаеце вы выдаліць</string>
+	<string name="edit_entry">Рэдагаваць запіс</string>
+	<string name="view_entry">Праглядзець запіс</string>
+	<string name="help">Даведка</string>
+	<string name="close">Закрыць</string>
+	<string name="go">Пуск</string>
+	<string name="dialog_delete_password_title">Выдаліць пароль</string>
+	<string name="dialog_delete_password_msg">Вы ўпэўнены, што жадаеце выдаліць гэты пароль?</string>
+	<string name="change_password">Змяніць Мастэр Пароль</string>
+	<string name="chg_pass_explaination">Выкарыстоўвайце для змянення пароля, якім вы адкрываеце OI Safe. Вашы дадзеныя будуць зашыфраваны яшчэ раз новым паролем. Чым больш складаны ваш пароль, тым у большай бяспецы будуць знаходзіцца вашы дадзеныя.</string>
+	<string name="old_password">Стары пароль</string>
+	<string name="new_password">Новы пароль</string>
+	<string name="verify_password">Праверачны пароль</string>
+	<string name="new_verify_mismatch">Новы і праверачны паролі не супадаюць.</string>
+    <string name="invalid_old_password">Стары пароль памылковы. Калі ласка, паспрабуйце зноў.</string>
+    <string name="error_changing_password">Памылка пры змене пароля</string>
+    <string name="password_changed">Мастэр Пароль зменены.</string>
+    <string name="confirm">Пацвердзіць</string>
+    <string name="confirm_pass_fail">Паролі не супадаюць.</string>
+    <string name="backup">Стварыць рэзервовую копію</string>
+    <string name="backup_progress">Захоўваецца рэзервовая копія ў</string>
+    <string name="backup_complete">Завершана. Рэзервовая копія пароляў захавана ў:</string>
+    <string name="backup_failed">Рэзервовая копія не створана:</string>
+	<string name="backup_select_file">Выберыце файл для рэзервовай копіі</string>
+	<string name="backup_error">Памылка рэзервнага капіравання</string>
+    <string name="restore">Аднавіць</string>
+    <string name="filename">Імя файла</string>
+    <string name="restore_no_file">Файл рэзервовай копіі не знойдзены. Вам патрэбна адразу стварыць рэзервовую копію ці скапіраваць яе з кампутара.</string>
+    <string name="restore_set_password">Увядзіце пароль файла рэзервовай копіі. Ён будзе Мастэр Паролем.</string>
+	<string name="restore_select_file">Выберыце файл для аднаўлення</string>
+	<string name="restore_error">Памылка пры аднаўленні</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Немагчыма адкрыць файл: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Версія не падтрымліваецца: %s</string>
+    
+    <string name="restore_error">Памылка аднаўлення.</string>
+    <string name="restore_decrypt_error">Дрэнны пароль.</string>
+    <string name="dialog_restore_database_title">Аднавіць базу дадзеных</string>
+    <string name="dialog_restore_database_msg">Вы ўпэўнены, што жадаеце замяніць існуючыя дадзеныя?</string>
+    <string name="restore_found">Знойдзена %1$s пароляў з рэзервовай копіі датаванай %2$s.</string>
+    <string name="restore_complete">Завершана. Пароляў адноўлена: %s</string>
+    <string name="copied_to_clipboard">скапіравана ў буфер</string>
+    <string name="invalid_website">Памылковы сайт</string>
+    <string name="database_error_title">Памылка базы дадзеных</string>
+    <string name="database_error_msg">Памылка базы дадзеных. Не хапае месца?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Адкрыць</string>
+    
+    <string name="database_version_error_title">Памылка версіі базы дадзеных</string>
+    <string name="database_version_error_msg">Прабачце, версія базы дадзеных не падтрымліваецца. Вы павінны ўсталяваць версію, адпаведную базе дадзеных.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Перамясціць</string>
+	
+	<string name="move_select">Выбраць катэгорыю</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Перемешчана ў %s</string>
+	
+	<string name="preferences">Наладкі</string>
+	<string name="pref_title_external_access">Дазволіць знешні доступ</string>
+	<string name="pref_summary_external_access">Дазволіць іншым прыкладанням шыфраваць вашы дадзеныя з дапамогай OI Safe</string>
+	<string name="dialog_title_external_access">OI Safe: іншае прыкладанне запрошвае доступ.</string>
+	<string name="dialog_summary_external_access">Дазволіць іншым прыкладанням шыфраваць вашы дадзеныя з дапамогай OI Safe.</string>
+	<string name="dialog_comment_external_access">Гэта таксама магчыма усталяваць у OI Safe Меню / Наладкі</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">Час аўтаблакіроўкі</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">Колькасць хвілін, па сканчэнні якіх адбываецца блакіроўка.</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Час аўтаблакіроўкі</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">Блакіраваць з экранам</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Блакіраваць, калі блакіруецца экран</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Клавіятура</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Выкарыстоўваць клавіятуру для ўвода Мастэр Пароля</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">Бязгучная клавіятура</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Адключыць гукі клавіятуры</string>
+
+	<string name="pref_title_autobackup">Аўтаматычнае рэзервовае капіраванне</string>
+	<string name="pref_summary_autobackup">Аўтаматычна запрошваць рэзервовае капіяванне пароляў</string>
+
+	<string name="pref_title_autobackup_days">Дні аўтаматычнага рэзервовага капіравання</string>
+	<string name="pref_summary_autobackup_days">Колькасць дзён да наступнага аўтаматычнага рэзервовага капіявання</string>
+	<string name="pref_dialog_title_autobackup_days">Дні аўтаматычнага капіявання</string>
+	
+	<string name="pref_title_backup_path">Шлях рэзервовага капіравання па змаўчанні</string>
+	<string name="pref_title_export_path">Шлях экспарту па змаўчанні</string>
+	    
+	
+	<string name="intent_decrypt">Дэшыфраваць (OI Safe)</string>
+	<string name="intent_encrypt">Зашыфраваць (OI Safe)</string>
+	<string name="intent_get_password">Атрымаць пароль (OI Safe)</string>
+	<string name="intent_set_password">Назначыць пароль (OI Safe)</string>
+	<string name="intent_restart_timer">Абнавіць таймер (OI Safe)</string>
+	<string name="open_safe">Адкрыць OI Safe</string>
+	<string name="lock">Заблакіраваць</string>
+	<string name="continue_text">Працягнуць</string>
+	<string name="generate_password">Згенераваць пароль</string>
+	<string name="pass_gen_length">Дліна пароля</string>
+	<string name="pass_gen_uppercase">Верхні рэгістр [A-Z]</string>
+	<string name="pass_gen_lowercase">Ніжні рэгістр [a-z]</string>
+	<string name="pass_gen_numbers">Лічбы [0-9]</string>
+	<string name="pass_gen_symbols">Сімвалы [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Капіраваць у цякучы запіс</string>
+	<string name="pass_gen_copy_to_clipboard">Скапіраваць у буфер</string>
+	<string name="cancel">Адмяніць</string>
+	<string name="discard_changes">Адхіліць змяненні</string>
+	<string name="entry_saved">Запіс захаваны</string>
+	<string name="entry_save_error">Не захаванна з-за памылкі базы дадзеных</string>
+	<string name="last_edited">Апошняе рэдагаванне</string>
+	<string name="last_edited_unknown">невядома</string>
+	<string name="crypto_error">Памылка шыфравання:</string>
+	<string name="uniquename">Унікальнае імя</string>
+	<string name="package_access">Доступ да пакету</string>
+	<string name="not_found">не знойдзена</string>
+	<string name="dialog_title_first_time_warning">Новы Мастэр Ключ</string>
+	<string name="dialog_summary_first_time_warning">Быў створаны новы случайны Мастэр Ключ. Выкарыстоўвайце Меню &gt; Стварыць рэзервовую копію і захоўвайце гэты ключ у бяспечным месцы. Без гэтага ключа вы можаце страціць зашыфраваныя дадзеныя.</string>
+	<string name="switch_mode">Пераключыць рэжым</string>
+	<string name="decrypt_progress">Дэшыфрую...</string>
+	<string name="search">Пошук</string>
+	<string name="search_progress">Шукаю...</string>
+	<string name="search_hint">Увядзіце інфармацыю для пошуку</string>
+	<string name="search_nothing_found">Нічога не знойдзена</string>
+	<string name="mute">Бязгучна</string>
+	<string name="sounds">Гукі</string>
+	<string name="previous">Назад</string>
+	<string name="next">Далей</string>
+	<string name="autobackup">Аўтаматычнае рэзервовае капіраванне</string>
+	<string name="backup_never">Рэзервовае капіраванне яшчэ не было выканана. Выканаць яго зараз?</string>
+	<string name="backup_in_days">Апошняе рэзервовае капіраванне было %d дзён назад. Выканаць яго зараз?</string>
+	<string name="autobackup_turnoff">Выключыць аўтаматычнае рэзеровае капіраванне</string>
+	<string name="lock_timeout">Час для разблакіравання: %s</string>
+	<string name="download_oi_filemanager">Пакуль не загружана, будзе выкарыстоўвана месцазнаходжанне па змаўчанні.</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">доступ да мастэр паролю</string>
+	<string name="oi_safe_permission_service_descr">Дазваляе прыкладанню атрымліваць доступ да Мастэр Ключу, выкарыстоўваемаму для шыфравання і дэшыфравання. Павінна выкарыстоўвацца толькі OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">кадаваць і дэкадаваць дадзеныя</string>
+    <string name="oi_safe_permission_intents_descr">Дазваляе прыкладанню кадаваць, дэкадаваць тэкст, і атрымліваць доступ да пароляў, якія захоўваюцца ў OI Safe.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 хвіліна</item>
+        <item>5 хвілін</item>
+        <item>10 хвілін</item>
+        <item>15 хвілін</item>
+        <item>30 хвілін</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 дзень</item>
+        <item>7 дзён</item>
+        <item>30 дзён</item>
+        <item>60 дзён</item>
+    </string-array>
+        
+        
+</resources>

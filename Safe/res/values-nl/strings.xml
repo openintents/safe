@@ -75,8 +75,8 @@
 	<string name="import_database">Database importeren</string>
 	<string name="import_file_select">Select a file for import</string>
 	<string name="import_file_missing">Importeer bestand mist:</string>
-	<string name="import_file_error">Unable to import file \'oisafe.csv\' from SDCARD.  You might try disconnecting USB from computer.</string>
-	<string name="import_error_first_line">First line is missing fields.</string>
+	<string name="import_file_error">Kan bestand \'oisafe.csv\' niet van SD-kaart importeren. U kunt proberen om de USB uit de computer te halen.</string>
+	<string name="import_error_first_line">De eerste regel mist velden.</string>
 	<string name="dialog_import_title">Importeer</string>
 	<string name="dialog_import_msg">Wilt u de database vervangen (importeren van %s)?</string>
 	<string name="yes">Ja</string>
@@ -102,11 +102,11 @@
 	<string name="dialog_delete_password_title">Verwijder wachtwoord.</string>
 	<string name="dialog_delete_password_msg">Weet jezeker dat je dit wachtwoord wilt verwijderen?</string>
 	<string name="change_password">Wijzig hoofdwachtwoord</string>
-	<string name="chg_pass_explaination">Use this to change the password you use to unlock OI Safe.   Your data will be re-encrypted with the new password.  The more complex your password is, the safer your data will be.</string>
+	<string name="chg_pass_explaination">Gebruik dit om het wachtwoord dat u gebruikt om OI Kluis te openen te wijzigen. Uw data zal opnieuw versteuleld worden met het nieuwe wachtwoord. Hoe ingewikkelder uw wachtwoord is, hoe veiliger uw data zal zijn.</string>
 	<string name="old_password">Oud wachtwoord</string>
 	<string name="new_password">Nieuw wachtwoord</string>
 	<string name="verify_password">Wachtwoord verifiëren</string>
-	<string name="new_verify_mismatch">New and Verify passwords do not match.</string>
+	<string name="new_verify_mismatch">Het nieuwe en het herhaalde wachtwoord komen niet overeen.</string>
     <string name="invalid_old_password">Het oude wachtwoord is ongeldig, probeer het opnieuw.</string>
     <string name="error_changing_password">Fout bij veranderen van wachtwoord</string>
     <string name="password_changed">Hoofdwachtwoord is gewijzigd</string>
@@ -114,14 +114,14 @@
     <string name="confirm_pass_fail">Wachtwoorden komen niet overeen.</string>
     <string name="backup">Reservekopie</string>
     <string name="backup_progress">Reservekopie maken op</string>
-    <string name="backup_complete">Complete.  Passwords backed up: </string>
+    <string name="backup_complete">Voltooid, reservekopie gemaakt van wachtwoorden:</string>
     <string name="backup_failed">Reservekopie maken is niet gelukt:</string>
 	<string name="backup_select_file">Select a file for backup</string>
 	<string name="backup_error">Error while backing up</string>
     <string name="restore">Herstellen</string>
     <string name="filename">Bestandsnaam</string>
-    <string name="restore_no_file">Backup file not found.  You need to perform a backup first to create it.  Or copy a backup from your PC.</string>
-    <string name="restore_set_password">Please provide the password used by the backup file.  Your master password will be set to this.</string>
+    <string name="restore_no_file">Reservekopie bestand is niet gevonden. U moet eerst een reservekopie maken of een reservekopie van uw PC kopiëren.</string>
+    <string name="restore_set_password">Vul het wachtwoord in, welke bij het reservekopie bestand is gebruikt. Uw hoofdwachtwoord zal hier naar gewijzigd worden.</string>
 	<string name="restore_select_file">Select a file for restore</string>
 	<string name="restore_error">Error while restoring</string>
     

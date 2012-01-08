@@ -5,7 +5,7 @@ OI Safe
 OI Safe хранит ваши личные данные зашифрованными.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI Safe надежно защищает все ваши пароли и другие личные данные при помощи AES шифрования. Он также выступает в качестве дополнения к OI Notepad для шифрования заметок созданных в там. 
 
 Это приложение является бесплатным и не требует постоянного подключения к Интернет. 
 
@@ -19,28 +19,28 @@ https://translations.launchpad.net/openintents/trunk
 http://code.google.com/p/openintents
 
 Возможности: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
+* Надежная защита данных с помощью AES шифрования.
+* Свободно перемещение данных записей между категориями.
 * Импорт / экспорт данных записей и баз данных
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
+* Резервное копирование / восстановление записей.
+* Включает в себя безопасный генератор паролей.
+* Автоматический тайм-аут для защиты зашифрованных документов.
+* Шифрование заметок OI Notepad
 * Support for Obscura picture safe.
 * MyBackup Pro.
 
-Available extensions for "OI File Manager": 
-* Show the license information with "OI About".
+Доступные дополнения для "OI File Manager": 
+* Показать информацию о лицензии с помощью "OI About".
 
 Приложения работающие с "OI File Manager": 
-* Encrypt notes created in "OI Notepad".
+* Шифрование заметок созданных в "OI Notepad".
 
 Ключевые слова: 
-* safe, encrpytion, password, protection
+* сейф, шифрование, пароль, защита
 * Copy text 	 OI, IO, OpenIntents, Open Intents
 
 Переведенные версии: 
-OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Search strings for Market: 

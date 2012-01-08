@@ -40,7 +40,7 @@ Schlüsselwörter:
 * OI, IO, OpenIntents, Open Intents
 
 Internationale Versionen: 
-OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Im Market suchen nach: 

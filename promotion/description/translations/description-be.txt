@@ -1,3 +1,10 @@
+# Application:
+OI Safe
+
+# Promo text:
+OI Safe захоўвае вашы дадзеныя ў зашыфраваным выглядзе.
+
+# Description:
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
 
 У прыкладанні няма рэкламы і яно не патрабуе доступу ў інтэрнэт. 
@@ -33,7 +40,7 @@ http://code.google.com/p/openintents
 * OI, IO, OpenIntents, Open Intents
 
 Перекладзеныя версіі: 
-OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Trezor, OI kluis, OI Безопасност, OI सुरक्षित, OI 금고, OI安全, כספת OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Пошук у Market: 

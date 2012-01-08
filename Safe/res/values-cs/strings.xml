@@ -22,7 +22,8 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Matěj Konečný https://launchpad.net/~matejkon</string>
+  Matěj Konečný https://launchpad.net/~matejkon
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application -->
 	<string name="about_comments">OI Sejf uchovává všechna vaše soukromá data zašifrovaná.</string>  
@@ -64,12 +65,12 @@
 	<string name="cannot_decrypt_password">Nemohu dešifrovat heslo</string>
 	<string name="error_export">Problém při exportování databáze</string>
 	<string name="export_database">Exportovat databázi</string>
-	<string name="export_file_select">Select a file for export</string>
+	<string name="export_file_select">Zvolte soubor pro export</string>
 	<string name="export_msg">Toto exportuje databázi hesel do obyčejného textového souboru. JE TO VELMI NEBEZPEČNÉ. Nezapomeňte ten soubor smazat, jen co ho nebudete potřebovat. Opravdu chcete exportovat databázi?</string>
 	<string name="export_success">Export do souboru \'%s\' byl úspěšný. Pozor! Ten soubor není zašifrován.</string>
 	<string name="export_file_error">Nepodařilo se vytvořit exportní soubor \'oisafe.csv\' na SD kartě. Zkuste odpojit USB z počítače.</string>
 	<string name="import_database">Importovat databázi</string>
-	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_select">Zvolte soubor pro import</string>
 	<string name="import_file_missing">Importovaný soubor chybí:</string>
 	<string name="import_file_error">Nepodařilo se importovat soubor \'oisafe.csv\' z SD karty. Zkuste odpojit USB z počítače.</string>
 	<string name="import_error_first_line">První řádek jsou chybějící políčka.</string>
@@ -112,14 +113,14 @@
     <string name="backup_progress">Zálohováno do</string>
     <string name="backup_complete">Hotovo. Hesla zazálohována:</string>
     <string name="backup_failed">Záloha se nezdařila:</string>
-	<string name="backup_select_file">Select a file for backup</string>
-	<string name="backup_error">Error while backing up</string>
+	<string name="backup_select_file">Zvolte soubor pro zálohu</string>
+	<string name="backup_error">Chyba během zálohování</string>
     <string name="restore">Obnovit</string>
     <string name="filename">Název souboru</string>
     <string name="restore_no_file">Zálohovací soubor nenalezen. Nejprve musíte provést zálohování, aby se vytvořil. Nebo zkopírovat zálohu z vašeho PC.</string>
     <string name="restore_set_password">Vložte prosím heslo použité zálohovacím souborem. Vaše hlavní heslo bude nastaveno na toto.</string>
-	<string name="restore_select_file">Select a file for restore</string>
-	<string name="restore_error">Error while restoring</string>
+	<string name="restore_select_file">Zvolte soubor pro obnovu</string>
+	<string name="restore_error">Chyba během obnovování</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Nepodařilo se otevřít soubor: %s</string>
@@ -193,8 +194,8 @@
 	<string name="pref_summary_autobackup_days">Počet dní mezi automatickými zálohami</string>
 	<string name="pref_dialog_title_autobackup_days">Interval automatické zálohy</string>
 	
-	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
+	<string name="pref_title_backup_path">Výchozí zálohovací soubor</string>
+	<string name="pref_title_export_path">Výchozí exportní soubor</string>
 	    
 	
 	<string name="intent_decrypt">Dešifrovat (OI Sejf)</string>
@@ -239,8 +240,8 @@
 	<string name="backup_never">Žádná záloha zatím nebyla provedena. Chcete zálohovat nyní?</string>
 	<string name="backup_in_days">Poslední záloha je %d dní stará. Chcete zálohovat nyní?</string>
 	<string name="autobackup_turnoff">Vypnout automatickou zálohu</string>
-	<string name="lock_timeout">Time to autolock: %s </string>
-	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	<string name="lock_timeout">Čas do automatického zamknutí: %s</string>
+	<string name="download_oi_filemanager">Dokud není stažen, bude použit výchozí soubor</string>
 	
 	<!-- ***************************
 	     Permissions

@@ -5,3 +5,44 @@ OI Sejf
 OI Sejf uchovává všechna vaše soukromá data zašifrovaná.
 
 # Description:
+OI Sejf bezpečně ochraňuje všechna Vaše hesla a jiná soukromá data pomocí AES šifrování, které je průmyslovým standardem. Funguje také jako rozšíření do OI Poznámkového bloku a umožňuje šifrovat poznámky vytvořené v OI Poznámkovém bloku. 
+
+Tato aplikace je bez reklam a nevyžaduje přístup k internetu. 
+
+Pro úplný seznam změn a seznam často kladených dotazů navštivte prosím: 
+http://www.openintents.org
+
+Můžete také pomoci zlepšit překlad do Vašeho jazyka na Launchpadu: 
+https://translations.launchpad.net/openintents/trunk
+
+Zdrojové kód této open source aplikace je dostupný na stránkách: 
+http://code.google.com/p/openintents
+
+Vlastnosti: 
+* Bezpečně ochraňuje data pomocí AES šifrování.
+* Bez překážek přesunuje data mezi kategoriemi.
+* Importuje/Exportuje data a databáze.
+* Zálohuje/Obnovuje záznamy.
+* Obsahuje generátor bezpečných hesel.
+* Automaticky se po určené době zamyká pro lepší ochranu zašifrovaných dokumentů.
+* Šifruje poznámky z OI Poznámkového bloku
+* Podpora pro "Obscura picture safe".
+* MyBackup Pro.
+
+Dostupná rozšíření pro OI Správce souborů: 
+* Zobrazit licenční infomace s OI Infem.
+
+Aplikace, které pracují s OI Správcem souborů 
+* Šifruje poznámky vytvořené v OI Poznámkovém bloku.
+
+Klíčová slova: 
+* safe, encrpytion, password, protection, bezpečný, sejf, hesla, ochrana, správce hesel, heslo
+* OI, IO, OpenIntents, Open Intents
+
+Mezinárodní verze: 
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+
+
+Prohledat řetězce pro Market: 
+* Uses OI About
+* Extension for OI Notepad

@@ -1,0 +1,41 @@
+OI Safe protegeix de forma segura totes les teves contrasenyes i altres dades privades emprant l'estàndard industrial d'encriptació AES. També actua com a extensió del bloc de notes d'OI per encriptar notes d'un bloc de notes d'OI. 
+
+Aquesta aplicació no té anuncis i no necessita permisos a Internet. 
+
+Per a una llista sencera de canvis i una llista de preguntes més freqüents, vegeu: 
+http://www.openintents.org
+
+Podeu ajudar a millorar la traducció al vostre idioma a Launchpad 
+https://translations.launchpad.net/openintents/trunk
+
+El codi font d'això és lliure i l'aplicació de codi obert està disponible a: 
+http://code.google.com/p/openintents
+
+Característiques 
+* Protegeix de forma segura dades emprant encriptació AES.
+* Mou lliurement entrades de dades entre categories.
+* Importa o exporta entrades de dades i bases de dades
+* Fes còpies de seguretat o restaura entrades.
+* Inclou un generador de contrasenyes segur.
+* Temps d'espera automàtic per protegir documents encriptats.
+* Encripta notes del bloc de notes d'OI.
+* Suport per a Obscura picture safe.
+* MyBackup Pro.
+
+Extensions disponibles per al gestor de fitxers d'OI: 
+* Mostra informació de llicència amb "OI Quant a"
+
+Aplicacions que funcionen amb el "gestor de fitxers d'OI": 
+* Encripta notes creades al "bloc de notes d'OI"
+
+Paraules clau: 
+* segur, encriptació, contrasenya, protecció
+* OI, IO, OpenIntents, Open Intents
+
+Versions internacionals: 
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+
+
+Cerca cadenes al Mercat: 
+* Uses OI About
+* Extension for OI Notepad

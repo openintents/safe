@@ -26,7 +26,7 @@
   bkiw https://launchpad.net/~bkiw</string>
 	
     <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
+	<string name="about_comments">OI Safeはプライベートなデータを暗号化した状態に保ってくれます。</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -42,7 +42,7 @@
     <string name="password_delete">削除</string>
     <string name="password">パスワード</string>
     <string name="passwords">パスワード</string>
-    <string name="master_password">Master Password</string>
+    <string name="master_password">マスターパスワード</string>
     <string name="username">ユーザー名</string>
     <string name="website">Webサイト</string>
     <string name="description">説明</string>
@@ -143,7 +143,7 @@
     <string name="open">開く</string>
     
     <string name="database_version_error_title">データベースのバージョンエラー</string>
-    <string name="database_version_error_msg">Sorry, but the version of the database is not supported.   You must install the version associated with this database.</string>
+    <string name="database_version_error_msg">申し訳ありませんがこのデータベースのバージョンはサポートしていません。このデータベースに関連したバージョンのアプリケーションをインストールする必要があります。</string>
 	
 	<!-- Menu label to move a password to another category -->
 	<string name="move">移動</string>

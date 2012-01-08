@@ -24,6 +24,7 @@
 	<string name="about_translators">Launchpad Contributions:
   Alexander \'FONTER\' Zinin https://launchpad.net/~spore-09
   Alexander Sapronov https://launchpad.net/~warmonger
+  Evgrafov Vladimir https://launchpad.net/~evgrafov-vladimir
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   Sergey Popov https://launchpad.net/~fil0soff</string>
@@ -68,12 +69,12 @@
 	<string name="cannot_decrypt_password">Невозможно расшифровать пароль</string>
 	<string name="error_export">Ошибка экспорта базы данных</string>
 	<string name="export_database">Экспортировать базу данных</string>
-	<string name="export_file_select">Select a file for export</string>
+	<string name="export_file_select">Выберите файл для экспорта</string>
 	<string name="export_msg">База данных будет экспортирована как простой текст. ЭТО ОЧЕНЬ ОПАСНО. Не забудьте удалить файл. Вы уверены, что хотите экспортировать?</string>
 	<string name="export_success">Экспорт в \'%s\' прошёл успешно. Внимание! Файл не зашифрован.</string>
 	<string name="export_file_error">Не могу создать файл экспорта \'oisafe.csv\' на SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_database">Импорт базы данных</string>
-	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_select">Выберите файл для импорта</string>
 	<string name="import_file_missing">Отсутствует файл импорта:</string>
 	<string name="import_file_error">Не могу импортировать файл \'oisafe.csv\' с SDCARD. Попробуйте отключить USB от компьютера.</string>
 	<string name="import_error_first_line">В первой строке не хватает полей.</string>
@@ -116,14 +117,14 @@
     <string name="backup_progress">Сохраняю резервную копию в</string>
     <string name="backup_complete">Завершено. Резервная копия паролей сохранена в:</string>
     <string name="backup_failed">Резервная копия не создана:</string>
-	<string name="backup_select_file">Select a file for backup</string>
-	<string name="backup_error">Error while backing up</string>
+	<string name="backup_select_file">Выберите файл для резервной копии</string>
+	<string name="backup_error">Ошибка резервного копирования</string>
     <string name="restore">Восстановить</string>
     <string name="filename">Имя файла</string>
     <string name="restore_no_file">Файл резервной копии не найден. Сначала нужно создать резервную копию или скопировать её с вашего компьютера.</string>
     <string name="restore_set_password">Введите пароль файла резервной копии. Он станет вашим Мастер Паролем.</string>
-	<string name="restore_select_file">Select a file for restore</string>
-	<string name="restore_error">Error while restoring</string>
+	<string name="restore_select_file">Выберите файл для восстановления</string>
+	<string name="restore_error">Ошибка востановления</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Не могу открыть файл: %s</string>
