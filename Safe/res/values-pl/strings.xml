@@ -27,8 +27,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   Tomasz Zieliński https://launchpad.net/~tomek0517</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe szyfruje wszystkie twoje prywatne dane.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

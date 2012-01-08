@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-OI salvaguarda todos tus datos privados encriptados
+Store your private data with OI Safe.
 
 # Description:
 OI Safe protege todas sus contraseñas y otros datos privados usando el cifrado estándar AES. También actúa como una extensión de OI Notepad para encriptar notas. 

@@ -31,8 +31,8 @@
   beudbeud https://launchpad.net/~beudbeud
   kartik https://launchpad.net/~b-ballkartik96</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe conserve toutes vos données privées cryptées.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

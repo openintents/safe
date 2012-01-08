@@ -29,8 +29,8 @@ Launchpad Contributions:
   ariza95 https://launchpad.net/~alirizanazli95
   zeugma https://launchpad.net/~sunder67</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI kasa tüm özel verilerinizi şifreler.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

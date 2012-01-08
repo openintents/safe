@@ -25,8 +25,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   zhangchun https://launchpad.net/~zhangchun</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI安全让您的私人数据加密。</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

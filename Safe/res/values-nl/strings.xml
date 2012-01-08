@@ -28,8 +28,8 @@
   Peli https://launchpad.net/~peli0101
   Sjoerd Hiemstra https://launchpad.net/~sjohie</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI kluis houdt al je privé data geëncrypt.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

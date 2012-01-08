@@ -2,7 +2,7 @@
 OI Kaha
 
 # Promo text:
-Ang OI Kaha ay nagpapanatili ng lahat ng iyong mga pribadong datos na naka-encrypt.
+Store your private data with OI Safe.
 
 # Description:
 Ang OI Kaha ay nagpo-protekta ng lahat ng iyong mga password at iba pang mga pribadong datos sa pamamagitan ng pamantayang industriya na AES encryption. Ito rin ay gumaganap bilang ekstensyon sa OI Talaan para i-encrypt ang mga tala na nilikha sa OI Talaan. 

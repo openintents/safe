@@ -2,7 +2,7 @@
 OI Kasa
 
 # Promo text:
-OI kasa tüm özel verilerinizi şifreler.
+Store your private data with OI Safe.
 
 # Description:
 OI Safe güvenli bir şekilde sizin şifrelerini korur ve AES endüstri standardı şifrelemesini kullanarak diğer özel verileride korur. Ayrıca OI Notepad içindeki şifrelenmiş notları OI Notepad 'in uzantısı olarak görür. 

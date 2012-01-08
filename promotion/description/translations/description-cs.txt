@@ -2,7 +2,7 @@
 OI Sejf
 
 # Promo text:
-OI Sejf uchovává všechna vaše soukromá data zašifrovaná.
+Store your private data with OI Safe.
 
 # Description:
 OI Sejf bezpečně ochraňuje všechna Vaše hesla a jiná soukromá data pomocí AES šifrování, které je průmyslovým standardem. Funguje také jako rozšíření do OI Poznámkového bloku a umožňuje šifrovat poznámky vytvořené v OI Poznámkovém bloku. 

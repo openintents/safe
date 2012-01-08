@@ -23,10 +23,12 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Liezl https://launchpad.net/~liezl-200
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Peli https://launchpad.net/~peli0101
   abc https://launchpad.net/~abc-g</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">Ang OI Kaha ay nagpapanatili ng lahat ng iyong mga pribadong datos na naka-encrypt.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

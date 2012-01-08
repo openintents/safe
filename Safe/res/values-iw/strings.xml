@@ -26,8 +26,8 @@
   Neta Oren https://launchpad.net/~netao212
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">כספת OI מאפשרת לשמור את כל המידע המפרטי שלך מוצפן.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

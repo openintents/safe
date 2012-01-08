@@ -2,7 +2,7 @@
 OI安全
 
 # Promo text:
-OI安全让您的私人数据加密。
+Store your private data with OI Safe.
 
 # Description:
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 

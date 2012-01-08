@@ -22,10 +22,11 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
   Sahran https://launchpad.net/~sahran</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI بىخەتەرلىك شەخسىي سانلىق مەلۇماتلىرىڭىزنى شىفىرلايدۇ.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

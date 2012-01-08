@@ -31,8 +31,8 @@
   Tudorica Andrei https://launchpad.net/~andreitudoricacj
   iulargsb https://launchpad.net/~iulargsb</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe păstrează toate datele dumneavostră criptate.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

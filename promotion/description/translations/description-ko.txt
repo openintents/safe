@@ -2,7 +2,7 @@
 OI 금고
 
 # Promo text:
-OI 금고는 당신의 모든 비밀 정보를 암호화하여 보관합니다.
+Store your private data with OI Safe.
 
 # Description:
 OI 금고는 산업 표준 암호화 방식인 AES를 사용하여 당신의 비밀번호와 다른 비밀 정보를 보호합니다. 확장 기능으로 OI 메모장에서 만들어진 메모를 암호화하기 위해서도 쓰입니다. 

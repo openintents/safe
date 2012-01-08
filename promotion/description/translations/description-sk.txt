@@ -2,7 +2,7 @@
 OI Trezor
 
 # Promo text:
-OI Trezor uchová všetky vaše súkromné údaje zašifrované.
+Store your private data with OI Safe.
 
 # Description:
 OI Trezor bezpečne chráni všetky Vaše heslá a iné osobné dáta pomocou priemyselných štandardov AES šifrovania. Tiež sa správa ako rozšírenie ku OI Poznámkový Blok na šifrovanie poznámok vytvorených v OI Poznámkový Blok. 

@@ -2,6 +2,6 @@
 OI Sarvu
 
 # Promo text:
-OI Sarvu mantenete sas informatzionese privadasa in forma criptada.
+Store your private data with OI Safe.
 
 # Description:

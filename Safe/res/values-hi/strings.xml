@@ -26,8 +26,8 @@
   Shitiz Garg https://launchpad.net/~l95s
   happynawani https://launchpad.net/~happynawani</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">ओआई सेफ आपके सारे व्यक्तिगत डाटा को गोपनीय रखता है</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

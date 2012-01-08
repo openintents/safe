@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-OI Safe szyfruje wszystkie twoje prywatne dane.
+Store your private data with OI Safe.
 
 # Description:
 OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu standardowego szyfrowania AES. Działa również jako rozszerzenie do Ol Notepad aby szyfrować notatki w nim utworzone. 

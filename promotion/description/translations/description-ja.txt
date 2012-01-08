@@ -2,10 +2,10 @@
 OI Safe
 
 # Promo text:
-OI Safeはプライベートなデータを暗号化した状態に保ってくれます。
+Store your private data with OI Safe.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI 金庫は業界基準の AES 暗号を使ってパスワードやほかのプライベートデータをすべて保護します。 更に OI メモ帳 の拡張機能として OI メモ帳 で作成されたノートを暗号化します。 
 
 このアプリケーションは広告を含まず、インターネット許可を必要としません。 
 
@@ -20,7 +20,7 @@ http://code.google.com/p/openintents
 
 機能： 
 * AES 暗号を使ってデータを安全に暗号化。
-* Freely move data entries between categories.
+* データエントリーのカテゴリーを自由に移動
 * データエントリーやデータベースをインポート・エクスポート。
 * エントリーをバックアップ・復元。
 * 安全パスワード作成機能が含まれています。
@@ -36,7 +36,7 @@ http://code.google.com/p/openintents
 * "OI メモ帳" で作成されたノートを暗号化する。
 
 キーワード: 
-* safe, encrpytion, password, protection
+* 金庫、暗号化、パスワード、保護
 * OI, IO, OpenIntents, Open Intents
 
 国際バージョン： 

@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-OI Safe păstrează toate datele dumneavostră criptate.
+Store your private data with OI Safe.
 
 # Description:
 OI Safe vă protejează toate parolele si alte date private folosind standardul industrial de criptare AES. Acționează de asemenea ca o extensie către OI Noptepad pentru a cripta notițele create în OI Notepad. 

@@ -25,8 +25,8 @@
   Peli https://launchpad.net/~peli0101
   bkiw https://launchpad.net/~bkiw</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safeはプライベートなデータを暗号化した状態に保ってくれます。</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
