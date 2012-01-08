@@ -24,8 +24,8 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">translator-credits</string>
 	
-    <!-- Short explanation of the application -->
-	<string name="about_comments">OI Safe keeps all your private data encrypted.</string>  
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Store your private data with OI Safe.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
