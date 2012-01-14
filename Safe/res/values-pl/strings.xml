@@ -25,10 +25,11 @@
   Andrzej Ziółek https://launchpad.net/~andro-v-zik
   Damian Skrodzki https://launchpad.net/~damienix
   OpenIntents devs https://launchpad.net/~openintents-devs
-  Tomasz Zieliński https://launchpad.net/~tomek0517</string>
+  Tomasz Zieliński https://launchpad.net/~tomek0517
+  zielmicha https://launchpad.net/~michal-zielinscy</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">Zapisuj swoje prywatne dane używając OI Sejf.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

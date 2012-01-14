@@ -2,7 +2,7 @@
 OI بىخەتەرلىك
 
 # Promo text:
-Store your private data with OI Safe.
+شەخسىي سانلىق مەلۇماتلىرىڭىزنى OI بىخەتەرلىك بىلەن ھەمبەھىرلەيدۇ.
 
 # Description:
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
@@ -20,12 +20,12 @@ http://code.google.com/p/openintents
 
 ئىقتىدارلار: 
 * Securely protect data using AES encryption.
-* Freely move data entries between categories.
+* سانلىق مەلۇمات تۈرلىرىنى كاتېگورىيەلەر ئارىسىدا ئەركىن يۆتكەيدۇ.
 * سانلىق مەلۇمات تۈرى ۋە ساندانلارنى ئەكىر/چىقار.
 * تۈرلەرنى زاپاسلا/ ئەسلىگە كەلتۈر.
-* Includes secure password generator.
+* بىخەتەر ئىم ھاسىل قىلغۇچنى ئۆز ئىچىگە ئالىدۇ.
 * Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
+* OI خاتىرە دەپتەر خاتىرىلىرىنى شىفىرلايدۇ.
 * Support for Obscura picture safe.
 * MyBackup Pro.
 
@@ -33,14 +33,14 @@ http://code.google.com/p/openintents
 * «OI ھەققىدە» ئىجازەت ئۇچۇرىنى كۆرسىتىدۇ.
 
 «OI ھۆججەت باشقۇرغۇچ» تا ئىشلەيدىغان ئەپلەر: 
-* Encrypt notes created in "OI Notepad".
+* «OI خاتىرە دەپتەر» دە قۇرۇلغان خاتىرىنى شىفىرلايدۇ.
 
 ھالقىلىق سۆزلەر: 
-* safe, encrpytion, password, protection
+* بىخەتەرلىك، شىفىرلاش، ئىم، قوغداش
 * OI, IO, OpenIntents, Open Intents
 
 خەلقئارا نەشرى: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 بازاردا ئىزدەش ئۇچۇرى: 

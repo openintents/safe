@@ -2,7 +2,7 @@
 OI Безопасност
 
 # Promo text:
-Store your private data with OI Safe.
+Съхранявайте личната си информация с OI Безопасност.
 
 # Description:
 OI Safe пази в безопастност всичките Ви пароли и други лични данни, използвайки AES шифроване на индустриално ниво. То също действа и като разширение за OI Notepad за да се шифроват бележки, създадени в OI Notepad. 
@@ -40,7 +40,7 @@ http://code.google.com/p/openintents
 * OI, IO, OpenIntents, Open Intents
 
 Международни версии: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Стрингове за търсенето в Market 

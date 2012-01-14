@@ -27,7 +27,7 @@
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">Uložte svoje osobné údaje s OI Trezor.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

@@ -2,10 +2,10 @@
 OI सुरक्षित
 
 # Promo text:
-Store your private data with OI Safe.
+अपना निजी डाटा को रकें OI सेफ के साथ.
 
 # Description:
-OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
+OI सेफ सुरक्षित रूप से आपके पासवर्ड और अन्य निजी उद्योग मानक AES  एन्क्रिप्शन का उपयोग कर डेटा के सभी बचाता है. यह भी OI Notepadड के लिए एक विस्तार करने के लिए OI Notepad में बनाया नोट्स एन्क्रिप्ट रूप में कार्य करता है. 
 
 यह अनुप्रयोग विज्ञापन मुक्त है और  इसे  इंटरनेट की अनुमति की आवश्यकता नहीं है| 
 
@@ -19,28 +19,28 @@ https://translations.launchpad.net/openintents/trunk
 http://code.google.com/p/openintents
 
 सुविधाएँ: 
-* Securely protect data using AES encryption.
-* Freely move data entries between categories.
-* Import/Export data entries and databases.
-* Backup/Restore entries.
-* Includes secure password generator.
-* Automatic timeout to protect encrypted documents.
-* Encrypt OI Notepad notes.
-* Support for Obscura picture safe.
+* सुरक्षित रूप से अपना डाटा को सुरक्षित रखें AES एन्क्र्य्प्शन इस्तमाल करते हुए.
+* डाटा एंट्री को आज़ादी से चलने दे केटेगरी के बीच.
+* आयात/निर्यात डाटा एंट्री और डाटाबेसेस
+* बेकप/रिस्टोर दर्ज किया हुआ
+* सुरक्षित पासवर्ड जनरेटर को शामिल करें.
+* औतोमटिक टाइमओउट एन्क्रिप्टओचुमेंट्स को बचाएं.
+* एन्क्रिप्ट OI नोटपेड के नोट्स
+* ओब्स्कुरा पिक्चर सेफ के लिए सप्पोर्ट.
 * MyBackup Pro.
 
 "OI File Manager" के लिए उपलब्ध एक्सटेंशन: 
 * "OI About" के साथ लाइसेंस जानकारी दिखाएँ .
 
 आवेदन ""OI File Manager" के साथ काम करता है: 
-* Encrypt notes created in "OI Notepad".
+* नोट्स को एन्क्रिप्ट करें "OI नोटपद" मे
 
 कीवर्ड: 
-* safe, encrpytion, password, protection
+* सुरक्षित, एन्क्र्प्य्शन, पास्वोर्ड,प्रोटेक्शन
 * OI, IO, OpenIntents, Open Intents
 
 अंतर्राष्ट्रीय संस्करण: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 बाजार के लिए स्ट्रिंग्स को  खोजें : 

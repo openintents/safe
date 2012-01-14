@@ -26,7 +26,7 @@
   kenn dhia https://launchpad.net/~kendhia</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">خزن معلوماتك الشخصية مع  حماية OI.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -40,7 +40,7 @@
     <string name="password_edit">تعديل</string>
     <string name="password_add">إضافة</string>
     <string name="password_delete">حذف</string>
-    <string name="password">كلمة السر</string>
+    <string name="password">كلمة المرور</string>
     <string name="passwords">كلمات المرور</string>
     <string name="master_password">كلمة المرور الرئيسية</string>
     <string name="username">إسم المستخدم</string>
@@ -137,7 +137,7 @@
     <string name="copied_to_clipboard">نسخ إلى الحافظة</string>
     <string name="invalid_website">موقع التكروني خاطئ</string>
     <string name="database_error_title">خطأ في قاعدة البيانات</string>
-    <string name="database_error_msg">Database error.  Out of space?</string>
+    <string name="database_error_msg">خطأ في قاعدة البيانات.خارج المساحة؟</string>
     
     <!-- Menu label to open a category -->
     <string name="open">فتح</string>

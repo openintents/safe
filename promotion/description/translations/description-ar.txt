@@ -2,7 +2,7 @@
 حماية OI
 
 # Promo text:
-Store your private data with OI Safe.
+خزن معلوماتك الشخصية مع  حماية OI.
 
 # Description:
 OI  آمنة بأمان يحمي جميع كلمات المرور والبيانات الخاصة الأخرى استخدام الصناعة القياسية  AES  تشفير. وهي أيضا بمثابة ملحق إلى OI المفكرة لتشفير الملاحظات التي تم إنشاؤها في OI برنامج "المفكرة". 
@@ -40,7 +40,7 @@ http://code.google.com/p/openintents
 * المقاصد مفتوحة OI, IO, OpenIntents
 
 الإصدارات الدولية: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 سلاسل البحث للسوق: 

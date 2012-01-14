@@ -1,8 +1,8 @@
 # Application:
-OI Safe
+OI 金庫
 
 # Promo text:
-Store your private data with OI Safe.
+OI 金庫 でプライベートなデータを保管します。
 
 # Description:
 OI 金庫は業界基準の AES 暗号を使ってパスワードやほかのプライベートデータをすべて保護します。 更に OI メモ帳 の拡張機能として OI メモ帳 で作成されたノートを暗号化します。 
@@ -40,7 +40,7 @@ http://code.google.com/p/openintents
 * OI, IO, OpenIntents, Open Intents
 
 国際バージョン： 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 マーケット用に文字列を検索： 

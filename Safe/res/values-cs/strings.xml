@@ -22,11 +22,12 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Marek Dobransky https://launchpad.net/~marekdobr
   Matěj Konečný https://launchpad.net/~matejkon
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">Uložte si soukromá data s OI Sejf.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings

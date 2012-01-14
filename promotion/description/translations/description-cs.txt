@@ -2,7 +2,7 @@
 OI Sejf
 
 # Promo text:
-Store your private data with OI Safe.
+Uložte si soukromá data s OI Sejf.
 
 # Description:
 OI Sejf bezpečně ochraňuje všechna Vaše hesla a jiná soukromá data pomocí AES šifrování, které je průmyslovým standardem. Funguje také jako rozšíření do OI Poznámkového bloku a umožňuje šifrovat poznámky vytvořené v OI Poznámkovém bloku. 
@@ -40,7 +40,7 @@ Klíčová slova:
 * OI, IO, OpenIntents, Open Intents
 
 Mezinárodní verze: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Prohledat řetězce pro Market: 

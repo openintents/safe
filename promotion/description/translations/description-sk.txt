@@ -2,7 +2,7 @@
 OI Trezor
 
 # Promo text:
-Store your private data with OI Safe.
+Uložte svoje osobné údaje s OI Trezor.
 
 # Description:
 OI Trezor bezpečne chráni všetky Vaše heslá a iné osobné dáta pomocou priemyselných štandardov AES šifrovania. Tiež sa správa ako rozšírenie ku OI Poznámkový Blok na šifrovanie poznámok vytvorených v OI Poznámkový Blok. 
@@ -40,7 +40,7 @@ Kľúčové slová
 * OI, IO, OpenIntents, Open Intents, openintents, openIntents, Openintents
 
 Medzinárodné verzie: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 금고, OI安全, כספת OI, حماية OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Vyhľadávanie reťazcov pre Obchod: 
