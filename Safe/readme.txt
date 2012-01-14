@@ -1,4 +1,4 @@
- ****************************************************************************
+﻿ ****************************************************************************
  * Copyright (C) 2007-2011 Steven Osborn - http://steven.bitsetters.com     *
  *                     and Randy McEoin (and others, see Help)              *
  *                                                                          *
@@ -31,6 +31,7 @@ date: 201?-??-??
   (issue 186, GCI patch by Matěj Konečný)
 - added a timer to the logoff intent to show how long until the OI Safe
   service will be stopped (issue 175, GCI patch by Darriel)
+- hardware keyboard filtering of categories and passwords (issue 292, GCI patch by Matěj Konečný)
   
 ---------------------------------------------------------
 release: 1.2.9

@@ -114,6 +114,7 @@ public class PassList extends ListActivity {
 					ArrayAdapter<String> entries = 
 						new ArrayAdapter<String>(PassList.this, android.R.layout.simple_list_item_1,
 								passDescriptions4Adapter);
+					ListView list = getListView();
 					setListAdapter(entries);
 					if (debug) Log.d(TAG,"lastPosition="+lastPosition);
 					if (lastPosition>2) {
@@ -164,6 +165,7 @@ public class PassList extends ListActivity {
 		final ListView list = getListView();
 		list.setFocusable(true);
 		list.setOnCreateContextMenuListener(this);
+		list.setTextFilterEnabled(true);
 		registerForContextMenu(list);
 		
 		sendBroadcast (restartTimerIntent);
@@ -227,6 +229,13 @@ public class PassList extends ListActivity {
 			if (debug) Log.d(TAG,"onResume: count="+la.getCount());
 		} else {
 			if (debug) Log.d(TAG,"onResume: no list");
+			/* HACK to make textFilter work!!!
+			 * It somehow doesn't work, when there's an empty Adapter after the onResume.
+			 */
+			List<String> l = new ArrayList<String>();
+			l.add("");
+			setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, l));
+			/* /HACK */
 			fillData();
 		}
 	}

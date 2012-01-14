@@ -16,6 +16,8 @@
  */
 package org.openintents.safe;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import android.content.Context;
@@ -24,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,6 +40,10 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
 
 	private static boolean debug = false;
 	private static final String TAG = "CategoryListItemAdapter";
+	private List<CategoryEntry> filteredItems;
+	private List<CategoryEntry> allItems;
+	private final Object lock = new Object();
+	private Filter filter = null;
 	
 	int resource;
 	
@@ -44,6 +51,11 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
 			List<CategoryEntry> _items) {
 		super(_context, _resource, _items);
 		resource = _resource;
+		filteredItems = _items;
+		allItems = new ArrayList<CategoryEntry>();
+		for(CategoryEntry item : _items){
+			allItems.add(item);
+		}
 	}
 	
 	@Override
@@ -74,5 +86,88 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
 		
 		return categoryListView;
 	}
+	
+	@Override
+    public int getCount(){
+        synchronized(lock) {
+            return filteredItems!=null ? filteredItems.size() : 0;
+        }
+    }
+    
+    @Override
+    public boolean isEmpty(){
+		return allItems.isEmpty();
+    }
+
+    @Override
+    public CategoryEntry getItem(int item){
+    	CategoryEntry gi = null;
+        synchronized(lock) {
+                gi = filteredItems!=null ? filteredItems.get(item) : null;
+
+        }
+        return gi;
+    }
+    
+    public Filter getFilter() {
+        if (filter == null){
+            filter = new CategoryEntryFilter();
+        }
+        return filter;
+    }   
+
+    
+    private class CategoryEntryFilter extends Filter{
+        protected FilterResults performFiltering(CharSequence search){
+            FilterResults results = new FilterResults();
+
+            if (search == null || search.length() == 0){
+                synchronized(lock){
+                    results.values = allItems;
+                    results.count = allItems.size();
+                }
+            }else{
+                synchronized(lock){
+                    String q = search.toString().toLowerCase();
+                    final ArrayList<CategoryEntry> filtered = new ArrayList<CategoryEntry>();
+                    final int count = allItems.size();
+
+                    for (int i = 0; i < count; i++){
+                        CategoryEntry item = allItems.get(i);
+                        String itemName = item.plainName.toLowerCase();
+                        String[] words = itemName.split(" ");
+                        int wordCount = words.length;
+
+                        for (int k = 0; k < wordCount; k++) {
+                            if (words[k].startsWith(q)) {
+                            	filtered.add(item);
+                                break;
+                            }
+                        }
+                    }
+
+                    results.values = filtered;
+                    results.count = filtered.size();
+                }// /synchronized
+            }
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence prefix, FilterResults results) {
+            synchronized(lock) {
+                @SuppressWarnings("unchecked")
+				final ArrayList<CategoryEntry> localItems = (ArrayList<CategoryEntry>) results.values;
+                clear();
+                Iterator<CategoryEntry> iterator = localItems.iterator();
+                while(iterator.hasNext()){
+                	CategoryEntry gi = (CategoryEntry) iterator.next();
+                    add(gi);
+                }
+                notifyDataSetChanged();
+            }
+        }
+    }
 }
 

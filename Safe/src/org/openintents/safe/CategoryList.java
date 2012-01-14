@@ -225,9 +225,11 @@ public class CategoryList extends ListActivity {
 		filter.addAction (CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
 		registerReceiver(mIntentReceiver, filter);
 
+		
 		final ListView list = getListView();
 		list.setFocusable(true);
 		list.setOnCreateContextMenuListener(this);
+		list.setTextFilterEnabled(true);
 		registerForContextMenu(list);
 	}
 
