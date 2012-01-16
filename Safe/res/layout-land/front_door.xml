@@ -27,23 +27,16 @@
 		android:layout_height="wrap_content"
 		android:orientation = "vertical"
 		android:layout_marginTop="5dip">
-		<LinearLayout 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_gravity="center">
-			<ImageView android:id="@+id/entry_icon"
-				android:layout_height="wrap_content"
-				android:layout_width="wrap_content"
-			/>
-			<TextView android:id="@+id/entry_header"
-				android:paddingBottom="10px"
-				android:paddingTop="10px"
-				android:textSize="24px" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-			/>
-		</LinearLayout>
+	<TextView android:id="@+id/entry_header"
+		android:paddingBottom="10dp"
+		android:paddingTop="10dp"
+		android:textSize="24dp" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:drawableLeft="@drawable/ic_launcher_safe" />
+
 	<TextView android:id="@+id/first_time"
 		android:text="@string/first_time" 
 		android:paddingBottom="10sp"
@@ -64,7 +57,7 @@
 		android:layout_height="wrap_content" />
 
 	<Button android:id="@+id/continue_button" 
-		android:text="Continue"
+		android:text="@string/continue_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />	
 
