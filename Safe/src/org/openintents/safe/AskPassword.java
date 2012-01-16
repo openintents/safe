@@ -61,6 +61,7 @@ public class AskPassword extends DistributionLibraryActivity {
 	public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
 
 	public static final int REQUEST_RESTORE = 0;
+	public static final int REQUEST_RESTORE_FIRST_TIME = 1;
 
 	// Menu Item order
 	public static final int SWITCH_MODE_INDEX = Menu.FIRST;
@@ -304,20 +305,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		if (!restoreFile.exists()) {
 			return;
 		}
-		Button restoreButton = (Button) findViewById(R.id.restore_button);
-		if (restoreButton == null) {
-			if (debug) Log.d(TAG, "layout not created yet");
-			return;
-		}
-		restoreButton.setVisibility(View.VISIBLE);
-		restoreButton.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View arg0) {
-				Intent restore = new Intent(AskPassword.this, Restore.class);
-				restore.putExtra(Restore.KEY_FIRST_TIME, true);
-				startActivityForResult(restore,REQUEST_RESTORE);		
-			}
-		});
+		startActivityForResult(new Intent(this, RestoreFirstTime.class), REQUEST_RESTORE_FIRST_TIME);
 	}
 
 	@Override
@@ -504,7 +492,7 @@ public class AskPassword extends DistributionLibraryActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent i) {
 		super.onActivityResult(requestCode, resultCode, i);
 
-		if ((requestCode== REQUEST_RESTORE) && (resultCode == RESULT_OK)) {
+		if ((requestCode==REQUEST_RESTORE_FIRST_TIME) && (resultCode == RESULT_OK)) {
 			Log.d(TAG,"returning masterkey: "+CategoryList.getMasterKey());
 			Intent callbackIntent = new Intent();
 			callbackIntent.putExtra("salt", CategoryList.getSalt());

@@ -241,6 +241,8 @@
 	<string name="autobackup_turnoff">Turn off autobackup</string>
 	<string name="lock_timeout">Time to autolock: %s </string>
 	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+    <string name="backup_file_found_label">Backup file found</string>
 	
 	<!-- ***************************
 	     Permissions

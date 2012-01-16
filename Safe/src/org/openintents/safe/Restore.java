@@ -64,6 +64,7 @@ public class Restore extends Activity {
 	private boolean firstTime=false;
 
 	public static final String KEY_FIRST_TIME = "first_time";  // Intent keys
+	public static final String KEY_FILE_PATH = "backup_file_path";
 	
 	public static final int REQUEST_RESTORE_FILENAME = 0;
 
@@ -102,15 +103,20 @@ public class Restore extends Activity {
 			getResources().getString(R.string.restore);
 		setTitle(title);
 		
-		String backupPath = Preferences.getBackupPath(this);
-		Intent intent = new Intent("org.openintents.action.PICK_FILE");
-		intent.setData(Uri.parse("file://"+backupPath));
-		intent.putExtra("org.openintents.extra.TITLE", R.string.restore_select_file);
-		if(intentCallable(intent))
-			startActivityForResult(intent, REQUEST_RESTORE_FILENAME);
-		else
+		String backupPath = getIntent().getStringExtra(KEY_FILE_PATH);
+		if (backupPath != null) {
 			restore(backupPath);
-		
+		} else {
+			backupPath = Preferences.getBackupPath(this);
+			Intent intent = new Intent("org.openintents.action.PICK_FILE");
+			intent.setData(Uri.parse("file://" + backupPath));
+			intent.putExtra("org.openintents.extra.TITLE",
+					R.string.restore_select_file);
+			if (intentCallable(intent))
+				startActivityForResult(intent, REQUEST_RESTORE_FILENAME);
+			else
+				restore(backupPath);
+		}
 	}
 
 	@Override

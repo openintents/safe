@@ -107,6 +107,8 @@
         <activity class=".LogOffActivity" android:name="LogOffActivity" android:label="@string/app_name" />
         <activity android:name=".dialog.DialogHostingActivity" android:label="@string/app_name"
         		android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity class=".RestoreFirstTime" android:name="RestoreFirstTime"
+            android:label="@string/backup_file_found_label" />
         
         <service class=".service.ServiceDispatchImpl" android:name=".service.ServiceDispatchImpl"
             android:label="@string/app_name"
