@@ -26,7 +26,7 @@
 <LinearLayout 
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="wrap_content">
 	
 	<TableLayout android:layout_width="fill_parent" 
 		android:layout_height="wrap_content">
@@ -36,10 +36,13 @@
 					android:text="@string/pass_gen_length" />
 				<EditText android:id="@+id/pass_length"
 					android:singleLine="true"
-					android:layout_width="3pt"
+					android:hint=""
+					android:maxLength="2"
+					android:inputType="number"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content" 
 					android:layout_weight="0"
-					android:text="8"/>
+					android:text="@string/eight"/>
 			</TableRow>
 			<TableRow>
 				<TextView android:layout_width="wrap_content"
@@ -82,6 +85,7 @@
 		android:id="@+id/pass_view"
 		android:layout_height="wrap_content"
 		android:singleLine="true"
+		android:hint=""
 		android:editable="false"/>
 
 	<Button android:id="@+id/copy_entry" 
