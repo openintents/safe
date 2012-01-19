@@ -27,23 +27,20 @@
 <LinearLayout
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="wrap_content">
 	<LinearLayout 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
-		<ImageView android:id="@+id/entry_icon"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:src="@drawable/ic_launcher_safe"
-			/>
 		<TextView android:id="@+id/entry_header"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content" 
 			android:text="@string/app_name"
 			android:paddingTop="10dp"
 			android:textSize="24dp"
-			android:gravity="center_horizontal"
+			android:gravity="center"
+			android:layout_gravity="center"
+			android:drawableLeft="@drawable/ic_launcher_safe"
 			/>
 		<LinearLayout
 			android:layout_width="fill_parent"
@@ -55,6 +52,7 @@
 				android:layout_height="48dp"
 				android:layout_width="48dp"
 				android:src="@android:drawable/ic_menu_directions"
+				android:contentDescription="@string/switch_mode"
 				/>
 		</LinearLayout>
 	</LinearLayout>
@@ -67,57 +65,57 @@
 			<Button android:id="@+id/keypad1"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="1" />
+				android:text="@string/one" />
 			<Button android:id="@+id/keypad2"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="2" />
+				android:text="@string/two" />
 			<Button android:id="@+id/keypad3"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="3" />
+				android:text="@string/three" />
 		</TableRow>
 		<TableRow>
 			<Button android:id="@+id/keypad4"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="4" />
+				android:text="@string/four" />
 			<Button android:id="@+id/keypad5"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="5" />
+				android:text="@string/five" />
 			<Button android:id="@+id/keypad6"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="6" />
+				android:text="@string/six" />
 		</TableRow>
 		<TableRow>
 			<Button android:id="@+id/keypad7"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="7" />
+				android:text="@string/seven" />
 			<Button android:id="@+id/keypad8"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="8" />
+				android:text="@string/eight" />
 			<Button android:id="@+id/keypad9"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="9" />
+				android:text="@string/nine" />
 		</TableRow>
 		<TableRow>
 			<Button android:id="@+id/keypad_star"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="*" />
+				android:text="@string/asterisk" />
 			<Button android:id="@+id/keypad0"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="0" />
+				android:text="@string/zero" />
 			<Button android:id="@+id/keypad_pound"
 				android:padding="10sp"
 				android:textSize="30sp"
-				android:text="#" />
+				android:text="@string/numbersign" />
 		</TableRow>
 		<TableRow>
 			<Button android:id="@+id/keypad_continue"

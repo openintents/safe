@@ -24,53 +24,55 @@
 
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_height="wrap_content"
 	android:stretchColumns="1,2,3">
 
 	<TableRow>
 		<ImageView android:id="@+id/entry_icon"
-			android:src="@drawable/ic_launcher_safe" />
+			android:src="@drawable/ic_launcher_safe" 
+			android:contentDescription="@string/app_name"/>
 		<Button android:id="@+id/keypad1"
-			android:text="1" />
+			android:text="@string/one" />
 		<Button android:id="@+id/keypad2"
-			android:text="2" />
+			android:text="@string/two" />
 		<Button android:id="@+id/keypad3"
-			android:text="3" />
+			android:text="@string/three" />
 	</TableRow>
 	<TableRow>
 		<TextView android:id="@+id/entry_header"
 			android:text="@string/app_name"
-			android:textSize="24px" />
+			android:textSize="24dp" />
 		<Button android:id="@+id/keypad4"
-			android:text="4" />
+			android:text="@string/four" />
 		<Button android:id="@+id/keypad5"
-			android:text="5" />
+			android:text="@string/five" />
 		<Button android:id="@+id/keypad6"
-			android:text="6" />
+			android:text="@string/six" />
 	</TableRow>
 	<TableRow>
 		<Button android:id="@+id/keypad7"
 			android:layout_column="1"
-			android:text="7" />
+			android:text="@string/seven" />
 		<Button android:id="@+id/keypad8"
-			android:text="8" />
+			android:text="@string/eight" />
 		<Button android:id="@+id/keypad9"
-			android:text="9" />
+			android:text="@string/nine" />
 	</TableRow>
 	<TableRow>
 		<Button android:id="@+id/keypad_star"
 			android:layout_column="1"
-			android:text="*" />
+			android:text="@string/asterisk" />
 		<Button android:id="@+id/keypad0"
-			android:text="0" />
+			android:text="@string/zero" />
 		<Button android:id="@+id/keypad_pound"
-			android:text="#" />
+			android:text="@string/numbersign" />
 	</TableRow>
 	<TableRow>
 		<ImageView android:id="@+id/switch_button"
 			android:layout_height="48dp"
 			android:layout_width="48dp"
 			android:src="@android:drawable/ic_menu_directions"
+			android:contentDescription="@string/switch_mode"
 			/>
 
 		<Button android:id="@+id/keypad_continue"

@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -21,12 +20,10 @@ public class LogOffActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_off);
-		ImageView icon = (ImageView) findViewById(R.id.logoff_icon);
-		icon.setImageResource(R.drawable.passicon);
 		TextView header = (TextView) findViewById(R.id.logoff_header);
 		String version = VersionUtils.getVersionNumber(this);
 		String appName = VersionUtils.getApplicationName(this);
-		String head = appName + " " + version + "\n";
+		String head = appName + " " + version;
 		header.setText(head);
 		Button logoffButton = (Button) findViewById(R.id.logoff_button);
 		Button gotoPWS      = (Button) findViewById(R.id.goto_pws);
