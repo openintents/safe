@@ -23,10 +23,11 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   OpenIntents devs https://launchpad.net/~openintents-devs
-  happynawani https://launchpad.net/~happynawani</string>
+  happynawani https://launchpad.net/~happynawani
+  vishal panjwani https://launchpad.net/~vishal-panjwani15</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">पंजो निजी डाटा राख्यो OI सेफ सां गडद</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -242,7 +243,21 @@
 	<string name="autobackup_turnoff">स्वतः बैकअप बंद कयो</string>
 	<string name="lock_timeout">स्वतः लोक करण जो समय:%s</string>
 	<string name="download_oi_filemanager">जेस ताणी डाउनलोड नाथो  थे टेस ताणी देफौल्ट जगह इस्तेमाल थीन्दी</string>
-	
+	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+	<string name="backup_file_found_label">Backup file found</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+
 	<!-- ***************************
 	     Permissions
 	     *************************** -->

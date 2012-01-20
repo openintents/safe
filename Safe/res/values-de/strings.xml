@@ -23,6 +23,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   DHermit https://launchpad.net/~dhermit
+  Hans https://launchpad.net/~hans-wuerstchen42
   Kim Linoh https://launchpad.net/~psychokim
   OpenIntents devs https://launchpad.net/~openintents-devs
   Patrick Eigensatz https://launchpad.net/~p.eigensatz
@@ -30,7 +31,7 @@
   appricoo https://launchpad.net/~appricoo</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
+	<string name="about_comments">Mit den OI Safe können Sie Ihre Passwörter sicher speichern.</string>  
 	 
 	<!-- ***************************
 	     Applicatio-specific strings
@@ -69,12 +70,12 @@
 	<string name="cannot_decrypt_password">Passwort kann nicht entschlüsselt werden.</string>
 	<string name="error_export">Fehler beim Exportieren der Datenbank</string>
 	<string name="export_database">Datenbank exportieren</string>
-	<string name="export_file_select">Select a file for export</string>
+	<string name="export_file_select">Wählen Sie eine Datei für den Export aus</string>
 	<string name="export_msg">Hiermit wird die Passwort Datenbank in eine Klartext Datei exportiert. DAS IST SEHR GEFÄHRLICH. Löschen Sie diese Datei, sobald Sie fertig sind. Sind Sie sicher, dass Sie exportieren wollen?</string>
 	<string name="export_success">Export nach \'%s\' erfolgreich. Achtung! Die Datei ist nicht verschlüsselt.</string>
 	<string name="export_file_error">Die Datei \'oisafe.csv\' kann auf der SD Karte nicht erstellt werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
 	<string name="import_database">Datenbank importieren</string>
-	<string name="import_file_select">Select a file for import</string>
+	<string name="import_file_select">Wählen Sie eine Datei für den Import aus</string>
 	<string name="import_file_missing">Datei zum Importieren fehlt:</string>
 	<string name="import_file_error">Die Datei \'oisafe.csv\' kann nicht von der SD Karte importiert werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
 	<string name="import_error_first_line">Die erste Zeile ist unvollständig.</string>
@@ -117,14 +118,14 @@
     <string name="backup_progress">Sichern einer Kopie nach</string>
     <string name="backup_complete">Fertig. Passwörter gesichert:</string>
     <string name="backup_failed">Sicherungskopie erstellen fehlgeschlagen:</string>
-	<string name="backup_select_file">Select a file for backup</string>
-	<string name="backup_error">Error while backing up</string>
+	<string name="backup_select_file">Wählen Sie eine Datei für das Backup aus</string>
+	<string name="backup_error">Fehler beim Erstellen des Backups</string>
     <string name="restore">Wiederherstellen</string>
     <string name="filename">Dateiname</string>
     <string name="restore_no_file">Wiederherstellungsdatei nicht gefunden. Zuerst muss eine Sicherungskopie erstellt werden, oder vom PC kopiert werden.</string>
     <string name="restore_set_password">Passwort der Wiederherstellungsdatei eingeben. Das neue Hauptpasswort wird auf dieses Passwort gesetzt.</string>
-	<string name="restore_select_file">Select a file for restore</string>
-	<string name="restore_error">Error while restoring</string>
+	<string name="restore_select_file">Wählen Sie eine Datei für</string>
+	<string name="restore_error">Fehler beim Wiederherstellen</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
     <string name="restore_unable_to_open">Datei kann nicht geöffnet werden: %s</string>
@@ -198,8 +199,8 @@
 	<string name="pref_summary_autobackup_days">Anzahl Tage zwischen den automatischen Backups</string>
 	<string name="pref_dialog_title_autobackup_days">Tage für die automatischen Backups</string>
 	
-	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
+	<string name="pref_title_backup_path">Standard Backup-Pfad</string>
+	<string name="pref_title_export_path">Standard Export-Pfad</string>
 	    
 	
 	<string name="intent_decrypt">Entschlüsseln (OI Safe)</string>
@@ -244,9 +245,23 @@
 	<string name="backup_never">Bisher wurde noch kein Backup durchgeführt. Wollen Sie jetzt eines erstellen?</string>
 	<string name="backup_in_days">Die letzte Sicherung wurde vor %d Tagen erstellt. Wollen Sie jetzt eine Sicherung erstellen?</string>
 	<string name="autobackup_turnoff">automatische Sicherung ausschalten</string>
-	<string name="lock_timeout">Time to autolock: %s </string>
-	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
-	
+	<string name="lock_timeout">Zeit bis zum automatischen Sperren: %s</string>
+	<string name="download_oi_filemanager">Solange der OI Dateimanager nicht installiert ist, wird der Standardspeicherort benutzt.</string>
+	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+	<string name="backup_file_found_label">Backup file found</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+
 	<!-- ***************************
 	     Permissions
 	     *************************** -->

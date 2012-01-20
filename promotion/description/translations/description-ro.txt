@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-Store your private data with OI Safe.
+Stochează datele personale cu OI Safe.
 
 # Description:
 OI Safe vă protejează toate parolele si alte date private folosind standardul industrial de criptare AES. Acționează de asemenea ca o extensie către OI Noptepad pentru a cripta notițele create în OI Notepad. 
@@ -40,7 +40,7 @@ Cuvinte cheie:
 * OI, IO, OpenIntents, Open Intents
 
 Versiuni internaționale: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
+OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
 
 
 Caută șiruri pentru Market: 

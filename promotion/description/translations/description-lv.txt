@@ -1,4 +1,11 @@
-OI Safe droši aizsargā visas Jūsu paroles un citus privātos datus izmantojot nozares standartu AES šifrēšanu. Tas arī darbojas kā paplašinājums OI Notepad, lai šifrētu piezīmes, kuras ir izveidotas ar OI Notepad. 
+# Application:
+OI Seifs
+
+# Promo text:
+Saglabājiet savus privātos datus ar OI Seifu.
+
+# Description:
+OI Seifs droši aizsargā visas Jūsu paroles un citus privātos datus izmantojot nozares standartu AES šifrēšanu. Tas arī darbojas kā paplašinājums OI Piezīmju blokam, lai šifrētu piezīmes, kuras ir izveidotas ar OI Piezīmju bloku. 
 
 Šī aplikācija ir bezmaksas un tai nevajag interneta atļauju. 
 
@@ -18,14 +25,14 @@ Funkcijas:
 * Dublējiet/atjaunojiet ievades.
 * Iekļauj drošu paroļu ģeneratoru.
 * Automātisks noilgums, lai aizsargātu šifrētos dokumentus.
-* Šifrējiet OI Notepad piezīmes.
+* Šifrējiet OI Piezīmju bloka piezīmes.
 * Atbalsts Obscura attēlu seifam.
-* MyBackup Pro.
+* Mans rezerves kopiju Pro.
 
-Pieejamie paplašinājumi "OI File Manager": 
-* Parādīt licenzes informāciju ar "OI About".
+Pieejamie paplašinājumi "OI Failu pārvaldnieks": 
+* Parādīt licenzes informāciju ar "OI Paskaidrojumi".
 
-Aplikācijas, kuras strādā ar "OI File Manager": 
+Aplikācijas, kuras strādā ar "OI Failu pārvaldnieks": 
 * Encrypt notes created in "OI Notepad".
 
 Atslēgvārdi: 
@@ -33,7 +40,7 @@ Atslēgvārdi:
 * OI, IO, OpenIntents, Open Intents
 
 Starptautiskās versijas: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
+OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
 
 
 Meklēt rindiņas tirgum: 

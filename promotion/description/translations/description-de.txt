@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-Store your private data with OI Safe.
+Mit den OI Safe können Sie Ihre Passwörter sicher speichern.
 
 # Description:
 OI Safe schützt alle ihre Passwörter und andere privaten Daten mithilfe der Industriestandard AES Verschlüsselung. Es funktioniert auch als Erweiterung für OI Notepad, um Notizen, die in OI Notepad erstellt werden, zu verschlüsseln. 
@@ -40,7 +40,7 @@ Schlüsselwörter:
 * OI, IO, OpenIntents, Open Intents
 
 Internationale Versionen: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
+OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
 
 
 Im Market suchen nach: 

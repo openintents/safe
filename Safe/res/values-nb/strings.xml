@@ -22,7 +22,8 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Arne Tobias Malkenes Ødegaard https://launchpad.net/~arne-tobias</string>
+  Arne Tobias Malkenes Ødegaard https://launchpad.net/~arne-tobias
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Store your private data with OI Safe.</string>  
@@ -241,7 +242,21 @@
 	<string name="autobackup_turnoff">Skru av automatisk sikkerhetskopiering</string>
 	<string name="lock_timeout">Tid til automatisk tidsavbrudd: %s</string>
 	<string name="download_oi_filemanager">Når ikke nedlastet, vil standard plassering bli brukt.</string>
-	
+	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+	<string name="backup_file_found_label">Backup file found</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+
 	<!-- ***************************
 	     Permissions
 	     *************************** -->

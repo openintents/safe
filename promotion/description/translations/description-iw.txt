@@ -40,7 +40,7 @@ http://code.google.com/p/openintents
 * OI, IO, OpenIntents, Open Intents
 
 גרסאות בין-לאומיות: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
+OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
 
 
 חפש מחרוזות לשוק: 

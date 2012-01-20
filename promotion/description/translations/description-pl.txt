@@ -1,11 +1,11 @@
 # Application:
-OI Safe
+OI Sejf
 
 # Promo text:
 Zapisuj swoje prywatne dane używając OI Sejf.
 
 # Description:
-OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu standardowego szyfrowania AES. Działa również jako rozszerzenie do Ol Notepad aby szyfrować notatki w nim utworzone. 
+OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu standardowego szyfrowania AES. Działa również jako rozszerzenie do Ol Notatnik pozwalające na szyfrowanie notatek w nim utworzonych. 
 
 Ta aplikacja jest darmowa i nie wymaga dostępu do internetu. 
 
@@ -15,34 +15,34 @@ http://www.openintents.org
 Możesz poprawić tłumaczenie na Twój język: 
 https://translations.launchpad.net/openintents/trunk
 
-Kod źródłowy tej darmowej i open-source-owej aplikacji jest dostępny pod adresem: 
+Kod źródłowy tej darmowej i open-source'owej aplikacji jest dostępny pod adresem: 
 http://code.google.com/p/openintents
 
 Cechy: 
 * Bezpieczna ochrona danych przy użyciu szyfrowania AES.
 * Swobodnie przenosić dane pomiędzy kategoriami.
 * Import / Eksport wpisów danych i baz danych.
-* Kopia zapasowa / Przywracanie wpisów.
+* Kopia zapasowa Przywracanie wpisów.
 * Włączając generatora bezpiecznych haseł.
-* Automatyczny timeout żeby chronić zaszyfrowane dokumenty.
-* Szyfrowanie notatek Ol Notepad.
+* Automatyczny limit czasu chroniący zaszyfrowane dokumenty.
+* Szyfrowanie notatek Ol Notatnik.
 * Wsparcie dla bezpiecznego obrazu Obscura.
 * MyBackup Pro.
 
 Dostępne rozszerzenia dla "Ol File Manager": 
-* Pokaż informacje licencyjne z "O Ol".
+* Pokaż informacje licencyjne za pomocą "OI About".
 
-Aplikacje, który pracują z "Ol File Manager": 
-* Szyfruj notatki utworzone w "Ol Notepad".
+Aplikacje działające z "OI Menedżer plików": 
+* Szyfruj notatki utworzone w "Ol Notatnik".
 
 Słowa kluczowe: 
-* bezpieczne, szyfrowanie, hasła, ochrona
+* szyfrowanie, sejf, hasła, ochrona, bezpieczeństwo
 * OI, IO, OpenIntents, Open Intents
 
 Wersje międzynarodowe: 
-OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Sejf, OI Sicurezza, OI Trezor, OI kluis, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
+OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
 
 
-Wyszukane ciągi znakó w Markecie: 
+Szukaj ciągów znaków w Markecie: 
 * Uses OI About
 * Extension for OI Notepad

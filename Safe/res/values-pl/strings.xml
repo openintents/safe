@@ -25,6 +25,7 @@
   Andrzej Ziółek https://launchpad.net/~andro-v-zik
   Damian Skrodzki https://launchpad.net/~damienix
   OpenIntents devs https://launchpad.net/~openintents-devs
+  Piotr Łazarczyk https://launchpad.net/~quazarxd
   Tomasz Zieliński https://launchpad.net/~tomek0517
   zielmicha https://launchpad.net/~michal-zielinscy</string>
 	
@@ -35,11 +36,11 @@
 	     Applicatio-specific strings
 	     *************************** -->
 	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
+    <string name="app_name">OI Sejf</string>
     <string name="empty_safe">Brak haseł w kategorii</string>
     <string name="empty_category">Nie utworzono jeszcze kategorii. Dodaj nową przez Menu-&gt;Dodaj</string>
     <string name="password_lock">Zablokuj</string>
-    <string name="password_view">Widok</string>
+    <string name="password_view">Podgląd</string>
     <string name="password_edit">Edycja</string>
     <string name="password_add">Dodaj</string>
     <string name="password_delete">Usuń</string>
@@ -66,7 +67,7 @@
     <string name="category_not_empty">Kategoria nie jest pusta. Musisz najpierw usunąć hasła.</string>
 	<string name="cannot_decrypt_category">Nie można odszyfrować kateogrii</string>
 	<string name="cannot_decrypt_password">Nie można odszyfrować hasła</string>
-	<string name="error_export">Błąd podczas eksportowania bazy.</string>
+	<string name="error_export">Błąd podczas eksportowania bazy</string>
 	<string name="export_database">Eksportuj bazę danych</string>
 	<string name="export_file_select">Wybierz plik do eksportu</string>
 	<string name="export_msg">Ta opcja wyeksportuje bazę haseł do pliku tekstowego. TA OPERACJA JEST NIEBEZPIECZNA. Upewnij się, że usunąłeś plik jeśli nie będzie już tobie potrzebny. Czy na pewno chcesz wyeksportować?</string>
@@ -245,7 +246,21 @@
 	<string name="autobackup_turnoff">Wyłącz automatyczne archiwizowanie</string>
 	<string name="lock_timeout">Czas automatycznego blokowania: %s</string>
 	<string name="download_oi_filemanager">Dopóki nie jest pobrany, domyślne położenie będzie używane.</string>
-	
+	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+	<string name="backup_file_found_label">Backup file found</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+
 	<!-- ***************************
 	     Permissions
 	     *************************** -->
@@ -256,7 +271,7 @@
 	<string name="oi_safe_permission_service_descr">Pozwala aplikacji używać klucza głównego do szyfrowania i odszyfrowywania. Nie powinno być nigdy używane poza OI Sejf.</string>	
 	<!-- Permission to encrypt and decrypt data -->
 	<string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
-    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf</string>	
+    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf.</string>	
 
 	<!-- ***************************
 	     Preferences
