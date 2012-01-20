@@ -6,27 +6,17 @@
 	android:padding="5dp" >
 
 	<!-- Copied from front_door.xml -->
-	<LinearLayout
+	<TextView
+		android:id="@+id/entry_header"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center"
 		android:layout_marginTop="15dip"
-		android:orientation="horizontal" >
-
-		<ImageView
-			android:id="@+id/entry_icon"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:contentDescription="@string/app_name" />
-
-		<TextView
-			android:id="@+id/entry_header"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:paddingBottom="10dp"
-			android:paddingTop="10dp"
-			android:textSize="24dp" />
-	</LinearLayout>
+		android:layout_gravity="center"
+		android:paddingBottom="10dp"
+		android:paddingTop="10dp"
+		android:textSize="24dp"
+		android:text="@string/app_name"
+		android:drawableLeft="@drawable/ic_launcher_safe"/>
 
 	<!-- /copied from front_door.xml -->
 

@@ -37,6 +37,7 @@
 	<EditText android:id="@+id/restore_password"
 		android:visibility="invisible" 
 		android:password="true"
+		android:hint="@string/master_password"
 		android:autoText="false"
 		android:singleLine="true"
 		android:layout_width="fill_parent"

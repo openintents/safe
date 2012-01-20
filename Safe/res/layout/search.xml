@@ -20,31 +20,30 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
 
-	<TableLayout android:layout_width="fill_parent" 
-		android:layout_height="wrap_content">
-		<TableRow>
-			<EditText android:id="@+id/search_criteria"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:inputType="textFilter"
-				android:imeOptions="actionSearch"
-				android:imeActionLabel="@string/search"
-				android:maxLength="50"
-				android:hint="@string/search_hint" 
-				android:layout_weight="1"/>
-			<Button android:id="@+id/go_button" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/search"/>
-		</TableRow>
-		<TableRow>
-			<ListView
-				android:id="@id/android:list"
-				android:fastScrollEnabled="true"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"/>
-		</TableRow>
-	</TableLayout>
+	<LinearLayout android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+		<EditText android:id="@+id/search_criteria"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:inputType="textFilter"
+			android:imeOptions="actionSearch"
+			android:imeActionLabel="@string/search"
+			android:maxLength="50"
+			android:hint="@string/search_hint" 
+			android:layout_weight="1"/>
+		<Button android:id="@+id/go_button" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/search"/>
+	</LinearLayout>
+	<ListView
+		android:id="@id/android:list"
+		android:fastScrollEnabled="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
 </LinearLayout>

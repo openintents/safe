@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RestoreFirstTime extends Activity {
@@ -45,12 +44,10 @@ public class RestoreFirstTime extends Activity {
 		});
 
 		/* Copied from AskPassword.java - normalInit() */
-		ImageView icon = (ImageView) findViewById(R.id.entry_icon);
-		icon.setImageResource(R.drawable.ic_launcher_safe);
 		TextView header = (TextView) findViewById(R.id.entry_header);
 		String version = VersionUtils.getVersionNumber(this);
 		String appName = VersionUtils.getApplicationName(this);
-		String head = appName + " " + version + "\n";
+		String head = appName + " " + version;
 		header.setText(head);
 	}
 
