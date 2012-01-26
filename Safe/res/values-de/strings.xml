@@ -28,7 +28,8 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   Patrick Eigensatz https://launchpad.net/~p.eigensatz
   Peli https://launchpad.net/~peli0101
-  appricoo https://launchpad.net/~appricoo</string>
+  appricoo https://launchpad.net/~appricoo
+  mrx5682 https://launchpad.net/~mrx5682</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Mit den OI Safe können Sie Ihre Passwörter sicher speichern.</string>  
@@ -247,8 +248,8 @@
 	<string name="autobackup_turnoff">automatische Sicherung ausschalten</string>
 	<string name="lock_timeout">Zeit bis zum automatischen Sperren: %s</string>
 	<string name="download_oi_filemanager">Solange der OI Dateimanager nicht installiert ist, wird der Standardspeicherort benutzt.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
+	<string name="backup_file_found">Eine Sicherungsdatei wurde gefunden. Möchten sie diese wiederherstellen?</string>
+	<string name="backup_file_found_label">Sicherungsdatei gefunden</string>
 	<string name="zero">0</string>
 	<string name="one">1</string>
 	<string name="two">2</string>
@@ -258,7 +259,7 @@
 	<string name="six">6</string>
 	<string name="seven">7</string>
 	<string name="eight">8</string>
-	<string name="nine">9</string>
+	<string name="nine">8</string>
 	<string name="numbersign">#</string>
 	<string name="asterisk">*</string>
 

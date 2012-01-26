@@ -22,7 +22,8 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Giannis Konstantinidis https://launchpad.net/~giankonstantinidis</string>
+  Giannis Konstantinidis https://launchpad.net/~giankonstantinidis
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Αποθηκέυστε τα προσωπικά σας δεδομένα με το OI Κιβώτιο.</string>  

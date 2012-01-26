@@ -242,8 +242,8 @@
 	<string name="autobackup_turnoff">ئۆزلۈكىدىن زاپاسلاشنى تاقا</string>
 	<string name="lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش ۋاقتى: %s</string>
 	<string name="download_oi_filemanager">چۈشۈرەلمىدى، كۆڭۈلدىكى ئورۇن ئىشلىتىلىۋاتىدۇ.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
+	<string name="backup_file_found">بىر زاپاس ھۆججەت تېپىلدى. ئۇنى ئەسلىگە كەلتۈرەمسىز؟</string>
+	<string name="backup_file_found_label">زاپاس ھۆججەت تېپىلدى</string>
 	<string name="zero">0</string>
 	<string name="one">1</string>
 	<string name="two">2</string>

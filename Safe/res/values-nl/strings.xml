@@ -23,6 +23,7 @@
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Henk van der Velden https://launchpad.net/~henkvandervelden86
+  Mark van Kuijk https://launchpad.net/~markvankuyk
   Menno Vogel https://launchpad.net/~mennovogel90
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
@@ -190,7 +191,7 @@
 	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
 	<string name="pref_summary_keypad_mute">Mute keypad sounds</string>
 
-	<string name="pref_title_autobackup">Auto backup</string>
+	<string name="pref_title_autobackup">Automatische backup</string>
 	<string name="pref_summary_autobackup">Automatically prompt to backup passwords</string>
 
 	<string name="pref_title_autobackup_days">Auto backup days</string>
@@ -198,7 +199,7 @@
 	<string name="pref_dialog_title_autobackup_days">Auto Backup Days</string>
 	
 	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
+	<string name="pref_title_export_path">Standaard exporteer pad</string>
 	    
 	
 	<string name="intent_decrypt">Decrypt (OI Safe)</string>
@@ -210,10 +211,10 @@
 	<string name="lock">Vergrendel</string>
 	<string name="continue_text">Continue</string>
 	<string name="generate_password">Generate Password</string>
-	<string name="pass_gen_length">Password Length</string>
+	<string name="pass_gen_length">Lengte van het wachtwoord</string>
 	<string name="pass_gen_uppercase">Uppercase [A-Z]</string>
 	<string name="pass_gen_lowercase">Lowercase [a-z]</string>
-	<string name="pass_gen_numbers">Numbers [0-9]</string>
+	<string name="pass_gen_numbers">Nummers [0-9]</string>
 	<string name="pass_gen_symbols">Symbols [!@#$%^\*]</string>
 	<string name="pass_gen_copy_to_current_entry">Copy to Current Entry</string>
 	<string name="pass_gen_copy_to_clipboard">Copy to Clipboard</string>
@@ -224,7 +225,7 @@
 	<string name="last_edited">Last edited</string>
 	<string name="last_edited_unknown">unknown</string>
 	<string name="crypto_error">Crypto error:</string>
-	<string name="uniquename">Unique name</string>
+	<string name="uniquename">Unieke naam</string>
 	<string name="package_access">Package access</string>
 	<string name="not_found">not found</string>
 	<string name="dialog_title_first_time_warning">New master key</string>
@@ -246,7 +247,7 @@
 	<string name="lock_timeout">Time to autolock: %s </string>
 	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
 	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
+	<string name="backup_file_found_label">Backup bestand gevonden.</string>
 	<string name="zero">0</string>
 	<string name="one">1</string>
 	<string name="two">2</string>
