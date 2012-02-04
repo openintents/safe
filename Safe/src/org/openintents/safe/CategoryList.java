@@ -32,6 +32,8 @@ import org.openintents.intents.AboutMiniIntents;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
 import org.openintents.safe.service.ServiceDispatchImpl;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.IntentUtils;
 import org.openintents.util.SecureDelete;
 
@@ -515,12 +517,17 @@ public class CategoryList extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 	
-		menu.add(0,LOCK_CATEGORY_INDEX, 0, R.string.password_lock)
+		MenuItem item = menu.add(0,LOCK_CATEGORY_INDEX, 0, R.string.password_lock)
 			.setIcon(android.R.drawable.ic_lock_lock)
 			.setShortcut('0', 'l');
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
+
 		menu.add(0,EDIT_CATEGORY_INDEX, 0, R.string.password_edit)
 			.setIcon(android.R.drawable.ic_menu_edit)
 			.setShortcut('1', 'e');
+
 		menu.add(0,ADD_CATEGORY_INDEX, 0, R.string.password_add)
 			.setIcon(android.R.drawable.ic_menu_add)
 			.setShortcut('2', 'a');

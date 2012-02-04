@@ -20,6 +20,8 @@ import java.io.File;
 import java.security.NoSuchAlgorithmException;
 
 import org.openintents.distribution.DistributionLibraryActivity;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
 
 import android.app.AlertDialog;
@@ -387,8 +389,11 @@ public class AskPassword extends DistributionLibraryActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 	
-		menu.add(0, SWITCH_MODE_INDEX, 0, R.string.switch_mode)
+		MenuItem item = menu.add(0, SWITCH_MODE_INDEX, 0, R.string.switch_mode)
 			.setIcon(android.R.drawable.ic_menu_directions);
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
 
 		MenuItem miMute;
 		if (mute) {

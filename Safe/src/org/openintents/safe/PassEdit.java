@@ -18,6 +18,8 @@ package org.openintents.safe;
 
 
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -260,8 +262,12 @@ public class PassEdit extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save).setIcon(
+		MenuItem item = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save).setIcon(
 				android.R.drawable.ic_menu_save).setShortcut('1', 's');
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
+
 		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete).setIcon(
 				android.R.drawable.ic_menu_delete);
 		menu.add(0, DISCARD_PASSWORD_INDEX, 0, R.string.discard_changes).setIcon(

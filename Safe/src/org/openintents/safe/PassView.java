@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.SimpleGestureFilter.SimpleGestureListener;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -377,8 +379,12 @@ public class PassView extends Activity implements SimpleGestureListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(0, EDIT_PASSWORD_INDEX, 0, R.string.password_edit)
+		MenuItem item = menu.add(0, EDIT_PASSWORD_INDEX, 0, R.string.password_edit)
 			.setIcon(android.R.drawable.ic_menu_edit).setShortcut('1', 'e');
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
+
 		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete)
 			.setIcon(android.R.drawable.ic_menu_delete).setShortcut('2', 'd');
 

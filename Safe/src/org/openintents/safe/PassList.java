@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -352,12 +354,17 @@ public class PassList extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add)
+		MenuItem item = menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add)
 			.setIcon(android.R.drawable.ic_menu_add)
 			.setShortcut('2', 'a');
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
+
 		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete)
 			.setIcon(android.R.drawable.ic_menu_delete)
 			.setShortcut('3', 'd');
+
 		menu.add(0, MOVE_PASSWORD_INDEX, 0, R.string.move)
 			.setIcon(android.R.drawable.ic_menu_more)
 			.setShortcut('4', 'm');
