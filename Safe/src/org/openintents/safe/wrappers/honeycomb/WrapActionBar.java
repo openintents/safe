@@ -34,4 +34,8 @@ public class WrapActionBar {
 	public static void showIfRoom(MenuItem item){
 		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 	}
+	
+	public static void invalidateOptionsMenu(Activity a) {
+		a.invalidateOptionsMenu();
+	}
 }

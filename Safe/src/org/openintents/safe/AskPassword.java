@@ -389,8 +389,8 @@ public class AskPassword extends DistributionLibraryActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 	
-		MenuItem item = menu.add(0, SWITCH_MODE_INDEX, 0, R.string.switch_mode)
-			.setIcon(android.R.drawable.ic_menu_directions);
+		MenuItem item = menu.add(0, SWITCH_MODE_INDEX, 0, R.string.switch_mode);
+		// icon set below in onPrepareOptionsMenu()
 		if (CheckWrappers.mActionBarAvailable) {
 			WrapActionBar.showIfRoom(item);
 		}
@@ -410,7 +410,25 @@ public class AskPassword extends DistributionLibraryActivity {
 		
 		return true;
 	}
-	
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		super.onPrepareOptionsMenu(menu);
+
+		MenuItem item = menu.findItem(SWITCH_MODE_INDEX);
+		if (CheckWrappers.mActionBarAvailable) {
+			if (viewMode==VIEW_NORMAL) {
+				item.setIcon(R.drawable.ic_menu_switch_numeric);
+			} else { // viewMode==VIEW_KEYPAD
+				item.setIcon(R.drawable.ic_menu_switch_alpha);
+			}
+		} else {
+			item.setIcon(android.R.drawable.ic_menu_directions);
+		}
+
+		return true;
+	}
+
 	private void switchView() {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		SharedPreferences.Editor spe=sp.edit();
@@ -425,6 +443,9 @@ public class AskPassword extends DistributionLibraryActivity {
 		}
 		if (!spe.commit()) {
 			if (debug) Log.d(TAG,"commitment issues");
+		}
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.invalidateOptionsMenu(this);
 		}
 	}
 
@@ -620,6 +641,9 @@ public class AskPassword extends DistributionLibraryActivity {
 					switchView();
 			}
 		});
+		if (CheckWrappers.mActionBarAvailable) {
+			keypadSwitch.setVisibility(View.INVISIBLE);
+		}
 	}
 
 	private void keypadOnDestroy() {
