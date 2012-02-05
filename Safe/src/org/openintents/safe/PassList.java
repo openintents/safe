@@ -41,16 +41,16 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.View;
-import android.view.MenuItem;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
 /**
  * PassList Activity
@@ -169,7 +169,12 @@ public class PassList extends ListActivity {
 		list.setOnCreateContextMenuListener(this);
 		list.setTextFilterEnabled(true);
 		registerForContextMenu(list);
-		
+
+		if(CheckWrappers.mActionBarAvailable){
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
+
 		sendBroadcast (restartTimerIntent);
 	}
 
@@ -504,6 +509,11 @@ public class PassList extends ListActivity {
 		}
 
 		switch(item.getItemId()) {
+		case android.R.id.home:
+			Intent intent = new Intent(this, CategoryList.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			break;
 		case ADD_PASSWORD_INDEX:
 			addPassword();
 			break;

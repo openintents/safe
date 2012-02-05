@@ -160,6 +160,11 @@ public class PassEdit extends Activity {
 		});
 		restoreMe();
 
+		if(CheckWrappers.mActionBarAvailable){
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
+
 		sendBroadcast (restartTimerIntent);
 	}
 
@@ -340,6 +345,10 @@ public class PassEdit extends Activity {
 	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			discardEntry=true;
+			finish();
+			break;
 		case SAVE_PASSWORD_INDEX:
 			savePassword();
 			finish();

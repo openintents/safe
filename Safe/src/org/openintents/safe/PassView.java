@@ -145,6 +145,11 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 		entryEdited=false;
 
+		if(CheckWrappers.mActionBarAvailable){
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
+
 	}
 	
 	private void initFlipper() {
@@ -444,6 +449,9 @@ public class PassView extends Activity implements SimpleGestureListener {
 	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
 		case EDIT_PASSWORD_INDEX:
 			Intent i = new Intent(getApplicationContext(), PassEdit.class);
 			i.putExtra(PassList.KEY_ID, RowId);

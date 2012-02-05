@@ -20,6 +20,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -31,6 +33,7 @@ import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -160,6 +163,11 @@ public class PassGen extends Activity {
 		copy_clip.setOnClickListener(copy_clip_listener);
 		copy_entry.setOnClickListener(copy_entry_listener);
 		cancel.setOnClickListener(cancel_listener);
+
+		if(CheckWrappers.mActionBarAvailable){
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
 	}
 
 	/**
@@ -238,6 +246,18 @@ public class PassGen extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		return false;
+	}
+
+	/**
+	 * Handler for when a MenuItem is selected from the Activity.
+	 */
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
