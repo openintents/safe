@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -22,6 +24,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class Preferences extends PreferenceActivity
@@ -110,6 +113,11 @@ public class Preferences extends PreferenceActivity
 		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 		changePreferenceSummaryToCurrentValue(backupPathPref, getBackupPath(this));
 		changePreferenceSummaryToCurrentValue(exportPathPref, getExportPath(this));
+
+		if(CheckWrappers.mActionBarAvailable){
+			WrapActionBar bar = new WrapActionBar(this);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
 	}
 
 	@Override
@@ -151,7 +159,19 @@ public class Preferences extends PreferenceActivity
 			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		}
 	}
-	
+
+	/**
+	 * Handler for when a MenuItem is selected from the Activity.
+	 */
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 	static String getBackupPath(Context context){
 		return PreferenceManager.getDefaultSharedPreferences(context)
 				.getString(PREFERENCE_BACKUP_PATH, PREFERENCE_BACKUP_PATH_DEFAULT_VALUE);
