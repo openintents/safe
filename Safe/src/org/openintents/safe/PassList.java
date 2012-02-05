@@ -359,11 +359,13 @@ public class PassList extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		MenuItem item = menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add)
-			.setIcon(android.R.drawable.ic_menu_add)
-			.setShortcut('2', 'a');
+		MenuItem item = menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add);
+		item.setShortcut('2', 'a');
 		if (CheckWrappers.mActionBarAvailable) {
+			item.setIcon(R.drawable.ic_menu_add_password);
 			WrapActionBar.showIfRoom(item);
+		} else {
+			item.setIcon(android.R.drawable.ic_menu_add);
 		}
 
 		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete)
