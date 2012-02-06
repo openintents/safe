@@ -25,8 +25,8 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
-release: 1.3.0
-date: 201?-??-??
+release: 1.3
+date: 2012-02-06
 - uses OI Filemanager for backup/restore/import/export file selection
   (issue 186, GCI patch by Matěj Konečný)
 - added a timer to the logoff intent to show how long until the OI Safe
