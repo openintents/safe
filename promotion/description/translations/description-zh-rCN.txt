@@ -7,15 +7,15 @@ Store your private data with OI Safe.
 # Description:
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
 
-应用程序的广告是免费的，不需要网络权限。 
+本程序不含广告，也不需要网络权限 
 
-完整列表的更改，请访问： 
+你可以在这里获得完整的改变列表和常见问题回答 
 http://www.openintents.org
 
 可以翻译成您的语言： 
 https://translations.launchpad.net/openintents/trunk
 
-开放源码应用程序的源代码是： 
+本程序是开源免费的，它的源代码能在这里获得 
 http://code.google.com/p/openintents
 
 功能 

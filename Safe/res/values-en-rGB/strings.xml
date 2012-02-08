@@ -22,6 +22,8 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
+  Alfredo Hernández https://launchpad.net/~aldomann
+  OpenIntents devs https://launchpad.net/~openintents-devs
   mrx5682 https://launchpad.net/~mrx5682</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
@@ -253,7 +255,7 @@
 	<string name="seven">7</string>
 	<string name="eight">8</string>
 	<string name="nine">9</string>
-	<string name="numbersign">#</string>
+	<string name="numbersign">No.</string>
 	<string name="asterisk">*</string>
 
 	<!-- ***************************

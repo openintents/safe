@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  Sérgio Marques https://launchpad.net/~sergio+marques</string>
+	
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Guarde os dados privados com o OI Safe.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI Safe</string>
+    <string name="empty_safe">Não existem senhas nesta categoria.</string>
+    <string name="empty_category">Não existem categorias. Adicione-as através do menu &gt;Adicionar</string>
+    <string name="password_lock">Bloquear</string>
+    <string name="password_view">Ver</string>
+    <string name="password_edit">Editar</string>
+    <string name="password_add">Adicionar</string>
+    <string name="password_delete">Eliminar</string>
+    <string name="password">Senha</string>
+    <string name="passwords">Senhas</string>
+    <string name="master_password">Senha principal</string>
+    <string name="username">Utilizador</string>
+    <string name="website">Página web</string>
+    <string name="description">Descrição</string>
+    <string name="notes">Notas</string>
+    <string name="save">Gravar</string>
+    <string name="invalid_password">Senha inválida. Tente novamente.</string>
+    <string name="notify_blank_pass">A senha tem que possuir, pelo menos, 4 caracteres.</string>
+    <string name="notify_blank_desc">A descrição não pode estar vazia.</string>
+    <string name="notify_blank_name">O nome não pode estar vazio.</string>
+    <string name="first_time">Em baixo, insira a senha utilizada para proteger as suas senhas.</string>
+    <string name="logoff_explanation">Você iniciou sessão no OI Safe o que significa que que as outras aplicações podem solicitar as senhas e codificar/descodificador dados. Pode bloquear para impedir a acesso até que insira novamente a senha.</string>
+    <string name="remote_ask">Uma aplicação está a solicitar a senha principal. Insira a sua senha para desbloquear.</string>
+    <string name="categories">Categorias</string>
+	<string name="category">Categori­a</string>
+    <string name="category_business">Profissional</string>
+    <string name="category_personal">Pessoal</string>
+    <string name="name">Nome</string>
+    <string name="category_not_empty">A categoria possui senhas. Tem que as eliminar primeiro.</string>
+	<string name="cannot_decrypt_category">Incapaz de descodificar categoria.</string>
+	<string name="cannot_decrypt_password">Incapaz de descodificar senha.</string>
+	<string name="error_export">Erro ao exportar a base de dados.</string>
+	<string name="export_database">Exportar base de dados</string>
+	<string name="export_file_select">Selecione o ficheiro a exportar</string>
+	<string name="export_msg">Vai exportar a base de dados para um ficheiro de texto simples. ISTO É PERIGOSO. Certifique-se que elimina o ficheiro depois de o utilizar. Exportar?</string>
+	<string name="export_success">Terminada a exportação para %s. Aviso: o ficheiro não está codificado.</string>
+	<string name="export_file_error">Incapaz de exportar o ficheiro "oisafe.csv" para o cartão SD. Experimente desligar a ficha USB do computador.</string>
+	<string name="import_database">Importar base de dados</string>
+	<string name="import_file_select">Selecione o ficheiro a importar</string>
+	<string name="import_file_missing">Ficheiro em falta:</string>
+	<string name="import_file_error">Incapaz de importar o ficheiro "oisafe.csv" para o cartão SD. Experimente desligar a ficha USB do computador.</string>
+	<string name="import_error_first_line">faltam campos na primeira linha.</string>
+	<string name="dialog_import_title">Importar</string>
+	<string name="dialog_import_msg">Pretende substituir a base de dados existente (importar de %s)?</string>
+	<string name="yes">Sim</string>
+	<string name="no">Não</string>
+	<string name="import_progress">Aguarde um pouco...</string>
+	<string name="import_no_categories">Nenhuma categoria encontrada.</string>
+	<string name="import_no_entries">O CSV não possui entradas.</string>
+	<string name="import_too_many_categories">Demasiadas categorias.</string>
+	<string name="import_not_enough_fields">Campos insuficientes.</string>
+	<string name="import_blank_category">Categoria vazia</string>
+	<string name="import_blank_description">Descrição vazia</string>
+	<string name="dialog_delete_database_title">Eliminar base de dados</string>
+	<string name="dialog_delete_database_msg">Tem a certeza que pretende eliminar a base de dados? A ação não pode ser anulada.</string>
+	<string name="added">Adicionada</string>
+	<string name="entries">entradas</string>
+	<string name="import_complete">Importação concluída</string>
+	<string name="import_delete_csv">Uma vez que gravar senhas em ficheiros de texto simples não é seguro, pretende eliminar</string>
+	<string name="edit_entry">Editar entrada</string>
+	<string name="view_entry">Ver entrada</string>
+	<string name="help">Ajuda</string>
+	<string name="close">Fechar</string>
+	<string name="go">Ir</string>
+	<string name="dialog_delete_password_title">Eliminar senha</string>
+	<string name="dialog_delete_password_msg">Tem a certeza que pretende eliminar a senha?</string>
+	<string name="change_password">Alterar senha principal</string>
+	<string name="chg_pass_explaination">Utilize esta opção para alterar a senha de desbloqueio do OI Safe. Os seus dados serão novamente codificados com a nova senha. Quanto mais complexa for a senha, mais seguros estarão os dados.</string>
+	<string name="old_password">Senha antiga</string>
+	<string name="new_password">Nova senha</string>
+	<string name="verify_password">Verificar senha</string>
+	<string name="new_verify_mismatch">A nova senha e a senha de verificação não são iguais.</string>
+    <string name="invalid_old_password">A senha antiga é inválida. Tente novamente.</string>
+    <string name="error_changing_password">Erro ao alterar a senha</string>
+    <string name="password_changed">Senha principal alterada</string>
+    <string name="confirm">Confirmação</string>
+    <string name="confirm_pass_fail">As senhas não são iguais.</string>
+    <string name="backup">Cópia de segurança</string>
+    <string name="backup_progress">A copiar para</string>
+    <string name="backup_complete">Terminado. Senhas copiadas para:</string>
+    <string name="backup_failed">Falha ao copiar:</string>
+	<string name="backup_select_file">Selecione o ficheiro a copiar</string>
+	<string name="backup_error">Erro ao copiar</string>
+    <string name="restore">Restaurar</string>
+    <string name="filename">Nome do ficheiro</string>
+    <string name="restore_no_file">Ficheiro não encontrado. Tem que efetuar uma cópia de segurança ou copiar a cópia no computador.</string>
+    <string name="restore_set_password">Indique a senha utilizada pela cópia de segurança. A senha principal será a definida.</string>
+	<string name="restore_select_file">Selecione o ficheiro a restaurar</string>
+	<string name="restore_error">Erro ao restaurar</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Incapaz de abrir o ficheiro: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Versão não suportada: %s</string>
+    
+    <string name="restore_error">Erro ao restaurar.</string>
+    <string name="restore_decrypt_error">Senha inválida.</string>
+    <string name="dialog_restore_database_title">Restaurar base de dados</string>
+    <string name="dialog_restore_database_msg">tem a certeza que pretende substituir os dados existentes?</string>
+    <string name="restore_found">Encontradas %1$s senhas na cópia de segurança com data de %2$s.</string>
+    <string name="restore_complete">Terminado. Senhas restauradas: %s</string>
+    <string name="copied_to_clipboard">Copiado para a área de transferência</string>
+    <string name="invalid_website">Página web inválida</string>
+    <string name="database_error_title">Erro na base de dados</string>
+    <string name="database_error_msg">Erro na base de dados. Possui espaço?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Abrir</string>
+    
+    <string name="database_version_error_title">Erro na versão da base de dados</string>
+    <string name="database_version_error_msg">A versão da base de dados não é suportada. Tem que instalar a versão associada a esta base de dados.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Mover</string>
+	
+	<string name="move_select">Selecione a categoria</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Movida para %s</string>
+	
+	<string name="preferences">Definições</string>
+	<string name="pref_title_external_access">Permitir acesso externo</string>
+	<string name="pref_summary_external_access">Permitir que outras aplicações utilizem o OI Safe.</string>
+	<string name="dialog_title_external_access">OI Safe: outra aplicação a solicitar acesso.</string>
+	<string name="dialog_summary_external_access">Permitir que outras aplicações utilizem o OI Safe.</string>
+	<string name="dialog_comment_external_access">Isto também pode ser feito nas definições do OI Safe.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">Bloqueio automático</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">N.º de minutos para que seja efetuado o bloqueio automaticamente</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Bloqueio automático</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">Bloquear ao bloquear o ecrã</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Bloquear quando o ecrã é bloqueado</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Teclado numérico</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Utilizar teclado numérico para indicar a senha principal</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">Silenciar teclado numérico</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Silenciar sons do teclado</string>
+
+	<string name="pref_title_autobackup">Cópia de segurança automática</string>
+	<string name="pref_summary_autobackup">Solicitar gravação de senhas automaticamente</string>
+
+	<string name="pref_title_autobackup_days">Dias de cópia</string>
+	<string name="pref_summary_autobackup_days">Número de dias antes da nova cópia de segurança</string>
+	<string name="pref_dialog_title_autobackup_days">Dias de cópia</string>
+	
+	<string name="pref_title_backup_path">Caminho padrão das cópias</string>
+	<string name="pref_title_export_path">Caminho padrão da exportação</string>
+	    
+	
+	<string name="intent_decrypt">Descodificar (OI Safe)</string>
+	<string name="intent_encrypt">Codificar (OI Safe)</string>
+	<string name="intent_get_password">Obter senha (OI Safe)</string>
+	<string name="intent_set_password">Definir senha (OI Safe)</string>
+	<string name="intent_restart_timer">Reiniciar temporizador (OI Safe)</string>
+	<string name="open_safe">Abrir OI Safe</string>
+	<string name="lock">Bloquear</string>
+	<string name="continue_text">Continuar</string>
+	<string name="generate_password">Gerar senha</string>
+	<string name="pass_gen_length">Tamanho da senha</string>
+	<string name="pass_gen_uppercase">Maiúsculas [A-Z]</string>
+	<string name="pass_gen_lowercase">Minúsculas [a-z]</string>
+	<string name="pass_gen_numbers">Números [0-9]</string>
+	<string name="pass_gen_symbols">Símbolos [!@#$%^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Copiar para a entrada atual</string>
+	<string name="pass_gen_copy_to_clipboard">Copiar para a área de transferência</string>
+	<string name="cancel">Cancelar</string>
+	<string name="discard_changes">Não guardar alterações</string>
+	<string name="entry_saved">Entrada gravada</string>
+	<string name="entry_save_error">Incapaz de gravar - erro na base de dados</string>
+	<string name="last_edited">Última edição</string>
+	<string name="last_edited_unknown">desconhecido</string>
+	<string name="crypto_error">Erro de codificação:</string>
+	<string name="uniquename">Nome exclusivo</string>
+	<string name="package_access">Acesso ao pacote</string>
+	<string name="not_found">não encontrado</string>
+	<string name="dialog_title_first_time_warning">Nova chave principal</string>
+	<string name="dialog_summary_first_time_warning">A new random master key has been created. Use menu &gt; backup and store this key in a safe place. Without this key you may lose encrypted data.</string>
+	<string name="switch_mode">Trocar de modo</string>
+	<string name="decrypt_progress">A descodificar...</string>
+	<string name="search">Procurar</string>
+	<string name="search_progress">A procurar...</string>
+	<string name="search_hint">Escreva os critérios</string>
+	<string name="search_nothing_found">Nada encontrado</string>
+	<string name="mute">Sem som</string>
+	<string name="sounds">Sons</string>
+	<string name="previous">Anterior</string>
+	<string name="next">Seguinte</string>
+	<string name="autobackup">Cópia de segurança automática</string>
+	<string name="backup_never">Ainda não fez uma cópia de segurança. Pretende fazer agora?</string>
+	<string name="backup_in_days">A última cópia de segurança tem %d dias. Pretende criar uma cópia de segurança?</string>
+	<string name="autobackup_turnoff">Desligar cópias automáticas</string>
+	<string name="lock_timeout">Tempo para bloquear: %s</string>
+	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+	<string name="backup_file_found">Foi encontrada uma cópia de segurança. Restaurar?</string>
+	<string name="backup_file_found_label">Cópia de segurança encontrada</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">acesso à senha principal</string>
+	<string name="oi_safe_permission_service_descr">Permite que a aplicação aceda à senha principal, utilizada na codificação e descodificação. Só deve ser manipulado pelo OI Safe.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">codificar e descodificar dados</string>
+    <string name="oi_safe_permission_intents_descr">Permite que a aplicação codifique e descodifique os dados e aceda às senhas criadas no OI Safe.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 minuto</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 dia</item>
+        <item>7 dias</item>
+        <item>30 dias</item>
+        <item>60 dias</item>
+    </string-array>
+        
+        
+</resources>

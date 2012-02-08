@@ -126,7 +126,7 @@
     <string name="filename">Nume fișier</string>
     <string name="restore_no_file">Fișierul de rezervă nu a fost găsit. Trebuie să efectuați o copiere de rezervă pentru a crea unul. Sau copiați unul de rezervă din PC-ul dumneavoastră</string>
     <string name="restore_set_password">Introduceți parola folosită de către fișierul de rezervă. Parola dumneavoastră principală va fi setată ca acesta.</string>
-	<string name="restore_select_file">Selectează un fișier pentru restaurare</string>
+	<string name="restore_select_file">Selectează un fișier pentru restabilire</string>
 	<string name="restore_error">Eroare în timpul restaurării</string>
     
     <!-- Toast message. %s contains a more detailed error message. -->
@@ -249,8 +249,8 @@
 	<string name="autobackup_turnoff">Oprește autocopierea de rezervă</string>
 	<string name="lock_timeout">Timp de blocare automată: %s</string>
 	<string name="download_oi_filemanager">Cât timp nu este descărcat, se va utiliza locația implicită.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
+	<string name="backup_file_found">S-a găsit un fișier copie de rezervă. Doriți să îl restabiliți?</string>
+	<string name="backup_file_found_label">Fișier copie de rezervă găsit</string>
 	<string name="zero">0</string>
 	<string name="one">1</string>
 	<string name="two">2</string>
