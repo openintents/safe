@@ -9,4 +9,10 @@
     <uses-library android:name="android.test.runner" />
     </application>
     <instrumentation android:targetPackage="org.openintents.safe" android:name="android.test.InstrumentationTestRunner" />
+
+    <!-- Instrumentation for Jenkins server -->
+    <instrumentation
+       android:targetPackage="org.openintents.safe"
+       android:name="pl.polidea.instrumentation.PolideaInstrumentationTestRunner" />
+    
 </manifest> 
