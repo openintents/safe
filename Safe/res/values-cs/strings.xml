@@ -24,7 +24,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Marek Dobransky https://launchpad.net/~marekdobr
   Matěj Konečný https://launchpad.net/~matejkon
-  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  clever_fox https://launchpad.net/~clever-fox</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Uložte si soukromá data s OI Sejf.</string>  
@@ -243,8 +244,8 @@
 	<string name="autobackup_turnoff">Vypnout automatickou zálohu</string>
 	<string name="lock_timeout">Čas do automatického zamknutí: %s</string>
 	<string name="download_oi_filemanager">Dokud není stažen, bude použit výchozí soubor</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
+	<string name="backup_file_found">Byl nalezen soubor zálohy. Chcete z něj obnovit?</string>
+	<string name="backup_file_found_label">Nalezen soubor zálohy.</string>
 	<string name="zero">0</string>
 	<string name="one">1</string>
 	<string name="two">2</string>
