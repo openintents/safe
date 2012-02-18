@@ -1,13 +1,17 @@
 ----------------
 release: 1.3
-date: 2012-02-06
-- uses OI Filemanager for backup/restore/import/export file selection
-  (issue 186, GCI patch by Matěj Konečný)
-- added a timer to the logoff intent to show how long until the OI Safe
-  service will be stopped (issue 175, GCI patch by Darriel)
+date: 2012-02-18
+
+Thanks to Google Code-in for the following patches:
+(see http://www.google-melange.com/gci/homepage/google/gci2011 )
+
+- uses OI Filemanager for backup/restore/import/export file selection (issue 186, GCI patch by Matěj Konečný)
+- added a timer to the logoff intent to show how long until the OI Safe service will be stopped (issue 175, GCI patch by Darriel)
 - hardware keyboard filtering of categories and passwords (issue 292, GCI patch by Matěj Konečný)
 - restore on first run is more insistent (issue 201, GCI patch by Matěj Konečný)
   
+- new icons and translations by Google Code-in students
+
 ----------------
 release: 1.2.9
 date: 2011-05-28
