@@ -130,7 +130,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">यह संस्करण समर्थित नहीं हैं: %s</string>
     
-    <string name="restore_error">बहलते हुए त्रुटि</string>
     <string name="restore_decrypt_error">गलत पासवर्ड</string>
     <string name="dialog_restore_database_title">पुराना डाटाबेस डालें</string>
     <string name="dialog_restore_database_msg">क्या आप वर्तमान के डाटा को प्रतिस्थापित करना चाहते हैं?</string>

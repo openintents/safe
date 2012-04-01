@@ -135,7 +135,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Versiunea nu este suportată: %s</string>
     
-    <string name="restore_error">Eroare la restabilire.</string>
     <string name="restore_decrypt_error">Parolă greșită.</string>
     <string name="dialog_restore_database_title">Restabilește baza de date.</string>
     <string name="dialog_restore_database_msg">Sunteți sigur că doriți să înlocuiți datele curente?</string>

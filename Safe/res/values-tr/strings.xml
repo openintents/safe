@@ -132,7 +132,6 @@ Launchpad Contributions:
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Sürüm desteklenmiyor: %s</string>
     
-    <string name="restore_error">Geri yükleme hatası</string>
     <string name="restore_decrypt_error">Kötü parola.</string>
     <string name="dialog_restore_database_title">Geri yükleme veri tabanı</string>
     <string name="dialog_restore_database_msg">Şuan kullanılan veri tabanının değiştirilmesini istiyor musunuz?</string>

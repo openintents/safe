@@ -128,7 +128,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Versjon ikke støttet: %s</string>
     
-    <string name="restore_error">Feil ved gjenoppretting.</string>
     <string name="restore_decrypt_error">Dårlig passord</string>
     <string name="dialog_restore_database_title">Gjenopprett database</string>
     <string name="dialog_restore_database_msg">Er du sikker på at du vil erstatte nåværende data?</string>

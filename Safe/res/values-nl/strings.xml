@@ -132,7 +132,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Versie wordt niet ondersteund: %s</string>
     
-    <string name="restore_error">Herstel fout.</string>
     <string name="restore_decrypt_error">Fout wachtwoord.</string>
     <string name="dialog_restore_database_title">Herstel database</string>
     <string name="dialog_restore_database_msg">Weet u zeker dat u de huidige data wilt vervangen?</string>

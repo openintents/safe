@@ -128,7 +128,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Versija nav atbalstīta: %s</string>
     
-    <string name="restore_error">Atjaunošanas kļūda.</string>
     <string name="restore_decrypt_error">Slikta parole.</string>
     <string name="dialog_restore_database_title">Atjaunot datubāzi</string>
     <string name="dialog_restore_database_msg">Vai Jūs tiešām vēlaties aizvietot pašreizējos datus?</string>

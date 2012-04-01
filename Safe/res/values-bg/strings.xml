@@ -136,7 +136,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Версията не се поддържа:%s</string>
     
-    <string name="restore_error">Грешка при възстановяване.</string>
     <string name="restore_decrypt_error">Лоша парола.</string>
     <string name="dialog_restore_database_title">Възстанови базата данни</string>
     <string name="dialog_restore_database_msg">Сигурни ли сте, че искате да замените текущите  данни?</string>

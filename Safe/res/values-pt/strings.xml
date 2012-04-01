@@ -128,7 +128,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Versão não suportada: %s</string>
     
-    <string name="restore_error">Erro ao restaurar.</string>
     <string name="restore_decrypt_error">Senha inválida.</string>
     <string name="dialog_restore_database_title">Restaurar base de dados</string>
     <string name="dialog_restore_database_msg">tem a certeza que pretende substituir os dados existentes?</string>

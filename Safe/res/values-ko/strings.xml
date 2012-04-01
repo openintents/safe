@@ -128,7 +128,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">호환되지 않는 버전입니다: %s</string>
     
-    <string name="restore_error">복구 에러.</string>
     <string name="restore_decrypt_error">비밀번호 오류.</string>
     <string name="dialog_restore_database_title">데이터베이스 복원</string>
     <string name="dialog_restore_database_msg">현재 데이터를 교체하시겠습니까?</string>

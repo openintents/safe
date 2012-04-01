@@ -128,7 +128,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Η έκδοση δεν υποστηρίζεται : %s</string>
     
-    <string name="restore_error">Σφάλμα επαναφοράς.</string>
     <string name="restore_decrypt_error">Λανθασμένος κωδικός.</string>
     <string name="dialog_restore_database_title">Επαναφορά Βάσης Δεδομένων</string>
     <string name="dialog_restore_database_msg">Είστε σίγουρος ότι θέλετε να αντικαταστήσετε τα τρέχοντα δεδομένα;</string>

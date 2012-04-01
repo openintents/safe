@@ -129,7 +129,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">ईयो संस्करण समर्थित काने: %s</string>
     
-    <string name="restore_error">त्रुटी रेस्टोर कयो</string>
     <string name="restore_decrypt_error">गन्दा पासवर्ड</string>
     <string name="dialog_restore_database_title">डाटाबेस रेस्टोरे कयो</string>
     <string name="dialog_restore_database_msg">शा तहां वर्तमान डाटा खे प्रतिस्थापित करण ता चाह्यो?</string>

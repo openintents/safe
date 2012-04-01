@@ -129,7 +129,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Verzia nepodporovaná: %s</string>
     
-    <string name="restore_error">Obnoviť chybu.</string>
     <string name="restore_decrypt_error">Zlé heslo.</string>
     <string name="dialog_restore_database_title">Obnoviť databazu</string>
     <string name="dialog_restore_database_msg">Naozaj chcete prepísať aktualne údaje?</string>

@@ -134,7 +134,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">Version wird nicht unterstützt: %s</string>
     
-    <string name="restore_error">Fehler beim Wiederherstellen.</string>
     <string name="restore_decrypt_error">Schlechtes Passwort</string>
     <string name="dialog_restore_database_title">Datenbank wiederherstellen</string>
     <string name="dialog_restore_database_msg">Sind Sie sicher, dass Sie die bestehenden Einträge ersetzen wollen?</string>

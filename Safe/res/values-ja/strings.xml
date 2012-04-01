@@ -130,7 +130,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">サポートしていないバージョン: %s</string>
     
-    <string name="restore_error">復元に失敗。</string>
     <string name="restore_decrypt_error">正しくないパスワード。</string>
     <string name="dialog_restore_database_title">データベースを復元</string>
     <string name="dialog_restore_database_msg">現在のデータで置き換えてもよろしいですか？</string>

@@ -132,7 +132,6 @@
     <!-- Toast message. %s contains the version number of the database. -->
     <string name="restore_bad_version">גרסה לא נתמכת : %s</string>
     
-    <string name="restore_error">שגיאת שחזור.</string>
     <string name="restore_decrypt_error">סיסמא גרועה.</string>
     <string name="dialog_restore_database_title">שחזר מסד נתונים</string>
     <string name="dialog_restore_database_msg">האם אתה בטוח שברצונך להחליף את המידע הנוכחי?</string>
