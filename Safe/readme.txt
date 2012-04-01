@@ -25,6 +25,12 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release: 1.4
+date: ?
+
+- automatically open on-screen keyboard on "Master password" screen (issue 328, patch by Eldwin)
+
+----------------
 release: 1.3
 date: 2012-02-18
 

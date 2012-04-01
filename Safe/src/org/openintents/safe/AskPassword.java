@@ -26,6 +26,7 @@ import org.openintents.util.VersionUtils;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,13 +41,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 
 /**
  * AskPassword Activity
@@ -170,6 +170,13 @@ public class AskPassword extends DistributionLibraryActivity {
 
 		pbeKey = (EditText) findViewById(R.id.password);
 		pbeKey.requestFocus();
+		pbeKey.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				InputMethodManager keyboard = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+				keyboard.showSoftInput(pbeKey, 0);
+			}
+		}, 200);
 		introText = (TextView) findViewById(R.id.first_time);
 		remoteAsk = (TextView) findViewById(R.id.remote);
 		confirmPass = (EditText) findViewById(R.id.pass_confirm);
