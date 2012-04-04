@@ -232,6 +232,7 @@ public class AskPassword extends DistributionLibraryActivity {
 
 		// Password must be at least 4 characters
 		if (PBEKey.length() < 4) {
+			pbeKey.setText("");
 			Toast.makeText(AskPassword.this, R.string.notify_blank_pass,
 					Toast.LENGTH_SHORT).show();
 			Animation shake = AnimationUtils
@@ -251,9 +252,14 @@ public class AskPassword extends DistributionLibraryActivity {
 			// Make sure password and confirm fields match
 			if (pbeKey.getText().toString().compareTo(
 					confirmPass.getText().toString()) != 0) {
+				confirmPass.setText("");
 				Toast.makeText(AskPassword.this,
 						R.string.confirm_pass_fail, Toast.LENGTH_SHORT)
 						.show();
+				Animation shake = AnimationUtils
+						.loadAnimation(AskPassword.this, R.anim.shake);
+
+				findViewById(R.id.password).startAnimation(shake);
 				return;
 			}
 			try {
@@ -281,6 +287,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		} else if (!checkUserPassword(PBEKey)) {
 			// Check the user's password and display a
 			// message if it's wrong
+			pbeKey.setText("");
 			Toast.makeText(AskPassword.this, R.string.invalid_password,
 					Toast.LENGTH_SHORT).show();
 			Animation shake = AnimationUtils
