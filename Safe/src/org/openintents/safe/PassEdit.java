@@ -33,6 +33,8 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.ClipboardManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,6 +63,7 @@ public class PassEdit extends Activity {
 
 	public static final int RESULT_DELETED = RESULT_FIRST_USER;
 	
+	private MenuItem saveItem;
 	private EditText descriptionText;
 	private EditText passwordText;
 	private EditText usernameText;
@@ -160,9 +163,26 @@ public class PassEdit extends Activity {
 		});
 		restoreMe();
 
-		if(CheckWrappers.mActionBarAvailable){
+		if (CheckWrappers.mActionBarAvailable) {
 			WrapActionBar bar = new WrapActionBar(this);
 			bar.setDisplayHomeAsUpEnabled(true);
+			
+			// if Action Bar is available, save button needs to be updated more often
+			TextWatcher textWatcher = new TextWatcher() {
+				public void afterTextChanged(Editable s) {}
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {} 
+
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+					if (saveItem != null) {
+						saveItem.setVisible(!allFieldsEmpty());
+					}
+				}
+			};
+			descriptionText.addTextChangedListener(textWatcher);
+			passwordText.addTextChangedListener(textWatcher);
+			usernameText.addTextChangedListener(textWatcher);
+			noteText.addTextChangedListener(textWatcher);
+			websiteText.addTextChangedListener(textWatcher);
 		}
 
 		sendBroadcast (restartTimerIntent);
@@ -195,8 +215,8 @@ public class PassEdit extends Activity {
 	protected void onPause() {
 		super.onPause();
 		if (debug) Log.d(TAG,"onPause()");
-
-		if (isFinishing() && discardEntry==false) {
+	
+		if (isFinishing() && discardEntry==false && allFieldsEmpty()==false) {
 			savePassword();
 		}
 		try {
@@ -219,8 +239,8 @@ public class PassEdit extends Activity {
 			startActivity(frontdoor);
 			return;
 		}
-        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-        registerReceiver(mIntentReceiver, filter);
+		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+		registerReceiver(mIntentReceiver, filter);
 
 		Passwords.Initialize(this);
 
@@ -267,12 +287,12 @@ public class PassEdit extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		MenuItem item = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save).setIcon(
+		saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save).setIcon(
 				android.R.drawable.ic_menu_save).setShortcut('1', 's');
 		if (CheckWrappers.mActionBarAvailable) {
-			WrapActionBar.showIfRoom(item);
+			WrapActionBar.showIfRoom(saveItem);
+			saveItem.setVisible(!allFieldsEmpty());
 		}
-
 		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete).setIcon(
 				android.R.drawable.ic_menu_delete);
 		menu.add(0, DISCARD_PASSWORD_INDEX, 0, R.string.discard_changes).setIcon(
@@ -282,7 +302,26 @@ public class PassEdit extends Activity {
 
 		return super.onCreateOptionsMenu(menu);
 	}
-
+	
+	@Override
+	public boolean onMenuOpened(int featureId, Menu menu) {
+		if (!CheckWrappers.mActionBarAvailable) {
+			menu.findItem(SAVE_PASSWORD_INDEX).setEnabled(!allFieldsEmpty());
+		}
+		return super.onMenuOpened(featureId, menu);
+	}
+	
+	/**
+	 * Returns true if all fields are empty.
+	 */
+	private boolean allFieldsEmpty() {
+		return (descriptionText.getText().toString().trim().equals("") &&
+				websiteText.getText().toString().trim().equals("") &&
+				usernameText.getText().toString().trim().equals("") &&
+				passwordText.getText().toString().trim().equals("") &&
+				noteText.getText().toString().trim().equals(""));
+	}
+	
 	/**
 	 * Save the password entry and finish the activity.
 	 */
