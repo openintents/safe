@@ -135,6 +135,12 @@ public class PassEdit extends Activity {
 
 		goButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
+				
+				String link = websiteText.getText().toString();
+				if (link == null || link.equals("") || link.equals("http://")) {
+					Toast.makeText(PassEdit.this, getString(R.string.invalid_url), Toast.LENGTH_SHORT).show();
+					return;
+				}
 
 				Toast.makeText(PassEdit.this, getString(R.string.password)+" "+getString(R.string.copied_to_clipboard),
 						Toast.LENGTH_SHORT).show();
@@ -143,7 +149,7 @@ public class PassEdit extends Activity {
 				cb.setText(passwordText.getText().toString());
 
 				Intent i = new Intent(Intent.ACTION_VIEW);
-				String link = websiteText.getText().toString();
+
 				Uri u = Uri.parse(link);
 				i.setData(u);
 				try {

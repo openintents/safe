@@ -31,6 +31,7 @@ date: ?
 - automatically open on-screen keyboard on "Master password" screen (issue 328, patch by Eldwin)
 - clear master password if wrong (patch by Kumar Sukhani)
 - empty password records not saved (patch by Eldwin)
+- checks for empty website on Go button (patch by Kumar Sukhani) 
 
 ----------------
 release: 1.3

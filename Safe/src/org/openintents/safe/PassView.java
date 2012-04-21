@@ -241,6 +241,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 
 			String link = websiteText.getText().toString();
 			if (link == null || link.equals("") || link.equals("http://")) {
+				Toast.makeText(PassView.this, getString(R.string.invalid_url), Toast.LENGTH_SHORT).show();
 				return;
 			}
 
