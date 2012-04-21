@@ -26,7 +26,6 @@ import org.openintents.util.VersionUtils;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -407,6 +406,11 @@ public class AskPassword extends DistributionLibraryActivity {
 		// icon set below in onPrepareOptionsMenu()
 		if (CheckWrappers.mActionBarAvailable) {
 			WrapActionBar.showIfRoom(item);
+		}
+		if (firstTime) {
+			item.setEnabled(false);
+		} else {
+			item.setEnabled(true);
 		}
 
 		MenuItem miMute;
