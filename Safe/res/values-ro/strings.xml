@@ -262,7 +262,8 @@
 	<string name="nine">9</string>
 	<string name="numbersign">#</string>
 	<string name="asterisk">*</string>
-
+	<string name="invalid_url">Invalid URL</string>
+	
 	<!-- ***************************
 	     Permissions
 	     *************************** -->

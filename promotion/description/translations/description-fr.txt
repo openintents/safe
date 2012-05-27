@@ -2,7 +2,7 @@
 OI Safe
 
 # Promo text:
-Store your private data with OI Safe.
+Stockez vos données privées avec OI Safe
 
 # Description:
 OI Safe protège en toute sécurité tous vos mots de passe et autres données privées à l'aide standard de l'industrie de cryptage AES. Il agit aussi comme une extension de l'OI Notepad pour crypter les notes créées dans l'OI Notepad. 

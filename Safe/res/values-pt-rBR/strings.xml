@@ -22,8 +22,7 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  OpenIntents devs https://launchpad.net/~openintents-devs
-  Sérgio Marques https://launchpad.net/~sergio+marques</string>
+  Tanguy Herrmann https://launchpad.net/~dolanor</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Guarde os dados privados com o OI Safe.</string>  

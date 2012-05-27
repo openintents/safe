@@ -24,7 +24,8 @@
 	<string name="about_translators">Launchpad Contributions:
   Dvir Oren https://launchpad.net/~dvir0776
   Neta Oren https://launchpad.net/~netao212
-  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Yaron https://launchpad.net/~sh-yaron</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Store your private data with OI Safe.</string>  
@@ -259,7 +260,8 @@
 	<string name="nine">9</string>
 	<string name="numbersign">#</string>
 	<string name="asterisk">*</string>
-
+	<string name="invalid_url">Invalid URL</string>
+	
 	<!-- ***************************
 	     Permissions
 	     *************************** -->
