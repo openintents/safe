@@ -24,6 +24,7 @@ import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -101,7 +102,7 @@ public class AskPassword extends DistributionLibraryActivity {
 	private Toast confirmPasswordFailToast = null;
 	
 	/** Called when the activity is first created. */
-	@Override
+	@SuppressLint("ShowToast") @Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
@@ -178,7 +179,6 @@ public class AskPassword extends DistributionLibraryActivity {
 		pbeKey = (EditText) findViewById(R.id.password);
 		pbeKey.requestFocus();
 		pbeKey.postDelayed(new Runnable() {
-			@Override
 			public void run() {
 				InputMethodManager keyboard = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
 				keyboard.showSoftInput(pbeKey, 0);
