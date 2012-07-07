@@ -29,8 +29,8 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
 		mContext = context;
 
 		//setTitle(context.getText(R.string.menu_edit_tags));
-		setButton(context.getText(android.R.string.ok), this);
-		setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
+		setButton(BUTTON_POSITIVE, context.getText(android.R.string.ok), this);
+		setButton(BUTTON_NEGATIVE, context.getText(android.R.string.cancel), (OnClickListener) null);
 		setIcon(R.drawable.ic_launcher_folder_small);
 
 		LayoutInflater inflater = 
@@ -56,7 +56,7 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
 
 
 	public void onClick(DialogInterface dialog, int which) {
-		if (which == BUTTON1) {
+		if (which == BUTTON_POSITIVE) {
 			openOrSave();
 		}
 		
