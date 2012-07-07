@@ -54,7 +54,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.text.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -707,8 +707,7 @@ public class CategoryList extends ListActivity {
 	private void lockAndShutFrontDoor () {
 
 		/* Clear the clipboard, if it contains the last password used */
-		ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-
+		ClipboardManager cb = ClipboardManager.newInstance(getApplication());
 		if (cb.hasText()) {
 			String clipboardText = cb.getText().toString();
 			if (clipboardText.equals(Safe.last_used_password))
