@@ -24,7 +24,6 @@ import java.util.List;
 
 import org.openintents.intents.CryptoIntents;
 
-import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -52,11 +51,11 @@ public class Search extends ListActivity {
 
 	public static final int REQUEST_VIEW_PASSWORD = 1;
 
-	private static final int SEARCH_PROGRESS_KEY = 0;
-
 	private static final int MSG_SEARCH_COMPLETE = 0;
 
 	private Thread searchThread=null;
+
+	private ProgressDialog progressDialog=null;
 
 	private EditText etSearchCriteria;
 	private String searchCriteria="";
@@ -216,20 +215,6 @@ public class Search extends ListActivity {
 		}
 	}
 
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case SEARCH_PROGRESS_KEY: {
-			ProgressDialog dialog = new ProgressDialog(this);
-			dialog.setMessage(getString(R.string.search_progress));
-			dialog.setIndeterminate(false);
-			dialog.setCancelable(true);
-			return dialog;
-		}
-		}
-		return null;
-	}
-
 	/**
 	 * Start a separate thread to search the database.   By running
 	 * the search in a thread it allows the main UI thread to return
@@ -241,16 +226,22 @@ public class Search extends ListActivity {
 				// it's already searching
 			} else {
 				// just rerun
-				showDialog(SEARCH_PROGRESS_KEY);
+				progressDialog.show();
 				searchThread.run();
 			}
 			return;
 		}
-		showDialog(SEARCH_PROGRESS_KEY);
+
+		progressDialog = new ProgressDialog(this);
+		progressDialog.setMessage(getString(R.string.search_progress));
+		progressDialog.setIndeterminate(false);
+		progressDialog.setCancelable(true);
+		progressDialog.show();
+
 		searchThread = new Thread(new Runnable() {
 			public void run() {
 				doSearch();
-				dismissDialog(SEARCH_PROGRESS_KEY);
+				progressDialog.dismiss();
 				sendBroadcast (restartTimerIntent);
 
 				Message m = new Message();
