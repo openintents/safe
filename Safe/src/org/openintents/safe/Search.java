@@ -1,6 +1,5 @@
-/* $Id$
- * 
- * Copyright (C) 2009 OpenIntents.org
+/*
+ * Copyright (C) 2012 OpenIntents
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,324 +15,44 @@
  */
 package org.openintents.safe;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
 import org.openintents.intents.CryptoIntents;
 
-import android.app.ListActivity;
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
-import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class Search extends ListActivity {
-	
-	private static final String TAG = "Search";
-	private static boolean debug = false;
+public class Search extends FragmentActivity {
 
-	public static final int REQUEST_VIEW_PASSWORD = 1;
+	private final boolean debug = false;
+	private final String TAG = "Search";
 
-	private static final int MSG_SEARCH_COMPLETE = 0;
-
-	private Thread searchThread=null;
-
-	private ProgressDialog progressDialog=null;
-
-	private EditText etSearchCriteria;
-	private String searchCriteria="";
-	private List<SearchEntry> results=null;
-	private SearchListItemAdapter searchAdapter=null;
-
-	Intent frontdoor;
-	private Intent restartTimerIntent=null;
-	
-	public Handler myViewUpdateHandler = new Handler(){
-		// @Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-			case MSG_SEARCH_COMPLETE:
-				searchAdapter = 
-				    new SearchListItemAdapter(Search.this, R.layout.search_row,
-				    		results);
-				setListAdapter(searchAdapter);
-				if ((searchAdapter!=null) && (searchAdapter.isEmpty())) {
-					Toast.makeText(Search.this, R.string.search_nothing_found,
-						Toast.LENGTH_LONG).show();
-				}
-				break;
-			}
-			super.handleMessage(msg);
-		}
-	}; 
-
-	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-				startActivity(frontdoor);
-			}
-		}
-	};
+	private Intent restartTimerIntent = null;
 
 	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-		if (debug) Log.d(TAG,"onCreate()");
-
+		if (debug)
+			Log.d(TAG, "onCreate()");
 		setContentView(R.layout.search);
-		String title = getResources().getString(R.string.app_name) + " - " +
-			getResources().getString(R.string.search);
-		setTitle(title);
 
-		frontdoor = new Intent(this, Safe.class);
-		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-		etSearchCriteria = (EditText) findViewById(R.id.search_criteria);
-		results=new ArrayList<SearchEntry>();
-
-		Button goButton = (Button) findViewById(R.id.go_button);
-		goButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View arg0) {
-				searchCriteria = etSearchCriteria.getText().toString().trim().toLowerCase();
-				searchThreadStart();
-			}
-		});
-
-		etSearchCriteria.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-					// hide the soft keyboard
-					InputMethodManager imm =
-						(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-					imm.toggleSoftInput(0, 0);
-					searchCriteria = etSearchCriteria.getText().toString().trim().toLowerCase();
-					searchThreadStart();
-					return true;
-				}
-				return false;
-			}
-		});
-
-		restoreMe();
 	}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-
-		if (debug) Log.d(TAG,"onPause()");
-		
-		if ((searchThread != null) && (searchThread.isAlive())) {
-			if (debug) Log.d(TAG,"wait for search thread");
-			int maxWaitToDie=500000;
-			try { searchThread.join(maxWaitToDie); } 
-			catch(InterruptedException e){} //  ignore 
-		}
-		try {
-			unregisterReceiver(mIntentReceiver);
-		} catch (IllegalArgumentException e) {
-			//if (debug) Log.d(TAG,"IllegalArgumentException");
-		}
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		
-		if (debug) Log.d(TAG,"onResume()");
-
-		if (CategoryList.isSignedIn()==false) {
-			startActivity(frontdoor);
-			return;
-		}
-		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		registerReceiver(mIntentReceiver, filter);
-
-		Passwords.Initialize(this);
-	}
-
-	public static long[] getRowsIds(List<SearchEntry> rows) {
-		if (debug) Log.d(TAG,"getRowsIds() rows="+rows);
-		if (rows!=null) {
-			long[] ids=new long[rows.size()];
-			Iterator<SearchEntry> searchIter=rows.iterator();
-			int i=0;
-			while (searchIter.hasNext()) {
-				ids[i]=searchIter.next().id;
-				i++;
-			}
-			return ids;
-		} else {
-			return null;
-		}
-	}
-
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-
-		if (debug) Log.d(TAG,"onListItemClick: position="+position);
-		if ((results==null) || (results.size()==0)) {
-			return;
-		}
-		Intent passView = new Intent(this, PassView.class);
-		passView.putExtra(PassList.KEY_ID, results.get(position).id);
-		if (debug) Log.d(TAG,"onListItemClick: category="+results.get(position).category);
-		passView.putExtra(PassList.KEY_CATEGORY_ID, results.get(position).categoryId);
-		passView.putExtra(PassList.KEY_ROWIDS, getRowsIds(results));
-		passView.putExtra(PassList.KEY_LIST_POSITION, position);
-		startActivityForResult(passView,REQUEST_VIEW_PASSWORD);
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent i) {
-		super.onActivityResult(requestCode, resultCode, i);
-		
-		if (((requestCode==REQUEST_VIEW_PASSWORD)&&(PassView.entryEdited)) ||
-			(resultCode==RESULT_OK)) {
-			searchCriteria = etSearchCriteria.getText().toString().trim().toLowerCase();
-			searchThreadStart();
-		}
-	}
-
-	/**
-	 * Start a separate thread to search the database.   By running
-	 * the search in a thread it allows the main UI thread to return
-	 * and permit the updating of the progress dialog.
-	 */
-	private void searchThreadStart(){
-		if (searchThread!=null) {
-			if (searchThread.isAlive()) {
-				// it's already searching
-			} else {
-				// just rerun
-				progressDialog.show();
-				searchThread.run();
-			}
-			return;
-		}
-
-		progressDialog = new ProgressDialog(this);
-		progressDialog.setMessage(getString(R.string.search_progress));
-		progressDialog.setIndeterminate(false);
-		progressDialog.setCancelable(true);
-		progressDialog.show();
-
-		searchThread = new Thread(new Runnable() {
-			public void run() {
-				doSearch();
-				progressDialog.dismiss();
-				sendBroadcast (restartTimerIntent);
-
-				Message m = new Message();
-				m.what = MSG_SEARCH_COMPLETE;
-				Search.this.myViewUpdateHandler.sendMessage(m); 
-
-				if (debug) Log.d(TAG,"thread end");
-				}
-			},"Search");
-		searchThread.start();
-	}
-
-	private void doSearch() {
-		if (debug) Log.d(TAG,"doSearch: searchCriteria="+searchCriteria);
-		results.clear();
-		if (searchCriteria.length()==0) {
-			// don't bother searching for nothing
-			return;
-		}
-		
-		List<CategoryEntry> categories=Passwords.getCategoryEntries();
-		for (CategoryEntry catRow : categories) {
-			if (debug) Log.d(TAG,"doSearch: category="+catRow.plainName);
-			List<PassEntry> passwords=Passwords.getPassEntries(catRow.id, true, false);
-			for (PassEntry passRow : passwords) {
-				if (searchThread.isInterrupted()) {
-					return;
-				}
-
-				String description=passRow.plainDescription.toLowerCase();
-				String website=passRow.plainWebsite.toLowerCase();
-				String username=passRow.plainUsername.toLowerCase();
-				String password=passRow.plainPassword.toLowerCase();
-				String note=passRow.plainNote.toLowerCase();
-				if (description.contains(searchCriteria) ||
-						website.contains(searchCriteria) ||
-						username.contains(searchCriteria) ||
-						password.contains(searchCriteria) ||
-						note.contains(searchCriteria)) {
-					if (debug) Log.d(TAG,"matches: "+passRow.plainDescription);
-					SearchEntry searchRow=new SearchEntry();
-					searchRow.name=passRow.plainDescription;
-					searchRow.id=passRow.id;
-					searchRow.category=catRow.plainName;
-					searchRow.categoryId=catRow.id;
-					results.add(searchRow);
-					continue;
-				}
-			}
-		}
-
-		Collections.sort(results, new Comparator<SearchEntry>() {
-			public int compare(SearchEntry o1, SearchEntry o2) {
-				return o1.name.compareToIgnoreCase(o2.name);
-			}});
-
-		updateListFromResults();
-	}
-
-	@Override  
-	public Object onRetainNonConfigurationInstance() {  
-		return(results);  
-	}  
-
-	@SuppressWarnings("unchecked")
-	private void restoreMe() {  
-		if (getLastNonConfigurationInstance()!=null) {  
-			results=(List<SearchEntry>)getLastNonConfigurationInstance();
-			updateListFromResults();
-			setListAdapter(searchAdapter);
-		}  
-	}
-	
-	private void updateListFromResults() {
-		if (results==null) {
-			return;
-		}
-		searchAdapter = 
-			new SearchListItemAdapter(Search.this, R.layout.search_row,
-					results);
-	}
-	
 	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+		if (debug)
+			Log.d(TAG, "onUserInteraction()");
 
-		if (CategoryList.isSignedIn()==false) {
-//			startActivity(frontdoor);
-		}else{
-			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
+		if (CategoryList.isSignedIn() == false) {
+			// startActivity(frontdoor);
+		} else {
+			if (restartTimerIntent != null)
+				sendBroadcast(restartTimerIntent);
 		}
 	}
 }
