@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -48,9 +49,11 @@ import android.widget.Toast;
 public class SearchFragment extends ListFragment {
 
 	private static final String TAG = "Search";
-	private static boolean debug = false;
+	private static final boolean debug = false;
 
 	public static final int REQUEST_VIEW_PASSWORD = 1;
+
+	public static final String KEY_RESULTS = "results";
 
 	// Need handler for callbacks to the UI thread
 	final Handler mHandler = new Handler();
@@ -204,7 +207,8 @@ public class SearchFragment extends ListFragment {
 		super.onListItemClick(l, v, position, id);
 
 		if (debug)
-			Log.d(TAG, "onListItemClick: position=" + position);
+			Log.d(TAG, "onListItemClick: position=" + position + " results="
+					+ results);
 		if ((results == null) || (results.size() == 0)) {
 			return;
 		}
@@ -329,4 +333,41 @@ public class SearchFragment extends ListFragment {
 		searchAdapter = new SearchListItemAdapter(getActivity(),
 				R.layout.search_row, results);
 	}
+
+	/**
+	 * If we have results, save them for use with onActivityCreated()
+	 */
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		if (results != null) {
+			SearchEntry[] aResults = new SearchEntry[results.size()];
+			results.toArray(aResults);
+			outState.putParcelableArray(KEY_RESULTS, aResults);
+		}
+	}
+	/**
+	 * Restore results from onSaveInstanceState()
+	 */
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
+		if (debug)
+			Log.d(TAG, "onActivityCreated(" + savedInstanceState + ")");
+
+		if ((savedInstanceState != null)
+				&& (savedInstanceState.containsKey(KEY_RESULTS))
+				&& (results != null)) {
+			Parcelable[] parcels = savedInstanceState
+					.getParcelableArray(KEY_RESULTS);
+			for (Parcelable par : parcels) {
+				results.add((SearchEntry) par);
+			}
+			if (results.size() > 0) {
+				updateResultsInUi();
+			}
+		}
+	}
+
 }
