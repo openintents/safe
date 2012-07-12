@@ -29,7 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.text.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -113,7 +113,7 @@ public class PassGen extends Activity {
 	
 	private final OnClickListener copy_clip_listener = new OnClickListener() {
 		public void onClick(View v) {
-			ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+			ClipboardManager cb = ClipboardManager.newInstance(getApplication());
 			cb.setText(pass_view.getText().toString());
 			finish();
 		}

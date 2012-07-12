@@ -27,7 +27,6 @@ public class RestoreFirstTime extends Activity {
 
 		((TextView) findViewById(R.id.filename)).setText(path);
 		restore.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(RestoreFirstTime.this, Restore.class);
 				i.putExtra(Restore.KEY_FILE_PATH, path);
@@ -36,7 +35,6 @@ public class RestoreFirstTime extends Activity {
 			}
 		});
 		cancel.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				setResult(RESULT_CANCELED);
 				finish();

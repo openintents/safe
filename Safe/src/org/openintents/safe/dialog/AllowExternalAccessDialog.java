@@ -14,6 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 
+/**
+ * This dialog is presented when an external application wants to use OI Safe for
+ * encryption.   An example is OI Notepad.  When a user tells Notepad to encrypt
+ * a note and OI Safe does not already allow for external access, this dialog will
+ * come up.
+ * 
+ */
 public class AllowExternalAccessDialog extends AlertDialog implements OnClickListener {
 //	private static final String TAG = "FilenameDialog";
 
@@ -30,8 +37,8 @@ public class AllowExternalAccessDialog extends AlertDialog implements OnClickLis
 		mContext = context;
 
 		setTitle(context.getText(R.string.dialog_title_external_access));
-		setButton(context.getText(android.R.string.ok), this);
-		setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
+		setButton(BUTTON_POSITIVE, context.getText(android.R.string.ok), this);
+		setButton(BUTTON_NEGATIVE, context.getText(android.R.string.cancel), (OnClickListener) null);
 		setIcon(android.R.drawable.ic_dialog_alert);
 
 		LayoutInflater inflater = 
@@ -51,7 +58,7 @@ public class AllowExternalAccessDialog extends AlertDialog implements OnClickLis
 
 
 	public void onClick(DialogInterface dialog, int which) {
-		if (which == BUTTON1) {
+		if (which == BUTTON_POSITIVE) {
 			// User pressed OK
 			boolean externalAccess = mCheckBox.isChecked();
 

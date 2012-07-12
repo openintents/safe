@@ -18,7 +18,7 @@ https://translations.launchpad.net/openintents/trunk
 Der Quellcode dieser kostenlosen und quelloffenen Applikation ist verfügbar auf: 
 http://code.google.com/p/openintents
 
-Eigentschaften: 
+Leistungsmerkmale: 
 * Daten mit der AES Verschlüsselung schützen.
 * Dateneinträge zwischen Kategorien frei herumbewegen.
 * Dateneinträge und Datenbanken importieren oder exportieren.

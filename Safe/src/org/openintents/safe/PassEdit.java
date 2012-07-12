@@ -32,7 +32,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -145,7 +145,7 @@ public class PassEdit extends Activity {
 				Toast.makeText(PassEdit.this, getString(R.string.password)+" "+getString(R.string.copied_to_clipboard),
 						Toast.LENGTH_SHORT).show();
 
-				ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+				ClipboardManager cb = ClipboardManager.newInstance(getApplication());
 				cb.setText(passwordText.getText().toString());
 
 				Intent i = new Intent(Intent.ACTION_VIEW);

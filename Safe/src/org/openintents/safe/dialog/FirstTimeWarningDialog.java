@@ -24,7 +24,7 @@ public class FirstTimeWarningDialog extends AlertDialog implements OnClickListen
 		mContext = context;
 
 		setTitle(context.getText(R.string.dialog_title_first_time_warning));
-		setButton(context.getText(android.R.string.ok), (OnClickListener) null);
+		setButton(BUTTON_POSITIVE, context.getText(android.R.string.ok), (OnClickListener) null);
 		//setButton2(context.getText(android.R.string.cancel), (OnClickListener) null);
 		setIcon(android.R.drawable.ic_dialog_alert);
 		setMessage(context.getText(R.string.dialog_summary_first_time_warning));
@@ -33,7 +33,7 @@ public class FirstTimeWarningDialog extends AlertDialog implements OnClickListen
 
 
 	public void onClick(DialogInterface dialog, int which) {
-		if (which == BUTTON1) {
+		if (which == BUTTON_POSITIVE) {
 			// User pressed OK
 		}
 		

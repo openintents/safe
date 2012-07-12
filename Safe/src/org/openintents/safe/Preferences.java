@@ -250,7 +250,6 @@ public class Preferences extends PreferenceActivity
 		pref.setSummary(value);
 	}
 
-	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		if(key.equals(PREFERENCE_BACKUP_PATH))

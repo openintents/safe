@@ -24,6 +24,7 @@ import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -96,8 +97,12 @@ public class AskPassword extends DistributionLibraryActivity {
 	private MediaPlayer mpSuccessBeep = null;
 	private boolean mute=false;
 	
+	private Toast blankPasswordToast = null;
+	private Toast invalidPasswordToast = null;
+	private Toast confirmPasswordFailToast = null;
+	
 	/** Called when the activity is first created. */
-	@Override
+	@SuppressLint("ShowToast") @Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
@@ -153,6 +158,10 @@ public class AskPassword extends DistributionLibraryActivity {
 		} else {
 			keypadInit();
 		}
+		
+		blankPasswordToast = Toast.makeText(AskPassword.this, R.string.notify_blank_pass, Toast.LENGTH_SHORT);
+		invalidPasswordToast = Toast.makeText(AskPassword.this, R.string.invalid_password, Toast.LENGTH_SHORT);
+		confirmPasswordFailToast = Toast.makeText(AskPassword.this, R.string.confirm_pass_fail, Toast.LENGTH_SHORT);
 	}
 
 	private void normalInit() {
@@ -170,7 +179,6 @@ public class AskPassword extends DistributionLibraryActivity {
 		pbeKey = (EditText) findViewById(R.id.password);
 		pbeKey.requestFocus();
 		pbeKey.postDelayed(new Runnable() {
-			@Override
 			public void run() {
 				InputMethodManager keyboard = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
 				keyboard.showSoftInput(pbeKey, 0);
@@ -232,8 +240,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		// Password must be at least 4 characters
 		if (PBEKey.length() < 4) {
 			pbeKey.setText("");
-			Toast.makeText(AskPassword.this, R.string.notify_blank_pass,
-					Toast.LENGTH_SHORT).show();
+			blankPasswordToast.show();
 			Animation shake = AnimationUtils
 					.loadAnimation(AskPassword.this, R.anim.shake);
 
@@ -252,9 +259,7 @@ public class AskPassword extends DistributionLibraryActivity {
 			if (pbeKey.getText().toString().compareTo(
 					confirmPass.getText().toString()) != 0) {
 				confirmPass.setText("");
-				Toast.makeText(AskPassword.this,
-						R.string.confirm_pass_fail, Toast.LENGTH_SHORT)
-						.show();
+				confirmPasswordFailToast.show();
 				Animation shake = AnimationUtils
 						.loadAnimation(AskPassword.this, R.anim.shake);
 
@@ -287,8 +292,7 @@ public class AskPassword extends DistributionLibraryActivity {
 			// Check the user's password and display a
 			// message if it's wrong
 			pbeKey.setText("");
-			Toast.makeText(AskPassword.this, R.string.invalid_password,
-					Toast.LENGTH_SHORT).show();
+			invalidPasswordToast.show();
 			Animation shake = AnimationUtils
 					.loadAnimation(AskPassword.this, R.anim.shake);
 
@@ -327,6 +331,13 @@ public class AskPassword extends DistributionLibraryActivity {
 
 		if (debug) Log.d(TAG, "onPause()");
 
+		if (blankPasswordToast != null)
+			blankPasswordToast.cancel();
+		if (invalidPasswordToast != null)
+			invalidPasswordToast.cancel();
+		if (confirmPasswordFailToast != null)
+			confirmPasswordFailToast.cancel();
+	
 		if (dbHelper!=null) {
 			dbHelper.close();
 			dbHelper = null;

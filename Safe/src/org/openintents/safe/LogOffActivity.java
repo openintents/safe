@@ -7,13 +7,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
 public class LogOffActivity extends Activity {
+	
 	private Handler mHandler = new Handler();
 	
 	@Override
@@ -34,7 +36,7 @@ public class LogOffActivity extends Activity {
 			public void onClick(View arg0) {
 
 				/* Clear the clipboard, if it contains the last password used */
-				ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+				ClipboardManager cb = ClipboardManager.newInstance(getApplication());
 
 				if (cb.hasText()) {
 					String clipboardText = cb.getText().toString();

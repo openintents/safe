@@ -37,7 +37,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -594,7 +594,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 		Toast.makeText(PassView.this, fieldName+" "+getString(R.string.copied_to_clipboard),
 				Toast.LENGTH_SHORT).show();
 
-		ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+		ClipboardManager cb = ClipboardManager.newInstance(getApplication());
 		cb.setText(value);
 		Safe.last_used_password = value;
 	}
