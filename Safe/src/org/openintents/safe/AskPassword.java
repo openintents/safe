@@ -58,7 +58,7 @@ import android.widget.Toast;
  */
 public class AskPassword extends DistributionLibraryActivity {
 
-	private boolean debug = false;
+	private final static boolean debug = true;
 	private static String TAG = "AskPassword";
 	public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
 

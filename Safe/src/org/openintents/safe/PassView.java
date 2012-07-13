@@ -479,7 +479,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 				entryEdited=true;
 				finish();
 			}
-			if ((resultCode == RESULT_OK) || (PassEdit.entryEdited)){
+			if ((resultCode == RESULT_OK) || (PassEditFragment.entryEdited)){
 				if (flipper!=null) {
 					View current=this.flipper.getCurrentView();
 					populateFields(RowId,current);

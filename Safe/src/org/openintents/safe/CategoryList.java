@@ -78,7 +78,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
  */
 public class CategoryList extends ListActivity {
 
-	private static boolean debug = false;
+	private static boolean debug = true;
 	private static final String TAG = "CategoryList";
 
 	// Menu Item order
@@ -466,8 +466,10 @@ public class CategoryList extends ListActivity {
 	 */
 	public static boolean isSignedIn() {
 		if ((salt != null) && (masterKey != null)) {
+			if (debug) Log.d(TAG,"isSignedIn: true");
 			return true;
 		}
+		if (debug) Log.d(TAG,"isSignedIn: false");
 		return false;
 	}
 

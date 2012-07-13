@@ -553,8 +553,8 @@ public class PassList extends ListActivity {
 		//Log.d(TAG, "onActivityResult. requestCode: " + requestCode + ", resultCode: " + resultCode);
 
 		if (((requestCode==REQUEST_VIEW_PASSWORD)&&(PassView.entryEdited)) ||
-				((requestCode==REQUEST_EDIT_PASSWORD)&&(PassEdit.entryEdited)) ||
-				((requestCode==REQUEST_ADD_PASSWORD)&&(PassEdit.entryEdited)) ||
+				((requestCode==REQUEST_EDIT_PASSWORD)&&(PassEditFragment.entryEdited)) ||
+				((requestCode==REQUEST_ADD_PASSWORD)&&(PassEditFragment.entryEdited)) ||
 				(resultCode==RESULT_OK)) {
 			fillData();
 		}

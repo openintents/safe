@@ -1,102 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-* $Id$
-* 
-* Copyright 2007 Steven Osborn
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
--->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pass_edit_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:scrollbars="vertical">
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pass_edit_fragment"
+        android:name="org.openintents.safe.PassEditFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PassEdit"
+        tools:layout="@layout/pass_edit_fragment" >
+    </fragment>
 
-<LinearLayout 
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-	
-	<TableLayout android:layout_width="fill_parent" 
-		android:layout_height="wrap_content">
-			<TableRow>
-				<TextView android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-
-					android:text="@string/description" />
-				<EditText android:id="@+id/description"
-					android:hint="@string/description"
-					android:singleLine="true"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:layout_weight="1"/>
-			</TableRow>
-			<TableRow>
-				<TextView android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:text="@string/website" />
-				<EditText android:id="@+id/website"
-					android:hint="@string/website"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:singleLine="true" 
-					android:inputType="textUri"
-					android:layout_weight="1"/>
-				<Button android:id="@+id/go" 
-					android:text="@string/go"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-				/>
-			</TableRow>
-			<TableRow>
-				<TextView android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:text="@string/username" />
-				<EditText android:id="@+id/username"
-					android:hint="@string/username"					 
-					android:singleLine="true"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:layout_weight="1"/>
-			</TableRow>
-
-			<TableRow>
-				<TextView android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:autoText="false"
-					android:text="@string/password" />
-				<EditText android:id="@+id/password"
-					android:hint="@string/password"
-					android:singleLine="true"
-					android:inputType="textVisiblePassword"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content" 
-					android:layout_weight="1"/>
-			</TableRow>
-	</TableLayout>
-
-	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" 
-		android:text="@string/notes" />
-	<EditText android:id="@+id/note"
-		android:hint="@string/notes"
-		android:layout_width="fill_parent"
-		android:gravity="top" 
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:inputType="textMultiLine"
-		android:scrollbars="vertical" />
-	
 </LinearLayout>
-</ScrollView>
