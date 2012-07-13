@@ -44,10 +44,10 @@
 */
 package org.openintents.safe.wrappers.honeycomb;
 
-import android.support.v2.os.Build;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.ClipData;
+import android.os.Build;
 
 /**
  * This class provides a basic wrapper around the built-in ClipboardManager
@@ -86,13 +86,12 @@ public abstract class ClipboardManager {
 	{
 		// Take note of the app:
 		theApp = app;
-		// Get the integer version of the current API number:
-		final int sdkVersion = Build.VERSION.SDK_INT;
+
 		// If the API number is less than Honeycomb (Android 3.0, or API 11),
 		// return the old clipboard manager.  Otherwise, get the newer version.
 		// This should be safe because the compiler hard-codes the version
 		// code during compilation.
-		if (sdkVersion < Build.VERSION_CODES.HONEYCOMB)
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
 			return new OldClipboardManager();
 		else return new HoneycombClipboardManager();
 	}
