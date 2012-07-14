@@ -168,7 +168,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 			if (debug) Log.d(TAG,"add previous");
 			View prevView = createView(listPosition-1,null);
 			flipper.addView(prevView,0);
-			flipper.showNext();
+			flipper.setDisplayedChild(1);
 		}
 
 		// are we starting at the end and we have more than 2 entries?
@@ -176,7 +176,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 			if (debug) Log.d(TAG,"add prev prev");
 			View prevView = createView(listPosition-2,null);
 			flipper.addView(prevView,0);
-			flipper.showNext();
+			flipper.setDisplayedChild(2);
 		}
 
 		if (rowids.length > (listPosition+1)) {  // is there a next?
