@@ -63,26 +63,16 @@
                    
         <activity class=".Safe" android:name="Safe" android:label="@string/app_name"
         		android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        	<!-- Launcher activity is only defined for FrontDoor below,
-        	     in order to avoid duplicate entry in the application menu. -->
-        	<!-- 
-         	<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-		        <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-             -->
         </activity>
-        <!-- alias is to handle versions 1.2.4 and earlier which used to use
-             FrontDoor as the initial activity -->
-        <activity-alias android:label="@string/app_name"
-                android:name="FrontDoor"
-                android:targetActivity="Safe" >
+        <!-- FrontDoor was the original main activity prior to 1.2.4.   Now it
+        	is a place holder which extends Safe -->
+        <activity class=".FrontDoor" android:name="FrontDoor" android:label="@string/app_name">
          	<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 		        <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>
-		
+        </activity>
+        		
         <activity class=".IntentHandler" android:name="IntentHandler" android:label="@string/app_name"
                   android:permission="org.openintents.safe.ACCESS_INTENTS">
             <intent-filter android:label="@string/intent_encrypt">
