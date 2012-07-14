@@ -78,7 +78,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
  */
 public class CategoryList extends ListActivity {
 
-	private static boolean debug = true;
+	private static boolean debug = false;
 	private static final String TAG = "CategoryList";
 
 	// Menu Item order

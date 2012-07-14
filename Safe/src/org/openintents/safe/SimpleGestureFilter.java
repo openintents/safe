@@ -1,6 +1,7 @@
 package org.openintents.safe;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -16,6 +17,9 @@ import android.view.MotionEvent;
  */
 public class SimpleGestureFilter extends SimpleOnGestureListener{
 
+	private final static boolean debug = true;
+	private final static String TAG = "SimpleGestureFilter";
+	
 	public final static int SWIPE_UP    = 1;
 	public final static int SWIPE_DOWN  = 2;
 	public final static int SWIPE_LEFT  = 3;
@@ -29,6 +33,8 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 	private int swipe_Min_Distance = 60;
 	private int swipe_Max_Distance = 350;
 	private int swipe_Min_Velocity = 50;
+	
+	private int viewWidth=400;
 	
 	private int mode      = MODE_DYNAMIC;
 	private boolean running = true;
@@ -45,6 +51,14 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 		this.listener = sgl; 
 	}
 
+	public void setViewWidth(int width) {
+		if (width>0) {
+			viewWidth=width;
+			swipe_Min_Distance = (int) Math.round(viewWidth * 0.20);
+			swipe_Max_Distance = (int) Math.round(viewWidth * 0.80);
+			if (debug) Log.d(TAG,"min="+swipe_Min_Distance+" max="+swipe_Max_Distance);
+		}
+	}
 	public void onTouchEvent(MotionEvent event){
 
 		if (!this.running)

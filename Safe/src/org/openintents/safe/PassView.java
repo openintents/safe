@@ -38,6 +38,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
+
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -141,7 +143,11 @@ public class PassView extends Activity implements SimpleGestureListener {
 		if (debug) Log.d(TAG,"rowids.length="+rowids.length);
 
 
+
 		detector = new SimpleGestureFilter(this,this);
+		DisplayMetrics metrics = getResources().getDisplayMetrics();
+		int width = metrics.widthPixels;
+		detector.setViewWidth(width);
 
 		entryEdited=false;
 
@@ -281,18 +287,18 @@ public class PassView extends Activity implements SimpleGestureListener {
 			flipper.setInAnimation(inFromTopAnimation());
 			flipper.setOutAnimation(outToBottomAnimation());
 		}
-		flipper.showPrevious();
+		int newChildPosition=flipper.getDisplayedChild()-1;
 		listPosition--;
 		RowId=rowids[listPosition];
-		int displayedChild=flipper.getDisplayedChild();
-		if (debug) Log.d(TAG,"previousButton displayedChild="+displayedChild+" listPosition="+listPosition);
-		if ((displayedChild==0) && (listPosition>0)) {
+		if (debug) Log.d(TAG,"previousButton displayedChild="+flipper.getDisplayedChild()+" listPosition="+listPosition);
+		if ((newChildPosition==0) && (listPosition>0)) {
 			View last=flipper.getChildAt(flipper.getChildCount()-1);
 			flipper.removeViewAt(flipper.getChildCount()-1);
 			View prevView = createView(listPosition-1, last);
 			flipper.addView(prevView,0);
-			flipper.showNext();
+			newChildPosition++;
 		}
+		flipper.setDisplayedChild(newChildPosition);
 	}
 	class prevButtonListener implements View.OnClickListener {
 		public void onClick(View arg0) {
@@ -313,7 +319,7 @@ public class PassView extends Activity implements SimpleGestureListener {
 			flipper.setInAnimation(inFromBottomAnimation());
 			flipper.setOutAnimation(outToTopAnimation());
 		}
-		flipper.showNext();
+		flipper.setDisplayedChild(displayedChild+1);
 		listPosition++;
 		RowId=rowids[listPosition];
 		// did we move beyond something more than the 2nd entry?
