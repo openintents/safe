@@ -17,7 +17,7 @@ import android.view.MotionEvent;
  */
 public class SimpleGestureFilter extends SimpleOnGestureListener{
 
-	private final static boolean debug = true;
+	private final static boolean debug = false;
 	private final static String TAG = "SimpleGestureFilter";
 	
 	public final static int SWIPE_UP    = 1;
@@ -54,7 +54,7 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 	public void setViewWidth(int width) {
 		if (width>0) {
 			viewWidth=width;
-			swipe_Min_Distance = (int) Math.round(viewWidth * 0.20);
+			swipe_Min_Distance = (int) Math.round(viewWidth * 0.15);
 			swipe_Max_Distance = (int) Math.round(viewWidth * 0.80);
 			if (debug) Log.d(TAG,"min="+swipe_Min_Distance+" max="+swipe_Max_Distance);
 		}
