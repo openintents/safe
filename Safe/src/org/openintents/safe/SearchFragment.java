@@ -127,7 +127,10 @@ public class SearchFragment extends ListFragment {
 				.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 					public boolean onEditorAction(TextView v, int actionId,
 							KeyEvent event) {
-						if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+						// Sadly with Jelly Bean actionId can equal 0 instead of IME_ACTION_SEARCH,
+						// so the hack event==null is used
+						if (actionId == EditorInfo.IME_ACTION_SEARCH
+								|| event == null) {
 							// hide the soft keyboard
 							InputMethodManager imm = (InputMethodManager) getActivity()
 									.getSystemService(
@@ -346,6 +349,7 @@ public class SearchFragment extends ListFragment {
 			outState.putParcelableArray(KEY_RESULTS, aResults);
 		}
 	}
+
 	/**
 	 * Restore results from onSaveInstanceState()
 	 */

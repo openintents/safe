@@ -534,8 +534,11 @@ public class CategoryList extends ListActivity {
 			.setIcon(android.R.drawable.ic_menu_add)
 			.setShortcut('2', 'a');
 
-		menu.add(0, SEARCH_INDEX, 0, R.string.search)
-		.setIcon(android.R.drawable.ic_menu_search);
+		item = menu.add(0, SEARCH_INDEX, 0, R.string.search)
+				.setIcon(android.R.drawable.ic_menu_search);
+		if (CheckWrappers.mActionBarAvailable) {
+			WrapActionBar.showIfRoom(item);
+		}
 
 		menu.add(0, DEL_CATEGORY_INDEX, 0, R.string.password_delete)  
 			.setIcon(android.R.drawable.ic_menu_delete)
