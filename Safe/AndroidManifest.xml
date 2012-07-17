@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe"
     android:installLocation="auto"
-    android:versionName="1.4-rc"
-    android:versionCode="26">
+    android:versionName="1.4"
+    android:versionCode="28">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
+	1.4 [28]: 2012-07-16
+	1.4-rc1 [27]: 2012-07-16
     1.3.1-beta [26]: 2012-07-07
     1.3 [25]: 2012-02-18
     1.3-rc1 [24]: 2012-02-06

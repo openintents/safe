@@ -1,4 +1,17 @@
 ----------------
+release: 1.4
+date: 2012-07-16
+
+- automatically open on-screen keyboard on "Master password" screen (issue 328, patch by Eldwin)
+- clear master password if wrong (patch by Kumar Sukhani)
+- empty password records not saved (patch by Eldwin)
+- checks for empty website on Go button (patch by Kumar Sukhani) 
+- corrected issue with Jelly Bean where wrong password entry was displayed
+- corrected issue with Jelly Bean on Search activity where touching the Search button
+  on the keyboard did not invoke the search
+- internal changes working toward fragments use
+
+----------------
 release: 1.3
 date: 2012-02-18
 
@@ -17,15 +30,6 @@ release: 1.2.9
 date: 2011-05-28
 - removed up/down swipe in PassView
 - delete password from clipboard when logging out (issue 297, patch by Rachee Singh)
-
-----------------
-release: 1.2.8
-date: 2011-02-05
-- new application icon for Android 2.0 or higher.
-- allow app installation on external storage (requires Android 2.2 or higher)
-- support hardware search button if available
-- search results now show category
-- better handling of low memory
 
 ----------------
 For the complete list of changes and a list of frequently asked questions, please visit:
