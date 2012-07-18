@@ -110,9 +110,7 @@ public class CategoryList extends ListActivity {
 	protected static final int MSG_FILLDATA = MSG_IMPORT + 1; 
 	protected static final int MSG_BACKUP = MSG_FILLDATA + 1; 
 
-	private static final int IMPORT_PROGRESS_KEY = 0;
-	private static final int BACKUP_PROGRESS_KEY = IMPORT_PROGRESS_KEY + 1;
-	private static final int ABOUT_KEY = IMPORT_PROGRESS_KEY + 2;
+	private static final int ABOUT_KEY = 2;
 
 	public static final int MAX_CATEGORIES = 256;
 
@@ -122,10 +120,12 @@ public class CategoryList extends ListActivity {
 
 	private String importMessage="";
 	private int importedEntries=0;
+	private ProgressDialog importProgress = null;
 	private Thread importThread=null;
 	private boolean importDeletedDatabase=false;
 	private String importedFilename="";
 
+	private ProgressDialog backupProgress = null;
 	private Thread backupThread=null;
 
 	private static String salt;
@@ -438,21 +438,6 @@ public class CategoryList extends ListActivity {
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
-			case IMPORT_PROGRESS_KEY: {
-				ProgressDialog dialog = new ProgressDialog(this);
-				dialog.setMessage(getString(R.string.import_progress));
-				dialog.setIndeterminate(false);
-				dialog.setCancelable(false);
-				return dialog;
-			}
-			case BACKUP_PROGRESS_KEY: {
-				ProgressDialog dialog = new ProgressDialog(this);
-				dialog.setMessage(getString(R.string.backup_progress)+
-						" "+Preferences.getBackupPath(this));
-				dialog.setIndeterminate(false);
-				dialog.setCancelable(false);
-				return dialog;
-			}
 			case ABOUT_KEY:
 				return new AboutDialog(this);
 		}
@@ -745,11 +730,19 @@ public class CategoryList extends ListActivity {
 	}
 	
 	private void backupThreadStartHelper(final String filename){
-		showDialog(BACKUP_PROGRESS_KEY);
+		if (backupProgress == null) {
+			backupProgress = new ProgressDialog(this);
+			backupProgress.setMessage(getString(R.string.backup_progress)+
+					" "+Preferences.getBackupPath(this));
+			backupProgress.setIndeterminate(false);
+			backupProgress.setCancelable(false);
+		}
+		backupProgress.show();
+
 		backupThread = new Thread(new Runnable() {
 			public void run() {
 				String result=backupDatabase(filename);
-				dismissDialog(BACKUP_PROGRESS_KEY);
+				backupProgress.dismiss();
 
 				Message m = new Message();
 				m.what = CategoryList.MSG_BACKUP;
@@ -877,7 +870,7 @@ public class CategoryList extends ListActivity {
 			HashMap<Long, String> categories = Passwords.getCategoryIdToName();
 			
 			List<PassEntry> rows;
-			rows = Passwords.getPassEntries(new Long(0), true, false);
+			rows = Passwords.getPassEntries(Long.valueOf(0), true, false);
 		
 			for (PassEntry row : rows) {
 				String[] rowEntries = { categories.get(row.category),
@@ -952,12 +945,18 @@ public class CategoryList extends ListActivity {
 	 * and permit the updating of the progress dialog.
 	 */
 	private void importDatabaseThreadStart(final String filename){
-		showDialog(IMPORT_PROGRESS_KEY);
+		if (importProgress==null) {
+			ProgressDialog importProgress = new ProgressDialog(this);
+			importProgress.setMessage(getString(R.string.import_progress));
+			importProgress.setIndeterminate(false);
+			importProgress.setCancelable(false);
+		}
+		importProgress.show();
 
 		importThread = new Thread(new Runnable() {
 			public void run() {
 				importDatabaseFromCSV(filename);
-				dismissDialog(IMPORT_PROGRESS_KEY);
+				importProgress.dismiss();
 				
 				Message m = new Message();
 				m.what = CategoryList.MSG_IMPORT;
@@ -1009,9 +1008,9 @@ public class CategoryList extends ListActivity {
 			//
 			HashMap<String,Long> categoriesFound = new HashMap<String,Long>();
 			int categoryCount=0;
-			int line=0;
+//			int line=0;
 			while ((nextLine = reader.readNext()) != null) {
-				line++;
+//				line++;
 				if (importThread.isInterrupted()) {
 					return;
 				}
@@ -1023,7 +1022,7 @@ public class CategoryList extends ListActivity {
 					continue;	// don't recreate existing categories
 				}
 //				if (debug) Log.d(TAG,"line["+line+"] found category ("+nextLine[0]+")");
-				Long passwordsInCategory= new Long(1);
+				Long passwordsInCategory= Long.valueOf(1);
 				if (categoriesFound.containsKey(nextLine[0])) {
 					// we've seen this category before, bump its count
 					passwordsInCategory+=categoriesFound.get(nextLine[0]);
