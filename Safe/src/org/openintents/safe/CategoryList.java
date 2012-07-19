@@ -51,6 +51,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
@@ -114,7 +115,7 @@ public class CategoryList extends ListActivity {
 
 	public static final int MAX_CATEGORIES = 256;
 
-	private static final String PASSWORDSAFE_IMPORT_FILENAME = "/sdcard/passwordsafe.csv";
+	private static final String PASSWORDSAFE_IMPORT_FILENAME = "passwordsafe.csv";
 
 	public static final String KEY_ID = "id";  // Intent keys
 
@@ -923,12 +924,14 @@ public class CategoryList extends ListActivity {
 	public void importDatabase(){
 		String defaultExportFilename = Preferences.getExportPath(this);
 		final String filename;
-		File oiImport=new File(defaultExportFilename);
-		File pwsImport=new File(PASSWORDSAFE_IMPORT_FILENAME);
+		File oiImport = new File(defaultExportFilename);
+		String pwsFilename = Environment.getExternalStorageDirectory()
+				.getPath() + PASSWORDSAFE_IMPORT_FILENAME;
+		File pwsImport = new File(pwsFilename);
 		if (oiImport.exists() || !pwsImport.exists()) {
 			filename=defaultExportFilename;
 		}else{
-			filename=PASSWORDSAFE_IMPORT_FILENAME;
+			filename=pwsFilename;
 		}
 		Intent intent = new Intent("org.openintents.action.PICK_FILE");
 		intent.setData(Uri.parse("file://"+filename));
