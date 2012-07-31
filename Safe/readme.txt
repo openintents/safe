@@ -25,6 +25,12 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release: 1.4.1
+date: 2012-08-01
+
+- fix security hole for rooted devices
+
+----------------
 release: 1.4
 date: 2012-07-16
 
