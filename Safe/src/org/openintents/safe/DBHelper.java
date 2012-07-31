@@ -121,7 +121,11 @@ public class DBHelper {
 		myCtx = ctx;
 		try {
 			db = myCtx.openOrCreateDatabase(DATABASE_NAME, 0,null);
-
+			
+			// avoid journals in the file system as it gives access to the passwords.
+			// FIXME: if you can get hold of a memory dump you could still get access to the passwords.
+			db.rawQuery("PRAGMA journal_mode=MEMORY",null);
+			
 			// Check for the existence of the DBVERSION table
 			// If it doesn't exist than create the overall data,
 			// otherwise double check the version
