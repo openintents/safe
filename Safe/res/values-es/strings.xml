@@ -22,14 +22,15 @@
 	
 	<!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
-  Fitoschido https://launchpad.net/~fitoschido
+  Adolfo Jayme Barrientos https://launchpad.net/~fitoschido
   Javier Martínez Arrieta https://launchpad.net/~javote87
   Martín González https://launchpad.net/~mgonzlezgmz
   Monkey https://launchpad.net/~monkey-libre
   OpenIntents devs https://launchpad.net/~openintents-devs
   Paco Molinero https://launchpad.net/~franciscomol
   Peli https://launchpad.net/~peli0101
-  miwie https://launchpad.net/~mw-miwie</string>
+  miwie https://launchpad.net/~mw-miwie
+  victor tejada yau https://launchpad.net/~victormtyau</string>
 	
     <!-- Short explanation of the application (max. 80 characters) -->
 	<string name="about_comments">Proteja sus datos privados con OI Safe.</string>  

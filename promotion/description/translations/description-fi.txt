@@ -1,14 +1,21 @@
+# Application:
+OI Turva
+
+# Promo text:
+Säilö sinun henkilökohtaiset tietosi OI Turvan avulla.
+
+# Description:
 OI Safe safely protects all of your passwords and other private data using industry standard AES encryption. It also acts as an extension to OI Notepad to encrypt notes created in OI Notepad. 
 
-Tämä sovellus on mainos ilmainen eikä vaadi internet lupaa. 
+Tässä ohjelmassa EI OLE mainoksia ja ei vaadi internetyhteyttä ja -lupaa. 
 
-Täydellinen luettelo muutoksista ja luettelo usein kysyttyihin kysymyksiin osoitteessa: 
+Täydellinen luettelo muutoksista ja lista usein kysytyistä kysymyksistä on saatavilla osoitteessa: 
 http://www.openintents.org
 
-Voit auttaa parantamaan käännös omalla kielelläsi Launchpad: 
+Voit auttaa parantamaan käännöksiä omalle kielellesi Launchpadissa: 
 https://translations.launchpad.net/openintents/trunk
 
-Lähdekoodi tämän ilmaisen ja avoimen lähdekoodin sovellus on saatavilla osoitteessa: 
+Tämän ilmaisen ja avoimen lähdekoodin ohjelman lähdekoodi on saatavilla osoitteesta: 
 http://code.google.com/p/openintents
 
 Ominaisuudet: 
@@ -33,7 +40,7 @@ Avainsanat:
 * OI, IO, OpenIntents, Open Intents
 
 Kansainvälinen versiot: 
-OI 금고, OI Kaha, OI Kasa, OI kluis, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI بىخەتەرلىك, OI Κιβώτιο, OI Безопасност, OI सुरक्षित, OI安全, OI 金庫, حماية OI, כספת OI
+OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI Turva, OI kluis, OI Κιβώτιο, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI
 
 
 Etsintä jousille Markkinoiden: 

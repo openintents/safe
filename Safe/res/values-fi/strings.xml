@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+* Copyright 2007-2009 OpenIntents.org
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+-->
+<resources>
+	<!-- ***************************
+	     About information
+	     *************************** -->
+	
+	<!-- Automatically filled in by Launchpad: -->
+	<string name="about_translators">Launchpad Contributions:
+  emp https://launchpad.net/~emp500</string>
+	
+    <!-- Short explanation of the application (max. 80 characters) -->
+	<string name="about_comments">Säilö sinun henkilökohtaiset tietosi OI Turvan avulla.</string>  
+	 
+	<!-- ***************************
+	     Applicatio-specific strings
+	     *************************** -->
+	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+    <string name="app_name">OI Turva</string>
+    <string name="empty_safe">Ei salasanoja tässä kategoriassa.</string>
+    <string name="empty_category">Ei kategorioita saatavilla. Lisää yksi painamalla Menu-näppäin &gt; Lisää</string>
+    <string name="password_lock">Lukitse</string>
+    <string name="password_view">Näytä</string>
+    <string name="password_edit">Muokkaa</string>
+    <string name="password_add">Lisää</string>
+    <string name="password_delete">Poista</string>
+    <string name="password">Salasana</string>
+    <string name="passwords">Salasanat</string>
+    <string name="master_password">Pääsalasana</string>
+    <string name="username">Käyttäjänimi</string>
+    <string name="website">Verkkosivu</string>
+    <string name="description">Kuvaus</string>
+    <string name="notes">Muistiinpanot</string>
+    <string name="save">Tallenna</string>
+    <string name="invalid_password">Väärä salasana. Ole hyvä, ja yritä uudelleen.</string>
+    <string name="notify_blank_pass">Salasanassa täytyy olla vähintään 4 kirjainta.</string>
+    <string name="notify_blank_desc">Kuvaus ei voi olla tyhjä.</string>
+    <string name="notify_blank_name">Nimi ei voi olla tyhjä.</string>
+    <string name="first_time">Ole hyvä, ja kirjoita salasana alle, jota käytetään, että sinun salasanasi ovat turvassa.</string>
+    <string name="logoff_explanation">Olet kirjautunut sisään OI Turvaan, mikä tarkoittaa sitä, että muut ohjelmat voivat pyytää niiden tarvitsemia salasanoja ja salata/purkaa salaus tiedoista. Lukitse jos haluat estää pääsyn kunnes syötät salasanan uudelleen.</string>
+    <string name="remote_ask">Toinen ohjelma pyytää pääsyä käyttämään pääavainta. Ole hyvä, ja kirjoita salasanasi jos haluat antaa pääsyn.</string>
+    <string name="categories">Kategoriat</string>
+	<string name="category">Kategoria</string>
+    <string name="category_business">Työ</string>
+    <string name="category_personal">Henkilökohtainen</string>
+    <string name="name">Nimi</string>
+    <string name="category_not_empty">Kategoria ei ole tyhjä. Sinun täytyy poistaa salasanat ensin.</string>
+	<string name="cannot_decrypt_category">Ei voi purkaa kategorian salausta</string>
+	<string name="cannot_decrypt_password">Ei voi purkaa salasanan salausta</string>
+	<string name="error_export">Virhe tietokannan viennissä</string>
+	<string name="export_database">Vie tietokanta</string>
+	<string name="export_file_select">Valitse tiedosto vientiin</string>
+	<string name="export_msg">Tämä vie salasanatietokannan tavalliseen tekstitiedostoon. TÄMÄ ON ERITTÄIN VAARALLISTA. Ole varma, että poistat tiedoston kun et enää tarvitse sitä. Oletko aivan varma että haluat viedä?</string>
+	<string name="export_success">Vienti \'%s\' onnistui. Varoitus! Tiedosto ei ole salattu.</string>
+	<string name="export_file_error">Ei voinut luo vienti tiedostoa \'oisafe.csv\' MUISTIKORTILLE. Voit yrittää irroittaa USB-yhteyden tietokoneestasi.</string>
+	<string name="import_database">Tuo tietokanta</string>
+	<string name="import_file_select">Valitse tiedosto, jonka haluat viedä</string>
+	<string name="import_file_missing">Vientitiedosto puuttuu:</string>
+	<string name="import_file_error">Ei voitu viedä tiedostoa \'oisafe.csv\' MUISTIKORTILTA. Yritä esimerkiksi USB-kaapelin irroittamista tietokoneesta.</string>
+	<string name="import_error_first_line">Ensimmäisestä rivistä puuttuu kentät.</string>
+	<string name="dialog_import_title">Tuo</string>
+	<string name="dialog_import_msg">Haluatko vaihtaa tietokannan (tuotu %s :sta)?</string>
+	<string name="yes">Kyllä</string>
+	<string name="no">Ei</string>
+	<string name="import_progress">Ole hyvä, ja odota hetki kun tiedostoja tuodaan...</string>
+	<string name="import_no_categories">Kategorioita ei löytynyt.</string>
+	<string name="import_no_entries">Merkintöjä ei löytynyt CSV:stä.</string>
+	<string name="import_too_many_categories">Liian paljon kategorioita.</string>
+	<string name="import_not_enough_fields">Liian vähän kenttiä</string>
+	<string name="import_blank_category">Tyhjä kategoria</string>
+	<string name="import_blank_description">Tyhjä kuvaus</string>
+	<string name="dialog_delete_database_title">Poista tietokanta</string>
+	<string name="dialog_delete_database_msg">Oletko aivan varma että haluat poistaa tietokannan? Poistaminen on lopullista, eikä tietoja voi palauttaa.</string>
+	<string name="added">Lisätty</string>
+	<string name="entries">merkinnät</string>
+	<string name="import_complete">Tuonti on valmis</string>
+	<string name="import_delete_csv">Koska salasanojen säilyttäminen ei ole turvallista tavallisen tekstin CSV tiedostoissa, haluatko sinä poistaa</string>
+	<string name="edit_entry">Muokkaa merkintää</string>
+	<string name="view_entry">Näytä merkintä</string>
+	<string name="help">Apua</string>
+	<string name="close">Sulje</string>
+	<string name="go">Siirry</string>
+	<string name="dialog_delete_password_title">Poista salasana</string>
+	<string name="dialog_delete_password_msg">Oletko aivan varma että haluat poistaa tämän salasanan?</string>
+	<string name="change_password">Vaihda pääsalasana</string>
+	<string name="chg_pass_explaination">Käytä tätä vaihtaaksesi salasana jota käytät OI Turvan avaamiseen. Sinun tietosi salataan uudestaan uudella salasanalla. Mitä monimutkaisempi salasanasi on, sitä turvemmassa sinun tietosi ovat.</string>
+	<string name="old_password">Vanha salasana</string>
+	<string name="new_password">Uusi salasana</string>
+	<string name="verify_password">Vahvista salasana</string>
+	<string name="new_verify_mismatch">Uusi ja vahvistettu salasana eivät täsmää.</string>
+    <string name="invalid_old_password">Vanha salasana on väärin. Ole hyvä, ja yritä uudelleen.</string>
+    <string name="error_changing_password">Virhe ilmentyi vaihdettaessa salasanaa</string>
+    <string name="password_changed">Pääsalasana vaihdettu</string>
+    <string name="confirm">Vahvista</string>
+    <string name="confirm_pass_fail">Salasanat eivät täsmää.</string>
+    <string name="backup">Varmuuskopioi</string>
+    <string name="backup_progress">Varmuuskopioidaan kohteeseen</string>
+    <string name="backup_complete">Valmis. Salasanat varmuuskopioitu:</string>
+    <string name="backup_failed">Varmuuskopiointi epäonnistui:</string>
+	<string name="backup_select_file">Valitse tiedosto, jonka haluat varmuuskopioida</string>
+	<string name="backup_error">Virhe ilmentyi varmuuskopioinnin aikana</string>
+    <string name="restore">Palauta</string>
+    <string name="filename">Tiedostonimi</string>
+    <string name="restore_no_file">Varmuuskopiotiedostoa ei löytynyt. Sinun täytyy tehä varmuuskopio ensin luodaksesi se, tai kopioi varmuuskopio tietokoneeltasi.</string>
+    <string name="restore_set_password">Ole hyvä, ja kirjoita salasana jota varmuuskopiotiedosto käyttää. Sinun pääsalasanasi asetetaan kyseiseksi salasanaksi.</string>
+	<string name="restore_select_file">Valitse tiedosto joka palautetaan</string>
+	<string name="restore_error">Virhe ilmentyi palautuksessa</string>
+    
+    <!-- Toast message. %s contains a more detailed error message. -->
+    <string name="restore_unable_to_open">Virhe ilmentyi avattaessa tiedostoa: %s</string>
+    
+    <!-- Toast message. %s contains the version number of the database. -->
+    <string name="restore_bad_version">Versio ei tuettu: %s</string>
+    
+    <string name="restore_decrypt_error">Epäkelpo salasana.</string>
+    <string name="dialog_restore_database_title">Palauta tietokanta</string>
+    <string name="dialog_restore_database_msg">Oletko aivan varma että haluat korvata tämänhetkiset tiedot?</string>
+    <string name="restore_found">Löytyi %1$s salasanaa varmuuskopiosta päivämäärällä %2$s</string>
+    <string name="restore_complete">Valmista. Salasanat palautettu: %s</string>
+    <string name="copied_to_clipboard">kopioitiin leikepöydälle</string>
+    <string name="invalid_website">Epäkelpo www-sivu</string>
+    <string name="database_error_title">Tietokantavirhe</string>
+    <string name="database_error_msg">Tietokantavirhe. Tila loppumassa?</string>
+    
+    <!-- Menu label to open a category -->
+    <string name="open">Avaa</string>
+    
+    <string name="database_version_error_title">Tietokannan versiovirhe</string>
+    <string name="database_version_error_msg">Voi ei, mutta tietokannan versio ei ole tuettu. Sinun täytyy asentaa versio joka toimii tämän tietokannan kanssa.</string>
+	
+	<!-- Menu label to move a password to another category -->
+	<string name="move">Siirrä</string>
+	
+	<string name="move_select">Valitse kategoria</string>
+	
+	<!-- Toast that password has been moved to another category -->
+	<string name="moved_to">Siirrettiin kohteeseen %s</string>
+	
+	<string name="preferences">Asetukset</string>
+	<string name="pref_title_external_access">Hyväksy ulkoinen pääsy</string>
+	<string name="pref_summary_external_access">Salli muiden ohjelmien turvata tietosi OI Turvan avulla</string>
+	<string name="dialog_title_external_access">OI Turva: Muu ohjelma pyytää pääsyä</string>
+	<string name="dialog_summary_external_access">Salli muiden ohjelmien turvata tietosi OI Turvan avulla</string>
+	<string name="dialog_comment_external_access">Tämä voidaan asettaa myös OI Turvan Valikossa / Asetukset.</string>
+	
+	<!-- Preference title for auto lock timeout -->
+	<string name="pref_title_lock_timeout">Automaattilukon aikaraja</string>
+	
+	<!-- Preference summary for auto lock timeout -->
+	<string name="pref_summary_lock_timeout">Aika minuutteina kun aikaraja tapahtuu ja turva lukitaan</string>
+	
+	<string name="pref_dialog_title_lock_timeout">Automaattilukon aikaraja</string>
+	
+	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
+	<string name="pref_title_lock_on_screen_lock">Turva lukitaan kun näyttölukko aktivoidaan</string>
+	
+	<!-- Preference summary for lock (OI Safe) on screen lock -->
+	<string name="pref_summary_lock_on_screen_lock">Turva lukitaan kun näyttölukko on päällä</string>
+	
+	<!-- Preference title: use a numeric keypad to enter the password -->
+	<string name="pref_title_keypad">Numeronäppäimistö</string>
+	
+	<!-- Preference summary: for a numeric keypad -->
+	<string name="pref_summary_keypad">Käytä numeronäppäimistöä kirjoittaaksesi pääsalasana</string>
+	
+	<!-- Preference title for keypad mute -->
+	<string name="pref_title_keypad_mute">Numeronäppäimistön mykistys</string>
+	
+	<!-- Preference summary: Make the keypad sounds mute. 
+	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
+	<string name="pref_summary_keypad_mute">Mykistä numeronäppäimistön äänet</string>
+
+	<string name="pref_title_autobackup">Automaattinen varmuuskopiointi</string>
+	<string name="pref_summary_autobackup">Ilmoita automaattisesti kun salasana voidaan varmuuskopioida</string>
+
+	<string name="pref_title_autobackup_days">Automaattisen varmuuskopioinnin päivät</string>
+	<string name="pref_summary_autobackup_days">Päivien määrä, joka odotetaan ennen uutta automaattista varmuuskopiointia</string>
+	<string name="pref_dialog_title_autobackup_days">Automaattisen Varmuuskopioinnin Päivät</string>
+	
+	<string name="pref_title_backup_path">Oletuspolku varmuuskopioille</string>
+	<string name="pref_title_export_path">Oletuspolku viennille</string>
+	    
+	
+	<string name="intent_decrypt">Pura salaus (OI Turva)</string>
+	<string name="intent_encrypt">Salaa (OI Turva)</string>
+	<string name="intent_get_password">Ota salasana (OI Turva)</string>
+	<string name="intent_set_password">Valitse salasana (OI Turva)</string>
+	<string name="intent_restart_timer">Uudelleenkäynnistä ajastin (OI Turva)</string>
+	<string name="open_safe">Avaa OI Turva</string>
+	<string name="lock">Lukitse</string>
+	<string name="continue_text">Jatka</string>
+	<string name="generate_password">Anna satunnainen salasana</string>
+	<string name="pass_gen_length">Salasanan pituus</string>
+	<string name="pass_gen_uppercase">Isot kirjaimet [A-Z]</string>
+	<string name="pass_gen_lowercase">Pienet kirjaimet [a-z]</string>
+	<string name="pass_gen_numbers">Numerot [0-9]</string>
+	<string name="pass_gen_symbols">Symbolit[!@#$^\*]</string>
+	<string name="pass_gen_copy_to_current_entry">Kopioi tämänhetkiseen merkintään</string>
+	<string name="pass_gen_copy_to_clipboard">Kopioi leikepöydälle</string>
+	<string name="cancel">Peruuta</string>
+	<string name="discard_changes">Hylkää muutokset</string>
+	<string name="entry_saved">Merkintä tallennettu</string>
+	<string name="entry_save_error">Ei voinut tallentaa koska tietokantavirhe oli tapahtunut</string>
+	<string name="last_edited">Viimeksi muokattu</string>
+	<string name="last_edited_unknown">tuntematon</string>
+	<string name="crypto_error">Kryptaus virhe:</string>
+	<string name="uniquename">Uniikki nimi</string>
+	<string name="package_access">Paketin pääsy</string>
+	<string name="not_found">ei löydy</string>
+	<string name="dialog_title_first_time_warning">Uusi pääavain</string>
+	<string name="dialog_summary_first_time_warning">Uusi satunnainen pääavain on luotu. Paina Menu &gt; Varmuuskopioi ja tallenna tämä avain turvalliseen paikkaan. Ilman tätä avainta saatat menettää salattua tietoa.</string>
+	<string name="switch_mode">Vaihda tilaa</string>
+	<string name="decrypt_progress">Puretaan salausta...</string>
+	<string name="search">Hae</string>
+	<string name="search_progress">Haku käynnissä...</string>
+	<string name="search_hint">Kirjoita haun kriteerit</string>
+	<string name="search_nothing_found">Mitään ei löytynyt</string>
+	<string name="mute">Vaimenna</string>
+	<string name="sounds">Äänet</string>
+	<string name="previous">Edellinen</string>
+	<string name="next">Seuraava</string>
+	<string name="autobackup">AutomaattinenVarmuuskopiointi</string>
+	<string name="backup_never">Varmuuskopiota ei ole tehty vielä. Haluatko varmuuskopioida nyt?</string>
+	<string name="backup_in_days">Viimeisin varmuuskopio on tehty %d päivä(ä) sitten. Haluatko tehdä varmuuskopion nyt?</string>
+	<string name="autobackup_turnoff">Ota Automaattinen varmuuskopiointi pois päältä</string>
+	<string name="lock_timeout">Aika automaattiseen lukotukseen: %s</string>
+	<string name="download_oi_filemanager">Kun ei ole ladattu, oletuspolkua käytetään.</string>
+	<string name="backup_file_found">Varmuuskopiotiedosto löytyi. Haluatko palauttaa sen?</string>
+	<string name="backup_file_found_label">Varmuuskopiotiedosto löytyi</string>
+	<string name="zero">0</string>
+	<string name="one">1</string>
+	<string name="two">2</string>
+	<string name="three">3</string>
+	<string name="four">4</string>
+	<string name="five">5</string>
+	<string name="six">6</string>
+	<string name="seven">7</string>
+	<string name="eight">8</string>
+	<string name="nine">9</string>
+	<string name="numbersign">#</string>
+	<string name="asterisk">*</string>
+	<string name="invalid_url">Invalid URL</string>
+	
+	<!-- ***************************
+	     Permissions
+	     *************************** -->
+
+	<!-- OI Safe -->
+	<!-- Permission to access master password -->
+	<string name="oi_safe_permission_service">pääsy pääavaimeen</string>
+	<string name="oi_safe_permission_service_descr">Sallii ohjelman päästä pääavaimeen jota käytetään salaamiseen ja salauksen poistoon. Ei pitäisi käyttää muun ohjelman kanssa kun OI Turvan.</string>	
+	<!-- Permission to encrypt and decrypt data -->
+	<string name="oi_safe_permission_intents">salaa ja pura salaus tiedostoista</string>
+    <string name="oi_safe_permission_intents_descr">Sallii ohjelman salata ja purkaa salaus tekstistä, ja saada pääsy salasanoihin jos ne ovat tallessa OI Turvassa.</string>	
+
+	<!-- ***************************
+	     Preferences
+	     *************************** -->
+
+	<!-- Time until auto lockout -->
+    <string-array name="pref_entries_lock_timeout">
+        <item>1 minuutti</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+        <item>30 minuuttia</item>  
+    </string-array>
+
+	<!-- Number of days before next autobackup is prompted -->
+    <string-array name="pref_entries_autobackup_days">
+        <item>1 päivä</item>
+        <item>7 päivää</item>
+        <item>30 päivää</item>
+        <item>60 päivää</item>
+    </string-array>
+        
+        
+</resources>
