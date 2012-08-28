@@ -28,6 +28,7 @@
   Matěj Konečný https://launchpad.net/~matejkon
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
+  Stanislas Michalak https://launchpad.net/~stanislas-michalak
   Tanguy Herrmann https://launchpad.net/~dolanor
   beudbeud https://launchpad.net/~beudbeud
   kartik https://launchpad.net/~b-ballkartik96</string>
@@ -262,7 +263,7 @@
 	<string name="nine">9</string>
 	<string name="numbersign">n°</string>
 	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
+	<string name="invalid_url">URL invalide</string>
 	
 	<!-- ***************************
 	     Permissions
