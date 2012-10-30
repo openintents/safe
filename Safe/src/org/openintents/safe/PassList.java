@@ -80,8 +80,6 @@ public class PassList extends ListActivity {
 
 	protected static final int MSG_UPDATE_LIST = 0x101; 
 
-	private static final int DECRYPT_PROGRESS_KEY = 0;
-
 	public static final String KEY_ID = "id";  // Intent keys
 	public static final String KEY_CATEGORY_ID = "categoryId";  // Intent keys
 	public static final String KEY_ROWIDS = "rowids";
@@ -96,6 +94,7 @@ public class PassList extends ListActivity {
 	private static String masterKey;
 
 	private Thread fillerThread=null;
+	private ProgressDialog decryptProgress = null;
 
 	private List<PassEntry> rows=null;
 	private int lastPosition=0;
@@ -116,7 +115,6 @@ public class PassList extends ListActivity {
 					ArrayAdapter<String> entries = 
 						new ArrayAdapter<String>(PassList.this, android.R.layout.simple_list_item_1,
 								passDescriptions4Adapter);
-					ListView list = getListView();
 					setListAdapter(entries);
 					if (debug) Log.d(TAG,"lastPosition="+lastPosition);
 					if (lastPosition>2) {
@@ -207,7 +205,11 @@ public class PassList extends ListActivity {
 		} catch (IllegalArgumentException e) {
 			//if (debug) Log.d(TAG,"IllegalArgumentException");
 		}
-		removeDialog(DECRYPT_PROGRESS_KEY);
+		if ((fillerThread != null) && (decryptProgress != null)) {
+			decryptProgress.dismiss();
+//			fillerThread.setActivity(null);
+		}
+
 	}
 
 	@Override
@@ -280,18 +282,14 @@ public class PassList extends ListActivity {
 		return true;
 	}
 
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-			case DECRYPT_PROGRESS_KEY: {
-				ProgressDialog dialog = new ProgressDialog(this);
-				dialog.setMessage(getString(R.string.decrypt_progress));
-				dialog.setIndeterminate(false);
-				dialog.setCancelable(true);
-				return dialog;
-			}
+	private void startDecryptProgressDialog() {
+		if (decryptProgress == null) {
+			decryptProgress = new ProgressDialog(this);
+			decryptProgress.setMessage(getString(R.string.decrypt_progress));
+			decryptProgress.setIndeterminate(false);
+			decryptProgress.setCancelable(true);
 		}
-		return null;
+		decryptProgress.show();
 	}
 
 	/**
@@ -302,12 +300,12 @@ public class PassList extends ListActivity {
 			if (fillerThread.isAlive()) {
 				// there's already a thread running
 			} else {
-				showDialog(DECRYPT_PROGRESS_KEY);
+				startDecryptProgressDialog();
 				fillerThread.run();
 			}
 			return;
 		}
-		showDialog(DECRYPT_PROGRESS_KEY);
+		startDecryptProgressDialog();
 
 		fillerThread = new Thread(new Runnable() {
 			public void run(){
@@ -321,11 +319,7 @@ public class PassList extends ListActivity {
 						passDescriptions.add(passEntry.plainDescription);
 					}
 				}
-//				dismissDialog(DECRYPT_PROGRESS_KEY);
-				// forced to removeDialog(), without it
-				// after an orientation change dismissDialog()
-				// would crash
-				removeDialog(DECRYPT_PROGRESS_KEY);
+				decryptProgress.dismiss();
 
 				Message mu = new Message();
 				mu.what = PassList.MSG_UPDATE_LIST;
