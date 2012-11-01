@@ -36,9 +36,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -63,7 +62,7 @@ import android.widget.Toast;
  */
 public class PassList extends ListActivity {
 
-	private static final boolean debug = false;
+	private static final boolean debug = true;
 	private static final String TAG = "PassList";
 
 	// Menu Item order
@@ -93,7 +92,7 @@ public class PassList extends ListActivity {
 	private static String salt;
 	private static String masterKey;
 
-	private Thread fillerThread=null;
+	private static fillerTask taskFiller = null; 
 	private ProgressDialog decryptProgress = null;
 
 	private List<PassEntry> rows=null;
@@ -103,29 +102,6 @@ public class PassList extends ListActivity {
 	List<String> passDescriptions=new ArrayList<String>();
 	// passDescriptions4Adapter must only be modified by the UI thread
 	List<String> passDescriptions4Adapter=new ArrayList<String>();
-
-	public Handler myViewUpdateHandler = new Handler(){
-		// @Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case PassList.MSG_UPDATE_LIST:
-					fillerThread=null;
-					passDescriptions4Adapter.clear();
-					passDescriptions4Adapter.addAll(passDescriptions);
-					ArrayAdapter<String> entries = 
-						new ArrayAdapter<String>(PassList.this, android.R.layout.simple_list_item_1,
-								passDescriptions4Adapter);
-					setListAdapter(entries);
-					if (debug) Log.d(TAG,"lastPosition="+lastPosition);
-					if (lastPosition>2) {
-						setSelection(lastPosition-1);
-						lastPosition=0;
-					}
-					break;
-			}
-			super.handleMessage(msg);
-		}
-	}; 
 
 	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
@@ -194,20 +170,14 @@ public class PassList extends ListActivity {
 		super.onPause();
 		
 		if (debug) Log.d(TAG,"onPause()");
-		if ((fillerThread != null) && (fillerThread.isAlive())) {
-			if (debug) Log.d(TAG,"wait for thread");
-			int maxWaitToDie=500000;
-			try { fillerThread.join(maxWaitToDie); } 
-			catch(InterruptedException e){} //  ignore 
-		}
 		try {
 			unregisterReceiver(mIntentReceiver);
 		} catch (IllegalArgumentException e) {
 			//if (debug) Log.d(TAG,"IllegalArgumentException");
 		}
-		if ((fillerThread != null) && (decryptProgress != null)) {
+		if (taskFiller != null) {
 			decryptProgress.dismiss();
-//			fillerThread.setActivity(null);
+			taskFiller.setActivity(null);
 		}
 
 	}
@@ -233,6 +203,11 @@ public class PassList extends ListActivity {
 			categoryName;
 		setTitle(title);
 
+		if (taskFiller!=null) {
+			// taskFiller still running
+			taskFiller.setActivity(this);
+			startDecryptProgressDialog();
+		}
 		ListAdapter la=getListAdapter();
 		if (la!=null) {
 			if (debug) Log.d(TAG,"onResume: count="+la.getCount());
@@ -241,9 +216,9 @@ public class PassList extends ListActivity {
 			/* HACK to make textFilter work!!!
 			 * It somehow doesn't work, when there's an empty Adapter after the onResume.
 			 */
-			List<String> l = new ArrayList<String>();
-			l.add("");
-			setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, l));
+//			List<String> l = new ArrayList<String>();
+//			l.add("");
+//			setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, l));
 			/* /HACK */
 			fillData();
 		}
@@ -296,37 +271,70 @@ public class PassList extends ListActivity {
 	 * Populates the password ListView
 	 */
 	private void fillData() {
-		if (fillerThread!=null) {
-			if (fillerThread.isAlive()) {
-				// there's already a thread running
-			} else {
-				startDecryptProgressDialog();
-				fillerThread.run();
-			}
+		if (taskFiller!=null) {
+			// there's already a running filler
 			return;
 		}
 		startDecryptProgressDialog();
+		taskFiller = new fillerTask();
+		taskFiller.setActivity(this);
+		taskFiller.execute(new String[] { null });
+	}
 
-		fillerThread = new Thread(new Runnable() {
-			public void run(){
-				if (debug) Log.d(TAG,"CategoryId="+CategoryId);
-				rows=Passwords.getPassEntries(CategoryId, true, true);
-				passDescriptions.clear();
-				if (rows!=null) {
-					Iterator<PassEntry> passIter=rows.iterator();
-					while (passIter.hasNext()) {
-						PassEntry passEntry=passIter.next();
-						passDescriptions.add(passEntry.plainDescription);
-					}
+	private class fillerTask extends AsyncTask<String, Void, String> {
+		PassList currentActivity=null;
+		public void setActivity(PassList act) {
+			currentActivity=act;
+		}
+		@Override
+		protected String doInBackground(String... unused) {
+
+			if (debug) Log.d(TAG,"CategoryId="+CategoryId);
+			rows=Passwords.getPassEntries(CategoryId, true, true);
+			passDescriptions.clear();
+			if (rows!=null) {
+				Iterator<PassEntry> passIter=rows.iterator();
+				while (passIter.hasNext()) {
+					PassEntry passEntry=passIter.next();
+					passDescriptions.add(passEntry.plainDescription);
 				}
-				decryptProgress.dismiss();
-
-				Message mu = new Message();
-				mu.what = PassList.MSG_UPDATE_LIST;
-				PassList.this.myViewUpdateHandler.sendMessage(mu); 
 			}
-		},"PassList fillData");
-		fillerThread.start();
+			if (debug) Log.d(TAG,"doInBackground complete");
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			if (currentActivity != null) {
+				// because the activity can change on orientation change, we
+				// need to be sure to set values
+				// on the currentActivity. Otherwise the user can change
+				// orientation while we're working on the background
+				// task and we won't be setting values against the activity
+				// that's being displayed
+				passDescriptions4Adapter.clear();
+				passDescriptions4Adapter.addAll(passDescriptions);
+				ArrayAdapter<String> entries = new ArrayAdapter<String>(
+						PassList.this, android.R.layout.simple_list_item_1,
+						passDescriptions4Adapter);
+				currentActivity.setListAdapter(entries);
+				currentActivity.rows = rows;
+				if (debug)
+					Log.d(TAG, "entries.getCount=" + entries.getCount());
+				if (debug)
+					Log.d(TAG, "lastPosition=" + currentActivity.lastPosition);
+				if (currentActivity.lastPosition > 2) {
+					currentActivity
+							.setSelection(currentActivity.lastPosition - 1);
+					currentActivity.lastPosition = 0;
+				}
+				if (currentActivity.decryptProgress != null) {
+					currentActivity.decryptProgress.dismiss();
+				}
+			}
+
+			taskFiller = null;
+		}
 	}
 
 	@Override
