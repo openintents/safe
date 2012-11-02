@@ -82,7 +82,7 @@ public class Engine
 	// all the cipher classes must be listed here, the rest of the registration
 	// is done via reflection; this is done by having every class implementing
 	// a 'public static void register()' method (see below)
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	static Class[] _cipherClasses =
 	{
 		//estreamj.ciphers.phelix.Phelix.class,

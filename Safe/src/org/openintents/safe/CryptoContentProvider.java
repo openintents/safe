@@ -156,9 +156,6 @@ public class CryptoContentProvider extends ContentProvider {
 						throw new CryptoHelperException("Not logged in.");
 					}
 
-					if (ch == null) {
-						throw new CryptoHelperException("CryptoHelper not available. Are you logged in?");
-					}
 					if (debug) Log.d(TAG, "Decrypt..");
 					Uri newuri = ch.decryptFileWithSessionKeyThroughContentProvider(this.getContext(), Uri.parse(originalFile));
 					cryptSession = newuri.getPathSegments().get(1);

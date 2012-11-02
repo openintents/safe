@@ -77,7 +77,7 @@
 	<string name="dialog_import_msg">Do you want to replace the database (import from %s)?</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
-	<string name="import_progress">Please wait while importing...</string>
+	<string name="import_progress">Please wait while importing&#8230;</string>
 	<string name="import_no_categories">No categories found.</string>
 	<string name="import_no_entries">No entries found in CSV.</string>
 	<string name="import_too_many_categories">Too many categories.</string>
@@ -206,9 +206,9 @@
 	<string name="continue_text">Continue</string>
 	<string name="generate_password">Generate Password</string>
 	<string name="pass_gen_length">Password Length</string>
-	<string name="pass_gen_uppercase">Uppercase [A-Z]</string>
-	<string name="pass_gen_lowercase">Lowercase [a-z]</string>
-	<string name="pass_gen_numbers">Numbers [0-9]</string>
+	<string name="pass_gen_uppercase">Uppercase [A&#8211;Z]</string>
+	<string name="pass_gen_lowercase">Lowercase [a&#8211;z]</string>
+	<string name="pass_gen_numbers">Numbers [0&#8211;9]</string>
 	<string name="pass_gen_symbols">Symbols [!@#$%^\*]</string>
 	<string name="pass_gen_copy_to_current_entry">Copy to Current Entry</string>
 	<string name="pass_gen_copy_to_clipboard">Copy to Clipboard</string>
@@ -225,9 +225,9 @@
 	<string name="dialog_title_first_time_warning">New master key</string>
 	<string name="dialog_summary_first_time_warning">A new random master key has been created. Use menu > backup and store this key in a safe place. Without this key you may lose encrypted data.</string>
 	<string name="switch_mode">Switch mode</string>
-	<string name="decrypt_progress">Decrypting...</string>
+	<string name="decrypt_progress">Decrypting&#8230;</string>
 	<string name="search">Search</string>
-	<string name="search_progress">Searching...</string>
+	<string name="search_progress">Searching&#8230;</string>
 	<string name="search_hint">Type search criteria</string>
 	<string name="search_nothing_found">Nothing found</string>
 	<string name="mute">Mute</string>
