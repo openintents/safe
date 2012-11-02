@@ -255,6 +255,7 @@
 	<string name="numbersign">#</string>
 	<string name="asterisk">*</string>
 	<string name="invalid_url">Invalid URL</string>
+	<string name="notification_msg">Master Key Logged in</string>
 	
 	<!-- ***************************
 	     Permissions

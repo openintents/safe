@@ -18,11 +18,12 @@ package org.openintents.safe.service;
 import org.openintents.safe.LogOffActivity;
 import org.openintents.safe.R;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
 
 
 public class ServiceNotification {
@@ -53,22 +54,19 @@ public class ServiceNotification {
 		NotificationManager nm = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 	
-		String text = "Master Key Logged in";
-
-		Notification notification = new Notification(
-				R.drawable.passicon, null, System
-						.currentTimeMillis());
-		notification.flags = Notification.FLAG_ONGOING_EVENT;
-
 		Intent intent = new Intent(context, LogOffActivity.class);
 		PendingIntent pi = PendingIntent.getActivity(context, 0,
 				intent, PendingIntent.FLAG_CANCEL_CURRENT);				
 		// Set the info for the views that show in the notification
 		// panel.
-		notification.setLatestEventInfo(context, context
-				.getString(R.string.app_name), text, pi);
+		Builder notification = new NotificationCompat.Builder(context)
+			.setContentTitle(context.getString(R.string.app_name))
+			.setContentText(context.getString(R.string.notification_msg))
+			.setSmallIcon(R.drawable.passicon)
+			.setOngoing(true)
+			.setContentIntent(pi);
 		
-		nm.notify(NOTIFICATION_ID, notification);
+		nm.notify(NOTIFICATION_ID, notification.getNotification());
 	}
 	
 	public static void clearNotification(Context context) {
