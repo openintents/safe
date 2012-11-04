@@ -313,6 +313,8 @@ public class AskPassword extends DistributionLibraryActivity {
 		callbackIntent.putExtra("salt", salt);
 		setResult(RESULT_OK, callbackIntent);
 		
+		CategoryList.setMasterKey(masterKey);
+		CategoryList.setSalt(salt);
 		finish();
 	}
 	

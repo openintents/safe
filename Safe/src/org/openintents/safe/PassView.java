@@ -46,6 +46,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -96,6 +97,12 @@ public class PassView extends Activity implements SimpleGestureListener {
 		super.onCreate(icicle);
 
 		if (debug) Log.d(TAG,"onCreate("+icicle+")");
+		
+		// Prevent screen shot shown on recent apps
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+					WindowManager.LayoutParams.FLAG_SECURE);
+		}
 		
 		frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);

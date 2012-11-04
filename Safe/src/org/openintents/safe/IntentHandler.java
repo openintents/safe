@@ -555,6 +555,11 @@ public class IntentHandler extends Activity {
 					askPassIsLocal=true;
 				}
 
+				if ((service.getPassword() == null) && (CategoryList.getMasterKey()!=null)) {
+					service.setPassword(CategoryList.getMasterKey());
+					service.setSalt(CategoryList.getSalt());
+				}
+				
 				if (service.getPassword() == null) {
 					boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
 					if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);

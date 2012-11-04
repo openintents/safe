@@ -25,6 +25,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 public class PassEdit extends FragmentActivity {
 
@@ -51,6 +52,13 @@ public class PassEdit extends FragmentActivity {
 
 		if (debug)
 			Log.d(TAG, "onCreate()");
+
+		// Prevent screen shot shown on recent apps
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+					WindowManager.LayoutParams.FLAG_SECURE);
+		}
+
 		setContentView(R.layout.pass_edit);
 
 		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);

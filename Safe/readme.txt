@@ -25,6 +25,14 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release: 1.4.2
+date: 2012-??-??
+
+- For ICS and higher, no longer show screenshot on recent apps for PassView and PassEdit
+- Fixed bug where master password would be required twice in order to open safe
+- Internal changes to clean up code
+
+----------------
 release: 1.4.1
 date: 2012-08-01
 
