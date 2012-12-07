@@ -22,6 +22,7 @@ import java.util.Arrays;
 
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
+import org.openintents.safe.password.Master;
 import org.openintents.safe.service.ServiceDispatch;
 import org.openintents.safe.service.ServiceDispatchImpl;
 
@@ -56,8 +57,6 @@ public class IntentHandler extends Activity {
 	private static final int REQUEST_CODE_ASK_PASSWORD = 1;
 	private static final int REQUEST_CODE_ALLOW_EXTERNAL_ACCESS = 2;
 	
-	private String salt;
-	private String masterKey;
 	private CryptoHelper ch;
 	
 	// service elements
@@ -122,17 +121,6 @@ public class IntentHandler extends Activity {
 			if (service == null) {
 				if (debug) Log.i(TAG, "actionDispatch called later");
 				// actionDispatch() is called in onServiceConnected.
-			} else if (salt == null) {
-				try {
-					salt = service.getSalt();
-					masterKey = service.getPassword();
-		if (debug) Log.d(TAG,"starting actiondispatch");
-					actionDispatch();
-				} catch (RemoteException e) {
-					Log.d(TAG, e.toString());
-					// Not successful...
-					finish();
-				}
 			} else {
 				if (debug) Log.i(TAG, "actionDispatch called right now");
 				actionDispatch();
@@ -146,8 +134,6 @@ public class IntentHandler extends Activity {
 	 * @param data
 	 */
 	private void setServiceParametersFromExtrasAndDispatchAction(Intent data) {
-		salt = data.getStringExtra("salt");
-		masterKey = data.getStringExtra("masterKey");
 		String timeout = mPreferences.getString(Preferences.PREFERENCE_LOCK_TIMEOUT, Preferences.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE);
 		boolean lockOnScreenLock = mPreferences.getBoolean(Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
 
@@ -161,8 +147,7 @@ public class IntentHandler extends Activity {
 		try {
 			service.setTimeoutMinutes(timeoutMinutes);
 			service.setLockOnScreenLock(lockOnScreenLock);
-			service.setSalt(salt);
-			service.setPassword(masterKey); // should already be connected.
+			service.setPassword(Master.getMasterKey()); // should already be connected.
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -196,21 +181,17 @@ public class IntentHandler extends Activity {
 		final String action = thisIntent.getAction();
 		Intent callbackIntent = getIntent(); 
 		int callbackResult = RESULT_CANCELED;
-		PassList.setSalt(salt);
-		CategoryList.setSalt(salt);
-		PassList.setMasterKey(masterKey);
-		CategoryList.setMasterKey(masterKey);
 		
 		if (debug) Log.d(TAG,"actionDispatch()");
-		if ((salt==null) || (salt=="")) {
+		if ((Master.getSalt()==null) || (Master.getSalt()=="")) {
 			return;
 		}
 		if (ch == null) {
 			ch = new CryptoHelper();
 		}
 		try {
-			ch.init(CryptoHelper.EncryptionMedium,salt);
-			ch.setPassword(masterKey);
+			ch.init(CryptoHelper.EncryptionMedium,Master.getSalt());
+			ch.setPassword(Master.getMasterKey());
 		} catch (CryptoHelperException e1) {
 			e1.printStackTrace();
 			Toast.makeText(this, getString(R.string.crypto_error)
@@ -555,11 +536,6 @@ public class IntentHandler extends Activity {
 					askPassIsLocal=true;
 				}
 
-				if ((service.getPassword() == null) && (CategoryList.getMasterKey()!=null)) {
-					service.setPassword(CategoryList.getMasterKey());
-					service.setSalt(CategoryList.getSalt());
-				}
-				
 				if (service.getPassword() == null) {
 					boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
 					if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);
@@ -589,8 +565,6 @@ public class IntentHandler extends Activity {
 					boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 					
 					if (askPassIsLocal || externalAccess) {
-						salt = service.getSalt();
-						masterKey = service.getPassword();
 						if (debug) Log.d(TAG,"starting actiondispatch from service");
 
 						actionDispatch();

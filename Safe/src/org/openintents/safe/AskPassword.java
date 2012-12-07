@@ -20,6 +20,7 @@ import java.io.File;
 import java.security.NoSuchAlgorithmException;
 
 import org.openintents.distribution.DistributionLibraryActivity;
+import org.openintents.safe.password.Master;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
@@ -84,8 +85,8 @@ public class AskPassword extends DistributionLibraryActivity {
 	private TextView remoteAsk;
 	private EditText confirmPass;
 	private String PBEKey;
-	private String salt;
-	private String masterKey;
+	private String dbSalt;
+	private String dbMasterKey;
 	private CryptoHelper ch;
 	private boolean firstTime = false;
 
@@ -139,8 +140,8 @@ public class AskPassword extends DistributionLibraryActivity {
 				databaseVersionError();
 			}
 		}
-		salt = dbHelper.fetchSalt();
-		masterKey = dbHelper.fetchMasterKey();
+		dbSalt = dbHelper.fetchSalt();
+		dbMasterKey = dbHelper.fetchMasterKey();
 
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean prefKeypad = sp.getBoolean(Preferences.PREFERENCE_KEYPAD, false);
@@ -150,7 +151,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		if (prefKeypad) {
 			viewMode=VIEW_KEYPAD;
 		}
-		if (masterKey.length() == 0) {
+		if (dbMasterKey.length() == 0) {
 			firstTime=true;
 		}
 		if ((viewMode==VIEW_NORMAL) || (firstTime)) {
@@ -188,7 +189,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		remoteAsk = (TextView) findViewById(R.id.remote);
 		confirmPass = (EditText) findViewById(R.id.pass_confirm);
 //		confirmText = (TextView) findViewById(R.id.confirm_lbl);
-		if (masterKey.length() == 0) {
+		if (dbMasterKey.length() == 0) {
 			firstTime = true;
 			introText.setVisibility(View.VISIBLE);
 //			confirmText.setVisibility(View.VISIBLE);
@@ -267,20 +268,20 @@ public class AskPassword extends DistributionLibraryActivity {
 				return;
 			}
 			try {
-				salt = CryptoHelper.generateSalt();
-				masterKey = CryptoHelper.generateMasterKey();
+				dbSalt = CryptoHelper.generateSalt();
+				dbMasterKey = CryptoHelper.generateMasterKey();
 			} catch (NoSuchAlgorithmException e1) {
 				e1.printStackTrace();
 				Toast.makeText(AskPassword.this,getString(R.string.crypto_error)
 					+ e1.getMessage(), Toast.LENGTH_SHORT).show();
 				return;
 			}
-			if (debug) Log.i(TAG, "Saving Password: " + masterKey);
+			if (debug) Log.i(TAG, "Saving Password: " + dbMasterKey);
 			try {
-				ch.init(CryptoHelper.EncryptionStrong,salt);
+				ch.init(CryptoHelper.EncryptionStrong,dbSalt);
 				ch.setPassword(PBEKey);
-				String encryptedMasterKey = ch.encrypt(masterKey);
-				dbHelper.storeSalt(salt);
+				String encryptedMasterKey = ch.encrypt(dbMasterKey);
+				dbHelper.storeSalt(dbSalt);
 				dbHelper.storeMasterKey(encryptedMasterKey);
 			} catch (CryptoHelperException e) {
 				Log.e(TAG, e.toString());
@@ -305,16 +306,14 @@ public class AskPassword extends DistributionLibraryActivity {
 	private void gotPassword() {
 		Intent callbackIntent = new Intent();
 		
-		// Return the master key to our caller.  We no longer need the
+		// We no longer need the
 		// user-entered PBEKey. The master key is used for everything
 		// from here on out.
-		if (debug) Log.d(TAG,"calbackintent: masterKey="+masterKey+" salt="+salt);
-		callbackIntent.putExtra("masterKey", masterKey);
-		callbackIntent.putExtra("salt", salt);
+		if (debug) Log.d(TAG,"got password");
 		setResult(RESULT_OK, callbackIntent);
 		
-		CategoryList.setMasterKey(masterKey);
-		CategoryList.setSalt(salt);
+		Master.setMasterKey(dbMasterKey);
+		Master.setSalt(dbSalt);
 		finish();
 	}
 	
@@ -362,8 +361,6 @@ public class AskPassword extends DistributionLibraryActivity {
 		if (CategoryList.isSignedIn()==true) {
 			if (debug) Log.d(TAG,"already signed in");
 			Intent callbackIntent = new Intent();
-			callbackIntent.putExtra("salt", CategoryList.getSalt());
-			callbackIntent.putExtra("masterKey", CategoryList.getMasterKey());
 			setResult(RESULT_OK, callbackIntent);
 			finish();
 			return;
@@ -529,7 +526,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		String decryptedMasterKey = "";
 		if (debug) Log.d(TAG,"checkUserPassword: encryptedMasterKey="+encryptedMasterKey);
 		try {
-			ch.init(CryptoHelper.EncryptionStrong,salt);
+			ch.init(CryptoHelper.EncryptionStrong,dbSalt);
 			ch.setPassword(password);
 			decryptedMasterKey = ch.decrypt(encryptedMasterKey);
 			if (debug) Log.d(TAG,"decryptedMasterKey="+decryptedMasterKey);
@@ -537,7 +534,7 @@ public class AskPassword extends DistributionLibraryActivity {
 			Log.e(TAG, e.toString());
 		}
 		if (ch.getStatus()==true) {
-			masterKey=decryptedMasterKey;
+			dbMasterKey=decryptedMasterKey;
 			return true;
 		}
 		return false;
@@ -548,10 +545,7 @@ public class AskPassword extends DistributionLibraryActivity {
 		super.onActivityResult(requestCode, resultCode, i);
 
 		if ((requestCode==REQUEST_RESTORE_FIRST_TIME) && (resultCode == RESULT_OK)) {
-			Log.d(TAG,"returning masterkey: "+CategoryList.getMasterKey());
 			Intent callbackIntent = new Intent();
-			callbackIntent.putExtra("salt", CategoryList.getSalt());
-			callbackIntent.putExtra("masterKey", CategoryList.getMasterKey());
 			setResult(RESULT_OK, callbackIntent);
 			finish();
 		}

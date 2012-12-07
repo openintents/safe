@@ -89,9 +89,6 @@ public class PassList extends ListActivity {
 	Intent frontdoor;
 	private Intent restartTimerIntent=null;
 
-	private static String salt;
-	private static String masterKey;
-
 	private static fillerTask taskFiller = null; 
 	private ProgressDialog decryptProgress = null;
 
@@ -379,22 +376,6 @@ public class PassList extends ListActivity {
 			.setShortcut('4', 'm');
 	
 		return super.onCreateOptionsMenu(menu);
-	}
-
-	static void setSalt(String saltIn) {
-		salt = saltIn;
-	}
-
-	static String getSalt() {
-		return salt;
-	}
-
-	static void setMasterKey(String key) {
-		masterKey = key;
-	}
-
-	static String getMasterKey() {
-		return masterKey;
 	}
 
 	private void addPassword() {

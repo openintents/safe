@@ -24,6 +24,7 @@ import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.CategoryList;
 import org.openintents.safe.CryptoHelper;
 import org.openintents.safe.CryptoHelperException;
+import org.openintents.safe.password.Master;
 
 
 import android.app.Service;
@@ -39,8 +40,6 @@ public class ServiceDispatchImpl extends Service {
 	private static boolean debug = false;
 	private static String TAG = "ServiceDispatchIMPL";
 	public static CryptoHelper ch;  // TODO Peli: Could clean this up by moving it into a singleton? Or at least a separate static class?
-	private String salt;
-	private String masterKey;
 	private CountDownTimer t;
 	private int timeoutMinutes = 5;
 	private long timeoutUntilStop = timeoutMinutes * 60000;
@@ -87,14 +86,14 @@ public class ServiceDispatchImpl extends Service {
 
 		if (debug) Log.d( TAG,"onDestroy" );
 		unregisterReceiver(mIntentReceiver);
-		if (masterKey!=null) {
+		if (Master.getMasterKey()!=null) {
 			lockOut();
 		}
 		ServiceNotification.clearNotification(ServiceDispatchImpl.this);
 	}
 
 	private void lockOut() {
-		masterKey = null;
+		Master.setMasterKey(null);
 		ch = null;
 		ServiceNotification.clearNotification(ServiceDispatchImpl.this);
 
@@ -161,32 +160,23 @@ public class ServiceDispatchImpl extends Service {
 			return (clearText);
 		}
 
-		public void setSalt (String saltIn){
-			salt = saltIn;
-		}
-
-		public String getSalt() {
-			return salt;
-		}
-
 		public void setPassword (String masterKeyIn){
 			startTimer(); //should be initial timer start
 			ch = new CryptoHelper();
 			try {
-				ch.init(CryptoHelper.EncryptionMedium, salt);
-				ch.setPassword(masterKeyIn);
+				ch.init(CryptoHelper.EncryptionMedium, Master.getSalt());
+				ch.setPassword(Master.getMasterKey());
 			} catch (CryptoHelperException e) {
 				e.printStackTrace();
 				return;
 			}
-			masterKey = masterKeyIn;
 			
 			ServiceNotification.setNotification(ServiceDispatchImpl.this);
 		}
 
 		public String getPassword() {
 			restartTimer();
-			return masterKey;
+			return Master.getMasterKey();
 		}
 
 		public void setTimeoutMinutes (int timeoutMinutesIn){

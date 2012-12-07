@@ -31,6 +31,7 @@ import org.openintents.distribution.AboutDialog;
 import org.openintents.intents.AboutMiniIntents;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
+import org.openintents.safe.password.Master;
 import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
@@ -121,9 +122,6 @@ public class CategoryList extends ListActivity {
 	private static backupTask taskBackup = null; 
 	private ProgressDialog backupProgress = null;
 
-	private static String salt;
-	private static String masterKey;			
-
 	private List<CategoryEntry> rows=null;
 	private CategoryListItemAdapter catAdapter=null;
 	private Intent restartTimerIntent=null;
@@ -138,7 +136,7 @@ public class CategoryList extends ListActivity {
 			if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
 				if (debug) Log.d(TAG,"caught ACTION_SCREEN_OFF");
 				if (lockOnScreenLock) {
-					 masterKey=null;
+					 Master.setMasterKey(null);
 				}
 			} else if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
 				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
@@ -401,7 +399,7 @@ public class CategoryList extends ListActivity {
 	 * @return	True if signed in
 	 */
 	public static boolean isSignedIn() {
-		if ((salt != null) && (masterKey != null)) {
+		if ((Master.getSalt() != null) && (Master.getMasterKey() != null)) {
 			if (debug) Log.d(TAG,"isSignedIn: true");
 			return true;
 		}
@@ -416,7 +414,7 @@ public class CategoryList extends ListActivity {
 	 */
 	public static void setSignedOut() {
 		if (debug) Log.d(TAG,"setSignedOut()");
-		masterKey=null;
+		Master.setMasterKey(null);
 	}
 	/**
 	 * Populates the category ListView
@@ -503,22 +501,6 @@ public class CategoryList extends ListActivity {
 		}
 		
 		return super.onCreateOptionsMenu(menu);
-	}
-
-	static void setSalt(String saltIn) {
-		salt = saltIn;
-	}
-
-	static String getSalt() {
-		return salt;
-	}
-
-	static void setMasterKey(String key) {
-		masterKey = key;
-	}
-
-	static String getMasterKey() {
-		return masterKey;
 	}
 
 	private void addCategoryActivity() {
@@ -658,7 +640,7 @@ public class CategoryList extends ListActivity {
 		Intent serviceIntent = new Intent();
 		serviceIntent.setClass(this, ServiceDispatchImpl.class );
 		stopService(serviceIntent);
-		masterKey=null;
+		Master.setMasterKey(null);
 		Intent frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
 		startActivity(frontdoor);

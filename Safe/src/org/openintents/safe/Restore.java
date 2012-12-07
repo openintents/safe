@@ -26,6 +26,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.password.Master;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -302,10 +303,8 @@ public class Restore extends Activity {
 
 		dbHelper.storeSalt(restoreDataSet.getSalt());
 		dbHelper.storeMasterKey(restoreDataSet.getMasterKeyEncrypted());
-		CategoryList.setSalt(restoreDataSet.getSalt());
-		PassList.setSalt(restoreDataSet.getSalt());
-		CategoryList.setMasterKey(masterKey);
-		PassList.setMasterKey(masterKey);
+		Master.setSalt(restoreDataSet.getSalt());
+		Master.setMasterKey(masterKey);
 		for (CategoryEntry category : restoreDataSet.getCategories()) {
 			if (debug) Log.d(TAG,"category="+category.name);
 			dbHelper.addCategory(category);

@@ -27,6 +27,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.openintents.safe.password.Master;
+
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -63,12 +65,12 @@ public class Passwords {
 			ch = new CryptoHelper();
 		}
 		if ((cryptoInitialized==false) &&
-				(CategoryList.getSalt()!=null) &&
-				(CategoryList.getMasterKey()!=null))
+				(Master.getSalt()!=null) &&
+				(Master.getMasterKey()!=null))
 		{
 			try {
 				Passwords.InitCrypto(CryptoHelper.EncryptionMedium,
-						CategoryList.getSalt(), CategoryList.getMasterKey());
+						Master.getSalt(), Master.getMasterKey());
 				cryptoInitialized=true;
 			} catch (Exception e) {
 				e.printStackTrace();

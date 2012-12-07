@@ -19,6 +19,7 @@ package org.openintents.safe;
 import java.util.List;
 
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.password.Master;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -388,8 +389,7 @@ public class ChangePass extends Activity {
 
 		dbHelper.commit();
 		
-		PassList.setMasterKey(newPass);
-		CategoryList.setMasterKey(newPass);
+		Master.setMasterKey(newPass);
 
 		dbHelper.close();
 	}
