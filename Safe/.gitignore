@@ -13,6 +13,9 @@ bin/
 gen/
 release/
 
+# Eclipse settings
+.settings/
+
 # Local configuration file (sdk path, etc)
 local.properties
 
