@@ -21,7 +21,6 @@ package org.openintents.safe.service;
 // if there are still clients attached.  Should be fixed.
 
 import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.CategoryList;
 import org.openintents.safe.CryptoHelper;
 import org.openintents.safe.CryptoHelperException;
 import org.openintents.safe.password.Master;
@@ -92,16 +91,23 @@ public class ServiceDispatchImpl extends Service {
 		ServiceNotification.clearNotification(ServiceDispatchImpl.this);
 	}
 
+	/**
+	 * Clear the masterKey, notification, and broadcast CryptoIntents.ACTION_CRYPTO_LOGGED_OUT
+	 */
 	private void lockOut() {
 		Master.setMasterKey(null);
 		ch = null;
 		ServiceNotification.clearNotification(ServiceDispatchImpl.this);
 
-		CategoryList.setSignedOut();
 		Intent intent = new Intent(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
 		sendBroadcast(intent);
 	}
 
+	/**
+	 * Start a CountDownTimer() that will cause a lockOut()
+	 * 
+	 * @see #lockOut()
+	 */
 	private void startTimer () {
 		if (debug) Log.d(TAG,"startTimer with timeoutUntilStop="+timeoutUntilStop);
 		t = new CountDownTimer(timeoutUntilStop, 1000) {
@@ -123,6 +129,9 @@ public class ServiceDispatchImpl extends Service {
 		if (debug) Log.d(TAG, "Timer started with: " + timeoutUntilStop );
 	}
 
+	/**
+	 * Restart the CountDownTimer()
+	 */
 	private void restartTimer () {
 		// must be started with startTimer first.
 		if (debug) Log.d(TAG,"timer restarted");
@@ -160,6 +169,11 @@ public class ServiceDispatchImpl extends Service {
 			return (clearText);
 		}
 
+		/**
+		 * Doesn't really set the password.
+		 * 
+		 * Starts the timer, initializes the CryptoHelper, and sets the notification.
+		 */
 		public void setPassword (String masterKeyIn){
 			startTimer(); //should be initial timer start
 			ch = new CryptoHelper();

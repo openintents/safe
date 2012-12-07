@@ -1,5 +1,4 @@
-/* $Id$
- * 
+/*  
  * Copyright 2008 Randy McEoin
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,15 +21,11 @@ import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.password.Master;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,29 +43,8 @@ public class ChangePass extends Activity {
 	private static boolean debug = false;
 	private static final String TAG = "ChangePass";
 	
-	ProgressDialog mChangePassProgress;
-	
-	private static final int CHANGE_PASS_PROGRESS_KEY = 0;
-	
-	protected static final int MSG_PASS_CHANGED = 0x101; 
-	
-	Thread changePassThread = null;
 	String oldPassword;
 	String newPassword;
-
-	Handler myViewUpdateHandler = new Handler(){
-		// @Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case ChangePass.MSG_PASS_CHANGED:
-					Toast.makeText(ChangePass.this, R.string.password_changed,
-						Toast.LENGTH_LONG).show();
-					finish();
-					break;
-			}
-			super.handleMessage(msg);
-		}
-	}; 
 
 	Intent frontdoor;
 	private Intent restartTimerIntent=null;
@@ -118,13 +92,6 @@ public class ChangePass extends Activity {
 		
 		if (debug) Log.d(TAG,"onPause()");
 		
-		if ((changePassThread != null) && (changePassThread.isAlive())) {
-			if (debug) Log.d(TAG,"wait for thread");
-//			importThread.interrupt();
-			int maxWaitToDie=500000;
-			try { changePassThread.join(maxWaitToDie); } 
-			catch(InterruptedException e){} //  ignore 
-		}
 		try {
 			unregisterReceiver(mIntentReceiver);
 		} catch (IllegalArgumentException e) {
@@ -146,20 +113,6 @@ public class ChangePass extends Activity {
 		registerReceiver(mIntentReceiver, filter);
 
 		Passwords.Initialize(this);
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-			case CHANGE_PASS_PROGRESS_KEY: {
-				ProgressDialog dialog = new ProgressDialog(this);
-				dialog.setMessage("Please wait while re-encrypting...");
-				dialog.setIndeterminate(false);
-				dialog.setCancelable(false);
-				return dialog;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -192,40 +145,8 @@ public class ChangePass extends Activity {
 					Toast.LENGTH_SHORT).show();
 			return;
 		}
-//		changePassThreadStart(oldPlain, newPlain);
 		changeMasterPassword(oldPlain, newPlain);
 	}
-
-	/**
-	 * Start a separate thread to import the database.   By running
-	 * the import in a thread it allows the main UI thread to return
-	 * and permit the updating of the progress dialog.
-	 * 
-	 * @param oldPass clear text old password
-	 * @param newPass clear text new password
-	 */
-	/*
-	private void changePassThreadStart(String oldPass, String newPass){
-		if (debug) Log.d(TAG,"changePassThreadStart(,)");
-		showDialog(CHANGE_PASS_PROGRESS_KEY);
-		oldPassword=oldPass;
-		newPassword=newPass;
-		changePassThread = new Thread(new Runnable() {
-			public void run() {
-				changePassword(oldPassword, newPassword);
-
-				dismissDialog(CHANGE_PASS_PROGRESS_KEY);
-				
-				Message m = new Message();
-				m.what = ChangePass.MSG_PASS_CHANGED;
-				ChangePass.this.myViewUpdateHandler.sendMessage(m); 
-
-				if (debug) Log.d(TAG,"thread end");
-				}
-			});
-		changePassThread.start();
-	}
-	*/
 
 	private boolean changeMasterPassword(String oldPass, String newPass) {
 
@@ -290,7 +211,7 @@ public class ChangePass extends Activity {
 		categoryRows = dbHelper.fetchAllCategoryRows();
 
 		List<PassEntry> passRows;
-		passRows = dbHelper.fetchAllRows(new Long(0));
+		passRows = dbHelper.fetchAllRows(Long.valueOf(0));
 		
 		/**
 		 * Decrypt everything using the old password.
