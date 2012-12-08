@@ -1,5 +1,6 @@
 package org.openintents.safe;
 
+import org.openintents.safe.service.AutoLockService;
 import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.util.VersionUtils;
 
@@ -75,7 +76,7 @@ public class LogOffActivity extends Activity {
 		public void run() {
 
 			TextView time = (TextView) findViewById(R.id.lock_timeout);
-			long millis = ServiceDispatchImpl.timeRemaining;
+			long millis = AutoLockService.getTimeRemaining();
 			int seconds = (int) (millis / 1000) % 60;
 			int minutes = (int) (millis / 60000);
 

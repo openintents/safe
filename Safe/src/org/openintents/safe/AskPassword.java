@@ -21,6 +21,8 @@ import java.security.NoSuchAlgorithmException;
 
 import org.openintents.distribution.DistributionLibraryActivity;
 import org.openintents.safe.password.Master;
+import org.openintents.safe.service.AutoLockService;
+import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
@@ -314,6 +316,12 @@ public class AskPassword extends DistributionLibraryActivity {
 		
 		Master.setMasterKey(dbMasterKey);
 		Master.setSalt(dbSalt);
+		
+		if (debug) Log.d(TAG,"start AutoLockService");
+		Intent myIntent = new Intent(getApplicationContext(), AutoLockService.class);
+		startService(myIntent);
+
+		ServiceDispatchImpl.ch = ch;
 		finish();
 	}
 	

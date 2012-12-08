@@ -131,8 +131,12 @@
             <intent-filter>
                 <action android:name="org.openintents.safe.service.ServiceDispatchImpl" />
             </intent-filter> 
-        </service>    
-        
+        </service>
+
+		<service
+			android:enabled="true"
+			android:name=".service.AutoLockService"/>
+
     	<provider android:name=".CryptoContentProvider" android:authorities="org.openintents.safe"></provider>
         <provider android:name="org.openintents.safe.backup.MyBackupPro"  
             android:authorities="org.openintents.safe.backup.MyBackupPro"

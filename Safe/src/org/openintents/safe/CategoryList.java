@@ -32,6 +32,7 @@ import org.openintents.intents.AboutMiniIntents;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
 import org.openintents.safe.password.Master;
+import org.openintents.safe.service.AutoLockService;
 import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
@@ -641,6 +642,10 @@ public class CategoryList extends ListActivity {
 		serviceIntent.setClass(this, ServiceDispatchImpl.class );
 		stopService(serviceIntent);
 		Master.setMasterKey(null);
+		
+		Intent autoLockIntent = new Intent(getApplicationContext(), AutoLockService.class);
+		stopService(autoLockIntent);
+		
 		Intent frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
 		startActivity(frontdoor);

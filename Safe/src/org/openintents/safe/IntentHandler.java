@@ -1,5 +1,4 @@
-/* $Id$
- * 
+/*  
  * Copyright 2007-2008 Steven Osborn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,7 +34,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -76,7 +74,7 @@ public class IntentHandler extends Activity {
 		
 		mServiceIntent = null;
 		mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+	      
 		if (Passwords.Initialize(this)==false) {
 			finish();
 		}
@@ -134,25 +132,7 @@ public class IntentHandler extends Activity {
 	 * @param data
 	 */
 	private void setServiceParametersFromExtrasAndDispatchAction(Intent data) {
-		String timeout = mPreferences.getString(Preferences.PREFERENCE_LOCK_TIMEOUT, Preferences.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE);
-		boolean lockOnScreenLock = mPreferences.getBoolean(Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
-
-		int timeoutMinutes=5; // default to 5
-		try {
-			timeoutMinutes = Integer.valueOf(timeout);
-		} catch (NumberFormatException e) {
-			Log.d(TAG,"why is lock_timeout busted?");
-		}
 		
-		try {
-			service.setTimeoutMinutes(timeoutMinutes);
-			service.setLockOnScreenLock(lockOnScreenLock);
-			service.setPassword(Master.getMasterKey()); // should already be connected.
-		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
 		boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 		boolean isLocal = isIntentLocal();
 		
@@ -528,53 +508,49 @@ public class IntentHandler extends Activity {
 				return;
 			}
 			
-			try {
-				final Intent thisIntent = getIntent();
-				String action=thisIntent.getAction();
-				if (action!=null && action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
-					if (debug) Log.d(TAG,"autolock");
-					askPassIsLocal=true;
-				}
+			final Intent thisIntent = getIntent();
+			String action=thisIntent.getAction();
+			if (action!=null && action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
+				if (debug) Log.d(TAG,"autolock");
+				askPassIsLocal=true;
+			}
 
-				if (service.getPassword() == null) {
-					boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
-					if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);
-					if (promptforpassword) {
-						if (debug) Log.d(TAG, "ask for password");
-						// the service isn't running
-						Intent askPass = new Intent(getApplicationContext(),
-								AskPassword.class);
-	
-						String inputBody = thisIntent.getStringExtra (CryptoIntents.EXTRA_TEXT);
-	
-						askPass.putExtra (CryptoIntents.EXTRA_TEXT, inputBody);
-						askPass.putExtra (AskPassword.EXTRA_IS_LOCAL, askPassIsLocal);
-						//TODO: Is there a way to make sure all the extras are set?	
-						startActivityForResult (askPass, REQUEST_CODE_ASK_PASSWORD);
-					} else {
-						if (debug) Log.d(TAG, "ask for password");
-						// Don't prompt but cancel
-						setResult(RESULT_CANCELED);
-						finish();
-					}
+			if (Master.getMasterKey() == null) {
+				boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
+				if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);
+				if (promptforpassword) {
+					if (debug) Log.d(TAG, "ask for password");
+					// the service isn't running
+					Intent askPass = new Intent(getApplicationContext(),
+							AskPassword.class);
 
+					String inputBody = thisIntent.getStringExtra (CryptoIntents.EXTRA_TEXT);
+
+					askPass.putExtra (CryptoIntents.EXTRA_TEXT, inputBody);
+					askPass.putExtra (AskPassword.EXTRA_IS_LOCAL, askPassIsLocal);
+					//TODO: Is there a way to make sure all the extras are set?	
+					startActivityForResult (askPass, REQUEST_CODE_ASK_PASSWORD);
 				} else {
-					if (debug) Log.d(TAG, "service already started");
-					//service already started, so don't need to ask pw.
-
-					boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
-					
-					if (askPassIsLocal || externalAccess) {
-						if (debug) Log.d(TAG,"starting actiondispatch from service");
-
-						actionDispatch();
-					} else {
-						if (debug) Log.d(TAG, "onServiceConnected: showDialogAllowExternalAccess()");
-						showDialogAllowExternalAccess();
-					}
+					if (debug) Log.d(TAG, "ask for password");
+					// Don't prompt but cancel
+					setResult(RESULT_CANCELED);
+					finish();
 				}
-			} catch (RemoteException e) {
-				Log.d(TAG, e.toString());
+
+			} else {
+				if (debug) Log.d(TAG, "service already started");
+				//service already started, so don't need to ask pw.
+
+				boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+				
+				if (askPassIsLocal || externalAccess) {
+					if (debug) Log.d(TAG,"starting actiondispatch from service");
+
+					actionDispatch();
+				} else {
+					if (debug) Log.d(TAG, "onServiceConnected: showDialogAllowExternalAccess()");
+					showDialogAllowExternalAccess();
+				}
 			}
 			if (debug) Log.d( TAG,"onServiceConnected" );
 		}
@@ -587,16 +563,4 @@ public class IntentHandler extends Activity {
 		}
 		
 	};
-
-	public static void setLockOnScreenLock(boolean lock)
-	{
-		if (service!=null) {
-			try {
-				service.setLockOnScreenLock(lock);
-			} catch (RemoteException e) {
-				Log.d(TAG, e.toString());
-			}
-		}
-	}
-
 }

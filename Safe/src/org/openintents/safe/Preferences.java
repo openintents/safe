@@ -136,10 +136,6 @@ public class Preferences extends PreferenceActivity
 	protected void onPause() {
 		super.onPause();
 
-		SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-		boolean lockOnScreenLock = mPreferences.getBoolean(Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
-		IntentHandler.setLockOnScreenLock(lockOnScreenLock);
-		
 		try {
 			unregisterReceiver(mIntentReceiver);
 		} catch (IllegalArgumentException e) {
