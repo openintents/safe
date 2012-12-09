@@ -31,6 +31,7 @@ date: 2012-??-??
 - For ICS and higher, no longer show screenshot on recent apps for PassView and PassEdit
 - Fixed bug where master password would be required twice in order to open safe
 - Internal changes to clean up code
+- Added decreasing progress bar to notification to indicate auto lock timeout
 
 ----------------
 release: 1.4.1

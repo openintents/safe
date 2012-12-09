@@ -82,6 +82,7 @@ public class ServiceNotification {
 					.setContentTitle(context.getString(R.string.app_name))
 					.setContentText(context.getString(R.string.notification_msg))
 					.setSmallIcon(R.drawable.passicon).setOngoing(true)
+					.setContentIntent(pi)
 					.setProgress(100, 0, false);
 
 			mNotifyManager.notify(NOTIFICATION_ID, notification.getNotification());
