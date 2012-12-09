@@ -143,17 +143,22 @@ public class AutoLockService extends Service {
 		} catch (NumberFormatException e) {
 			Log.d(TAG, "why is lock_timeout busted?");
 		}
-		long timeoutUntilStop = timeoutMinutes * 60000;
+		final long timeoutUntilStop = timeoutMinutes * 60000;
 
 		if (debug)
 			Log.d(TAG, "startTimer with timeoutUntilStop=" + timeoutUntilStop);
 
+
+
 		t = new CountDownTimer(timeoutUntilStop, 1000) {
+
 			public void onTick(long millisUntilFinished) {
 				// doing nothing.
 				if (debug)
 					Log.d(TAG, "tick: " + millisUntilFinished + " this=" + this);
 				timeRemaining = millisUntilFinished;
+				ServiceNotification.updateProgress(AutoLockService.this, (int)timeoutUntilStop,
+						(int)timeRemaining);
 				if (Master.getMasterKey() == null) {
 					if (debug)
 						Log.d(TAG, "detected masterKey=null");

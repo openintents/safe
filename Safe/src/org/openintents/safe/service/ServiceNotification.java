@@ -18,10 +18,13 @@ package org.openintents.safe.service;
 import org.openintents.safe.LogOffActivity;
 import org.openintents.safe.R;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 
@@ -30,6 +33,9 @@ public class ServiceNotification {
 
 	private static final int NOTIFICATION_ID = 1;
 	
+	static NotificationManager mNotifyManager;
+	static android.app.Notification.Builder notification;
+	static Builder notificationCompat;
 	/*
 	public static void updateNotification(Context context) {
 		SharedPreferences prefs = PreferenceManager
@@ -48,10 +54,12 @@ public class ServiceNotification {
 	}
 	*/
 	
+	@SuppressWarnings("deprecation")
+	@SuppressLint("NewApi")
 	public static void setNotification(Context context) {
 
 		// look up the notification manager service
-		NotificationManager nm = (NotificationManager) context
+		mNotifyManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 	
 		Intent intent = new Intent(context, LogOffActivity.class);
@@ -59,14 +67,25 @@ public class ServiceNotification {
 				intent, PendingIntent.FLAG_CANCEL_CURRENT);				
 		// Set the info for the views that show in the notification
 		// panel.
-		Builder notification = new NotificationCompat.Builder(context)
-			.setContentTitle(context.getString(R.string.app_name))
-			.setContentText(context.getString(R.string.notification_msg))
-			.setSmallIcon(R.drawable.passicon)
-			.setOngoing(true)
-			.setContentIntent(pi);
-		
-		nm.notify(NOTIFICATION_ID, notification.getNotification());
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			notificationCompat = new NotificationCompat.Builder(context)
+					.setContentTitle(context.getString(R.string.app_name))
+					.setContentText(context.getString(R.string.notification_msg))
+					.setSmallIcon(R.drawable.passicon).setOngoing(true)
+					.setContentIntent(pi);
+
+			mNotifyManager.notify(NOTIFICATION_ID, notificationCompat.build());
+		} else {
+			// The NotificationCompat library doesn't really have a setProgress(), so only do
+			// that for Ice Cream Sandwich and above
+			notification = new Notification.Builder(context)
+					.setContentTitle(context.getString(R.string.app_name))
+					.setContentText(context.getString(R.string.notification_msg))
+					.setSmallIcon(R.drawable.passicon).setOngoing(true)
+					.setProgress(100, 0, false);
+
+			mNotifyManager.notify(NOTIFICATION_ID, notification.getNotification());
+		}
 	}
 	
 	public static void clearNotification(Context context) {
@@ -75,5 +94,23 @@ public class ServiceNotification {
 		NotificationManager nm = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		nm.cancel(NOTIFICATION_ID);
+	}
+	
+	/**
+	 * Update the existing notification progress bar.  This should start with
+	 * progress == max and progress decreasing over time to depict time running out. 
+	 * 
+	 * @param context
+	 * @param max
+	 * @param progress
+	 */
+	@SuppressWarnings("deprecation")
+	@SuppressLint("NewApi")
+	public static void updateProgress(Context context, int max, int progress) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			notification.setProgress(max, progress, false);
+			mNotifyManager.notify(NOTIFICATION_ID, notification.getNotification());
+		}
+	
 	}
 }
