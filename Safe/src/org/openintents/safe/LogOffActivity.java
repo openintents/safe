@@ -48,6 +48,10 @@ public class LogOffActivity extends Activity {
 				Intent serviceIntent = new Intent();
 				serviceIntent.setClass(LogOffActivity.this, ServiceDispatchImpl.class );
 				stopService(serviceIntent);
+
+				Intent autoLockIntent = new Intent(getApplicationContext(), AutoLockService.class);
+				stopService(autoLockIntent);
+
 				CategoryList.setSignedOut();
 				
 				/*

@@ -157,12 +157,13 @@ public class AutoLockService extends Service {
 				if (debug)
 					Log.d(TAG, "tick: " + millisUntilFinished + " this=" + this);
 				timeRemaining = millisUntilFinished;
-				ServiceNotification.updateProgress(AutoLockService.this, (int)timeoutUntilStop,
-						(int)timeRemaining);
 				if (Master.getMasterKey() == null) {
 					if (debug)
 						Log.d(TAG, "detected masterKey=null");
 					lockOut();
+				} else {
+					ServiceNotification.updateProgress(AutoLockService.this, (int)timeoutUntilStop,
+							(int)timeRemaining);
 				}
 			}
 
