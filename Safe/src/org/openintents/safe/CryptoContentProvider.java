@@ -1,5 +1,4 @@
-/* $Id$
- * 
+/*
  * Copyright (C) 2009 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,8 +18,6 @@ package org.openintents.safe;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import org.openintents.safe.service.ServiceDispatchImpl;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -34,6 +31,8 @@ public class CryptoContentProvider extends ContentProvider {
 
 	private static final boolean debug = false;
 	private static final String TAG = "CryptoContentProvider";
+
+	public static CryptoHelper ch=null;
 
 	public static final String AUTHORITY = "org.openintents.safe";
 	public static final Uri CONTENT_URI
@@ -136,7 +135,7 @@ public class CryptoContentProvider extends ContentProvider {
 					// TODO: Check that sessionKey is valid.
 
 					// Decrypt file
-					CryptoHelper ch = ServiceDispatchImpl.ch; // Use the global crypto helper that is connected to the single service we have.
+	//				CryptoHelper ch = ServiceDispatchImpl.ch; // Use the global crypto helper that is connected to the single service we have.
 
 					if (ch == null) {
 						if (debug) Log.d(TAG, "OI Safe currently logged out.");

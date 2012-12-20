@@ -1,5 +1,4 @@
-/* $Id$
- * 
+/* 
  * Copyright 2007-2008 Steven Osborn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,7 +41,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 
-import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.util.SecureDelete;
 
 import android.content.ContentResolver;
@@ -312,9 +310,9 @@ public class CryptoHelper {
 	 */
 	public String getCurrentSessionKey() {
 
-		if (ServiceDispatchImpl.ch != null) {
+		if (CryptoContentProvider.ch != null) {
 			// Return a global session key created in ServiceDispatchImpl
-			return ServiceDispatchImpl.ch.sessionKey; 
+			return CryptoContentProvider.ch.sessionKey; 
 		}
 		return null;
 		// This should be the same session key as is used in CryptoContentProvider.

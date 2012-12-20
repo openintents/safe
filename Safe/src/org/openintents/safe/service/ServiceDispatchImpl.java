@@ -19,8 +19,6 @@ package org.openintents.safe.service;
 
 // TODO: Stripped everything down to the ch static.  Need to find a better place to hold it.
 
-import org.openintents.safe.CryptoHelper;
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -30,7 +28,7 @@ import android.util.Log;
 public class ServiceDispatchImpl extends Service {
 	private static boolean debug = false;
 	private static String TAG = "ServiceDispatchIMPL";
-	public static CryptoHelper ch=null;  // TODO Peli: Could clean this up by moving it into a singleton? Or at least a separate static class?
+//	public static CryptoHelper ch=null;  // TODO Peli: Could clean this up by moving it into a singleton? Or at least a separate static class?
 
 	public class LocalBinder extends Binder {
 		ServiceDispatchImpl getService() {
