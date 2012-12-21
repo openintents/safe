@@ -1,7 +1,6 @@
 package org.openintents.safe;
 
 import org.openintents.safe.service.AutoLockService;
-import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.util.VersionUtils;
 
 import android.app.Activity;
@@ -44,10 +43,6 @@ public class LogOffActivity extends Activity {
 					if (clipboardText.equals(Safe.last_used_password))
 						cb.setText("");
 				}
-
-				Intent serviceIntent = new Intent();
-				serviceIntent.setClass(LogOffActivity.this, ServiceDispatchImpl.class );
-				stopService(serviceIntent);
 
 				Intent autoLockIntent = new Intent(getApplicationContext(), AutoLockService.class);
 				stopService(autoLockIntent);

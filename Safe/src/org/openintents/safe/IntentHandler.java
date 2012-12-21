@@ -22,18 +22,12 @@ import java.util.Arrays;
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
 import org.openintents.safe.password.Master;
-import org.openintents.safe.service.ServiceDispatch;
-import org.openintents.safe.service.ServiceDispatchImpl;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -49,7 +43,7 @@ import android.widget.Toast;
  */
 public class IntentHandler extends Activity {
 
-	private static final boolean debug = false;
+	private static final boolean debug = true;
 	private static String TAG = "IntentHandler";
 	
 	private static final int REQUEST_CODE_ASK_PASSWORD = 1;
@@ -57,13 +51,8 @@ public class IntentHandler extends Activity {
 	
 	private CryptoHelper ch;
 	
-	// service elements
-	private static ServiceDispatch service=null;
-	private ServiceDispatchConnection conn=null;
 	private Intent mServiceIntent;
 	
-	private boolean delayedFinish=false;
-
 	SharedPreferences mPreferences;
 	
 	/** Called when the activity is first created. */
@@ -89,20 +78,7 @@ public class IntentHandler extends Activity {
 		case REQUEST_CODE_ASK_PASSWORD:
 			if (resultCode == RESULT_OK) {
 				if (debug) Log.d(TAG,"RESULT_OK");
-				if (service == null) {
-					mServiceIntent = data;
-					// setServiceParametersFromExtrasAndDispatchAction() is called in onServiceConnected.
-					
-					// when Safe has been completely killed by the OS and is brought back to life,
-					// it seems to be able to invoke the AskPassword without IntentHandler having
-					// resumed, so the service is not re-attached.
-					//
-					// without this, the user will be stuck at IntentHandler without any UI shown
-					// honestly not totally sure why.
-					delayedFinish=true;
-					return;
-				}
-				
+				mServiceIntent = data;
 				setServiceParametersFromExtrasAndDispatchAction(data);
 				
 			} else { // resultCode == RESULT_CANCELED, which means the user hit Back at AskPassword
@@ -116,13 +92,8 @@ public class IntentHandler extends Activity {
 			// Check again, regardless whether user pressed "OK" or "Cancel".
 			// Also, DialogHostingActivity never returns a resultCode different than
 			// RESULT_CANCELED.
-			if (service == null) {
-				if (debug) Log.i(TAG, "actionDispatch called later");
-				// actionDispatch() is called in onServiceConnected.
-			} else {
-				if (debug) Log.i(TAG, "actionDispatch called right now");
-				actionDispatch();
-			}
+			if (debug) Log.i(TAG, "actionDispatch called right now");
+			actionDispatch();
 			break;
 		}
 			
@@ -434,8 +405,6 @@ public class IntentHandler extends Activity {
 
 		if (debug)
 			Log.d(TAG, "onPause()");
-
-		releaseService();
 	}
 
 	@Override
@@ -444,36 +413,15 @@ public class IntentHandler extends Activity {
 
 		if (debug)
 			Log.d(TAG, "onResume()");
+		startUp();
 		
-		initService(); // start up the PWS service so other applications can query.
-		if (delayedFinish==true) {
-			delayedFinish=false;
-			setResult(RESULT_OK);
-			finish();
-		}
 	}
 	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		releaseService();
 	}
 
-
-	//--------------------------- service stuff ------------
-	private void initService() {
-
-		boolean isLocal = isIntentLocal();
-		if (conn==null) {
-			conn = new ServiceDispatchConnection(isLocal);
-			Intent i = new Intent();
-			i.setClass(this, ServiceDispatchImpl.class);
-			startService(i);
-			bindService( i, conn, Context.BIND_AUTO_CREATE);
-		} else {
-			if (debug) Log.d(TAG,"service already running");
-		}
-	}
 
 	/**
 	 * @return
@@ -481,27 +429,14 @@ public class IntentHandler extends Activity {
 	private boolean isIntentLocal() {
 		String action = getIntent().getAction();
 		boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN);
+		if (debug) Log.d(TAG,"isLocal="+isLocal+", action="+action);
 		return isLocal;
 	}
 
-	private void releaseService() {
-		if (conn != null ) {
-			unbindService( conn );
-			conn = null;
-		}
-	}
-
-	class ServiceDispatchConnection implements ServiceConnection
-	{
-		boolean askPassIsLocal = false;
-		public ServiceDispatchConnection (Boolean isLocal) {
-			askPassIsLocal = isLocal;
-		}
-		public void onServiceConnected(ComponentName className, 
-				IBinder boundService )
+		public void startUp()
 		{
-			service = ServiceDispatch.Stub.asInterface((IBinder)boundService);
-			
+			boolean askPassIsLocal=isIntentLocal();
+
 			if (mServiceIntent != null) {
 				setServiceParametersFromExtrasAndDispatchAction(mServiceIntent);
 				mServiceIntent = null;
@@ -536,7 +471,6 @@ public class IntentHandler extends Activity {
 					setResult(RESULT_CANCELED);
 					finish();
 				}
-
 			} else {
 				if (debug) Log.d(TAG, "service already started");
 				//service already started, so don't need to ask pw.
@@ -552,15 +486,5 @@ public class IntentHandler extends Activity {
 					showDialogAllowExternalAccess();
 				}
 			}
-			if (debug) Log.d( TAG,"onServiceConnected" );
 		}
-		
-		public void onServiceDisconnected(ComponentName className)
-		{
-			service = null;
-			
-			if (debug) Log.d( TAG,"onServiceDisconnected" );
-		}
-		
-	};
 }

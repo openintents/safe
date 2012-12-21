@@ -1,5 +1,4 @@
-/* $Id$
- * 
+/* 
  * Copyright 2008-2012 OpenIntents.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,7 +32,6 @@ import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
 import org.openintents.safe.password.Master;
 import org.openintents.safe.service.AutoLockService;
-import org.openintents.safe.service.ServiceDispatchImpl;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
@@ -638,9 +636,6 @@ public class CategoryList extends ListActivity {
 				cb.setText("");
 		}
 
-		Intent serviceIntent = new Intent();
-		serviceIntent.setClass(this, ServiceDispatchImpl.class );
-		stopService(serviceIntent);
 		Master.setMasterKey(null);
 		
 		Intent autoLockIntent = new Intent(getApplicationContext(), AutoLockService.class);
