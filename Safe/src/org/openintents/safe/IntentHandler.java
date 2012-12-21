@@ -51,8 +51,6 @@ public class IntentHandler extends Activity {
 	
 	private CryptoHelper ch;
 	
-	private Intent mServiceIntent;
-	
 	SharedPreferences mPreferences;
 	
 	/** Called when the activity is first created. */
@@ -61,7 +59,6 @@ public class IntentHandler extends Activity {
 		super.onCreate(icicle);
 		if (debug) Log.d(TAG, "onCreate("+icicle+")");
 		
-		mServiceIntent = null;
 		mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 	      
 		if (Passwords.Initialize(this)==false) {
@@ -78,8 +75,7 @@ public class IntentHandler extends Activity {
 		case REQUEST_CODE_ASK_PASSWORD:
 			if (resultCode == RESULT_OK) {
 				if (debug) Log.d(TAG,"RESULT_OK");
-				mServiceIntent = data;
-				setServiceParametersFromExtrasAndDispatchAction(data);
+				actionDispatch();
 				
 			} else { // resultCode == RESULT_CANCELED, which means the user hit Back at AskPassword
 				if (debug) Log.d(TAG,"RESULT_CANCELED");
@@ -97,25 +93,6 @@ public class IntentHandler extends Activity {
 			break;
 		}
 			
-	}
-
-	/**
-	 * @param data
-	 */
-	private void setServiceParametersFromExtrasAndDispatchAction(Intent data) {
-		
-		boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
-		boolean isLocal = isIntentLocal();
-		
-		if (isLocal || externalAccess) {
-			actionDispatch();
-		} else {
-			// ask first
-			//if (debug) Log.d(TAG, "onActivityResult: showDialogAllowExternalAccess()");
-			//showDialogAllowExternalAccess();
-			
-			// This is called in onServiceConnected().
-		}
 	}
 
 	/**
@@ -414,7 +391,6 @@ public class IntentHandler extends Activity {
 		if (debug)
 			Log.d(TAG, "onResume()");
 		startUp();
-		
 	}
 	
 	@Override
@@ -428,63 +404,47 @@ public class IntentHandler extends Activity {
 	 */
 	private boolean isIntentLocal() {
 		String action = getIntent().getAction();
-		boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN);
+		boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN) ||
+				action.equals(CryptoIntents.ACTION_AUTOLOCK);
 		if (debug) Log.d(TAG,"isLocal="+isLocal+", action="+action);
 		return isLocal;
 	}
 
-		public void startUp()
-		{
-			boolean askPassIsLocal=isIntentLocal();
+	public void startUp()
+	{
+		boolean askPassIsLocal=isIntentLocal();
 
-			if (mServiceIntent != null) {
-				setServiceParametersFromExtrasAndDispatchAction(mServiceIntent);
-				mServiceIntent = null;
-				return;
-			}
-			
-			final Intent thisIntent = getIntent();
-			String action=thisIntent.getAction();
-			if (action!=null && action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
-				if (debug) Log.d(TAG,"autolock");
-				askPassIsLocal=true;
-			}
+		if (Master.getMasterKey() == null) {
+			boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
+			if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);
+			if (promptforpassword) {
+				if (debug) Log.d(TAG, "ask for password");
+				Intent askPass = new Intent(getApplicationContext(),
+						AskPassword.class);
 
-			if (Master.getMasterKey() == null) {
-				boolean promptforpassword = getIntent().getBooleanExtra(CryptoIntents.EXTRA_PROMPT, true);
-				if (debug) Log.d(TAG, "Prompt for password: " + promptforpassword);
-				if (promptforpassword) {
-					if (debug) Log.d(TAG, "ask for password");
-					// the service isn't running
-					Intent askPass = new Intent(getApplicationContext(),
-							AskPassword.class);
+				String inputBody = getIntent().getStringExtra (CryptoIntents.EXTRA_TEXT);
 
-					String inputBody = thisIntent.getStringExtra (CryptoIntents.EXTRA_TEXT);
-
-					askPass.putExtra (CryptoIntents.EXTRA_TEXT, inputBody);
-					askPass.putExtra (AskPassword.EXTRA_IS_LOCAL, askPassIsLocal);
-					//TODO: Is there a way to make sure all the extras are set?	
-					startActivityForResult (askPass, REQUEST_CODE_ASK_PASSWORD);
-				} else {
-					if (debug) Log.d(TAG, "ask for password");
-					// Don't prompt but cancel
-					setResult(RESULT_CANCELED);
-					finish();
-				}
+				askPass.putExtra (CryptoIntents.EXTRA_TEXT, inputBody);
+				askPass.putExtra (AskPassword.EXTRA_IS_LOCAL, askPassIsLocal);
+				//TODO: Is there a way to make sure all the extras are set?	
+				startActivityForResult (askPass, REQUEST_CODE_ASK_PASSWORD);
 			} else {
-				if (debug) Log.d(TAG, "service already started");
-				//service already started, so don't need to ask pw.
+				if (debug) Log.d(TAG, "ask for password");
+				// Don't prompt but cancel
+				setResult(RESULT_CANCELED);
+				finish();
+			}
+		} else {
+			boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+			
+			if (askPassIsLocal || externalAccess) {
+				if (debug) Log.d(TAG,"starting actiondispatch");
 
-				boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
-				
-				if (askPassIsLocal || externalAccess) {
-					if (debug) Log.d(TAG,"starting actiondispatch from service");
-
-					actionDispatch();
-				} else {
-					if (debug) Log.d(TAG, "onServiceConnected: showDialogAllowExternalAccess()");
-					showDialogAllowExternalAccess();
-				}
+				actionDispatch();
+			} else {
+				if (debug) Log.d(TAG, "start showDialogAllowExternalAccess()");
+				showDialogAllowExternalAccess();
 			}
 		}
+	}
 }

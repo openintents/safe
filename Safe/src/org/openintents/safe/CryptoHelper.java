@@ -239,10 +239,10 @@ public class CryptoHelper {
 			try {
 				String hexByte=hex.substring(i, i+2);
 
-				Integer I = new Integer (0);
+				Integer I = Integer.valueOf(0);
 				I = Integer.decode("0x"+hexByte);
 				int k = I.intValue ();
-				bytes[j++] = new Integer(k).byteValue();
+				bytes[j++] = Integer.valueOf(k).byteValue();
 			} catch (NumberFormatException e)
 			{
 				Log.i(TAG,e.getLocalizedMessage());
