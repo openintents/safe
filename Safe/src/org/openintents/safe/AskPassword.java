@@ -242,6 +242,8 @@ public class AskPassword extends DistributionLibraryActivity {
 		// Password must be at least 4 characters
 		if (PBEKey.length() < 4) {
 			pbeKey.setText("");
+			confirmPass.setText("");
+			pbeKey.requestFocus();
 			blankPasswordToast.show();
 			Animation shake = AnimationUtils
 					.loadAnimation(AskPassword.this, R.anim.shake);
