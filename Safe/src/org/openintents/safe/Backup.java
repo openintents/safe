@@ -16,8 +16,10 @@
  */
 package org.openintents.safe;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,9 +51,20 @@ public class Backup {
 
 	public boolean write(String filename) {
 		if (debug) Log.d(TAG,"write("+filename+",)");
-
+		
+		FileOutputStream str;
 		try {
-			FileOutputStream str = new FileOutputStream(filename);
+			str = new FileOutputStream(filename);
+			return write(str);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+	
+	public boolean write(OutputStream str) {
+		try {
 			org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
 			serializer.setOutput(str, "utf-8");
 			serializer.startDocument(null, Boolean.valueOf(true));
