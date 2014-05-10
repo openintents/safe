@@ -2,7 +2,7 @@
 
 Requires OI Distribution. A quick way to build would be:
 
-```bash
+```Shell
 $ mkdir oisafe
 $ cd oisafe
 $ git clone https://github.com/openintents/safe.git
