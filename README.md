@@ -1,11 +1,8 @@
-safe
-====
-
-OI Safe
+# OI Safe
 
 Requires OI Distribution. A quick way to build would be:
 
-$ mkdir oisafe
+```$ mkdir oisafe
 $ cd oisafe
 $ git clone https://github.com/openintents/safe.git
 $ git clone https://github.com/openintents/distribution.git
@@ -17,3 +14,4 @@ $ cd ../../safe/Safe
 $ cp template\ of\ local.properties local.properties
 $ vi local.properties
 $ ant debug
+```
