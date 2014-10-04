@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.openintents.safe"
-    android:installLocation="auto"
-    android:versionName="1.4.2-alpha"
-    android:versionCode="30">
+    android:installLocation="auto">
     <!-- History:
 	 * * * UPDATE ATRACKDOG METADATA BELOW FOR RELEASE CANDIDATES * * *
 	1.4.2-alpha [30]: 2013-05-05
