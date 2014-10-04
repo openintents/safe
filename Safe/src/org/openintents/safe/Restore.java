@@ -43,6 +43,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -54,12 +55,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 public class Restore extends Activity {
-	
-	private static boolean debug = false;
+
 	private static final String TAG = "Restore";
-	
-	private DBHelper dbHelper=null;
+
+    private DBHelper dbHelper=null;
 	private String masterKey="";
 	private RestoreDataSet restoreDataSet=null;
 	private boolean firstTime=false;
@@ -68,6 +71,7 @@ public class Restore extends Activity {
 	public static final String KEY_FILE_PATH = "backup_file_path";
 	
 	public static final int REQUEST_RESTORE_FILENAME = 0;
+    public static final int REQUEST_RESTORE_DOCUMENT = 1;
 
 	Intent frontdoor;
 	private Intent restartTimerIntent=null;
@@ -75,17 +79,25 @@ public class Restore extends Activity {
 	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
 			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				if (BuildConfig.DEBUG) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
 				startActivity(frontdoor);
 			}
 		}
 	};
+    @InjectView(R.id.restore_filename)
+    TextView filenameText;
+    @InjectView(R.id.restore_info)
+    TextView restoreInfoText;
+    @InjectView(R.id.restore_password)
+    EditText passwordText;
+    @InjectView(R.id.restore_button)
+    Button restoreButton;
 
-	@Override
+    @Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
-		if (debug) Log.d(TAG,"onCreate()");
+		if (BuildConfig.DEBUG) Log.d(TAG,"onCreate()");
 
 		firstTime = icicle != null ? icicle.getBoolean(Restore.KEY_FIRST_TIME) : false;
 		if (firstTime == false) {
@@ -95,39 +107,58 @@ public class Restore extends Activity {
 
 		frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
 		Passwords.Initialize(this);
 
 		setContentView(R.layout.restore);
+        ButterKnife.inject(this);
+
 		String title = getResources().getString(R.string.app_name) + " - " +
 			getResources().getString(R.string.restore);
 		setTitle(title);
 		
 		String backupPath = getIntent().getStringExtra(KEY_FILE_PATH);
 		if (backupPath != null) {
-			restore(backupPath);
+            restoreFromFile(backupPath);
 		} else {
 			backupPath = Preferences.getBackupPath(this);
-			Intent intent = new Intent("org.openintents.action.PICK_FILE");
-			intent.setData(Uri.parse("file://" + backupPath));
-			intent.putExtra("org.openintents.extra.TITLE",
-					R.string.restore_select_file);
+            Intent intent;
+            int requestId;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+                intent = Intents.createOpenDocumentIntents(Preferences.getBackupDocument(this));
+                requestId = REQUEST_RESTORE_DOCUMENT;
+            } else {
+                intent = Intents.createPickFileIntent(backupPath, R.string.restore_select_file);
+                requestId = REQUEST_RESTORE_FILENAME;
+            }
 			if (intentCallable(intent))
-				startActivityForResult(intent, REQUEST_RESTORE_FILENAME);
-			else
-				restore(backupPath);
+				startActivityForResult(intent, requestId);
+			else {
+                restoreFromFile(backupPath);
+            }
 		}
 	}
 
-	@Override
+    private void restoreFromFile(String backupPath) {
+        filenameText.setText(backupPath);
+        try {
+            InputStreamData streamData = new InputStreamData(backupPath);
+            restore(streamData);
+            Preferences.setBackupPathAndMethod(this, backupPath);
+        } catch (FileNotFoundException e) {
+            updateNoRestoreFileUI();
+        }
+    }
+
+    @Override
 	protected void onPause() {
 		super.onPause();
 		
 		try {
 			unregisterReceiver(mIntentReceiver);
 		} catch (IllegalArgumentException e) {
-			//if (debug) Log.d(TAG,"IllegalArgumentException");
+			//if (BuildConfig.DEBUG) Log.d(TAG,"IllegalArgumentException");
 		}
 	}
 
@@ -135,7 +166,7 @@ public class Restore extends Activity {
 	protected void onResume() {
 		super.onResume();
 		
-		if (debug) Log.d(TAG,"onResume()");
+		if (BuildConfig.DEBUG) Log.d(TAG,"onResume()");
 		
 		if ((!firstTime) && (CategoryList.isSignedIn()==false)) {
 			startActivity(frontdoor);		
@@ -145,32 +176,9 @@ public class Restore extends Activity {
 		registerReceiver(mIntentReceiver, filter);
 	}
 
-	private boolean backupFileExists(String filename) {
-		FileReader fr;
-		try {
-			fr = new FileReader(filename);
-			fr.close();
-		} catch (FileNotFoundException e) {
-			return false;
-		} catch (IOException e) {
-			return false;
-		}
-		return true;
-	}
 
-	public boolean read(String filename, String masterPassword) {
-		if (debug) Log.d(TAG,"read("+filename+",)");
-
-		FileReader fr;
-		try {
-			fr = new FileReader(filename);
-		} catch (FileNotFoundException e1) {
-			// e1.printStackTrace();
-			Toast.makeText(Restore.this, getString(R.string.restore_unable_to_open,
-				e1.getLocalizedMessage()),
-				Toast.LENGTH_LONG).show();
-			return false;
-		}
+	public boolean read(InputStreamData streamData, String masterPassword) {
+		if (BuildConfig.DEBUG) Log.d(TAG,"read("+streamData.getFilename()+",)");
 
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		try {
@@ -181,7 +189,7 @@ public class Restore extends Activity {
 			RestoreHandler myRestoreHandler = new RestoreHandler();
 			xr.setContentHandler(myRestoreHandler); 
 
-			xr.parse(new InputSource(fr)); 
+			xr.parse(new InputSource(streamData.getStream()));
 
 			restoreDataSet = myRestoreHandler.getParsedData();
 
@@ -267,7 +275,7 @@ public class Restore extends Activity {
 					Toast.LENGTH_LONG).show();
 				return false;
 			}
-			if (debug) Log.d(TAG,"firstCategory="+firstCategory);
+			if (BuildConfig.DEBUG) Log.d(TAG,"firstCategory="+firstCategory);
 		}
 		
 		dbHelper=new DBHelper(Restore.this);
@@ -306,7 +314,7 @@ public class Restore extends Activity {
 		Master.setSalt(restoreDataSet.getSalt());
 		Master.setMasterKey(masterKey);
 		for (CategoryEntry category : restoreDataSet.getCategories()) {
-			if (debug) Log.d(TAG,"category="+category.name);
+			if (BuildConfig.DEBUG) Log.d(TAG,"category="+category.name);
 			dbHelper.addCategory(category);
 		}
 		int totalPasswords=0;
@@ -315,7 +323,7 @@ public class Restore extends Activity {
 			long rowid=dbHelper.addPassword(password);
 			if (password.packageAccess!=null) {
 				for (String packageName : password.packageAccess) {
-					if (debug) Log.d(TAG,"packageName="+packageName);
+					if (BuildConfig.DEBUG) Log.d(TAG,"packageName="+packageName);
 					dbHelper.addPackageAccess(rowid, packageName);
 				}
 			}
@@ -344,11 +352,11 @@ public class Restore extends Activity {
 	public void onUserInteraction() {
 		super.onUserInteraction();
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+		if (BuildConfig.DEBUG) Log.d(TAG,"onUserInteraction()");
 
 		if (CategoryList.isSignedIn()==false) {
 //			startActivity(frontdoor);
-		}else{
+		} else {
 			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
 		}
 	}
@@ -358,43 +366,43 @@ public class Restore extends Activity {
 		super.onActivityResult(requestCode, resultCode, i);
 		switch(requestCode){
 		case REQUEST_RESTORE_FILENAME:
-			if(resultCode == RESULT_OK){
+            if(resultCode == RESULT_OK){
 				String path = i.getData().getPath();
-				restore(path);
-				Preferences.setBackupPath(this, path);
+                restoreFromFile(path);
 			} else{
 				setResult(RESULT_CANCELED);
 				finish();
 			}
 			break;
+            case REQUEST_RESTORE_DOCUMENT:
+                if(resultCode == RESULT_OK){
+                    Uri documentUri = i.getData();
+                    filenameText.setText(i.getDataString());
+                    try {
+                        InputStreamData streamData = new InputStreamData(documentUri, this);
+                        restore(streamData);
+                        Preferences.setBackupDocumentAndMethod(this, i.getDataString());
+                    } catch (FileNotFoundException e) {
+                        updateNoRestoreFileUI();
+                    }
+                } else{
+                    setResult(RESULT_CANCELED);
+                    finish();
+                }
 		}
 	}
-	
-	private void restore(final String filename){
-		TextView filenameText;
-		filenameText = (TextView) findViewById(R.id.restore_filename);
-		filenameText.setText(filename);
 
-		TextView restoreInfoText;
-		restoreInfoText = (TextView) findViewById(R.id.restore_info);
+    private void updateNoRestoreFileUI() {
+        passwordText.setVisibility(View.INVISIBLE);
+        restoreButton.setVisibility(View.INVISIBLE);
+        restoreInfoText.setText(R.string.restore_no_file);
+    }
 
-		EditText passwordText;
-		passwordText = (EditText) findViewById(R.id.restore_password);
-		
-		Button restoreButton;
-		restoreButton = (Button) findViewById(R.id.restore_button);
-
-		if (!backupFileExists(filename)) {
-			passwordText.setVisibility(0);
-			restoreButton.setVisibility(0);
-			restoreInfoText.setText(R.string.restore_no_file);
-			return;
-		}
+    private void restore(final InputStreamData inputStreamData){
 
 		restoreInfoText.setText(R.string.restore_set_password);
-
-		passwordText.setVisibility(1);
-		restoreButton.setVisibility(1);
+		passwordText.setVisibility(View.VISIBLE);
+		restoreButton.setVisibility(View.VISIBLE);
 
 		restoreButton.setOnClickListener(new View.OnClickListener() {
 
@@ -403,7 +411,7 @@ public class Restore extends Activity {
 				passwordText = (EditText) findViewById(R.id.restore_password);
 
 				String masterPassword = passwordText.getText().toString();
-				read(filename, masterPassword);
+				read(inputStreamData, masterPassword);
 			}
 		});
 	}

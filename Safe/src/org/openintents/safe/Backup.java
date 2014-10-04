@@ -18,6 +18,7 @@ package org.openintents.safe;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,11 +48,10 @@ public class Backup {
 		myCtx=ctx;
 	}
 
-	public boolean write(String filename) {
+	public boolean write(String filename, OutputStream str) {
 		if (debug) Log.d(TAG,"write("+filename+",)");
 
 		try {
-			FileOutputStream str = new FileOutputStream(filename);
 			org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
 			serializer.setOutput(str, "utf-8");
 			serializer.startDocument(null, Boolean.valueOf(true));

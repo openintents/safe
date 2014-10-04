@@ -16,9 +16,11 @@
 package org.openintents.safe;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,6 +47,7 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -52,6 +55,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -105,6 +109,7 @@ public class CategoryList extends ListActivity {
 	public static final int REQUEST_IMPORT_FILENAME = 5;
 	public static final int REQUEST_EXPORT_FILENAME = 6;
 	public static final int REQUEST_BACKUP_FILENAME = 7;
+    public static final int REQUEST_BACKUP_DOCUMENT = 8;
 
 	private static final int ABOUT_KEY = 2;
 
@@ -153,7 +158,7 @@ public class CategoryList extends ListActivity {
 
 		if (debug) Log.d(TAG,"onCreate("+icicle+")");
 
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 		
 		Passwords.Initialize(this);
 
@@ -205,11 +210,6 @@ public class CategoryList extends ListActivity {
 			taskImport.setActivity(this);
 			startImportProgressDialog();
 			return;
-		}
-		if (taskBackup!=null) {
-			// taskBackup still running
-			taskBackup.setActivity(this);
-			startBackupProgressDialog();
 		}
 		Passwords.Initialize(this);
 
@@ -619,9 +619,9 @@ public class CategoryList extends ListActivity {
 		startActivityForResult(passList,REQUEST_OPEN_CATEGORY);
 	}
 
-	private String backupDatabase(String filename){
+	private String backupDatabase(String filename, OutputStream str){
 		Backup backup=new Backup(this);
-		backup.write(filename);
+		backup.write(filename, str);
 		return backup.getResult();
 	}
 
@@ -653,32 +653,41 @@ public class CategoryList extends ListActivity {
 	 */
 	private void backupThreadStart(){
 		String filename = Preferences.getBackupPath(this);
-		Intent intent = new Intent("org.openintents.action.PICK_FILE");
-		intent.setData(Uri.parse("file://"+filename));
-		intent.putExtra("org.openintents.extra.TITLE", R.string.import_file_select);
+        Intent intent;
+        int requestId;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            intent = Intents.createCreateDocumentIntent();
+            requestId = REQUEST_BACKUP_DOCUMENT;
+        } else {
+            intent = Intents.createPickFileIntent(filename, R.string.import_file_select);
+            requestId =  REQUEST_BACKUP_FILENAME;
+        }
 		if(intentCallable(intent))
-			startActivityForResult(intent, REQUEST_BACKUP_FILENAME);
-		else
-			backupToFile(filename);
+			startActivityForResult(intent,requestId);
+		else {
+            backupToFile(filename);
+        }
 	}
-	
 
-	private class backupTask extends AsyncTask<String, Void, String> {
+
+    private class backupTask extends AsyncTask<OutputStreamData, Void, String> {
 		CategoryList currentActivity=null;
 		public void setActivity(CategoryList cat) {
 			currentActivity=cat;
 		}
-		@Override
-		protected String doInBackground(String... filenames) {
 
-			String response = backupDatabase(filenames[0]);
-			return response;
-		}
+        @Override
+        protected String doInBackground(OutputStreamData... streams) {
+
+            OutputStreamData streamData = streams[0];
+            String response = backupDatabase(streamData.getFilename(), streamData.getStream());
+            return response;
+        }
 
 		@Override
 		protected void onPostExecute(String result) {
-			Toast.makeText(CategoryList.this, result, Toast.LENGTH_LONG).show();
-			if ((currentActivity != null)
+            showResultToast(result);
+            if ((currentActivity != null)
 					&& (currentActivity.backupProgress != null)) {
 				currentActivity.backupProgress.dismiss();
 			}
@@ -686,7 +695,31 @@ public class CategoryList extends ListActivity {
 		}
 	}
 
-	public void backupToFile(String backupFilename) {
+    private void showResultToast(String result) {
+        Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+    }
+
+    private void backupToFile(String filename) {
+        OutputStreamData streamData = null;
+        try {
+            streamData = new OutputStreamData(filename);
+            backupToFile(streamData);
+        } catch (FileNotFoundException e) {
+            showResultToast(getString(R.string.backup_failed) + " " + e.getLocalizedMessage());
+        }
+
+    }
+
+    private void backupToDocument(Uri documentUri) {
+        try {
+            OutputStreamData streamData = new OutputStreamData(documentUri, this);
+            backupToFile(streamData);
+        } catch (FileNotFoundException e) {
+            showResultToast(getString(R.string.backup_failed) + " " + e.getLocalizedMessage());
+        }
+
+    }
+    public void backupToFile(OutputStreamData streamData) {
 		if (taskBackup!=null) {
 			// there's already a running backup
 			return;
@@ -694,8 +727,9 @@ public class CategoryList extends ListActivity {
 		startBackupProgressDialog();
 		taskBackup = new backupTask();
 		taskBackup.setActivity(this);
-		taskBackup.execute(new String[] { backupFilename });
+		taskBackup.execute(streamData);
 	}
+
 
 	private void startBackupProgressDialog() {
 		if (backupProgress == null) {
@@ -752,10 +786,16 @@ public class CategoryList extends ListActivity {
 		case REQUEST_BACKUP_FILENAME:
 			if(resultCode == RESULT_OK){
 				path = i.getData().getPath();
-				backupToFile(path);
-				Preferences.setBackupPath(this, path);
+                backupToFile(path);
+				Preferences.setBackupPathAndMethod(this, path);
 			}
 			break;
+        case REQUEST_BACKUP_DOCUMENT:
+            if(resultCode == RESULT_OK){
+                backupToDocument(i.getData());
+                Preferences.setBackupDocumentAndMethod(this, i.getDataString());
+            }
+            break;
 
 		case REQUEST_EXPORT_FILENAME:
 			if(resultCode == RESULT_OK){
@@ -840,9 +880,8 @@ public class CategoryList extends ListActivity {
 			return;
 		}
 		String msg=getString(R.string.export_success, filename);
-		Toast.makeText(CategoryList.this, msg,
-				Toast.LENGTH_LONG).show();
-	}
+        showResultToast(msg);
+    }
 
 	private void deleteDatabaseNow(){
 		Passwords.deleteAll();
@@ -890,7 +929,7 @@ public class CategoryList extends ListActivity {
 			importFile(filename);
 	}
 
-	private class importTask extends AsyncTask<String, Void, String> {
+    private class importTask extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... filenames) {
 			String response = "";
@@ -1105,9 +1144,8 @@ public class CategoryList extends ListActivity {
 				currentActivity.importProgress.dismiss();
 			}
 			if (importMessage != "") {
-				Toast.makeText(CategoryList.this, importMessage,
-						Toast.LENGTH_LONG).show();
-			}
+                showResultToast(importMessage);
+            }
 			if (importedFilename != "") {
 				String deleteMsg = getString(R.string.import_delete_csv) + " "
 						+ importedFilename + "?";
@@ -1195,9 +1233,8 @@ public class CategoryList extends ListActivity {
 		if (!csvFile.exists()) {
 			String msg=getString(R.string.import_file_missing) + " " +
 				filename;
-			Toast.makeText(CategoryList.this, msg,
-					Toast.LENGTH_LONG).show();
-			return;
+            showResultToast(msg);
+            return;
 		}
 		Dialog about = new AlertDialog.Builder(this)
 			.setIcon(R.drawable.passicon)

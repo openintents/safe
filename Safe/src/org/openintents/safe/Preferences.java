@@ -10,13 +10,15 @@ import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
@@ -30,7 +32,9 @@ import android.widget.Toast;
 public class Preferences extends PreferenceActivity
 						 implements OnSharedPreferenceChangeListener {
 
-	private static boolean debug = false;
+    public static final String BACKUP_METHOD_DOCUMENT_PROVIDER = "document_provider";
+    public static final String BACKUP_METHOD_FILE = "file";
+
 	private static String TAG = "Preferences";
 
 	public static final String PREFERENCE_ALLOW_EXTERNAL_ACCESS = "external_access";
@@ -45,8 +49,10 @@ public class Preferences extends PreferenceActivity
 	public static final String PREFERENCE_AUTOBACKUP = "autobackup";
 	public static final String PREFERENCE_AUTOBACKUP_DAYS = "autobackup_days";
 	public static final String PREFERENCE_AUTOBACKUP_DAYS_DEFAULT_VALUE = "7";
-	public static final String PREFERENCE_BACKUP_PATH = "backup_path";
-	public static final String PREFERENCE_BACKUP_PATH_DEFAULT_VALUE = 
+    public static final String PREFERENCE_BACKUP_PATH = "backup_path";
+    public static final String PREFERENCE_BACKUP_DOCUMENT = "backup_document";
+    public static final String PREFERENCE_BACKUP_METHOD = "backup_method";
+    public static final String PREFERENCE_BACKUP_PATH_DEFAULT_VALUE =
 			Environment.getExternalStorageDirectory().getAbsolutePath()+"/oisafe.xml";
 	public static final String PREFERENCE_EXPORT_PATH = "export_path";
 	public static final String PREFERENCE_EXPORT_PATH_DEFAULT_VALUE = 
@@ -54,7 +60,8 @@ public class Preferences extends PreferenceActivity
 	
 	
 	public static final int REQUEST_BACKUP_FILENAME = 0;
-	public static final int REQUEST_EXPORT_FILENAME = 1;
+    public static final int REQUEST_BACKUP_DOCUMENT = 1;
+	public static final int REQUEST_EXPORT_FILENAME = 2;
 	
 	public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
 
@@ -64,7 +71,7 @@ public class Preferences extends PreferenceActivity
 	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
 			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
+				if (BuildConfig.DEBUG) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
 				startActivity(frontdoor);
 			}
 		}
@@ -76,7 +83,7 @@ public class Preferences extends PreferenceActivity
 
 		frontdoor = new Intent(this, Safe.class);
 		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
 		// Load the preferences from an XML resource
 		addPreferencesFromResource(R.xml.preferences);
@@ -84,11 +91,17 @@ public class Preferences extends PreferenceActivity
 		Preference backupPathPref = findPreference(PREFERENCE_BACKUP_PATH);
 		backupPathPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference pref){
-				Intent intent = new Intent("org.openintents.action.PICK_FILE");
-				intent.setData(Uri.parse("file://"+getBackupPath(Preferences.this)));
-				intent.putExtra("org.openintents.extra.TITLE", R.string.backup_select_file);
+                Intent intent;
+                int requestId;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+                    intent = Intents.createCreateDocumentIntent();
+                    requestId = REQUEST_BACKUP_FILENAME;
+                } else {
+                    intent = Intents.createPickFileIntent(Preferences.getBackupPath(Preferences.this), R.string.backup_select_file);
+                    requestId = REQUEST_BACKUP_FILENAME;
+                }
 				if(intentCallable(intent))
-					startActivityForResult(intent, REQUEST_BACKUP_FILENAME);
+					startActivityForResult(intent, requestId );
 				else
 					askForFileManager();
 				return false;
@@ -120,7 +133,7 @@ public class Preferences extends PreferenceActivity
 		}
 	}
 
-	@Override
+    @Override
 	protected void onResume() {
 		super.onResume();
 
@@ -147,7 +160,7 @@ public class Preferences extends PreferenceActivity
 	public void onUserInteraction() {
 		super.onUserInteraction();
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+		if (BuildConfig.DEBUG) Log.d(TAG,"onUserInteraction()");
 
 		if (CategoryList.isSignedIn()==false) {
 //			startActivity(frontdoor);
@@ -173,12 +186,33 @@ public class Preferences extends PreferenceActivity
 				.getString(PREFERENCE_BACKUP_PATH, PREFERENCE_BACKUP_PATH_DEFAULT_VALUE);
 	}
 	
-	static void setBackupPath(Context context, String path){
+	static void setBackupPathAndMethod(Context context, String path){
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putString(PREFERENCE_BACKUP_PATH, path);
+        editor.putString(PREFERENCE_BACKUP_METHOD, BACKUP_METHOD_FILE);
 		editor.commit();
 	}
+
+    public static String getBackupDocument(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_BACKUP_DOCUMENT, null);
+    }
+    static void setBackupDocumentAndMethod(Context context, String uriString){
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_BACKUP_DOCUMENT, uriString);
+        editor.putString(PREFERENCE_BACKUP_METHOD, BACKUP_METHOD_DOCUMENT_PROVIDER);
+        editor.commit();
+    }
+
+
+    private static void setBackupMethod(Context context, String backupMethod) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_BACKUP_METHOD, backupMethod);
+        editor.commit();
+    }
 	
 	static String getExportPath(Context context){
 		return PreferenceManager.getDefaultSharedPreferences(context)
@@ -196,9 +230,17 @@ public class Preferences extends PreferenceActivity
 	protected void onActivityResult(int requestCode, int resultCode, Intent i) {
 		switch(requestCode){
 		case REQUEST_BACKUP_FILENAME:
-			if(resultCode == RESULT_OK)
-				setBackupPath(this, i.getData().getPath());
+			if(resultCode == RESULT_OK) {
+                setBackupPathAndMethod(this, i.getData().getPath());
+                setBackupMethod(this, BACKUP_METHOD_FILE);
+            }
 			break;
+        case REQUEST_BACKUP_DOCUMENT:
+            if(resultCode == RESULT_OK) {
+                setBackupPathAndMethod(this, i.getData().getPath());
+                setBackupMethod(this, BACKUP_METHOD_DOCUMENT_PROVIDER);
+            }
+            break;
 			
 
 		case REQUEST_EXPORT_FILENAME:
@@ -255,4 +297,6 @@ public class Preferences extends PreferenceActivity
 			changePreferenceSummaryToCurrentValue(findPreference(PREFERENCE_EXPORT_PATH),
 					getExportPath(this));
 	}
+
+
 }
