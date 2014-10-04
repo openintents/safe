@@ -153,6 +153,8 @@ public class Backup {
 			serializer.endTag(null, "OISafe");
 			serializer.endDocument();
 
+            str.close();
+
 			TimeZone tz = TimeZone.getDefault(); 
 			int julianDay = Time.getJulianDay((new Date()).getTime(), tz.getRawOffset());
 			if (debug) Log.d(TAG,"julianDay="+julianDay);
