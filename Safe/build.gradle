@@ -53,7 +53,7 @@ android {
     }
 
     propertyFile = new File(projectDir, "build-private.properties")
-    if (propertyFile.exists()) {
+    if (propertyFile && propertyFile.exists()) {
         signingConfigs {
             release {
                 Properties props = new Properties()
