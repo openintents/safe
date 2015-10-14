@@ -29,59 +29,58 @@ import android.content.Context;
  * it, nothing shows even on ICS. Thus use a wrapper for the real API here and
  * over in ServiceNotification, if less than ICS, use
  * NotificationCompat.Builder.
- * 
  */
 @SuppressLint("NewApi")
 public class WrapNotificationBuilder {
 
-	private Builder mInstance;
+    private Builder mInstance;
 
-	static {
-		try {
-			Class.forName("android.app.Notification$Builder");
-		} catch (Exception ex) {
-			throw new RuntimeException(ex);
-		}
-	}
+    static {
+        try {
+            Class.forName("android.app.Notification$Builder");
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
-	/* calling here forces class initialization */
-	public static void checkAvailable() {
-	}
+    /* calling here forces class initialization */
+    public static void checkAvailable() {
+    }
 
-	public WrapNotificationBuilder(Context context) {
-		mInstance = new Notification.Builder(context);
-	}
+    public WrapNotificationBuilder(Context context) {
+        mInstance = new Notification.Builder(context);
+    }
 
-	public Builder GetBuilder() {
-		return mInstance;
-	}
+    public Builder GetBuilder() {
+        return mInstance;
+    }
 
-	public void setContentTitle(CharSequence title) {
-		mInstance.setContentTitle(title);
-	}
+    public void setContentTitle(CharSequence title) {
+        mInstance.setContentTitle(title);
+    }
 
-	public void setContentText(CharSequence text) {
-		mInstance.setContentText(text);
-	}
+    public void setContentText(CharSequence text) {
+        mInstance.setContentText(text);
+    }
 
-	public void setSmallIcon(int icon) {
-		mInstance.setSmallIcon(icon);
-	}
+    public void setSmallIcon(int icon) {
+        mInstance.setSmallIcon(icon);
+    }
 
-	public void setOngoing(boolean ongoing) {
-		mInstance.setOngoing(ongoing);
-	}
+    public void setOngoing(boolean ongoing) {
+        mInstance.setOngoing(ongoing);
+    }
 
-	public void setContentIntent(PendingIntent intent) {
-		mInstance.setContentIntent(intent);
-	}
+    public void setContentIntent(PendingIntent intent) {
+        mInstance.setContentIntent(intent);
+    }
 
-	public void setProgress(int max, int progress, boolean indeterminate) {
-		mInstance.setProgress(max, progress, indeterminate);
-	}
+    public void setProgress(int max, int progress, boolean indeterminate) {
+        mInstance.setProgress(max, progress, indeterminate);
+    }
 
-	@SuppressWarnings("deprecation")
-	public void notifyManager(NotificationManager nm, int id) {
-		nm.notify(id, mInstance.getNotification());
-	}
+    @SuppressWarnings("deprecation")
+    public void notifyManager(NotificationManager nm, int id) {
+        nm.notify(id, mInstance.getNotification());
+    }
 }

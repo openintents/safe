@@ -16,8 +16,6 @@
  */
 package org.openintents.safe;
 
-import org.openintents.intents.CryptoIntents;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,165 +28,193 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.openintents.intents.CryptoIntents;
+
 /**
  * CategoryEdit Activity
- * 
+ *
  * @author Randy McEoin
  */
 public class CategoryEdit extends Activity {
 
-	private static final boolean debug = false;
-	private static String TAG = "CategoryEdit";
+    private static final boolean debug = false;
+    private static String TAG = "CategoryEdit";
 
-	private EditText nameText;
-	private Long RowId;
-	boolean populated = false;
+    private EditText nameText;
+    private Long RowId;
+    boolean populated = false;
 
-	Intent frontdoor;
-	private Intent restartTimerIntent=null;
+    Intent frontdoor;
+    private Intent restartTimerIntent = null;
 
-	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-				startActivity(frontdoor);
-			}
-		}
-	};
+    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+                if (debug) {
+                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
+                }
+                startActivity(frontdoor);
+            }
+        }
+    };
 
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-		if (debug) Log.d(TAG,"onCreate("+icicle+")");
-		
-		frontdoor = new Intent(this, Safe.class);
-		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        if (debug) {
+            Log.d(TAG, "onCreate(" + icicle + ")");
+        }
 
-		String title = getResources().getString(R.string.app_name) + " - " +
-		getResources().getString(R.string.edit_entry);
-		setTitle(title);
+        frontdoor = new Intent(this, Safe.class);
+        frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-		setContentView(R.layout.cat_edit);
-	
-		nameText = (EditText) findViewById(R.id.name);
-	
-		Button confirmButton = (Button) findViewById(R.id.save_category);
-	
-		RowId = icicle != null ? icicle.getLong(CategoryList.KEY_ID) : null;
-		if (RowId == null) {
-			Bundle extras = getIntent().getExtras();
-			RowId = extras != null ? extras.getLong(CategoryList.KEY_ID) : null;
-		}
-	
-		confirmButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View arg0) {
-				// Don't allow the user to enter a blank name, we need
-				// something useful to show in the list
-				if(nameText.getText().toString().trim().length() == 0) {
-					Toast.makeText(CategoryEdit.this, R.string.notify_blank_name,
-							Toast.LENGTH_SHORT).show();
-					return;
-				}
-				saveState();
-				setResult(RESULT_OK);
-				finish();
-			}
-		});
-	}
+        String title = getResources().getString(R.string.app_name) + " - " +
+                getResources().getString(R.string.edit_entry);
+        setTitle(title);
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		if (RowId != null) {
-			outState.putLong(CategoryList.KEY_ID, RowId);
-		} else {
-			outState.putLong(CategoryList.KEY_ID, -1);
-		}
-	}
+        setContentView(R.layout.cat_edit);
 
-	@Override
-	protected void onRestoreInstanceState(Bundle inState) {
-		super.onRestoreInstanceState(inState);
+        nameText = (EditText) findViewById(R.id.name);
 
-		if (debug) Log.d(TAG,"onRestoreInstanceState("+inState+")");
-		// because the various EditText automatically handle state
-		// when we come back there is no need to re-populate
-		populated=true;
-	}
+        Button confirmButton = (Button) findViewById(R.id.save_category);
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		if (debug) Log.d(TAG, "onPause");
-		
-		try {
-			unregisterReceiver(mIntentReceiver);
-		} catch (IllegalArgumentException e) {
-			//if (debug) Log.d(TAG,"IllegalArgumentException");
-		}
-	}
+        RowId = icicle != null ? icicle.getLong(CategoryList.KEY_ID) : null;
+        if (RowId == null) {
+            Bundle extras = getIntent().getExtras();
+            RowId = extras != null ? extras.getLong(CategoryList.KEY_ID) : null;
+        }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (debug) Log.d(TAG, "onResume");
-		if (!CategoryList.isSignedIn()) {
-			startActivity(frontdoor);		
-			return;
-		}
-		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		registerReceiver(mIntentReceiver, filter);
+        confirmButton.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        // Don't allow the user to enter a blank name, we need
+                        // something useful to show in the list
+                        if (nameText.getText().toString().trim().length() == 0) {
+                            Toast.makeText(
+                                    CategoryEdit.this, R.string.notify_blank_name,
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                            return;
+                        }
+                        saveState();
+                        setResult(RESULT_OK);
+                        finish();
+                    }
+                }
+        );
+    }
 
-		Passwords.Initialize(this);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (RowId != null) {
+            outState.putLong(CategoryList.KEY_ID, RowId);
+        } else {
+            outState.putLong(CategoryList.KEY_ID, -1);
+        }
+    }
 
-		populateFields();
-	}
+    @Override
+    protected void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
 
-	private void saveState() {
-		if (debug) Log.d(TAG, "saveState");
-		CategoryEntry entry =  new CategoryEntry();
-	
-		String namePlain = nameText.getText().toString();
-		if (debug) Log.d(TAG, "name: " + namePlain);
-		entry.plainName=namePlain;
-		
-		if(RowId == null || RowId == -1) {
-			entry.id=-1;
-		} else {
-			entry.id=RowId;
-		}
-		if (debug) Log.d(TAG, "addCategory");
-		RowId=Passwords.putCategoryEntry(entry);
-	}
+        if (debug) {
+            Log.d(TAG, "onRestoreInstanceState(" + inState + ")");
+        }
+        // because the various EditText automatically handle state
+        // when we come back there is no need to re-populate
+        populated = true;
+    }
 
-	/**
-	 * 
-	 */
-	private void populateFields() {
-		if (debug) Log.d(TAG, "populateFields");
-		if (populated) {
-			return;
-		}
-		if ((RowId != null) && (RowId > 0)) {
-			CategoryEntry catEntry = Passwords.getCategoryEntry(RowId);
-			if (catEntry==null) {
-				return;
-			}
-			nameText.setText(catEntry.plainName);
-		}
-		populated=true;
-	}
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (debug) {
+            Log.d(TAG, "onPause");
+        }
 
-	@Override
-	public void onUserInteraction() {
-		super.onUserInteraction();
+        try {
+            unregisterReceiver(mIntentReceiver);
+        } catch (IllegalArgumentException e) {
+            //if (debug) Log.d(TAG,"IllegalArgumentException");
+        }
+    }
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (debug) {
+            Log.d(TAG, "onResume");
+        }
+        if (!CategoryList.isSignedIn()) {
+            startActivity(frontdoor);
+            return;
+        }
+        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+        registerReceiver(mIntentReceiver, filter);
 
-		if (CategoryList.isSignedIn()==false) {
+        Passwords.Initialize(this);
+
+        populateFields();
+    }
+
+    private void saveState() {
+        if (debug) {
+            Log.d(TAG, "saveState");
+        }
+        CategoryEntry entry = new CategoryEntry();
+
+        String namePlain = nameText.getText().toString();
+        if (debug) {
+            Log.d(TAG, "name: " + namePlain);
+        }
+        entry.plainName = namePlain;
+
+        if (RowId == null || RowId == -1) {
+            entry.id = -1;
+        } else {
+            entry.id = RowId;
+        }
+        if (debug) {
+            Log.d(TAG, "addCategory");
+        }
+        RowId = Passwords.putCategoryEntry(entry);
+    }
+
+    /**
+     *
+     */
+    private void populateFields() {
+        if (debug) {
+            Log.d(TAG, "populateFields");
+        }
+        if (populated) {
+            return;
+        }
+        if ((RowId != null) && (RowId > 0)) {
+            CategoryEntry catEntry = Passwords.getCategoryEntry(RowId);
+            if (catEntry == null) {
+                return;
+            }
+            nameText.setText(catEntry.plainName);
+        }
+        populated = true;
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+
+        if (debug) {
+            Log.d(TAG, "onUserInteraction()");
+        }
+
+        if (CategoryList.isSignedIn() == false) {
 //			startActivity(frontdoor);
-		}else{
-			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
-		}
-	}
+        } else {
+            if (restartTimerIntent != null) {
+                sendBroadcast(restartTimerIntent);
+            }
+        }
+    }
 }

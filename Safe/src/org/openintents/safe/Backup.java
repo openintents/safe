@@ -16,7 +16,13 @@
  */
 package org.openintents.safe;
 
-import java.io.FileOutputStream;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.format.Time;
+import android.util.Log;
+import android.util.Xml;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DateFormat;
@@ -26,155 +32,155 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.format.Time;
-import android.util.Log;
-import android.util.Xml;
-
 public class Backup {
 
-	private static boolean debug = false;
-	private static final String TAG = "Backup";
-	
-	public static int CURRENT_VERSION = 1;
-	
-	private String result="";
-	
-	Context myCtx=null;
+    private static boolean debug = false;
+    private static final String TAG = "Backup";
 
-	public Backup(Context ctx) {
-		myCtx=ctx;
-	}
+    public static int CURRENT_VERSION = 1;
 
-	public boolean write(String filename, OutputStream str) {
-		if (debug) Log.d(TAG,"write("+filename+",)");
+    private String result = "";
 
-		try {
-			org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
-			serializer.setOutput(str, "utf-8");
-			serializer.startDocument(null, Boolean.valueOf(true));
-			serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
-			serializer.startTag(null, "OISafe");
-			
-			serializer.attribute(null, "version", Integer.toString(CURRENT_VERSION));
-			
-			Date today;
-			String dateOut;
-			DateFormat dateFormatter;
+    Context myCtx = null;
 
-			dateFormatter = DateFormat.getDateTimeInstance(DateFormat.DEFAULT,
-					DateFormat.FULL);
-			today = new Date();
-			dateOut = dateFormatter.format(today);
+    public Backup(Context ctx) {
+        myCtx = ctx;
+    }
 
-			serializer.attribute(null, "date", dateOut);
+    public boolean write(String filename, OutputStream str) {
+        if (debug) {
+            Log.d(TAG, "write(" + filename + ",)");
+        }
 
-			String masterKeyEncrypted = Passwords.fetchMasterKeyEncrypted();
-			serializer.startTag(null, "MasterKey");
-			serializer.text(masterKeyEncrypted);
-			serializer.endTag(null, "MasterKey");
+        try {
+            org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
+            serializer.setOutput(str, "utf-8");
+            serializer.startDocument(null, Boolean.valueOf(true));
+            serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
+            serializer.startTag(null, "OISafe");
 
-			String salt = Passwords.fetchSalt();
-			serializer.startTag(null, "Salt");
-			serializer.text(salt);
-			serializer.endTag(null, "Salt");
+            serializer.attribute(null, "version", Integer.toString(CURRENT_VERSION));
 
-			List<CategoryEntry> crows;
-			crows = Passwords.getCategoryEntries();
-			
-			int totalPasswords=0;
+            Date today;
+            String dateOut;
+            DateFormat dateFormatter;
 
-			for (CategoryEntry crow : crows) {
+            dateFormatter = DateFormat.getDateTimeInstance(
+                    DateFormat.DEFAULT,
+                    DateFormat.FULL
+            );
+            today = new Date();
+            dateOut = dateFormatter.format(today);
 
-				serializer.startTag(null, "Category");
-				serializer.attribute(null, "name", crow.name);
+            serializer.attribute(null, "date", dateOut);
 
-				List<PassEntry> rows;
-				rows = Passwords.getPassEntries(crow.id, false, false);
-	
-				for (PassEntry row : rows) {
-					totalPasswords++;
-					
-					serializer.startTag(null, "Entry");
+            String masterKeyEncrypted = Passwords.fetchMasterKeyEncrypted();
+            serializer.startTag(null, "MasterKey");
+            serializer.text(masterKeyEncrypted);
+            serializer.endTag(null, "MasterKey");
 
-					serializer.startTag(null, "RowID");
-					serializer.text(Long.toString(row.id));
-					serializer.endTag(null, "RowID");
+            String salt = Passwords.fetchSalt();
+            serializer.startTag(null, "Salt");
+            serializer.text(salt);
+            serializer.endTag(null, "Salt");
 
-					serializer.startTag(null, "Description");
-					serializer.text(row.description);
-					serializer.endTag(null, "Description");
-					
-					serializer.startTag(null, "Website");
-					serializer.text(row.website);
-					serializer.endTag(null, "Website");
-					
-					serializer.startTag(null, "Username");
-					serializer.text(row.username);
-					serializer.endTag(null, "Username");
-					
-					serializer.startTag(null, "Password");
-					serializer.text(row.password);
-					serializer.endTag(null, "Password");
+            List<CategoryEntry> crows;
+            crows = Passwords.getCategoryEntries();
 
-					serializer.startTag(null, "Note");
-					serializer.text(row.note);
-					serializer.endTag(null, "Note");
+            int totalPasswords = 0;
 
-					if (row.uniqueName!=null) {
-						serializer.startTag(null, "UniqueName");
-						serializer.text(row.uniqueName);
-						serializer.endTag(null, "UniqueName");
-					}
-					
-					ArrayList<PackageAccessEntry> packageAccess=Passwords.getPackageAccessEntries(row.id);
-					if(packageAccess!=null) {
-						serializer.startTag(null, "PackageAccess");
-						String entry="";
-						Iterator<PackageAccessEntry> packIter=packageAccess.iterator();
-						while (packIter.hasNext()) {
-							if (entry.length()!=0) {
-								entry += ",";
-							}
-							entry += packIter.next().packageAccess;
-						}
-						entry = "[" + entry + "]";
-						serializer.text(entry);
-						serializer.endTag(null, "PackageAccess");
-					}
+            for (CategoryEntry crow : crows) {
 
-					serializer.endTag(null, "Entry");
-				}
-				serializer.endTag(null, "Category");
-			}
+                serializer.startTag(null, "Category");
+                serializer.attribute(null, "name", crow.name);
 
-			serializer.endTag(null, "OISafe");
-			serializer.endDocument();
+                List<PassEntry> rows;
+                rows = Passwords.getPassEntries(crow.id, false, false);
+
+                for (PassEntry row : rows) {
+                    totalPasswords++;
+
+                    serializer.startTag(null, "Entry");
+
+                    serializer.startTag(null, "RowID");
+                    serializer.text(Long.toString(row.id));
+                    serializer.endTag(null, "RowID");
+
+                    serializer.startTag(null, "Description");
+                    serializer.text(row.description);
+                    serializer.endTag(null, "Description");
+
+                    serializer.startTag(null, "Website");
+                    serializer.text(row.website);
+                    serializer.endTag(null, "Website");
+
+                    serializer.startTag(null, "Username");
+                    serializer.text(row.username);
+                    serializer.endTag(null, "Username");
+
+                    serializer.startTag(null, "Password");
+                    serializer.text(row.password);
+                    serializer.endTag(null, "Password");
+
+                    serializer.startTag(null, "Note");
+                    serializer.text(row.note);
+                    serializer.endTag(null, "Note");
+
+                    if (row.uniqueName != null) {
+                        serializer.startTag(null, "UniqueName");
+                        serializer.text(row.uniqueName);
+                        serializer.endTag(null, "UniqueName");
+                    }
+
+                    ArrayList<PackageAccessEntry> packageAccess = Passwords.getPackageAccessEntries(row.id);
+                    if (packageAccess != null) {
+                        serializer.startTag(null, "PackageAccess");
+                        String entry = "";
+                        Iterator<PackageAccessEntry> packIter = packageAccess.iterator();
+                        while (packIter.hasNext()) {
+                            if (entry.length() != 0) {
+                                entry += ",";
+                            }
+                            entry += packIter.next().packageAccess;
+                        }
+                        entry = "[" + entry + "]";
+                        serializer.text(entry);
+                        serializer.endTag(null, "PackageAccess");
+                    }
+
+                    serializer.endTag(null, "Entry");
+                }
+                serializer.endTag(null, "Category");
+            }
+
+            serializer.endTag(null, "OISafe");
+            serializer.endDocument();
 
             str.close();
 
-			TimeZone tz = TimeZone.getDefault(); 
-			int julianDay = Time.getJulianDay((new Date()).getTime(), tz.getRawOffset());
-			if (debug) Log.d(TAG,"julianDay="+julianDay);
+            TimeZone tz = TimeZone.getDefault();
+            int julianDay = Time.getJulianDay((new Date()).getTime(), tz.getRawOffset());
+            if (debug) {
+                Log.d(TAG, "julianDay=" + julianDay);
+            }
 
-			SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
-			SharedPreferences.Editor editor = sp.edit();
-			editor.putInt(Preferences.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
-			editor.commit();
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt(Preferences.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
+            editor.commit();
 
-			result=myCtx.getString(R.string.backup_complete)+" "+
-				Integer.toString(totalPasswords);
-		} catch (IOException e) {
-			e.printStackTrace();
-			result=myCtx.getString(R.string.backup_failed)+" "+
-				e.getLocalizedMessage();
-			return false;
-		}
-		return true;
-	}
-	public String getResult() {
-		return result;
-	}
+            result = myCtx.getString(R.string.backup_complete) + " " +
+                    Integer.toString(totalPasswords);
+        } catch (IOException e) {
+            e.printStackTrace();
+            result = myCtx.getString(R.string.backup_failed) + " " +
+                    e.getLocalizedMessage();
+            return false;
+        }
+        return true;
+    }
+
+    public String getResult() {
+        return result;
+    }
 }

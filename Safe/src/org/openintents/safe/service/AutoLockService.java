@@ -15,10 +15,6 @@
  */
 package org.openintents.safe.service;
 
-import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.Preferences;
-import org.openintents.safe.password.Master;
-
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,173 +26,196 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.Preferences;
+import org.openintents.safe.password.Master;
+
 public class AutoLockService extends Service {
 
-	private static final boolean debug = false;
-	private static String TAG = "AutoLockService";
+    private static final boolean debug = false;
+    private static String TAG = "AutoLockService";
 
-	private CountDownTimer t;
-	private BroadcastReceiver mIntentReceiver;
-	private static long timeRemaining = 0;
+    private CountDownTimer t;
+    private BroadcastReceiver mIntentReceiver;
+    private static long timeRemaining = 0;
 
-	SharedPreferences mPreferences;
+    SharedPreferences mPreferences;
 
-	@Override
-	public void onCreate() {
-		if (debug)
-			Log.d(TAG, "onCreate");
-		mIntentReceiver = new BroadcastReceiver() {
-			public void onReceive(Context context, Intent intent) {
-				if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-					if (debug)
-						Log.d(TAG, "caught ACTION_SCREEN_OFF");
-					boolean lockOnScreenLock = mPreferences.getBoolean(
-							Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
-					if (lockOnScreenLock) {
-						lockOut();
-					}
-				} else if (intent.getAction().equals(
-						CryptoIntents.ACTION_RESTART_TIMER)) {
-					restartTimer();
-				}
-			}
-		};
+    @Override
+    public void onCreate() {
+        if (debug) {
+            Log.d(TAG, "onCreate");
+        }
+        mIntentReceiver = new BroadcastReceiver() {
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+                    if (debug) {
+                        Log.d(TAG, "caught ACTION_SCREEN_OFF");
+                    }
+                    boolean lockOnScreenLock = mPreferences.getBoolean(
+                            Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true
+                    );
+                    if (lockOnScreenLock) {
+                        lockOut();
+                    }
+                } else if (intent.getAction().equals(
+                        CryptoIntents.ACTION_RESTART_TIMER
+                )) {
+                    restartTimer();
+                }
+            }
+        };
 
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(CryptoIntents.ACTION_RESTART_TIMER);
-		filter.addAction(Intent.ACTION_SCREEN_OFF);
-		registerReceiver(mIntentReceiver, filter);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(CryptoIntents.ACTION_RESTART_TIMER);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(mIntentReceiver, filter);
 
-		mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-	}
+    }
 
-	@Override
-	public void onStart(Intent intent, int startid) {
-		if (debug)
-			Log.d(TAG, "onStart");
-		startTimer();
-	}
+    @Override
+    public void onStart(Intent intent, int startid) {
+        if (debug) {
+            Log.d(TAG, "onStart");
+        }
+        startTimer();
+    }
 
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		if (debug)
-			Log.d(TAG, "Received start id " + startId + ": " + intent + ": "
-					+ this);
-		startTimer();
-		// We want this service to continue running until it is explicitly
-		// stopped, so return sticky.
-		return START_STICKY;
-	}
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (debug) {
+            Log.d(
+                    TAG, "Received start id " + startId + ": " + intent + ": "
+                            + this
+            );
+        }
+        startTimer();
+        // We want this service to continue running until it is explicitly
+        // stopped, so return sticky.
+        return START_STICKY;
+    }
 
-	@Override
-	public void onDestroy() {
-		if (debug)
-			Log.d(TAG, "onDestroy");
-		unregisterReceiver(mIntentReceiver);
-		if (Master.getMasterKey() != null) {
-			lockOut();
-		}
-		ServiceNotification.clearNotification(AutoLockService.this);
-		if (t != null)
-			t.cancel();
-	}
+    @Override
+    public void onDestroy() {
+        if (debug) {
+            Log.d(TAG, "onDestroy");
+        }
+        unregisterReceiver(mIntentReceiver);
+        if (Master.getMasterKey() != null) {
+            lockOut();
+        }
+        ServiceNotification.clearNotification(AutoLockService.this);
+        if (t != null) {
+            t.cancel();
+        }
+    }
 
-	@Override
-	public IBinder onBind(Intent intent) {
-		return null;
-	}
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
-	/**
-	 * Clear the masterKey, notification, and broadcast
-	 * CryptoIntents.ACTION_CRYPTO_LOGGED_OUT
-	 */
-	private void lockOut() {
-		Master.setMasterKey(null);
-		ServiceNotification.clearNotification(AutoLockService.this);
-		if (t != null)
-			t.cancel();
+    /**
+     * Clear the masterKey, notification, and broadcast
+     * CryptoIntents.ACTION_CRYPTO_LOGGED_OUT
+     */
+    private void lockOut() {
+        Master.setMasterKey(null);
+        ServiceNotification.clearNotification(AutoLockService.this);
+        if (t != null) {
+            t.cancel();
+        }
 
-		Intent intent = new Intent(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		sendBroadcast(intent);
-	}
+        Intent intent = new Intent(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+        sendBroadcast(intent);
+    }
 
-	/**
-	 * Start a CountDownTimer() that will cause a lockOut()
-	 * 
-	 * @see #lockOut()
-	 */
-	private void startTimer() {
-		if (Master.getMasterKey() == null) {
-			ServiceNotification.clearNotification(AutoLockService.this);
-			if (t != null)
-				t.cancel();
-			return;
-		}
-		ServiceNotification.setNotification(AutoLockService.this);
-		String timeout = mPreferences.getString(
-				Preferences.PREFERENCE_LOCK_TIMEOUT,
-				Preferences.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE);
-		int timeoutMinutes = 5; // default to 5
-		try {
-			timeoutMinutes = Integer.valueOf(timeout);
-		} catch (NumberFormatException e) {
-			Log.d(TAG, "why is lock_timeout busted?");
-		}
-		final long timeoutUntilStop = timeoutMinutes * 60000;
+    /**
+     * Start a CountDownTimer() that will cause a lockOut()
+     *
+     * @see #lockOut()
+     */
+    private void startTimer() {
+        if (Master.getMasterKey() == null) {
+            ServiceNotification.clearNotification(AutoLockService.this);
+            if (t != null) {
+                t.cancel();
+            }
+            return;
+        }
+        ServiceNotification.setNotification(AutoLockService.this);
+        String timeout = mPreferences.getString(
+                Preferences.PREFERENCE_LOCK_TIMEOUT,
+                Preferences.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE
+        );
+        int timeoutMinutes = 5; // default to 5
+        try {
+            timeoutMinutes = Integer.valueOf(timeout);
+        } catch (NumberFormatException e) {
+            Log.d(TAG, "why is lock_timeout busted?");
+        }
+        final long timeoutUntilStop = timeoutMinutes * 60000;
 
-		if (debug)
-			Log.d(TAG, "startTimer with timeoutUntilStop=" + timeoutUntilStop);
+        if (debug) {
+            Log.d(TAG, "startTimer with timeoutUntilStop=" + timeoutUntilStop);
+        }
 
+        t = new CountDownTimer(timeoutUntilStop, 1000) {
 
+            public void onTick(long millisUntilFinished) {
+                // doing nothing.
+                if (debug) {
+                    Log.d(TAG, "tick: " + millisUntilFinished + " this=" + this);
+                }
+                timeRemaining = millisUntilFinished;
+                if (Master.getMasterKey() == null) {
+                    if (debug) {
+                        Log.d(TAG, "detected masterKey=null");
+                    }
+                    lockOut();
+                } else {
+                    ServiceNotification.updateProgress(
+                            AutoLockService.this, (int) timeoutUntilStop,
+                            (int) timeRemaining
+                    );
+                }
+            }
 
-		t = new CountDownTimer(timeoutUntilStop, 1000) {
+            public void onFinish() {
+                if (debug) {
+                    Log.d(TAG, "onFinish()");
+                }
+                lockOut();
+                timeRemaining = 0;
+            }
+        };
+        t.start();
+        timeRemaining = timeoutUntilStop;
+        if (debug) {
+            Log.d(TAG, "Timer started with: " + timeoutUntilStop);
+        }
+    }
 
-			public void onTick(long millisUntilFinished) {
-				// doing nothing.
-				if (debug)
-					Log.d(TAG, "tick: " + millisUntilFinished + " this=" + this);
-				timeRemaining = millisUntilFinished;
-				if (Master.getMasterKey() == null) {
-					if (debug)
-						Log.d(TAG, "detected masterKey=null");
-					lockOut();
-				} else {
-					ServiceNotification.updateProgress(AutoLockService.this, (int)timeoutUntilStop,
-							(int)timeRemaining);
-				}
-			}
+    /**
+     * Restart the CountDownTimer()
+     */
+    private void restartTimer() {
+        // must be started with startTimer first.
+        if (debug) {
+            Log.d(TAG, "timer restarted");
+        }
+        if (t != null) {
+            t.cancel();
+            t.start();
+        }
+    }
 
-			public void onFinish() {
-				if (debug)
-					Log.d(TAG, "onFinish()");
-				lockOut();
-				timeRemaining = 0;
-			}
-		};
-		t.start();
-		timeRemaining = timeoutUntilStop;
-		if (debug)
-			Log.d(TAG, "Timer started with: " + timeoutUntilStop);
-	}
-
-	/**
-	 * Restart the CountDownTimer()
-	 */
-	private void restartTimer() {
-		// must be started with startTimer first.
-		if (debug)
-			Log.d(TAG, "timer restarted");
-		if (t != null) {
-			t.cancel();
-			t.start();
-		}
-	}
-
-	/**
-	 * @return time remaining in milliseconds before auto lock
-	 */
-	public static long getTimeRemaining() {
-		return timeRemaining;
-	}
+    /**
+     * @return time remaining in milliseconds before auto lock
+     */
+    public static long getTimeRemaining() {
+        return timeRemaining;
+    }
 }

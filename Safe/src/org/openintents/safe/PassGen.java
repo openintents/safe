@@ -16,260 +16,267 @@
  */
 package org.openintents.safe;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
-import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.view.View.OnFocusChangeListener;
+import android.widget.EditText;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 /**
  * PassGen Activity
- * 
+ *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class PassGen extends Activity {
 
-	private static boolean debug = false;
-	private static String TAG = "PassGen";
+    private static boolean debug = false;
+    private static String TAG = "PassGen";
 
-	public static final int CHANGE_ENTRY_RESULT = 2;
-	public static final String NEW_PASS_KEY="new_pass";
-	
-	EditText pass_view;
-	EditText pass_len;
-	CheckBox pass_upper;
-	CheckBox pass_lower;
-	CheckBox pass_num;
-	CheckBox pass_symbol;
-	String charset = "";
-	
-	Button copy_clip;
-	Button copy_entry;
-	Button cancel;
+    public static final int CHANGE_ENTRY_RESULT = 2;
+    public static final String NEW_PASS_KEY = "new_pass";
 
-	Intent frontdoor;
-	private Intent restartTimerIntent=null;
+    EditText pass_view;
+    EditText pass_len;
+    CheckBox pass_upper;
+    CheckBox pass_lower;
+    CheckBox pass_num;
+    CheckBox pass_symbol;
+    String charset = "";
 
-	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-				startActivity(frontdoor);
-			}
-		}
-	};
+    Button copy_clip;
+    Button copy_entry;
+    Button cancel;
 
-	private final OnClickListener update_click = new OnClickListener() {
-		public void onClick(View v) {
-			genPassword();
-		}
-	};
-	private final OnCheckedChangeListener update_checked = new OnCheckedChangeListener() {
-		public void onCheckedChanged(CompoundButton buttonView,
-				boolean isChecked) {
-			genPassword();
-		}
-	};
-	private final OnKeyListener update_key = new OnKeyListener() {
-		public boolean onKey(View v, int keyCode, KeyEvent event) {
-			genPassword();
-			return false;
-		}
-		
-	};
-	private final OnFocusChangeListener update_focus = new OnFocusChangeListener() {
-		public void onFocusChange(View v, boolean hasFocus) {
-			genPassword();
-		}
-	};
-	
-	private final OnClickListener cancel_listener = new OnClickListener() {
-		public void onClick(View v) {
-			finish();
-		}
-	};
-	
-	private final OnClickListener copy_clip_listener = new OnClickListener() {
-		public void onClick(View v) {
-			ClipboardManager cb = ClipboardManager.newInstance(getApplication());
-			cb.setText(pass_view.getText().toString());
-			finish();
-		}
-	};
-	
-	private final OnClickListener copy_entry_listener = new OnClickListener() {
-		public void onClick(View v) {
-			getIntent().putExtra(PassGen.NEW_PASS_KEY, pass_view.getText().toString());
-			setResult(CHANGE_ENTRY_RESULT, getIntent());
-			finish();
-		}
-	};
-		
-	
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-		
-		frontdoor = new Intent(this, Safe.class);
-		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
+    Intent frontdoor;
+    private Intent restartTimerIntent = null;
 
-		setContentView(R.layout.pass_gen);
-		
-		String title = getString(R.string.app_name) + " - " +
-			getString(R.string.generate_password);
-		setTitle(title);
-		
-		pass_view = (EditText) findViewById(R.id.pass_view);
-		pass_len = (EditText) findViewById(R.id.pass_length);
-		pass_upper = (CheckBox) findViewById(R.id.pass_upper);
-		pass_lower = (CheckBox) findViewById(R.id.pass_lower);
-		pass_num = (CheckBox) findViewById(R.id.pass_num);
-		pass_symbol = (CheckBox) findViewById(R.id.pass_symbol);
+    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+                if (debug) {
+                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
+                }
+                startActivity(frontdoor);
+            }
+        }
+    };
 
-		pass_view.setOnClickListener(update_click);
-		pass_len.setOnKeyListener(update_key);
-		pass_len.setOnFocusChangeListener(update_focus);
-		pass_upper.setOnCheckedChangeListener(update_checked);
-		pass_lower.setOnCheckedChangeListener(update_checked);
-		pass_num.setOnCheckedChangeListener(update_checked);
-		pass_symbol.setOnCheckedChangeListener(update_checked);
-		
-		copy_clip = (Button) findViewById(R.id.copy_clip);
-		copy_entry = (Button) findViewById(R.id.copy_entry);
-		cancel = (Button) findViewById(R.id.cancel);
-		
-		copy_clip.setOnClickListener(copy_clip_listener);
-		copy_entry.setOnClickListener(copy_entry_listener);
-		cancel.setOnClickListener(cancel_listener);
+    private final OnClickListener update_click = new OnClickListener() {
+        public void onClick(View v) {
+            genPassword();
+        }
+    };
+    private final OnCheckedChangeListener update_checked = new OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView,
+                                     boolean isChecked) {
+            genPassword();
+        }
+    };
+    private final OnKeyListener update_key = new OnKeyListener() {
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            genPassword();
+            return false;
+        }
 
-		if(CheckWrappers.mActionBarAvailable){
-			WrapActionBar bar = new WrapActionBar(this);
-			bar.setDisplayHomeAsUpEnabled(true);
-		}
-	}
+    };
+    private final OnFocusChangeListener update_focus = new OnFocusChangeListener() {
+        public void onFocusChange(View v, boolean hasFocus) {
+            genPassword();
+        }
+    };
 
-	/**
-	 * 
-	 */
-	protected void genPassword() {
-		charset = "";
-		StringBuilder pass = new StringBuilder();
-		if(pass_upper.isChecked()) {
-			charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		}
-		if(pass_lower.isChecked()) {
-			charset += "abcdefghijklmnopqrstuvwxyz";
-		}
-		if(pass_num.isChecked()) {
-			charset += "0123456789";
-		}
-		if(pass_symbol.isChecked()) {
-			charset += "!@#$%^&*";
-		}
-		
-		if (charset.length() == 0) {
-			return;
-		}
-		int len=0;
-		try {
-			len = Integer.parseInt(pass_len.getText().toString());
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-		
-		SecureRandom generator = null;
-		try {
-			generator = SecureRandom.getInstance("SHA1PRNG");
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-		for(int i=0;i<len;i++) {
-			int pos = generator.nextInt(charset.length());
-			pass.append(charset.charAt(pos));
-		}
+    private final OnClickListener cancel_listener = new OnClickListener() {
+        public void onClick(View v) {
+            finish();
+        }
+    };
 
-		pass_view.setText(pass.toString());
-	}
+    private final OnClickListener copy_clip_listener = new OnClickListener() {
+        public void onClick(View v) {
+            ClipboardManager cb = ClipboardManager.newInstance(getApplication());
+            cb.setText(pass_view.getText().toString());
+            finish();
+        }
+    };
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
+    private final OnClickListener copy_entry_listener = new OnClickListener() {
+        public void onClick(View v) {
+            getIntent().putExtra(PassGen.NEW_PASS_KEY, pass_view.getText().toString());
+            setResult(CHANGE_ENTRY_RESULT, getIntent());
+            finish();
+        }
+    };
 
-	}
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
 
-	@Override
-	protected void onPause() {
-		super.onPause();
+        frontdoor = new Intent(this, Safe.class);
+        frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-		try {
-			unregisterReceiver(mIntentReceiver);
-		} catch (IllegalArgumentException e) {
-			if (debug) Log.d(TAG,"IllegalArgumentException");
-		}
-	}
+        setContentView(R.layout.pass_gen);
 
-	@Override
-	protected void onResume() {
-		super.onResume();
+        String title = getString(R.string.app_name) + " - " +
+                getString(R.string.generate_password);
+        setTitle(title);
 
-		if (CategoryList.isSignedIn()==false) {
-			startActivity(frontdoor);
-			return;
-		}
-		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		registerReceiver(mIntentReceiver, filter);
-	}
+        pass_view = (EditText) findViewById(R.id.pass_view);
+        pass_len = (EditText) findViewById(R.id.pass_length);
+        pass_upper = (CheckBox) findViewById(R.id.pass_upper);
+        pass_lower = (CheckBox) findViewById(R.id.pass_lower);
+        pass_num = (CheckBox) findViewById(R.id.pass_num);
+        pass_symbol = (CheckBox) findViewById(R.id.pass_symbol);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		return false;
-	}
+        pass_view.setOnClickListener(update_click);
+        pass_len.setOnKeyListener(update_key);
+        pass_len.setOnFocusChangeListener(update_focus);
+        pass_upper.setOnCheckedChangeListener(update_checked);
+        pass_lower.setOnCheckedChangeListener(update_checked);
+        pass_num.setOnCheckedChangeListener(update_checked);
+        pass_symbol.setOnCheckedChangeListener(update_checked);
 
-	/**
-	 * Handler for when a MenuItem is selected from the Activity.
-	 */
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			finish();
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        copy_clip = (Button) findViewById(R.id.copy_clip);
+        copy_entry = (Button) findViewById(R.id.copy_entry);
+        cancel = (Button) findViewById(R.id.cancel);
 
-	@Override
-	public void onUserInteraction() {
-		super.onUserInteraction();
+        copy_clip.setOnClickListener(copy_clip_listener);
+        copy_entry.setOnClickListener(copy_entry_listener);
+        cancel.setOnClickListener(cancel_listener);
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+        if (CheckWrappers.mActionBarAvailable) {
+            WrapActionBar bar = new WrapActionBar(this);
+            bar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
-		if (CategoryList.isSignedIn()==false) {
+    /**
+     *
+     */
+    protected void genPassword() {
+        charset = "";
+        StringBuilder pass = new StringBuilder();
+        if (pass_upper.isChecked()) {
+            charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        if (pass_lower.isChecked()) {
+            charset += "abcdefghijklmnopqrstuvwxyz";
+        }
+        if (pass_num.isChecked()) {
+            charset += "0123456789";
+        }
+        if (pass_symbol.isChecked()) {
+            charset += "!@#$%^&*";
+        }
+
+        if (charset.length() == 0) {
+            return;
+        }
+        int len = 0;
+        try {
+            len = Integer.parseInt(pass_len.getText().toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        SecureRandom generator = null;
+        try {
+            generator = SecureRandom.getInstance("SHA1PRNG");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < len; i++) {
+            int pos = generator.nextInt(charset.length());
+            pass.append(charset.charAt(pos));
+        }
+
+        pass_view.setText(pass.toString());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        try {
+            unregisterReceiver(mIntentReceiver);
+        } catch (IllegalArgumentException e) {
+            if (debug) {
+                Log.d(TAG, "IllegalArgumentException");
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (CategoryList.isSignedIn() == false) {
+            startActivity(frontdoor);
+            return;
+        }
+        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+        registerReceiver(mIntentReceiver, filter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        return false;
+    }
+
+    /**
+     * Handler for when a MenuItem is selected from the Activity.
+     */
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+
+        if (debug) {
+            Log.d(TAG, "onUserInteraction()");
+        }
+
+        if (CategoryList.isSignedIn() == false) {
 //			startActivity(frontdoor);
-		}else{
-			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
-		}
-	}
+        } else {
+            if (restartTimerIntent != null) {
+                sendBroadcast(restartTimerIntent);
+            }
+        }
+    }
 }

@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-
 public class OutputStreamData {
     private String filename;
     private OutputStream stream;

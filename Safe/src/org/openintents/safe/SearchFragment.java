@@ -15,14 +15,6 @@
  */
 package org.openintents.safe;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
-import org.openintents.intents.CryptoIntents;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -46,332 +38,379 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+import org.openintents.intents.CryptoIntents;
+
 public class SearchFragment extends ListFragment {
 
-	private static final String TAG = "Search";
-	private static final boolean debug = false;
+    private static final String TAG = "Search";
+    private static final boolean debug = false;
 
-	public static final int REQUEST_VIEW_PASSWORD = 1;
+    public static final int REQUEST_VIEW_PASSWORD = 1;
 
-	public static final String KEY_RESULTS = "results";
+    public static final String KEY_RESULTS = "results";
 
-	// Need handler for callbacks to the UI thread
-	final Handler mHandler = new Handler();
+    // Need handler for callbacks to the UI thread
+    final Handler mHandler = new Handler();
 
-	// Create runnable for posting
-	final Runnable mUpdateResults = new Runnable() {
-		public void run() {
-			updateResultsInUi();
-		}
-	};
-	private Thread searchThread = null;
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            updateResultsInUi();
+        }
+    };
+    private Thread searchThread = null;
 
-	private ProgressDialog progressDialog = null;
+    private ProgressDialog progressDialog = null;
 
-	private EditText etSearchCriteria;
-	private String searchCriteria = "";
-	private List<SearchEntry> results = null;
-	private SearchListItemAdapter searchAdapter = null;
+    private EditText etSearchCriteria;
+    private String searchCriteria = "";
+    private List<SearchEntry> results = null;
+    private SearchListItemAdapter searchAdapter = null;
 
-	Intent frontdoor;
-	private Intent restartTimerIntent = null;
+    Intent frontdoor;
+    private Intent restartTimerIntent = null;
 
-	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(
-					CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug)
-					Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
-				startActivity(frontdoor);
-			}
-		}
-	};
+    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(
+                    CryptoIntents.ACTION_CRYPTO_LOGGED_OUT
+            )) {
+                if (debug) {
+                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
+                }
+                startActivity(frontdoor);
+            }
+        }
+    };
 
-	private void updateResultsInUi() {
-		// Back in the UI thread -- update our UI elements based on the data in
-		// mResults
-		searchAdapter = new SearchListItemAdapter(getActivity(),
-				R.layout.search_row, results);
-		setListAdapter(searchAdapter);
-		if ((searchAdapter != null) && (searchAdapter.isEmpty())) {
-			Toast.makeText(getActivity(), R.string.search_nothing_found,
-					Toast.LENGTH_LONG).show();
-		}
+    private void updateResultsInUi() {
+        // Back in the UI thread -- update our UI elements based on the data in
+        // mResults
+        searchAdapter = new SearchListItemAdapter(
+                getActivity(),
+                R.layout.search_row, results
+        );
+        setListAdapter(searchAdapter);
+        if ((searchAdapter != null) && (searchAdapter.isEmpty())) {
+            Toast.makeText(
+                    getActivity(), R.string.search_nothing_found,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
 
-	}
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.search_fragment,
-				null);
+        ViewGroup root = (ViewGroup) inflater.inflate(
+                R.layout.search_fragment,
+                null
+        );
 
-		frontdoor = new Intent(getActivity(), Safe.class);
-		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
+        frontdoor = new Intent(getActivity(), Safe.class);
+        frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-		etSearchCriteria = (EditText) root.findViewById(R.id.search_criteria);
-		results = new ArrayList<SearchEntry>();
+        etSearchCriteria = (EditText) root.findViewById(R.id.search_criteria);
+        results = new ArrayList<SearchEntry>();
 
-		Button goButton = (Button) root.findViewById(R.id.go_button);
-		goButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View arg0) {
-				searchCriteria = etSearchCriteria.getText().toString().trim()
-						.toLowerCase();
-				searchThreadStart();
-			}
-		});
+        Button goButton = (Button) root.findViewById(R.id.go_button);
+        goButton.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        searchCriteria = etSearchCriteria.getText().toString().trim()
+                                .toLowerCase();
+                        searchThreadStart();
+                    }
+                }
+        );
 
-		etSearchCriteria
-				.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-					public boolean onEditorAction(TextView v, int actionId,
-							KeyEvent event) {
-						// Sadly with Jelly Bean actionId can equal 0 instead of IME_ACTION_SEARCH,
-						// so the hack event==null is used
-						if (actionId == EditorInfo.IME_ACTION_SEARCH
-								|| event == null) {
-							// hide the soft keyboard
-							InputMethodManager imm = (InputMethodManager) getActivity()
-									.getSystemService(
-											Context.INPUT_METHOD_SERVICE);
-							imm.toggleSoftInput(0, 0);
-							searchCriteria = etSearchCriteria.getText()
-									.toString().trim().toLowerCase();
-							searchThreadStart();
-							return true;
-						}
-						return false;
-					}
-				});
+        etSearchCriteria
+                .setOnEditorActionListener(
+                        new TextView.OnEditorActionListener() {
+                            public boolean onEditorAction(TextView v, int actionId,
+                                                          KeyEvent event) {
+                                // Sadly with Jelly Bean actionId can equal 0 instead of IME_ACTION_SEARCH,
+                                // so the hack event==null is used
+                                if (actionId == EditorInfo.IME_ACTION_SEARCH
+                                        || event == null) {
+                                    // hide the soft keyboard
+                                    InputMethodManager imm = (InputMethodManager) getActivity()
+                                            .getSystemService(
+                                                    Context.INPUT_METHOD_SERVICE
+                                            );
+                                    imm.toggleSoftInput(0, 0);
+                                    searchCriteria = etSearchCriteria.getText()
+                                            .toString().trim().toLowerCase();
+                                    searchThreadStart();
+                                    return true;
+                                }
+                                return false;
+                            }
+                        }
+                );
 
-		return root;
-	}
+        return root;
+    }
 
-	@Override
-	public void onPause() {
-		super.onPause();
+    @Override
+    public void onPause() {
+        super.onPause();
 
-		if (debug)
-			Log.d(TAG, "onPause()");
+        if (debug) {
+            Log.d(TAG, "onPause()");
+        }
 
-		if ((searchThread != null) && (searchThread.isAlive())) {
-			if (debug)
-				Log.d(TAG, "wait for search thread");
-			int maxWaitToDie = 500000;
-			try {
-				searchThread.join(maxWaitToDie);
-			} catch (InterruptedException e) {
-			} // ignore
-		}
-		try {
-			getActivity().unregisterReceiver(mIntentReceiver);
-		} catch (IllegalArgumentException e) {
-			// if (debug) Log.d(TAG,"IllegalArgumentException");
-		}
-	}
+        if ((searchThread != null) && (searchThread.isAlive())) {
+            if (debug) {
+                Log.d(TAG, "wait for search thread");
+            }
+            int maxWaitToDie = 500000;
+            try {
+                searchThread.join(maxWaitToDie);
+            } catch (InterruptedException e) {
+            } // ignore
+        }
+        try {
+            getActivity().unregisterReceiver(mIntentReceiver);
+        } catch (IllegalArgumentException e) {
+            // if (debug) Log.d(TAG,"IllegalArgumentException");
+        }
+    }
 
-	@Override
-	public void onResume() {
-		super.onResume();
+    @Override
+    public void onResume() {
+        super.onResume();
 
-		if (debug)
-			Log.d(TAG, "onResume()");
+        if (debug) {
+            Log.d(TAG, "onResume()");
+        }
 
-		if (CategoryList.isSignedIn() == false) {
-			startActivity(frontdoor);
-			return;
-		}
-		IntentFilter filter = new IntentFilter(
-				CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		getActivity().registerReceiver(mIntentReceiver, filter);
+        if (CategoryList.isSignedIn() == false) {
+            startActivity(frontdoor);
+            return;
+        }
+        IntentFilter filter = new IntentFilter(
+                CryptoIntents.ACTION_CRYPTO_LOGGED_OUT
+        );
+        getActivity().registerReceiver(mIntentReceiver, filter);
 
-		Passwords.Initialize(getActivity());
-	}
+        Passwords.Initialize(getActivity());
+    }
 
-	public static long[] getRowsIds(List<SearchEntry> rows) {
-		if (debug)
-			Log.d(TAG, "getRowsIds() rows=" + rows);
-		if (rows != null) {
-			long[] ids = new long[rows.size()];
-			Iterator<SearchEntry> searchIter = rows.iterator();
-			int i = 0;
-			while (searchIter.hasNext()) {
-				ids[i] = searchIter.next().id;
-				i++;
-			}
-			return ids;
-		} else {
-			return null;
-		}
-	}
+    public static long[] getRowsIds(List<SearchEntry> rows) {
+        if (debug) {
+            Log.d(TAG, "getRowsIds() rows=" + rows);
+        }
+        if (rows != null) {
+            long[] ids = new long[rows.size()];
+            Iterator<SearchEntry> searchIter = rows.iterator();
+            int i = 0;
+            while (searchIter.hasNext()) {
+                ids[i] = searchIter.next().id;
+                i++;
+            }
+            return ids;
+        } else {
+            return null;
+        }
+    }
 
-	public void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
 
-		if (debug)
-			Log.d(TAG, "onListItemClick: position=" + position + " results="
-					+ results);
-		if ((results == null) || (results.size() == 0)) {
-			return;
-		}
-		Intent passView = new Intent(getActivity(), PassView.class);
-		passView.putExtra(PassList.KEY_ID, results.get(position).id);
-		if (debug)
-			Log.d(TAG, "onListItemClick: category="
-					+ results.get(position).category);
-		passView.putExtra(PassList.KEY_CATEGORY_ID,
-				results.get(position).categoryId);
-		passView.putExtra(PassList.KEY_ROWIDS, getRowsIds(results));
-		passView.putExtra(PassList.KEY_LIST_POSITION, position);
-		startActivityForResult(passView, REQUEST_VIEW_PASSWORD);
-	}
+        if (debug) {
+            Log.d(
+                    TAG, "onListItemClick: position=" + position + " results="
+                            + results
+            );
+        }
+        if ((results == null) || (results.size() == 0)) {
+            return;
+        }
+        Intent passView = new Intent(getActivity(), PassView.class);
+        passView.putExtra(PassList.KEY_ID, results.get(position).id);
+        if (debug) {
+            Log.d(
+                    TAG, "onListItemClick: category="
+                            + results.get(position).category
+            );
+        }
+        passView.putExtra(
+                PassList.KEY_CATEGORY_ID,
+                results.get(position).categoryId
+        );
+        passView.putExtra(PassList.KEY_ROWIDS, getRowsIds(results));
+        passView.putExtra(PassList.KEY_LIST_POSITION, position);
+        startActivityForResult(passView, REQUEST_VIEW_PASSWORD);
+    }
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent i) {
-		super.onActivityResult(requestCode, resultCode, i);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent i) {
+        super.onActivityResult(requestCode, resultCode, i);
 
-		if (((requestCode == REQUEST_VIEW_PASSWORD) && (PassView.entryEdited))
-				|| (resultCode == Activity.RESULT_OK)) {
-			searchCriteria = etSearchCriteria.getText().toString().trim()
-					.toLowerCase();
-			searchThreadStart();
-		}
-	}
+        if (((requestCode == REQUEST_VIEW_PASSWORD) && (PassView.entryEdited))
+                || (resultCode == Activity.RESULT_OK)) {
+            searchCriteria = etSearchCriteria.getText().toString().trim()
+                    .toLowerCase();
+            searchThreadStart();
+        }
+    }
 
-	/**
-	 * Start a separate thread to search the database. By running the search in
-	 * a thread it allows the main UI thread to return and permit the updating
-	 * of the progress dialog.
-	 */
-	private void searchThreadStart() {
-		if (searchThread != null) {
-			if (searchThread.isAlive()) {
-				// it's already searching
-			} else {
-				// just rerun
-				progressDialog.show();
-				searchThread.run();
-			}
-			return;
-		}
+    /**
+     * Start a separate thread to search the database. By running the search in
+     * a thread it allows the main UI thread to return and permit the updating
+     * of the progress dialog.
+     */
+    private void searchThreadStart() {
+        if (searchThread != null) {
+            if (searchThread.isAlive()) {
+                // it's already searching
+            } else {
+                // just rerun
+                progressDialog.show();
+                searchThread.run();
+            }
+            return;
+        }
 
-		progressDialog = new ProgressDialog(getActivity());
-		progressDialog.setMessage(getString(R.string.search_progress));
-		progressDialog.setIndeterminate(false);
-		progressDialog.setCancelable(true);
-		progressDialog.show();
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(getString(R.string.search_progress));
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(true);
+        progressDialog.show();
 
-		searchThread = new Thread(new Runnable() {
-			public void run() {
-				doSearch();
-				progressDialog.dismiss();
-				getActivity().sendBroadcast(restartTimerIntent);
+        searchThread = new Thread(
+                new Runnable() {
+                    public void run() {
+                        doSearch();
+                        progressDialog.dismiss();
+                        getActivity().sendBroadcast(restartTimerIntent);
 
-				mHandler.post(mUpdateResults);
+                        mHandler.post(mUpdateResults);
 
-				if (debug)
-					Log.d(TAG, "thread end");
-			}
-		}, "Search");
-		searchThread.start();
-	}
+                        if (debug) {
+                            Log.d(TAG, "thread end");
+                        }
+                    }
+                }, "Search"
+        );
+        searchThread.start();
+    }
 
-	private void doSearch() {
-		if (debug)
-			Log.d(TAG, "doSearch: searchCriteria=" + searchCriteria);
-		results.clear();
-		if (searchCriteria.length() == 0) {
-			// don't bother searching for nothing
-			return;
-		}
+    private void doSearch() {
+        if (debug) {
+            Log.d(TAG, "doSearch: searchCriteria=" + searchCriteria);
+        }
+        results.clear();
+        if (searchCriteria.length() == 0) {
+            // don't bother searching for nothing
+            return;
+        }
 
-		List<CategoryEntry> categories = Passwords.getCategoryEntries();
-		for (CategoryEntry catRow : categories) {
-			if (debug)
-				Log.d(TAG, "doSearch: category=" + catRow.plainName);
-			List<PassEntry> passwords = Passwords.getPassEntries(catRow.id,
-					true, false);
-			for (PassEntry passRow : passwords) {
-				if (searchThread.isInterrupted()) {
-					return;
-				}
+        List<CategoryEntry> categories = Passwords.getCategoryEntries();
+        for (CategoryEntry catRow : categories) {
+            if (debug) {
+                Log.d(TAG, "doSearch: category=" + catRow.plainName);
+            }
+            List<PassEntry> passwords = Passwords.getPassEntries(
+                    catRow.id,
+                    true, false
+            );
+            for (PassEntry passRow : passwords) {
+                if (searchThread.isInterrupted()) {
+                    return;
+                }
 
-				String description = passRow.plainDescription.toLowerCase();
-				String website = passRow.plainWebsite.toLowerCase();
-				String username = passRow.plainUsername.toLowerCase();
-				String password = passRow.plainPassword.toLowerCase();
-				String note = passRow.plainNote.toLowerCase();
-				if (description.contains(searchCriteria)
-						|| website.contains(searchCriteria)
-						|| username.contains(searchCriteria)
-						|| password.contains(searchCriteria)
-						|| note.contains(searchCriteria)) {
-					if (debug)
-						Log.d(TAG, "matches: " + passRow.plainDescription);
-					SearchEntry searchRow = new SearchEntry();
-					searchRow.name = passRow.plainDescription;
-					searchRow.id = passRow.id;
-					searchRow.category = catRow.plainName;
-					searchRow.categoryId = catRow.id;
-					results.add(searchRow);
-					continue;
-				}
-			}
-		}
+                String description = passRow.plainDescription.toLowerCase();
+                String website = passRow.plainWebsite.toLowerCase();
+                String username = passRow.plainUsername.toLowerCase();
+                String password = passRow.plainPassword.toLowerCase();
+                String note = passRow.plainNote.toLowerCase();
+                if (description.contains(searchCriteria)
+                        || website.contains(searchCriteria)
+                        || username.contains(searchCriteria)
+                        || password.contains(searchCriteria)
+                        || note.contains(searchCriteria)) {
+                    if (debug) {
+                        Log.d(TAG, "matches: " + passRow.plainDescription);
+                    }
+                    SearchEntry searchRow = new SearchEntry();
+                    searchRow.name = passRow.plainDescription;
+                    searchRow.id = passRow.id;
+                    searchRow.category = catRow.plainName;
+                    searchRow.categoryId = catRow.id;
+                    results.add(searchRow);
+                    continue;
+                }
+            }
+        }
 
-		Collections.sort(results, new Comparator<SearchEntry>() {
-			public int compare(SearchEntry o1, SearchEntry o2) {
-				return o1.name.compareToIgnoreCase(o2.name);
-			}
-		});
+        Collections.sort(
+                results, new Comparator<SearchEntry>() {
+                    public int compare(SearchEntry o1, SearchEntry o2) {
+                        return o1.name.compareToIgnoreCase(o2.name);
+                    }
+                }
+        );
 
-		updateListFromResults();
-	}
+        updateListFromResults();
+    }
 
-	private void updateListFromResults() {
-		if (results == null) {
-			return;
-		}
-		searchAdapter = new SearchListItemAdapter(getActivity(),
-				R.layout.search_row, results);
-	}
+    private void updateListFromResults() {
+        if (results == null) {
+            return;
+        }
+        searchAdapter = new SearchListItemAdapter(
+                getActivity(),
+                R.layout.search_row, results
+        );
+    }
 
-	/**
-	 * If we have results, save them for use with onActivityCreated()
-	 */
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		if (results != null) {
-			SearchEntry[] aResults = new SearchEntry[results.size()];
-			results.toArray(aResults);
-			outState.putParcelableArray(KEY_RESULTS, aResults);
-		}
-	}
+    /**
+     * If we have results, save them for use with onActivityCreated()
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (results != null) {
+            SearchEntry[] aResults = new SearchEntry[results.size()];
+            results.toArray(aResults);
+            outState.putParcelableArray(KEY_RESULTS, aResults);
+        }
+    }
 
-	/**
-	 * Restore results from onSaveInstanceState()
-	 */
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+    /**
+     * Restore results from onSaveInstanceState()
+     */
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-		if (debug)
-			Log.d(TAG, "onActivityCreated(" + savedInstanceState + ")");
+        if (debug) {
+            Log.d(TAG, "onActivityCreated(" + savedInstanceState + ")");
+        }
 
-		if ((savedInstanceState != null)
-				&& (savedInstanceState.containsKey(KEY_RESULTS))
-				&& (results != null)) {
-			Parcelable[] parcels = savedInstanceState
-					.getParcelableArray(KEY_RESULTS);
-			for (Parcelable par : parcels) {
-				results.add((SearchEntry) par);
-			}
-			if (results.size() > 0) {
-				updateResultsInUi();
-			}
-		}
-	}
+        if ((savedInstanceState != null)
+                && (savedInstanceState.containsKey(KEY_RESULTS))
+                && (results != null)) {
+            Parcelable[] parcels = savedInstanceState
+                    .getParcelableArray(KEY_RESULTS);
+            for (Parcelable par : parcels) {
+                results.add((SearchEntry) par);
+            }
+            if (results.size() > 0) {
+                updateResultsInUi();
+            }
+        }
+    }
 
 }

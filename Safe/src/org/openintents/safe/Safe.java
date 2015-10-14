@@ -16,50 +16,57 @@
  */
 package org.openintents.safe;
 
-import org.openintents.intents.CryptoIntents;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.openintents.intents.CryptoIntents;
 
 /**
  * Safe Activity
- * 
+ * <p/>
  * This activity just makes sure we're entering the front door, not calling encrypt/decrypt
  * or other intents.
- * 
+ *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class Safe extends Activity {
 
-	private static final String TAG = "FrontDoor";
-	private static final boolean debug = false;
-	public static String last_used_password = null;
-	
-//	public static final String KEY_AUTOLOCK = "autolock";
-	
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
+    private static final String TAG = "FrontDoor";
+    private static final boolean debug = false;
+    public static String last_used_password = null;
 
-		if (debug) Log.d(TAG,"onCreate()");
-		final Intent thisIntent = getIntent();
-		final String action = thisIntent.getAction();
-		if (action == null || action.equals(Intent.ACTION_MAIN) || action.equals(CryptoIntents.ACTION_AUTOLOCK)){
-			//TODO: When launched from debugger, action is null. Other such cases?
-			Intent i = new Intent(getApplicationContext(),
-					IntentHandler.class);
+//	public static final String KEY_AUTOLOCK = "autolock";
+
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        if (debug) {
+            Log.d(TAG, "onCreate()");
+        }
+        final Intent thisIntent = getIntent();
+        final String action = thisIntent.getAction();
+        if (action == null || action.equals(Intent.ACTION_MAIN) || action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
+            //TODO: When launched from debugger, action is null. Other such cases?
+            Intent i = new Intent(
+                    getApplicationContext(),
+                    IntentHandler.class
+            );
 //    		boolean autoLock = icicle != null ? icicle.getBoolean(FrontDoor.KEY_AUTOLOCK) : false;
-			if (debug) Log.d(TAG,"action="+action);
+            if (debug) {
+                Log.d(TAG, "action=" + action);
+            }
 //			if (action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
-	//			i.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		//	}
-			i.setAction(action);
-			startActivity(i);
-		}  // otherwise, do not start intents, those must be protected by permissions
-		finish();
-	}
+            //			i.setAction(CryptoIntents.ACTION_AUTOLOCK);
+            //	}
+            i.setAction(action);
+            startActivity(i);
+        }  // otherwise, do not start intents, those must be protected by permissions
+        finish();
+    }
 }

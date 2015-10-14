@@ -19,32 +19,31 @@ package org.openintents.safe;
 import java.util.ArrayList;
 
 /**
- * 
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class PassEntry extends Object {
-	public long id=-1;
-	public boolean needsDecryptDescription;
-	public boolean needsDecrypt;
-	public boolean needsEncrypt=true;
-	public String password;
-	public long category;
-	public String categoryName;
-	public String description;
-	public String username;
-	public String website;
-	public String uniqueName;
-	public ArrayList<String> packageAccess;
-	public String note;
-	public String plainPassword;
-	public String plainDescription;
-	public String plainUsername;
-	public String plainWebsite;
-	public String plainNote;
-	public String plainUniqueName;
-	public String lastEdited;
+    public long id = -1;
+    public boolean needsDecryptDescription;
+    public boolean needsDecrypt;
+    public boolean needsEncrypt = true;
+    public String password;
+    public long category;
+    public String categoryName;
+    public String description;
+    public String username;
+    public String website;
+    public String uniqueName;
+    public ArrayList<String> packageAccess;
+    public String note;
+    public String plainPassword;
+    public String plainDescription;
+    public String plainUsername;
+    public String plainWebsite;
+    public String plainNote;
+    public String plainUniqueName;
+    public String lastEdited;
 
-	public static boolean checkPackageAccess (ArrayList<String> packageAccess, String packageName) {
-		return (packageAccess.contains(packageName));
-	}
+    public static boolean checkPackageAccess(ArrayList<String> packageAccess, String packageName) {
+        return (packageAccess.contains(packageName));
+    }
 }

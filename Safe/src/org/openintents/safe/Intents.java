@@ -1,9 +1,6 @@
 package org.openintents.safe;
 
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-
 
 public class Intents {
     static android.content.Intent createPickFileIntent(String backupPath, int titleResource) {

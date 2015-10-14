@@ -54,7 +54,7 @@ import android.os.Build;
  * class that manages copying data to and from the system clipboard.  This
  * provides a wrapper around the API-specific versions of the class to return
  * the proper object for the platform we're currently running on.
- * 
+ * <p/>
  * Originally from https://code.google.com/p/android-ppp/
  * Refactored by Randy McEoin
  *
@@ -62,135 +62,146 @@ import android.os.Build;
  */
 public abstract class ClipboardManager {
 
-	/** A reference to our calling application.  We need this to get the
-	 *  context and thus the system clipboard services. */
-	protected static Application theApp;
+    /**
+     * A reference to our calling application.  We need this to get the
+     * context and thus the system clipboard services.
+     */
+    protected static Application theApp;
 
-	/**
-	 * Sets the contents of the clipboard to the specified text.
-	 * @param text The text to place on the clipboard
-	 */
-	public abstract void setText(CharSequence text);
+    /**
+     * Sets the contents of the clipboard to the specified text.
+     *
+     * @param text The text to place on the clipboard
+     */
+    public abstract void setText(CharSequence text);
 
-	public abstract boolean hasText();
+    public abstract boolean hasText();
 
-	public abstract CharSequence getText();
+    public abstract CharSequence getText();
 
-	/**
-	 * Get the appropriate instance of the clipboard manager for the
-	 * current Android platform.
-	 * @param app A reference to the calling application
-	 * @return The clipboard manager for the current platform.
-	 */
-	public static ClipboardManager newInstance(Application app)
-	{
-		// Take note of the app:
-		theApp = app;
+    /**
+     * Get the appropriate instance of the clipboard manager for the
+     * current Android platform.
+     *
+     * @param app A reference to the calling application
+     * @return The clipboard manager for the current platform.
+     */
+    public static ClipboardManager newInstance(Application app) {
+        // Take note of the app:
+        theApp = app;
 
-		// If the API number is less than Honeycomb (Android 3.0, or API 11),
-		// return the old clipboard manager.  Otherwise, get the newer version.
-		// This should be safe because the compiler hard-codes the version
-		// code during compilation.
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
-			return new OldClipboardManager();
-		else return new HoneycombClipboardManager();
-	}
-	
-	/**
-	 * The old ClipboardManager, which is a under android.text.  This is
-	 * the version to use for all Android versions less than 3.0. 
-	 * 
-	 * @author Jeffrey T. Darlington
-	 */
-	private static class OldClipboardManager extends ClipboardManager {
-		
-		/** The actual ClipboardManager object */
-		@SuppressWarnings("deprecation")
-		private static android.text.ClipboardManager clippy = null;
-		
-		/** Our constructor */
-		@SuppressWarnings("deprecation")
-		public OldClipboardManager()
-		{
-			clippy = (android.text.ClipboardManager)theApp.getSystemService(
-					android.content.Context.CLIPBOARD_SERVICE);
-		}
-		
-		@SuppressWarnings("deprecation")
-		@Override
-		public void setText(CharSequence text)
-		{
-			clippy.setText(text);
-		}
+        // If the API number is less than Honeycomb (Android 3.0, or API 11),
+        // return the old clipboard manager.  Otherwise, get the newer version.
+        // This should be safe because the compiler hard-codes the version
+        // code during compilation.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            return new OldClipboardManager();
+        } else {
+            return new HoneycombClipboardManager();
+        }
+    }
 
-		@SuppressWarnings("deprecation")
-		@Override
-		public boolean hasText()
-		{
-			return clippy.hasText();
-		}
+    /**
+     * The old ClipboardManager, which is a under android.text.  This is
+     * the version to use for all Android versions less than 3.0.
+     *
+     * @author Jeffrey T. Darlington
+     */
+    private static class OldClipboardManager extends ClipboardManager {
 
-		@SuppressWarnings("deprecation")
-		@Override
-		public CharSequence getText()
-		{
-			return clippy.getText();
-		}
+        /**
+         * The actual ClipboardManager object
+         */
+        @SuppressWarnings("deprecation")
+        private static android.text.ClipboardManager clippy = null;
 
-	}
-	
-	/**
-	 * The Honeycomb-and-up version of the clipboard manager, this time derived from
-	 * android.content.  This version technically supports more content types than
-	 * just text, but we frankly don't care about that in PPP.  We just want to make
-	 * sure that when the deprecated android.text.ClipboardManager class finally goes
-	 * away, our application won't break.
-	 * 
-	 * @author Jeffrey T. Darlington
-	 */
-	@TargetApi(11) private static class HoneycombClipboardManager extends ClipboardManager {
-		
-		/** The actual ClipboardManager object */
-		private static android.content.ClipboardManager clippy = null;
-		/** The ClipData object into which we'll put the text */
-		private static android.content.ClipData clipData = null;
-		
-		/** Our constructor */
-		public HoneycombClipboardManager()
-		{
-			clippy = (android.content.ClipboardManager)theApp.getSystemService(
-					android.content.Context.CLIPBOARD_SERVICE);
-		}
-		
-		@Override
-		public void setText(CharSequence text)
-		{
-			clipData = android.content.ClipData.newPlainText(
-					android.content.ClipDescription.MIMETYPE_TEXT_PLAIN, text);
-			clippy.setPrimaryClip(clipData);
-		}
-		
-		@Override
-		public boolean hasText()
-		{
-			return clippy.hasPrimaryClip();
-		}
+        /**
+         * Our constructor
+         */
+        @SuppressWarnings("deprecation")
+        public OldClipboardManager() {
+            clippy = (android.text.ClipboardManager) theApp.getSystemService(
+                    android.content.Context.CLIPBOARD_SERVICE
+            );
+        }
 
-		@Override
-		public CharSequence getText()
-		{
-			if (clippy.hasPrimaryClip()) {
-				ClipData.Item item = clippy.getPrimaryClip().getItemAt(0);
-				CharSequence pasteData = item.getText();
-				if (pasteData==null) {
-					pasteData="";
-				}
-				return pasteData;
-			} else {
-				return "";
-			}
-		}
+        @SuppressWarnings("deprecation")
+        @Override
+        public void setText(CharSequence text) {
+            clippy.setText(text);
+        }
 
-	}
+        @SuppressWarnings("deprecation")
+        @Override
+        public boolean hasText() {
+            return clippy.hasText();
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public CharSequence getText() {
+            return clippy.getText();
+        }
+
+    }
+
+    /**
+     * The Honeycomb-and-up version of the clipboard manager, this time derived from
+     * android.content.  This version technically supports more content types than
+     * just text, but we frankly don't care about that in PPP.  We just want to make
+     * sure that when the deprecated android.text.ClipboardManager class finally goes
+     * away, our application won't break.
+     *
+     * @author Jeffrey T. Darlington
+     */
+    @TargetApi(11)
+    private static class HoneycombClipboardManager extends ClipboardManager {
+
+        /**
+         * The actual ClipboardManager object
+         */
+        private static android.content.ClipboardManager clippy = null;
+        /**
+         * The ClipData object into which we'll put the text
+         */
+        private static android.content.ClipData clipData = null;
+
+        /**
+         * Our constructor
+         */
+        public HoneycombClipboardManager() {
+            clippy = (android.content.ClipboardManager) theApp.getSystemService(
+                    android.content.Context.CLIPBOARD_SERVICE
+            );
+        }
+
+        @Override
+        public void setText(CharSequence text) {
+            clipData = android.content.ClipData.newPlainText(
+                    android.content.ClipDescription.MIMETYPE_TEXT_PLAIN, text
+            );
+            clippy.setPrimaryClip(clipData);
+        }
+
+        @Override
+        public boolean hasText() {
+            return clippy.hasPrimaryClip();
+        }
+
+        @Override
+        public CharSequence getText() {
+            if (clippy.hasPrimaryClip()) {
+                ClipData.Item item = clippy.getPrimaryClip().getItemAt(0);
+                CharSequence pasteData = item.getText();
+                if (pasteData == null) {
+                    pasteData = "";
+                }
+                return pasteData;
+            } else {
+                return "";
+            }
+        }
+
+    }
 
 }

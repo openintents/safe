@@ -20,37 +20,37 @@ package org.openintents.safe;
  * @author Randy McEoin
  */
 public class CategoryEntry extends Object {
-	public long id=-1;
-	public String name;
-	public boolean nameNeedsDecrypt;
-	public String plainName;
-	public boolean plainNameNeedsEncrypt=true;
-	int count=0;
+    public long id = -1;
+    public String name;
+    public boolean nameNeedsDecrypt;
+    public String plainName;
+    public boolean plainNameNeedsEncrypt = true;
+    int count = 0;
 
-	public String getName() {
-		return name;
-	}
-	
-	public int getCount() {
-		return count;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public CategoryEntry () {
-		name = "";
-	}
-	
-	public CategoryEntry (String _name) {
-		name = _name;
-	}
+    public int getCount() {
+        return count;
+    }
 
-	public CategoryEntry (String _name, int _count) {
-		name = _name;
-		count = _count;
-	}
-	
-	@Override
-	public String toString() {
-		return name + " " + count;
-	}
+    public CategoryEntry() {
+        name = "";
+    }
+
+    public CategoryEntry(String _name) {
+        name = _name;
+    }
+
+    public CategoryEntry(String _name, int _count) {
+        name = _name;
+        count = _count;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + count;
+    }
 
 }

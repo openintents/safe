@@ -15,44 +15,47 @@
  */
 package org.openintents.safe;
 
-import org.openintents.intents.CryptoIntents;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
+import org.openintents.intents.CryptoIntents;
+
 public class Search extends FragmentActivity {
 
-	private final boolean debug = false;
-	private final String TAG = "Search";
+    private final boolean debug = false;
+    private final String TAG = "Search";
 
-	private Intent restartTimerIntent = null;
+    private Intent restartTimerIntent = null;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		if (debug)
-			Log.d(TAG, "onCreate()");
-		setContentView(R.layout.search);
+        if (debug) {
+            Log.d(TAG, "onCreate()");
+        }
+        setContentView(R.layout.search);
 
-		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-	}
+    }
 
-	@Override
-	public void onUserInteraction() {
-		super.onUserInteraction();
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
 
-		if (debug)
-			Log.d(TAG, "onUserInteraction()");
+        if (debug) {
+            Log.d(TAG, "onUserInteraction()");
+        }
 
-		if (CategoryList.isSignedIn() == false) {
-			// startActivity(frontdoor);
-		} else {
-			if (restartTimerIntent != null)
-				sendBroadcast(restartTimerIntent);
-		}
-	}
+        if (CategoryList.isSignedIn() == false) {
+            // startActivity(frontdoor);
+        } else {
+            if (restartTimerIntent != null) {
+                sendBroadcast(restartTimerIntent);
+            }
+        }
+    }
 }

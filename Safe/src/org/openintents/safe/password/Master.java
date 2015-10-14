@@ -17,41 +17,39 @@
 package org.openintents.safe.password;
 
 /**
- * Centrally stores the Master Key and Salt for all other classes to use. 
+ * Centrally stores the Master Key and Salt for all other classes to use.
  */
 public class Master {
 
-	private static String salt = null;
-	private static String masterKey = null;
+    private static String salt = null;
+    private static String masterKey = null;
 
-	/**
-	 * @return the salt
-	 */
-	public synchronized static String getSalt() {
-		return salt;
-	}
+    /**
+     * @return the salt
+     */
+    public synchronized static String getSalt() {
+        return salt;
+    }
 
-	/**
-	 * @param salt
-	 *            the salt to set
-	 */
-	public synchronized static void setSalt(String saltIn) {
-		salt = saltIn;
-	}
+    /**
+     * @param salt the salt to set
+     */
+    public synchronized static void setSalt(String saltIn) {
+        salt = saltIn;
+    }
 
-	/**
-	 * @return the masterKey
-	 */
-	public synchronized static String getMasterKey() {
-		return masterKey;
-	}
+    /**
+     * @return the masterKey
+     */
+    public synchronized static String getMasterKey() {
+        return masterKey;
+    }
 
-	/**
-	 * @param masterKey
-	 *            the masterKey to set
-	 */
-	public synchronized static void setMasterKey(String masterKeyIn) {
-		masterKey = masterKeyIn;
-	}
+    /**
+     * @param masterKey the masterKey to set
+     */
+    public synchronized static void setMasterKey(String masterKeyIn) {
+        masterKey = masterKeyIn;
+    }
 
 }

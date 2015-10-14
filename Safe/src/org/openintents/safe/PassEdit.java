@@ -15,10 +15,6 @@
  */
 package org.openintents.safe;
 
-import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -27,132 +23,145 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.wrappers.CheckWrappers;
+import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
+
 public class PassEdit extends FragmentActivity {
 
-	private static final boolean debug = false;
-	private static final String TAG = "PassEdit";
+    private static final boolean debug = false;
+    private static final String TAG = "PassEdit";
 
-	public static final int REQUEST_GEN_PASS = 10;
+    public static final int REQUEST_GEN_PASS = 10;
 
-	public static final int SAVE_PASSWORD_INDEX = Menu.FIRST;
-	public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
-	public static final int DISCARD_PASSWORD_INDEX = Menu.FIRST + 2;
-	public static final int GEN_PASSWORD_INDEX = Menu.FIRST + 3;
+    public static final int SAVE_PASSWORD_INDEX = Menu.FIRST;
+    public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
+    public static final int DISCARD_PASSWORD_INDEX = Menu.FIRST + 2;
+    public static final int GEN_PASSWORD_INDEX = Menu.FIRST + 3;
 
-	public static final int RESULT_DELETED = RESULT_FIRST_USER;
+    public static final int RESULT_DELETED = RESULT_FIRST_USER;
 
-	private Intent restartTimerIntent = null;
+    private Intent restartTimerIntent = null;
 
-	private MenuItem saveItem;
-	PassEditFragment fragment;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    private MenuItem saveItem;
+    PassEditFragment fragment;
 
-		if (debug)
-			Log.d(TAG, "onCreate()");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		// Prevent screen shot shown on recent apps
-		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
-			getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-					WindowManager.LayoutParams.FLAG_SECURE);
-		}
+        if (debug) {
+            Log.d(TAG, "onCreate()");
+        }
 
-		setContentView(R.layout.pass_edit);
+        // Prevent screen shot shown on recent apps
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+            getWindow().setFlags(
+                    WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE
+            );
+        }
 
-		restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
+        setContentView(R.layout.pass_edit);
 
-		fragment = (PassEditFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.pass_edit_fragment);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-	}
+        fragment = (PassEditFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.pass_edit_fragment);
 
-	@Override
-	public void onUserInteraction() {
-		super.onUserInteraction();
+    }
 
-		if (debug)
-			Log.d(TAG, "onUserInteraction()");
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
 
-		if (CategoryList.isSignedIn() == false) {
-			// startActivity(frontdoor);
-		} else {
-			if (restartTimerIntent != null)
-				sendBroadcast(restartTimerIntent);
-		}
-	}
+        if (debug) {
+            Log.d(TAG, "onUserInteraction()");
+        }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
+        if (CategoryList.isSignedIn() == false) {
+            // startActivity(frontdoor);
+        } else {
+            if (restartTimerIntent != null) {
+                sendBroadcast(restartTimerIntent);
+            }
+        }
+    }
 
-		saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save)
-				.setIcon(android.R.drawable.ic_menu_save).setShortcut('1', 's');
-		fragment.setSaveItem(saveItem);
-		if (CheckWrappers.mActionBarAvailable) {
-			WrapActionBar.showIfRoom(saveItem);
-			saveItem.setVisible(!fragment.allFieldsEmpty());
-		}
-		menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete).setIcon(
-				android.R.drawable.ic_menu_delete);
-		menu.add(0, DISCARD_PASSWORD_INDEX, 0, R.string.discard_changes)
-				.setIcon(android.R.drawable.ic_notification_clear_all);
-		menu.add(0, GEN_PASSWORD_INDEX, 0, "Generate")
-				.setIcon(android.R.drawable.ic_menu_set_as)
-				.setShortcut('4', 'g');
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
 
-		return super.onCreateOptionsMenu(menu);
-	}
+        saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save)
+                .setIcon(android.R.drawable.ic_menu_save).setShortcut('1', 's');
+        fragment.setSaveItem(saveItem);
+        if (CheckWrappers.mActionBarAvailable) {
+            WrapActionBar.showIfRoom(saveItem);
+            saveItem.setVisible(!fragment.allFieldsEmpty());
+        }
+        menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete).setIcon(
+                android.R.drawable.ic_menu_delete
+        );
+        menu.add(0, DISCARD_PASSWORD_INDEX, 0, R.string.discard_changes)
+                .setIcon(android.R.drawable.ic_notification_clear_all);
+        menu.add(0, GEN_PASSWORD_INDEX, 0, "Generate")
+                .setIcon(android.R.drawable.ic_menu_set_as)
+                .setShortcut('4', 'g');
 
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			fragment.setDiscardEntry(true);
-			finish();
-			break;
-		case SAVE_PASSWORD_INDEX:
-			fragment.savePassword();
-			finish();
-			break;
-		case DEL_PASSWORD_INDEX:
-			fragment.deletePassword();
-			break;
-		case DISCARD_PASSWORD_INDEX:
-			fragment.setDiscardEntry(true);
-			finish();
-			break;
-		case GEN_PASSWORD_INDEX:
-			Intent i = new Intent(getApplicationContext(), PassGen.class);
-			startActivityForResult(i, REQUEST_GEN_PASS);
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        return super.onCreateOptionsMenu(menu);
+    }
 
-	@Override
-	public boolean onMenuOpened(int featureId, Menu menu) {
-		if (!CheckWrappers.mActionBarAvailable) {
-			menu.findItem(SAVE_PASSWORD_INDEX).setEnabled(
-					!fragment.allFieldsEmpty());
-		}
-		return super.onMenuOpened(featureId, menu);
-	}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                fragment.setDiscardEntry(true);
+                finish();
+                break;
+            case SAVE_PASSWORD_INDEX:
+                fragment.savePassword();
+                finish();
+                break;
+            case DEL_PASSWORD_INDEX:
+                fragment.deletePassword();
+                break;
+            case DISCARD_PASSWORD_INDEX:
+                fragment.setDiscardEntry(true);
+                finish();
+                break;
+            case GEN_PASSWORD_INDEX:
+                Intent i = new Intent(getApplicationContext(), PassGen.class);
+                startActivityForResult(i, REQUEST_GEN_PASS);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	/**
-	 * 
-	 */
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent i) {
-		super.onActivityResult(requestCode, resultCode, i);
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (!CheckWrappers.mActionBarAvailable) {
+            menu.findItem(SAVE_PASSWORD_INDEX).setEnabled(
+                    !fragment.allFieldsEmpty()
+            );
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
 
-		if (requestCode == REQUEST_GEN_PASS) {
-			if (resultCode == PassGen.CHANGE_ENTRY_RESULT) {
-				String new_pass = i.getStringExtra(PassGen.NEW_PASS_KEY);
-				if (debug) Log.d(TAG, new_pass);
-				fragment.passwordText.setText(new_pass);
-				fragment.pass_gen_ret = true;
-			}
-		}
-	}
+    /**
+     *
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent i) {
+        super.onActivityResult(requestCode, resultCode, i);
+
+        if (requestCode == REQUEST_GEN_PASS) {
+            if (resultCode == PassGen.CHANGE_ENTRY_RESULT) {
+                String new_pass = i.getStringExtra(PassGen.NEW_PASS_KEY);
+                if (debug) {
+                    Log.d(TAG, new_pass);
+                }
+                fragment.passwordText.setText(new_pass);
+                fragment.pass_gen_ret = true;
+            }
+        }
+    }
 
 }

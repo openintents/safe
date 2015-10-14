@@ -15,11 +15,6 @@
  */
 package org.openintents.safe;
 
-import java.util.List;
-
-import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.password.Master;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,330 +27,393 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.password.Master;
+
 /**
  * Allows user to change the password used to unlock the application
  * as well as encrypt the database.
- * 
+ *
  * @author Randy McEoin
  */
 public class ChangePass extends Activity {
 
-	private static boolean debug = false;
-	private static final String TAG = "ChangePass";
-	
-	String oldPassword;
-	String newPassword;
+    private static boolean debug = false;
+    private static final String TAG = "ChangePass";
 
-	Intent frontdoor;
-	private Intent restartTimerIntent=null;
+    String oldPassword;
+    String newPassword;
 
-	BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-				if (debug) Log.d(TAG,"caught ACTION_CRYPTO_LOGGED_OUT");
-				startActivity(frontdoor);
-			}
-		}
-	};
+    Intent frontdoor;
+    private Intent restartTimerIntent = null;
 
-	/** 
-	 * Called when the activity is first created. 
-	 */
-	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
+    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+                if (debug) {
+                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
+                }
+                startActivity(frontdoor);
+            }
+        }
+    };
 
-		if (debug) Log.d(TAG,"onCreate()");
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
 
-		frontdoor = new Intent(this, Safe.class);
-		frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
-		restartTimerIntent = new Intent (CryptoIntents.ACTION_RESTART_TIMER);
-		
-		setContentView(R.layout.chg_pass);
-		String title = getResources().getString(R.string.app_name) + " - " +
-			getResources().getString(R.string.change_password);
-		setTitle(title);
+        if (debug) {
+            Log.d(TAG, "onCreate()");
+        }
 
-		Button changePasswordButton = (Button) findViewById(R.id.change_password_button);
-		
-		changePasswordButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View arg0) {
-				performChangePass();
-			}
-		});
-		
-	}
+        frontdoor = new Intent(this, Safe.class);
+        frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
+        restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		
-		if (debug) Log.d(TAG,"onPause()");
-		
-		try {
-			unregisterReceiver(mIntentReceiver);
-		} catch (IllegalArgumentException e) {
-			//if (debug) Log.d(TAG,"IllegalArgumentException");
-		}
-	}
+        setContentView(R.layout.chg_pass);
+        String title = getResources().getString(R.string.app_name) + " - " +
+                getResources().getString(R.string.change_password);
+        setTitle(title);
 
-	@Override
-	protected void onResume() {
-		super.onResume();
+        Button changePasswordButton = (Button) findViewById(R.id.change_password_button);
 
-		if (debug) Log.d(TAG,"onResume()");
+        changePasswordButton.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        performChangePass();
+                    }
+                }
+        );
 
-		if (CategoryList.isSignedIn()==false) {
-			startActivity(frontdoor);
-			return;
-		}
-		IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
-		registerReceiver(mIntentReceiver, filter);
+    }
 
-		Passwords.Initialize(this);
-	}
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-	/**
-	 * Check the old, new and verify fields then try to re-encrypt
-	 * the data.
-	 */
-	private void performChangePass() {
-		if (debug) Log.d(TAG,"performChangePass()");
-		
-		EditText oldPassword = (EditText) findViewById(R.id.old_password);
-		EditText newPassword = (EditText) findViewById(R.id.new_password);
-		EditText verifyPassword = (EditText) findViewById(R.id.verify_password);
+        if (debug) {
+            Log.d(TAG, "onPause()");
+        }
 
-		String oldPlain = oldPassword.getText().toString();
-		String newPlain = newPassword.getText().toString();
-		String verifyPlain = verifyPassword.getText().toString();
+        try {
+            unregisterReceiver(mIntentReceiver);
+        } catch (IllegalArgumentException e) {
+            //if (debug) Log.d(TAG,"IllegalArgumentException");
+        }
+    }
 
-		if (newPlain.compareTo(verifyPlain) != 0) {
-			Toast.makeText(ChangePass.this, R.string.new_verify_mismatch,
-					Toast.LENGTH_SHORT).show();
-			return;
-		}
-		if (newPlain.length() < 4) {
-			Toast.makeText(ChangePass.this, R.string.notify_blank_pass,
-					Toast.LENGTH_SHORT).show();
-			return;
-		}
-		if (!checkUserPassword(oldPlain)) {
-			Toast.makeText(ChangePass.this, R.string.invalid_old_password,
-					Toast.LENGTH_SHORT).show();
-			return;
-		}
-		changeMasterPassword(oldPlain, newPlain);
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-	private boolean changeMasterPassword(String oldPass, String newPass) {
+        if (debug) {
+            Log.d(TAG, "onResume()");
+        }
 
-		DBHelper dbHelper= new DBHelper(this);
+        if (CategoryList.isSignedIn() == false) {
+            startActivity(frontdoor);
+            return;
+        }
+        IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
+        registerReceiver(mIntentReceiver, filter);
 
-		CryptoHelper ch = new CryptoHelper();
+        Passwords.Initialize(this);
+    }
 
-		String encryptedMasterKey = dbHelper.fetchMasterKey();
-		String decryptedMasterKey = "";
-		try {
-			ch.init(CryptoHelper.EncryptionStrong, dbHelper.fetchSalt());
-			ch.setPassword(oldPass);
-			decryptedMasterKey = ch.decrypt(encryptedMasterKey);
-			if (ch.getStatus()==true) {	// successful decryption?
-				ch.setPassword(newPass);
-				encryptedMasterKey = ch.encrypt(decryptedMasterKey);
-				if (ch.getStatus()==true) { // successful encryption?
-					dbHelper.storeMasterKey(encryptedMasterKey);
-					Passwords.InitCrypto(CryptoHelper.EncryptionMedium, dbHelper.fetchSalt(), decryptedMasterKey);
-					Passwords.Reset();
-					dbHelper.close();
-					Toast.makeText(ChangePass.this, R.string.password_changed,
-							Toast.LENGTH_LONG).show();
-					setResult(RESULT_OK);
-					finish();
-					return true;
-				}
-			}
+    /**
+     * Check the old, new and verify fields then try to re-encrypt
+     * the data.
+     */
+    private void performChangePass() {
+        if (debug) {
+            Log.d(TAG, "performChangePass()");
+        }
 
-		} catch (CryptoHelperException e) {
-			Log.e(TAG, e.toString());
-			Toast.makeText(this,getString(R.string.crypto_error)
-				+ e.getMessage(), Toast.LENGTH_SHORT).show();
-		} catch (Exception e) {
-			Log.e(TAG, e.toString());
-			Toast.makeText(this,getString(R.string.crypto_error)
-				+ e.getMessage(), Toast.LENGTH_SHORT).show();
-		}
+        EditText oldPassword = (EditText) findViewById(R.id.old_password);
+        EditText newPassword = (EditText) findViewById(R.id.new_password);
+        EditText verifyPassword = (EditText) findViewById(R.id.verify_password);
 
-		dbHelper.close();
+        String oldPlain = oldPassword.getText().toString();
+        String newPlain = newPassword.getText().toString();
+        String verifyPlain = verifyPassword.getText().toString();
 
-		Toast.makeText(ChangePass.this, R.string.error_changing_password,
-				Toast.LENGTH_LONG).show();
-		return false;
-	}
+        if (newPlain.compareTo(verifyPlain) != 0) {
+            Toast.makeText(
+                    ChangePass.this, R.string.new_verify_mismatch,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+        if (newPlain.length() < 4) {
+            Toast.makeText(
+                    ChangePass.this, R.string.notify_blank_pass,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+        if (!checkUserPassword(oldPlain)) {
+            Toast.makeText(
+                    ChangePass.this, R.string.invalid_old_password,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+        changeMasterPassword(oldPlain, newPlain);
+    }
 
-	/**
-	 * This is an older function.   We'll want to re-use this when we
-	 * allow the user to regenerate the master key.
-	 * 
-	 * @param oldPass
-	 * @param newPass
-	 */
-	public void changePassword(String oldPass, String newPass) {
-		if (debug) Log.d(TAG,"changePassword(,)");
+    private boolean changeMasterPassword(String oldPass, String newPass) {
 
-		DBHelper dbHelper= new DBHelper(this);
+        DBHelper dbHelper = new DBHelper(this);
 
-		CryptoHelper ch = new CryptoHelper();
+        CryptoHelper ch = new CryptoHelper();
 
-		List<CategoryEntry> categoryRows;
-		categoryRows = dbHelper.fetchAllCategoryRows();
+        String encryptedMasterKey = dbHelper.fetchMasterKey();
+        String decryptedMasterKey = "";
+        try {
+            ch.init(CryptoHelper.EncryptionStrong, dbHelper.fetchSalt());
+            ch.setPassword(oldPass);
+            decryptedMasterKey = ch.decrypt(encryptedMasterKey);
+            if (ch.getStatus() == true) {    // successful decryption?
+                ch.setPassword(newPass);
+                encryptedMasterKey = ch.encrypt(decryptedMasterKey);
+                if (ch.getStatus() == true) { // successful encryption?
+                    dbHelper.storeMasterKey(encryptedMasterKey);
+                    Passwords.InitCrypto(CryptoHelper.EncryptionMedium, dbHelper.fetchSalt(), decryptedMasterKey);
+                    Passwords.Reset();
+                    dbHelper.close();
+                    Toast.makeText(
+                            ChangePass.this, R.string.password_changed,
+                            Toast.LENGTH_LONG
+                    ).show();
+                    setResult(RESULT_OK);
+                    finish();
+                    return true;
+                }
+            }
 
-		List<PassEntry> passRows;
-		passRows = dbHelper.fetchAllRows(Long.valueOf(0));
-		
-		/**
-		 * Decrypt everything using the old password.
-		 */
-		if (debug) Log.d(TAG,"decrypting");
-		ch.setPassword(oldPass);
+        } catch (CryptoHelperException e) {
+            Log.e(TAG, e.toString());
+            Toast.makeText(
+                    this, getString(R.string.crypto_error)
+                            + e.getMessage(), Toast.LENGTH_SHORT
+            ).show();
+        } catch (Exception e) {
+            Log.e(TAG, e.toString());
+            Toast.makeText(
+                    this, getString(R.string.crypto_error)
+                            + e.getMessage(), Toast.LENGTH_SHORT
+            ).show();
+        }
 
-		for (CategoryEntry row : categoryRows) {
-			row.plainName = "";
-			try {
-				row.plainName = ch.decrypt(row.name);
-			} catch (CryptoHelperException e) {
-				if (debug) Log.e(TAG,e.toString());
-				Toast.makeText(this,getString(R.string.crypto_error)
-					+ e.getMessage(), Toast.LENGTH_SHORT).show();
-				return;
-			}
-		}
+        dbHelper.close();
 
-		for (PassEntry row : passRows) {
-			try {
-				row.plainDescription = ch.decrypt(row.description);
-				row.plainWebsite = ch.decrypt(row.website);
-				row.plainUsername = ch.decrypt(row.username);
-				row.plainPassword = ch.decrypt(row.password);
-				row.plainNote = ch.decrypt(row.note);
-			} catch (CryptoHelperException e) {
-				if (debug) Log.e(TAG,e.toString());
-				Toast.makeText(this,getString(R.string.crypto_error)
-					+ e.getMessage(), Toast.LENGTH_SHORT).show();
-				return;
-			}
-		}
+        Toast.makeText(
+                ChangePass.this, R.string.error_changing_password,
+                Toast.LENGTH_LONG
+        ).show();
+        return false;
+    }
 
-		/**
-		 * Encrypt everything using the new password.
-		 */
-		if (debug) Log.d(TAG,"encrypting");
-		ch.setPassword(newPass);
+    /**
+     * This is an older function.   We'll want to re-use this when we
+     * allow the user to regenerate the master key.
+     *
+     * @param oldPass
+     * @param newPass
+     */
+    public void changePassword(String oldPass, String newPass) {
+        if (debug) {
+            Log.d(TAG, "changePassword(,)");
+        }
 
-		for (CategoryEntry row : categoryRows) {
-			try {
-				row.name = ch.encrypt(row.plainName);
-			} catch (CryptoHelperException e) {
-				if (debug) Log.e(TAG,e.toString());
-				Toast.makeText(this,getString(R.string.crypto_error)
-					+ e.getMessage(), Toast.LENGTH_SHORT).show();
-				return;
-			}
-		}
+        DBHelper dbHelper = new DBHelper(this);
 
-		for (PassEntry row : passRows) {
-			try {
-				row.description = ch.encrypt(row.plainDescription);
-				row.website = ch.encrypt(row.plainWebsite);
-				row.username = ch.encrypt(row.plainUsername);
-				row.password = ch.encrypt(row.plainPassword);
-				row.note = ch.encrypt(row.plainNote);
-			} catch (CryptoHelperException e) {
-				if (debug) Log.e(TAG,e.toString());
-				Toast.makeText(this,getString(R.string.crypto_error)
-					+ e.getMessage(), Toast.LENGTH_SHORT).show();
-				return;
-			}
-		}
+        CryptoHelper ch = new CryptoHelper();
 
-		/**
-		 * Update the database with the newly encrypted data.
-		 */
-		if (debug) Log.d(TAG,"updating database");
-		dbHelper.beginTransaction();
+        List<CategoryEntry> categoryRows;
+        categoryRows = dbHelper.fetchAllCategoryRows();
 
-		for (CategoryEntry row : categoryRows) {
-			dbHelper.updateCategory(row.id, row);
-		}
+        List<PassEntry> passRows;
+        passRows = dbHelper.fetchAllRows(Long.valueOf(0));
 
-		for (PassEntry row : passRows) {
-			dbHelper.updatePassword(row.id, row);
-		}
-		
-		byte[] md5Key = CryptoHelper.md5String(newPass);
-		String hexKey = CryptoHelper.toHexString(md5Key);
-		String cryptKey = "";
-		Log.i(TAG, "Saving Password: " + hexKey);
-		try {
-			cryptKey = ch.encrypt(hexKey);
-			dbHelper.storeMasterKey(cryptKey);
-		} catch (CryptoHelperException e) {
-			Log.e(TAG, e.toString());
-			Toast.makeText(this,getString(R.string.crypto_error)
-				+ e.getMessage(), Toast.LENGTH_SHORT).show();
-			dbHelper.rollback();
-			dbHelper.close();
-			return;
-		}
+        /**
+         * Decrypt everything using the old password.
+         */
+        if (debug) {
+            Log.d(TAG, "decrypting");
+        }
+        ch.setPassword(oldPass);
 
-		dbHelper.commit();
-		
-		Master.setMasterKey(newPass);
+        for (CategoryEntry row : categoryRows) {
+            row.plainName = "";
+            try {
+                row.plainName = ch.decrypt(row.name);
+            } catch (CryptoHelperException e) {
+                if (debug) {
+                    Log.e(TAG, e.toString());
+                }
+                Toast.makeText(
+                        this, getString(R.string.crypto_error)
+                                + e.getMessage(), Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+        }
 
-		dbHelper.close();
-	}
+        for (PassEntry row : passRows) {
+            try {
+                row.plainDescription = ch.decrypt(row.description);
+                row.plainWebsite = ch.decrypt(row.website);
+                row.plainUsername = ch.decrypt(row.username);
+                row.plainPassword = ch.decrypt(row.password);
+                row.plainNote = ch.decrypt(row.note);
+            } catch (CryptoHelperException e) {
+                if (debug) {
+                    Log.e(TAG, e.toString());
+                }
+                Toast.makeText(
+                        this, getString(R.string.crypto_error)
+                                + e.getMessage(), Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+        }
 
-	/**
-	 * Check the provided clear text password with the one stored
-	 * in the database.
-	 * 
-	 * @param pass = clear text password
-	 * @return True if password is correct.
-	 */
-	private boolean checkUserPassword(String pass) {
-		if (debug) Log.d(TAG,"checkUserPassword()");
-		
-		DBHelper dbHelper= new DBHelper(this);
-		String confirmKey = dbHelper.fetchMasterKey();
+        /**
+         * Encrypt everything using the new password.
+         */
+        if (debug) {
+            Log.d(TAG, "encrypting");
+        }
+        ch.setPassword(newPass);
 
-		CryptoHelper ch = new CryptoHelper();
+        for (CategoryEntry row : categoryRows) {
+            try {
+                row.name = ch.encrypt(row.plainName);
+            } catch (CryptoHelperException e) {
+                if (debug) {
+                    Log.e(TAG, e.toString());
+                }
+                Toast.makeText(
+                        this, getString(R.string.crypto_error)
+                                + e.getMessage(), Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+        }
 
-		try {
-			ch.init(CryptoHelper.EncryptionStrong, dbHelper.fetchSalt());
-			ch.setPassword(pass);
-			ch.decrypt(confirmKey);
-		} catch (CryptoHelperException e) {
-			Log.e(TAG, e.toString());
-		}
-		dbHelper.close();
+        for (PassEntry row : passRows) {
+            try {
+                row.description = ch.encrypt(row.plainDescription);
+                row.website = ch.encrypt(row.plainWebsite);
+                row.username = ch.encrypt(row.plainUsername);
+                row.password = ch.encrypt(row.plainPassword);
+                row.note = ch.encrypt(row.plainNote);
+            } catch (CryptoHelperException e) {
+                if (debug) {
+                    Log.e(TAG, e.toString());
+                }
+                Toast.makeText(
+                        this, getString(R.string.crypto_error)
+                                + e.getMessage(), Toast.LENGTH_SHORT
+                ).show();
+                return;
+            }
+        }
 
-		// was decryption of the master key successful?
-		if (ch.getStatus()==true) {
-			return true;	// then we must have a good master password
-		}
-		return false;
-	}
+        /**
+         * Update the database with the newly encrypted data.
+         */
+        if (debug) {
+            Log.d(TAG, "updating database");
+        }
+        dbHelper.beginTransaction();
 
-	@Override
-	public void onUserInteraction() {
-		super.onUserInteraction();
+        for (CategoryEntry row : categoryRows) {
+            dbHelper.updateCategory(row.id, row);
+        }
 
-		if (debug) Log.d(TAG,"onUserInteraction()");
+        for (PassEntry row : passRows) {
+            dbHelper.updatePassword(row.id, row);
+        }
 
-		if (CategoryList.isSignedIn()==false) {
+        byte[] md5Key = CryptoHelper.md5String(newPass);
+        String hexKey = CryptoHelper.toHexString(md5Key);
+        String cryptKey = "";
+        Log.i(TAG, "Saving Password: " + hexKey);
+        try {
+            cryptKey = ch.encrypt(hexKey);
+            dbHelper.storeMasterKey(cryptKey);
+        } catch (CryptoHelperException e) {
+            Log.e(TAG, e.toString());
+            Toast.makeText(
+                    this, getString(R.string.crypto_error)
+                            + e.getMessage(), Toast.LENGTH_SHORT
+            ).show();
+            dbHelper.rollback();
+            dbHelper.close();
+            return;
+        }
+
+        dbHelper.commit();
+
+        Master.setMasterKey(newPass);
+
+        dbHelper.close();
+    }
+
+    /**
+     * Check the provided clear text password with the one stored
+     * in the database.
+     *
+     * @param pass = clear text password
+     * @return True if password is correct.
+     */
+    private boolean checkUserPassword(String pass) {
+        if (debug) {
+            Log.d(TAG, "checkUserPassword()");
+        }
+
+        DBHelper dbHelper = new DBHelper(this);
+        String confirmKey = dbHelper.fetchMasterKey();
+
+        CryptoHelper ch = new CryptoHelper();
+
+        try {
+            ch.init(CryptoHelper.EncryptionStrong, dbHelper.fetchSalt());
+            ch.setPassword(pass);
+            ch.decrypt(confirmKey);
+        } catch (CryptoHelperException e) {
+            Log.e(TAG, e.toString());
+        }
+        dbHelper.close();
+
+        // was decryption of the master key successful?
+        if (ch.getStatus() == true) {
+            return true;    // then we must have a good master password
+        }
+        return false;
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+
+        if (debug) {
+            Log.d(TAG, "onUserInteraction()");
+        }
+
+        if (CategoryList.isSignedIn() == false) {
 //			startActivity(frontdoor);
-		}else{
-			if (restartTimerIntent!=null) sendBroadcast (restartTimerIntent);
-		}
-	}
+        } else {
+            if (restartTimerIntent != null) {
+                sendBroadcast(restartTimerIntent);
+            }
+        }
+    }
 }

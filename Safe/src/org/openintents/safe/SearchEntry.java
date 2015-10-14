@@ -22,66 +22,70 @@ import android.os.Parcelable;
  * @author Randy McEoin
  */
 public class SearchEntry extends Object implements Parcelable {
-	public long id = -1;
-	public String name;
-	public String category;
-	public long categoryId = -1;
+    public long id = -1;
+    public String name;
+    public String category;
+    public long categoryId = -1;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getCategory() {
-		return category;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public SearchEntry() {
-		name = "";
-		category = "";
-	}
+    public SearchEntry() {
+        name = "";
+        category = "";
+    }
 
-	public SearchEntry(String _name) {
-		name = _name;
-		category = "";
-	}
+    public SearchEntry(String _name) {
+        name = _name;
+        category = "";
+    }
 
-	public SearchEntry(String _name, String _category) {
-		name = _name;
-		category = _category;
-	}
+    public SearchEntry(String _name, String _category) {
+        name = _name;
+        category = _category;
+    }
 
-	@Override
-	public String toString() {
-		return name + " " + category;
-	}
+    @Override
+    public String toString() {
+        return name + " " + category;
+    }
 
-	public int describeContents() {
-		return 0;
-	}
+    public int describeContents() {
+        return 0;
+    }
 
-	/** save object in parcel */
-	public void writeToParcel(Parcel out, int flags) {
-		out.writeLong(id);
-		out.writeString(name);
-		out.writeString(category);
-		out.writeLong(categoryId);
-	}
+    /**
+     * save object in parcel
+     */
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeLong(id);
+        out.writeString(name);
+        out.writeString(category);
+        out.writeLong(categoryId);
+    }
 
-	public static final Parcelable.Creator<SearchEntry> CREATOR = new Parcelable.Creator<SearchEntry>() {
-		public SearchEntry createFromParcel(Parcel in) {
-			return new SearchEntry(in);
-		}
+    public static final Parcelable.Creator<SearchEntry> CREATOR = new Parcelable.Creator<SearchEntry>() {
+        public SearchEntry createFromParcel(Parcel in) {
+            return new SearchEntry(in);
+        }
 
-		public SearchEntry[] newArray(int size) {
-			return new SearchEntry[size];
-		}
-	};
+        public SearchEntry[] newArray(int size) {
+            return new SearchEntry[size];
+        }
+    };
 
-	/** recreate object from parcel */
-	private SearchEntry(Parcel in) {
-		id = in.readLong();
-		name = in.readString();
-		category = in.readString();
-		categoryId = in.readLong();
-	}
+    /**
+     * recreate object from parcel
+     */
+    private SearchEntry(Parcel in) {
+        id = in.readLong();
+        name = in.readString();
+        category = in.readString();
+        categoryId = in.readLong();
+    }
 }
