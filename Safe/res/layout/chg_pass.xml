@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * $Id$
 * 
 * Copyright 2008 Randy McEoin
@@ -18,61 +17,72 @@
 *
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:scrollbars="vertical">
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:scrollbars="vertical">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-	<TextView android:id="@+id/explaination"
-		android:text="@string/chg_pass_explaination" 
-		android:paddingBottom="10dp"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+    <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="10dp"
+      android:text="@string/chg_pass_explaination" />
 
-	<TextView android:id="@+id/old_password_label"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/old_password" />
-	<EditText android:id="@+id/old_password"
-		android:hint="@string/old_password" 
-		android:password="true"
-		android:autoText="false"
-		android:singleLine="true"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+    <TextView
+      android:id="@+id/old_password_label"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/old_password" />
 
-	<TextView android:id="@+id/new_password_label"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/new_password" />
-	<EditText android:id="@+id/new_password"
-		android:hint="@string/new_password" 
-		android:password="true"
-		android:autoText="false"
-		android:singleLine="true"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+    <EditText
+      android:id="@+id/old_password"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:autoText="false"
+      android:hint="@string/old_password"
+      android:password="true"
+      android:singleLine="true" />
 
-	<TextView android:id="@+id/verify_password_label"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/verify_password" />
-	<EditText android:id="@+id/verify_password"
-		android:hint="@string/verify_password" 
-		android:password="true"
-		android:autoText="false"
-		android:singleLine="true"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+    <TextView
+      android:id="@+id/new_password_label"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/new_password" />
 
-	<Button android:id="@+id/change_password_button" 
-		android:text="@string/change_password"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+    <EditText
+      android:id="@+id/new_password"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:autoText="false"
+      android:hint="@string/new_password"
+      android:password="true"
+      android:singleLine="true" />
 
-</LinearLayout>
+    <TextView
+      android:id="@+id/verify_password_label"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/verify_password" />
+
+    <EditText
+      android:id="@+id/verify_password"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:autoText="false"
+      android:hint="@string/verify_password"
+      android:password="true"
+      android:singleLine="true" />
+
+    <Button
+      android:id="@+id/change_password_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/change_password" />
+
+  </LinearLayout>
 
 </ScrollView>

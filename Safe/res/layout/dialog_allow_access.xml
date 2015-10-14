@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 /*
  * Copyright (C) 2007-2009 OpenIntents.org
  *
@@ -18,21 +17,21 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_marginBottom="10dip"
-		>
-	<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/checkbox"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/dialog_summary_external_access"
-		/>
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginBottom="10dip"
+  android:orientation="vertical">
 
-	<TextView android:id="@+id/text"
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content" 
-		android:text="@string/dialog_comment_external_access"
-		android:layout_margin="10dip" />
+  <CheckBox
+    android:id="@+id/checkbox"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/dialog_summary_external_access" />
+
+  <TextView
+    android:id="@+id/text"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dip"
+    android:text="@string/dialog_comment_external_access" />
 </LinearLayout>

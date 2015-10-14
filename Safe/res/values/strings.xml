@@ -16,7 +16,8 @@
 *
 -->
 
-<resources>
+<resources tools:ignore="MissingTranslation"
+	xmlns:tools="http://schemas.android.com/tools">
 	<!-- ***************************
 	     About information
 	     *************************** -->

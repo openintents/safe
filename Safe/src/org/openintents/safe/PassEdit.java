@@ -43,7 +43,6 @@ public class PassEdit extends FragmentActivity {
 
     private Intent restartTimerIntent = null;
 
-    private MenuItem saveItem;
     PassEditFragment fragment;
 
     @Override
@@ -92,7 +91,7 @@ public class PassEdit extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save)
+        MenuItem saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save)
                 .setIcon(android.R.drawable.ic_menu_save).setShortcut('1', 's');
         fragment.setSaveItem(saveItem);
         if (CheckWrappers.mActionBarAvailable) {

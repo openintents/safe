@@ -65,7 +65,7 @@ public class Passwords {
         if (ch == null) {
             ch = new CryptoHelper();
         }
-        if ((cryptoInitialized == false) &&
+        if ((!cryptoInitialized) &&
                 (Master.getSalt() != null) &&
                 (Master.getMasterKey() != null)) {
             try {
@@ -85,20 +85,20 @@ public class Passwords {
 
         if (dbHelper == null) {
             dbHelper = new DBHelper(ctx);
-            if (dbHelper.isDatabaseOpen() == false) {
+            if (!dbHelper.isDatabaseOpen()) {
                 return false;
             }
         }
         if (passEntries == null) {
-            passEntries = new HashMap<Long, PassEntry>();
+            passEntries = new HashMap<>();
             InitPassEntries();
         }
         if (categoryEntries == null) {
-            categoryEntries = new HashMap<Long, CategoryEntry>();
+            categoryEntries = new HashMap<>();
             InitCategoryEntries();
         }
         if (packageAccessEntries == null) {
-            packageAccessEntries = new HashMap<Long, ArrayList<PackageAccessEntry>>();
+            packageAccessEntries = new HashMap<>();
             InitPackageAccess();
         }
         return true;
@@ -214,7 +214,7 @@ public class Passwords {
     }
 
     public static HashMap<String, Long> getCategoryNameToId() {
-        HashMap<String, Long> categoryMap = new HashMap<String, Long>();
+        HashMap<String, Long> categoryMap = new HashMap<>();
         Collection<CategoryEntry> categories = categoryEntries.values();
         Iterator<CategoryEntry> catIter = categories.iterator();
         while (catIter.hasNext()) {
@@ -305,7 +305,7 @@ public class Passwords {
 
     private static void InitPassEntries() {
         List<PassEntry> passRows;
-        passRows = dbHelper.fetchAllRows(new Long(0));
+        passRows = dbHelper.fetchAllRows(Long.valueOf(0));
         for (PassEntry passRow : passRows) {
             passRow.needsDecryptDescription = true;
             passRow.needsDecrypt = true;

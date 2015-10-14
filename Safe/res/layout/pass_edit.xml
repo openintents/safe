@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/pass_edit_root"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/pass_edit_root"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <fragment
+    android:id="@+id/pass_edit_fragment"
+    android:name="org.openintents.safe.PassEditFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <fragment
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/pass_edit_fragment"
-        android:name="org.openintents.safe.PassEditFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".PassEdit"
-        tools:layout="@layout/pass_edit_fragment" >
-    </fragment>
+    tools:context=".PassEdit"
+    tools:layout="@layout/pass_edit_fragment"/>
 
 </LinearLayout>

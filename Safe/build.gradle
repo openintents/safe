@@ -7,15 +7,15 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "org.openintents.safe"
         versionCode 30
         versionName "1.4.2-alpha"
         minSdkVersion 4
-        targetSdkVersion 20
+        targetSdkVersion 23
     }
 
     sourceSets {
@@ -42,17 +42,12 @@ android {
 
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-
-            applicationVariants.all { variant ->
-                def file = variant.outputFile
-                variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
-            }
         }
     }
 
-    propertyFile = new File(projectDir, "build-private.properties")
+    def propertyFile = new File(projectDir, "build-private.properties")
     if (propertyFile && propertyFile.exists()) {
         signingConfigs {
             release {

@@ -30,13 +30,13 @@ public class RestoreDataSet {
     private String date = null;
     private String salt = null;
     private String masterKeyEncrypted = null;
-    private Long currentCategoryId = new Long(0);
+    private Long currentCategoryId = Long.valueOf(0);
     private CategoryEntry currentCategory = null;
-    private ArrayList<CategoryEntry> categoryEntries = new ArrayList<CategoryEntry>();
+    private ArrayList<CategoryEntry> categoryEntries = new ArrayList<>();
     private PassEntry currentEntry = null;
     private String currentRowID;
     private String currentPackageAccess;
-    private ArrayList<PassEntry> passEntries = new ArrayList<PassEntry>();
+    private ArrayList<PassEntry> passEntries = new ArrayList<>();
     private int totalEntries = 0;
 
     public int getVersion() {

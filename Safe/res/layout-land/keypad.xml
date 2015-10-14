@@ -22,7 +22,7 @@
 	android:layout_height="wrap_content"
 	android:scrollbars="vertical">
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:stretchColumns="1,2,3">

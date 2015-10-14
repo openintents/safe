@@ -135,7 +135,7 @@ Launchpad Contributions:
     <string name="restore_decrypt_error">Kötü parola.</string>
     <string name="dialog_restore_database_title">Geri yükleme veri tabanı</string>
     <string name="dialog_restore_database_msg">Şuan kullanılan veri tabanının değiştirilmesini istiyor musunuz?</string>
-    <string name="restore_found">Yedekleme tarihinden %1$s şifresini bulun.</string>
+    <string name="restore_found">Yedekleme tarihinden %1$s şifresini bulun %2$s.</string>
     <string name="restore_complete">Tamamlandı.Şifre geri yükleme: %s</string>
     <string name="copied_to_clipboard">Panoya kopyalandı</string>
     <string name="invalid_website">Geçersiz web sitesi</string>

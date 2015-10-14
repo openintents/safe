@@ -128,7 +128,7 @@
     <string name="restore_unable_to_open">Hindi mabuksan ang file: %s</string>
     
     <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Bersyon hindi suportado:% s</string>
+    <string name="restore_bad_version">Bersyon hindi suportado: %s</string>
     
     <string name="restore_decrypt_error">Maling password.</string>
     <string name="dialog_restore_database_title">Ibalik ang Database</string>
