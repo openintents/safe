@@ -37,24 +37,26 @@
     android:name="org.openintents.safe.ACCESS_INTENTS"
     android:description="@string/oi_safe_permission_intents_descr"
     android:label="@string/oi_safe_permission_intents"
-    android:protectionLevel="dangerous"></permission>
+    android:protectionLevel="dangerous"/>
   <permission
     android:name="org.openintents.safe.ACCESS_SERVICE"
     android:description="@string/oi_safe_permission_service_descr"
     android:exported="true"
     android:label="@string/oi_safe_permission_service"
     android:process=":remote"
-    android:protectionLevel="signature"></permission>
+    android:protectionLevel="signature"/>
 
   <uses-feature
     android:name="android.hardware.touchscreen"
     android:required="false" />
 
   <application
+    android:name=".SafeApplication"
     android:allowClearUserData="true"
     android:icon="@drawable/ic_launcher_safe"
     android:label="@string/app_name"
-    android:fullBackupContent="true"
+    android:fullBackupContent="false"
+    android:allowBackup="false"
     tools:replace="android:label">
 
     <!-- aTrackDog metadata -->
