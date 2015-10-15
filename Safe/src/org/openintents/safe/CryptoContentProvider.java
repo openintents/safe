@@ -79,7 +79,7 @@ public class CryptoContentProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] as, String s, String[] as1, String s1) {
         /*
-		if (uri.toString().startsWith(
+        if (uri.toString().startsWith(
 				MIME_TYPE_PREFIX)) {
 			MatrixCursor c = new MatrixCursor(new String[] { Images.Media.DATA,
 					Images.Media.MIME_TYPE });

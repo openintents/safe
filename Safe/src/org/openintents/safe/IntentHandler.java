@@ -342,7 +342,7 @@ public class IntentHandler extends Activity {
                 throw new Exception("It is currently not permissible for this application to request this password.");
             }
             /*TODO: check if this package is in the package_access table corresponding to this password:
-			 * "Application 'org.syntaxpolice.ServiceTest' wants to access the
+             * "Application 'org.syntaxpolice.ServiceTest' wants to access the
 					password for 'opensocial'.
 					[ ] Grant access this time.
 					[ ] Always grant access.

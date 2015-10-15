@@ -50,7 +50,7 @@ public class LogOffActivity extends Activity {
                         CategoryList.setSignedOut();
 
 				/*
-				Intent intent = new Intent(LogOffActivity.this, FrontDoor.class);
+                Intent intent = new Intent(LogOffActivity.this, FrontDoor.class);
 				//intent.setClass (LogOffActivity.this, FrontDoor.class );
 				intent.addCategory(Intent.CATEGORY_LAUNCHER);
 				intent.setAction(Intent.ACTION_MAIN);

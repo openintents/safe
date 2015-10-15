@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Alexander \'FONTER\' Zinin https://launchpad.net/~spore-09
   Alexander Sapronov https://launchpad.net/~warmonger
@@ -30,271 +29,271 @@
   Sergey Popov https://launchpad.net/~fil0soff
   Vasily Bogantsev https://launchpad.net/~bas-eurogym
   friedger https://launchpad.net/~friedger</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">В этой категории нет паролей.</string>
-    <string name="empty_category">Нет ни одной категоории. Добавьте категорию через Меню/Добавить</string>
-    <string name="password_lock">Заблокировать</string>
-    <string name="password_view">Просмотр</string>
-    <string name="password_edit">Правка</string>
-    <string name="password_add">Добавить</string>
-    <string name="password_delete">Удалить</string>
-    <string name="password">Пароль</string>
-    <string name="passwords">Пароли</string>
-    <string name="master_password">Мастер Пароль</string>
-    <string name="username">Имя пользователя</string>
-    <string name="website">Сайт</string>
-    <string name="description">Описание</string>
-    <string name="notes">Примечания</string>
-    <string name="save">Сохранить</string>
-    <string name="invalid_password">Неправильный пароль. Попробуйте ещё раз.</string>
-    <string name="notify_blank_pass">Пароль должен быть не менее 4 символов</string>
-    <string name="notify_blank_desc">Описание должно быть заполнено</string>
-    <string name="notify_blank_name">Имя должно быть заполнено</string>
-    <string name="first_time">Ниже введите пароль которым будет защищена ваша информация.</string>
-    <string name="logoff_explanation">Вы залогинены в OI Safe поэтому другие приложения могут получать свои пароли и расшифровывать/зашифровывать данные. Заблокируйте для предотвращения дальнейшего доступа до повторного ввода пароля.</string>
-    <string name="remote_ask">Другое приложение запрашивает Мастер Ключ. Введите пароль что бы дать доступ к нему.</string>
-    <string name="categories">Категории</string>
-	<string name="category">Категория</string>
-    <string name="category_business">Бизнес</string>
-    <string name="category_personal">Личный</string>
-    <string name="name">Имя</string>
-    <string name="category_not_empty">В категории что-то есть. Сначала удалите содержимое.</string>
-	<string name="cannot_decrypt_category">Невозможно расшифровать категорию</string>
-	<string name="cannot_decrypt_password">Невозможно расшифровать пароль</string>
-	<string name="error_export">Ошибка экспорта базы данных</string>
-	<string name="export_database">Экспортировать базу данных</string>
-	<string name="export_file_select">Выберите файл для экспорта</string>
-	<string name="export_msg">База данных будет экспортирована как простой текст. ЭТО ОЧЕНЬ ОПАСНО. Не забудьте удалить файл. Вы уверены, что хотите экспортировать?</string>
-	<string name="export_success">Экспорт в \'%s\' прошёл успешно. Внимание! Файл не зашифрован.</string>
-	<string name="export_file_error">Не могу создать файл экспорта \'oisafe.csv\' на SDCARD. Попробуйте отключить USB от компьютера.</string>
-	<string name="import_database">Импорт базы данных</string>
-	<string name="import_file_select">Выберите файл для импорта</string>
-	<string name="import_file_missing">Отсутствует файл импорта:</string>
-	<string name="import_file_error">Не могу импортировать файл \'oisafe.csv\' с SDCARD. Попробуйте отключить USB от компьютера.</string>
-	<string name="import_error_first_line">В первой строке не хватает полей.</string>
-	<string name="dialog_import_title">Импорт</string>
-	<string name="dialog_import_msg">Вы хотите заменить базу данных (импортировать из %s)?</string>
-	<string name="yes">Да</string>
-	<string name="no">Нет</string>
-	<string name="import_progress">Ждите, импортирую...</string>
-	<string name="import_no_categories">Категории не найдены</string>
-	<string name="import_no_entries">В CSV не найдены записи.</string>
-	<string name="import_too_many_categories">Слишком много категорий.</string>
-	<string name="import_not_enough_fields">Недостаточно полей</string>
-	<string name="import_blank_category">Пустая категория</string>
-	<string name="import_blank_description">Пустое описание</string>
-	<string name="dialog_delete_database_title">Удалить базу данных</string>
-	<string name="dialog_delete_database_msg">Вы действительно уверены, что хотите удалить базу данных? это действие нельзя отменить.</string>
-	<string name="added">Добавлено</string>
-	<string name="entries">записей</string>
-	<string name="import_complete">Импорт завершён</string>
-	<string name="import_delete_csv">Так как хранение паролей в не зашифрованном файле CSV небезопасно, хотите ли Вы удалить</string>
-	<string name="edit_entry">Изменить запись</string>
-	<string name="view_entry">Смотреть запись</string>
-	<string name="help">Справка</string>
-	<string name="close">Закрыть</string>
-	<string name="go">Перейти</string>
-	<string name="dialog_delete_password_title">Удалить пароль</string>
-	<string name="dialog_delete_password_msg">Вы уверены что хотите удалить этот пароль?</string>
-	<string name="change_password">Изменить Мастер Пароль</string>
-	<string name="chg_pass_explaination">Используйте для изменения пароля которым Вы открываете OI Safe. Ваши данные будут зашифрованы заново новым паролем. Чем сложнее пароль тем в большей безопасности будут ваши данные.</string>
-	<string name="old_password">Старый пароль</string>
-	<string name="new_password">Новый пароль</string>
-	<string name="verify_password">Повторите пароль</string>
-	<string name="new_verify_mismatch">Новый пароль не совпадает с повторным.</string>
-    <string name="invalid_old_password">Неправильный старый пароль. Попробуйте ещё раз.</string>
-    <string name="error_changing_password">Ошибка изменения пароля</string>
-    <string name="password_changed">Мастер Пароль изменён</string>
-    <string name="confirm">Подтвердите</string>
-    <string name="confirm_pass_fail">Введённые пароли не совпадают.</string>
-    <string name="backup">Создать резервную копию</string>
-    <string name="backup_progress">Сохраняю резервную копию в</string>
-    <string name="backup_complete">Завершено. Резервная копия паролей сохранена в:</string>
-    <string name="backup_failed">Резервная копия не создана:</string>
-	<string name="backup_select_file">Выберите файл для резервной копии</string>
-	<string name="backup_error">Ошибка резервного копирования</string>
-    <string name="restore">Восстановить</string>
-    <string name="filename">Имя файла</string>
-    <string name="restore_no_file">Файл резервной копии не найден. Сначала нужно создать резервную копию или скопировать её с вашего компьютера.</string>
-    <string name="restore_set_password">Введите пароль файла резервной копии. Он станет вашим Мастер Паролем.</string>
-	<string name="restore_select_file">Выберите файл для восстановления</string>
-	<string name="restore_error">Ошибка востановления</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Не могу открыть файл: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Версия не поддерживается: %s</string>
-    
-    <string name="restore_decrypt_error">Плохой пароль</string>
-    <string name="dialog_restore_database_title">Восстановить базу данных</string>
-    <string name="dialog_restore_database_msg">Вы уверены, что хотите заменить текущие данные?</string>
-    <string name="restore_found">Найденно %1$s паролей из резервной копии %2$s.</string>
-    <string name="restore_complete">Завершено. Паролей восстановлено: %s</string>
-    <string name="copied_to_clipboard">скопировано в буфер</string>
-    <string name="invalid_website">Неправильный сайт</string>
-    <string name="database_error_title">Ошибка базы данных</string>
-    <string name="database_error_msg">Ошибка базы данных. Недостаточно места?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Открыть</string>
-    
-    <string name="database_version_error_title">Ошибка версии базы данных</string>
-    <string name="database_version_error_msg">Извините, но эта версия базы данных не поддерживается. Вы должны установить версию соответствующую базе данных.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Переместить</string>
-	
-	<string name="move_select">Выбрать категорию</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Перемещено в %s</string>
-	
-	<string name="preferences">Настройки</string>
-	<string name="pref_title_external_access">Разрешить внешний доступ</string>
-	<string name="pref_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe</string>
-	<string name="dialog_title_external_access">OI Safe: Другое приложение запрашивает доступ.</string>
-	<string name="dialog_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe.</string>
-	<string name="dialog_comment_external_access">Это можно так же установить в OI Safe Меню / Настройки</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Время автоблокировки</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Количество минут по истечении которых происходит блокировка</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Время автоблокировки</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Блокировать с экраном</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Блокировать когда блокируется экран</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Клавиатура OI Safe</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Использовать клавиатуру OI Safe для ввода Мастер Пароля</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Бесшумная клавиатура</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Выключить звуки клавиатуры</string>
 
-	<string name="pref_title_autobackup">Автоматическое резервное копирование</string>
-	<string name="pref_summary_autobackup">Автоматически запрашивать резервное копирование паролей.</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Store your private data with OI Safe.</string>
 
-	<string name="pref_title_autobackup_days">Дни автоматического резервного копирования</string>
-	<string name="pref_summary_autobackup_days">Количество дней, до следующего автоматического резервного копирования</string>
-	<string name="pref_dialog_title_autobackup_days">Дни Автоматического Резервирования</string>
-	
-	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
-	    
-	
-	<string name="intent_decrypt">Расшифровать (OI Safe)</string>
-	<string name="intent_encrypt">Зашифровать (OI Safe)</string>
-	<string name="intent_get_password">Получить пароль (OI Safe)</string>
-	<string name="intent_set_password">Установить пароль (OI Safe)</string>
-	<string name="intent_restart_timer">Обновить таймер (OI Safe)</string>
-	<string name="open_safe">Открыть OI Safe</string>
-	<string name="lock">Заблокировать</string>
-	<string name="continue_text">Продолжить</string>
-	<string name="generate_password">Сгенерировать пароль</string>
-	<string name="pass_gen_length">Длинна пароля</string>
-	<string name="pass_gen_uppercase">Верхний регистр [A-Z]</string>
-	<string name="pass_gen_lowercase">нижний регистр [a-z]</string>
-	<string name="pass_gen_numbers">Цифры [0-9]</string>
-	<string name="pass_gen_symbols">Символы [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Копировать в текущую запись</string>
-	<string name="pass_gen_copy_to_clipboard">Копировать в буфер обмена</string>
-	<string name="cancel">Отменить</string>
-	<string name="discard_changes">Отменить изменения</string>
-	<string name="entry_saved">Запись сохранена</string>
-	<string name="entry_save_error">Не удалось сохранить из-за ошибки базы данных</string>
-	<string name="last_edited">Последнее редактирование</string>
-	<string name="last_edited_unknown">Неизвестно</string>
-	<string name="crypto_error">Ошибка шифрования</string>
-	<string name="uniquename">Уникальное имя</string>
-	<string name="package_access">Доступ к пакету</string>
-	<string name="not_found">не найдено</string>
-	<string name="dialog_title_first_time_warning">Новый Мастер Ключ</string>
-	<string name="dialog_summary_first_time_warning">Был создан новый случайный Мастер Ключ. Используйте Меню / Создать резервную копию и храните этот ключ в безопасном месте. Без этого ключа вы можете потерять свои зашифрованные данные.</string>
-	<string name="switch_mode">Переключить режим</string>
-	<string name="decrypt_progress">Расшифровываю....</string>
-	<string name="search">Поиск</string>
-	<string name="search_progress">Идёт поиск...</string>
-	<string name="search_hint">Введите информацию для поиска</string>
-	<string name="search_nothing_found">Ничего не найдено</string>
-	<string name="mute">Приглушить звук</string>
-	<string name="sounds">Звуки</string>
-	<string name="previous">Предыдущий</string>
-	<string name="next">Далее</string>
-	<string name="autobackup">Автоматическое резервирование</string>
-	<string name="backup_never">Резервное копирование ещё не было выполненно. Выполнить резервное копирование сейчас?</string>
-	<string name="backup_in_days">Последнее резервное копирование было %d дней назад. Выполнить резервное копирование сейчас?</string>
-	<string name="autobackup_turnoff">Выключить автоматическое резервное копирование</string>
-	<string name="lock_timeout">Time to autolock: %s </string>
-	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Safe</string>
+  <string name="empty_safe">В этой категории нет паролей.</string>
+  <string name="empty_category">Нет ни одной категоории. Добавьте категорию через Меню/Добавить</string>
+  <string name="password_lock">Заблокировать</string>
+  <string name="password_view">Просмотр</string>
+  <string name="password_edit">Правка</string>
+  <string name="password_add">Добавить</string>
+  <string name="password_delete">Удалить</string>
+  <string name="password">Пароль</string>
+  <string name="passwords">Пароли</string>
+  <string name="master_password">Мастер Пароль</string>
+  <string name="username">Имя пользователя</string>
+  <string name="website">Сайт</string>
+  <string name="description">Описание</string>
+  <string name="notes">Примечания</string>
+  <string name="save">Сохранить</string>
+  <string name="invalid_password">Неправильный пароль. Попробуйте ещё раз.</string>
+  <string name="notify_blank_pass">Пароль должен быть не менее 4 символов</string>
+  <string name="notify_blank_desc">Описание должно быть заполнено</string>
+  <string name="notify_blank_name">Имя должно быть заполнено</string>
+  <string name="first_time">Ниже введите пароль которым будет защищена ваша информация.</string>
+  <string name="logoff_explanation">Вы залогинены в OI Safe поэтому другие приложения могут получать свои пароли и расшифровывать/зашифровывать данные. Заблокируйте для предотвращения дальнейшего доступа до повторного ввода пароля.</string>
+  <string name="remote_ask">Другое приложение запрашивает Мастер Ключ. Введите пароль что бы дать доступ к нему.</string>
+  <string name="categories">Категории</string>
+  <string name="category">Категория</string>
+  <string name="category_business">Бизнес</string>
+  <string name="category_personal">Личный</string>
+  <string name="name">Имя</string>
+  <string name="category_not_empty">В категории что-то есть. Сначала удалите содержимое.</string>
+  <string name="cannot_decrypt_category">Невозможно расшифровать категорию</string>
+  <string name="cannot_decrypt_password">Невозможно расшифровать пароль</string>
+  <string name="error_export">Ошибка экспорта базы данных</string>
+  <string name="export_database">Экспортировать базу данных</string>
+  <string name="export_file_select">Выберите файл для экспорта</string>
+  <string name="export_msg">База данных будет экспортирована как простой текст. ЭТО ОЧЕНЬ ОПАСНО. Не забудьте удалить файл. Вы уверены, что хотите экспортировать?</string>
+  <string name="export_success">Экспорт в \'%s\' прошёл успешно. Внимание! Файл не зашифрован.</string>
+  <string name="export_file_error">Не могу создать файл экспорта \'oisafe.csv\' на SDCARD. Попробуйте отключить USB от компьютера.</string>
+  <string name="import_database">Импорт базы данных</string>
+  <string name="import_file_select">Выберите файл для импорта</string>
+  <string name="import_file_missing">Отсутствует файл импорта:</string>
+  <string name="import_file_error">Не могу импортировать файл \'oisafe.csv\' с SDCARD. Попробуйте отключить USB от компьютера.</string>
+  <string name="import_error_first_line">В первой строке не хватает полей.</string>
+  <string name="dialog_import_title">Импорт</string>
+  <string name="dialog_import_msg">Вы хотите заменить базу данных (импортировать из %s)?</string>
+  <string name="yes">Да</string>
+  <string name="no">Нет</string>
+  <string name="import_progress">Ждите, импортирую...</string>
+  <string name="import_no_categories">Категории не найдены</string>
+  <string name="import_no_entries">В CSV не найдены записи.</string>
+  <string name="import_too_many_categories">Слишком много категорий.</string>
+  <string name="import_not_enough_fields">Недостаточно полей</string>
+  <string name="import_blank_category">Пустая категория</string>
+  <string name="import_blank_description">Пустое описание</string>
+  <string name="dialog_delete_database_title">Удалить базу данных</string>
+  <string name="dialog_delete_database_msg">Вы действительно уверены, что хотите удалить базу данных? это действие нельзя отменить.</string>
+  <string name="added">Добавлено</string>
+  <string name="entries">записей</string>
+  <string name="import_complete">Импорт завершён</string>
+  <string name="import_delete_csv">Так как хранение паролей в не зашифрованном файле CSV небезопасно, хотите ли Вы удалить</string>
+  <string name="edit_entry">Изменить запись</string>
+  <string name="view_entry">Смотреть запись</string>
+  <string name="help">Справка</string>
+  <string name="close">Закрыть</string>
+  <string name="go">Перейти</string>
+  <string name="dialog_delete_password_title">Удалить пароль</string>
+  <string name="dialog_delete_password_msg">Вы уверены что хотите удалить этот пароль?</string>
+  <string name="change_password">Изменить Мастер Пароль</string>
+  <string name="chg_pass_explaination">Используйте для изменения пароля которым Вы открываете OI Safe. Ваши данные будут зашифрованы заново новым паролем. Чем сложнее пароль тем в большей безопасности будут ваши данные.</string>
+  <string name="old_password">Старый пароль</string>
+  <string name="new_password">Новый пароль</string>
+  <string name="verify_password">Повторите пароль</string>
+  <string name="new_verify_mismatch">Новый пароль не совпадает с повторным.</string>
+  <string name="invalid_old_password">Неправильный старый пароль. Попробуйте ещё раз.</string>
+  <string name="error_changing_password">Ошибка изменения пароля</string>
+  <string name="password_changed">Мастер Пароль изменён</string>
+  <string name="confirm">Подтвердите</string>
+  <string name="confirm_pass_fail">Введённые пароли не совпадают.</string>
+  <string name="backup">Создать резервную копию</string>
+  <string name="backup_progress">Сохраняю резервную копию в</string>
+  <string name="backup_complete">Завершено. Резервная копия паролей сохранена в:</string>
+  <string name="backup_failed">Резервная копия не создана:</string>
+  <string name="backup_select_file">Выберите файл для резервной копии</string>
+  <string name="backup_error">Ошибка резервного копирования</string>
+  <string name="restore">Восстановить</string>
+  <string name="filename">Имя файла</string>
+  <string name="restore_no_file">Файл резервной копии не найден. Сначала нужно создать резервную копию или скопировать её с вашего компьютера.</string>
+  <string name="restore_set_password">Введите пароль файла резервной копии. Он станет вашим Мастер Паролем.</string>
+  <string name="restore_select_file">Выберите файл для восстановления</string>
+  <string name="restore_error">Ошибка востановления</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">доступ к Мастер Паролю</string>
-	<string name="oi_safe_permission_service_descr">Даёт приложению доступ к Мастер Ключу используемому для шифрования и дешифрования. Не должно использоваться иначе как через OI Safe.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">шифровать и дешифровать данные</string>
-    <string name="oi_safe_permission_intents_descr">Позволяет приложениям шифровать и дешифровать текст, а так же получать доступ к паролям которые они сохранили в OI Safe.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Не могу открыть файл: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Версия не поддерживается: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 минута</item>
-        <item>5 минут</item>
-        <item>10 минут</item>
-        <item>15 минут</item>
-        <item>30 минут</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Плохой пароль</string>
+  <string name="dialog_restore_database_title">Восстановить базу данных</string>
+  <string name="dialog_restore_database_msg">Вы уверены, что хотите заменить текущие данные?</string>
+  <string name="restore_found">Найденно %1$s паролей из резервной копии %2$s.</string>
+  <string name="restore_complete">Завершено. Паролей восстановлено: %s</string>
+  <string name="copied_to_clipboard">скопировано в буфер</string>
+  <string name="invalid_website">Неправильный сайт</string>
+  <string name="database_error_title">Ошибка базы данных</string>
+  <string name="database_error_msg">Ошибка базы данных. Недостаточно места?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 день</item>
-        <item>7 дней</item>
-        <item>30 дней</item>
-        <item>60 дней</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Открыть</string>
+
+  <string name="database_version_error_title">Ошибка версии базы данных</string>
+  <string name="database_version_error_msg">Извините, но эта версия базы данных не поддерживается. Вы должны установить версию соответствующую базе данных.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Переместить</string>
+
+  <string name="move_select">Выбрать категорию</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Перемещено в %s</string>
+
+  <string name="preferences">Настройки</string>
+  <string name="pref_title_external_access">Разрешить внешний доступ</string>
+  <string name="pref_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe</string>
+  <string name="dialog_title_external_access">OI Safe: Другое приложение запрашивает доступ.</string>
+  <string name="dialog_summary_external_access">Разрешить другим приложениям шифровать ваши данные с помощью OI Safe.</string>
+  <string name="dialog_comment_external_access">Это можно так же установить в OI Safe Меню / Настройки</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Время автоблокировки</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Количество минут по истечении которых происходит блокировка</string>
+
+  <string name="pref_dialog_title_lock_timeout">Время автоблокировки</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Блокировать с экраном</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Блокировать когда блокируется экран</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Клавиатура OI Safe</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Использовать клавиатуру OI Safe для ввода Мастер Пароля</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Бесшумная клавиатура</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Выключить звуки клавиатуры</string>
+
+  <string name="pref_title_autobackup">Автоматическое резервное копирование</string>
+  <string name="pref_summary_autobackup">Автоматически запрашивать резервное копирование паролей.</string>
+
+  <string name="pref_title_autobackup_days">Дни автоматического резервного копирования</string>
+  <string name="pref_summary_autobackup_days">Количество дней, до следующего автоматического резервного копирования</string>
+  <string name="pref_dialog_title_autobackup_days">Дни Автоматического Резервирования</string>
+
+  <string name="pref_title_backup_path">Default backup path</string>
+  <string name="pref_title_export_path">Default export path</string>
+
+
+  <string name="intent_decrypt">Расшифровать (OI Safe)</string>
+  <string name="intent_encrypt">Зашифровать (OI Safe)</string>
+  <string name="intent_get_password">Получить пароль (OI Safe)</string>
+  <string name="intent_set_password">Установить пароль (OI Safe)</string>
+  <string name="intent_restart_timer">Обновить таймер (OI Safe)</string>
+  <string name="open_safe">Открыть OI Safe</string>
+  <string name="lock">Заблокировать</string>
+  <string name="continue_text">Продолжить</string>
+  <string name="generate_password">Сгенерировать пароль</string>
+  <string name="pass_gen_length">Длинна пароля</string>
+  <string name="pass_gen_uppercase">Верхний регистр [A-Z]</string>
+  <string name="pass_gen_lowercase">нижний регистр [a-z]</string>
+  <string name="pass_gen_numbers">Цифры [0-9]</string>
+  <string name="pass_gen_symbols">Символы [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Копировать в текущую запись</string>
+  <string name="pass_gen_copy_to_clipboard">Копировать в буфер обмена</string>
+  <string name="cancel">Отменить</string>
+  <string name="discard_changes">Отменить изменения</string>
+  <string name="entry_saved">Запись сохранена</string>
+  <string name="entry_save_error">Не удалось сохранить из-за ошибки базы данных</string>
+  <string name="last_edited">Последнее редактирование</string>
+  <string name="last_edited_unknown">Неизвестно</string>
+  <string name="crypto_error">Ошибка шифрования</string>
+  <string name="uniquename">Уникальное имя</string>
+  <string name="package_access">Доступ к пакету</string>
+  <string name="not_found">не найдено</string>
+  <string name="dialog_title_first_time_warning">Новый Мастер Ключ</string>
+  <string name="dialog_summary_first_time_warning">Был создан новый случайный Мастер Ключ. Используйте Меню / Создать резервную копию и храните этот ключ в безопасном месте. Без этого ключа вы можете потерять свои зашифрованные данные.</string>
+  <string name="switch_mode">Переключить режим</string>
+  <string name="decrypt_progress">Расшифровываю....</string>
+  <string name="search">Поиск</string>
+  <string name="search_progress">Идёт поиск...</string>
+  <string name="search_hint">Введите информацию для поиска</string>
+  <string name="search_nothing_found">Ничего не найдено</string>
+  <string name="mute">Приглушить звук</string>
+  <string name="sounds">Звуки</string>
+  <string name="previous">Предыдущий</string>
+  <string name="next">Далее</string>
+  <string name="autobackup">Автоматическое резервирование</string>
+  <string name="backup_never">Резервное копирование ещё не было выполненно. Выполнить резервное копирование сейчас?</string>
+  <string name="backup_in_days">Последнее резервное копирование было %d дней назад. Выполнить резервное копирование сейчас?</string>
+  <string name="autobackup_turnoff">Выключить автоматическое резервное копирование</string>
+  <string name="lock_timeout">Time to autolock: %s </string>
+  <string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">доступ к Мастер Паролю</string>
+  <string name="oi_safe_permission_service_descr">Даёт приложению доступ к Мастер Ключу используемому для шифрования и дешифрования. Не должно использоваться иначе как через OI Safe.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">шифровать и дешифровать данные</string>
+  <string name="oi_safe_permission_intents_descr">Позволяет приложениям шифровать и дешифровать текст, а так же получать доступ к паролям которые они сохранили в OI Safe.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 минута</item>
+    <item>5 минут</item>
+    <item>10 минут</item>
+    <item>15 минут</item>
+    <item>30 минут</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 день</item>
+    <item>7 дней</item>
+    <item>30 дней</item>
+    <item>60 дней</item>
+  </string-array>
+
+
 </resources>

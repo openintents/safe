@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * $Id$
 * 
 * Copyright (C) 2010 OpenIntents.org
@@ -17,15 +16,14 @@
 * limitations under the License.
 *
 -->
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:orientation="vertical"
-	>
-	  
- 	<CheckBox android:text="@string/autobackup_turnoff"
-		android:id="@+id/autobackup_turnoff"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+
+  <CheckBox
+    android:text="@string/autobackup_turnoff"
+    android:id="@+id/autobackup_turnoff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
 </LinearLayout>

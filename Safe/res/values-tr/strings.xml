@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">This is a dummy translation so that the credits are counted as translated.
 
 Launchpad Contributions:
@@ -28,271 +27,271 @@ Launchpad Contributions:
   Peli https://launchpad.net/~peli0101
   ariza95 https://launchpad.net/~alirizanazli95
   zeugma https://launchpad.net/~sunder67</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Kasa</string>
-    <string name="empty_safe">Bu katagori için şifre hazırlanmamış.</string>
-    <string name="empty_category">Katagori yok. Lütfen menü aracılığıyla bir tane - ekleyin.</string>
-    <string name="password_lock">Kilitle</string>
-    <string name="password_view">Göster</string>
-    <string name="password_edit">Düzenle</string>
-    <string name="password_add">Ekle</string>
-    <string name="password_delete">Sil</string>
-    <string name="password">Parola</string>
-    <string name="passwords">Parolalar</string>
-    <string name="master_password">Ana Parola</string>
-    <string name="username">Kullanıcı Adı</string>
-    <string name="website">Web sayfası</string>
-    <string name="description">Açıklama</string>
-    <string name="notes">Notlar</string>
-    <string name="save">Kaydet</string>
-    <string name="invalid_password">Geçersiz parola.Lütfen tekrar deneyin.</string>
-    <string name="notify_blank_pass">Parola en az dört karakter olmalı</string>
-    <string name="notify_blank_desc">Açıklama boş olamaz</string>
-    <string name="notify_blank_name">Ad boş olamaz</string>
-    <string name="first_time">Lütfen aşağıya şifrelerinizi koruyacak bir şifre giriniz.</string>
-    <string name="logoff_explanation">OI Kasa şuan giriş yapmış bulunuyorsunuz. Bunum anlamı diğer uygulamalar şifrelerini ve  decrypt/encrypt datalarını isteyebilir.Şifrenizi yeniden girene kadar daha fazla erşişim engellenecek.</string>
-    <string name="remote_ask">Başka bir uygulama master key kullanmak istiyor? Lütfen şifre tipinizi açın.</string>
-    <string name="categories">Kategoriler</string>
-	<string name="category">Kategori</string>
-    <string name="category_business">İş</string>
-    <string name="category_personal">Kişisel</string>
-    <string name="name">İsim</string>
-    <string name="category_not_empty">Katagori boş değil. İlk önce şifreyi silmelisiniz.</string>
-	<string name="cannot_decrypt_category">Katagori şifresi çözülemiyor.</string>
-	<string name="cannot_decrypt_password">Şifre çözülemiyor.</string>
-	<string name="error_export">Veri tabanı hatası.</string>
-	<string name="export_database">Veri tabanını farklı kaydet.</string>
-	<string name="export_file_select">Select a file for export</string>
-	<string name="export_msg">Bu yaptığınız şifre veri tabanını plaintext dosyası şeklinde kaydedecek. BU YAPTIĞINIZ ÇOK TEHLİKELİ. Dosya ile işiniz bittikten sonra sildiğinizden emin olun.Kaydetmek istediğinizden emin misiniz?</string>
-	<string name="export_success">\'%s\' başarılı bir şekilde dışa aktarıldı. Uyarı! Dosya şifrelenmedi.</string>
-	<string name="export_file_error">SDCARD üzerinde dışa aktarılan \'oisafe.csv\' dosyası  oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
-	<string name="import_database">Veritabanı Al</string>
-	<string name="import_file_select">Select a file for import</string>
-	<string name="import_file_missing">İçe alınan dosya eksik:</string>
-	<string name="import_file_error">SDCARD üzerinde içe aktarılan  \'oisafe.csv\' dosyası oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
-	<string name="import_error_first_line">İlk satır eksik.</string>
-	<string name="dialog_import_title">İçe aktarım.</string>
-	<string name="dialog_import_msg">Veri tabanını değiştirmek istiyor musunuz(%s den içe aktarılan )?</string>
-	<string name="yes">Evet</string>
-	<string name="no">Hayır</string>
-	<string name="import_progress">İçe aktarılırken Lütfen bekleyiniz</string>
-	<string name="import_no_categories">Kategori bulunamadı.</string>
-	<string name="import_no_entries">CSV girdilieri bulunamadı.</string>
-	<string name="import_too_many_categories">Çok fazla katagori</string>
-	<string name="import_not_enough_fields">Yeterli alan yok.</string>
-	<string name="import_blank_category">Boş kategori</string>
-	<string name="import_blank_description">Boş açıklama</string>
-	<string name="dialog_delete_database_title">Veritabanını sil</string>
-	<string name="dialog_delete_database_msg">Veri tabanını gerçekten silmek istiyor musunuz?Bu işlem geri alınamaz.</string>
-	<string name="added">Eklendi</string>
-	<string name="entries">girdiler</string>
-	<string name="import_complete">İçe aktarım tamamlandı.</string>
-	<string name="import_delete_csv">Şifreleri açık metin CSV dosyalarında tutmak güvenli değil , silmek istiyor musunuz?</string>
-	<string name="edit_entry">Girdiyi Düzenle</string>
-	<string name="view_entry">Girdiyi göster.</string>
-	<string name="help">Yardım</string>
-	<string name="close">Kapat</string>
-	<string name="go">Git</string>
-	<string name="dialog_delete_password_title">Parolayı Sil</string>
-	<string name="dialog_delete_password_msg">Şifreyi silmek istediğinize emin misiniz?</string>
-	<string name="change_password">Ana  şifreyi değiştir.</string>
-	<string name="chg_pass_explaination">OI Kasa kilidini açmak için kullandığınız şifreyi değiştirin. Veriniz yeni bir şifreyle şifrelenecek. Daha karmaşık şifre ile veriniz daha güvenli olabilecek.</string>
-	<string name="old_password">Eski parola</string>
-	<string name="new_password">Yeni parola</string>
-	<string name="verify_password">Parolayı doğrula</string>
-	<string name="new_verify_mismatch">Yeni ve doğrulama parolası uyuşmuyor.</string>
-    <string name="invalid_old_password">Eski şifre geçersiz. Lütfen tekrar deneyin.</string>
-    <string name="error_changing_password">Parola değiştirilirken hata</string>
-    <string name="password_changed">Ana Parola değiştirildi.</string>
-    <string name="confirm">Onayla</string>
-    <string name="confirm_pass_fail">Parola girdileri uyuşmuyor.</string>
-    <string name="backup">Yedekleme</string>
-    <string name="backup_progress">Yedekleniyor</string>
-    <string name="backup_complete">Tamamlandı.Şifre yedeklendi:</string>
-    <string name="backup_failed">Yedekleme başarısız oldu.</string>
-	<string name="backup_select_file">Select a file for backup</string>
-	<string name="backup_error">Error while backing up</string>
-    <string name="restore">Geri yükleme</string>
-    <string name="filename">Dosya adı</string>
-    <string name="restore_no_file">Yedeklenen dosya bulunamadı.</string>
-    <string name="restore_set_password">Lütfen yedekleme dosyasını kullanarak şifreyi temin ediniz.An şifreniz bu olarak ayarlanacak.</string>
-	<string name="restore_select_file">Select a file for restore</string>
-	<string name="restore_error">Error while restoring</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Dosya açılmaya uygun değil: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Sürüm desteklenmiyor: %s</string>
-    
-    <string name="restore_decrypt_error">Kötü parola.</string>
-    <string name="dialog_restore_database_title">Geri yükleme veri tabanı</string>
-    <string name="dialog_restore_database_msg">Şuan kullanılan veri tabanının değiştirilmesini istiyor musunuz?</string>
-    <string name="restore_found">Yedekleme tarihinden %1$s şifresini bulun %2$s.</string>
-    <string name="restore_complete">Tamamlandı.Şifre geri yükleme: %s</string>
-    <string name="copied_to_clipboard">Panoya kopyalandı</string>
-    <string name="invalid_website">Geçersiz web sitesi</string>
-    <string name="database_error_title">Veri tabanı hatası.</string>
-    <string name="database_error_msg">veri tabanı hatası.Alanın dışında.</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Aç</string>
-    
-    <string name="database_version_error_title">Veri tabanı sürüm hatası</string>
-    <string name="database_version_error_msg">Üzgünüz, fakat veri tabanı versiyonunuz desteklenmiyor. Veri tabanı ile uyumlu sürümü yüklemek zorundasınız.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Taşı</string>
-	
-	<string name="move_select">Kategori seçin</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">%s taşındı</string>
-	
-	<string name="preferences">Ayarlar</string>
-	<string name="pref_title_external_access">Harici erişim izni</string>
-	<string name="pref_summary_external_access">Diğer uygulamalara OI Kasa ile verilerini korumaları için izin ver</string>
-	<string name="dialog_title_external_access">OI Kasa: Başka bir uygulamanın erişim talebi.</string>
-	<string name="dialog_summary_external_access">Diğer uygulamalara OI Kasa ile verilerini korumaları için izin ver</string>
-	<string name="dialog_comment_external_access">Bu aynı zamanda OI Kasa  Menu/Ayarlar ayarlanabilir.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Otomatik kilit zaman aşımı</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Sürenin dolmasından ve kasanın kilitlenmesinden önceki kalan dakika sayısı.</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Otomatik kilit zaman aşımı</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Ekran kilidini kilitle</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Ekran kilitliyken  kilitler</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Tuş takımı</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Ana şifreyi girmek için tuş takımını kullanın.</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Tuş takımı Sessiz</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Tuş takımının sesini kapatın</string>
 
-	<string name="pref_title_autobackup">Otomatik yedekleme</string>
-	<string name="pref_summary_autobackup">Yedekleme şifresini otomatik olarak iste</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Store your private data with OI Safe.</string>
 
-	<string name="pref_title_autobackup_days">Otomatik yedekleme günü</string>
-	<string name="pref_summary_autobackup_days">Bir sonraki yedeklemeye kalan gün sayısı.</string>
-	<string name="pref_dialog_title_autobackup_days">Otomatik Yedekleme Günü</string>
-	
-	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
-	    
-	
-	<string name="intent_decrypt">Şifreyi Çözmek(OI Kasa)</string>
-	<string name="intent_encrypt">Şifrelemek(OI Kasa)</string>
-	<string name="intent_get_password">Şifreyi alın (OI Kasa)</string>
-	<string name="intent_set_password">Şifreyi ayarlayın(OI Kasa)</string>
-	<string name="intent_restart_timer">Yeniden başlatma zamanlayıcısı(OI Kasa)</string>
-	<string name="open_safe">OI Kasayı aç.</string>
-	<string name="lock">Kilitle</string>
-	<string name="continue_text">Devam et</string>
-	<string name="generate_password">Parola oluştur</string>
-	<string name="pass_gen_length">Parola uzunluğu</string>
-	<string name="pass_gen_uppercase">Büyük [A-Z]</string>
-	<string name="pass_gen_lowercase">Küçük [a-z]</string>
-	<string name="pass_gen_numbers">Sayılar [0-9]</string>
-	<string name="pass_gen_symbols">Semboller [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Şuanki girdiyi koyalayın</string>
-	<string name="pass_gen_copy_to_clipboard">Panoya Kopyala</string>
-	<string name="cancel">İptal</string>
-	<string name="discard_changes">Değişikleri kaydetme.</string>
-	<string name="entry_saved">Girdiler kaydedildi.</string>
-	<string name="entry_save_error">Veri tabanı hatasından dolayı kaydedilemiyor.</string>
-	<string name="last_edited">Son düzenleme</string>
-	<string name="last_edited_unknown">bilinmiyor</string>
-	<string name="crypto_error">Şifreleme hatası:</string>
-	<string name="uniquename">Ad</string>
-	<string name="package_access">Paket erişimi</string>
-	<string name="not_found">bulunamadı</string>
-	<string name="dialog_title_first_time_warning">Yeni Ana anahtar</string>
-	<string name="dialog_summary_first_time_warning">Yeni rastgele ana anahtar yaratıldı. Menüyü kullanarak &gt; bu anahtarı güvenli bir yere yedekle ve depola. Bu anahtarsız  şifrelenmiş veriyi kaybedebilirsiniz.</string>
-	<string name="switch_mode">Modu değiştirin.</string>
-	<string name="decrypt_progress">Şifre çözülüyor.</string>
-	<string name="search">Ara</string>
-	<string name="search_progress">Aranıyor...</string>
-	<string name="search_hint">Arama kriteri yazın.</string>
-	<string name="search_nothing_found">Hiç bir şey bulunamadı</string>
-	<string name="mute">Sessiz</string>
-	<string name="sounds">Sesler</string>
-	<string name="previous">Önceki</string>
-	<string name="next">Sonraki</string>
-	<string name="autobackup">Otomatik yedekleme</string>
-	<string name="backup_never">Henüz hiç bir yedekleme yapılmadı .Şimdi yedekleme yapmak istiyor musunuz?</string>
-	<string name="backup_in_days">Son yedeklem %d gün önce yapıldı.Şimdi yedekleme yapmak istermisiniz?</string>
-	<string name="autobackup_turnoff">Otomatik yedeklemeyi kapatma.</string>
-	<string name="lock_timeout">Time to autolock: %s </string>
-	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Kasa</string>
+  <string name="empty_safe">Bu katagori için şifre hazırlanmamış.</string>
+  <string name="empty_category">Katagori yok. Lütfen menü aracılığıyla bir tane - ekleyin.</string>
+  <string name="password_lock">Kilitle</string>
+  <string name="password_view">Göster</string>
+  <string name="password_edit">Düzenle</string>
+  <string name="password_add">Ekle</string>
+  <string name="password_delete">Sil</string>
+  <string name="password">Parola</string>
+  <string name="passwords">Parolalar</string>
+  <string name="master_password">Ana Parola</string>
+  <string name="username">Kullanıcı Adı</string>
+  <string name="website">Web sayfası</string>
+  <string name="description">Açıklama</string>
+  <string name="notes">Notlar</string>
+  <string name="save">Kaydet</string>
+  <string name="invalid_password">Geçersiz parola.Lütfen tekrar deneyin.</string>
+  <string name="notify_blank_pass">Parola en az dört karakter olmalı</string>
+  <string name="notify_blank_desc">Açıklama boş olamaz</string>
+  <string name="notify_blank_name">Ad boş olamaz</string>
+  <string name="first_time">Lütfen aşağıya şifrelerinizi koruyacak bir şifre giriniz.</string>
+  <string name="logoff_explanation">OI Kasa şuan giriş yapmış bulunuyorsunuz. Bunum anlamı diğer uygulamalar şifrelerini ve  decrypt/encrypt datalarını isteyebilir.Şifrenizi yeniden girene kadar daha fazla erşişim engellenecek.</string>
+  <string name="remote_ask">Başka bir uygulama master key kullanmak istiyor? Lütfen şifre tipinizi açın.</string>
+  <string name="categories">Kategoriler</string>
+  <string name="category">Kategori</string>
+  <string name="category_business">İş</string>
+  <string name="category_personal">Kişisel</string>
+  <string name="name">İsim</string>
+  <string name="category_not_empty">Katagori boş değil. İlk önce şifreyi silmelisiniz.</string>
+  <string name="cannot_decrypt_category">Katagori şifresi çözülemiyor.</string>
+  <string name="cannot_decrypt_password">Şifre çözülemiyor.</string>
+  <string name="error_export">Veri tabanı hatası.</string>
+  <string name="export_database">Veri tabanını farklı kaydet.</string>
+  <string name="export_file_select">Select a file for export</string>
+  <string name="export_msg">Bu yaptığınız şifre veri tabanını plaintext dosyası şeklinde kaydedecek. BU YAPTIĞINIZ ÇOK TEHLİKELİ. Dosya ile işiniz bittikten sonra sildiğinizden emin olun.Kaydetmek istediğinizden emin misiniz?</string>
+  <string name="export_success">\'%s\' başarılı bir şekilde dışa aktarıldı. Uyarı! Dosya şifrelenmedi.</string>
+  <string name="export_file_error">SDCARD üzerinde dışa aktarılan \'oisafe.csv\' dosyası  oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
+  <string name="import_database">Veritabanı Al</string>
+  <string name="import_file_select">Select a file for import</string>
+  <string name="import_file_missing">İçe alınan dosya eksik:</string>
+  <string name="import_file_error">SDCARD üzerinde içe aktarılan  \'oisafe.csv\' dosyası oluşturulamadı. USB nin bilgisayarla olan bağlantısını kesmeyi denemelisiniz.</string>
+  <string name="import_error_first_line">İlk satır eksik.</string>
+  <string name="dialog_import_title">İçe aktarım.</string>
+  <string name="dialog_import_msg">Veri tabanını değiştirmek istiyor musunuz(%s den içe aktarılan )?</string>
+  <string name="yes">Evet</string>
+  <string name="no">Hayır</string>
+  <string name="import_progress">İçe aktarılırken Lütfen bekleyiniz</string>
+  <string name="import_no_categories">Kategori bulunamadı.</string>
+  <string name="import_no_entries">CSV girdilieri bulunamadı.</string>
+  <string name="import_too_many_categories">Çok fazla katagori</string>
+  <string name="import_not_enough_fields">Yeterli alan yok.</string>
+  <string name="import_blank_category">Boş kategori</string>
+  <string name="import_blank_description">Boş açıklama</string>
+  <string name="dialog_delete_database_title">Veritabanını sil</string>
+  <string name="dialog_delete_database_msg">Veri tabanını gerçekten silmek istiyor musunuz?Bu işlem geri alınamaz.</string>
+  <string name="added">Eklendi</string>
+  <string name="entries">girdiler</string>
+  <string name="import_complete">İçe aktarım tamamlandı.</string>
+  <string name="import_delete_csv">Şifreleri açık metin CSV dosyalarında tutmak güvenli değil , silmek istiyor musunuz?</string>
+  <string name="edit_entry">Girdiyi Düzenle</string>
+  <string name="view_entry">Girdiyi göster.</string>
+  <string name="help">Yardım</string>
+  <string name="close">Kapat</string>
+  <string name="go">Git</string>
+  <string name="dialog_delete_password_title">Parolayı Sil</string>
+  <string name="dialog_delete_password_msg">Şifreyi silmek istediğinize emin misiniz?</string>
+  <string name="change_password">Ana  şifreyi değiştir.</string>
+  <string name="chg_pass_explaination">OI Kasa kilidini açmak için kullandığınız şifreyi değiştirin. Veriniz yeni bir şifreyle şifrelenecek. Daha karmaşık şifre ile veriniz daha güvenli olabilecek.</string>
+  <string name="old_password">Eski parola</string>
+  <string name="new_password">Yeni parola</string>
+  <string name="verify_password">Parolayı doğrula</string>
+  <string name="new_verify_mismatch">Yeni ve doğrulama parolası uyuşmuyor.</string>
+  <string name="invalid_old_password">Eski şifre geçersiz. Lütfen tekrar deneyin.</string>
+  <string name="error_changing_password">Parola değiştirilirken hata</string>
+  <string name="password_changed">Ana Parola değiştirildi.</string>
+  <string name="confirm">Onayla</string>
+  <string name="confirm_pass_fail">Parola girdileri uyuşmuyor.</string>
+  <string name="backup">Yedekleme</string>
+  <string name="backup_progress">Yedekleniyor</string>
+  <string name="backup_complete">Tamamlandı.Şifre yedeklendi:</string>
+  <string name="backup_failed">Yedekleme başarısız oldu.</string>
+  <string name="backup_select_file">Select a file for backup</string>
+  <string name="backup_error">Error while backing up</string>
+  <string name="restore">Geri yükleme</string>
+  <string name="filename">Dosya adı</string>
+  <string name="restore_no_file">Yedeklenen dosya bulunamadı.</string>
+  <string name="restore_set_password">Lütfen yedekleme dosyasını kullanarak şifreyi temin ediniz.An şifreniz bu olarak ayarlanacak.</string>
+  <string name="restore_select_file">Select a file for restore</string>
+  <string name="restore_error">Error while restoring</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">Ana şifreye erişim</string>
-	<string name="oi_safe_permission_service_descr">Uygulamanın şifreleme ve şifre çözmek için ana anahtara ulaşmasına izin verir.OI Kasa dışında asla kullanılmamalıdır.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">Şifreleme ve şifre çözme verileri</string>
-    <string name="oi_safe_permission_intents_descr">Uygulamanın yazıyı şifrelemesine ve şifresini çözmesine izin verir ve OI Kasa içinde depolanmış şifrelere erişime izin verir.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Dosya açılmaya uygun değil: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Sürüm desteklenmiyor: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 dakika</item>
-        <item>5 dakika</item>
-        <item>10 dakika</item>
-        <item>15 dakika</item>
-        <item>30 dakika</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Kötü parola.</string>
+  <string name="dialog_restore_database_title">Geri yükleme veri tabanı</string>
+  <string name="dialog_restore_database_msg">Şuan kullanılan veri tabanının değiştirilmesini istiyor musunuz?</string>
+  <string name="restore_found">Yedekleme tarihinden %1$s şifresini bulun %2$s.</string>
+  <string name="restore_complete">Tamamlandı.Şifre geri yükleme: %s</string>
+  <string name="copied_to_clipboard">Panoya kopyalandı</string>
+  <string name="invalid_website">Geçersiz web sitesi</string>
+  <string name="database_error_title">Veri tabanı hatası.</string>
+  <string name="database_error_msg">veri tabanı hatası.Alanın dışında.</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 gün</item>
-        <item>7 gün</item>
-        <item>30 gün</item>
-        <item>60 gün</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Aç</string>
+
+  <string name="database_version_error_title">Veri tabanı sürüm hatası</string>
+  <string name="database_version_error_msg">Üzgünüz, fakat veri tabanı versiyonunuz desteklenmiyor. Veri tabanı ile uyumlu sürümü yüklemek zorundasınız.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Taşı</string>
+
+  <string name="move_select">Kategori seçin</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">%s taşındı</string>
+
+  <string name="preferences">Ayarlar</string>
+  <string name="pref_title_external_access">Harici erişim izni</string>
+  <string name="pref_summary_external_access">Diğer uygulamalara OI Kasa ile verilerini korumaları için izin ver</string>
+  <string name="dialog_title_external_access">OI Kasa: Başka bir uygulamanın erişim talebi.</string>
+  <string name="dialog_summary_external_access">Diğer uygulamalara OI Kasa ile verilerini korumaları için izin ver</string>
+  <string name="dialog_comment_external_access">Bu aynı zamanda OI Kasa  Menu/Ayarlar ayarlanabilir.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Otomatik kilit zaman aşımı</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Sürenin dolmasından ve kasanın kilitlenmesinden önceki kalan dakika sayısı.</string>
+
+  <string name="pref_dialog_title_lock_timeout">Otomatik kilit zaman aşımı</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Ekran kilidini kilitle</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Ekran kilitliyken  kilitler</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Tuş takımı</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Ana şifreyi girmek için tuş takımını kullanın.</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Tuş takımı Sessiz</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Tuş takımının sesini kapatın</string>
+
+  <string name="pref_title_autobackup">Otomatik yedekleme</string>
+  <string name="pref_summary_autobackup">Yedekleme şifresini otomatik olarak iste</string>
+
+  <string name="pref_title_autobackup_days">Otomatik yedekleme günü</string>
+  <string name="pref_summary_autobackup_days">Bir sonraki yedeklemeye kalan gün sayısı.</string>
+  <string name="pref_dialog_title_autobackup_days">Otomatik Yedekleme Günü</string>
+
+  <string name="pref_title_backup_path">Default backup path</string>
+  <string name="pref_title_export_path">Default export path</string>
+
+
+  <string name="intent_decrypt">Şifreyi Çözmek(OI Kasa)</string>
+  <string name="intent_encrypt">Şifrelemek(OI Kasa)</string>
+  <string name="intent_get_password">Şifreyi alın (OI Kasa)</string>
+  <string name="intent_set_password">Şifreyi ayarlayın(OI Kasa)</string>
+  <string name="intent_restart_timer">Yeniden başlatma zamanlayıcısı(OI Kasa)</string>
+  <string name="open_safe">OI Kasayı aç.</string>
+  <string name="lock">Kilitle</string>
+  <string name="continue_text">Devam et</string>
+  <string name="generate_password">Parola oluştur</string>
+  <string name="pass_gen_length">Parola uzunluğu</string>
+  <string name="pass_gen_uppercase">Büyük [A-Z]</string>
+  <string name="pass_gen_lowercase">Küçük [a-z]</string>
+  <string name="pass_gen_numbers">Sayılar [0-9]</string>
+  <string name="pass_gen_symbols">Semboller [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Şuanki girdiyi koyalayın</string>
+  <string name="pass_gen_copy_to_clipboard">Panoya Kopyala</string>
+  <string name="cancel">İptal</string>
+  <string name="discard_changes">Değişikleri kaydetme.</string>
+  <string name="entry_saved">Girdiler kaydedildi.</string>
+  <string name="entry_save_error">Veri tabanı hatasından dolayı kaydedilemiyor.</string>
+  <string name="last_edited">Son düzenleme</string>
+  <string name="last_edited_unknown">bilinmiyor</string>
+  <string name="crypto_error">Şifreleme hatası:</string>
+  <string name="uniquename">Ad</string>
+  <string name="package_access">Paket erişimi</string>
+  <string name="not_found">bulunamadı</string>
+  <string name="dialog_title_first_time_warning">Yeni Ana anahtar</string>
+  <string name="dialog_summary_first_time_warning">Yeni rastgele ana anahtar yaratıldı. Menüyü kullanarak &gt; bu anahtarı güvenli bir yere yedekle ve depola. Bu anahtarsız  şifrelenmiş veriyi kaybedebilirsiniz.</string>
+  <string name="switch_mode">Modu değiştirin.</string>
+  <string name="decrypt_progress">Şifre çözülüyor.</string>
+  <string name="search">Ara</string>
+  <string name="search_progress">Aranıyor...</string>
+  <string name="search_hint">Arama kriteri yazın.</string>
+  <string name="search_nothing_found">Hiç bir şey bulunamadı</string>
+  <string name="mute">Sessiz</string>
+  <string name="sounds">Sesler</string>
+  <string name="previous">Önceki</string>
+  <string name="next">Sonraki</string>
+  <string name="autobackup">Otomatik yedekleme</string>
+  <string name="backup_never">Henüz hiç bir yedekleme yapılmadı .Şimdi yedekleme yapmak istiyor musunuz?</string>
+  <string name="backup_in_days">Son yedeklem %d gün önce yapıldı.Şimdi yedekleme yapmak istermisiniz?</string>
+  <string name="autobackup_turnoff">Otomatik yedeklemeyi kapatma.</string>
+  <string name="lock_timeout">Time to autolock: %s </string>
+  <string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">Ana şifreye erişim</string>
+  <string name="oi_safe_permission_service_descr">Uygulamanın şifreleme ve şifre çözmek için ana anahtara ulaşmasına izin verir.OI Kasa dışında asla kullanılmamalıdır.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">Şifreleme ve şifre çözme verileri</string>
+  <string name="oi_safe_permission_intents_descr">Uygulamanın yazıyı şifrelemesine ve şifresini çözmesine izin verir ve OI Kasa içinde depolanmış şifrelere erişime izin verir.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 dakika</item>
+    <item>5 dakika</item>
+    <item>10 dakika</item>
+    <item>15 dakika</item>
+    <item>30 dakika</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 gün</item>
+    <item>7 gün</item>
+    <item>30 gün</item>
+    <item>60 gün</item>
+  </string-array>
+
+
 </resources>

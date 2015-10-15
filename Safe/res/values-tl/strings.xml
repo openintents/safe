@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,281 +15,281 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Liezl https://launchpad.net/~liezl-200
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   abc https://launchpad.net/~abc-g</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Kaha</string>
-    <string name="empty_safe">Walang password na nandito para sa kategoryang ito.</string>
-    <string name="empty_category">Walang mga kategorya nandito. Pakidagdag ng isa sa pamamagitan ng Menu-&gt; Magdagdag</string>
-    <string name="password_lock">Lock</string>
-    <string name="password_view">Tingnan</string>
-    <string name="password_edit">Baguhin</string>
-    <string name="password_add">Magdagdag</string>
-    <string name="password_delete">Alisin</string>
-    <string name="password">Password</string>
-    <string name="passwords">Mga Password</string>
-    <string name="master_password">Master Password</string>
-    <string name="username">Username</string>
-    <string name="website">Website</string>
-    <string name="description">Deskripsyon</string>
-    <string name="notes">Mga Tala</string>
-    <string name="save">I-save</string>
-    <string name="invalid_password">Maling password. Pakisubukan muli.</string>
-    <string name="notify_blank_pass">Ang Password ay dapat hindi bababa sa 4 na mga character</string>
-    <string name="notify_blank_desc">Ang deskripsyon ay hindi maaaring blangko</string>
-    <string name="notify_blank_name">Ang pangalan ay hindi maaaring blangko</string>
-    <string name="first_time">Pakipasok ang password sa ibaba, na ginagamit para panatilihing ligtas ang iyong mga password.</string>
-    <string name="logoff_explanation">Ikaw ay kasalukuyang naka-log in sa OI Kaha, ibig sabihin ang ibang mga applikasyon ay maaaring humiling ng kanilang mga password at mag-decrypt/encrypt ng datos. I-lock upang pigilan ang karagdagang access hanggang i-type mo muli ang iyong password.</string>
-    <string name="remote_ask">Ang ibang applikasyon humihiling na gamitin ang master key. Paki-type ang iyong password para i-unlock ito.</string>
-    <string name="categories">Mga Kategorya</string>
-	<string name="category">Kategorya</string>
-    <string name="category_business">Negosyo</string>
-    <string name="category_personal">Pansarili</string>
-    <string name="name">Pangalan</string>
-    <string name="category_not_empty">Ang Kategorya ay may laman. Kailangan mo munang alisin ang mga password.</string>
-	<string name="cannot_decrypt_category">Hindi ma-decrypt ang kategorya</string>
-	<string name="cannot_decrypt_password">Hindi ma-decrypt ang password</string>
-	<string name="error_export">Mali pag-export ng database</string>
-	<string name="export_database">Export ng Database</string>
-	<string name="export_file_select">Pumili ng file para i-export</string>
-	<string name="export_msg">Ito ay mag-export ng password database sa isang file na puro texto. ITO AY NAPAKA-MAPANGANIB. Siguraduhin mong alisin ang file pag tapos ka na dito. Sigurado ka bang gusto mong i-export?</string>
-	<string name="export_success">Export sa \'%s\' ay tagumpay. Babala! Ang file ay hindi naka-encrypt.</string>
-	<string name="export_file_error">Hindi makalikha ng export file \'oisafe.csv\' sa SD CARD. Maaari mong subukan tanggalin ang USB sa computer.</string>
-	<string name="import_database">Import sa Database</string>
-	<string name="import_file_select">Pumili ng file para i-import</string>
-	<string name="import_file_missing">Import file ay nawawala:</string>
-	<string name="import_file_error">Hindi ma-import ang file na \'oisafe.csv\' mula sa SDCARD. Maaari mong subukan tanggalin ang USB sa computer.</string>
-	<string name="import_error_first_line">Ang unang linya ay may nawawalang mga field.</string>
-	<string name="dialog_import_title">Import</string>
-	<string name="dialog_import_msg">Gusto mo bang palitan ang database (import mula sa %s)?</string>
-	<string name="yes">Oo</string>
-	<string name="no">Hindi</string>
-	<string name="import_progress">Pakihintay habang ini-import...</string>
-	<string name="import_no_categories">Walang nakita na mga kategorya.</string>
-	<string name="import_no_entries">Walang mga pinasok na nahanap sa CSV.</string>
-	<string name="import_too_many_categories">Napakadaming kategorya.</string>
-	<string name="import_not_enough_fields">Hindi sapat ang mga field</string>
-	<string name="import_blank_category">Blanko na kategorya</string>
-	<string name="import_blank_description">Blanko na deskripsyon</string>
-	<string name="dialog_delete_database_title">Alisin ang Database</string>
-	<string name="dialog_delete_database_msg">Talaga bang sigurado ka na gusto mong tanggalin ang database? Ito ay hindi maaaring bawiin.</string>
-	<string name="added">Nadagdag</string>
-	<string name="entries">Mga pinasok</string>
-	<string name="import_complete">Import tapos na</string>
-	<string name="import_delete_csv">Dahil hindi ligtas na panatilihin ang mga password sa malinaw na texto CSV file, nais mo ba itong tanggalin?</string>
-	<string name="edit_entry">Baguhin ang Ipinasok</string>
-	<string name="view_entry">Tignan ang Ipinasok</string>
-	<string name="help">Tulong</string>
-	<string name="close">Isara</string>
-	<string name="go">Pumunta</string>
-	<string name="dialog_delete_password_title">Alisin ang Password</string>
-	<string name="dialog_delete_password_msg">Sigurado ka bang gusto mong alisin ang password?</string>
-	<string name="change_password">Palitan ang Master Password</string>
-	<string name="chg_pass_explaination">Gamitin ito upang baguhin ang password na iyong ginagamit upang i-unlock ang OI Kaha. Ang iyong datos ay muling i-encrypt na may bagong password. Mas kumplikado ang iyong password, ay mas ligtas ang iyong datos.</string>
-	<string name="old_password">Lumang password</string>
-	<string name="new_password">Bagong password</string>
-	<string name="verify_password">Patunayan ang password</string>
-	<string name="new_verify_mismatch">Bago at Patunay na password ay hindi tugma.</string>
-    <string name="invalid_old_password">Lumang password ay hindi wasto. Pakisubukang muli.</string>
-    <string name="error_changing_password">Mali sa pagbabago ng password</string>
-    <string name="password_changed">Master Password ay pinalitan.</string>
-    <string name="confirm">Ikumpirma</string>
-    <string name="confirm_pass_fail">Mga pinasok na Password ay hindi tugma.</string>
-    <string name="backup">Backup</string>
-    <string name="backup_progress">Backup sa</string>
-    <string name="backup_complete">Kumpletuhin. Password backup:</string>
-    <string name="backup_failed">Backup nabigo:</string>
-	<string name="backup_select_file">Pumili ng file para i-backup</string>
-	<string name="backup_error">Mali habang ibina-backup</string>
-    <string name="restore">Ibalik</string>
-    <string name="filename">Filename</string>
-    <string name="restore_no_file">Backup file ay hindi nakita. Kailangan mong magsagawa ng backup para lumikha nito. O kopyahin ang isang backup na mula sa iyong PC.</string>
-    <string name="restore_set_password">Pakibigay ang password na ginagamit ng backup file. Ang iyong master password ay ipaparehas dito.</string>
-	<string name="restore_select_file">Pumili ng file na ibabalik</string>
-	<string name="restore_error">Mali habang ibinabalik</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Hindi mabuksan ang file: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Bersyon hindi suportado: %s</string>
-    
-    <string name="restore_decrypt_error">Maling password.</string>
-    <string name="dialog_restore_database_title">Ibalik ang Database</string>
-    <string name="dialog_restore_database_msg">Sigurado ka bang gusto mong palitan ang mga kasalukuyang datos?</string>
-    <string name="restore_found">Nakita %1$s mga password mula sa backup napetsahan %2$s.</string>
-    <string name="restore_complete">Kompleto. Password naibalik: %s</string>
-    <string name="copied_to_clipboard">kinopya sa Clipboard</string>
-    <string name="invalid_website">Hindi wastong website</string>
-    <string name="database_error_title">Mali sa Database</string>
-    <string name="database_error_msg">Mali sa Database. Wala nang espasyo?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Buksan</string>
-    
-    <string name="database_version_error_title">Mali sa Bersyon ng Database</string>
-    <string name="database_version_error_msg">Paumanhin, ngunit ang bersyon ng database ay hindi suportado. Kailangan mong i-install ang bersyon na nauugnay sa database na ito.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Ilipat</string>
-	
-	<string name="move_select">Pumili ng Kategorya</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Ilipat sa %s</string>
-	
-	<string name="preferences">Mga Setting</string>
-	<string name="pref_title_external_access">Payagan ang panlabas na access</string>
-	<string name="pref_summary_external_access">Payagan ang ibang mga applikasyon na mag-secure ng iyong mga datos sa OI Kaha</string>
-	<string name="dialog_title_external_access">OI Kaha: Isang applikasyon ay humuhingi ng  access.</string>
-	<string name="dialog_summary_external_access">Payagan ang ibang mga applikasyon na mag-secure ng iyong mga datos sa OI Kaha.</string>
-	<string name="dialog_comment_external_access">Ito ay maaari ring itakda sa Menu/Setting ng OI Kaha .</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Awtomatikong lock timeout</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Bilang ng mga minuto bago mag-timeout at mai-lock na ang kaha</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Awtomatikong lock timeout</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Lock sa screen lock</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Lock kapag ang screen ay na-lock</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Keypad</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Gumamit ng keypad para ipasok ang Master Password</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Keypad Walang Tunog</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Tanggalin ang tunog ng keypad</string>
 
-	<string name="pref_title_autobackup">Awtomatikong backup</string>
-	<string name="pref_summary_autobackup">Awtomatikong i-prompt na i-backup ang password</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Store your private data with OI Safe.</string>
 
-	<string name="pref_title_autobackup_days">Awtomatikong mga araw ng backup</string>
-	<string name="pref_summary_autobackup_days">Bilang ng mga araw na paghihintay bago sa susunod na awtomatikong backup</string>
-	<string name="pref_dialog_title_autobackup_days">Awtomatikong mga Araw ng Backup</string>
-	
-	<string name="pref_title_backup_path">Default na backup path</string>
-	<string name="pref_title_export_path">Default na export path</string>
-	    
-	
-	<string name="intent_decrypt">Decrypt (OI Kaha)</string>
-	<string name="intent_encrypt">Encrypt (OI Kaha)</string>
-	<string name="intent_get_password">Kunin ang password (OI Kaha)</string>
-	<string name="intent_set_password">Itakda ang password (OI Kaha)</string>
-	<string name="intent_restart_timer">I-restart ang timer (OI Kaha)</string>
-	<string name="open_safe">Open OI Safe</string>
-	<string name="lock">Lock</string>
-	<string name="continue_text">Magpatuloy</string>
-	<string name="generate_password">Lumikha ng Password</string>
-	<string name="pass_gen_length">Haba ng Password</string>
-	<string name="pass_gen_uppercase">Uppercase [A-Z]</string>
-	<string name="pass_gen_lowercase">Lowercase [a-z]</string>
-	<string name="pass_gen_numbers">Mga Numero [0-9]</string>
-	<string name="pass_gen_symbols">Mga Simbolo [!@#$%^ \ *]</string>
-	<string name="pass_gen_copy_to_current_entry">Kopyahin sa Kasalukuyang Ipi-napasok</string>
-	<string name="pass_gen_copy_to_clipboard">Kopyahin sa Clipboard</string>
-	<string name="cancel">Kanselahin</string>
-	<string name="discard_changes">Tanggalin ang mga pagbabago</string>
-	<string name="entry_saved">Na-save ang pinasok</string>
-	<string name="entry_save_error">Hindi ma-save dahil sa error ng database</string>
-	<string name="last_edited">Huling binago</string>
-	<string name="last_edited_unknown">hindi kilala</string>
-	<string name="crypto_error">Mali sa Crypto:</string>
-	<string name="uniquename">Natatanging pangalan</string>
-	<string name="package_access">Package access</string>
-	<string name="not_found">hindi makita</string>
-	<string name="dialog_title_first_time_warning">Bagong master key</string>
-	<string name="dialog_summary_first_time_warning">Ang bagong random na master key ay nalikha na. Gamitin ang menu &gt;  backup at itago ang key na ito sa isang ligtas na lugar. Pag nawala ang key na ito maaari mong mawala ang mga naka-encrypt na datos.</string>
-	<string name="switch_mode">Magpalit ng moda</string>
-	<string name="decrypt_progress">Decrypting...</string>
-	<string name="search">Maghanap</string>
-	<string name="search_progress">Naghahanap...</string>
-	<string name="search_hint">I-type ang batayan sa paghanap</string>
-	<string name="search_nothing_found">Walang nakita</string>
-	<string name="mute">Tangalin ang Tunog</string>
-	<string name="sounds">Mga Tunog</string>
-	<string name="previous">Nakaraan</string>
-	<string name="next">Kasunod</string>
-	<string name="autobackup">AutoBackup</string>
-	<string name="backup_never">Wala pang backup ang nagawa. Gusto mo bang i-backup ngayon?</string>
-	<string name="backup_in_days">Ang huling backup ay %d araw na ang nakaraan. Gusto mo bang i-backup ngayon?</string>
-	<string name="autobackup_turnoff">Tanggalin ang autobackup</string>
-	<string name="lock_timeout">Oras na mag autolock: %s</string>
-	<string name="download_oi_filemanager">Habang hindi na-download, gagamit ng default na lokasyon.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Kaha</string>
+  <string name="empty_safe">Walang password na nandito para sa kategoryang ito.</string>
+  <string name="empty_category">Walang mga kategorya nandito. Pakidagdag ng isa sa pamamagitan ng Menu-&gt; Magdagdag</string>
+  <string name="password_lock">Lock</string>
+  <string name="password_view">Tingnan</string>
+  <string name="password_edit">Baguhin</string>
+  <string name="password_add">Magdagdag</string>
+  <string name="password_delete">Alisin</string>
+  <string name="password">Password</string>
+  <string name="passwords">Mga Password</string>
+  <string name="master_password">Master Password</string>
+  <string name="username">Username</string>
+  <string name="website">Website</string>
+  <string name="description">Deskripsyon</string>
+  <string name="notes">Mga Tala</string>
+  <string name="save">I-save</string>
+  <string name="invalid_password">Maling password. Pakisubukan muli.</string>
+  <string name="notify_blank_pass">Ang Password ay dapat hindi bababa sa 4 na mga character</string>
+  <string name="notify_blank_desc">Ang deskripsyon ay hindi maaaring blangko</string>
+  <string name="notify_blank_name">Ang pangalan ay hindi maaaring blangko</string>
+  <string name="first_time">Pakipasok ang password sa ibaba, na ginagamit para panatilihing ligtas ang iyong mga password.</string>
+  <string name="logoff_explanation">Ikaw ay kasalukuyang naka-log in sa OI Kaha, ibig sabihin ang ibang mga applikasyon ay maaaring humiling ng kanilang mga password at mag-decrypt/encrypt ng datos. I-lock upang pigilan ang karagdagang access hanggang i-type mo muli ang iyong password.</string>
+  <string name="remote_ask">Ang ibang applikasyon humihiling na gamitin ang master key. Paki-type ang iyong password para i-unlock ito.</string>
+  <string name="categories">Mga Kategorya</string>
+  <string name="category">Kategorya</string>
+  <string name="category_business">Negosyo</string>
+  <string name="category_personal">Pansarili</string>
+  <string name="name">Pangalan</string>
+  <string name="category_not_empty">Ang Kategorya ay may laman. Kailangan mo munang alisin ang mga password.</string>
+  <string name="cannot_decrypt_category">Hindi ma-decrypt ang kategorya</string>
+  <string name="cannot_decrypt_password">Hindi ma-decrypt ang password</string>
+  <string name="error_export">Mali pag-export ng database</string>
+  <string name="export_database">Export ng Database</string>
+  <string name="export_file_select">Pumili ng file para i-export</string>
+  <string name="export_msg">Ito ay mag-export ng password database sa isang file na puro texto. ITO AY NAPAKA-MAPANGANIB. Siguraduhin mong alisin ang file pag tapos ka na dito. Sigurado ka bang gusto mong i-export?</string>
+  <string name="export_success">Export sa \'%s\' ay tagumpay. Babala! Ang file ay hindi naka-encrypt.</string>
+  <string name="export_file_error">Hindi makalikha ng export file \'oisafe.csv\' sa SD CARD. Maaari mong subukan tanggalin ang USB sa computer.</string>
+  <string name="import_database">Import sa Database</string>
+  <string name="import_file_select">Pumili ng file para i-import</string>
+  <string name="import_file_missing">Import file ay nawawala:</string>
+  <string name="import_file_error">Hindi ma-import ang file na \'oisafe.csv\' mula sa SDCARD. Maaari mong subukan tanggalin ang USB sa computer.</string>
+  <string name="import_error_first_line">Ang unang linya ay may nawawalang mga field.</string>
+  <string name="dialog_import_title">Import</string>
+  <string name="dialog_import_msg">Gusto mo bang palitan ang database (import mula sa %s)?</string>
+  <string name="yes">Oo</string>
+  <string name="no">Hindi</string>
+  <string name="import_progress">Pakihintay habang ini-import...</string>
+  <string name="import_no_categories">Walang nakita na mga kategorya.</string>
+  <string name="import_no_entries">Walang mga pinasok na nahanap sa CSV.</string>
+  <string name="import_too_many_categories">Napakadaming kategorya.</string>
+  <string name="import_not_enough_fields">Hindi sapat ang mga field</string>
+  <string name="import_blank_category">Blanko na kategorya</string>
+  <string name="import_blank_description">Blanko na deskripsyon</string>
+  <string name="dialog_delete_database_title">Alisin ang Database</string>
+  <string name="dialog_delete_database_msg">Talaga bang sigurado ka na gusto mong tanggalin ang database? Ito ay hindi maaaring bawiin.</string>
+  <string name="added">Nadagdag</string>
+  <string name="entries">Mga pinasok</string>
+  <string name="import_complete">Import tapos na</string>
+  <string name="import_delete_csv">Dahil hindi ligtas na panatilihin ang mga password sa malinaw na texto CSV file, nais mo ba itong tanggalin?</string>
+  <string name="edit_entry">Baguhin ang Ipinasok</string>
+  <string name="view_entry">Tignan ang Ipinasok</string>
+  <string name="help">Tulong</string>
+  <string name="close">Isara</string>
+  <string name="go">Pumunta</string>
+  <string name="dialog_delete_password_title">Alisin ang Password</string>
+  <string name="dialog_delete_password_msg">Sigurado ka bang gusto mong alisin ang password?</string>
+  <string name="change_password">Palitan ang Master Password</string>
+  <string name="chg_pass_explaination">Gamitin ito upang baguhin ang password na iyong ginagamit upang i-unlock ang OI Kaha. Ang iyong datos ay muling i-encrypt na may bagong password. Mas kumplikado ang iyong password, ay mas ligtas ang iyong datos.</string>
+  <string name="old_password">Lumang password</string>
+  <string name="new_password">Bagong password</string>
+  <string name="verify_password">Patunayan ang password</string>
+  <string name="new_verify_mismatch">Bago at Patunay na password ay hindi tugma.</string>
+  <string name="invalid_old_password">Lumang password ay hindi wasto. Pakisubukang muli.</string>
+  <string name="error_changing_password">Mali sa pagbabago ng password</string>
+  <string name="password_changed">Master Password ay pinalitan.</string>
+  <string name="confirm">Ikumpirma</string>
+  <string name="confirm_pass_fail">Mga pinasok na Password ay hindi tugma.</string>
+  <string name="backup">Backup</string>
+  <string name="backup_progress">Backup sa</string>
+  <string name="backup_complete">Kumpletuhin. Password backup:</string>
+  <string name="backup_failed">Backup nabigo:</string>
+  <string name="backup_select_file">Pumili ng file para i-backup</string>
+  <string name="backup_error">Mali habang ibina-backup</string>
+  <string name="restore">Ibalik</string>
+  <string name="filename">Filename</string>
+  <string name="restore_no_file">Backup file ay hindi nakita. Kailangan mong magsagawa ng backup para lumikha nito. O kopyahin ang isang backup na mula sa iyong PC.</string>
+  <string name="restore_set_password">Pakibigay ang password na ginagamit ng backup file. Ang iyong master password ay ipaparehas dito.</string>
+  <string name="restore_select_file">Pumili ng file na ibabalik</string>
+  <string name="restore_error">Mali habang ibinabalik</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">gamitin ang master password</string>
-	<string name="oi_safe_permission_service_descr">Pinapayagan ang applikasyon na gamitin ang master key na ginamit para sa encryption at decryption. Dapat hindi ginagamit maliban sa pamamagitan ng OI Kaha.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">encrypt at decrypt ng datos</string>
-    <string name="oi_safe_permission_intents_descr">Payagan ang application na mag-encrypt at mag-decrypt ng teksto, at makita ang mga password na tinago sa OI Kaha.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Hindi mabuksan ang file: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Bersyon hindi suportado: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 minuto</item>
-        <item>5 minuto</item>
-        <item>10 minuto</item>
-        <item>15 minuto</item>
-        <item>30 minuto</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Maling password.</string>
+  <string name="dialog_restore_database_title">Ibalik ang Database</string>
+  <string name="dialog_restore_database_msg">Sigurado ka bang gusto mong palitan ang mga kasalukuyang datos?</string>
+  <string name="restore_found">Nakita %1$s mga password mula sa backup napetsahan %2$s.</string>
+  <string name="restore_complete">Kompleto. Password naibalik: %s</string>
+  <string name="copied_to_clipboard">kinopya sa Clipboard</string>
+  <string name="invalid_website">Hindi wastong website</string>
+  <string name="database_error_title">Mali sa Database</string>
+  <string name="database_error_msg">Mali sa Database. Wala nang espasyo?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 araw</item>
-        <item>7 araw</item>
-        <item>30 araw</item>
-        <item>60 araw</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Buksan</string>
+
+  <string name="database_version_error_title">Mali sa Bersyon ng Database</string>
+  <string name="database_version_error_msg">Paumanhin, ngunit ang bersyon ng database ay hindi suportado. Kailangan mong i-install ang bersyon na nauugnay sa database na ito.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Ilipat</string>
+
+  <string name="move_select">Pumili ng Kategorya</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Ilipat sa %s</string>
+
+  <string name="preferences">Mga Setting</string>
+  <string name="pref_title_external_access">Payagan ang panlabas na access</string>
+  <string name="pref_summary_external_access">Payagan ang ibang mga applikasyon na mag-secure ng iyong mga datos sa OI Kaha</string>
+  <string name="dialog_title_external_access">OI Kaha: Isang applikasyon ay humuhingi ng  access.</string>
+  <string name="dialog_summary_external_access">Payagan ang ibang mga applikasyon na mag-secure ng iyong mga datos sa OI Kaha.</string>
+  <string name="dialog_comment_external_access">Ito ay maaari ring itakda sa Menu/Setting ng OI Kaha .</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Awtomatikong lock timeout</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Bilang ng mga minuto bago mag-timeout at mai-lock na ang kaha</string>
+
+  <string name="pref_dialog_title_lock_timeout">Awtomatikong lock timeout</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Lock sa screen lock</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Lock kapag ang screen ay na-lock</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Keypad</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Gumamit ng keypad para ipasok ang Master Password</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Keypad Walang Tunog</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Tanggalin ang tunog ng keypad</string>
+
+  <string name="pref_title_autobackup">Awtomatikong backup</string>
+  <string name="pref_summary_autobackup">Awtomatikong i-prompt na i-backup ang password</string>
+
+  <string name="pref_title_autobackup_days">Awtomatikong mga araw ng backup</string>
+  <string name="pref_summary_autobackup_days">Bilang ng mga araw na paghihintay bago sa susunod na awtomatikong backup</string>
+  <string name="pref_dialog_title_autobackup_days">Awtomatikong mga Araw ng Backup</string>
+
+  <string name="pref_title_backup_path">Default na backup path</string>
+  <string name="pref_title_export_path">Default na export path</string>
+
+
+  <string name="intent_decrypt">Decrypt (OI Kaha)</string>
+  <string name="intent_encrypt">Encrypt (OI Kaha)</string>
+  <string name="intent_get_password">Kunin ang password (OI Kaha)</string>
+  <string name="intent_set_password">Itakda ang password (OI Kaha)</string>
+  <string name="intent_restart_timer">I-restart ang timer (OI Kaha)</string>
+  <string name="open_safe">Open OI Safe</string>
+  <string name="lock">Lock</string>
+  <string name="continue_text">Magpatuloy</string>
+  <string name="generate_password">Lumikha ng Password</string>
+  <string name="pass_gen_length">Haba ng Password</string>
+  <string name="pass_gen_uppercase">Uppercase [A-Z]</string>
+  <string name="pass_gen_lowercase">Lowercase [a-z]</string>
+  <string name="pass_gen_numbers">Mga Numero [0-9]</string>
+  <string name="pass_gen_symbols">Mga Simbolo [!@#$%^ \ *]</string>
+  <string name="pass_gen_copy_to_current_entry">Kopyahin sa Kasalukuyang Ipi-napasok</string>
+  <string name="pass_gen_copy_to_clipboard">Kopyahin sa Clipboard</string>
+  <string name="cancel">Kanselahin</string>
+  <string name="discard_changes">Tanggalin ang mga pagbabago</string>
+  <string name="entry_saved">Na-save ang pinasok</string>
+  <string name="entry_save_error">Hindi ma-save dahil sa error ng database</string>
+  <string name="last_edited">Huling binago</string>
+  <string name="last_edited_unknown">hindi kilala</string>
+  <string name="crypto_error">Mali sa Crypto:</string>
+  <string name="uniquename">Natatanging pangalan</string>
+  <string name="package_access">Package access</string>
+  <string name="not_found">hindi makita</string>
+  <string name="dialog_title_first_time_warning">Bagong master key</string>
+  <string name="dialog_summary_first_time_warning">Ang bagong random na master key ay nalikha na. Gamitin ang menu &gt;  backup at itago ang key na ito sa isang ligtas na lugar. Pag nawala ang key na ito maaari mong mawala ang mga naka-encrypt na datos.</string>
+  <string name="switch_mode">Magpalit ng moda</string>
+  <string name="decrypt_progress">Decrypting...</string>
+  <string name="search">Maghanap</string>
+  <string name="search_progress">Naghahanap...</string>
+  <string name="search_hint">I-type ang batayan sa paghanap</string>
+  <string name="search_nothing_found">Walang nakita</string>
+  <string name="mute">Tangalin ang Tunog</string>
+  <string name="sounds">Mga Tunog</string>
+  <string name="previous">Nakaraan</string>
+  <string name="next">Kasunod</string>
+  <string name="autobackup">AutoBackup</string>
+  <string name="backup_never">Wala pang backup ang nagawa. Gusto mo bang i-backup ngayon?</string>
+  <string name="backup_in_days">Ang huling backup ay %d araw na ang nakaraan. Gusto mo bang i-backup ngayon?</string>
+  <string name="autobackup_turnoff">Tanggalin ang autobackup</string>
+  <string name="lock_timeout">Oras na mag autolock: %s</string>
+  <string name="download_oi_filemanager">Habang hindi na-download, gagamit ng default na lokasyon.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">gamitin ang master password</string>
+  <string name="oi_safe_permission_service_descr">Pinapayagan ang applikasyon na gamitin ang master key na ginamit para sa encryption at decryption. Dapat hindi ginagamit maliban sa pamamagitan ng OI Kaha.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">encrypt at decrypt ng datos</string>
+  <string name="oi_safe_permission_intents_descr">Payagan ang application na mag-encrypt at mag-decrypt ng teksto, at makita ang mga password na tinago sa OI Kaha.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 minuto</item>
+    <item>5 minuto</item>
+    <item>10 minuto</item>
+    <item>15 minuto</item>
+    <item>30 minuto</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 araw</item>
+    <item>7 araw</item>
+    <item>30 araw</item>
+    <item>60 araw</item>
+  </string-array>
+
+
 </resources>

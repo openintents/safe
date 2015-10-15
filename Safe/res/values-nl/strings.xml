@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Henk van der Velden https://launchpad.net/~henkvandervelden86
   Maarten de Vries https://launchpad.net/~maarten-k-de-vries
@@ -29,271 +28,271 @@
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   Sjoerd Hiemstra https://launchpad.net/~sjohie</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Beveilig je privé-data met OI Kluis.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI kluis</string>
-    <string name="empty_safe">Geen wachtwoorden aanwezig voor deze catagorie.</string>
-    <string name="empty_category">Nog geen catagorieën aanwezig. Voeg er een toe via Menu-&gt;Add</string>
-    <string name="password_lock">Vergrendel</string>
-    <string name="password_view">Bekijken</string>
-    <string name="password_edit">Bewerken</string>
-    <string name="password_add">Toevoegen</string>
-    <string name="password_delete">Verwijderen</string>
-    <string name="password">Wachtwoord</string>
-    <string name="passwords">Wachtwoorden</string>
-    <string name="master_password">Hoofdwachtwoord</string>
-    <string name="username">Gebruikersnaam</string>
-    <string name="website">Website</string>
-    <string name="description">Beschrijving</string>
-    <string name="notes">Notities</string>
-    <string name="save">Opslaan</string>
-    <string name="invalid_password">Ongeldig wachtwoord. Probeer het opnieuw.</string>
-    <string name="notify_blank_pass">Wachtwoord moet tenminste 4 karakters lang zijn</string>
-    <string name="notify_blank_desc">Beschrijving mag niet leeg zijn</string>
-    <string name="notify_blank_name">Naam mag niet leeg zijn</string>
-    <string name="first_time">Voer een wachtwoord in om je wachtwoorden veilig te stellen.</string>
-    <string name="logoff_explanation">Je bent ingelogged in OI Kluis, dit betekent dat andere applicaties hun wachtwoorden en encryptie data kunnen opvragen. Sluit om verdere toegang te voorkomen, totdat je je wachtwoord nogmaals typt.</string>
-    <string name="remote_ask">Een andere applicatie vraagt om het hoofd wachtwoord. Voer het wachtwoord nogmaals in om te ontgrendelen.</string>
-    <string name="categories">Categorieën</string>
-	<string name="category">Categorie</string>
-    <string name="category_business">Zakelijk</string>
-    <string name="category_personal">Persoonlijk</string>
-    <string name="name">Naam</string>
-    <string name="category_not_empty">Catagorie is niet leeg. Je moet eerst de wachtwoorden verwijderen.</string>
-	<string name="cannot_decrypt_category">Kan de catagorie niet decrypten.</string>
-	<string name="cannot_decrypt_password">Kan het wachtwoord niet decrypten</string>
-	<string name="error_export">Fout bij het exporteren van de database</string>
-	<string name="export_database">Exporteer database</string>
-	<string name="export_file_select">Selecteer een bestand om te exporteren</string>
-	<string name="export_msg">Dit zal de wachtwoord database exporteren naar een tekst bestand. DIT IS ZEER GEVAARLIJK. Zorg ervoor dat je het bestand verwijdert nadat je klaar bent. Weet u zeker dat je wilt exporteren?</string>
-	<string name="export_success">Export naar \'%s\' gelukt. Waarschuwing! Het bestand is niet geëncrypt.</string>
-	<string name="export_file_error">Niet in staat om het bestand \'oisafe.csv\' te exporteren naar de SDcard. Is de telefoon losgekoppeld van de computer?</string>
-	<string name="import_database">Database importeren</string>
-	<string name="import_file_select">Selecteer een bestand om te importeren</string>
-	<string name="import_file_missing">Importeer bestand mist:</string>
-	<string name="import_file_error">Kan bestand \'oisafe.csv\' niet van SD-kaart importeren. U kunt proberen om de USB uit de computer te halen.</string>
-	<string name="import_error_first_line">De eerste regel mist velden.</string>
-	<string name="dialog_import_title">Importeer</string>
-	<string name="dialog_import_msg">Wilt u de database vervangen (importeren van %s)?</string>
-	<string name="yes">Ja</string>
-	<string name="no">Nee</string>
-	<string name="import_progress">Wacht aub tijdens het importeren...</string>
-	<string name="import_no_categories">Geen categorieën gevonden.</string>
-	<string name="import_no_entries">CSV bestand bevat geen invoer.</string>
-	<string name="import_too_many_categories">Teveel categoriën</string>
-	<string name="import_not_enough_fields">Niet genoeg velden.</string>
-	<string name="import_blank_category">Lege categorie</string>
-	<string name="import_blank_description">Lege omschrijving</string>
-	<string name="dialog_delete_database_title">Verwijderen database</string>
-	<string name="dialog_delete_database_msg">Weet je absoluut zeker dat je deze database wilt verwijderen? Dit kan niet ongedaan gemaakt worden.</string>
-	<string name="added">Toegevoegd</string>
-	<string name="entries">items</string>
-	<string name="import_complete">Import compleet</string>
-	<string name="import_delete_csv">Het is niet veilig om wachtwoorden in een onversleuteld CSV bestand te bewaren, wilt u ze verwijderen</string>
-	<string name="edit_entry">Invoer bewerken</string>
-	<string name="view_entry">Bekijk invoer</string>
-	<string name="help">Help</string>
-	<string name="close">Afsluiten</string>
-	<string name="go">Start</string>
-	<string name="dialog_delete_password_title">Verwijder wachtwoord.</string>
-	<string name="dialog_delete_password_msg">Weet jezeker dat je dit wachtwoord wilt verwijderen?</string>
-	<string name="change_password">Wijzig hoofdwachtwoord</string>
-	<string name="chg_pass_explaination">Gebruik dit om het wachtwoord dat u gebruikt om OI Kluis te openen te wijzigen. Uw data zal opnieuw versteuleld worden met het nieuwe wachtwoord. Hoe ingewikkelder uw wachtwoord is, hoe veiliger uw data zal zijn.</string>
-	<string name="old_password">Oud wachtwoord</string>
-	<string name="new_password">Nieuw wachtwoord</string>
-	<string name="verify_password">Wachtwoord verifiëren</string>
-	<string name="new_verify_mismatch">Het nieuwe en het herhaalde wachtwoord komen niet overeen.</string>
-    <string name="invalid_old_password">Het oude wachtwoord is ongeldig, probeer het opnieuw.</string>
-    <string name="error_changing_password">Fout bij veranderen van wachtwoord</string>
-    <string name="password_changed">Hoofdwachtwoord is gewijzigd</string>
-    <string name="confirm">Bevestigen</string>
-    <string name="confirm_pass_fail">Wachtwoorden komen niet overeen.</string>
-    <string name="backup">Reservekopie</string>
-    <string name="backup_progress">Reservekopie maken op</string>
-    <string name="backup_complete">Voltooid, reservekopie gemaakt van wachtwoorden:</string>
-    <string name="backup_failed">Reservekopie maken is niet gelukt:</string>
-	<string name="backup_select_file">Selecteer een bestand om te back-uppen.</string>
-	<string name="backup_error">Fout bij maken back-up.</string>
-    <string name="restore">Herstellen</string>
-    <string name="filename">Bestandsnaam</string>
-    <string name="restore_no_file">Reservekopie bestand is niet gevonden. U moet eerst een reservekopie maken of een reservekopie van uw PC kopiëren.</string>
-    <string name="restore_set_password">Vul het wachtwoord in, welke bij het reservekopie bestand is gebruikt. Uw hoofdwachtwoord zal hier naar gewijzigd worden.</string>
-	<string name="restore_select_file">Selecteer een bestand om te herstellen</string>
-	<string name="restore_error">Fout bij herstellen</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Kan bestand niet openen: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Versie wordt niet ondersteund: %s</string>
-    
-    <string name="restore_decrypt_error">Fout wachtwoord.</string>
-    <string name="dialog_restore_database_title">Herstel database</string>
-    <string name="dialog_restore_database_msg">Weet u zeker dat u de huidige data wilt vervangen?</string>
-    <string name="restore_found">Heeft %1$s wachtwoorden gevonden van een reservekopie van %2$s.</string>
-    <string name="restore_complete">Voltooid, wachtwoorden hersteld: %s</string>
-    <string name="copied_to_clipboard">gekopieerd naar Klembord</string>
-    <string name="invalid_website">Ongeldige website</string>
-    <string name="database_error_title">Database fout</string>
-    <string name="database_error_msg">Database fout. Geen ruimte meer?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Openen</string>
-    
-    <string name="database_version_error_title">Database versie fout</string>
-    <string name="database_version_error_msg">Sorry, maar de versie van de database wordt niet ondersteund. U moet de versie gerelateerd met de database installeren.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Verplaatsen</string>
-	
-	<string name="move_select">Selecteer Categorie</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Verplaats naar %s</string>
-	
-	<string name="preferences">Instellingen</string>
-	<string name="pref_title_external_access">Sta externe toegang toe</string>
-	<string name="pref_summary_external_access">Sta andere programma\'s toe om uw data te beveiligen met OI Kluis</string>
-	<string name="dialog_title_external_access">OI Kluis: Een ander programma vraagt toegang.</string>
-	<string name="dialog_summary_external_access">Sta andere programma\'s toe om uw data te beveiligen met OI Kluis.</string>
-	<string name="dialog_comment_external_access">Deze instelling is ook beschikbaar in Menu / Instellingen van OI Kluis.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Auto-lock time-out</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Aantal minuten van time-out, voordat de kluis wordt gesloten.</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Auto-lock time-out</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Op slot bij schermbeveiliging</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Kluis sluiten als schermbeveiliging start</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Toetsenblok</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Gebruik een keypad om het hoofdwachtwoord in te voeren</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Toetsenblok stil</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Geen geluiden bij gebruik toetsenblok</string>
 
-	<string name="pref_title_autobackup">Automatische backup</string>
-	<string name="pref_summary_autobackup">Automatisch voorstellen om wachtwoorden te back-uppen</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Beveilig je privé-data met OI Kluis.</string>
 
-	<string name="pref_title_autobackup_days">Dagen voor automatische back-up</string>
-	<string name="pref_summary_autobackup_days">Aantal dagen tot de volgende automatische back-up</string>
-	<string name="pref_dialog_title_autobackup_days">Dagen automatische back-up</string>
-	
-	<string name="pref_title_backup_path">Standaard pad voor back-ups</string>
-	<string name="pref_title_export_path">Standaard exporteer pad</string>
-	    
-	
-	<string name="intent_decrypt">Ontsleutelen (OI Kluis)</string>
-	<string name="intent_encrypt">Versleutelen (OI Kluis)</string>
-	<string name="intent_get_password">Wachtwoord verkrijgen (OI Kluis)</string>
-	<string name="intent_set_password">Wachtwoord instellen (OI Kluis)</string>
-	<string name="intent_restart_timer">Timer herstarten (OI Kluis)</string>
-	<string name="open_safe">OI Kluis openen</string>
-	<string name="lock">Vergrendel</string>
-	<string name="continue_text">Verder</string>
-	<string name="generate_password">Wachtwoord aanmaken</string>
-	<string name="pass_gen_length">Lengte van het wachtwoord</string>
-	<string name="pass_gen_uppercase">Hoofdletters [A-Z]</string>
-	<string name="pass_gen_lowercase">Kleine letters [a-z]</string>
-	<string name="pass_gen_numbers">Nummers [0-9]</string>
-	<string name="pass_gen_symbols">Symbolen [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Kopiëren naar huidig item</string>
-	<string name="pass_gen_copy_to_clipboard">Kopiëren naar klembord</string>
-	<string name="cancel">Annuleren</string>
-	<string name="discard_changes">Wijzigingen verwerpen</string>
-	<string name="entry_saved">Item opgeslagen</string>
-	<string name="entry_save_error">Kon niet opslaan vanwege database-fout</string>
-	<string name="last_edited">Laatst gewijzigd</string>
-	<string name="last_edited_unknown">onbekend</string>
-	<string name="crypto_error">Crypto-fout:</string>
-	<string name="uniquename">Unieke naam</string>
-	<string name="package_access">Toegang tot pakket</string>
-	<string name="not_found">niet gevonden</string>
-	<string name="dialog_title_first_time_warning">Nieuwe hoofdsleutel</string>
-	<string name="dialog_summary_first_time_warning">Er is een nieuwe, willekeurige hoofdsleutel aangemaakt. Sla de sleutel op op een veilige plek via Menu %gt; Back-up en herstel. Zonder deze sleutel loop je kans beveiligde data kwijt te raken.</string>
-	<string name="switch_mode">Modus wijzigen</string>
-	<string name="decrypt_progress">Bezig met ontsleutelen...</string>
-	<string name="search">Zoeken</string>
-	<string name="search_progress">Bezig met zoeken…</string>
-	<string name="search_hint">Zoekopdracht invoeren</string>
-	<string name="search_nothing_found">Niets gevonden</string>
-	<string name="mute">Dempen</string>
-	<string name="sounds">Geluiden</string>
-	<string name="previous">Vorige</string>
-	<string name="next">Volgende</string>
-	<string name="autobackup">Automatische back-up</string>
-	<string name="backup_never">Er nog geen back-up gemaakt. Wil je er nu een maken?</string>
-	<string name="backup_in_days">Er is %d dag(en) geleden voor het laatst een back-up gemaakt. Wil je er nu een maken?</string>
-	<string name="autobackup_turnoff">Schakel automatische back-up uit.</string>
-	<string name="lock_timeout">Tijd tot automatische vergrendeling: %s</string>
-	<string name="download_oi_filemanager">Zonder download wordt de standaard locatie gebruikt.</string>
-	<string name="backup_file_found">Er is een backup-bestand gevonden. Wilt u deze herstellen?</string>
-	<string name="backup_file_found_label">Backup bestand gevonden.</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI kluis</string>
+  <string name="empty_safe">Geen wachtwoorden aanwezig voor deze catagorie.</string>
+  <string name="empty_category">Nog geen catagorieën aanwezig. Voeg er een toe via Menu-&gt;Add</string>
+  <string name="password_lock">Vergrendel</string>
+  <string name="password_view">Bekijken</string>
+  <string name="password_edit">Bewerken</string>
+  <string name="password_add">Toevoegen</string>
+  <string name="password_delete">Verwijderen</string>
+  <string name="password">Wachtwoord</string>
+  <string name="passwords">Wachtwoorden</string>
+  <string name="master_password">Hoofdwachtwoord</string>
+  <string name="username">Gebruikersnaam</string>
+  <string name="website">Website</string>
+  <string name="description">Beschrijving</string>
+  <string name="notes">Notities</string>
+  <string name="save">Opslaan</string>
+  <string name="invalid_password">Ongeldig wachtwoord. Probeer het opnieuw.</string>
+  <string name="notify_blank_pass">Wachtwoord moet tenminste 4 karakters lang zijn</string>
+  <string name="notify_blank_desc">Beschrijving mag niet leeg zijn</string>
+  <string name="notify_blank_name">Naam mag niet leeg zijn</string>
+  <string name="first_time">Voer een wachtwoord in om je wachtwoorden veilig te stellen.</string>
+  <string name="logoff_explanation">Je bent ingelogged in OI Kluis, dit betekent dat andere applicaties hun wachtwoorden en encryptie data kunnen opvragen. Sluit om verdere toegang te voorkomen, totdat je je wachtwoord nogmaals typt.</string>
+  <string name="remote_ask">Een andere applicatie vraagt om het hoofd wachtwoord. Voer het wachtwoord nogmaals in om te ontgrendelen.</string>
+  <string name="categories">Categorieën</string>
+  <string name="category">Categorie</string>
+  <string name="category_business">Zakelijk</string>
+  <string name="category_personal">Persoonlijk</string>
+  <string name="name">Naam</string>
+  <string name="category_not_empty">Catagorie is niet leeg. Je moet eerst de wachtwoorden verwijderen.</string>
+  <string name="cannot_decrypt_category">Kan de catagorie niet decrypten.</string>
+  <string name="cannot_decrypt_password">Kan het wachtwoord niet decrypten</string>
+  <string name="error_export">Fout bij het exporteren van de database</string>
+  <string name="export_database">Exporteer database</string>
+  <string name="export_file_select">Selecteer een bestand om te exporteren</string>
+  <string name="export_msg">Dit zal de wachtwoord database exporteren naar een tekst bestand. DIT IS ZEER GEVAARLIJK. Zorg ervoor dat je het bestand verwijdert nadat je klaar bent. Weet u zeker dat je wilt exporteren?</string>
+  <string name="export_success">Export naar \'%s\' gelukt. Waarschuwing! Het bestand is niet geëncrypt.</string>
+  <string name="export_file_error">Niet in staat om het bestand \'oisafe.csv\' te exporteren naar de SDcard. Is de telefoon losgekoppeld van de computer?</string>
+  <string name="import_database">Database importeren</string>
+  <string name="import_file_select">Selecteer een bestand om te importeren</string>
+  <string name="import_file_missing">Importeer bestand mist:</string>
+  <string name="import_file_error">Kan bestand \'oisafe.csv\' niet van SD-kaart importeren. U kunt proberen om de USB uit de computer te halen.</string>
+  <string name="import_error_first_line">De eerste regel mist velden.</string>
+  <string name="dialog_import_title">Importeer</string>
+  <string name="dialog_import_msg">Wilt u de database vervangen (importeren van %s)?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nee</string>
+  <string name="import_progress">Wacht aub tijdens het importeren...</string>
+  <string name="import_no_categories">Geen categorieën gevonden.</string>
+  <string name="import_no_entries">CSV bestand bevat geen invoer.</string>
+  <string name="import_too_many_categories">Teveel categoriën</string>
+  <string name="import_not_enough_fields">Niet genoeg velden.</string>
+  <string name="import_blank_category">Lege categorie</string>
+  <string name="import_blank_description">Lege omschrijving</string>
+  <string name="dialog_delete_database_title">Verwijderen database</string>
+  <string name="dialog_delete_database_msg">Weet je absoluut zeker dat je deze database wilt verwijderen? Dit kan niet ongedaan gemaakt worden.</string>
+  <string name="added">Toegevoegd</string>
+  <string name="entries">items</string>
+  <string name="import_complete">Import compleet</string>
+  <string name="import_delete_csv">Het is niet veilig om wachtwoorden in een onversleuteld CSV bestand te bewaren, wilt u ze verwijderen</string>
+  <string name="edit_entry">Invoer bewerken</string>
+  <string name="view_entry">Bekijk invoer</string>
+  <string name="help">Help</string>
+  <string name="close">Afsluiten</string>
+  <string name="go">Start</string>
+  <string name="dialog_delete_password_title">Verwijder wachtwoord.</string>
+  <string name="dialog_delete_password_msg">Weet jezeker dat je dit wachtwoord wilt verwijderen?</string>
+  <string name="change_password">Wijzig hoofdwachtwoord</string>
+  <string name="chg_pass_explaination">Gebruik dit om het wachtwoord dat u gebruikt om OI Kluis te openen te wijzigen. Uw data zal opnieuw versteuleld worden met het nieuwe wachtwoord. Hoe ingewikkelder uw wachtwoord is, hoe veiliger uw data zal zijn.</string>
+  <string name="old_password">Oud wachtwoord</string>
+  <string name="new_password">Nieuw wachtwoord</string>
+  <string name="verify_password">Wachtwoord verifiëren</string>
+  <string name="new_verify_mismatch">Het nieuwe en het herhaalde wachtwoord komen niet overeen.</string>
+  <string name="invalid_old_password">Het oude wachtwoord is ongeldig, probeer het opnieuw.</string>
+  <string name="error_changing_password">Fout bij veranderen van wachtwoord</string>
+  <string name="password_changed">Hoofdwachtwoord is gewijzigd</string>
+  <string name="confirm">Bevestigen</string>
+  <string name="confirm_pass_fail">Wachtwoorden komen niet overeen.</string>
+  <string name="backup">Reservekopie</string>
+  <string name="backup_progress">Reservekopie maken op</string>
+  <string name="backup_complete">Voltooid, reservekopie gemaakt van wachtwoorden:</string>
+  <string name="backup_failed">Reservekopie maken is niet gelukt:</string>
+  <string name="backup_select_file">Selecteer een bestand om te back-uppen.</string>
+  <string name="backup_error">Fout bij maken back-up.</string>
+  <string name="restore">Herstellen</string>
+  <string name="filename">Bestandsnaam</string>
+  <string name="restore_no_file">Reservekopie bestand is niet gevonden. U moet eerst een reservekopie maken of een reservekopie van uw PC kopiëren.</string>
+  <string name="restore_set_password">Vul het wachtwoord in, welke bij het reservekopie bestand is gebruikt. Uw hoofdwachtwoord zal hier naar gewijzigd worden.</string>
+  <string name="restore_select_file">Selecteer een bestand om te herstellen</string>
+  <string name="restore_error">Fout bij herstellen</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">krijg toegang tot het hoofdwachtwoord</string>
-	<string name="oi_safe_permission_service_descr">Staat de app toe om de hoofdsleutel te gebruiken voor versleutelen en ontsleutelen. Nooit gebruiken, behalve voor OI Kluis.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">data versleutelen en ontsleutelen</string>
-    <string name="oi_safe_permission_intents_descr">Laat de app tekst versleutelen en ontsleutelen, en geeft toegang tot de wachtwoorden in OI Kluis.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Kan bestand niet openen: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Versie wordt niet ondersteund: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 minuut</item>
-        <item>5 minuten</item>
-        <item>10 minuten</item>
-        <item>15 minuten</item>
-        <item>30 minuten</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Fout wachtwoord.</string>
+  <string name="dialog_restore_database_title">Herstel database</string>
+  <string name="dialog_restore_database_msg">Weet u zeker dat u de huidige data wilt vervangen?</string>
+  <string name="restore_found">Heeft %1$s wachtwoorden gevonden van een reservekopie van %2$s.</string>
+  <string name="restore_complete">Voltooid, wachtwoorden hersteld: %s</string>
+  <string name="copied_to_clipboard">gekopieerd naar Klembord</string>
+  <string name="invalid_website">Ongeldige website</string>
+  <string name="database_error_title">Database fout</string>
+  <string name="database_error_msg">Database fout. Geen ruimte meer?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 dag</item>
-        <item>7 dagen</item>
-        <item>30 dagen</item>
-        <item>60 dagen</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Openen</string>
+
+  <string name="database_version_error_title">Database versie fout</string>
+  <string name="database_version_error_msg">Sorry, maar de versie van de database wordt niet ondersteund. U moet de versie gerelateerd met de database installeren.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Verplaatsen</string>
+
+  <string name="move_select">Selecteer Categorie</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Verplaats naar %s</string>
+
+  <string name="preferences">Instellingen</string>
+  <string name="pref_title_external_access">Sta externe toegang toe</string>
+  <string name="pref_summary_external_access">Sta andere programma\'s toe om uw data te beveiligen met OI Kluis</string>
+  <string name="dialog_title_external_access">OI Kluis: Een ander programma vraagt toegang.</string>
+  <string name="dialog_summary_external_access">Sta andere programma\'s toe om uw data te beveiligen met OI Kluis.</string>
+  <string name="dialog_comment_external_access">Deze instelling is ook beschikbaar in Menu / Instellingen van OI Kluis.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Auto-lock time-out</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Aantal minuten van time-out, voordat de kluis wordt gesloten.</string>
+
+  <string name="pref_dialog_title_lock_timeout">Auto-lock time-out</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Op slot bij schermbeveiliging</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Kluis sluiten als schermbeveiliging start</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Toetsenblok</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Gebruik een keypad om het hoofdwachtwoord in te voeren</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Toetsenblok stil</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Geen geluiden bij gebruik toetsenblok</string>
+
+  <string name="pref_title_autobackup">Automatische backup</string>
+  <string name="pref_summary_autobackup">Automatisch voorstellen om wachtwoorden te back-uppen</string>
+
+  <string name="pref_title_autobackup_days">Dagen voor automatische back-up</string>
+  <string name="pref_summary_autobackup_days">Aantal dagen tot de volgende automatische back-up</string>
+  <string name="pref_dialog_title_autobackup_days">Dagen automatische back-up</string>
+
+  <string name="pref_title_backup_path">Standaard pad voor back-ups</string>
+  <string name="pref_title_export_path">Standaard exporteer pad</string>
+
+
+  <string name="intent_decrypt">Ontsleutelen (OI Kluis)</string>
+  <string name="intent_encrypt">Versleutelen (OI Kluis)</string>
+  <string name="intent_get_password">Wachtwoord verkrijgen (OI Kluis)</string>
+  <string name="intent_set_password">Wachtwoord instellen (OI Kluis)</string>
+  <string name="intent_restart_timer">Timer herstarten (OI Kluis)</string>
+  <string name="open_safe">OI Kluis openen</string>
+  <string name="lock">Vergrendel</string>
+  <string name="continue_text">Verder</string>
+  <string name="generate_password">Wachtwoord aanmaken</string>
+  <string name="pass_gen_length">Lengte van het wachtwoord</string>
+  <string name="pass_gen_uppercase">Hoofdletters [A-Z]</string>
+  <string name="pass_gen_lowercase">Kleine letters [a-z]</string>
+  <string name="pass_gen_numbers">Nummers [0-9]</string>
+  <string name="pass_gen_symbols">Symbolen [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Kopiëren naar huidig item</string>
+  <string name="pass_gen_copy_to_clipboard">Kopiëren naar klembord</string>
+  <string name="cancel">Annuleren</string>
+  <string name="discard_changes">Wijzigingen verwerpen</string>
+  <string name="entry_saved">Item opgeslagen</string>
+  <string name="entry_save_error">Kon niet opslaan vanwege database-fout</string>
+  <string name="last_edited">Laatst gewijzigd</string>
+  <string name="last_edited_unknown">onbekend</string>
+  <string name="crypto_error">Crypto-fout:</string>
+  <string name="uniquename">Unieke naam</string>
+  <string name="package_access">Toegang tot pakket</string>
+  <string name="not_found">niet gevonden</string>
+  <string name="dialog_title_first_time_warning">Nieuwe hoofdsleutel</string>
+  <string name="dialog_summary_first_time_warning">Er is een nieuwe, willekeurige hoofdsleutel aangemaakt. Sla de sleutel op op een veilige plek via Menu %gt; Back-up en herstel. Zonder deze sleutel loop je kans beveiligde data kwijt te raken.</string>
+  <string name="switch_mode">Modus wijzigen</string>
+  <string name="decrypt_progress">Bezig met ontsleutelen...</string>
+  <string name="search">Zoeken</string>
+  <string name="search_progress">Bezig met zoeken…</string>
+  <string name="search_hint">Zoekopdracht invoeren</string>
+  <string name="search_nothing_found">Niets gevonden</string>
+  <string name="mute">Dempen</string>
+  <string name="sounds">Geluiden</string>
+  <string name="previous">Vorige</string>
+  <string name="next">Volgende</string>
+  <string name="autobackup">Automatische back-up</string>
+  <string name="backup_never">Er nog geen back-up gemaakt. Wil je er nu een maken?</string>
+  <string name="backup_in_days">Er is %d dag(en) geleden voor het laatst een back-up gemaakt. Wil je er nu een maken?</string>
+  <string name="autobackup_turnoff">Schakel automatische back-up uit.</string>
+  <string name="lock_timeout">Tijd tot automatische vergrendeling: %s</string>
+  <string name="download_oi_filemanager">Zonder download wordt de standaard locatie gebruikt.</string>
+  <string name="backup_file_found">Er is een backup-bestand gevonden. Wilt u deze herstellen?</string>
+  <string name="backup_file_found_label">Backup bestand gevonden.</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">krijg toegang tot het hoofdwachtwoord</string>
+  <string name="oi_safe_permission_service_descr">Staat de app toe om de hoofdsleutel te gebruiken voor versleutelen en ontsleutelen. Nooit gebruiken, behalve voor OI Kluis.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">data versleutelen en ontsleutelen</string>
+  <string name="oi_safe_permission_intents_descr">Laat de app tekst versleutelen en ontsleutelen, en geeft toegang tot de wachtwoorden in OI Kluis.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 minuut</item>
+    <item>5 minuten</item>
+    <item>10 minuten</item>
+    <item>15 minuten</item>
+    <item>30 minuten</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 dag</item>
+    <item>7 dagen</item>
+    <item>30 dagen</item>
+    <item>60 dagen</item>
+  </string-array>
+
+
 </resources>

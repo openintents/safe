@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * $Id$
 * 
 * Copyright 2008 Steven Osborn and Randy McEoin
@@ -18,35 +17,42 @@
 *
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	
-	<TextView android:id="@+id/restore_filename_lbl"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/filename" />
-	<TextView android:id="@+id/restore_filename"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"/>
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
 
-	<TextView android:id="@+id/restore_info"
-		android:paddingTop="10sp"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"/>
+  <TextView
+    android:id="@+id/restore_filename_lbl"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/filename" />
 
-	<EditText android:id="@+id/restore_password"
-		android:visibility="invisible" 
-		android:password="true"
-		android:hint="@string/master_password"
-		android:autoText="false"
-		android:singleLine="true"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
+  <TextView
+    android:id="@+id/restore_filename"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" />
 
-	<Button android:id="@+id/restore_button" 
-		android:visibility="invisible" 
-		android:text="@string/restore"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />	
+  <TextView
+    android:id="@+id/restore_info"
+    android:paddingTop="10sp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" />
+
+  <EditText
+    android:id="@+id/restore_password"
+    android:visibility="invisible"
+    android:password="true"
+    android:hint="@string/master_password"
+    android:autoText="false"
+    android:singleLine="true"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" />
+
+  <Button
+    android:id="@+id/restore_button"
+    android:visibility="invisible"
+    android:text="@string/restore"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
 
 </LinearLayout>	

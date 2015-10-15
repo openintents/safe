@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,284 +15,284 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Dvir Oren https://launchpad.net/~dvir0776
   Neta Oren https://launchpad.net/~netao212
   OpenIntents devs https://launchpad.net/~openintents-devs
   Yaron https://launchpad.net/~sh-yaron</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">כספת OI</string>
-    <string name="empty_safe">אין סיסמא נוכחת עבור קטגוריה זו</string>
-    <string name="empty_category">אין קטגוריות נוכחות. אנא הוסף אחת דרך  Menu-&gt;Add</string>
-    <string name="password_lock">נעילה</string>
-    <string name="password_view">הצג</string>
-    <string name="password_edit">ערוך</string>
-    <string name="password_add">הוספה</string>
-    <string name="password_delete">מחיקה</string>
-    <string name="password">סיסמא</string>
-    <string name="passwords">סיסמאות</string>
-    <string name="master_password">סיסמא ראשית</string>
-    <string name="username">שם משתמש</string>
-    <string name="website">אתר</string>
-    <string name="description">תיאור</string>
-    <string name="notes">הערות</string>
-    <string name="save">שמירה</string>
-    <string name="invalid_password">סיסמא שגויה. אנא נסה שוב.</string>
-    <string name="notify_blank_pass">סיסמא חייבת להיות באורך של ארבעה תווים לפחות</string>
-    <string name="notify_blank_desc">תיאורים לא יכולים להיות ריקים.</string>
-    <string name="notify_blank_name">שם לא יכול להיות ריק</string>
-    <string name="first_time">אנא הכנס סיסמא למטה, שתשמור על הסיסמאות שלך בטוחות.</string>
+
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Store your private data with OI Safe.</string>
+
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">כספת OI</string>
+  <string name="empty_safe">אין סיסמא נוכחת עבור קטגוריה זו</string>
+  <string name="empty_category">אין קטגוריות נוכחות. אנא הוסף אחת דרך  Menu-&gt;Add</string>
+  <string name="password_lock">נעילה</string>
+  <string name="password_view">הצג</string>
+  <string name="password_edit">ערוך</string>
+  <string name="password_add">הוספה</string>
+  <string name="password_delete">מחיקה</string>
+  <string name="password">סיסמא</string>
+  <string name="passwords">סיסמאות</string>
+  <string name="master_password">סיסמא ראשית</string>
+  <string name="username">שם משתמש</string>
+  <string name="website">אתר</string>
+  <string name="description">תיאור</string>
+  <string name="notes">הערות</string>
+  <string name="save">שמירה</string>
+  <string name="invalid_password">סיסמא שגויה. אנא נסה שוב.</string>
+  <string name="notify_blank_pass">סיסמא חייבת להיות באורך של ארבעה תווים לפחות</string>
+  <string name="notify_blank_desc">תיאורים לא יכולים להיות ריקים.</string>
+  <string name="notify_blank_name">שם לא יכול להיות ריק</string>
+  <string name="first_time">אנא הכנס סיסמא למטה, שתשמור על הסיסמאות שלך בטוחות.</string>
     <string name="logoff_explanation">אתה כרגע מחובר לכספת OI, מה שאומר שיישומים אחרים יכולים לבקש את הסיסמא שלהם לפענח/להצפין מידע.
 בצע נעילה כדי למנוע כניסה עד שאתה כותב את סיסמתך שוב.</string>
-    <string name="remote_ask">יישום אחר מבקש ממך רשות להשתמש במפתח הראשי. אנא כתוב את סיסמתך כדי לאשר זאת.</string>
-    <string name="categories">קטגוריות</string>
-	<string name="category">קטגוריה</string>
-    <string name="category_business">עסקים</string>
-    <string name="category_personal">אישי</string>
-    <string name="name">שם</string>
-    <string name="category_not_empty">קטגוריה לא ריקה. אתה חייב למחוק את הסיסמאות קודם</string>
-	<string name="cannot_decrypt_category">לא ניתן לפענח קטגוריה</string>
-	<string name="cannot_decrypt_password">לא ניתן לפענח סיסמא</string>
-	<string name="error_export">שגיאה במהלך ייצוא מסד הנתונים</string>
-	<string name="export_database">ייצוא מסד נתונים</string>
-	<string name="export_file_select">Select a file for export</string>
+  <string name="remote_ask">יישום אחר מבקש ממך רשות להשתמש במפתח הראשי. אנא כתוב את סיסמתך כדי לאשר זאת.</string>
+  <string name="categories">קטגוריות</string>
+  <string name="category">קטגוריה</string>
+  <string name="category_business">עסקים</string>
+  <string name="category_personal">אישי</string>
+  <string name="name">שם</string>
+  <string name="category_not_empty">קטגוריה לא ריקה. אתה חייב למחוק את הסיסמאות קודם</string>
+  <string name="cannot_decrypt_category">לא ניתן לפענח קטגוריה</string>
+  <string name="cannot_decrypt_password">לא ניתן לפענח סיסמא</string>
+  <string name="error_export">שגיאה במהלך ייצוא מסד הנתונים</string>
+  <string name="export_database">ייצוא מסד נתונים</string>
+  <string name="export_file_select">Select a file for export</string>
 	<string name="export_msg">זה ייצא את מסד הנתונים של הסיסמאות לקובץ טקסט. זה מאוד מסוכן! אנא וודא שאתה מוחק את הקובץ לאחר שתסיים איתו.
 האם אתה בטוח שברצונך לייצא?</string>
-	<string name="export_success">ייצוא אל \'%s\' הושלם בהצלחה. אזהרה! הקובץ אינו מוצפן.</string>
-	<string name="export_file_error">לא ניתן לייצא קובץ oisafe.csv על SDCARD. אתה יכול לנסות לנתק את ה- USB מהמחשב.</string>
-	<string name="import_database">ייבוא מסד נתונים</string>
-	<string name="import_file_select">Select a file for import</string>
-	<string name="import_file_missing">ייבוא קובץ חסר:</string>
-	<string name="import_file_error">לא ניתן לייבא קובץ oisafe.csv מן SDCARD. אתה יכול לנסות לנתק את ה- USB מהמחשב.</string>
-	<string name="import_error_first_line">חסר בשורה הראשונה שדות.</string>
-	<string name="dialog_import_title">ייבוא</string>
-	<string name="dialog_import_msg">האם אתה רוצה להחליף את מסד הנתונים (ייבוא מן %s)?</string>
-	<string name="yes">כן</string>
-	<string name="no">לא</string>
-	<string name="import_progress">אנא חכה בזמן הייבוא...</string>
-	<string name="import_no_categories">לא נמצאו קטגוריות.</string>
-	<string name="import_no_entries">לא נמצאו רשומות בתוך CSV.</string>
-	<string name="import_too_many_categories">יותר מדי קטגוריות.</string>
-	<string name="import_not_enough_fields">אין מספיק שדות</string>
-	<string name="import_blank_category">קטגוריה ריקה.</string>
-	<string name="import_blank_description">תיאור ריק</string>
-	<string name="dialog_delete_database_title">מחק מסד נתונים</string>
-	<string name="dialog_delete_database_msg">האם אתה בטוח שברצונך למחוק את מסד הנתונים? אי אפשר לבטל פעולה זו אחר כך.</string>
-	<string name="added">נוסף</string>
-	<string name="entries">רשומות</string>
-	<string name="import_complete">ייבוא הושלם</string>
-	<string name="import_delete_csv">מאחר וזה לא בטוח לשמור סיסמאות בטקסט ברור בקובץ CSV, האם תרצה למחוק</string>
-	<string name="edit_entry">ערוך רשומה</string>
-	<string name="view_entry">הצג רשומה</string>
-	<string name="help">עזרה</string>
-	<string name="close">סגור</string>
-	<string name="go">עבור</string>
-	<string name="dialog_delete_password_title">מחק סיסמא.</string>
-	<string name="dialog_delete_password_msg">האם אתה בטוח שברצונך למחוק סיסמא זו?</string>
-	<string name="change_password">שנה סיסמא ראשית</string>
+  <string name="export_success">ייצוא אל \'%s\' הושלם בהצלחה. אזהרה! הקובץ אינו מוצפן.</string>
+  <string name="export_file_error">לא ניתן לייצא קובץ oisafe.csv על SDCARD. אתה יכול לנסות לנתק את ה- USB מהמחשב.</string>
+  <string name="import_database">ייבוא מסד נתונים</string>
+  <string name="import_file_select">Select a file for import</string>
+  <string name="import_file_missing">ייבוא קובץ חסר:</string>
+  <string name="import_file_error">לא ניתן לייבא קובץ oisafe.csv מן SDCARD. אתה יכול לנסות לנתק את ה- USB מהמחשב.</string>
+  <string name="import_error_first_line">חסר בשורה הראשונה שדות.</string>
+  <string name="dialog_import_title">ייבוא</string>
+  <string name="dialog_import_msg">האם אתה רוצה להחליף את מסד הנתונים (ייבוא מן %s)?</string>
+  <string name="yes">כן</string>
+  <string name="no">לא</string>
+  <string name="import_progress">אנא חכה בזמן הייבוא...</string>
+  <string name="import_no_categories">לא נמצאו קטגוריות.</string>
+  <string name="import_no_entries">לא נמצאו רשומות בתוך CSV.</string>
+  <string name="import_too_many_categories">יותר מדי קטגוריות.</string>
+  <string name="import_not_enough_fields">אין מספיק שדות</string>
+  <string name="import_blank_category">קטגוריה ריקה.</string>
+  <string name="import_blank_description">תיאור ריק</string>
+  <string name="dialog_delete_database_title">מחק מסד נתונים</string>
+  <string name="dialog_delete_database_msg">האם אתה בטוח שברצונך למחוק את מסד הנתונים? אי אפשר לבטל פעולה זו אחר כך.</string>
+  <string name="added">נוסף</string>
+  <string name="entries">רשומות</string>
+  <string name="import_complete">ייבוא הושלם</string>
+  <string name="import_delete_csv">מאחר וזה לא בטוח לשמור סיסמאות בטקסט ברור בקובץ CSV, האם תרצה למחוק</string>
+  <string name="edit_entry">ערוך רשומה</string>
+  <string name="view_entry">הצג רשומה</string>
+  <string name="help">עזרה</string>
+  <string name="close">סגור</string>
+  <string name="go">עבור</string>
+  <string name="dialog_delete_password_title">מחק סיסמא.</string>
+  <string name="dialog_delete_password_msg">האם אתה בטוח שברצונך למחוק סיסמא זו?</string>
+  <string name="change_password">שנה סיסמא ראשית</string>
 	<string name="chg_pass_explaination">השתמש בזאת כדי לשנות את הסיסמא שלך לפתיחת כספת OI. המידע שלך יוצפן שוב עם הסיסמא החדשה.
 ככל שהסיסמא מורכבת יותר, כך המידע שלך יהיה יותר בטוח.</string>
-	<string name="old_password">סיסמא ישנה</string>
-	<string name="new_password">סיסמא חדשה</string>
-	<string name="verify_password">אמת סיסמא</string>
-	<string name="new_verify_mismatch">הסיסמא המאומתת והסיסמא החדשה לא תואמות.</string>
-    <string name="invalid_old_password">סיסמא ישנה לא נכונה. אנא נסה שוב.</string>
-    <string name="error_changing_password">שגיאה במהלך שינוי הסיסמה</string>
-    <string name="password_changed">סיסמא ראשית שונתה</string>
-    <string name="confirm">אישור</string>
-    <string name="confirm_pass_fail">הסיסמאות שהזנת אינן תואמות</string>
-    <string name="backup">גיבוי</string>
-    <string name="backup_progress">מגבה אל</string>
-    <string name="backup_complete">הושלם. סיסמאות שגובו:</string>
-    <string name="backup_failed">תהליך הגיבוי נכשל:</string>
-	<string name="backup_select_file">Select a file for backup</string>
-	<string name="backup_error">Error while backing up</string>
-    <string name="restore">שחזור</string>
-    <string name="filename">שם הקובץ</string>
-    <string name="restore_no_file">קובץ גיבוי לא נמצא. אתה תיאלץ לבצע גיבוי כדכי ליצור אותו. או להעתיק קובץ גיבוי מהמחשב שלך.</string>
-    <string name="restore_set_password">אנא ספק את הסיסמא ששומשה על ידי קובץ הגיבוי. הסיסמא הראשית שלך תהיה סיסמא זו.</string>
-	<string name="restore_select_file">Select a file for restore</string>
-	<string name="restore_error">Error while restoring</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">לא יכול לפתוח קובץ: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">גרסה לא נתמכת : %s</string>
-    
-    <string name="restore_decrypt_error">סיסמא גרועה.</string>
-    <string name="dialog_restore_database_title">שחזר מסד נתונים</string>
-    <string name="dialog_restore_database_msg">האם אתה בטוח שברצונך להחליף את המידע הנוכחי?</string>
-    <string name="restore_found">נמצאו %1$s סיסמאות ממידע גיבוי %2$s.</string>
-    <string name="restore_complete">הושלם. סיסמאות ששוחזרו : %s</string>
-    <string name="copied_to_clipboard">הועתק ללוח</string>
-    <string name="invalid_website">אתר שגוי</string>
-    <string name="database_error_title">שגיאת מסד נתונים</string>
-    <string name="database_error_msg">שגיאה במסד הנתונים. נגמר המקום?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">פתח</string>
-    
-    <string name="database_version_error_title">טעות גרסא של מסד הנתונים</string>
-    <string name="database_version_error_msg">סליחה, אבל גרסה זו של מסד הנתונים אינה נתמכת. אתה חייב להתקין  גרסה שמותאמת למסד נתונים זה.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">העבר</string>
-	
-	<string name="move_select">בחר קטגוריה</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">הועבד אל %s</string>
-	
-	<string name="preferences">הגדרות</string>
-	<string name="pref_title_external_access">הרשה גישה חיצונית</string>
-	<string name="pref_summary_external_access">הרשה ליישומים אחרים לאבטח את המידע שלך עם כספת OI</string>
-	<string name="dialog_title_external_access">כספת OI : יישום אחר מבקש גישה.</string>
-	<string name="dialog_summary_external_access">הרשה ליישומים אחרים לאבטח את המידע שלך עם כספת OI.</string>
-	<string name="dialog_comment_external_access">זה יכול להיקבע גם בתפריט כספת OI/ הגדרות.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">פסק זמן נעילה אוטומטית</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">מספר הדקות לפני שפסק הזמן מתרחש והכספת ננעלת</string>
-	
-	<string name="pref_dialog_title_lock_timeout">פסק זמן נעילה אוטומטית</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">נעל במנעול המסך</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">נעל כשהמסך ננעל</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">לוח מקשים</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">השתמש בלוח מקשים כדי להכניס סיסמא ראשית</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">השתקת לוח מקשים</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">השתק צלילי לוח מקשים</string>
+  <string name="old_password">סיסמא ישנה</string>
+  <string name="new_password">סיסמא חדשה</string>
+  <string name="verify_password">אמת סיסמא</string>
+  <string name="new_verify_mismatch">הסיסמא המאומתת והסיסמא החדשה לא תואמות.</string>
+  <string name="invalid_old_password">סיסמא ישנה לא נכונה. אנא נסה שוב.</string>
+  <string name="error_changing_password">שגיאה במהלך שינוי הסיסמה</string>
+  <string name="password_changed">סיסמא ראשית שונתה</string>
+  <string name="confirm">אישור</string>
+  <string name="confirm_pass_fail">הסיסמאות שהזנת אינן תואמות</string>
+  <string name="backup">גיבוי</string>
+  <string name="backup_progress">מגבה אל</string>
+  <string name="backup_complete">הושלם. סיסמאות שגובו:</string>
+  <string name="backup_failed">תהליך הגיבוי נכשל:</string>
+  <string name="backup_select_file">Select a file for backup</string>
+  <string name="backup_error">Error while backing up</string>
+  <string name="restore">שחזור</string>
+  <string name="filename">שם הקובץ</string>
+  <string name="restore_no_file">קובץ גיבוי לא נמצא. אתה תיאלץ לבצע גיבוי כדכי ליצור אותו. או להעתיק קובץ גיבוי מהמחשב שלך.</string>
+  <string name="restore_set_password">אנא ספק את הסיסמא ששומשה על ידי קובץ הגיבוי. הסיסמא הראשית שלך תהיה סיסמא זו.</string>
+  <string name="restore_select_file">Select a file for restore</string>
+  <string name="restore_error">Error while restoring</string>
 
-	<string name="pref_title_autobackup">גיבוי אוטומטי</string>
-	<string name="pref_summary_autobackup">בצע אוטומטית את הפקודה לגבות סיסמאות</string>
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">לא יכול לפתוח קובץ: %s</string>
 
-	<string name="pref_title_autobackup_days">ימי גיבוי אוטומטי</string>
-	<string name="pref_summary_autobackup_days">מספר הימים שיש לחכות לפני הגיבוי האוטומטי הבא</string>
-	<string name="pref_dialog_title_autobackup_days">ימי גיבוי אוטומטי</string>
-	
-	<string name="pref_title_backup_path">Default backup path</string>
-	<string name="pref_title_export_path">Default export path</string>
-	    
-	
-	<string name="intent_decrypt">פענח (כספת OI)</string>
-	<string name="intent_encrypt">הצפן (כספת OI)</string>
-	<string name="intent_get_password">השג סיסמא (כספת OI)</string>
-	<string name="intent_set_password">קבע סיסמא (כספת OI)</string>
-	<string name="intent_restart_timer">הפעל מחדש טיימר (כספת OI)</string>
-	<string name="open_safe">פתח כספת OI</string>
-	<string name="lock">נעילה</string>
-	<string name="continue_text">המשך</string>
-	<string name="generate_password">יצר סיסמא</string>
-	<string name="pass_gen_length">אורך סיסמא</string>
-	<string name="pass_gen_uppercase">אותיות גדולות [A-Z]</string>
-	<string name="pass_gen_lowercase">אותיות קטנות [A-Z]</string>
-	<string name="pass_gen_numbers">מספרים [0-9]</string>
-	<string name="pass_gen_symbols">סימנים [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">העתק לרשומה נוכחית</string>
-	<string name="pass_gen_copy_to_clipboard">העתקה ללוח העריכה</string>
-	<string name="cancel">ביטול</string>
-	<string name="discard_changes">ביטול השינויים</string>
-	<string name="entry_saved">רשומה נשמרה</string>
-	<string name="entry_save_error">לא ניתן לשמור מידע עקב שגיאה במסד הנתונים</string>
-	<string name="last_edited">נערך לאחרונה</string>
-	<string name="last_edited_unknown">לא ידוע</string>
-	<string name="crypto_error">טעות הצפנה:</string>
-	<string name="uniquename">שם מיוחד</string>
-	<string name="package_access">כניסה לחבילה</string>
-	<string name="not_found">לא נמצא</string>
-	<string name="dialog_title_first_time_warning">מפתח ראשי חדש</string>
-	<string name="dialog_summary_first_time_warning">מפתח ראשי חדש נוצר. השתמש בתפריט &gt; גבא ואחסן מפתח זה במקום בטוח. בלי מפתח זה אתה עלול לאבד מידע מוצפן.</string>
-	<string name="switch_mode">החלף מצב</string>
-	<string name="decrypt_progress">מפענח...</string>
-	<string name="search">חיפוש</string>
-	<string name="search_progress">בהליכי חיפוש...</string>
-	<string name="search_hint">הכנס קריטיריוני חיפוש</string>
-	<string name="search_nothing_found">לא נמצא דבר</string>
-	<string name="mute">השתק</string>
-	<string name="sounds">צלילים</string>
-	<string name="previous">הקודם</string>
-	<string name="next">הבא</string>
-	<string name="autobackup">גיבוי אוטומטי</string>
-	<string name="backup_never">לא התבצע שום גיבוי עדיין. האם תרצה לבצע גיבוי כעת?</string>
-	<string name="backup_in_days">הגיבוי האחרון היה לפני %d ימים. האם תרצע לבצע גיבוי כעת?</string>
-	<string name="autobackup_turnoff">כבה גיבוי אוטומטי</string>
-	<string name="lock_timeout">Time to autolock: %s </string>
-	<string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">גרסה לא נתמכת : %s</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">היכנס למפתח הראשי</string>
-	<string name="oi_safe_permission_service_descr">מאשר ליישום להיכנס למפתח הראשי ששומש להצפנה ולפענוח. אין להשתמש בו לעולם, אלא רק על ידי כספת OI.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">הצפן ופענח מידע</string>
-    <string name="oi_safe_permission_intents_descr">הרשה ליישום להצפין ולפענח טקסט, ולהיכנס לסיסמאות שהם אחסנו בכספת OI.</string>	
+  <string name="restore_decrypt_error">סיסמא גרועה.</string>
+  <string name="dialog_restore_database_title">שחזר מסד נתונים</string>
+  <string name="dialog_restore_database_msg">האם אתה בטוח שברצונך להחליף את המידע הנוכחי?</string>
+  <string name="restore_found">נמצאו %1$s סיסמאות ממידע גיבוי %2$s.</string>
+  <string name="restore_complete">הושלם. סיסמאות ששוחזרו : %s</string>
+  <string name="copied_to_clipboard">הועתק ללוח</string>
+  <string name="invalid_website">אתר שגוי</string>
+  <string name="database_error_title">שגיאת מסד נתונים</string>
+  <string name="database_error_msg">שגיאה במסד הנתונים. נגמר המקום?</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Menu label to open a category -->
+  <string name="open">פתח</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>דקה אחת</item>
-        <item>5 דקות</item>
-        <item>10 דקות</item>
-        <item>15 דקות</item>
-        <item>30 דקות</item>  
-    </string-array>
+  <string name="database_version_error_title">טעות גרסא של מסד הנתונים</string>
+  <string name="database_version_error_msg">סליחה, אבל גרסה זו של מסד הנתונים אינה נתמכת. אתה חייב להתקין  גרסה שמותאמת למסד נתונים זה.</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>יום אחד</item>
-        <item>שבעה ימים</item>
-        <item>30 יום</item>
-        <item>60 יום</item>
-    </string-array>
-        
-        
+  <!-- Menu label to move a password to another category -->
+  <string name="move">העבר</string>
+
+  <string name="move_select">בחר קטגוריה</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">הועבד אל %s</string>
+
+  <string name="preferences">הגדרות</string>
+  <string name="pref_title_external_access">הרשה גישה חיצונית</string>
+  <string name="pref_summary_external_access">הרשה ליישומים אחרים לאבטח את המידע שלך עם כספת OI</string>
+  <string name="dialog_title_external_access">כספת OI : יישום אחר מבקש גישה.</string>
+  <string name="dialog_summary_external_access">הרשה ליישומים אחרים לאבטח את המידע שלך עם כספת OI.</string>
+  <string name="dialog_comment_external_access">זה יכול להיקבע גם בתפריט כספת OI/ הגדרות.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">פסק זמן נעילה אוטומטית</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">מספר הדקות לפני שפסק הזמן מתרחש והכספת ננעלת</string>
+
+  <string name="pref_dialog_title_lock_timeout">פסק זמן נעילה אוטומטית</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">נעל במנעול המסך</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">נעל כשהמסך ננעל</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">לוח מקשים</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">השתמש בלוח מקשים כדי להכניס סיסמא ראשית</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">השתקת לוח מקשים</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">השתק צלילי לוח מקשים</string>
+
+  <string name="pref_title_autobackup">גיבוי אוטומטי</string>
+  <string name="pref_summary_autobackup">בצע אוטומטית את הפקודה לגבות סיסמאות</string>
+
+  <string name="pref_title_autobackup_days">ימי גיבוי אוטומטי</string>
+  <string name="pref_summary_autobackup_days">מספר הימים שיש לחכות לפני הגיבוי האוטומטי הבא</string>
+  <string name="pref_dialog_title_autobackup_days">ימי גיבוי אוטומטי</string>
+
+  <string name="pref_title_backup_path">Default backup path</string>
+  <string name="pref_title_export_path">Default export path</string>
+
+
+  <string name="intent_decrypt">פענח (כספת OI)</string>
+  <string name="intent_encrypt">הצפן (כספת OI)</string>
+  <string name="intent_get_password">השג סיסמא (כספת OI)</string>
+  <string name="intent_set_password">קבע סיסמא (כספת OI)</string>
+  <string name="intent_restart_timer">הפעל מחדש טיימר (כספת OI)</string>
+  <string name="open_safe">פתח כספת OI</string>
+  <string name="lock">נעילה</string>
+  <string name="continue_text">המשך</string>
+  <string name="generate_password">יצר סיסמא</string>
+  <string name="pass_gen_length">אורך סיסמא</string>
+  <string name="pass_gen_uppercase">אותיות גדולות [A-Z]</string>
+  <string name="pass_gen_lowercase">אותיות קטנות [A-Z]</string>
+  <string name="pass_gen_numbers">מספרים [0-9]</string>
+  <string name="pass_gen_symbols">סימנים [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">העתק לרשומה נוכחית</string>
+  <string name="pass_gen_copy_to_clipboard">העתקה ללוח העריכה</string>
+  <string name="cancel">ביטול</string>
+  <string name="discard_changes">ביטול השינויים</string>
+  <string name="entry_saved">רשומה נשמרה</string>
+  <string name="entry_save_error">לא ניתן לשמור מידע עקב שגיאה במסד הנתונים</string>
+  <string name="last_edited">נערך לאחרונה</string>
+  <string name="last_edited_unknown">לא ידוע</string>
+  <string name="crypto_error">טעות הצפנה:</string>
+  <string name="uniquename">שם מיוחד</string>
+  <string name="package_access">כניסה לחבילה</string>
+  <string name="not_found">לא נמצא</string>
+  <string name="dialog_title_first_time_warning">מפתח ראשי חדש</string>
+  <string name="dialog_summary_first_time_warning">מפתח ראשי חדש נוצר. השתמש בתפריט &gt; גבא ואחסן מפתח זה במקום בטוח. בלי מפתח זה אתה עלול לאבד מידע מוצפן.</string>
+  <string name="switch_mode">החלף מצב</string>
+  <string name="decrypt_progress">מפענח...</string>
+  <string name="search">חיפוש</string>
+  <string name="search_progress">בהליכי חיפוש...</string>
+  <string name="search_hint">הכנס קריטיריוני חיפוש</string>
+  <string name="search_nothing_found">לא נמצא דבר</string>
+  <string name="mute">השתק</string>
+  <string name="sounds">צלילים</string>
+  <string name="previous">הקודם</string>
+  <string name="next">הבא</string>
+  <string name="autobackup">גיבוי אוטומטי</string>
+  <string name="backup_never">לא התבצע שום גיבוי עדיין. האם תרצה לבצע גיבוי כעת?</string>
+  <string name="backup_in_days">הגיבוי האחרון היה לפני %d ימים. האם תרצע לבצע גיבוי כעת?</string>
+  <string name="autobackup_turnoff">כבה גיבוי אוטומטי</string>
+  <string name="lock_timeout">Time to autolock: %s </string>
+  <string name="download_oi_filemanager">While not downloaded, default location will be used.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">היכנס למפתח הראשי</string>
+  <string name="oi_safe_permission_service_descr">מאשר ליישום להיכנס למפתח הראשי ששומש להצפנה ולפענוח. אין להשתמש בו לעולם, אלא רק על ידי כספת OI.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">הצפן ופענח מידע</string>
+  <string name="oi_safe_permission_intents_descr">הרשה ליישום להצפין ולפענח טקסט, ולהיכנס לסיסמאות שהם אחסנו בכספת OI.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>דקה אחת</item>
+    <item>5 דקות</item>
+    <item>10 דקות</item>
+    <item>15 דקות</item>
+    <item>30 דקות</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>יום אחד</item>
+    <item>שבעה ימים</item>
+    <item>30 יום</item>
+    <item>60 יום</item>
+  </string-array>
+
+
 </resources>

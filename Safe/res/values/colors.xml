@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * $Id$
 * 
 * Copyright 2007 Steven Osborn
@@ -19,6 +18,6 @@
 -->
 
 <resources>
-        <drawable name="even_stripe">#e5edfa</drawable>
-        <drawable name="odd_stripe">#ffffff</drawable>
+  <drawable name="even_stripe">#e5edfa</drawable>
+  <drawable name="odd_stripe">#ffffff</drawable>
 </resources>

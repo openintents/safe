@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,282 +15,282 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Abdul-Rahim Nizamani https://launchpad.net/~ghaffari
   OpenIntents devs https://launchpad.net/~openintents-devs
   happynawani https://launchpad.net/~happynawani
   vishal panjwani https://launchpad.net/~vishal-panjwani15</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">पंजो निजी डाटा राख्यो OI सेफ सां गडद</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI सुरक्षित</string>
-    <string name="empty_safe">इन्ह श्रेणी लाये कोई पासवर्ड उपलब्ध काने</string>
-    <string name="empty_category">कोई श्रेणी उपलब्ध काने| कृपया सूची सां जोड्यो-&gt;जोड्यो</string>
-    <string name="password_lock">बंद कयो</string>
-    <string name="password_view">दृश्य</string>
-    <string name="password_edit">संपादित कयो</string>
-    <string name="password_add">जोड्यो</string>
-    <string name="password_delete">मिटायो</string>
-    <string name="password">पासवर्ड</string>
-    <string name="passwords">पासवर्ड्स</string>
-    <string name="master_password">मुख्य पासवर्ड</string>
-    <string name="username">उपयोक्तानाम</string>
-    <string name="website">वेबसाइट</string>
-    <string name="description">वर्णन</string>
-    <string name="notes">व्याखायूं</string>
-    <string name="save">सुरक्षित कयो</string>
-    <string name="invalid_password">गलत पासवर्ड| कृपया वारी सां प्रयास कयो</string>
-    <string name="notify_blank_pass">पासवर्ड कम से कम ४ अक्षरन जो  थ्यानो खप्पे</string>
-    <string name="notify_blank_desc">वर्णन खली  नत्थो थी सगे</string>
-    <string name="notify_blank_name">नाम खली नथो थी सगे</string>
-    <string name="first_time">कृपया हेठ हिक्क पासवर्ड विझ्यो, जेको तहान्जे पासवर्डन खे सुरक्षित रखन लाये प्रयोग थीन्दो</string>
-    <string name="logoff_explanation">अभी आप OI सुरक्षित में लोग इन आयो, अर्थात ब्या अनुप्रयोग पंजा पासवर्ड घुरी सगन ता अऊँ  डाटा खे गूढ़/विगूढ़ करेसगन ता | तहान्जो अगते वनण टेस ताणी मना आहे जेस ताणी तहां पासवर्ड वरी सां टाइप न कंदवा</string>
-    <string name="remote_ask">ब्यो अनुप्रयोग भी मुख्य पासवर्ड खे इस्तेमाल कारन लाये तो चएव| कृपया पंजो पासवर्ड लिख्यो</string>
-    <string name="categories">श्रेणियां</string>
-	<string name="category">श्रेणी</string>
-    <string name="category_business">व्यवसाय</string>
-    <string name="category_personal">निजी</string>
-    <string name="name">नाम</string>
-    <string name="category_not_empty">श्रेणी खाली काने| तहां पहरों पासवर्ड मिटायो</string>
-	<string name="cannot_decrypt_category">श्रेणी विकोड न ठे पाईन्दी</string>
-	<string name="cannot_decrypt_password">पासवर्ड विकोड न थी पाईन्दो</string>
-	<string name="error_export">डाटाबेस निर्यत कंदे समय त्रुटी थी</string>
-	<string name="export_database">डाटाबेस निर्यात कयो</string>
-	<string name="export_file_select">निर्यात लाये फाईल चुन्दयो</string>
-	<string name="export_msg">ईयो पासवर्ड खे डाटाबेस में साफ पद फाइल में निर्यात कंदों| ईयो दाड़ो खतरनाक आ| इन्ह फाइल खे इस्तेमाल करण खां पो मितायण जो ध्यान रख जो | शा तहां निर्यात करण चाह्यो ता</string>
-	<string name="export_success">\'%s\' निर्यात सफल| सूचना! ईया फाइल गोपनीय काने</string>
-	<string name="export_file_error">फाइल \'oisafe.csv\' SD कार्ड में निर्यात न थी पाई| तहां USB खे कंप्यूटर सां दिस्कन्नेक्ट करण जी  कोशिश करे तो सगीं</string>
-	<string name="import_database">डाटाबेस आयात कयो</string>
-	<string name="import_file_select">आयात करण लाये कोई फाईल चून्दयो</string>
-	<string name="import_file_missing">आयात फाइल लापता आहे</string>
-	<string name="import_file_error">फाइल \'oisafe.csv\' SD कार्ड में आयात न थी पाईन्दी| तहां USB खे कंप्यूटर सां दिस्कन्नेक्ट करण जी कोशिश कयो</string>
-	<string name="import_error_first_line">पहरिन लाइन लापता शेत्र में आ</string>
-	<string name="dialog_import_title">आयात</string>
-	<string name="dialog_import_msg">शा तहां डाटाबेस खे बदलन ता चाह्यो  (%s से आयत)?</string>
-	<string name="yes">हा</string>
-	<string name="no">न</string>
-	<string name="import_progress">कृपया इन्तेजार कयो आयत तो  थे</string>
-	<string name="import_no_categories">कोई श्रेणी न मिली</string>
-	<string name="import_no_entries">CSV में कोई एंट्री न मिली</string>
-	<string name="import_too_many_categories">दाढ़ी सारी श्रेणीयूं</string>
-	<string name="import_not_enough_fields">काफी शेत्र काने</string>
-	<string name="import_blank_category">खाली श्रेणी</string>
-	<string name="import_blank_description">खाली वर्णन</string>
-	<string name="dialog_delete_database_title">डाटाबेस मिटायो</string>
-	<string name="dialog_delete_database_msg">शा तहां इन्ह डाटाबेस खे मितायणता चाह्यो? ईयो मिति नथो सगे</string>
-	<string name="added">जुड़ जी यो</string>
-	<string name="entries">एंट्रिस</string>
-	<string name="import_complete">आयत पुरो थी वयो</string>
-	<string name="import_delete_csv">जोकि पासवर्ड खे साफ़ CSV फाइल में रखन उचित काने, शा तहां इन्न्खे हतायण चाहीन्दावा?</string>
-	<string name="edit_entry">एंट्री सम्पादित कयो</string>
-	<string name="view_entry">एंट्री दिखार्यो</string>
-	<string name="help">मदद</string>
-	<string name="close">बंद कयो</string>
-	<string name="go">वन्न्नो</string>
-	<string name="dialog_delete_password_title">पास्वोर्ड मिटायो</string>
-	<string name="dialog_delete_password_msg">शा तहां सहिय में पासवर्ड मितायण ता चाह्यो ?</string>
-	<string name="change_password">मुख्य पासवर्ड बदल्यो</string>
-	<string name="chg_pass_explaination">इन्हजो इस्तेमाल तहां OI सुरक्षित जे पासवर्ड खे बदलन लाये करे ता सगुन| तहान्जो डाटा वारी सां गोपनीय थी वेंदुवा| जेतरो जटिल तहान्जो पासवर्ड हून्दुवा, ओतरो ही तहां सुरक्षित रहन्दव</string>
-	<string name="old_password">पुराणों पास्वोर्ड</string>
-	<string name="new_password">नयो पास्वोर्ड</string>
-	<string name="verify_password">पासवर्ड सत्यापित कयो</string>
-	<string name="new_verify_mismatch">नयो अऊँ सत्यापित पासवर्ड नथा मिलन</string>
-    <string name="invalid_old_password">पुराणों पासवर्ड गलत तव| कृपया वारी सां कोशिश कयो</string>
-    <string name="error_changing_password">पासवर्ड बदलन में त्रुटि</string>
-    <string name="password_changed">मुख्या पासवर्ड बदल जी वयो</string>
-    <string name="confirm">पुष्टि कयो</string>
-    <string name="confirm_pass_fail">पासवर्ड एंट्रिया नथी मिलन</string>
-    <string name="backup">बैकअप</string>
-    <string name="backup_progress">बैकअप थे तो पयो</string>
-    <string name="backup_complete">:पूरा थ्यो| तहान्जो ईयो पासवर्ड बैकअप थे वयुव</string>
-    <string name="backup_failed">बैकुप नाकाम थी वयुव</string>
-	<string name="backup_select_file">बैकअप लाये फाईल चुन्दयो</string>
-	<string name="backup_error">बैकअप कड़े समय त्रुटी</string>
-    <string name="restore">वापस लायें</string>
-    <string name="filename">फाइल जो नाम</string>
-    <string name="restore_no_file">बैकअप  फाइल न मिली| तहान्खे पहरों बैकअप कारणों पवंदुव उन् खे ठायण लाये | या तहां कंप्यूटर मां   कॉपी क्कारे ता  सगो</string>
-    <string name="restore_set_password">कृपया पासवर्ड दयो बैकअप फाइल इस्तेमाल करण लाये | तहान्जो  मुख्य पासवर्ड इन्ह में  सेट थी वेंदुवा</string>
-	<string name="restore_select_file">रेस्टोर करण लाये फाईल चुन्दयो</string>
-	<string name="restore_error">रेस्टोर कंडे समय त्रुटी</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">फाइल खुलन में नाकामी: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">ईयो संस्करण समर्थित काने: %s</string>
-    
-    <string name="restore_decrypt_error">गन्दा पासवर्ड</string>
-    <string name="dialog_restore_database_title">डाटाबेस रेस्टोरे कयो</string>
-    <string name="dialog_restore_database_msg">शा तहां वर्तमान डाटा खे प्रतिस्थापित करण ता चाह्यो?</string>
-    <string name="restore_found">%2$s जे बैकअप में %1$s पास्वोर्ड मिलें</string>
-    <string name="restore_complete">पूरो थी वयो| %s पासवर्ड रेस्टोरे थी वयो</string>
-    <string name="copied_to_clipboard">क्लिप्बोअर्द में कॉपी थी बवयो</string>
-    <string name="invalid_website">वेबसाइट गलत तव</string>
-    <string name="database_error_title">डेटाबेस त्रुटि</string>
-    <string name="database_error_msg">\?डाटाबेस त्रुटि| शा जगह खतम  थी वई</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">खोल्यो</string>
-    
-    <string name="database_version_error_title">डाटाबेस संस्करण त्रुटि</string>
-    <string name="database_version_error_msg">माफ कयो, पर ईयो डाटाबेस जो संस्करण समर्थित काने|तहान्खे सही संस्करण खे इंस्टाल करनो पवंदुव</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">खिस्कयोस</string>
-	
-	<string name="move_select">श्रेणी चुन्दयो</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">%s में मोकले श्दयो</string>
-	
-	<string name="preferences">सेटिंग्स</string>
-	<string name="pref_title_external_access">बाहरी उपयोग प्रदान कयो</string>
-	<string name="pref_summary_external_access">ब्य्न अनुप्रयोगन खे तहान्जो  डाटा सुरक्षित करण जी अनुमति दीएन्दो  आ</string>
-	<string name="dialog_title_external_access">OI सुरक्षित: ब्यो अनुप्रयोग पहुचायण जी अनुमति तो घूरे</string>
-	<string name="dialog_summary_external_access">ब्य्न अनुप्रयोगन खे तहान्जो  डाटा सुरक्षित करण जी अनुमति दीएन्दो  आ</string>
-	<string name="dialog_comment_external_access">ईयो OI सुरक्षित जी मेनू/सेत्तिंग्स में भी बदल जी तोह  सगे</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">अपने आप लोकक करने का समये</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">मिनटन जी संख्या जेहेंखा पो टाइमआउट थीन्दो आ अऊँ सुरक्षित बंद थी वेंडी आ</string>
-	
-	<string name="pref_dialog_title_lock_timeout">अपने आप लोकक करने का समये</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">स्क्रीन बंद में बंद कयो</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">स्क्रीन बंद में बंद कयो</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">कीपैड</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">कीपद जो इस्तेनल कयो मुख्या प्पास्वोर्ड भरण लाये</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">कीपैड शांत</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">कीपैड कि आवाज़ बंद</string>
 
-	<string name="pref_title_autobackup">स्वतः बैकअप</string>
-	<string name="pref_summary_autobackup">स्वतः बैकअप का पासवर्ड खे पूछ्यो</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">पंजो निजी डाटा राख्यो OI सेफ सां गडद</string>
 
-	<string name="pref_title_autobackup_days">स्वतः बैकअप करण या दिन्यं</string>
-	<string name="pref_summary_autobackup_days">दिनों जी संख्या स्वतःबैकअप करण सां पहरों</string>
-	<string name="pref_dialog_title_autobackup_days">स्वतः बैकअप दिन</string>
-	
-	<string name="pref_title_backup_path">देफौल्ट बैकअप पथ</string>
-	<string name="pref_title_export_path">देफौल्ट निर्यात पथ</string>
-	    
-	
-	<string name="intent_decrypt">(विकोड (OI  सुरक्षित</string>
-	<string name="intent_encrypt">(गोपनीय(OI  सुरक्षित</string>
-	<string name="intent_get_password">(पासवर्ड लाए(OI  सुरक्षित</string>
-	<string name="intent_set_password">(पासवर्ड रख्यो(OI  सुरक्षित</string>
-	<string name="intent_restart_timer">(ताईमेर वारी सां चालू कयो (OI  सुरक्षित</string>
-	<string name="open_safe">OI सुरक्षित खोल्यो</string>
-	<string name="lock">बंद कयो</string>
-	<string name="continue_text">|जारी रख्यो</string>
-	<string name="generate_password">पासवर्ड ठायो</string>
-	<string name="pass_gen_length">पासवर्ड जी लम्बाई</string>
-	<string name="pass_gen_uppercase">[उपरी केस [A-Z</string>
-	<string name="pass_gen_lowercase">[निचारी केस [a-z</string>
-	<string name="pass_gen_numbers">[संख्या [०-९</string>
-	<string name="pass_gen_symbols">प्रतींको [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">वर्तमान एंट्री में कॉपी करें</string>
-	<string name="pass_gen_copy_to_clipboard">क्लिपबोर्ड में कॉपी करें</string>
-	<string name="cancel">|रद्द क्यो</string>
-	<string name="discard_changes">परिवर्तन फेंक छादयो</string>
-	<string name="entry_saved">एंट्री सुरक्षित थी वई</string>
-	<string name="entry_save_error">डाटाबेस त्रुटि जे कारण न बचाऐ सग्यास</string>
-	<string name="last_edited">आखरी बार संशोधित</string>
-	<string name="last_edited_unknown">अज्ञात</string>
-	<string name="crypto_error">क्रिप्टो त्रुटि:</string>
-	<string name="uniquename">अनूठा नाम</string>
-	<string name="package_access">पैकेज पहुँच</string>
-	<string name="not_found">नहीं मिला</string>
-	<string name="dialog_title_first_time_warning">नयी मुख्य चाबी</string>
-	<string name="dialog_summary_first_time_warning">हिक्क नयी क्रमरहित मुख्य चाबी ठई वई आ| इन्ह चाबीय खे सुरक्षित स्थान ते रखन लाये मेनू &gt;बैकुप जो प्रयोग कयो| इन्ह चाबीय जे बिना तहां पंजो डाटा खोएजी ता सगो</string>
-	<string name="switch_mode">मोड़े बदल्यो</string>
-	<string name="decrypt_progress">विकोड थे तो पयों</string>
-	<string name="search">खोजयो</string>
-	<string name="search_progress">खोज थे ती</string>
-	<string name="search_hint">खोजन जो मापदंड लिख्यो</string>
-	<string name="search_nothing_found">कुछ न मिल्यो</string>
-	<string name="mute">मूक</string>
-	<string name="sounds">आवाजें</string>
-	<string name="previous">पिछला</string>
-	<string name="next">अगला</string>
-	<string name="autobackup">स्वतः बैकअप</string>
-	<string name="backup_never">\?हिम्म्ल ताणी कोई बैकअप न थ्यो आ| शा तहां हिम्म्ल बैकअप करण चाहीन्दावा</string>
-	<string name="backup_in_days">हिम्म्ल ताणी कोई बैकअप न थ्यो आ| शा तहां हिम्म्ल बैकअप करण चाहीन्दावा ?</string>
-	<string name="autobackup_turnoff">स्वतः बैकअप बंद कयो</string>
-	<string name="lock_timeout">स्वतः लोक करण जो समय:%s</string>
-	<string name="download_oi_filemanager">जेस ताणी डाउनलोड नाथो  थे टेस ताणी देफौल्ट जगह इस्तेमाल थीन्दी</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI सुरक्षित</string>
+  <string name="empty_safe">इन्ह श्रेणी लाये कोई पासवर्ड उपलब्ध काने</string>
+  <string name="empty_category">कोई श्रेणी उपलब्ध काने| कृपया सूची सां जोड्यो-&gt;जोड्यो</string>
+  <string name="password_lock">बंद कयो</string>
+  <string name="password_view">दृश्य</string>
+  <string name="password_edit">संपादित कयो</string>
+  <string name="password_add">जोड्यो</string>
+  <string name="password_delete">मिटायो</string>
+  <string name="password">पासवर्ड</string>
+  <string name="passwords">पासवर्ड्स</string>
+  <string name="master_password">मुख्य पासवर्ड</string>
+  <string name="username">उपयोक्तानाम</string>
+  <string name="website">वेबसाइट</string>
+  <string name="description">वर्णन</string>
+  <string name="notes">व्याखायूं</string>
+  <string name="save">सुरक्षित कयो</string>
+  <string name="invalid_password">गलत पासवर्ड| कृपया वारी सां प्रयास कयो</string>
+  <string name="notify_blank_pass">पासवर्ड कम से कम ४ अक्षरन जो  थ्यानो खप्पे</string>
+  <string name="notify_blank_desc">वर्णन खली  नत्थो थी सगे</string>
+  <string name="notify_blank_name">नाम खली नथो थी सगे</string>
+  <string name="first_time">कृपया हेठ हिक्क पासवर्ड विझ्यो, जेको तहान्जे पासवर्डन खे सुरक्षित रखन लाये प्रयोग थीन्दो</string>
+  <string name="logoff_explanation">अभी आप OI सुरक्षित में लोग इन आयो, अर्थात ब्या अनुप्रयोग पंजा पासवर्ड घुरी सगन ता अऊँ  डाटा खे गूढ़/विगूढ़ करेसगन ता | तहान्जो अगते वनण टेस ताणी मना आहे जेस ताणी तहां पासवर्ड वरी सां टाइप न कंदवा</string>
+  <string name="remote_ask">ब्यो अनुप्रयोग भी मुख्य पासवर्ड खे इस्तेमाल कारन लाये तो चएव| कृपया पंजो पासवर्ड लिख्यो</string>
+  <string name="categories">श्रेणियां</string>
+  <string name="category">श्रेणी</string>
+  <string name="category_business">व्यवसाय</string>
+  <string name="category_personal">निजी</string>
+  <string name="name">नाम</string>
+  <string name="category_not_empty">श्रेणी खाली काने| तहां पहरों पासवर्ड मिटायो</string>
+  <string name="cannot_decrypt_category">श्रेणी विकोड न ठे पाईन्दी</string>
+  <string name="cannot_decrypt_password">पासवर्ड विकोड न थी पाईन्दो</string>
+  <string name="error_export">डाटाबेस निर्यत कंदे समय त्रुटी थी</string>
+  <string name="export_database">डाटाबेस निर्यात कयो</string>
+  <string name="export_file_select">निर्यात लाये फाईल चुन्दयो</string>
+  <string name="export_msg">ईयो पासवर्ड खे डाटाबेस में साफ पद फाइल में निर्यात कंदों| ईयो दाड़ो खतरनाक आ| इन्ह फाइल खे इस्तेमाल करण खां पो मितायण जो ध्यान रख जो | शा तहां निर्यात करण चाह्यो ता</string>
+  <string name="export_success">\'%s\' निर्यात सफल| सूचना! ईया फाइल गोपनीय काने</string>
+  <string name="export_file_error">फाइल \'oisafe.csv\' SD कार्ड में निर्यात न थी पाई| तहां USB खे कंप्यूटर सां दिस्कन्नेक्ट करण जी  कोशिश करे तो सगीं</string>
+  <string name="import_database">डाटाबेस आयात कयो</string>
+  <string name="import_file_select">आयात करण लाये कोई फाईल चून्दयो</string>
+  <string name="import_file_missing">आयात फाइल लापता आहे</string>
+  <string name="import_file_error">फाइल \'oisafe.csv\' SD कार्ड में आयात न थी पाईन्दी| तहां USB खे कंप्यूटर सां दिस्कन्नेक्ट करण जी कोशिश कयो</string>
+  <string name="import_error_first_line">पहरिन लाइन लापता शेत्र में आ</string>
+  <string name="dialog_import_title">आयात</string>
+  <string name="dialog_import_msg">शा तहां डाटाबेस खे बदलन ता चाह्यो  (%s से आयत)?</string>
+  <string name="yes">हा</string>
+  <string name="no">न</string>
+  <string name="import_progress">कृपया इन्तेजार कयो आयत तो  थे</string>
+  <string name="import_no_categories">कोई श्रेणी न मिली</string>
+  <string name="import_no_entries">CSV में कोई एंट्री न मिली</string>
+  <string name="import_too_many_categories">दाढ़ी सारी श्रेणीयूं</string>
+  <string name="import_not_enough_fields">काफी शेत्र काने</string>
+  <string name="import_blank_category">खाली श्रेणी</string>
+  <string name="import_blank_description">खाली वर्णन</string>
+  <string name="dialog_delete_database_title">डाटाबेस मिटायो</string>
+  <string name="dialog_delete_database_msg">शा तहां इन्ह डाटाबेस खे मितायणता चाह्यो? ईयो मिति नथो सगे</string>
+  <string name="added">जुड़ जी यो</string>
+  <string name="entries">एंट्रिस</string>
+  <string name="import_complete">आयत पुरो थी वयो</string>
+  <string name="import_delete_csv">जोकि पासवर्ड खे साफ़ CSV फाइल में रखन उचित काने, शा तहां इन्न्खे हतायण चाहीन्दावा?</string>
+  <string name="edit_entry">एंट्री सम्पादित कयो</string>
+  <string name="view_entry">एंट्री दिखार्यो</string>
+  <string name="help">मदद</string>
+  <string name="close">बंद कयो</string>
+  <string name="go">वन्न्नो</string>
+  <string name="dialog_delete_password_title">पास्वोर्ड मिटायो</string>
+  <string name="dialog_delete_password_msg">शा तहां सहिय में पासवर्ड मितायण ता चाह्यो ?</string>
+  <string name="change_password">मुख्य पासवर्ड बदल्यो</string>
+  <string name="chg_pass_explaination">इन्हजो इस्तेमाल तहां OI सुरक्षित जे पासवर्ड खे बदलन लाये करे ता सगुन| तहान्जो डाटा वारी सां गोपनीय थी वेंदुवा| जेतरो जटिल तहान्जो पासवर्ड हून्दुवा, ओतरो ही तहां सुरक्षित रहन्दव</string>
+  <string name="old_password">पुराणों पास्वोर्ड</string>
+  <string name="new_password">नयो पास्वोर्ड</string>
+  <string name="verify_password">पासवर्ड सत्यापित कयो</string>
+  <string name="new_verify_mismatch">नयो अऊँ सत्यापित पासवर्ड नथा मिलन</string>
+  <string name="invalid_old_password">पुराणों पासवर्ड गलत तव| कृपया वारी सां कोशिश कयो</string>
+  <string name="error_changing_password">पासवर्ड बदलन में त्रुटि</string>
+  <string name="password_changed">मुख्या पासवर्ड बदल जी वयो</string>
+  <string name="confirm">पुष्टि कयो</string>
+  <string name="confirm_pass_fail">पासवर्ड एंट्रिया नथी मिलन</string>
+  <string name="backup">बैकअप</string>
+  <string name="backup_progress">बैकअप थे तो पयो</string>
+  <string name="backup_complete">:पूरा थ्यो| तहान्जो ईयो पासवर्ड बैकअप थे वयुव</string>
+  <string name="backup_failed">बैकुप नाकाम थी वयुव</string>
+  <string name="backup_select_file">बैकअप लाये फाईल चुन्दयो</string>
+  <string name="backup_error">बैकअप कड़े समय त्रुटी</string>
+  <string name="restore">वापस लायें</string>
+  <string name="filename">फाइल जो नाम</string>
+  <string name="restore_no_file">बैकअप  फाइल न मिली| तहान्खे पहरों बैकअप कारणों पवंदुव उन् खे ठायण लाये | या तहां कंप्यूटर मां   कॉपी क्कारे ता  सगो</string>
+  <string name="restore_set_password">कृपया पासवर्ड दयो बैकअप फाइल इस्तेमाल करण लाये | तहान्जो  मुख्य पासवर्ड इन्ह में  सेट थी वेंदुवा</string>
+  <string name="restore_select_file">रेस्टोर करण लाये फाईल चुन्दयो</string>
+  <string name="restore_error">रेस्टोर कंडे समय त्रुटी</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">मुख्य पासवर्ड प्राप्त कयो</string>
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">फाइल खुलन में नाकामी: %s</string>
+
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">ईयो संस्करण समर्थित काने: %s</string>
+
+  <string name="restore_decrypt_error">गन्दा पासवर्ड</string>
+  <string name="dialog_restore_database_title">डाटाबेस रेस्टोरे कयो</string>
+  <string name="dialog_restore_database_msg">शा तहां वर्तमान डाटा खे प्रतिस्थापित करण ता चाह्यो?</string>
+  <string name="restore_found">%2$s जे बैकअप में %1$s पास्वोर्ड मिलें</string>
+  <string name="restore_complete">पूरो थी वयो| %s पासवर्ड रेस्टोरे थी वयो</string>
+  <string name="copied_to_clipboard">क्लिप्बोअर्द में कॉपी थी बवयो</string>
+  <string name="invalid_website">वेबसाइट गलत तव</string>
+  <string name="database_error_title">डेटाबेस त्रुटि</string>
+  <string name="database_error_msg">\?डाटाबेस त्रुटि| शा जगह खतम  थी वई</string>
+
+  <!-- Menu label to open a category -->
+  <string name="open">खोल्यो</string>
+
+  <string name="database_version_error_title">डाटाबेस संस्करण त्रुटि</string>
+  <string name="database_version_error_msg">माफ कयो, पर ईयो डाटाबेस जो संस्करण समर्थित काने|तहान्खे सही संस्करण खे इंस्टाल करनो पवंदुव</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">खिस्कयोस</string>
+
+  <string name="move_select">श्रेणी चुन्दयो</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">%s में मोकले श्दयो</string>
+
+  <string name="preferences">सेटिंग्स</string>
+  <string name="pref_title_external_access">बाहरी उपयोग प्रदान कयो</string>
+  <string name="pref_summary_external_access">ब्य्न अनुप्रयोगन खे तहान्जो  डाटा सुरक्षित करण जी अनुमति दीएन्दो  आ</string>
+  <string name="dialog_title_external_access">OI सुरक्षित: ब्यो अनुप्रयोग पहुचायण जी अनुमति तो घूरे</string>
+  <string name="dialog_summary_external_access">ब्य्न अनुप्रयोगन खे तहान्जो  डाटा सुरक्षित करण जी अनुमति दीएन्दो  आ</string>
+  <string name="dialog_comment_external_access">ईयो OI सुरक्षित जी मेनू/सेत्तिंग्स में भी बदल जी तोह  सगे</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">अपने आप लोकक करने का समये</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">मिनटन जी संख्या जेहेंखा पो टाइमआउट थीन्दो आ अऊँ सुरक्षित बंद थी वेंडी आ</string>
+
+  <string name="pref_dialog_title_lock_timeout">अपने आप लोकक करने का समये</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">स्क्रीन बंद में बंद कयो</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">स्क्रीन बंद में बंद कयो</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">कीपैड</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">कीपद जो इस्तेनल कयो मुख्या प्पास्वोर्ड भरण लाये</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">कीपैड शांत</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">कीपैड कि आवाज़ बंद</string>
+
+  <string name="pref_title_autobackup">स्वतः बैकअप</string>
+  <string name="pref_summary_autobackup">स्वतः बैकअप का पासवर्ड खे पूछ्यो</string>
+
+  <string name="pref_title_autobackup_days">स्वतः बैकअप करण या दिन्यं</string>
+  <string name="pref_summary_autobackup_days">दिनों जी संख्या स्वतःबैकअप करण सां पहरों</string>
+  <string name="pref_dialog_title_autobackup_days">स्वतः बैकअप दिन</string>
+
+  <string name="pref_title_backup_path">देफौल्ट बैकअप पथ</string>
+  <string name="pref_title_export_path">देफौल्ट निर्यात पथ</string>
+
+
+  <string name="intent_decrypt">(विकोड (OI  सुरक्षित</string>
+  <string name="intent_encrypt">(गोपनीय(OI  सुरक्षित</string>
+  <string name="intent_get_password">(पासवर्ड लाए(OI  सुरक्षित</string>
+  <string name="intent_set_password">(पासवर्ड रख्यो(OI  सुरक्षित</string>
+  <string name="intent_restart_timer">(ताईमेर वारी सां चालू कयो (OI  सुरक्षित</string>
+  <string name="open_safe">OI सुरक्षित खोल्यो</string>
+  <string name="lock">बंद कयो</string>
+  <string name="continue_text">|जारी रख्यो</string>
+  <string name="generate_password">पासवर्ड ठायो</string>
+  <string name="pass_gen_length">पासवर्ड जी लम्बाई</string>
+  <string name="pass_gen_uppercase">[उपरी केस [A-Z</string>
+  <string name="pass_gen_lowercase">[निचारी केस [a-z</string>
+  <string name="pass_gen_numbers">[संख्या [०-९</string>
+  <string name="pass_gen_symbols">प्रतींको [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">वर्तमान एंट्री में कॉपी करें</string>
+  <string name="pass_gen_copy_to_clipboard">क्लिपबोर्ड में कॉपी करें</string>
+  <string name="cancel">|रद्द क्यो</string>
+  <string name="discard_changes">परिवर्तन फेंक छादयो</string>
+  <string name="entry_saved">एंट्री सुरक्षित थी वई</string>
+  <string name="entry_save_error">डाटाबेस त्रुटि जे कारण न बचाऐ सग्यास</string>
+  <string name="last_edited">आखरी बार संशोधित</string>
+  <string name="last_edited_unknown">अज्ञात</string>
+  <string name="crypto_error">क्रिप्टो त्रुटि:</string>
+  <string name="uniquename">अनूठा नाम</string>
+  <string name="package_access">पैकेज पहुँच</string>
+  <string name="not_found">नहीं मिला</string>
+  <string name="dialog_title_first_time_warning">नयी मुख्य चाबी</string>
+  <string name="dialog_summary_first_time_warning">हिक्क नयी क्रमरहित मुख्य चाबी ठई वई आ| इन्ह चाबीय खे सुरक्षित स्थान ते रखन लाये मेनू &gt;बैकुप जो प्रयोग कयो| इन्ह चाबीय जे बिना तहां पंजो डाटा खोएजी ता सगो</string>
+  <string name="switch_mode">मोड़े बदल्यो</string>
+  <string name="decrypt_progress">विकोड थे तो पयों</string>
+  <string name="search">खोजयो</string>
+  <string name="search_progress">खोज थे ती</string>
+  <string name="search_hint">खोजन जो मापदंड लिख्यो</string>
+  <string name="search_nothing_found">कुछ न मिल्यो</string>
+  <string name="mute">मूक</string>
+  <string name="sounds">आवाजें</string>
+  <string name="previous">पिछला</string>
+  <string name="next">अगला</string>
+  <string name="autobackup">स्वतः बैकअप</string>
+  <string name="backup_never">\?हिम्म्ल ताणी कोई बैकअप न थ्यो आ| शा तहां हिम्म्ल बैकअप करण चाहीन्दावा</string>
+  <string name="backup_in_days">हिम्म्ल ताणी कोई बैकअप न थ्यो आ| शा तहां हिम्म्ल बैकअप करण चाहीन्दावा ?</string>
+  <string name="autobackup_turnoff">स्वतः बैकअप बंद कयो</string>
+  <string name="lock_timeout">स्वतः लोक करण जो समय:%s</string>
+  <string name="download_oi_filemanager">जेस ताणी डाउनलोड नाथो  थे टेस ताणी देफौल्ट जगह इस्तेमाल थीन्दी</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">मुख्य पासवर्ड प्राप्त कयो</string>
 	<string name="oi_safe_permission_service_descr">इयो बे अनुप्रयोग खे गूढ़ और विगूढ़ करण जे लाये मुख्य चाबी खे प्राप्त करण दीन्दो आ | इयो
-OI सुरक्षित जे आलावा कड्डी भी इस्तेमाल न थ्यानो खप्पे</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">डाटा गूढ़ तथा विगूढ़ कयो</string>
-    <string name="oi_safe_permission_intents_descr">अनुप्रयोग खे व्याख्या खे गूढ़ तथा विगूढ़ करण दीन्दो आ अऊँ OI सुरक्षा में संचित पासवर्डन ताणी वनण दीन्दो आ</string>	
+OI सुरक्षित जे आलावा कड्डी भी इस्तेमाल न थ्यानो खप्पे</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">डाटा गूढ़ तथा विगूढ़ कयो</string>
+  <string name="oi_safe_permission_intents_descr">अनुप्रयोग खे व्याख्या खे गूढ़ तथा विगूढ़ करण दीन्दो आ अऊँ OI सुरक्षा में संचित पासवर्डन ताणी वनण दीन्दो आ</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- ***************************
+       Preferences
+       *************************** -->
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>१ मिनट</item>
-        <item>५ मिनट</item>
-        <item>१० मिनट</item>
-        <item>१५ मिनट</item>
-        <item>३० मिनट</item>  
-    </string-array>
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>१ मिनट</item>
+    <item>५ मिनट</item>
+    <item>१० मिनट</item>
+    <item>१५ मिनट</item>
+    <item>३० मिनट</item>
+  </string-array>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>१ दिन</item>
-        <item>७ दिन</item>
-        <item>३० दिन</item>
-        <item>६० दिन</item>
-    </string-array>
-        
-        
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>१ दिन</item>
+    <item>७ दिन</item>
+    <item>३० दिन</item>
+    <item>६० दिन</item>
+  </string-array>
+
+
 </resources>

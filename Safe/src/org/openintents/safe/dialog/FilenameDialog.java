@@ -70,7 +70,7 @@ public class FilenameDialog extends AlertDialog implements OnClickListener {
         showNoFileManagerAvailableDialog();
 
 		/*
-		String fileName = mEditText.getText().toString();
+        String fileName = mEditText.getText().toString();
 		
 		Intent intent = new Intent(FileManagerIntents.ACTION_PICK_FILE);
 		intent.setData(Uri.parse("file://" + fileName));

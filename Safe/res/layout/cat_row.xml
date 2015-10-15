@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<?xml version="1.0" encoding="UTF-8"?><!--
 * $Id$
 * 
 * Copyright 2009 OpenIntents.org
@@ -18,29 +17,28 @@
 *
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<TextView
-		android:id="@+id/rowCount"
-		android:text=""
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:gravity="center_vertical"
-		android:paddingLeft="6dip"
-		android:paddingRight="10dip"
-		android:minHeight="?android:attr/listPreferredItemHeight"
-		android:layout_alignParentRight="true"
-		/>
-		
-	<TextView
-		android:id="@+id/rowName"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:gravity="center_vertical"
-		android:paddingLeft="6dip"
-		android:minHeight="?android:attr/listPreferredItemHeight"
-		android:layout_alignParentLeft="@+id/rowCount"
-		/>
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+
+  <TextView
+    android:id="@+id/rowCount"
+    android:text=""
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:gravity="center_vertical"
+    android:paddingLeft="6dip"
+    android:paddingRight="10dip"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_alignParentRight="true" />
+
+  <TextView
+    android:id="@+id/rowName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:gravity="center_vertical"
+    android:paddingLeft="6dip"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_alignParentLeft="@+id/rowCount" />
 </RelativeLayout>

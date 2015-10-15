@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   DHermit https://launchpad.net/~dhermit
   Hans https://launchpad.net/~hans-wuerstchen42
@@ -31,271 +30,271 @@
   Stanley https://launchpad.net/~wurfkeks
   appricoo https://launchpad.net/~appricoo
   mrx5682 https://launchpad.net/~mrx5682</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Mit den OI Safe können Sie Ihre Passwörter sicher speichern.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">Kein Passwort in dieser Kategorie vorhanden.</string>
-    <string name="empty_category">Keine Kategorien vorhanden. Bitte Kategorie über Menü-&gt;Hinzufügen erstellen.</string>
-    <string name="password_lock">Sperren</string>
-    <string name="password_view">Ansicht</string>
-    <string name="password_edit">Bearbeiten</string>
-    <string name="password_add">Hinzufügen</string>
-    <string name="password_delete">Löschen</string>
-    <string name="password">Passwort</string>
-    <string name="passwords">Passwörter</string>
-    <string name="master_password">Hauptpasswort</string>
-    <string name="username">Benutzername</string>
-    <string name="website">Webseite</string>
-    <string name="description">Beschreibung</string>
-    <string name="notes">Anmerkungen</string>
-    <string name="save">Speichern</string>
-    <string name="invalid_password">Ungültiges Passwort. Bitte nochmals versuchen.</string>
-    <string name="notify_blank_pass">Passwort muss aus mindestens 4 Zeichen bestehen</string>
-    <string name="notify_blank_desc">Beschreibung darf nicht leer sein</string>
-    <string name="notify_blank_name">Name darf nicht leer sein</string>
-    <string name="first_time">Bitte geben Sie ein Passwort ein, mit dem weitere Passwörter geschützt werden sollen.</string>
-    <string name="logoff_explanation">Sie sind in OI Safe angemeldet. Somit können andere Anwendungen Passwörter fordern oder Daten verschlüsseln und entschlüsseln. Versperren Sie den Safe um weiteren Zugang zu verhindern, bis Sie sich wieder anmelden.</string>
-    <string name="remote_ask">Eine andere Anwendung will den Hauptschlüssel verwenden. Bitten geben Sie das Passwort ein, um den Safe zu öffnen.</string>
-    <string name="categories">Kategorien</string>
-	<string name="category">Kategorie</string>
-    <string name="category_business">Arbeit</string>
-    <string name="category_personal">Privat</string>
-    <string name="name">Name</string>
-    <string name="category_not_empty">Kategorie ist nicht leer. Die Passwörter müssen zuerst gelöscht werden.</string>
-	<string name="cannot_decrypt_category">Kategorie kann nicht entschlüsselt werden.</string>
-	<string name="cannot_decrypt_password">Passwort kann nicht entschlüsselt werden.</string>
-	<string name="error_export">Fehler beim Exportieren der Datenbank</string>
-	<string name="export_database">Datenbank exportieren</string>
-	<string name="export_file_select">Wählen Sie eine Datei für den Export aus</string>
-	<string name="export_msg">Hiermit wird die Passwort Datenbank in eine Klartext Datei exportiert. DAS IST SEHR GEFÄHRLICH. Löschen Sie diese Datei, sobald Sie fertig sind. Sind Sie sicher, dass Sie exportieren wollen?</string>
-	<string name="export_success">Export nach \'%s\' erfolgreich. Achtung! Die Datei ist nicht verschlüsselt.</string>
-	<string name="export_file_error">Die Datei \'oisafe.csv\' kann auf der SD Karte nicht erstellt werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
-	<string name="import_database">Datenbank importieren</string>
-	<string name="import_file_select">Wählen Sie eine Datei für den Import aus</string>
-	<string name="import_file_missing">Datei zum Importieren fehlt:</string>
-	<string name="import_file_error">Die Datei \'oisafe.csv\' kann nicht von der SD Karte importiert werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
-	<string name="import_error_first_line">Die erste Zeile ist unvollständig.</string>
-	<string name="dialog_import_title">Importieren</string>
-	<string name="dialog_import_msg">Soll die Datenbank ersetzt werden (importiert von %s)?</string>
-	<string name="yes">Ja</string>
-	<string name="no">Nein</string>
-	<string name="import_progress">Datei wird importiert...</string>
-	<string name="import_no_categories">Keine Kategorien gefunden.</string>
-	<string name="import_no_entries">Keine Einträge in der CSV Datei gefunden.</string>
-	<string name="import_too_many_categories">Zu viele Kategorien.</string>
-	<string name="import_not_enough_fields">Nicht genug Felder.</string>
-	<string name="import_blank_category">Kategorie leer</string>
-	<string name="import_blank_description">Beschreibung leer</string>
-	<string name="dialog_delete_database_title">Datenbank löschen</string>
-	<string name="dialog_delete_database_msg">Soll die Datenbank wirklich gelöscht werden? Das kann nicht rückgängig gemacht werden.</string>
-	<string name="added">Hinzugefügt</string>
-	<string name="entries">Einträge</string>
-	<string name="import_complete">Import vollständig</string>
-	<string name="import_delete_csv">Da es unsicher ist, Passwörter in CSV Dateien zu speichern, soll diese Datei nun gelöscht werden?</string>
-	<string name="edit_entry">Eintrag bearbeiten</string>
-	<string name="view_entry">Eintrag ansehen</string>
-	<string name="help">Hilfe</string>
-	<string name="close">Schließen</string>
-	<string name="go">Los</string>
-	<string name="dialog_delete_password_title">Passwort löschen</string>
-	<string name="dialog_delete_password_msg">Soll das Passwort wirklich gelöscht werden?</string>
-	<string name="change_password">Hauptpasswort ändern</string>
-	<string name="chg_pass_explaination">Hiermit wird das Hauptpasswort geändert, mit dem man sich in OI Safe anmeldet. Die Daten werden mit dem neuen Passwort verschlüsselt. Je komplizierter das Passwort ist, umso sicherer sind die Daten.</string>
-	<string name="old_password">Altes Passwort</string>
-	<string name="new_password">Neues Passwort</string>
-	<string name="verify_password">Passwort überprüfen</string>
-	<string name="new_verify_mismatch">Die Passwörter stimmen nicht überein</string>
-    <string name="invalid_old_password">Altes Passwort ungültig. Bitte nochmal versuchen.</string>
-    <string name="error_changing_password">Fehler beim Ändern des Passwortes</string>
-    <string name="password_changed">Hauptpasswort geändert</string>
-    <string name="confirm">Bestätigen</string>
-    <string name="confirm_pass_fail">Passwort Einträge stimmen nicht überein.</string>
-    <string name="backup">Sicherungskopie</string>
-    <string name="backup_progress">Sichern einer Kopie nach</string>
-    <string name="backup_complete">Fertig. Passwörter gesichert:</string>
-    <string name="backup_failed">Sicherungskopie erstellen fehlgeschlagen:</string>
-	<string name="backup_select_file">Wählen Sie eine Datei für das Backup aus</string>
-	<string name="backup_error">Fehler beim Erstellen des Backups</string>
-    <string name="restore">Wiederherstellen</string>
-    <string name="filename">Dateiname</string>
-    <string name="restore_no_file">Wiederherstellungsdatei nicht gefunden. Zuerst muss eine Sicherungskopie erstellt werden, oder vom PC kopiert werden.</string>
-    <string name="restore_set_password">Passwort der Wiederherstellungsdatei eingeben. Das neue Hauptpasswort wird auf dieses Passwort gesetzt.</string>
-	<string name="restore_select_file">Wählen Sie eine Datei für</string>
-	<string name="restore_error">Fehler beim Wiederherstellen</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Datei kann nicht geöffnet werden: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Version wird nicht unterstützt: %s</string>
-    
-    <string name="restore_decrypt_error">Schlechtes Passwort</string>
-    <string name="dialog_restore_database_title">Datenbank wiederherstellen</string>
-    <string name="dialog_restore_database_msg">Sind Sie sicher, dass Sie die bestehenden Einträge ersetzen wollen?</string>
-    <string name="restore_found">%1$s Passwörter in der Sicherung vom %2$s gefunden.</string>
-    <string name="restore_complete">Fertig. Passwörter wiederhergestellt: %s</string>
-    <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
-    <string name="invalid_website">Ungültige Webseite</string>
-    <string name="database_error_title">Datenbankfehler</string>
-    <string name="database_error_msg">Datenbankfehler. Ist keine Speicherplatz mehr verfügbar?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Öffnen</string>
-    
-    <string name="database_version_error_title">Datenbank Versionsfehler</string>
-    <string name="database_version_error_msg">Leider wird diese Version der Datenbank nicht unterstützt. Sie müssen die Version installieren, die zu dieser Version gehört.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Verschieben</string>
-	
-	<string name="move_select">Kategorie auswählen</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Verschoben nach %s</string>
-	
-	<string name="preferences">Einstellungen</string>
-	<string name="pref_title_external_access">Externen Zugriff erlauben</string>
-	<string name="pref_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern</string>
-	<string name="dialog_title_external_access">OI Safe: Eine andere Anwendung verlangt Zugriff.</string>
-	<string name="dialog_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern.</string>
-	<string name="dialog_comment_external_access">Das kann auch in OI Safe unter Menü / Einstellungen gesetzt werden.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Zeit bis zum automatischen sperren</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Dauer in Minuten bevor der Safe automatisch gesperrt wird</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Zeit bis zum automatischen sperren</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Automatische Sperre</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Sperren, wenn der Bildschirm gesperrt wird</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Ziffernblock</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Ziffernblock verwenden um Passwort einzugeben</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Ziffernblock stumm</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Ziffernblock stumm schalten</string>
 
-	<string name="pref_title_autobackup">Automatisches Backup</string>
-	<string name="pref_summary_autobackup">Automatisch nach Password-Sicherung fragen</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Mit den OI Safe können Sie Ihre Passwörter sicher speichern.</string>
 
-	<string name="pref_title_autobackup_days">Tage für automatisches Backup</string>
-	<string name="pref_summary_autobackup_days">Anzahl Tage zwischen den automatischen Backups</string>
-	<string name="pref_dialog_title_autobackup_days">Tage für die automatischen Backups</string>
-	
-	<string name="pref_title_backup_path">Standard Backup-Pfad</string>
-	<string name="pref_title_export_path">Standard Export-Pfad</string>
-	    
-	
-	<string name="intent_decrypt">Entschlüsseln (OI Safe)</string>
-	<string name="intent_encrypt">Verschlüsseln (OI Safe)</string>
-	<string name="intent_get_password">Password erhalten (OI Safe)</string>
-	<string name="intent_set_password">Passwort setzen (OI Safe)</string>
-	<string name="intent_restart_timer">Timer neu starten (OI Safe)</string>
-	<string name="open_safe">OI Safe öffnen</string>
-	<string name="lock">Sperren</string>
-	<string name="continue_text">Fortsetzen</string>
-	<string name="generate_password">Passwort erzeugen</string>
-	<string name="pass_gen_length">Passwort Länge</string>
-	<string name="pass_gen_uppercase">Großbuchstaben [A-Z]</string>
-	<string name="pass_gen_lowercase">Kleinbuchstaben [a-z]</string>
-	<string name="pass_gen_numbers">Zahlen [0-9]</string>
-	<string name="pass_gen_symbols">Sonderzeichen [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">In den aktuellen Eintrag kopieren</string>
-	<string name="pass_gen_copy_to_clipboard">In die Zwischenablage kopieren</string>
-	<string name="cancel">Abbrechen</string>
-	<string name="discard_changes">Änderungen verwerfen</string>
-	<string name="entry_saved">Eintrag gespeichert</string>
-	<string name="entry_save_error">Auf Grund eines Datenbankfehlers konnte nicht gespeichert werden</string>
-	<string name="last_edited">Zuletzt bearbeitet</string>
-	<string name="last_edited_unknown">unbekannt</string>
-	<string name="crypto_error">Verschlüsselungsfehler:</string>
-	<string name="uniquename">Eindeutiger Name</string>
-	<string name="package_access">Zugriff auf Package</string>
-	<string name="not_found">nicht gefunden</string>
-	<string name="dialog_title_first_time_warning">Neuer Hauptschlüssel</string>
-	<string name="dialog_summary_first_time_warning">Ein neuer Hauptschlüssel wurde generiert. Verwenden Sie Menü &gt; Sicherungskopie und speichern Sie den Schlüssel an einem sicheren Ort. Ohne diesen Schlüssel könnten Sie verschlüsselte Daten verlieren.</string>
-	<string name="switch_mode">Modus wechseln</string>
-	<string name="decrypt_progress">Entschlüsseln...</string>
-	<string name="search">Suchen</string>
-	<string name="search_progress">Suche läuft ...</string>
-	<string name="search_hint">Bitte Suchkriterien angeben</string>
-	<string name="search_nothing_found">Nichts gefunden</string>
-	<string name="mute">Stumm</string>
-	<string name="sounds">Klänge</string>
-	<string name="previous">Vorheriger Titel</string>
-	<string name="next">Nächster</string>
-	<string name="autobackup">Automatisches Backup</string>
-	<string name="backup_never">Bisher wurde noch kein Backup durchgeführt. Wollen Sie jetzt eines erstellen?</string>
-	<string name="backup_in_days">Die letzte Sicherung wurde vor %d Tagen erstellt. Wollen Sie jetzt eine Sicherung erstellen?</string>
-	<string name="autobackup_turnoff">automatische Sicherung ausschalten</string>
-	<string name="lock_timeout">Zeit bis zum automatischen Sperren: %s</string>
-	<string name="download_oi_filemanager">Solange der OI Dateimanager nicht installiert ist, wird der Standardspeicherort benutzt.</string>
-	<string name="backup_file_found">Eine Sicherungsdatei wurde gefunden. Möchten sie diese wiederherstellen?</string>
-	<string name="backup_file_found_label">Sicherungsdatei gefunden</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Ungültige Adresse (URL)</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Safe</string>
+  <string name="empty_safe">Kein Passwort in dieser Kategorie vorhanden.</string>
+  <string name="empty_category">Keine Kategorien vorhanden. Bitte Kategorie über Menü-&gt;Hinzufügen erstellen.</string>
+  <string name="password_lock">Sperren</string>
+  <string name="password_view">Ansicht</string>
+  <string name="password_edit">Bearbeiten</string>
+  <string name="password_add">Hinzufügen</string>
+  <string name="password_delete">Löschen</string>
+  <string name="password">Passwort</string>
+  <string name="passwords">Passwörter</string>
+  <string name="master_password">Hauptpasswort</string>
+  <string name="username">Benutzername</string>
+  <string name="website">Webseite</string>
+  <string name="description">Beschreibung</string>
+  <string name="notes">Anmerkungen</string>
+  <string name="save">Speichern</string>
+  <string name="invalid_password">Ungültiges Passwort. Bitte nochmals versuchen.</string>
+  <string name="notify_blank_pass">Passwort muss aus mindestens 4 Zeichen bestehen</string>
+  <string name="notify_blank_desc">Beschreibung darf nicht leer sein</string>
+  <string name="notify_blank_name">Name darf nicht leer sein</string>
+  <string name="first_time">Bitte geben Sie ein Passwort ein, mit dem weitere Passwörter geschützt werden sollen.</string>
+  <string name="logoff_explanation">Sie sind in OI Safe angemeldet. Somit können andere Anwendungen Passwörter fordern oder Daten verschlüsseln und entschlüsseln. Versperren Sie den Safe um weiteren Zugang zu verhindern, bis Sie sich wieder anmelden.</string>
+  <string name="remote_ask">Eine andere Anwendung will den Hauptschlüssel verwenden. Bitten geben Sie das Passwort ein, um den Safe zu öffnen.</string>
+  <string name="categories">Kategorien</string>
+  <string name="category">Kategorie</string>
+  <string name="category_business">Arbeit</string>
+  <string name="category_personal">Privat</string>
+  <string name="name">Name</string>
+  <string name="category_not_empty">Kategorie ist nicht leer. Die Passwörter müssen zuerst gelöscht werden.</string>
+  <string name="cannot_decrypt_category">Kategorie kann nicht entschlüsselt werden.</string>
+  <string name="cannot_decrypt_password">Passwort kann nicht entschlüsselt werden.</string>
+  <string name="error_export">Fehler beim Exportieren der Datenbank</string>
+  <string name="export_database">Datenbank exportieren</string>
+  <string name="export_file_select">Wählen Sie eine Datei für den Export aus</string>
+  <string name="export_msg">Hiermit wird die Passwort Datenbank in eine Klartext Datei exportiert. DAS IST SEHR GEFÄHRLICH. Löschen Sie diese Datei, sobald Sie fertig sind. Sind Sie sicher, dass Sie exportieren wollen?</string>
+  <string name="export_success">Export nach \'%s\' erfolgreich. Achtung! Die Datei ist nicht verschlüsselt.</string>
+  <string name="export_file_error">Die Datei \'oisafe.csv\' kann auf der SD Karte nicht erstellt werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
+  <string name="import_database">Datenbank importieren</string>
+  <string name="import_file_select">Wählen Sie eine Datei für den Import aus</string>
+  <string name="import_file_missing">Datei zum Importieren fehlt:</string>
+  <string name="import_file_error">Die Datei \'oisafe.csv\' kann nicht von der SD Karte importiert werden. Eventuell muss die USB Verbindung zum Computer getrennt werden.</string>
+  <string name="import_error_first_line">Die erste Zeile ist unvollständig.</string>
+  <string name="dialog_import_title">Importieren</string>
+  <string name="dialog_import_msg">Soll die Datenbank ersetzt werden (importiert von %s)?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nein</string>
+  <string name="import_progress">Datei wird importiert...</string>
+  <string name="import_no_categories">Keine Kategorien gefunden.</string>
+  <string name="import_no_entries">Keine Einträge in der CSV Datei gefunden.</string>
+  <string name="import_too_many_categories">Zu viele Kategorien.</string>
+  <string name="import_not_enough_fields">Nicht genug Felder.</string>
+  <string name="import_blank_category">Kategorie leer</string>
+  <string name="import_blank_description">Beschreibung leer</string>
+  <string name="dialog_delete_database_title">Datenbank löschen</string>
+  <string name="dialog_delete_database_msg">Soll die Datenbank wirklich gelöscht werden? Das kann nicht rückgängig gemacht werden.</string>
+  <string name="added">Hinzugefügt</string>
+  <string name="entries">Einträge</string>
+  <string name="import_complete">Import vollständig</string>
+  <string name="import_delete_csv">Da es unsicher ist, Passwörter in CSV Dateien zu speichern, soll diese Datei nun gelöscht werden?</string>
+  <string name="edit_entry">Eintrag bearbeiten</string>
+  <string name="view_entry">Eintrag ansehen</string>
+  <string name="help">Hilfe</string>
+  <string name="close">Schließen</string>
+  <string name="go">Los</string>
+  <string name="dialog_delete_password_title">Passwort löschen</string>
+  <string name="dialog_delete_password_msg">Soll das Passwort wirklich gelöscht werden?</string>
+  <string name="change_password">Hauptpasswort ändern</string>
+  <string name="chg_pass_explaination">Hiermit wird das Hauptpasswort geändert, mit dem man sich in OI Safe anmeldet. Die Daten werden mit dem neuen Passwort verschlüsselt. Je komplizierter das Passwort ist, umso sicherer sind die Daten.</string>
+  <string name="old_password">Altes Passwort</string>
+  <string name="new_password">Neues Passwort</string>
+  <string name="verify_password">Passwort überprüfen</string>
+  <string name="new_verify_mismatch">Die Passwörter stimmen nicht überein</string>
+  <string name="invalid_old_password">Altes Passwort ungültig. Bitte nochmal versuchen.</string>
+  <string name="error_changing_password">Fehler beim Ändern des Passwortes</string>
+  <string name="password_changed">Hauptpasswort geändert</string>
+  <string name="confirm">Bestätigen</string>
+  <string name="confirm_pass_fail">Passwort Einträge stimmen nicht überein.</string>
+  <string name="backup">Sicherungskopie</string>
+  <string name="backup_progress">Sichern einer Kopie nach</string>
+  <string name="backup_complete">Fertig. Passwörter gesichert:</string>
+  <string name="backup_failed">Sicherungskopie erstellen fehlgeschlagen:</string>
+  <string name="backup_select_file">Wählen Sie eine Datei für das Backup aus</string>
+  <string name="backup_error">Fehler beim Erstellen des Backups</string>
+  <string name="restore">Wiederherstellen</string>
+  <string name="filename">Dateiname</string>
+  <string name="restore_no_file">Wiederherstellungsdatei nicht gefunden. Zuerst muss eine Sicherungskopie erstellt werden, oder vom PC kopiert werden.</string>
+  <string name="restore_set_password">Passwort der Wiederherstellungsdatei eingeben. Das neue Hauptpasswort wird auf dieses Passwort gesetzt.</string>
+  <string name="restore_select_file">Wählen Sie eine Datei für</string>
+  <string name="restore_error">Fehler beim Wiederherstellen</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">auf Hauptpasswort zugreifen</string>
-	<string name="oi_safe_permission_service_descr">Erlaubt einer Anwendung auf das Hauptpasswort für Verschlüsselung und Entschlüsselung zuzugreifen. Sollte niemals verwendet werden, außer durch OI Safe selber.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">Daten ver- und entschlüsseln</string>
-    <string name="oi_safe_permission_intents_descr">Erlaubt einer Anwendung, Daten zu verschlüsseln und zu entschlüsseln, und auf Passwörter, die in OI Safe gespeichert wurden, zuzugreifen.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Datei kann nicht geöffnet werden: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Version wird nicht unterstützt: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 Minute</item>
-        <item>5 Minuten</item>
-        <item>10 Minuten</item>
-        <item>15 Minuten</item>
-        <item>30 Minuten</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Schlechtes Passwort</string>
+  <string name="dialog_restore_database_title">Datenbank wiederherstellen</string>
+  <string name="dialog_restore_database_msg">Sind Sie sicher, dass Sie die bestehenden Einträge ersetzen wollen?</string>
+  <string name="restore_found">%1$s Passwörter in der Sicherung vom %2$s gefunden.</string>
+  <string name="restore_complete">Fertig. Passwörter wiederhergestellt: %s</string>
+  <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
+  <string name="invalid_website">Ungültige Webseite</string>
+  <string name="database_error_title">Datenbankfehler</string>
+  <string name="database_error_msg">Datenbankfehler. Ist keine Speicherplatz mehr verfügbar?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 Tag</item>
-        <item>7 Tage</item>
-        <item>30 Tage</item>
-        <item>60 Tage</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Öffnen</string>
+
+  <string name="database_version_error_title">Datenbank Versionsfehler</string>
+  <string name="database_version_error_msg">Leider wird diese Version der Datenbank nicht unterstützt. Sie müssen die Version installieren, die zu dieser Version gehört.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Verschieben</string>
+
+  <string name="move_select">Kategorie auswählen</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Verschoben nach %s</string>
+
+  <string name="preferences">Einstellungen</string>
+  <string name="pref_title_external_access">Externen Zugriff erlauben</string>
+  <string name="pref_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern</string>
+  <string name="dialog_title_external_access">OI Safe: Eine andere Anwendung verlangt Zugriff.</string>
+  <string name="dialog_summary_external_access">Anderen Anwendungen erlauben, die Daten mit OI Safe zu sichern.</string>
+  <string name="dialog_comment_external_access">Das kann auch in OI Safe unter Menü / Einstellungen gesetzt werden.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Zeit bis zum automatischen sperren</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Dauer in Minuten bevor der Safe automatisch gesperrt wird</string>
+
+  <string name="pref_dialog_title_lock_timeout">Zeit bis zum automatischen sperren</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Automatische Sperre</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Sperren, wenn der Bildschirm gesperrt wird</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Ziffernblock</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Ziffernblock verwenden um Passwort einzugeben</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Ziffernblock stumm</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Ziffernblock stumm schalten</string>
+
+  <string name="pref_title_autobackup">Automatisches Backup</string>
+  <string name="pref_summary_autobackup">Automatisch nach Password-Sicherung fragen</string>
+
+  <string name="pref_title_autobackup_days">Tage für automatisches Backup</string>
+  <string name="pref_summary_autobackup_days">Anzahl Tage zwischen den automatischen Backups</string>
+  <string name="pref_dialog_title_autobackup_days">Tage für die automatischen Backups</string>
+
+  <string name="pref_title_backup_path">Standard Backup-Pfad</string>
+  <string name="pref_title_export_path">Standard Export-Pfad</string>
+
+
+  <string name="intent_decrypt">Entschlüsseln (OI Safe)</string>
+  <string name="intent_encrypt">Verschlüsseln (OI Safe)</string>
+  <string name="intent_get_password">Password erhalten (OI Safe)</string>
+  <string name="intent_set_password">Passwort setzen (OI Safe)</string>
+  <string name="intent_restart_timer">Timer neu starten (OI Safe)</string>
+  <string name="open_safe">OI Safe öffnen</string>
+  <string name="lock">Sperren</string>
+  <string name="continue_text">Fortsetzen</string>
+  <string name="generate_password">Passwort erzeugen</string>
+  <string name="pass_gen_length">Passwort Länge</string>
+  <string name="pass_gen_uppercase">Großbuchstaben [A-Z]</string>
+  <string name="pass_gen_lowercase">Kleinbuchstaben [a-z]</string>
+  <string name="pass_gen_numbers">Zahlen [0-9]</string>
+  <string name="pass_gen_symbols">Sonderzeichen [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">In den aktuellen Eintrag kopieren</string>
+  <string name="pass_gen_copy_to_clipboard">In die Zwischenablage kopieren</string>
+  <string name="cancel">Abbrechen</string>
+  <string name="discard_changes">Änderungen verwerfen</string>
+  <string name="entry_saved">Eintrag gespeichert</string>
+  <string name="entry_save_error">Auf Grund eines Datenbankfehlers konnte nicht gespeichert werden</string>
+  <string name="last_edited">Zuletzt bearbeitet</string>
+  <string name="last_edited_unknown">unbekannt</string>
+  <string name="crypto_error">Verschlüsselungsfehler:</string>
+  <string name="uniquename">Eindeutiger Name</string>
+  <string name="package_access">Zugriff auf Package</string>
+  <string name="not_found">nicht gefunden</string>
+  <string name="dialog_title_first_time_warning">Neuer Hauptschlüssel</string>
+  <string name="dialog_summary_first_time_warning">Ein neuer Hauptschlüssel wurde generiert. Verwenden Sie Menü &gt; Sicherungskopie und speichern Sie den Schlüssel an einem sicheren Ort. Ohne diesen Schlüssel könnten Sie verschlüsselte Daten verlieren.</string>
+  <string name="switch_mode">Modus wechseln</string>
+  <string name="decrypt_progress">Entschlüsseln...</string>
+  <string name="search">Suchen</string>
+  <string name="search_progress">Suche läuft ...</string>
+  <string name="search_hint">Bitte Suchkriterien angeben</string>
+  <string name="search_nothing_found">Nichts gefunden</string>
+  <string name="mute">Stumm</string>
+  <string name="sounds">Klänge</string>
+  <string name="previous">Vorheriger Titel</string>
+  <string name="next">Nächster</string>
+  <string name="autobackup">Automatisches Backup</string>
+  <string name="backup_never">Bisher wurde noch kein Backup durchgeführt. Wollen Sie jetzt eines erstellen?</string>
+  <string name="backup_in_days">Die letzte Sicherung wurde vor %d Tagen erstellt. Wollen Sie jetzt eine Sicherung erstellen?</string>
+  <string name="autobackup_turnoff">automatische Sicherung ausschalten</string>
+  <string name="lock_timeout">Zeit bis zum automatischen Sperren: %s</string>
+  <string name="download_oi_filemanager">Solange der OI Dateimanager nicht installiert ist, wird der Standardspeicherort benutzt.</string>
+  <string name="backup_file_found">Eine Sicherungsdatei wurde gefunden. Möchten sie diese wiederherstellen?</string>
+  <string name="backup_file_found_label">Sicherungsdatei gefunden</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Ungültige Adresse (URL)</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">auf Hauptpasswort zugreifen</string>
+  <string name="oi_safe_permission_service_descr">Erlaubt einer Anwendung auf das Hauptpasswort für Verschlüsselung und Entschlüsselung zuzugreifen. Sollte niemals verwendet werden, außer durch OI Safe selber.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">Daten ver- und entschlüsseln</string>
+  <string name="oi_safe_permission_intents_descr">Erlaubt einer Anwendung, Daten zu verschlüsseln und zu entschlüsseln, und auf Passwörter, die in OI Safe gespeichert wurden, zuzugreifen.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 Minute</item>
+    <item>5 Minuten</item>
+    <item>10 Minuten</item>
+    <item>15 Minuten</item>
+    <item>30 Minuten</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 Tag</item>
+    <item>7 Tage</item>
+    <item>30 Tage</item>
+    <item>60 Tage</item>
+  </string-array>
+
+
 </resources>

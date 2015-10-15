@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,279 +15,279 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Giannis Konstantinidis https://launchpad.net/~giankonstantinidis
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Αποθηκέυστε τα προσωπικά σας δεδομένα με το OI Κιβώτιο.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Κιβώτιο</string>
-    <string name="empty_safe">Κανένας παρεχόμενος κωδικός για αυτή την κατηγορία.</string>
-    <string name="empty_category">Καμία παρεχόμενη κατηγορία.Παρακαλώ προσθέστε μια από το Μενού-&gt;Προσθήκη</string>
-    <string name="password_lock">Κλείδωμα</string>
-    <string name="password_view">Προβολή</string>
-    <string name="password_edit">Επεξεργασία</string>
-    <string name="password_add">Προσθήκη</string>
-    <string name="password_delete">Διαγραφή</string>
-    <string name="password">Κωδικός</string>
-    <string name="passwords">Κωδικοί</string>
-    <string name="master_password">Κύριος Κωδικός</string>
-    <string name="username">Όνομα χρήστη</string>
-    <string name="website">Ιστοσελίδα</string>
-    <string name="description">Περιγραφή</string>
-    <string name="notes">Σημειώσεις</string>
-    <string name="save">Αποθήκευση</string>
-    <string name="invalid_password">Λανθασμένος κωδικός. Παρακαλώ προσπαθήστε ξανά.</string>
-    <string name="notify_blank_pass">Ο κωδικός πρέπει να είναι τουλάχιστον 4 χαρακτήρες</string>
-    <string name="notify_blank_desc">Η περιγραφή δε μπορεί να είναι κενή</string>
-    <string name="notify_blank_name">Το όνομα δε μπορεί να είναι κενό</string>
-    <string name="first_time">Παρακαλώ εισάγετε έναν κωδικό παρακάτω, που θα χρησιμοποιείται για να φυλά με ασφάλεια τους υπόλοιπους κωδικούς σας.</string>
-    <string name="logoff_explanation">Είστε αυτή τη στιγμή συνδεδεμένος στο OI Κιβώτιο. που σημαίνει οτι άλλες εφαρμογές μπορεί να ζητήσουν τους κωδικούς τους για την αποκρυπτογράφηση/κρυπτογράφηση δεδομένων. Κλειδώστε για να αποφύγετε επιπλέον προσβάσεις έως ότου πληκτρολογήσετε τον κωδικό σας ξανά.</string>
-    <string name="remote_ask">Ακόμα μια εφαρμογή ζητά τη χρήση του κυρίως κωδικού. Παρακαλώ εισάγετε τον κωδικό σας για να ξεκλειδωθεί.</string>
-    <string name="categories">Κατηγορίες</string>
-	<string name="category">Κατηγορία</string>
-    <string name="category_business">Εργασία</string>
-    <string name="category_personal">Προσωπικό</string>
-    <string name="name">Όνομα</string>
-    <string name="category_not_empty">Η κατηγορία δεν είναι κενή. Πρέπει να διαγράψετε τους κωδικούς πρώτα.</string>
-	<string name="cannot_decrypt_category">Αδυναμία αποκρυπτογράφησης της κατηγορίας</string>
-	<string name="cannot_decrypt_password">Αδυναμία αποκρυπτογράφησης του κωδικού</string>
-	<string name="error_export">Σφάλμα κατά την εξαγωγή της βάσης δεδομένων</string>
-	<string name="export_database">Εξαγωγή Βάσης Δεδομένων</string>
-	<string name="export_file_select">Επιλέξτε ένα αρχείο προς  εξαγωγή</string>
-	<string name="export_msg">Αυτό θα εξάγει τη βάση δεδομένων του κωδικού σε ένα απλό αρχείο κειμένου. ΑΥΤΟ ΕΙΝΑΙ ΠΟΛΥ ΕΠΙΚΙΝΔΥΝΟ. Βεβσιωθείτε οτι θα διαγράψετε αμέσως το αρχείο μόλις τελειώσετε μαζί του. Θέλετε σίγουρα να κάνετε την εξαγωγή;</string>
-	<string name="export_success">Η εξαγωγή στο \'%s\' ήταν επιτυχής. Προσοχή! Το αρχείο δεν είναι κρυπτογραφημένο.</string>
-	<string name="export_file_error">Αδυναμία δημιουργίας του αρχείο εξαγωγής  \'oisafe.csv\' στο SDCARD. Μπορείτε να δοκιμάσετε να αποσυνδέσετε το USB από τον υπολογιστή.</string>
-	<string name="import_database">Εισαγωγή Βάσης Δεδομένων</string>
-	<string name="import_file_select">Επιλογή ενός αρχείου για Εισαγωγή</string>
-	<string name="import_file_missing">Το αρχείο εισαγωγής λείπει:</string>
-	<string name="import_file_error">Αδυναμία εισαγωγής του αρχείου \'oisafe.csv\' από το SDCARD. Μπορείτε να δοκιμάσετε να αποσυνδέσετε το USB από τον υπολογιστή.</string>
-	<string name="import_error_first_line">Λείπουν πεδία στην πρώτη γραμμή</string>
-	<string name="dialog_import_title">Εισαγωγή</string>
-	<string name="dialog_import_msg">Θέλετε να αντικαταστήσετε τη βάση δεδομένων (εισαγωγή από το %s);</string>
-	<string name="yes">Ναί</string>
-	<string name="no">Όχι</string>
-	<string name="import_progress">Παρακαλώ περιμένετε κατά την εισαγωγή...</string>
-	<string name="import_no_categories">Δε βρέθηκαν κατηγορίες.</string>
-	<string name="import_no_entries">Δε βρέθηκαν καταχωρήσεις στο CSV.</string>
-	<string name="import_too_many_categories">Πάρα πολλές κατηγορίες.</string>
-	<string name="import_not_enough_fields">Όχι αρκετά πεδία</string>
-	<string name="import_blank_category">Κενή κατηγορία</string>
-	<string name="import_blank_description">Κενή περιγραφή</string>
-	<string name="dialog_delete_database_title">Διαγραφή Βάσης Δεδομένων</string>
-	<string name="dialog_delete_database_msg">Είστε σίγουρος οτι θέλετε να διαγράψετε τη βάση δεδομένων; Αυτή η ενέργεια δε μπορεί να αναιρεθεί.</string>
-	<string name="added">Προστέθηκε</string>
-	<string name="entries">καταχωρήσεις</string>
-	<string name="import_complete">Η εισαγωγή ολοκληρώθηκε</string>
-	<string name="import_delete_csv">Επειδή δεν είναι ασφαλής η διατήρηση κωδικών σε απλά αρχεία CSV, θα θέλατε να διαγράψετε</string>
-	<string name="edit_entry">Επεξεργασία Καταχώρησης</string>
-	<string name="view_entry">Προβολή καταχώρισης</string>
-	<string name="help">Βοήθεια</string>
-	<string name="close">Κλείσιμο</string>
-	<string name="go">Μετάβαση</string>
-	<string name="dialog_delete_password_title">Διαγραφή Κωδικού</string>
-	<string name="dialog_delete_password_msg">Είστε σίγουρος οτι θέλετε να διαγράωετε αυτό τον κωδικό;</string>
-	<string name="change_password">Αλλαγή Κυρίως Κωδικού</string>
-	<string name="chg_pass_explaination">Χρησιμοποιήστε αυτό για να αλλάξετε τον κωδικό για το ξεκλείδωμα του OI Κιβώτιο. Τα δεδομένα σας θα επανακρυπτογραφηθούν με το νέο κωδικό. Όσο πιο σύνθετος είναι ο κωδικός σας, τόσο πιο ασφαλή θα είναι τα δεδομένα σας.</string>
-	<string name="old_password">Παλαιός κωδικός</string>
-	<string name="new_password">Νέος κωδικός</string>
-	<string name="verify_password">Επαλήθευση κωδικού</string>
-	<string name="new_verify_mismatch">Ο Νέος και ο Επαληθυμένος κωδικός δεν ταιριάζουν.</string>
-    <string name="invalid_old_password">Ο παλαιός κωδικός δεν είναι έκγυρος. Παρακαλώ προσπαθήστε ξανά.</string>
-    <string name="error_changing_password">Σφάλμα κατά την αλλαγή κωδικού</string>
-    <string name="password_changed">Άλλαξε ο Κύριος Κωδικός</string>
-    <string name="confirm">Επιβεβαίωση</string>
-    <string name="confirm_pass_fail">Οι καταχωρήσεις κωδικού δεν ταιριάζουν.</string>
-    <string name="backup">Αντίγραφο Ασφαλείας</string>
-    <string name="backup_progress">Δημιουργία αντιγράφου ασφαλείας στο</string>
-    <string name="backup_complete">Ολοκλήρωση. Οι κωδικοί έχουν αντιγραφτεί:</string>
-    <string name="backup_failed">Η δημιουργία αντιγράφου ασφαλείας απέτυχε:</string>
-	<string name="backup_select_file">Επιλέξτε ένα αρχείο για δημιουργία αντιγράφου ασφαλείας</string>
-	<string name="backup_error">Σφάλμα κατά τη δημιουργία αντιγράφου ασφαλείας</string>
-    <string name="restore">Επαναφορά</string>
-    <string name="filename">Όνομα αρχείου</string>
-    <string name="restore_no_file">Το αρχείο αντιγράφου ασφαλείας δε βρέθηκε. Θα χρειαστεί να δημιουργήσετε ένα αντίγραφο ασφαλείας  για να προκύψει. Ή να αντιγράψετε ένα αντίγραφο ασφαλείας από τον Η/Υ σας.</string>
-    <string name="restore_set_password">Παρακαλώ παρέχετε τον κωδικό που χρησιμοποιείται από το αρχείο αντιγράφου ασφαλείας. Ο κύριος κωδικός πρέπει να έχει οριστεί σε αυτό.</string>
-	<string name="restore_select_file">Επιλέξτε ένα αρχείο προς επαναφορά</string>
-	<string name="restore_error">Σφάλμα κατά την επαναφορά</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Αδυναμία ανοίγματος του αρχείου : %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Η έκδοση δεν υποστηρίζεται : %s</string>
-    
-    <string name="restore_decrypt_error">Λανθασμένος κωδικός.</string>
-    <string name="dialog_restore_database_title">Επαναφορά Βάσης Δεδομένων</string>
-    <string name="dialog_restore_database_msg">Είστε σίγουρος ότι θέλετε να αντικαταστήσετε τα τρέχοντα δεδομένα;</string>
-    <string name="restore_found">Βρέθηκαν %1$s κωδικοί από το αντίγραφο ασφαλείας που χρονολογείται από %2$s.</string>
-    <string name="restore_complete">Ολοκλήρωση. Οι κωδικοί επαναφέρθηκαν: %s</string>
-    <string name="copied_to_clipboard">αντιγράφτηκε στο Πρόχειρο</string>
-    <string name="invalid_website">Λανθασμένη ιστοσελίδα</string>
-    <string name="database_error_title">Σφάλμα Βάσης Δεδομένων</string>
-    <string name="database_error_msg">Σφάλμα Βάσης Δεδομένων. Δεν υπάρχει ελεύθερος χώρος;</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Άνοιγμα</string>
-    
-    <string name="database_version_error_title">Έκδοση Σφάλματος Βάσης Δεδομένων</string>
-    <string name="database_version_error_msg">Λυπούμαστε, μα αυτή η έκδοση της βάσης δεδομένων δεν υποστηρίζεται. Πρέπει να εγκαταστήσετε την έκδοση που σχετίζεται με αυτή τη βάση δεδομένων.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Μετακίνηση</string>
-	
-	<string name="move_select">Επιλογή Κατηγορίας</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Μετακινήθηκε στο %s</string>
-	
-	<string name="preferences">Ρυθμίσεις</string>
-	<string name="pref_title_external_access">Να επιτρέπεται η εξωτερική πρόσβαση</string>
-	<string name="pref_summary_external_access">Να επιτρέπονται άλλες εφαρμογές να ασφαλίζουν τα δεδομένα σας με το OI Κιβώτιο</string>
-	<string name="dialog_title_external_access">ΟΙ Κιβώτιο: Ακόμα μια εφαρμογή ζητά πρόσβαση.</string>
-	<string name="dialog_summary_external_access">Να επιτρέπονται άλλες εφαρμογές να ασφαλίζουν τα δεδομένα σας με το OI Κιβώτιο.</string>
-	<string name="dialog_comment_external_access">Αυτό μπορεί επίσης να οριστεί στο Μενού / Ρυθμίσεις του OI Safe.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Αυτόματο όριο χρόνου κλειδώματος</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Αριθμός λεπτών πρίν την εφαρμογή του χρονικού ορίου και το κλείδωμα του χρηματοκιβωτίου</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Αυτόματο όριο χρόνου κλειδώματος</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Κλείδωμα κατά το κλείδωμα της οθόνης</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Γίνεται κλείδωμα όταν κλειδώνει και η οθόνη</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Αριθμητικό πληκτρολόγιο</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Χρησιμοποιήστε ένα αριθμητικό πληκτρολόγιο για την εισαγωγή του Κύριου Κωδικού</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Σίγαση Αριθμητικού Πληκτρολογίου</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Σίγαση ήχων του αριθμητικού πληκτρολογίου</string>
 
-	<string name="pref_title_autobackup">Αυτόματη δημιουργία αντιγράφων ασφαλείας</string>
-	<string name="pref_summary_autobackup">Αυτόματη υπενθύμιση για τη λήψη αντιγράφων ασφαλείας των κωδικών</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Αποθηκέυστε τα προσωπικά σας δεδομένα με το OI Κιβώτιο.</string>
 
-	<string name="pref_title_autobackup_days">Ημέρες αυτόματης δημιουργίας αντιγράφων ασφαλείας</string>
-	<string name="pref_summary_autobackup_days">Αριθμός ημερών αναμονής για την επόμενη αυτόματη δημιουργία αντιγράφων ασφαλείας</string>
-	<string name="pref_dialog_title_autobackup_days">Ημέρες Αυτόματης Δημιουργίας Αντιγράφων Ασφαλείας</string>
-	
-	<string name="pref_title_backup_path">Προεπιλεγμένος  κατάλογος αντιγράφων ασφαλείας</string>
-	<string name="pref_title_export_path">Προεπιλεγμένη διαδρομή εξαγωγής</string>
-	    
-	
-	<string name="intent_decrypt">Αποκρυπτογράφηση (OI Safe)</string>
-	<string name="intent_encrypt">Κρυπτογράφηση (OI Κιβώτιο)</string>
-	<string name="intent_get_password">Λήψη Κωδικού (OI Κιβώτιο)</string>
-	<string name="intent_set_password">Ορισμός Κωδικού (OI Κιβώτιο)</string>
-	<string name="intent_restart_timer">Επανεκκίνηση χρονομετρητή (OI Κιβώτιο)</string>
-	<string name="open_safe">Άνοιγμα OI Κιβώτιο</string>
-	<string name="lock">Κλείδωμα</string>
-	<string name="continue_text">Συνέχεια</string>
-	<string name="generate_password">Δημιουργία Κωδικού</string>
-	<string name="pass_gen_length">Μήκος Κωδικού</string>
-	<string name="pass_gen_uppercase">Κεφαλαία [A-Z]</string>
-	<string name="pass_gen_lowercase">Μικρά [a-z]</string>
-	<string name="pass_gen_numbers">Αριθμοί  [0-9]</string>
-	<string name="pass_gen_symbols">Σύμβολα [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Αντιγραφή στην Τρέχουσα Καταχώρηση</string>
-	<string name="pass_gen_copy_to_clipboard">Αντιγραφή στο Πρόχειρο</string>
-	<string name="cancel">Ακύρωση</string>
-	<string name="discard_changes">Απόρριψη αλλαγών</string>
-	<string name="entry_saved">Η καταχώρηση αποθηκέυτηκε</string>
-	<string name="entry_save_error">Αδυναμία αποθήκευσης λόγω σφάλματος στη βάση δεδομένων</string>
-	<string name="last_edited">Τελευταία τροποποίηση</string>
-	<string name="last_edited_unknown">άγνωστο</string>
-	<string name="crypto_error">Σφάλμα κρυπτογράφησης:</string>
-	<string name="uniquename">Μοναδικό όνομα</string>
-	<string name="package_access">Προσβαση πακέτου</string>
-	<string name="not_found">δε βρέθηκε</string>
-	<string name="dialog_title_first_time_warning">Νέο κύριο κλειδί</string>
-	<string name="dialog_summary_first_time_warning">Ένα νέο τυχαίο κύριο κλειδί δημιουργήθηκε. Χρησιμοποιήστε το μενού &gt; αντίγραφο ασφαλείας και αποθηκέυστε αυτό το κλειδί σε ένα ασφαλές μέρος. Χωρίς αυτό το κλειδί μπορεί να χάσετε κρυπτογραφημένα δεδομένα.</string>
-	<string name="switch_mode">Εναλλαγή λειτουργίας</string>
-	<string name="decrypt_progress">Γίνεται αποκρυπτογράφηση...</string>
-	<string name="search">Αναζήτηση</string>
-	<string name="search_progress">Γίνεται αναζήτηση...</string>
-	<string name="search_hint">Πληκτρολόγηση κριτηρίων αναζήτησης</string>
-	<string name="search_nothing_found">Δε βρέθηκε τίποτα</string>
-	<string name="mute">Σίγαση</string>
-	<string name="sounds">Ήχοι</string>
-	<string name="previous">Προηγούμενο</string>
-	<string name="next">Επόμενο</string>
-	<string name="autobackup">Αυτόματα ΑντίγραφαΑσφαλείας</string>
-	<string name="backup_never">Δεν έχουν δημιουργηθεί αντίγραφα ασφαλείας ακόμα. Θα θέλατε να κάνετε λήψη αντιγράφων ασφαλείας τώρα;</string>
-	<string name="backup_in_days">Η τελευταία δημιουργία αντιγράφου ασφαλείας ήταν %d μέρες πρίν. Θέλετε να δημιουργήσετε κάποιο αντίγραφο ασφαλείας τώρα;</string>
-	<string name="autobackup_turnoff">Απενεργοποίηση των αυτόματων αντιγράφων ασφαλείας</string>
-	<string name="lock_timeout">Χρόνος για το αυτόματο κλείδωμα: %s</string>
-	<string name="download_oi_filemanager">Ενώ δεν έχει ληφθεί, θα χρησιμοποιηθεί η προεπιλεγμένη τοποθεσία.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Κιβώτιο</string>
+  <string name="empty_safe">Κανένας παρεχόμενος κωδικός για αυτή την κατηγορία.</string>
+  <string name="empty_category">Καμία παρεχόμενη κατηγορία.Παρακαλώ προσθέστε μια από το Μενού-&gt;Προσθήκη</string>
+  <string name="password_lock">Κλείδωμα</string>
+  <string name="password_view">Προβολή</string>
+  <string name="password_edit">Επεξεργασία</string>
+  <string name="password_add">Προσθήκη</string>
+  <string name="password_delete">Διαγραφή</string>
+  <string name="password">Κωδικός</string>
+  <string name="passwords">Κωδικοί</string>
+  <string name="master_password">Κύριος Κωδικός</string>
+  <string name="username">Όνομα χρήστη</string>
+  <string name="website">Ιστοσελίδα</string>
+  <string name="description">Περιγραφή</string>
+  <string name="notes">Σημειώσεις</string>
+  <string name="save">Αποθήκευση</string>
+  <string name="invalid_password">Λανθασμένος κωδικός. Παρακαλώ προσπαθήστε ξανά.</string>
+  <string name="notify_blank_pass">Ο κωδικός πρέπει να είναι τουλάχιστον 4 χαρακτήρες</string>
+  <string name="notify_blank_desc">Η περιγραφή δε μπορεί να είναι κενή</string>
+  <string name="notify_blank_name">Το όνομα δε μπορεί να είναι κενό</string>
+  <string name="first_time">Παρακαλώ εισάγετε έναν κωδικό παρακάτω, που θα χρησιμοποιείται για να φυλά με ασφάλεια τους υπόλοιπους κωδικούς σας.</string>
+  <string name="logoff_explanation">Είστε αυτή τη στιγμή συνδεδεμένος στο OI Κιβώτιο. που σημαίνει οτι άλλες εφαρμογές μπορεί να ζητήσουν τους κωδικούς τους για την αποκρυπτογράφηση/κρυπτογράφηση δεδομένων. Κλειδώστε για να αποφύγετε επιπλέον προσβάσεις έως ότου πληκτρολογήσετε τον κωδικό σας ξανά.</string>
+  <string name="remote_ask">Ακόμα μια εφαρμογή ζητά τη χρήση του κυρίως κωδικού. Παρακαλώ εισάγετε τον κωδικό σας για να ξεκλειδωθεί.</string>
+  <string name="categories">Κατηγορίες</string>
+  <string name="category">Κατηγορία</string>
+  <string name="category_business">Εργασία</string>
+  <string name="category_personal">Προσωπικό</string>
+  <string name="name">Όνομα</string>
+  <string name="category_not_empty">Η κατηγορία δεν είναι κενή. Πρέπει να διαγράψετε τους κωδικούς πρώτα.</string>
+  <string name="cannot_decrypt_category">Αδυναμία αποκρυπτογράφησης της κατηγορίας</string>
+  <string name="cannot_decrypt_password">Αδυναμία αποκρυπτογράφησης του κωδικού</string>
+  <string name="error_export">Σφάλμα κατά την εξαγωγή της βάσης δεδομένων</string>
+  <string name="export_database">Εξαγωγή Βάσης Δεδομένων</string>
+  <string name="export_file_select">Επιλέξτε ένα αρχείο προς  εξαγωγή</string>
+  <string name="export_msg">Αυτό θα εξάγει τη βάση δεδομένων του κωδικού σε ένα απλό αρχείο κειμένου. ΑΥΤΟ ΕΙΝΑΙ ΠΟΛΥ ΕΠΙΚΙΝΔΥΝΟ. Βεβσιωθείτε οτι θα διαγράψετε αμέσως το αρχείο μόλις τελειώσετε μαζί του. Θέλετε σίγουρα να κάνετε την εξαγωγή;</string>
+  <string name="export_success">Η εξαγωγή στο \'%s\' ήταν επιτυχής. Προσοχή! Το αρχείο δεν είναι κρυπτογραφημένο.</string>
+  <string name="export_file_error">Αδυναμία δημιουργίας του αρχείο εξαγωγής  \'oisafe.csv\' στο SDCARD. Μπορείτε να δοκιμάσετε να αποσυνδέσετε το USB από τον υπολογιστή.</string>
+  <string name="import_database">Εισαγωγή Βάσης Δεδομένων</string>
+  <string name="import_file_select">Επιλογή ενός αρχείου για Εισαγωγή</string>
+  <string name="import_file_missing">Το αρχείο εισαγωγής λείπει:</string>
+  <string name="import_file_error">Αδυναμία εισαγωγής του αρχείου \'oisafe.csv\' από το SDCARD. Μπορείτε να δοκιμάσετε να αποσυνδέσετε το USB από τον υπολογιστή.</string>
+  <string name="import_error_first_line">Λείπουν πεδία στην πρώτη γραμμή</string>
+  <string name="dialog_import_title">Εισαγωγή</string>
+  <string name="dialog_import_msg">Θέλετε να αντικαταστήσετε τη βάση δεδομένων (εισαγωγή από το %s);</string>
+  <string name="yes">Ναί</string>
+  <string name="no">Όχι</string>
+  <string name="import_progress">Παρακαλώ περιμένετε κατά την εισαγωγή...</string>
+  <string name="import_no_categories">Δε βρέθηκαν κατηγορίες.</string>
+  <string name="import_no_entries">Δε βρέθηκαν καταχωρήσεις στο CSV.</string>
+  <string name="import_too_many_categories">Πάρα πολλές κατηγορίες.</string>
+  <string name="import_not_enough_fields">Όχι αρκετά πεδία</string>
+  <string name="import_blank_category">Κενή κατηγορία</string>
+  <string name="import_blank_description">Κενή περιγραφή</string>
+  <string name="dialog_delete_database_title">Διαγραφή Βάσης Δεδομένων</string>
+  <string name="dialog_delete_database_msg">Είστε σίγουρος οτι θέλετε να διαγράψετε τη βάση δεδομένων; Αυτή η ενέργεια δε μπορεί να αναιρεθεί.</string>
+  <string name="added">Προστέθηκε</string>
+  <string name="entries">καταχωρήσεις</string>
+  <string name="import_complete">Η εισαγωγή ολοκληρώθηκε</string>
+  <string name="import_delete_csv">Επειδή δεν είναι ασφαλής η διατήρηση κωδικών σε απλά αρχεία CSV, θα θέλατε να διαγράψετε</string>
+  <string name="edit_entry">Επεξεργασία Καταχώρησης</string>
+  <string name="view_entry">Προβολή καταχώρισης</string>
+  <string name="help">Βοήθεια</string>
+  <string name="close">Κλείσιμο</string>
+  <string name="go">Μετάβαση</string>
+  <string name="dialog_delete_password_title">Διαγραφή Κωδικού</string>
+  <string name="dialog_delete_password_msg">Είστε σίγουρος οτι θέλετε να διαγράωετε αυτό τον κωδικό;</string>
+  <string name="change_password">Αλλαγή Κυρίως Κωδικού</string>
+  <string name="chg_pass_explaination">Χρησιμοποιήστε αυτό για να αλλάξετε τον κωδικό για το ξεκλείδωμα του OI Κιβώτιο. Τα δεδομένα σας θα επανακρυπτογραφηθούν με το νέο κωδικό. Όσο πιο σύνθετος είναι ο κωδικός σας, τόσο πιο ασφαλή θα είναι τα δεδομένα σας.</string>
+  <string name="old_password">Παλαιός κωδικός</string>
+  <string name="new_password">Νέος κωδικός</string>
+  <string name="verify_password">Επαλήθευση κωδικού</string>
+  <string name="new_verify_mismatch">Ο Νέος και ο Επαληθυμένος κωδικός δεν ταιριάζουν.</string>
+  <string name="invalid_old_password">Ο παλαιός κωδικός δεν είναι έκγυρος. Παρακαλώ προσπαθήστε ξανά.</string>
+  <string name="error_changing_password">Σφάλμα κατά την αλλαγή κωδικού</string>
+  <string name="password_changed">Άλλαξε ο Κύριος Κωδικός</string>
+  <string name="confirm">Επιβεβαίωση</string>
+  <string name="confirm_pass_fail">Οι καταχωρήσεις κωδικού δεν ταιριάζουν.</string>
+  <string name="backup">Αντίγραφο Ασφαλείας</string>
+  <string name="backup_progress">Δημιουργία αντιγράφου ασφαλείας στο</string>
+  <string name="backup_complete">Ολοκλήρωση. Οι κωδικοί έχουν αντιγραφτεί:</string>
+  <string name="backup_failed">Η δημιουργία αντιγράφου ασφαλείας απέτυχε:</string>
+  <string name="backup_select_file">Επιλέξτε ένα αρχείο για δημιουργία αντιγράφου ασφαλείας</string>
+  <string name="backup_error">Σφάλμα κατά τη δημιουργία αντιγράφου ασφαλείας</string>
+  <string name="restore">Επαναφορά</string>
+  <string name="filename">Όνομα αρχείου</string>
+  <string name="restore_no_file">Το αρχείο αντιγράφου ασφαλείας δε βρέθηκε. Θα χρειαστεί να δημιουργήσετε ένα αντίγραφο ασφαλείας  για να προκύψει. Ή να αντιγράψετε ένα αντίγραφο ασφαλείας από τον Η/Υ σας.</string>
+  <string name="restore_set_password">Παρακαλώ παρέχετε τον κωδικό που χρησιμοποιείται από το αρχείο αντιγράφου ασφαλείας. Ο κύριος κωδικός πρέπει να έχει οριστεί σε αυτό.</string>
+  <string name="restore_select_file">Επιλέξτε ένα αρχείο προς επαναφορά</string>
+  <string name="restore_error">Σφάλμα κατά την επαναφορά</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">πρόσβαση του κυρίως κωδικού</string>
-	<string name="oi_safe_permission_service_descr">Επιτρέπει στην εφαρμογή να έχει πρόσβαση στο κύριο κλειδί που χρησιμοποείται για κρυπτογράφηση και αποκρυπτογράφηση. Δεν πρέπει ποτέ να χρησιμοποιηθεί εκτός από το OI Κιβώτιο.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">κρυπτογράφηση και αποκρυπτογράφηση δεδομένων</string>
-    <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Safe.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Αδυναμία ανοίγματος του αρχείου : %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Η έκδοση δεν υποστηρίζεται : %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 λεπτό</item>
-        <item>5 λεπτά</item>
-        <item>10 λεπτά</item>
-        <item>15 λεπτά</item>
-        <item>30 λεπτά</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Λανθασμένος κωδικός.</string>
+  <string name="dialog_restore_database_title">Επαναφορά Βάσης Δεδομένων</string>
+  <string name="dialog_restore_database_msg">Είστε σίγουρος ότι θέλετε να αντικαταστήσετε τα τρέχοντα δεδομένα;</string>
+  <string name="restore_found">Βρέθηκαν %1$s κωδικοί από το αντίγραφο ασφαλείας που χρονολογείται από %2$s.</string>
+  <string name="restore_complete">Ολοκλήρωση. Οι κωδικοί επαναφέρθηκαν: %s</string>
+  <string name="copied_to_clipboard">αντιγράφτηκε στο Πρόχειρο</string>
+  <string name="invalid_website">Λανθασμένη ιστοσελίδα</string>
+  <string name="database_error_title">Σφάλμα Βάσης Δεδομένων</string>
+  <string name="database_error_msg">Σφάλμα Βάσης Δεδομένων. Δεν υπάρχει ελεύθερος χώρος;</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 ημέρα</item>
-        <item>7 ημέρες</item>
-        <item>30 ημέρες</item>
-        <item>60 ημέρες</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Άνοιγμα</string>
+
+  <string name="database_version_error_title">Έκδοση Σφάλματος Βάσης Δεδομένων</string>
+  <string name="database_version_error_msg">Λυπούμαστε, μα αυτή η έκδοση της βάσης δεδομένων δεν υποστηρίζεται. Πρέπει να εγκαταστήσετε την έκδοση που σχετίζεται με αυτή τη βάση δεδομένων.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Μετακίνηση</string>
+
+  <string name="move_select">Επιλογή Κατηγορίας</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Μετακινήθηκε στο %s</string>
+
+  <string name="preferences">Ρυθμίσεις</string>
+  <string name="pref_title_external_access">Να επιτρέπεται η εξωτερική πρόσβαση</string>
+  <string name="pref_summary_external_access">Να επιτρέπονται άλλες εφαρμογές να ασφαλίζουν τα δεδομένα σας με το OI Κιβώτιο</string>
+  <string name="dialog_title_external_access">ΟΙ Κιβώτιο: Ακόμα μια εφαρμογή ζητά πρόσβαση.</string>
+  <string name="dialog_summary_external_access">Να επιτρέπονται άλλες εφαρμογές να ασφαλίζουν τα δεδομένα σας με το OI Κιβώτιο.</string>
+  <string name="dialog_comment_external_access">Αυτό μπορεί επίσης να οριστεί στο Μενού / Ρυθμίσεις του OI Safe.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Αυτόματο όριο χρόνου κλειδώματος</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Αριθμός λεπτών πρίν την εφαρμογή του χρονικού ορίου και το κλείδωμα του χρηματοκιβωτίου</string>
+
+  <string name="pref_dialog_title_lock_timeout">Αυτόματο όριο χρόνου κλειδώματος</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Κλείδωμα κατά το κλείδωμα της οθόνης</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Γίνεται κλείδωμα όταν κλειδώνει και η οθόνη</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Αριθμητικό πληκτρολόγιο</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Χρησιμοποιήστε ένα αριθμητικό πληκτρολόγιο για την εισαγωγή του Κύριου Κωδικού</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Σίγαση Αριθμητικού Πληκτρολογίου</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Σίγαση ήχων του αριθμητικού πληκτρολογίου</string>
+
+  <string name="pref_title_autobackup">Αυτόματη δημιουργία αντιγράφων ασφαλείας</string>
+  <string name="pref_summary_autobackup">Αυτόματη υπενθύμιση για τη λήψη αντιγράφων ασφαλείας των κωδικών</string>
+
+  <string name="pref_title_autobackup_days">Ημέρες αυτόματης δημιουργίας αντιγράφων ασφαλείας</string>
+  <string name="pref_summary_autobackup_days">Αριθμός ημερών αναμονής για την επόμενη αυτόματη δημιουργία αντιγράφων ασφαλείας</string>
+  <string name="pref_dialog_title_autobackup_days">Ημέρες Αυτόματης Δημιουργίας Αντιγράφων Ασφαλείας</string>
+
+  <string name="pref_title_backup_path">Προεπιλεγμένος  κατάλογος αντιγράφων ασφαλείας</string>
+  <string name="pref_title_export_path">Προεπιλεγμένη διαδρομή εξαγωγής</string>
+
+
+  <string name="intent_decrypt">Αποκρυπτογράφηση (OI Safe)</string>
+  <string name="intent_encrypt">Κρυπτογράφηση (OI Κιβώτιο)</string>
+  <string name="intent_get_password">Λήψη Κωδικού (OI Κιβώτιο)</string>
+  <string name="intent_set_password">Ορισμός Κωδικού (OI Κιβώτιο)</string>
+  <string name="intent_restart_timer">Επανεκκίνηση χρονομετρητή (OI Κιβώτιο)</string>
+  <string name="open_safe">Άνοιγμα OI Κιβώτιο</string>
+  <string name="lock">Κλείδωμα</string>
+  <string name="continue_text">Συνέχεια</string>
+  <string name="generate_password">Δημιουργία Κωδικού</string>
+  <string name="pass_gen_length">Μήκος Κωδικού</string>
+  <string name="pass_gen_uppercase">Κεφαλαία [A-Z]</string>
+  <string name="pass_gen_lowercase">Μικρά [a-z]</string>
+  <string name="pass_gen_numbers">Αριθμοί  [0-9]</string>
+  <string name="pass_gen_symbols">Σύμβολα [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Αντιγραφή στην Τρέχουσα Καταχώρηση</string>
+  <string name="pass_gen_copy_to_clipboard">Αντιγραφή στο Πρόχειρο</string>
+  <string name="cancel">Ακύρωση</string>
+  <string name="discard_changes">Απόρριψη αλλαγών</string>
+  <string name="entry_saved">Η καταχώρηση αποθηκέυτηκε</string>
+  <string name="entry_save_error">Αδυναμία αποθήκευσης λόγω σφάλματος στη βάση δεδομένων</string>
+  <string name="last_edited">Τελευταία τροποποίηση</string>
+  <string name="last_edited_unknown">άγνωστο</string>
+  <string name="crypto_error">Σφάλμα κρυπτογράφησης:</string>
+  <string name="uniquename">Μοναδικό όνομα</string>
+  <string name="package_access">Προσβαση πακέτου</string>
+  <string name="not_found">δε βρέθηκε</string>
+  <string name="dialog_title_first_time_warning">Νέο κύριο κλειδί</string>
+  <string name="dialog_summary_first_time_warning">Ένα νέο τυχαίο κύριο κλειδί δημιουργήθηκε. Χρησιμοποιήστε το μενού &gt; αντίγραφο ασφαλείας και αποθηκέυστε αυτό το κλειδί σε ένα ασφαλές μέρος. Χωρίς αυτό το κλειδί μπορεί να χάσετε κρυπτογραφημένα δεδομένα.</string>
+  <string name="switch_mode">Εναλλαγή λειτουργίας</string>
+  <string name="decrypt_progress">Γίνεται αποκρυπτογράφηση...</string>
+  <string name="search">Αναζήτηση</string>
+  <string name="search_progress">Γίνεται αναζήτηση...</string>
+  <string name="search_hint">Πληκτρολόγηση κριτηρίων αναζήτησης</string>
+  <string name="search_nothing_found">Δε βρέθηκε τίποτα</string>
+  <string name="mute">Σίγαση</string>
+  <string name="sounds">Ήχοι</string>
+  <string name="previous">Προηγούμενο</string>
+  <string name="next">Επόμενο</string>
+  <string name="autobackup">Αυτόματα ΑντίγραφαΑσφαλείας</string>
+  <string name="backup_never">Δεν έχουν δημιουργηθεί αντίγραφα ασφαλείας ακόμα. Θα θέλατε να κάνετε λήψη αντιγράφων ασφαλείας τώρα;</string>
+  <string name="backup_in_days">Η τελευταία δημιουργία αντιγράφου ασφαλείας ήταν %d μέρες πρίν. Θέλετε να δημιουργήσετε κάποιο αντίγραφο ασφαλείας τώρα;</string>
+  <string name="autobackup_turnoff">Απενεργοποίηση των αυτόματων αντιγράφων ασφαλείας</string>
+  <string name="lock_timeout">Χρόνος για το αυτόματο κλείδωμα: %s</string>
+  <string name="download_oi_filemanager">Ενώ δεν έχει ληφθεί, θα χρησιμοποιηθεί η προεπιλεγμένη τοποθεσία.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">πρόσβαση του κυρίως κωδικού</string>
+  <string name="oi_safe_permission_service_descr">Επιτρέπει στην εφαρμογή να έχει πρόσβαση στο κύριο κλειδί που χρησιμοποείται για κρυπτογράφηση και αποκρυπτογράφηση. Δεν πρέπει ποτέ να χρησιμοποιηθεί εκτός από το OI Κιβώτιο.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">κρυπτογράφηση και αποκρυπτογράφηση δεδομένων</string>
+  <string name="oi_safe_permission_intents_descr">Επιτρέπει την εφαρμογή να κρυπτογραφεί και να αποκρυπτογραφεί κείμενο και να αποκτά πρόσβαση στους κωδικούς που είναι αποθηκευμένοι στο OI Safe.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 λεπτό</item>
+    <item>5 λεπτά</item>
+    <item>10 λεπτά</item>
+    <item>15 λεπτά</item>
+    <item>30 λεπτά</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 ημέρα</item>
+    <item>7 ημέρες</item>
+    <item>30 ημέρες</item>
+    <item>60 ημέρες</item>
+  </string-array>
+
+
 </resources>

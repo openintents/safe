@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Andrzej Ziółek https://launchpad.net/~andro-v-zik
   Damian Skrodzki https://launchpad.net/~damienix
@@ -28,271 +27,271 @@
   Piotr Łazarczyk https://launchpad.net/~quazarxd
   Tomasz Zieliński https://launchpad.net/~tomek0517
   zielmicha https://launchpad.net/~michal-zielinscy</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Zapisuj swoje prywatne dane używając OI Sejf.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Sejf</string>
-    <string name="empty_safe">Brak haseł w kategorii</string>
-    <string name="empty_category">Nie utworzono jeszcze kategorii. Dodaj nową przez Menu-&gt;Dodaj</string>
-    <string name="password_lock">Zablokuj</string>
-    <string name="password_view">Podgląd</string>
-    <string name="password_edit">Edycja</string>
-    <string name="password_add">Dodaj</string>
-    <string name="password_delete">Usuń</string>
-    <string name="password">Hasło</string>
-    <string name="passwords">Hasła</string>
-    <string name="master_password">Hasło Główne</string>
-    <string name="username">Nazwa użytkownika</string>
-    <string name="website">Strona Web</string>
-    <string name="description">Opis</string>
-    <string name="notes">Notatki</string>
-    <string name="save">Zapisz</string>
-    <string name="invalid_password">Nieprawidłowe hasło. Spróbuj ponownie.</string>
-    <string name="notify_blank_pass">Hasło musi mieć przynajmniej 4 znaki</string>
-    <string name="notify_blank_desc">Opis nie może być pusty</string>
-    <string name="notify_blank_name">Nazwa nie może być pusta</string>
-    <string name="first_time">Proszę poniżej podać hasło, które będzie używane do bezpiecznego przychowywania twoich haseł.</string>
-    <string name="logoff_explanation">Jesteś obecnie zalogowany(a) do IO Sejf, co oznacza, że inne aplikacje mogą żądać swoich haseł i szyfrować/odszyfrowywać dane. Zablokuj by zapobiec następnym dostępom dopóki nie wpiszesz swojego hasła ponownie.</string>
-    <string name="remote_ask">Inna aplikacja prosi o użycie głównego klucza. Proszę wpisać swoje hasło by ją odblokować.</string>
-    <string name="categories">Kategorie</string>
-	<string name="category">Kategoria</string>
-    <string name="category_business">Biznes</string>
-    <string name="category_personal">Osobiste</string>
-    <string name="name">Nazwa</string>
-    <string name="category_not_empty">Kategoria nie jest pusta. Musisz najpierw usunąć hasła.</string>
-	<string name="cannot_decrypt_category">Nie można odszyfrować kateogrii</string>
-	<string name="cannot_decrypt_password">Nie można odszyfrować hasła</string>
-	<string name="error_export">Błąd podczas eksportowania bazy</string>
-	<string name="export_database">Eksportuj bazę danych</string>
-	<string name="export_file_select">Wybierz plik do eksportu</string>
-	<string name="export_msg">Ta opcja wyeksportuje bazę haseł do pliku tekstowego. TA OPERACJA JEST NIEBEZPIECZNA. Upewnij się, że usunąłeś plik jeśli nie będzie już tobie potrzebny. Czy na pewno chcesz wyeksportować?</string>
-	<string name="export_success">Eksportowanie do \'%s\' zakończone pomyślnie. Ostrzeżenie! Ten plik nie jest zaszyfrowany.</string>
-	<string name="export_file_error">Nie można utworzyć pliku eksportowego \'oisafe.csv\' na karcie pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
-	<string name="import_database">Importuj bazę danych</string>
-	<string name="import_file_select">Wypierz plik do importu</string>
-	<string name="import_file_missing">Brak pliku do zaimportowania:</string>
-	<string name="import_file_error">Nie można zaimportować pliku \'oisafe.csv\' z karty pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
-	<string name="import_error_first_line">W pierwszej linii brakuje pól.</string>
-	<string name="dialog_import_title">Importuj</string>
-	<string name="dialog_import_msg">Czy chcesz zastąpić bazę danych (import z %s)?</string>
-	<string name="yes">Yes</string>
-	<string name="no">Nie</string>
-	<string name="import_progress">Trwa importowanie, proszę czekać...</string>
-	<string name="import_no_categories">Nie znaleziono kategorii.</string>
-	<string name="import_no_entries">Nie znaleziono wpisów w CSV.</string>
-	<string name="import_too_many_categories">Zbyt dużo kategorii.</string>
-	<string name="import_not_enough_fields">Za mało pól</string>
-	<string name="import_blank_category">Pusta kategoria</string>
-	<string name="import_blank_description">Pusty opis</string>
-	<string name="dialog_delete_database_title">Usuń bazę</string>
-	<string name="dialog_delete_database_msg">Czy na pewno chcesz usunąć bazę danych? Tego nie można cofnąć.</string>
-	<string name="added">Dodano</string>
-	<string name="entries">wpisów</string>
-	<string name="import_complete">Import zakończony</string>
-	<string name="import_delete_csv">Ponieważ to niebezpieczne, by trzymać hasła w czystym pliku tekstowym CSV, czy chcesz usunąć</string>
-	<string name="edit_entry">Edytuj wpis</string>
-	<string name="view_entry">Zobacz wpis</string>
-	<string name="help">Pomoc</string>
-	<string name="close">Zamknij</string>
-	<string name="go">Idź</string>
-	<string name="dialog_delete_password_title">Usuń hasło</string>
-	<string name="dialog_delete_password_msg">Czy na pewno chcesz usunąć to hasło?</string>
-	<string name="change_password">Zmień Hasło Główne</string>
-	<string name="chg_pass_explaination">Użyj tego, aby zmienić hasło, którego używasz do odblokowania OI Sejf. Twoje dane zostaną zaszyfrowane ponownie z nowym hasłem. Im bardziej złożone będzie hasło, bym bezpieczniejsze będą dane.</string>
-	<string name="old_password">Stare hasło</string>
-	<string name="new_password">Nowe hasło</string>
-	<string name="verify_password">Weryfikuj hasło</string>
-	<string name="new_verify_mismatch">Nowe i zweryfikowane hasło nie są identyczne.</string>
-    <string name="invalid_old_password">Stare hasło jest niepoprawne. Proszę spróbować ponownie.</string>
-    <string name="error_changing_password">Błąd podczas zmiany hasła</string>
-    <string name="password_changed">Hasło Główne zmienione</string>
-    <string name="confirm">Potwierdź</string>
-    <string name="confirm_pass_fail">Podane hasła nie są identyczne.</string>
-    <string name="backup">Kopia zapasowa</string>
-    <string name="backup_progress">Tworzenie kopii zapasowych do</string>
-    <string name="backup_complete">Zakończono. Hasła w kopiach zapasowych:</string>
-    <string name="backup_failed">Archiwizowanie nie powiodło się:</string>
-	<string name="backup_select_file">Wybierz plik, na którym ma zostać wykonana kopia zapasowa</string>
-	<string name="backup_error">Błąd podczas tworzenia kopii zapasowej</string>
-    <string name="restore">Przywróć</string>
-    <string name="filename">Nazwa pliku</string>
-    <string name="restore_no_file">Plik kopii zapasowej nie został odnaleziony. Musisz najpierw wykonać archiwizację by go stworzyć. Lub skopiować kopię zapasową z twojego komputera.</string>
-    <string name="restore_set_password">Proszę podać hasło używane przez plik kopii zapasowej. Twoje hasło główne będzie do niego dostosowane.</string>
-	<string name="restore_select_file">Wybierz plik do przywrócenia</string>
-	<string name="restore_error">Błąd podczas przywracania</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Nie można otworzyć pliku: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Wersja niewspierana: %s</string>
-    
-    <string name="restore_decrypt_error">Błędne hasło.</string>
-    <string name="dialog_restore_database_title">Przywróć bazę danych</string>
-    <string name="dialog_restore_database_msg">Czy jesteś pewny, że chcesz zastąpić obecne dane?</string>
-    <string name="restore_found">Znaleziono %1$s haseł z kopii zapasowej z dnia  %2$s.</string>
-    <string name="restore_complete">Zakończono. Hasła przywrócone: %s</string>
-    <string name="copied_to_clipboard">skopiowano do Schowka</string>
-    <string name="invalid_website">Nieprawidłowa strona internetowa</string>
-    <string name="database_error_title">Błąd bazy danych</string>
-    <string name="database_error_msg">Błąd bazy danych. Brak miejsca?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Otwórz</string>
-    
-    <string name="database_version_error_title">Błąd wersji bazy danych</string>
-    <string name="database_version_error_msg">Przykro nam, ale wersja bazy danych nie jest obsługiwana. Musisz zainstalować wersję powiązaną z tą bazą danych.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Przenieś</string>
-	
-	<string name="move_select">Wybierz kategorię</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Przeniesiono do %s</string>
-	
-	<string name="preferences">Ustawienia</string>
-	<string name="pref_title_external_access">Pozwól na zewnętrzny dostęp</string>
-	<string name="pref_summary_external_access">Pozwól innym aplikacjom na zabezpieczenie twoich danych z OI Sejf</string>
-	<string name="dialog_title_external_access">OI Sejf: Inna aplikacja żąda dostępu.</string>
-	<string name="dialog_summary_external_access">Pozwól innym aplikacjom na zabezpieczenie twoich danych z OI Sejf.</string>
-	<string name="dialog_comment_external_access">Można to również zmienić w menu OI Sejf / Ustawienia.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Limit czasu automatycznej blokady.</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Wystąpiła liczba minut przed limitem i sejf jest zablokowany.</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Limit czasu automatycznej blokady.</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Zablokuj na ekranie blokowania</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Zablokuj kiedy ekran się blokuje</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Klawiatura</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Użyj klawiatury by wprowadzić Hasło Główne</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Wycisz klawiaturę</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Wycisz przyciski klawiatury</string>
 
-	<string name="pref_title_autobackup">Automatyczne archiwizowanie</string>
-	<string name="pref_summary_autobackup">Automatycznie nakazuj archiwizowanie haseł</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Zapisuj swoje prywatne dane używając OI Sejf.</string>
 
-	<string name="pref_title_autobackup_days">Dni automatycznego archiwizowania</string>
-	<string name="pref_summary_autobackup_days">Liczba dni oczekiwania przed następnym archiwizowaniem</string>
-	<string name="pref_dialog_title_autobackup_days">Dni automatycznego archiwizowania</string>
-	
-	<string name="pref_title_backup_path">Domyślna ścieżka kopii zapasowej</string>
-	<string name="pref_title_export_path">Domyślna ścieżka eksportu</string>
-	    
-	
-	<string name="intent_decrypt">Odszyfruj (OI Sejf)</string>
-	<string name="intent_encrypt">Szyfruj (OI Sejf)</string>
-	<string name="intent_get_password">Uzyskaj hasło (OI Sejf)</string>
-	<string name="intent_set_password">Ustaw hasło (OI Sejf)</string>
-	<string name="intent_restart_timer">Uruchom ponownie zegar (OI Sejf)</string>
-	<string name="open_safe">Otwórz OI Sejf</string>
-	<string name="lock">Zablokuj</string>
-	<string name="continue_text">Kontynuuj</string>
-	<string name="generate_password">Generuj hasło</string>
-	<string name="pass_gen_length">Długość hasła</string>
-	<string name="pass_gen_uppercase">WIelkie [A-Z]</string>
-	<string name="pass_gen_lowercase">Małe [a-z]</string>
-	<string name="pass_gen_numbers">Cyfry [0-9]</string>
-	<string name="pass_gen_symbols">Symbole [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Kopiuj do bieżącego wpisu</string>
-	<string name="pass_gen_copy_to_clipboard">Kopiuj do schowka</string>
-	<string name="cancel">Anuluj</string>
-	<string name="discard_changes">Porzuć zmiany</string>
-	<string name="entry_saved">Wpis zapisany</string>
-	<string name="entry_save_error">Nie można zapisać z powodu błędu bazy danych</string>
-	<string name="last_edited">Ostatnio edytowane</string>
-	<string name="last_edited_unknown">nieznany</string>
-	<string name="crypto_error">Krypto błąd:</string>
-	<string name="uniquename">Unikalna nazwa</string>
-	<string name="package_access">Dostęp do paczki</string>
-	<string name="not_found">nie znaleziono</string>
-	<string name="dialog_title_first_time_warning">Nowy klucz główny</string>
-	<string name="dialog_summary_first_time_warning">Nowy losowy klucz został utworzony. Użyj meny &gt; archiwizuj i przechowaj ten klucz w bezpiecznym miejscu. Bez tego klucz możesz utracić zaszyfrowane dane.</string>
-	<string name="switch_mode">Przełącznik trybu</string>
-	<string name="decrypt_progress">Odszyfrowywanie...</string>
-	<string name="search">Szukaj</string>
-	<string name="search_progress">Wyszukiwanie....</string>
-	<string name="search_hint">Wpisz kryteria wyszukiwania</string>
-	<string name="search_nothing_found">Nic nie znaleziono</string>
-	<string name="mute">Wycisz</string>
-	<string name="sounds">Dźwięki</string>
-	<string name="previous">Poprzedni</string>
-	<string name="next">Następny</string>
-	<string name="autobackup">Automatyczne archiwizowanie</string>
-	<string name="backup_never">Nie stworzono jeszcze kopii zapasowej. Chcesz archiwizować teraz?</string>
-	<string name="backup_in_days">Ostatnie archiwizowanie było %d dni temu. Chcesz archiwizować teraz?</string>
-	<string name="autobackup_turnoff">Wyłącz automatyczne archiwizowanie</string>
-	<string name="lock_timeout">Czas automatycznego blokowania: %s</string>
-	<string name="download_oi_filemanager">Dopóki nie jest pobrany, domyślne położenie będzie używane.</string>
-	<string name="backup_file_found">Plik kopii zapasowej został znaleziony. Czy chcesz go przywrócić?</string>
-	<string name="backup_file_found_label">Znaleziono plik kopii zapasowej</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Sejf</string>
+  <string name="empty_safe">Brak haseł w kategorii</string>
+  <string name="empty_category">Nie utworzono jeszcze kategorii. Dodaj nową przez Menu-&gt;Dodaj</string>
+  <string name="password_lock">Zablokuj</string>
+  <string name="password_view">Podgląd</string>
+  <string name="password_edit">Edycja</string>
+  <string name="password_add">Dodaj</string>
+  <string name="password_delete">Usuń</string>
+  <string name="password">Hasło</string>
+  <string name="passwords">Hasła</string>
+  <string name="master_password">Hasło Główne</string>
+  <string name="username">Nazwa użytkownika</string>
+  <string name="website">Strona Web</string>
+  <string name="description">Opis</string>
+  <string name="notes">Notatki</string>
+  <string name="save">Zapisz</string>
+  <string name="invalid_password">Nieprawidłowe hasło. Spróbuj ponownie.</string>
+  <string name="notify_blank_pass">Hasło musi mieć przynajmniej 4 znaki</string>
+  <string name="notify_blank_desc">Opis nie może być pusty</string>
+  <string name="notify_blank_name">Nazwa nie może być pusta</string>
+  <string name="first_time">Proszę poniżej podać hasło, które będzie używane do bezpiecznego przychowywania twoich haseł.</string>
+  <string name="logoff_explanation">Jesteś obecnie zalogowany(a) do IO Sejf, co oznacza, że inne aplikacje mogą żądać swoich haseł i szyfrować/odszyfrowywać dane. Zablokuj by zapobiec następnym dostępom dopóki nie wpiszesz swojego hasła ponownie.</string>
+  <string name="remote_ask">Inna aplikacja prosi o użycie głównego klucza. Proszę wpisać swoje hasło by ją odblokować.</string>
+  <string name="categories">Kategorie</string>
+  <string name="category">Kategoria</string>
+  <string name="category_business">Biznes</string>
+  <string name="category_personal">Osobiste</string>
+  <string name="name">Nazwa</string>
+  <string name="category_not_empty">Kategoria nie jest pusta. Musisz najpierw usunąć hasła.</string>
+  <string name="cannot_decrypt_category">Nie można odszyfrować kateogrii</string>
+  <string name="cannot_decrypt_password">Nie można odszyfrować hasła</string>
+  <string name="error_export">Błąd podczas eksportowania bazy</string>
+  <string name="export_database">Eksportuj bazę danych</string>
+  <string name="export_file_select">Wybierz plik do eksportu</string>
+  <string name="export_msg">Ta opcja wyeksportuje bazę haseł do pliku tekstowego. TA OPERACJA JEST NIEBEZPIECZNA. Upewnij się, że usunąłeś plik jeśli nie będzie już tobie potrzebny. Czy na pewno chcesz wyeksportować?</string>
+  <string name="export_success">Eksportowanie do \'%s\' zakończone pomyślnie. Ostrzeżenie! Ten plik nie jest zaszyfrowany.</string>
+  <string name="export_file_error">Nie można utworzyć pliku eksportowego \'oisafe.csv\' na karcie pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
+  <string name="import_database">Importuj bazę danych</string>
+  <string name="import_file_select">Wypierz plik do importu</string>
+  <string name="import_file_missing">Brak pliku do zaimportowania:</string>
+  <string name="import_file_error">Nie można zaimportować pliku \'oisafe.csv\' z karty pamięci. Możesz spróbować odłączyć USB od swojego komputera.</string>
+  <string name="import_error_first_line">W pierwszej linii brakuje pól.</string>
+  <string name="dialog_import_title">Importuj</string>
+  <string name="dialog_import_msg">Czy chcesz zastąpić bazę danych (import z %s)?</string>
+  <string name="yes">Yes</string>
+  <string name="no">Nie</string>
+  <string name="import_progress">Trwa importowanie, proszę czekać...</string>
+  <string name="import_no_categories">Nie znaleziono kategorii.</string>
+  <string name="import_no_entries">Nie znaleziono wpisów w CSV.</string>
+  <string name="import_too_many_categories">Zbyt dużo kategorii.</string>
+  <string name="import_not_enough_fields">Za mało pól</string>
+  <string name="import_blank_category">Pusta kategoria</string>
+  <string name="import_blank_description">Pusty opis</string>
+  <string name="dialog_delete_database_title">Usuń bazę</string>
+  <string name="dialog_delete_database_msg">Czy na pewno chcesz usunąć bazę danych? Tego nie można cofnąć.</string>
+  <string name="added">Dodano</string>
+  <string name="entries">wpisów</string>
+  <string name="import_complete">Import zakończony</string>
+  <string name="import_delete_csv">Ponieważ to niebezpieczne, by trzymać hasła w czystym pliku tekstowym CSV, czy chcesz usunąć</string>
+  <string name="edit_entry">Edytuj wpis</string>
+  <string name="view_entry">Zobacz wpis</string>
+  <string name="help">Pomoc</string>
+  <string name="close">Zamknij</string>
+  <string name="go">Idź</string>
+  <string name="dialog_delete_password_title">Usuń hasło</string>
+  <string name="dialog_delete_password_msg">Czy na pewno chcesz usunąć to hasło?</string>
+  <string name="change_password">Zmień Hasło Główne</string>
+  <string name="chg_pass_explaination">Użyj tego, aby zmienić hasło, którego używasz do odblokowania OI Sejf. Twoje dane zostaną zaszyfrowane ponownie z nowym hasłem. Im bardziej złożone będzie hasło, bym bezpieczniejsze będą dane.</string>
+  <string name="old_password">Stare hasło</string>
+  <string name="new_password">Nowe hasło</string>
+  <string name="verify_password">Weryfikuj hasło</string>
+  <string name="new_verify_mismatch">Nowe i zweryfikowane hasło nie są identyczne.</string>
+  <string name="invalid_old_password">Stare hasło jest niepoprawne. Proszę spróbować ponownie.</string>
+  <string name="error_changing_password">Błąd podczas zmiany hasła</string>
+  <string name="password_changed">Hasło Główne zmienione</string>
+  <string name="confirm">Potwierdź</string>
+  <string name="confirm_pass_fail">Podane hasła nie są identyczne.</string>
+  <string name="backup">Kopia zapasowa</string>
+  <string name="backup_progress">Tworzenie kopii zapasowych do</string>
+  <string name="backup_complete">Zakończono. Hasła w kopiach zapasowych:</string>
+  <string name="backup_failed">Archiwizowanie nie powiodło się:</string>
+  <string name="backup_select_file">Wybierz plik, na którym ma zostać wykonana kopia zapasowa</string>
+  <string name="backup_error">Błąd podczas tworzenia kopii zapasowej</string>
+  <string name="restore">Przywróć</string>
+  <string name="filename">Nazwa pliku</string>
+  <string name="restore_no_file">Plik kopii zapasowej nie został odnaleziony. Musisz najpierw wykonać archiwizację by go stworzyć. Lub skopiować kopię zapasową z twojego komputera.</string>
+  <string name="restore_set_password">Proszę podać hasło używane przez plik kopii zapasowej. Twoje hasło główne będzie do niego dostosowane.</string>
+  <string name="restore_select_file">Wybierz plik do przywrócenia</string>
+  <string name="restore_error">Błąd podczas przywracania</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">dostęp do hasła głównego</string>
-	<string name="oi_safe_permission_service_descr">Pozwala aplikacji używać klucza głównego do szyfrowania i odszyfrowywania. Nie powinno być nigdy używane poza OI Sejf.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
-    <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Nie można otworzyć pliku: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Wersja niewspierana: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 minuta</item>
-        <item>5 minut</item>
-        <item>10 minut</item>
-        <item>15 minut</item>
-        <item>30 minut</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Błędne hasło.</string>
+  <string name="dialog_restore_database_title">Przywróć bazę danych</string>
+  <string name="dialog_restore_database_msg">Czy jesteś pewny, że chcesz zastąpić obecne dane?</string>
+  <string name="restore_found">Znaleziono %1$s haseł z kopii zapasowej z dnia  %2$s.</string>
+  <string name="restore_complete">Zakończono. Hasła przywrócone: %s</string>
+  <string name="copied_to_clipboard">skopiowano do Schowka</string>
+  <string name="invalid_website">Nieprawidłowa strona internetowa</string>
+  <string name="database_error_title">Błąd bazy danych</string>
+  <string name="database_error_msg">Błąd bazy danych. Brak miejsca?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 dzień</item>
-        <item>7 dni</item>
-        <item>30 dni</item>
-        <item>60 dni</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Otwórz</string>
+
+  <string name="database_version_error_title">Błąd wersji bazy danych</string>
+  <string name="database_version_error_msg">Przykro nam, ale wersja bazy danych nie jest obsługiwana. Musisz zainstalować wersję powiązaną z tą bazą danych.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Przenieś</string>
+
+  <string name="move_select">Wybierz kategorię</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Przeniesiono do %s</string>
+
+  <string name="preferences">Ustawienia</string>
+  <string name="pref_title_external_access">Pozwól na zewnętrzny dostęp</string>
+  <string name="pref_summary_external_access">Pozwól innym aplikacjom na zabezpieczenie twoich danych z OI Sejf</string>
+  <string name="dialog_title_external_access">OI Sejf: Inna aplikacja żąda dostępu.</string>
+  <string name="dialog_summary_external_access">Pozwól innym aplikacjom na zabezpieczenie twoich danych z OI Sejf.</string>
+  <string name="dialog_comment_external_access">Można to również zmienić w menu OI Sejf / Ustawienia.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Limit czasu automatycznej blokady.</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Wystąpiła liczba minut przed limitem i sejf jest zablokowany.</string>
+
+  <string name="pref_dialog_title_lock_timeout">Limit czasu automatycznej blokady.</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Zablokuj na ekranie blokowania</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Zablokuj kiedy ekran się blokuje</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Klawiatura</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Użyj klawiatury by wprowadzić Hasło Główne</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Wycisz klawiaturę</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Wycisz przyciski klawiatury</string>
+
+  <string name="pref_title_autobackup">Automatyczne archiwizowanie</string>
+  <string name="pref_summary_autobackup">Automatycznie nakazuj archiwizowanie haseł</string>
+
+  <string name="pref_title_autobackup_days">Dni automatycznego archiwizowania</string>
+  <string name="pref_summary_autobackup_days">Liczba dni oczekiwania przed następnym archiwizowaniem</string>
+  <string name="pref_dialog_title_autobackup_days">Dni automatycznego archiwizowania</string>
+
+  <string name="pref_title_backup_path">Domyślna ścieżka kopii zapasowej</string>
+  <string name="pref_title_export_path">Domyślna ścieżka eksportu</string>
+
+
+  <string name="intent_decrypt">Odszyfruj (OI Sejf)</string>
+  <string name="intent_encrypt">Szyfruj (OI Sejf)</string>
+  <string name="intent_get_password">Uzyskaj hasło (OI Sejf)</string>
+  <string name="intent_set_password">Ustaw hasło (OI Sejf)</string>
+  <string name="intent_restart_timer">Uruchom ponownie zegar (OI Sejf)</string>
+  <string name="open_safe">Otwórz OI Sejf</string>
+  <string name="lock">Zablokuj</string>
+  <string name="continue_text">Kontynuuj</string>
+  <string name="generate_password">Generuj hasło</string>
+  <string name="pass_gen_length">Długość hasła</string>
+  <string name="pass_gen_uppercase">WIelkie [A-Z]</string>
+  <string name="pass_gen_lowercase">Małe [a-z]</string>
+  <string name="pass_gen_numbers">Cyfry [0-9]</string>
+  <string name="pass_gen_symbols">Symbole [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Kopiuj do bieżącego wpisu</string>
+  <string name="pass_gen_copy_to_clipboard">Kopiuj do schowka</string>
+  <string name="cancel">Anuluj</string>
+  <string name="discard_changes">Porzuć zmiany</string>
+  <string name="entry_saved">Wpis zapisany</string>
+  <string name="entry_save_error">Nie można zapisać z powodu błędu bazy danych</string>
+  <string name="last_edited">Ostatnio edytowane</string>
+  <string name="last_edited_unknown">nieznany</string>
+  <string name="crypto_error">Krypto błąd:</string>
+  <string name="uniquename">Unikalna nazwa</string>
+  <string name="package_access">Dostęp do paczki</string>
+  <string name="not_found">nie znaleziono</string>
+  <string name="dialog_title_first_time_warning">Nowy klucz główny</string>
+  <string name="dialog_summary_first_time_warning">Nowy losowy klucz został utworzony. Użyj meny &gt; archiwizuj i przechowaj ten klucz w bezpiecznym miejscu. Bez tego klucz możesz utracić zaszyfrowane dane.</string>
+  <string name="switch_mode">Przełącznik trybu</string>
+  <string name="decrypt_progress">Odszyfrowywanie...</string>
+  <string name="search">Szukaj</string>
+  <string name="search_progress">Wyszukiwanie....</string>
+  <string name="search_hint">Wpisz kryteria wyszukiwania</string>
+  <string name="search_nothing_found">Nic nie znaleziono</string>
+  <string name="mute">Wycisz</string>
+  <string name="sounds">Dźwięki</string>
+  <string name="previous">Poprzedni</string>
+  <string name="next">Następny</string>
+  <string name="autobackup">Automatyczne archiwizowanie</string>
+  <string name="backup_never">Nie stworzono jeszcze kopii zapasowej. Chcesz archiwizować teraz?</string>
+  <string name="backup_in_days">Ostatnie archiwizowanie było %d dni temu. Chcesz archiwizować teraz?</string>
+  <string name="autobackup_turnoff">Wyłącz automatyczne archiwizowanie</string>
+  <string name="lock_timeout">Czas automatycznego blokowania: %s</string>
+  <string name="download_oi_filemanager">Dopóki nie jest pobrany, domyślne położenie będzie używane.</string>
+  <string name="backup_file_found">Plik kopii zapasowej został znaleziony. Czy chcesz go przywrócić?</string>
+  <string name="backup_file_found_label">Znaleziono plik kopii zapasowej</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">dostęp do hasła głównego</string>
+  <string name="oi_safe_permission_service_descr">Pozwala aplikacji używać klucza głównego do szyfrowania i odszyfrowywania. Nie powinno być nigdy używane poza OI Sejf.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">szyfruj i odszyfrowuj dane</string>
+  <string name="oi_safe_permission_intents_descr">Pozwala aplikacji szyfrować i odszyfrowywać tekst, oraz mieć dostęp do haseł przechowywanych w OI Sejf.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 minuta</item>
+    <item>5 minut</item>
+    <item>10 minut</item>
+    <item>15 minut</item>
+    <item>30 minut</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 dzień</item>
+    <item>7 dni</item>
+    <item>30 dni</item>
+    <item>60 dni</item>
+  </string-array>
+
+
 </resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,279 +15,279 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Arne Tobias Malkenes Ødegaard https://launchpad.net/~arne-tobias
   OpenIntents devs https://launchpad.net/~openintents-devs</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Store your private data with OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">Ingen passord tilstedeværende for denne kategorien.</string>
-    <string name="empty_category">Ingen kategorier tilstedeværende. Vennligst legg til en kategori gjennom meny-&gt;Legg til</string>
-    <string name="password_lock">Lås</string>
-    <string name="password_view">Vis</string>
-    <string name="password_edit">Rediger</string>
-    <string name="password_add">Legg til</string>
-    <string name="password_delete">Slett</string>
-    <string name="password">Passord</string>
-    <string name="passwords">Passord</string>
-    <string name="master_password">Hovedpassord</string>
-    <string name="username">Brukernavn</string>
-    <string name="website">Nettside</string>
-    <string name="description">Beskrivelse</string>
-    <string name="notes">Notater</string>
-    <string name="save">Lagre</string>
-    <string name="invalid_password">Ugyldig passord. Vennligst prøv igjen.</string>
-    <string name="notify_blank_pass">Passord må være minst 4 tegn</string>
-    <string name="notify_blank_desc">Beskrivelse kan ikke være blank</string>
-    <string name="notify_blank_name">Navn kan ikke være blank</string>
-    <string name="first_time">Vennligst skriv inn et passord nedenfor, som vil bli brukt for å holde dine passord trygge.</string>
-    <string name="logoff_explanation">Du er nå logget inn i OI Safe, som betyr at andre applikasjoner kan be om deres passord og dekryptere/kryptere data. Lås for å hindre videre tilgang fram til du skriver in ditt passord igjen.</string>
-    <string name="remote_ask">En annen applikasjon ber om å få bruke hovednøkkelen. Vennligst skriv ditt passord for å låse den opp.</string>
-    <string name="categories">Kategorier</string>
-	<string name="category">Kategori</string>
-    <string name="category_business">Business</string>
-    <string name="category_personal">Personlig</string>
-    <string name="name">Navn</string>
-    <string name="category_not_empty">Kategori er ikke tom. Du må slette passordene først.</string>
-	<string name="cannot_decrypt_category">Kan ikke dekryptere kategori</string>
-	<string name="cannot_decrypt_password">Kan ikke dekryptere passord</string>
-	<string name="error_export">Feil ved eksport av database</string>
-	<string name="export_database">Eksporter database</string>
-	<string name="export_file_select">Velg en fil for eksportering</string>
-	<string name="export_msg">Dette vil eksportere passord-databasen til en ren tekstfil. DETTE ER VELDIG FARLIG. Vær sikker på at du sletter filen når du er ferdig med den. Er du sikker på du vil eksportere?</string>
-	<string name="export_success">Eksport til \'%s\' vellykket. Advarsel! Filen er ikke kryptert.</string>
-	<string name="export_file_error">Klarte ikke å opprette eksportfilen \'oisafe.csv\' på SD-kortet. Du kan eventuelt prøve å koble USB fra datamaskinen.</string>
-	<string name="import_database">Importer database</string>
-	<string name="import_file_select">Velg en fil for importering</string>
-	<string name="import_file_missing">Importfil mangler:</string>
-	<string name="import_file_error">Klarte ikke å importere fil \'oisafe.csv\' fra SD-kortet. Du kan eventuelt prøve å koble USB fra datamaskinen.</string>
-	<string name="import_error_first_line">Den første linjen mangler felt.</string>
-	<string name="dialog_import_title">Importer</string>
-	<string name="dialog_import_msg">Vil du erstatte databasen (importer fra %s)?</string>
-	<string name="yes">Ja</string>
-	<string name="no">Nei</string>
-	<string name="import_progress">Vennligst vent, importerer...</string>
-	<string name="import_no_categories">Ingen kategorier funnet.</string>
-	<string name="import_no_entries">Ingen oppføringer funnet i CSV.</string>
-	<string name="import_too_many_categories">For mange kategorier.</string>
-	<string name="import_not_enough_fields">Ikke nok felter</string>
-	<string name="import_blank_category">Blank kategori</string>
-	<string name="import_blank_description">Blank beskrivelse</string>
-	<string name="dialog_delete_database_title">Slett database</string>
-	<string name="dialog_delete_database_msg">Er du sikker på at du vil slette databasen? Dette kan ikke bli ugjort.</string>
-	<string name="added">Lagt til</string>
-	<string name="entries">oppføringer</string>
-	<string name="import_complete">Importering komplett</string>
-	<string name="import_delete_csv">Siden det ikke er sikkert å oppbevare passord i rene tekstfiler av filformatet CSV, vil du slette</string>
-	<string name="edit_entry">Rediger oppføring</string>
-	<string name="view_entry">Vis oppføring</string>
-	<string name="help">Hjelp</string>
-	<string name="close">Steng</string>
-	<string name="go">Gå</string>
-	<string name="dialog_delete_password_title">Slett passord</string>
-	<string name="dialog_delete_password_msg">Er du sikker på at du vil slette dette passordet?</string>
-	<string name="change_password">Endre hovedpassord</string>
-	<string name="chg_pass_explaination">Bruk dette for å endre passordet du bruker for å låse opp OI Safe. Din data vil bli re-kryptert med det nye passordet. Desto mer komplekst passordet ditt er, desto tryggere vil dine data bli.</string>
-	<string name="old_password">Gammelt passord</string>
-	<string name="new_password">Nytt passord</string>
-	<string name="verify_password">Bekreft passord</string>
-	<string name="new_verify_mismatch">Ny- og Bekreftpassordene samsvarer ikke.</string>
-    <string name="invalid_old_password">Gammelt passord er ugyldig. Vennligst prøv igjen.</string>
-    <string name="error_changing_password">Feil ved endring av passord</string>
-    <string name="password_changed">Hovedpassord endret</string>
-    <string name="confirm">Bekreft</string>
-    <string name="confirm_pass_fail">Passordoppføringer er ikke like.</string>
-    <string name="backup">Sikkerhetskopi</string>
-    <string name="backup_progress">Sikkerhetskopierer til</string>
-    <string name="backup_complete">Ferdig. Passord sikkerhetskopiert:</string>
-    <string name="backup_failed">Sikkerhetskopiering feilet:</string>
-	<string name="backup_select_file">Velg en fil for sikkerhetskopi</string>
-	<string name="backup_error">Feil ved sikkerhetskopiering</string>
-    <string name="restore">Gjenopprett</string>
-    <string name="filename">Filnavn</string>
-    <string name="restore_no_file">Sikkerhetskopifil ikke funnet. Du må utføre en sikkerhetskopiering for å opprette den. Eller kopier en sikkerhetskopi fra din PC.</string>
-    <string name="restore_set_password">Vennligst oppgi passord brukt av sikkerhetskopifilen. Ditt hovedpassord vil bli satt til dette.</string>
-	<string name="restore_select_file">Velg en fil for gjenoppretting</string>
-	<string name="restore_error">Feil ved gjenoppretting</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Klarte ikke å åpne fil: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Versjon ikke støttet: %s</string>
-    
-    <string name="restore_decrypt_error">Dårlig passord</string>
-    <string name="dialog_restore_database_title">Gjenopprett database</string>
-    <string name="dialog_restore_database_msg">Er du sikker på at du vil erstatte nåværende data?</string>
-    <string name="restore_found">Funnet %1$s passord fra sikkerhetskopiering datert %2$s.</string>
-    <string name="restore_complete">Ferdig. Passord gjenopprettet: %s</string>
-    <string name="copied_to_clipboard">kopiert til utklippstavle</string>
-    <string name="invalid_website">Ugyldig nettside</string>
-    <string name="database_error_title">Databasefeil</string>
-    <string name="database_error_msg">Databasefeil. Tom for plass?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Åpne</string>
-    
-    <string name="database_version_error_title">Databaseversjonfeil</string>
-    <string name="database_version_error_msg">Beklager, men versjonen til databasen er ikke støttet. Du må installere versjonen som er assosiert med denne databasen.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Flytt</string>
-	
-	<string name="move_select">Velg kategori</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Flyttet til %s</string>
-	
-	<string name="preferences">Innstillinger</string>
-	<string name="pref_title_external_access">Tillatt ekstern tilgang</string>
-	<string name="pref_summary_external_access">Tillat andre applikasjoner å sikre dine data med OI Safe</string>
-	<string name="dialog_title_external_access">OI Safe:</string>
-	<string name="dialog_summary_external_access">Tillat andre applikasjoner å sikre dine data med OI Safe</string>
-	<string name="dialog_comment_external_access">Dette kan også bli innstilt i menyen / innstillingene til OI Safe.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Automatisk tidslås</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Antall minutter før tidsavbrudd oppstår og safen blir låst</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Automatisk tidslås</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Lås på skjermlås</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Lås når skjermen låses</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Tastatur</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Bruk et tastatur for å skrive inn hovedpassordet</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Demp tastatur</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Demp tastaturlyder</string>
 
-	<string name="pref_title_autobackup">Automatisk sikkerhetskopiering</string>
-	<string name="pref_summary_autobackup">Automatisk be om å sikkerhetskopiere passord</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Store your private data with OI Safe.</string>
 
-	<string name="pref_title_autobackup_days">Automatiske sikkerhetskopieringsdager</string>
-	<string name="pref_summary_autobackup_days">Antall dager å vente før neste automatiske sikkerhetskopi</string>
-	<string name="pref_dialog_title_autobackup_days">Automatiske sikkerhetskopieringsdager</string>
-	
-	<string name="pref_title_backup_path">Standard sikkerhetskopisti</string>
-	<string name="pref_title_export_path">Standard eksportsti</string>
-	    
-	
-	<string name="intent_decrypt">Dekrypter (OI Safe)</string>
-	<string name="intent_encrypt">Dekrypter (OI Safe)</string>
-	<string name="intent_get_password">Hent passord (OI Safe)</string>
-	<string name="intent_set_password">Sett passord (OI Safe)</string>
-	<string name="intent_restart_timer">Restart tidtakeren (OI Safe)</string>
-	<string name="open_safe">Åpne OI Safe</string>
-	<string name="lock">Lås</string>
-	<string name="continue_text">Fortsett</string>
-	<string name="generate_password">Generer passord</string>
-	<string name="pass_gen_length">Passordlengde</string>
-	<string name="pass_gen_uppercase">Store bokstaver [A-Å]</string>
-	<string name="pass_gen_lowercase">Små bokstaver [a-å]</string>
-	<string name="pass_gen_numbers">Nummer [0-9]</string>
-	<string name="pass_gen_symbols">Symboler [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Kopier til nåværende oppføring</string>
-	<string name="pass_gen_copy_to_clipboard">Kopier til utklippstavle</string>
-	<string name="cancel">Avbryt</string>
-	<string name="discard_changes">Forkast endringer</string>
-	<string name="entry_saved">Oppføring lagret</string>
-	<string name="entry_save_error">Klarte ikke å lagre på grunn av databasefeil</string>
-	<string name="last_edited">Sist redigert</string>
-	<string name="last_edited_unknown">ukjent</string>
-	<string name="crypto_error">Krypteringsfeil:</string>
-	<string name="uniquename">Unikt navn</string>
-	<string name="package_access">Pakketilgang</string>
-	<string name="not_found">ikke funnet</string>
-	<string name="dialog_title_first_time_warning">Ny hovednøkkel</string>
-	<string name="dialog_summary_first_time_warning">En ny tilfeldig hovednøkkel har blitt skapt. Bruk meny &gt; sikkerhetskopier og lagre denne nøkkelen i en trygg plass. Uten denne nøkkelen kan du miste kryptert data.</string>
-	<string name="switch_mode">Bytt modus</string>
-	<string name="decrypt_progress">Dekrypterer...</string>
-	<string name="search">Søk</string>
-	<string name="search_progress">Søker...</string>
-	<string name="search_hint">Skriv inn søkekriterier</string>
-	<string name="search_nothing_found">Fant ingenting</string>
-	<string name="mute">Demp</string>
-	<string name="sounds">Lyder</string>
-	<string name="previous">Forrige</string>
-	<string name="next">Neste</string>
-	<string name="autobackup">Automatisk sikkerhetskopiering</string>
-	<string name="backup_never">Ingen sikkerhetskopiering har blitt utført ennå. Vil du sikkerhetskopiere nå?</string>
-	<string name="backup_in_days">Den siste sikkerhetskopieringen var for %d dager siden. Vil du sikkerhetskopiere nå?</string>
-	<string name="autobackup_turnoff">Skru av automatisk sikkerhetskopiering</string>
-	<string name="lock_timeout">Tid til automatisk tidsavbrudd: %s</string>
-	<string name="download_oi_filemanager">Når ikke nedlastet, vil standard plassering bli brukt.</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Safe</string>
+  <string name="empty_safe">Ingen passord tilstedeværende for denne kategorien.</string>
+  <string name="empty_category">Ingen kategorier tilstedeværende. Vennligst legg til en kategori gjennom meny-&gt;Legg til</string>
+  <string name="password_lock">Lås</string>
+  <string name="password_view">Vis</string>
+  <string name="password_edit">Rediger</string>
+  <string name="password_add">Legg til</string>
+  <string name="password_delete">Slett</string>
+  <string name="password">Passord</string>
+  <string name="passwords">Passord</string>
+  <string name="master_password">Hovedpassord</string>
+  <string name="username">Brukernavn</string>
+  <string name="website">Nettside</string>
+  <string name="description">Beskrivelse</string>
+  <string name="notes">Notater</string>
+  <string name="save">Lagre</string>
+  <string name="invalid_password">Ugyldig passord. Vennligst prøv igjen.</string>
+  <string name="notify_blank_pass">Passord må være minst 4 tegn</string>
+  <string name="notify_blank_desc">Beskrivelse kan ikke være blank</string>
+  <string name="notify_blank_name">Navn kan ikke være blank</string>
+  <string name="first_time">Vennligst skriv inn et passord nedenfor, som vil bli brukt for å holde dine passord trygge.</string>
+  <string name="logoff_explanation">Du er nå logget inn i OI Safe, som betyr at andre applikasjoner kan be om deres passord og dekryptere/kryptere data. Lås for å hindre videre tilgang fram til du skriver in ditt passord igjen.</string>
+  <string name="remote_ask">En annen applikasjon ber om å få bruke hovednøkkelen. Vennligst skriv ditt passord for å låse den opp.</string>
+  <string name="categories">Kategorier</string>
+  <string name="category">Kategori</string>
+  <string name="category_business">Business</string>
+  <string name="category_personal">Personlig</string>
+  <string name="name">Navn</string>
+  <string name="category_not_empty">Kategori er ikke tom. Du må slette passordene først.</string>
+  <string name="cannot_decrypt_category">Kan ikke dekryptere kategori</string>
+  <string name="cannot_decrypt_password">Kan ikke dekryptere passord</string>
+  <string name="error_export">Feil ved eksport av database</string>
+  <string name="export_database">Eksporter database</string>
+  <string name="export_file_select">Velg en fil for eksportering</string>
+  <string name="export_msg">Dette vil eksportere passord-databasen til en ren tekstfil. DETTE ER VELDIG FARLIG. Vær sikker på at du sletter filen når du er ferdig med den. Er du sikker på du vil eksportere?</string>
+  <string name="export_success">Eksport til \'%s\' vellykket. Advarsel! Filen er ikke kryptert.</string>
+  <string name="export_file_error">Klarte ikke å opprette eksportfilen \'oisafe.csv\' på SD-kortet. Du kan eventuelt prøve å koble USB fra datamaskinen.</string>
+  <string name="import_database">Importer database</string>
+  <string name="import_file_select">Velg en fil for importering</string>
+  <string name="import_file_missing">Importfil mangler:</string>
+  <string name="import_file_error">Klarte ikke å importere fil \'oisafe.csv\' fra SD-kortet. Du kan eventuelt prøve å koble USB fra datamaskinen.</string>
+  <string name="import_error_first_line">Den første linjen mangler felt.</string>
+  <string name="dialog_import_title">Importer</string>
+  <string name="dialog_import_msg">Vil du erstatte databasen (importer fra %s)?</string>
+  <string name="yes">Ja</string>
+  <string name="no">Nei</string>
+  <string name="import_progress">Vennligst vent, importerer...</string>
+  <string name="import_no_categories">Ingen kategorier funnet.</string>
+  <string name="import_no_entries">Ingen oppføringer funnet i CSV.</string>
+  <string name="import_too_many_categories">For mange kategorier.</string>
+  <string name="import_not_enough_fields">Ikke nok felter</string>
+  <string name="import_blank_category">Blank kategori</string>
+  <string name="import_blank_description">Blank beskrivelse</string>
+  <string name="dialog_delete_database_title">Slett database</string>
+  <string name="dialog_delete_database_msg">Er du sikker på at du vil slette databasen? Dette kan ikke bli ugjort.</string>
+  <string name="added">Lagt til</string>
+  <string name="entries">oppføringer</string>
+  <string name="import_complete">Importering komplett</string>
+  <string name="import_delete_csv">Siden det ikke er sikkert å oppbevare passord i rene tekstfiler av filformatet CSV, vil du slette</string>
+  <string name="edit_entry">Rediger oppføring</string>
+  <string name="view_entry">Vis oppføring</string>
+  <string name="help">Hjelp</string>
+  <string name="close">Steng</string>
+  <string name="go">Gå</string>
+  <string name="dialog_delete_password_title">Slett passord</string>
+  <string name="dialog_delete_password_msg">Er du sikker på at du vil slette dette passordet?</string>
+  <string name="change_password">Endre hovedpassord</string>
+  <string name="chg_pass_explaination">Bruk dette for å endre passordet du bruker for å låse opp OI Safe. Din data vil bli re-kryptert med det nye passordet. Desto mer komplekst passordet ditt er, desto tryggere vil dine data bli.</string>
+  <string name="old_password">Gammelt passord</string>
+  <string name="new_password">Nytt passord</string>
+  <string name="verify_password">Bekreft passord</string>
+  <string name="new_verify_mismatch">Ny- og Bekreftpassordene samsvarer ikke.</string>
+  <string name="invalid_old_password">Gammelt passord er ugyldig. Vennligst prøv igjen.</string>
+  <string name="error_changing_password">Feil ved endring av passord</string>
+  <string name="password_changed">Hovedpassord endret</string>
+  <string name="confirm">Bekreft</string>
+  <string name="confirm_pass_fail">Passordoppføringer er ikke like.</string>
+  <string name="backup">Sikkerhetskopi</string>
+  <string name="backup_progress">Sikkerhetskopierer til</string>
+  <string name="backup_complete">Ferdig. Passord sikkerhetskopiert:</string>
+  <string name="backup_failed">Sikkerhetskopiering feilet:</string>
+  <string name="backup_select_file">Velg en fil for sikkerhetskopi</string>
+  <string name="backup_error">Feil ved sikkerhetskopiering</string>
+  <string name="restore">Gjenopprett</string>
+  <string name="filename">Filnavn</string>
+  <string name="restore_no_file">Sikkerhetskopifil ikke funnet. Du må utføre en sikkerhetskopiering for å opprette den. Eller kopier en sikkerhetskopi fra din PC.</string>
+  <string name="restore_set_password">Vennligst oppgi passord brukt av sikkerhetskopifilen. Ditt hovedpassord vil bli satt til dette.</string>
+  <string name="restore_select_file">Velg en fil for gjenoppretting</string>
+  <string name="restore_error">Feil ved gjenoppretting</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">få tilgang til hovedpassordet</string>
-	<string name="oi_safe_permission_service_descr">Tillater applikasjonen å få tilgang til hovednøkkelen brukt for kryptering og dekrypterting. Burde ikke bli brukt bortsett fra av OI Safe.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">krypter og dekrypter data</string>
-    <string name="oi_safe_permission_intents_descr">Tillater applikasjonen å kryptere og dekryptere tekst, og få tilgang til passordene de har lagret i OI Safe.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Klarte ikke å åpne fil: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Versjon ikke støttet: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 minutt</item>
-        <item>5 minutter</item>
-        <item>10 minutter</item>
-        <item>15 minutter</item>
-        <item>30 minutter</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Dårlig passord</string>
+  <string name="dialog_restore_database_title">Gjenopprett database</string>
+  <string name="dialog_restore_database_msg">Er du sikker på at du vil erstatte nåværende data?</string>
+  <string name="restore_found">Funnet %1$s passord fra sikkerhetskopiering datert %2$s.</string>
+  <string name="restore_complete">Ferdig. Passord gjenopprettet: %s</string>
+  <string name="copied_to_clipboard">kopiert til utklippstavle</string>
+  <string name="invalid_website">Ugyldig nettside</string>
+  <string name="database_error_title">Databasefeil</string>
+  <string name="database_error_msg">Databasefeil. Tom for plass?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 dag</item>
-        <item>7 dager</item>
-        <item>30 dager</item>
-        <item>60 dager</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Åpne</string>
+
+  <string name="database_version_error_title">Databaseversjonfeil</string>
+  <string name="database_version_error_msg">Beklager, men versjonen til databasen er ikke støttet. Du må installere versjonen som er assosiert med denne databasen.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Flytt</string>
+
+  <string name="move_select">Velg kategori</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Flyttet til %s</string>
+
+  <string name="preferences">Innstillinger</string>
+  <string name="pref_title_external_access">Tillatt ekstern tilgang</string>
+  <string name="pref_summary_external_access">Tillat andre applikasjoner å sikre dine data med OI Safe</string>
+  <string name="dialog_title_external_access">OI Safe:</string>
+  <string name="dialog_summary_external_access">Tillat andre applikasjoner å sikre dine data med OI Safe</string>
+  <string name="dialog_comment_external_access">Dette kan også bli innstilt i menyen / innstillingene til OI Safe.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Automatisk tidslås</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Antall minutter før tidsavbrudd oppstår og safen blir låst</string>
+
+  <string name="pref_dialog_title_lock_timeout">Automatisk tidslås</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Lås på skjermlås</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Lås når skjermen låses</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Tastatur</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Bruk et tastatur for å skrive inn hovedpassordet</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Demp tastatur</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Demp tastaturlyder</string>
+
+  <string name="pref_title_autobackup">Automatisk sikkerhetskopiering</string>
+  <string name="pref_summary_autobackup">Automatisk be om å sikkerhetskopiere passord</string>
+
+  <string name="pref_title_autobackup_days">Automatiske sikkerhetskopieringsdager</string>
+  <string name="pref_summary_autobackup_days">Antall dager å vente før neste automatiske sikkerhetskopi</string>
+  <string name="pref_dialog_title_autobackup_days">Automatiske sikkerhetskopieringsdager</string>
+
+  <string name="pref_title_backup_path">Standard sikkerhetskopisti</string>
+  <string name="pref_title_export_path">Standard eksportsti</string>
+
+
+  <string name="intent_decrypt">Dekrypter (OI Safe)</string>
+  <string name="intent_encrypt">Dekrypter (OI Safe)</string>
+  <string name="intent_get_password">Hent passord (OI Safe)</string>
+  <string name="intent_set_password">Sett passord (OI Safe)</string>
+  <string name="intent_restart_timer">Restart tidtakeren (OI Safe)</string>
+  <string name="open_safe">Åpne OI Safe</string>
+  <string name="lock">Lås</string>
+  <string name="continue_text">Fortsett</string>
+  <string name="generate_password">Generer passord</string>
+  <string name="pass_gen_length">Passordlengde</string>
+  <string name="pass_gen_uppercase">Store bokstaver [A-Å]</string>
+  <string name="pass_gen_lowercase">Små bokstaver [a-å]</string>
+  <string name="pass_gen_numbers">Nummer [0-9]</string>
+  <string name="pass_gen_symbols">Symboler [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Kopier til nåværende oppføring</string>
+  <string name="pass_gen_copy_to_clipboard">Kopier til utklippstavle</string>
+  <string name="cancel">Avbryt</string>
+  <string name="discard_changes">Forkast endringer</string>
+  <string name="entry_saved">Oppføring lagret</string>
+  <string name="entry_save_error">Klarte ikke å lagre på grunn av databasefeil</string>
+  <string name="last_edited">Sist redigert</string>
+  <string name="last_edited_unknown">ukjent</string>
+  <string name="crypto_error">Krypteringsfeil:</string>
+  <string name="uniquename">Unikt navn</string>
+  <string name="package_access">Pakketilgang</string>
+  <string name="not_found">ikke funnet</string>
+  <string name="dialog_title_first_time_warning">Ny hovednøkkel</string>
+  <string name="dialog_summary_first_time_warning">En ny tilfeldig hovednøkkel har blitt skapt. Bruk meny &gt; sikkerhetskopier og lagre denne nøkkelen i en trygg plass. Uten denne nøkkelen kan du miste kryptert data.</string>
+  <string name="switch_mode">Bytt modus</string>
+  <string name="decrypt_progress">Dekrypterer...</string>
+  <string name="search">Søk</string>
+  <string name="search_progress">Søker...</string>
+  <string name="search_hint">Skriv inn søkekriterier</string>
+  <string name="search_nothing_found">Fant ingenting</string>
+  <string name="mute">Demp</string>
+  <string name="sounds">Lyder</string>
+  <string name="previous">Forrige</string>
+  <string name="next">Neste</string>
+  <string name="autobackup">Automatisk sikkerhetskopiering</string>
+  <string name="backup_never">Ingen sikkerhetskopiering har blitt utført ennå. Vil du sikkerhetskopiere nå?</string>
+  <string name="backup_in_days">Den siste sikkerhetskopieringen var for %d dager siden. Vil du sikkerhetskopiere nå?</string>
+  <string name="autobackup_turnoff">Skru av automatisk sikkerhetskopiering</string>
+  <string name="lock_timeout">Tid til automatisk tidsavbrudd: %s</string>
+  <string name="download_oi_filemanager">Når ikke nedlastet, vil standard plassering bli brukt.</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">få tilgang til hovedpassordet</string>
+  <string name="oi_safe_permission_service_descr">Tillater applikasjonen å få tilgang til hovednøkkelen brukt for kryptering og dekrypterting. Burde ikke bli brukt bortsett fra av OI Safe.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">krypter og dekrypter data</string>
+  <string name="oi_safe_permission_intents_descr">Tillater applikasjonen å kryptere og dekryptere tekst, og få tilgang til passordene de har lagret i OI Safe.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 minutt</item>
+    <item>5 minutter</item>
+    <item>10 minutter</item>
+    <item>15 minutter</item>
+    <item>30 minutter</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 dag</item>
+    <item>7 dager</item>
+    <item>30 dager</item>
+    <item>60 dager</item>
+  </string-array>
+
+
 </resources>

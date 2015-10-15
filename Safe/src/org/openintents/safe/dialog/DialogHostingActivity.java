@@ -93,7 +93,7 @@ public class DialogHostingActivity extends Activity {
         intent.setData(getIntent().getData());
         if (IntentUtils.isIntentAvailable(this, intent)) {
             /*
-			intent.putExtra(NotePadIntents.EXTRA_URI, getIntent().getStringExtra(NotePadIntents.EXTRA_URI));
+            intent.putExtra(NotePadIntents.EXTRA_URI, getIntent().getStringExtra(NotePadIntents.EXTRA_URI));
 			intent.putExtra(FileManagerIntents.EXTRA_TITLE, getText(R.string.menu_save_to_sdcard));
 			intent.putExtra(FileManagerIntents.EXTRA_BUTTON_TEXT, getText(R.string.save));
 			*/

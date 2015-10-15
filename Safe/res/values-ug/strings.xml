@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,279 +15,279 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   OpenIntents devs https://launchpad.net/~openintents-devs
   Sahran https://launchpad.net/~sahran</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">شەخسىي سانلىق مەلۇماتلىرىڭىزنى OI بىخەتەرلىك بىلەن ھەمبەھىرلەيدۇ.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI بىخەتەرلىك</string>
-    <string name="empty_safe">بۇ كاتېگورىيەگە ئىم بەلگىلەنمىگەن.</string>
-    <string name="empty_category">تۈرگە ئايرىلمىغان، تىزىملىك -› قوش نى چېكىڭ.</string>
-    <string name="password_lock">قۇلۇپلا</string>
-    <string name="password_view">كۆرۈنۈش</string>
-    <string name="password_edit">تەھرىر</string>
-    <string name="password_add">قوش</string>
-    <string name="password_delete">ئۆچۈر</string>
-    <string name="password">ئىم</string>
-    <string name="passwords">ئىم</string>
-    <string name="master_password">ئاساسىي ئىم</string>
-    <string name="username">ئىشلەتكۈچى ئاتى</string>
-    <string name="website">تورتۇرا</string>
-    <string name="description">چۈشەندۈرۈش</string>
-    <string name="notes">ئىزاھ</string>
-    <string name="save">ساقلا</string>
-    <string name="invalid_password">ئىم خاتا، قايتا سىناڭ.</string>
-    <string name="notify_blank_pass">ئىم ئەڭ ئاز بولغاندا 4 ھەرپ</string>
-    <string name="notify_blank_desc">چۈشەندۈرۈش بوش قالمايدۇ</string>
-    <string name="notify_blank_name">ئات بوش قالمايدۇ</string>
-    <string name="first_time">تۆۋەندە ئىم كىرگۈزۈڭ، بۇنداق بولغاندا ئىم بىخەتەرلىكىنى قوغدىغىلى بولىدۇ.</string>
-    <string name="logoff_explanation">نۆۋەتتە OI بىخەتەرلىككە تىزىمغا كىردىڭىز، باشقا ئەپلەر ئۆزلىرىنىڭ ئىم ۋە شىفىرلاش/شىفىر يېشىش سانلىق مەلۇماتلىرىنى ئىلتىماس قىلالايدۇ. ئىم قۇلۇپىنى كىرگۈزسىڭىز ئاندىن زىيارەت قىلالايسىز.</string>
-    <string name="remote_ask">باشقا بىر ئەپ ئاساسىي ئىم ئىشلىتىشنى ئىلتىماس قىلدى. ئىمنى كىرگۈزۈپ ئۇنىڭ قۇلۇپىنى ئېچىڭ.</string>
-    <string name="categories">كاتېگورىيەلەر</string>
-	<string name="category">كاتېگورىيە</string>
-    <string name="category_business">كارخانا</string>
-    <string name="category_personal">شەخسىي</string>
-    <string name="name">ئاتى</string>
-    <string name="category_not_empty">كاتېگورىيە بوش قالمايدۇ، ئالدى بىلەن ئىمنى ئۆچۈرۈڭ.</string>
-	<string name="cannot_decrypt_category">كاتېگورىيە شىفىرىنى يېشەلمىدى</string>
-	<string name="cannot_decrypt_password">ئىم شىفىرىنى يېشەلمىدى</string>
-	<string name="error_export">سانداننى چىقىرىش خاتالىقى</string>
-	<string name="export_database">ساندان چىقار</string>
-	<string name="export_file_select">چىقىرىدىغان بىر ھۆججەت تاللاڭ</string>
-	<string name="export_msg">ساپ تېكىست ھۆججەت چىقىرىشنىڭ ئىم ساندانى. ئىنتايىن خەتەرلىك. ئۇنى ئىشلىتىپ بولغاندىن كېيىن ئۆچۈرۈۋەتكەنلىكىڭىزنى جەزملەڭ. راستىنلا چىقىرامسىز؟</string>
-	<string name="export_success">\'%s\' غا مۇۋەپپەقىيەتلىك چىقاردى. ئاگاھلاندۇرۇش! ھۆججەت شىفىرلانمىغان.</string>
-	<string name="export_file_error">SD كارتىغا \'oisafe.csv\' ئاتلىق چىقىرىدىغان ھۆججەت قۇرالمىدى. USB نى كومپىيۇتېردىن ئۈزۈۋاتىدۇ.</string>
-	<string name="import_database">ساندان ئەكىر</string>
-	<string name="import_file_select">ئەكىرىدىغان بىر ھۆججەتنى تاللاڭ</string>
-	<string name="import_file_missing">ئەكىرىدىغان ھۆججەت يوقالغان:</string>
-	<string name="import_file_error">SD كارتىدىن \'oisafe.csv\' ھۆججەتنى ئەكىرەلمىدى. USB نى كومپىيۇتېردىن ئۈزۈۋاتىدۇ.</string>
-	<string name="import_error_first_line">بىرىنچى قۇر يوقالغان سۆز بۆلىكى.</string>
-	<string name="dialog_import_title">ئەكىر</string>
-	<string name="dialog_import_msg">ساندانى ئالماشتۇرامسىز (%s دىن ئەكىر)؟</string>
-	<string name="yes">ھەئە</string>
-	<string name="no">ياق</string>
-	<string name="import_progress">ئەكىرىۋاتقاندا سەل كۈتۈڭ…</string>
-	<string name="import_no_categories">كاتېگورىيەلەر تېپىلمىدى.</string>
-	<string name="import_no_entries">CSV تە تۈر تېپىلمىدى.</string>
-	<string name="import_too_many_categories">كاتېگورىيە بەك كۆپ.</string>
-	<string name="import_not_enough_fields">يېتەرلىك سۆز بۆلىكى يوق.</string>
-	<string name="import_blank_category">بوش كاتېگورىيە</string>
-	<string name="import_blank_description">بوش چۈشەندۈرۈش</string>
-	<string name="dialog_delete_database_title">ساندان ئۆچۈر</string>
-	<string name="dialog_delete_database_msg">سانداننى راستىنلا ئۆچۈرەمسىز؟ بۇ مەشغۇلاتنى ئەسلىگە كەلتۈرگىلى بولمايدۇ.</string>
-	<string name="added">قوشۇلدى</string>
-	<string name="entries">تۈر</string>
-	<string name="import_complete">ئەكىرىش تامام</string>
-	<string name="import_delete_csv">شىفىرلانمىغان ئىمنى ساپ تېكىست شەكلىدىكى CSV ھۆججەتتە ساقلاش بىخەتەر ئەمەس. ئۇنى ئۆچۈرەمسىز؟</string>
-	<string name="edit_entry">تۈر تەھرىر</string>
-	<string name="view_entry">تۈر كۆرسەت</string>
-	<string name="help">ياردەم</string>
-	<string name="close">ياپ</string>
-	<string name="go">يۆتكەل</string>
-	<string name="dialog_delete_password_title">ئىم ئۆچۈر</string>
-	<string name="dialog_delete_password_msg">ئىمنى راستىنلا ئۆچۈرەمسىز؟</string>
-	<string name="change_password">ئاساسىي ئىمنى ئۆزگەرت</string>
-	<string name="chg_pass_explaination">بۇنى ئىشلىتىپ ئىم ئۆزگەرتىدۇ. سانلىق مەلۇماتلىرىڭىز يېڭى ئىم بىلەن شىفىرلىنىدۇ. ئىم قانچە مۇرەككەپ بولسا شۇنچە بىخەتەر بولىدۇ.</string>
-	<string name="old_password">كونا ئىم</string>
-	<string name="new_password">يېڭى ئىم</string>
-	<string name="verify_password">پارولنى دەلىللەش</string>
-	<string name="new_verify_mismatch">يېڭى ئىم بىلەن دەلىللەش ئىم ماسلاشمىدى.</string>
-    <string name="invalid_old_password">كونا ئىم خاتا، قايتا سىناڭ.</string>
-    <string name="error_changing_password">ئىم ئۆزگەرتىش خاتالىقى</string>
-    <string name="password_changed">ئاساسىي ئىم ئۆزگەردى</string>
-    <string name="confirm">جەزملە</string>
-    <string name="confirm_pass_fail">كىرگۈزگەن ئىم ماس كەلمىدى.</string>
-    <string name="backup">زاپاسلا</string>
-    <string name="backup_progress">زاپاسلاش ئورنى</string>
-    <string name="backup_complete">تامام. ئىم زاپاسلاندى:</string>
-    <string name="backup_failed">زاپاسلىيالمىدى:</string>
-	<string name="backup_select_file">زاپاسلايدىغان بىر ھۆججەت تاللاڭ</string>
-	<string name="backup_error">زاپاسلاۋاتقاندا خاتالىق كۆرۈلدى</string>
-    <string name="restore">ئەسلىگە كەلتۈر</string>
-    <string name="filename">ھۆججەت ئاتى</string>
-    <string name="restore_no_file">زاپاس ھۆججەت تېپىلمىدى. سىز زاپاسنى قۇرغانلىقىڭىزنى جەزملەڭ ياكى كومپيۇتېرىڭىزدىن زاپاسنى كۆچۈرۈڭ.</string>
-    <string name="restore_set_password">زاپاس ھۆججەتكە ئىشلەتكەن ئىمنى تەمىنلەڭ. بۇنىڭغا ئاساسىي ئىم ئىشلىتىلگەن.</string>
-	<string name="restore_select_file">ئەسلىگە كەلتۈرىدىغان بىر ھۆججەت تاللاڭ.</string>
-	<string name="restore_error">ئەسلىگە كەلتۈرۈۋاتقاندا خاتالىق كۆرۈلدى</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">ھۆججەتنى ئاچالمايدۇ: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">نەشرى قوللىمايدۇ: %s</string>
-    
-    <string name="restore_decrypt_error">ئىم خاتا.</string>
-    <string name="dialog_restore_database_title">سانداننى ئەسلىگە كەلتۈر</string>
-    <string name="dialog_restore_database_msg">راستىنلا نۆۋەتتىكى سانلىق مەلۇماتنى ئالماشتۇرۇۋېتەمسىز؟</string>
-    <string name="restore_found">%2$s چېسلادىكى زاپاستىن %1$s ئىم تاپتى.</string>
-    <string name="restore_complete">تامام. ئىم ئەسلىگە كەلتۈرۈلدى: %s</string>
-    <string name="copied_to_clipboard">چاپلاش تاختىسىغا كۆچۈرۈلدى</string>
-    <string name="invalid_website">ئىناۋەتسىز تورتۇرا</string>
-    <string name="database_error_title">ساندان خاتالىقى</string>
-    <string name="database_error_msg">ساندان خاتالىقى. بوشلۇق يېتىشمىدى؟</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">ئاچ</string>
-    
-    <string name="database_version_error_title">ساندان نەشرى خاتا</string>
-    <string name="database_version_error_msg">كەچۈرۈڭ، بۇ ساندان نەشرىنى قوللىمايدۇ. بۇ نەشرى بىلەن ماسلىشىدىغان سانداننى ئورنىتىڭ.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">يۆتكە</string>
-	
-	<string name="move_select">كاتېگورىيە تاللاڭ</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">%s غا يۆتكەلدى</string>
-	
-	<string name="preferences">تەڭشەكلەر</string>
-	<string name="pref_title_external_access">سىرتقى زىيارەتكە يول قويىدۇ</string>
-	<string name="pref_summary_external_access">باشقا ئەپلەرنىڭ OI بىخەتەرلىكنى ئىشلىتىشىگە يول قوي</string>
-	<string name="dialog_title_external_access">OI بىخەتەرلىك: باشقا ئەپلەر زىيارەت ئىلتىماس قىلالايدۇ.</string>
-	<string name="dialog_summary_external_access">باشقا ئەپلەرنىڭ OI بىخەتەرلىكنى ئىشلىتىشىگە يول قويىدۇ.</string>
-	<string name="dialog_comment_external_access">OI بىخەتەرلىكنىڭ تىزىملىك/تەڭشەكلەردىن تەڭشىيەلەيسىز.</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش مۆھلىتى</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">مۆھلەت توشۇشتىن ئىلگىرى قانچە مىنۇت بۇرۇن قۇلۇپلىنىدۇ</string>
-	
-	<string name="pref_dialog_title_lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش مۆھلىتى</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">ئېكران قۇلۇپتا قۇلۇپلا</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">ئېكران قۇلۇپنى قۇلۇپلا</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">ھەرپ تاختا</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">ھەرپ تاختىدىن ئاساسىي ئىمنى كىرگۈزۈڭ</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">ھەرپ تاختا ئۈنسىز</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">ھەرپتاختا ئۈنسىز</string>
 
-	<string name="pref_title_autobackup">ئۆزلۈكىدىن زاپاسلا</string>
-	<string name="pref_summary_autobackup">زاپاسلاش ئىمنى ئۆزلۈكىدىن ئەسكەرت</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">شەخسىي سانلىق مەلۇماتلىرىڭىزنى OI بىخەتەرلىك بىلەن ھەمبەھىرلەيدۇ.</string>
 
-	<string name="pref_title_autobackup_days">ئۆزلۈكىدىن زاپاسلايدىغان كۈن سانى</string>
-	<string name="pref_summary_autobackup_days">كېيىنكى قېتىم ئۆزلۈكىدىن زاپاسلاشنى كۈتىدىغان كۈن</string>
-	<string name="pref_dialog_title_autobackup_days">ئۆزلۈكىدىن زاپاسلايدىغان كۈن</string>
-	
-	<string name="pref_title_backup_path">كۆڭۈلدىكى زاپاسلاش يولى</string>
-	<string name="pref_title_export_path">كۆ◆ۈلدىكى چىقىرىش يولى</string>
-	    
-	
-	<string name="intent_decrypt">شىفىر يەش (OI بىخەتەرلىك)</string>
-	<string name="intent_encrypt">شىفىرلاش (OI بىخەتەرلىك)</string>
-	<string name="intent_get_password">ئىم ئۇنتۇلغان (OI بىخەتەرلىك)</string>
-	<string name="intent_set_password">ئىم تەڭشەك  (OI بىخەتەرلىك)</string>
-	<string name="intent_restart_timer">قايتا قوزغىتىش ۋاقتى  (OI بىخەتەرلىك)</string>
-	<string name="open_safe">(OI بىخەتەرلىكنى ئاچ</string>
-	<string name="lock">قۇلۇپلا</string>
-	<string name="continue_text">داۋاملاشتۇر</string>
-	<string name="generate_password">ئىم قۇر</string>
-	<string name="pass_gen_length">ئىم ئۇزۇنلۇقى</string>
-	<string name="pass_gen_uppercase">كىچىك ھەرپ [A-Z]</string>
-	<string name="pass_gen_lowercase">كىچىك ھەرپ [a-z]</string>
-	<string name="pass_gen_numbers">سان [0-9]</string>
-	<string name="pass_gen_symbols">بەلگە [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">نۆۋەتتىكى تۈرنى كۆچۈر</string>
-	<string name="pass_gen_copy_to_clipboard">چاپلاش تاختىسىغا كۆچۈر</string>
-	<string name="cancel">ۋاز كەچ</string>
-	<string name="discard_changes">ئۆزگەرتىشلەرنى تاشلىۋەت</string>
-	<string name="entry_saved">تۈر ساقلاندى</string>
-	<string name="entry_save_error">سانداق خاتالىقى سەۋەبىدىن ساقلىيالمايدۇ</string>
-	<string name="last_edited">ئاخىرقى تەھرىر</string>
-	<string name="last_edited_unknown">يوچۇن</string>
-	<string name="crypto_error">شىفىرلاش خاتالىقى:</string>
-	<string name="uniquename">بىردىنبىر ئات</string>
-	<string name="package_access">بوغچا زىيارەت</string>
-	<string name="not_found">تېپىلمىدى</string>
-	<string name="dialog_title_first_time_warning">يېڭى ئاساسىي ئىم</string>
-	<string name="dialog_summary_first_time_warning">يېڭى بىر ئىختىيارىي ئاساسىي ئىم قۇرۇلدى. تىزىملىك -›زاپاس ئارقىلىق بۇ ئاچقۇچنى بىخەتەر جايغا ساقلاڭ. ئەگەر بۇ ئىم بولمىسا شىفىرلانغان سانلىق مەلۇماتلىرىڭىزدىن ئايرىلىپ قېلىشىڭىز مۇمكىن.</string>
-	<string name="switch_mode">ئالماشتۇرۇش ھالىتى</string>
-	<string name="decrypt_progress">شىفىر يېشىۋاتىدۇ№</string>
-	<string name="search">ئىزدە</string>
-	<string name="search_progress">ئىزدەۋاتىدۇ...</string>
-	<string name="search_hint">ئىزدەش ئۆلچىمىنى كىرگۈزۈڭ</string>
-	<string name="search_nothing_found">ھېچنېمە تاپالمىدى</string>
-	<string name="mute">ئۈنسىز</string>
-	<string name="sounds">ئۈنلەر</string>
-	<string name="previous">ئالدىنقى</string>
-	<string name="next">كېيىنكى</string>
-	<string name="autobackup">ئۆزلۈكىدىن زاپاسلا</string>
-	<string name="backup_never">تېخى زاپاسلانمىغان. ھازىر زاپاسلامسىز؟</string>
-	<string name="backup_in_days">ئاخىرقىسى %d كۈن ئىلگىرى زاپاسلانغان. ھازىر زاپاسلامسىز؟</string>
-	<string name="autobackup_turnoff">ئۆزلۈكىدىن زاپاسلاشنى تاقا</string>
-	<string name="lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش ۋاقتى: %s</string>
-	<string name="download_oi_filemanager">چۈشۈرەلمىدى، كۆڭۈلدىكى ئورۇن ئىشلىتىلىۋاتىدۇ.</string>
-	<string name="backup_file_found">بىر زاپاس ھۆججەت تېپىلدى. ئۇنى ئەسلىگە كەلتۈرەمسىز؟</string>
-	<string name="backup_file_found_label">زاپاس ھۆججەت تېپىلدى</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI بىخەتەرلىك</string>
+  <string name="empty_safe">بۇ كاتېگورىيەگە ئىم بەلگىلەنمىگەن.</string>
+  <string name="empty_category">تۈرگە ئايرىلمىغان، تىزىملىك -› قوش نى چېكىڭ.</string>
+  <string name="password_lock">قۇلۇپلا</string>
+  <string name="password_view">كۆرۈنۈش</string>
+  <string name="password_edit">تەھرىر</string>
+  <string name="password_add">قوش</string>
+  <string name="password_delete">ئۆچۈر</string>
+  <string name="password">ئىم</string>
+  <string name="passwords">ئىم</string>
+  <string name="master_password">ئاساسىي ئىم</string>
+  <string name="username">ئىشلەتكۈچى ئاتى</string>
+  <string name="website">تورتۇرا</string>
+  <string name="description">چۈشەندۈرۈش</string>
+  <string name="notes">ئىزاھ</string>
+  <string name="save">ساقلا</string>
+  <string name="invalid_password">ئىم خاتا، قايتا سىناڭ.</string>
+  <string name="notify_blank_pass">ئىم ئەڭ ئاز بولغاندا 4 ھەرپ</string>
+  <string name="notify_blank_desc">چۈشەندۈرۈش بوش قالمايدۇ</string>
+  <string name="notify_blank_name">ئات بوش قالمايدۇ</string>
+  <string name="first_time">تۆۋەندە ئىم كىرگۈزۈڭ، بۇنداق بولغاندا ئىم بىخەتەرلىكىنى قوغدىغىلى بولىدۇ.</string>
+  <string name="logoff_explanation">نۆۋەتتە OI بىخەتەرلىككە تىزىمغا كىردىڭىز، باشقا ئەپلەر ئۆزلىرىنىڭ ئىم ۋە شىفىرلاش/شىفىر يېشىش سانلىق مەلۇماتلىرىنى ئىلتىماس قىلالايدۇ. ئىم قۇلۇپىنى كىرگۈزسىڭىز ئاندىن زىيارەت قىلالايسىز.</string>
+  <string name="remote_ask">باشقا بىر ئەپ ئاساسىي ئىم ئىشلىتىشنى ئىلتىماس قىلدى. ئىمنى كىرگۈزۈپ ئۇنىڭ قۇلۇپىنى ئېچىڭ.</string>
+  <string name="categories">كاتېگورىيەلەر</string>
+  <string name="category">كاتېگورىيە</string>
+  <string name="category_business">كارخانا</string>
+  <string name="category_personal">شەخسىي</string>
+  <string name="name">ئاتى</string>
+  <string name="category_not_empty">كاتېگورىيە بوش قالمايدۇ، ئالدى بىلەن ئىمنى ئۆچۈرۈڭ.</string>
+  <string name="cannot_decrypt_category">كاتېگورىيە شىفىرىنى يېشەلمىدى</string>
+  <string name="cannot_decrypt_password">ئىم شىفىرىنى يېشەلمىدى</string>
+  <string name="error_export">سانداننى چىقىرىش خاتالىقى</string>
+  <string name="export_database">ساندان چىقار</string>
+  <string name="export_file_select">چىقىرىدىغان بىر ھۆججەت تاللاڭ</string>
+  <string name="export_msg">ساپ تېكىست ھۆججەت چىقىرىشنىڭ ئىم ساندانى. ئىنتايىن خەتەرلىك. ئۇنى ئىشلىتىپ بولغاندىن كېيىن ئۆچۈرۈۋەتكەنلىكىڭىزنى جەزملەڭ. راستىنلا چىقىرامسىز؟</string>
+  <string name="export_success">\'%s\' غا مۇۋەپپەقىيەتلىك چىقاردى. ئاگاھلاندۇرۇش! ھۆججەت شىفىرلانمىغان.</string>
+  <string name="export_file_error">SD كارتىغا \'oisafe.csv\' ئاتلىق چىقىرىدىغان ھۆججەت قۇرالمىدى. USB نى كومپىيۇتېردىن ئۈزۈۋاتىدۇ.</string>
+  <string name="import_database">ساندان ئەكىر</string>
+  <string name="import_file_select">ئەكىرىدىغان بىر ھۆججەتنى تاللاڭ</string>
+  <string name="import_file_missing">ئەكىرىدىغان ھۆججەت يوقالغان:</string>
+  <string name="import_file_error">SD كارتىدىن \'oisafe.csv\' ھۆججەتنى ئەكىرەلمىدى. USB نى كومپىيۇتېردىن ئۈزۈۋاتىدۇ.</string>
+  <string name="import_error_first_line">بىرىنچى قۇر يوقالغان سۆز بۆلىكى.</string>
+  <string name="dialog_import_title">ئەكىر</string>
+  <string name="dialog_import_msg">ساندانى ئالماشتۇرامسىز (%s دىن ئەكىر)؟</string>
+  <string name="yes">ھەئە</string>
+  <string name="no">ياق</string>
+  <string name="import_progress">ئەكىرىۋاتقاندا سەل كۈتۈڭ…</string>
+  <string name="import_no_categories">كاتېگورىيەلەر تېپىلمىدى.</string>
+  <string name="import_no_entries">CSV تە تۈر تېپىلمىدى.</string>
+  <string name="import_too_many_categories">كاتېگورىيە بەك كۆپ.</string>
+  <string name="import_not_enough_fields">يېتەرلىك سۆز بۆلىكى يوق.</string>
+  <string name="import_blank_category">بوش كاتېگورىيە</string>
+  <string name="import_blank_description">بوش چۈشەندۈرۈش</string>
+  <string name="dialog_delete_database_title">ساندان ئۆچۈر</string>
+  <string name="dialog_delete_database_msg">سانداننى راستىنلا ئۆچۈرەمسىز؟ بۇ مەشغۇلاتنى ئەسلىگە كەلتۈرگىلى بولمايدۇ.</string>
+  <string name="added">قوشۇلدى</string>
+  <string name="entries">تۈر</string>
+  <string name="import_complete">ئەكىرىش تامام</string>
+  <string name="import_delete_csv">شىفىرلانمىغان ئىمنى ساپ تېكىست شەكلىدىكى CSV ھۆججەتتە ساقلاش بىخەتەر ئەمەس. ئۇنى ئۆچۈرەمسىز؟</string>
+  <string name="edit_entry">تۈر تەھرىر</string>
+  <string name="view_entry">تۈر كۆرسەت</string>
+  <string name="help">ياردەم</string>
+  <string name="close">ياپ</string>
+  <string name="go">يۆتكەل</string>
+  <string name="dialog_delete_password_title">ئىم ئۆچۈر</string>
+  <string name="dialog_delete_password_msg">ئىمنى راستىنلا ئۆچۈرەمسىز؟</string>
+  <string name="change_password">ئاساسىي ئىمنى ئۆزگەرت</string>
+  <string name="chg_pass_explaination">بۇنى ئىشلىتىپ ئىم ئۆزگەرتىدۇ. سانلىق مەلۇماتلىرىڭىز يېڭى ئىم بىلەن شىفىرلىنىدۇ. ئىم قانچە مۇرەككەپ بولسا شۇنچە بىخەتەر بولىدۇ.</string>
+  <string name="old_password">كونا ئىم</string>
+  <string name="new_password">يېڭى ئىم</string>
+  <string name="verify_password">پارولنى دەلىللەش</string>
+  <string name="new_verify_mismatch">يېڭى ئىم بىلەن دەلىللەش ئىم ماسلاشمىدى.</string>
+  <string name="invalid_old_password">كونا ئىم خاتا، قايتا سىناڭ.</string>
+  <string name="error_changing_password">ئىم ئۆزگەرتىش خاتالىقى</string>
+  <string name="password_changed">ئاساسىي ئىم ئۆزگەردى</string>
+  <string name="confirm">جەزملە</string>
+  <string name="confirm_pass_fail">كىرگۈزگەن ئىم ماس كەلمىدى.</string>
+  <string name="backup">زاپاسلا</string>
+  <string name="backup_progress">زاپاسلاش ئورنى</string>
+  <string name="backup_complete">تامام. ئىم زاپاسلاندى:</string>
+  <string name="backup_failed">زاپاسلىيالمىدى:</string>
+  <string name="backup_select_file">زاپاسلايدىغان بىر ھۆججەت تاللاڭ</string>
+  <string name="backup_error">زاپاسلاۋاتقاندا خاتالىق كۆرۈلدى</string>
+  <string name="restore">ئەسلىگە كەلتۈر</string>
+  <string name="filename">ھۆججەت ئاتى</string>
+  <string name="restore_no_file">زاپاس ھۆججەت تېپىلمىدى. سىز زاپاسنى قۇرغانلىقىڭىزنى جەزملەڭ ياكى كومپيۇتېرىڭىزدىن زاپاسنى كۆچۈرۈڭ.</string>
+  <string name="restore_set_password">زاپاس ھۆججەتكە ئىشلەتكەن ئىمنى تەمىنلەڭ. بۇنىڭغا ئاساسىي ئىم ئىشلىتىلگەن.</string>
+  <string name="restore_select_file">ئەسلىگە كەلتۈرىدىغان بىر ھۆججەت تاللاڭ.</string>
+  <string name="restore_error">ئەسلىگە كەلتۈرۈۋاتقاندا خاتالىق كۆرۈلدى</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">ئاساسىي ئىم زىيارەت</string>
-	<string name="oi_safe_permission_service_descr">ئەپنىڭ ئاساسىي ئىم ئىشلىتىپ شىفىرلاش ۋە شىفىر يېشىشكە يول قويىدۇ. OI بىخەتەرلىك باشقىلارنىڭ ئىشلىتىشىگە يول قويماسلىق كېرەك.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">سانلىق مەلۇمات شىفىرلا ۋە يەش</string>
-    <string name="oi_safe_permission_intents_descr">ئەپنىڭ تېكىستنى شىفىرلىشى ۋە شىفىر يېشىشىگە يول قويىدۇ ھەمدە زىيارەت ئىمنى OI بىخەتەرلىككە ساقلايدۇ.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">ھۆججەتنى ئاچالمايدۇ: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">نەشرى قوللىمايدۇ: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 مىنۇت</item>
-        <item>5 مىنۇت</item>
-        <item>10 مىنۇت</item>
-        <item>15 مىنۇت</item>
-        <item>30 مىنۇت</item>  
-    </string-array>
+  <string name="restore_decrypt_error">ئىم خاتا.</string>
+  <string name="dialog_restore_database_title">سانداننى ئەسلىگە كەلتۈر</string>
+  <string name="dialog_restore_database_msg">راستىنلا نۆۋەتتىكى سانلىق مەلۇماتنى ئالماشتۇرۇۋېتەمسىز؟</string>
+  <string name="restore_found">%2$s چېسلادىكى زاپاستىن %1$s ئىم تاپتى.</string>
+  <string name="restore_complete">تامام. ئىم ئەسلىگە كەلتۈرۈلدى: %s</string>
+  <string name="copied_to_clipboard">چاپلاش تاختىسىغا كۆچۈرۈلدى</string>
+  <string name="invalid_website">ئىناۋەتسىز تورتۇرا</string>
+  <string name="database_error_title">ساندان خاتالىقى</string>
+  <string name="database_error_msg">ساندان خاتالىقى. بوشلۇق يېتىشمىدى؟</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 كۈن</item>
-        <item>7 كۈن</item>
-        <item>30 كۈن</item>
-        <item>60 كۈن</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">ئاچ</string>
+
+  <string name="database_version_error_title">ساندان نەشرى خاتا</string>
+  <string name="database_version_error_msg">كەچۈرۈڭ، بۇ ساندان نەشرىنى قوللىمايدۇ. بۇ نەشرى بىلەن ماسلىشىدىغان سانداننى ئورنىتىڭ.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">يۆتكە</string>
+
+  <string name="move_select">كاتېگورىيە تاللاڭ</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">%s غا يۆتكەلدى</string>
+
+  <string name="preferences">تەڭشەكلەر</string>
+  <string name="pref_title_external_access">سىرتقى زىيارەتكە يول قويىدۇ</string>
+  <string name="pref_summary_external_access">باشقا ئەپلەرنىڭ OI بىخەتەرلىكنى ئىشلىتىشىگە يول قوي</string>
+  <string name="dialog_title_external_access">OI بىخەتەرلىك: باشقا ئەپلەر زىيارەت ئىلتىماس قىلالايدۇ.</string>
+  <string name="dialog_summary_external_access">باشقا ئەپلەرنىڭ OI بىخەتەرلىكنى ئىشلىتىشىگە يول قويىدۇ.</string>
+  <string name="dialog_comment_external_access">OI بىخەتەرلىكنىڭ تىزىملىك/تەڭشەكلەردىن تەڭشىيەلەيسىز.</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش مۆھلىتى</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">مۆھلەت توشۇشتىن ئىلگىرى قانچە مىنۇت بۇرۇن قۇلۇپلىنىدۇ</string>
+
+  <string name="pref_dialog_title_lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش مۆھلىتى</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">ئېكران قۇلۇپتا قۇلۇپلا</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">ئېكران قۇلۇپنى قۇلۇپلا</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">ھەرپ تاختا</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">ھەرپ تاختىدىن ئاساسىي ئىمنى كىرگۈزۈڭ</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">ھەرپ تاختا ئۈنسىز</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">ھەرپتاختا ئۈنسىز</string>
+
+  <string name="pref_title_autobackup">ئۆزلۈكىدىن زاپاسلا</string>
+  <string name="pref_summary_autobackup">زاپاسلاش ئىمنى ئۆزلۈكىدىن ئەسكەرت</string>
+
+  <string name="pref_title_autobackup_days">ئۆزلۈكىدىن زاپاسلايدىغان كۈن سانى</string>
+  <string name="pref_summary_autobackup_days">كېيىنكى قېتىم ئۆزلۈكىدىن زاپاسلاشنى كۈتىدىغان كۈن</string>
+  <string name="pref_dialog_title_autobackup_days">ئۆزلۈكىدىن زاپاسلايدىغان كۈن</string>
+
+  <string name="pref_title_backup_path">كۆڭۈلدىكى زاپاسلاش يولى</string>
+  <string name="pref_title_export_path">كۆ◆ۈلدىكى چىقىرىش يولى</string>
+
+
+  <string name="intent_decrypt">شىفىر يەش (OI بىخەتەرلىك)</string>
+  <string name="intent_encrypt">شىفىرلاش (OI بىخەتەرلىك)</string>
+  <string name="intent_get_password">ئىم ئۇنتۇلغان (OI بىخەتەرلىك)</string>
+  <string name="intent_set_password">ئىم تەڭشەك  (OI بىخەتەرلىك)</string>
+  <string name="intent_restart_timer">قايتا قوزغىتىش ۋاقتى  (OI بىخەتەرلىك)</string>
+  <string name="open_safe">(OI بىخەتەرلىكنى ئاچ</string>
+  <string name="lock">قۇلۇپلا</string>
+  <string name="continue_text">داۋاملاشتۇر</string>
+  <string name="generate_password">ئىم قۇر</string>
+  <string name="pass_gen_length">ئىم ئۇزۇنلۇقى</string>
+  <string name="pass_gen_uppercase">كىچىك ھەرپ [A-Z]</string>
+  <string name="pass_gen_lowercase">كىچىك ھەرپ [a-z]</string>
+  <string name="pass_gen_numbers">سان [0-9]</string>
+  <string name="pass_gen_symbols">بەلگە [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">نۆۋەتتىكى تۈرنى كۆچۈر</string>
+  <string name="pass_gen_copy_to_clipboard">چاپلاش تاختىسىغا كۆچۈر</string>
+  <string name="cancel">ۋاز كەچ</string>
+  <string name="discard_changes">ئۆزگەرتىشلەرنى تاشلىۋەت</string>
+  <string name="entry_saved">تۈر ساقلاندى</string>
+  <string name="entry_save_error">سانداق خاتالىقى سەۋەبىدىن ساقلىيالمايدۇ</string>
+  <string name="last_edited">ئاخىرقى تەھرىر</string>
+  <string name="last_edited_unknown">يوچۇن</string>
+  <string name="crypto_error">شىفىرلاش خاتالىقى:</string>
+  <string name="uniquename">بىردىنبىر ئات</string>
+  <string name="package_access">بوغچا زىيارەت</string>
+  <string name="not_found">تېپىلمىدى</string>
+  <string name="dialog_title_first_time_warning">يېڭى ئاساسىي ئىم</string>
+  <string name="dialog_summary_first_time_warning">يېڭى بىر ئىختىيارىي ئاساسىي ئىم قۇرۇلدى. تىزىملىك -›زاپاس ئارقىلىق بۇ ئاچقۇچنى بىخەتەر جايغا ساقلاڭ. ئەگەر بۇ ئىم بولمىسا شىفىرلانغان سانلىق مەلۇماتلىرىڭىزدىن ئايرىلىپ قېلىشىڭىز مۇمكىن.</string>
+  <string name="switch_mode">ئالماشتۇرۇش ھالىتى</string>
+  <string name="decrypt_progress">شىفىر يېشىۋاتىدۇ№</string>
+  <string name="search">ئىزدە</string>
+  <string name="search_progress">ئىزدەۋاتىدۇ...</string>
+  <string name="search_hint">ئىزدەش ئۆلچىمىنى كىرگۈزۈڭ</string>
+  <string name="search_nothing_found">ھېچنېمە تاپالمىدى</string>
+  <string name="mute">ئۈنسىز</string>
+  <string name="sounds">ئۈنلەر</string>
+  <string name="previous">ئالدىنقى</string>
+  <string name="next">كېيىنكى</string>
+  <string name="autobackup">ئۆزلۈكىدىن زاپاسلا</string>
+  <string name="backup_never">تېخى زاپاسلانمىغان. ھازىر زاپاسلامسىز؟</string>
+  <string name="backup_in_days">ئاخىرقىسى %d كۈن ئىلگىرى زاپاسلانغان. ھازىر زاپاسلامسىز؟</string>
+  <string name="autobackup_turnoff">ئۆزلۈكىدىن زاپاسلاشنى تاقا</string>
+  <string name="lock_timeout">ئۆزلۈكىدىن قۇلۇپلاش ۋاقتى: %s</string>
+  <string name="download_oi_filemanager">چۈشۈرەلمىدى، كۆڭۈلدىكى ئورۇن ئىشلىتىلىۋاتىدۇ.</string>
+  <string name="backup_file_found">بىر زاپاس ھۆججەت تېپىلدى. ئۇنى ئەسلىگە كەلتۈرەمسىز؟</string>
+  <string name="backup_file_found_label">زاپاس ھۆججەت تېپىلدى</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">ئاساسىي ئىم زىيارەت</string>
+  <string name="oi_safe_permission_service_descr">ئەپنىڭ ئاساسىي ئىم ئىشلىتىپ شىفىرلاش ۋە شىفىر يېشىشكە يول قويىدۇ. OI بىخەتەرلىك باشقىلارنىڭ ئىشلىتىشىگە يول قويماسلىق كېرەك.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">سانلىق مەلۇمات شىفىرلا ۋە يەش</string>
+  <string name="oi_safe_permission_intents_descr">ئەپنىڭ تېكىستنى شىفىرلىشى ۋە شىفىر يېشىشىگە يول قويىدۇ ھەمدە زىيارەت ئىمنى OI بىخەتەرلىككە ساقلايدۇ.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 مىنۇت</item>
+    <item>5 مىنۇت</item>
+    <item>10 مىنۇت</item>
+    <item>15 مىنۇت</item>
+    <item>30 مىنۇت</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 كۈن</item>
+    <item>7 كۈن</item>
+    <item>30 كۈن</item>
+    <item>60 كۈن</item>
+  </string-array>
+
+
 </resources>

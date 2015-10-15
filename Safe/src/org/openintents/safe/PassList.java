@@ -227,7 +227,7 @@ public class PassList extends ListActivity {
                 Log.d(TAG, "onResume: no list");
             }
             /* HACK to make textFilter work!!!
-			 * It somehow doesn't work, when there's an empty Adapter after the onResume.
+             * It somehow doesn't work, when there's an empty Adapter after the onResume.
 			 */
 //			List<String> l = new ArrayList<String>();
 //			l.add("");

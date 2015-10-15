@@ -12,6 +12,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PassEdit"
-    tools:layout="@layout/pass_edit_fragment"/>
+    tools:layout="@layout/pass_edit_fragment" />
 
 </LinearLayout>

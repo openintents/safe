@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +15,11 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   Alex Toma https://launchpad.net/~alex26toma
   Eduard Roventa https://launchpad.net/~rov-93
@@ -31,271 +30,271 @@
   Stelescu Raul https://launchpad.net/~stelescuraul
   Tudorica Andrei https://launchpad.net/~andreitudoricacj
   iulargsb https://launchpad.net/~iulargsb</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">Stochează datele personale cu OI Safe.</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI Safe</string>
-    <string name="empty_safe">Nu există parole pentru această categorie.</string>
-    <string name="empty_category">Nu există categorii. Vă rugăm adăugați una din Menu-&gt;Adaugă</string>
-    <string name="password_lock">Blochează</string>
-    <string name="password_view">Vizualizează</string>
-    <string name="password_edit">Modifică</string>
-    <string name="password_add">Adaugă</string>
-    <string name="password_delete">Șterge</string>
-    <string name="password">Parolă</string>
-    <string name="passwords">Parole</string>
-    <string name="master_password">Parola principală</string>
-    <string name="username">Utilizator</string>
-    <string name="website">Pagină web</string>
-    <string name="description">Descriere</string>
-    <string name="notes">Notițe</string>
-    <string name="save">Salvează</string>
-    <string name="invalid_password">Parolă incorectă. Încercați din nou.</string>
-    <string name="notify_blank_pass">Parola trebuie să conțină cel puțin 4 caractere</string>
-    <string name="notify_blank_desc">Descrierea nu poate fi goală</string>
-    <string name="notify_blank_name">Numele nu poate fi gol</string>
-    <string name="first_time">Introduceți parola mai jos, care va fi folosită pentru a vă păstra parolele în sigurață.</string>
-    <string name="logoff_explanation">În prezent sunteţi conectat în OI Safe, ceea ce înseamnă că alte aplicaţii pot solicita parolele lor şi pot decripta / cripta datele. Blocați pentru a preveni accesul în continuare până când tastaţi din nou parola.</string>
-    <string name="remote_ask">O altă aplicație solicită folosirea cheii principale. Introduceți parola pentru a o debloca.</string>
-    <string name="categories">Categorii</string>
-	<string name="category">Categorie</string>
-    <string name="category_business">Serviciu</string>
-    <string name="category_personal">Personal</string>
-    <string name="name">Nume</string>
-    <string name="category_not_empty">Categoria nu este goală. Trebuie sa stergeţi parola prima dată.</string>
-	<string name="cannot_decrypt_category">Categoria nu poate fi decriptată</string>
-	<string name="cannot_decrypt_password">Parola nu poate fi decriptată</string>
-	<string name="error_export">Eroare la exportarea bazei de data</string>
-	<string name="export_database">Exportă baze de date</string>
-	<string name="export_file_select">Selectează un fișier pentru export</string>
-	<string name="export_msg">Acesta va exporta baza de date cu parole într-un fişier text clar (plaintext). ACEASTĂ OPERAȚIUNE ESTE PERICULOASĂ. Asiguraţi-vă că ştergeţi fişierul după ce aţi terminat de lucrat cu el. Sunteţi sigur că doriţi să exportaţi?</string>
-	<string name="export_success">Exportul către „%s” a fost făcut cu succes. Atenție! Fișierul nu este criptat.</string>
-	<string name="export_file_error">Nu se poate crea fişierul de export „oisafe.csv” pe SDCARD. Ați putea încerca deconectarea USBului de la calculator.</string>
-	<string name="import_database">Importă baze de date</string>
-	<string name="import_file_select">Selectează un fișier pentru import</string>
-	<string name="import_file_missing">Importă fișierele lipsă:</string>
-	<string name="import_file_error">Imposibil de a importa fişierul „oisafe.csv” de la SDCARD. Ati putea încerca deconectarea USBului de la calculator.</string>
-	<string name="import_error_first_line">Prima linie din câmp lipsește.</string>
-	<string name="dialog_import_title">Importă</string>
-	<string name="dialog_import_msg">Doriți să înlocuiți baza de date (importați de la %s)?</string>
-	<string name="yes">Da</string>
-	<string name="no">Nu</string>
-	<string name="import_progress">Așteptați cât timp se importă...</string>
-	<string name="import_no_categories">Nu s-au găsit categorii.</string>
-	<string name="import_no_entries">Nu au fost găsite accesări în CSV.</string>
-	<string name="import_too_many_categories">Prea multe categorii.</string>
-	<string name="import_not_enough_fields">Nu sunt suficiente câmpuri</string>
-	<string name="import_blank_category">Categorie goală</string>
-	<string name="import_blank_description">Descriere goală</string>
-	<string name="dialog_delete_database_title">Șterge bază de date</string>
-	<string name="dialog_delete_database_msg">Sunteţi sigur că doriţi să ştergeţi baza de date? Acest lucru nu poate fi anulat.</string>
-	<string name="added">Adăugat</string>
-	<string name="entries">Inregistrări</string>
-	<string name="import_complete">Importare completă</string>
-	<string name="import_delete_csv">Deoarece nu este sigur să păstrați parolele în fișiere text CSV, ați vrea să le ștergeți</string>
-	<string name="edit_entry">Editează înregistrarea</string>
-	<string name="view_entry">Vizualizează intrarea</string>
-	<string name="help">Ajutor</string>
-	<string name="close">Închide</string>
-	<string name="go">Navighează</string>
-	<string name="dialog_delete_password_title">Șterge parola</string>
-	<string name="dialog_delete_password_msg">Sunteți sigur că doriți să ștergeți această parolă?</string>
-	<string name="change_password">Schimbă parola principală</string>
-	<string name="chg_pass_explaination">Folosiți aceasta pentru a schimba parola pe care o folosiți pentru a debloca OI Safe. Datele dumneavoastă vor fi recriptate cu noua parolă. Cu cat parola este mai complexă, cu atat datele vor fi mai securizate.</string>
-	<string name="old_password">Parolă veche</string>
-	<string name="new_password">Parolă nouă</string>
-	<string name="verify_password">Verifică parola</string>
-	<string name="new_verify_mismatch">Parola nouă si cea de verificare nu se potrivesc</string>
-    <string name="invalid_old_password">Parola veche este invalidă. Încercați din nou.</string>
-    <string name="error_changing_password">Eroare la schimbarea parolei</string>
-    <string name="password_changed">Parola principală a fost schimbată</string>
-    <string name="confirm">Confirmă</string>
-    <string name="confirm_pass_fail">Parolele nu se potrivesc.</string>
-    <string name="backup">Copie de siguranță</string>
-    <string name="backup_progress">Copiere de rezervă către</string>
-    <string name="backup_complete">Complet. Parolele de rezervă au fost copiate:</string>
-    <string name="backup_failed">Copierea de rezervă a eșuat</string>
-	<string name="backup_select_file">Selectează un fișier pentru o copie de rezervă</string>
-	<string name="backup_error">Eroare în timpul creării copiei de rezervă</string>
-    <string name="restore">Restabilește</string>
-    <string name="filename">Nume fișier</string>
-    <string name="restore_no_file">Fișierul de rezervă nu a fost găsit. Trebuie să efectuați o copiere de rezervă pentru a crea unul. Sau copiați unul de rezervă din PC-ul dumneavoastră</string>
-    <string name="restore_set_password">Introduceți parola folosită de către fișierul de rezervă. Parola dumneavoastră principală va fi setată ca acesta.</string>
-	<string name="restore_select_file">Selectează un fișier pentru restabilire</string>
-	<string name="restore_error">Eroare în timpul restaurării</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">Nu se poate deschide fișierul: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">Versiunea nu este suportată: %s</string>
-    
-    <string name="restore_decrypt_error">Parolă greșită.</string>
-    <string name="dialog_restore_database_title">Restabilește baza de date.</string>
-    <string name="dialog_restore_database_msg">Sunteți sigur că doriți să înlocuiți datele curente?</string>
-    <string name="restore_found">S-au găsit %1$s parole din datele de rezervă %2$s.</string>
-    <string name="restore_complete">Complet. Parole restabilite: %s</string>
-    <string name="copied_to_clipboard">Copiat în Clipboard</string>
-    <string name="invalid_website">Pagină web invalidă</string>
-    <string name="database_error_title">Eroare bază de date</string>
-    <string name="database_error_msg">Eroare bază de date. Fară spațiu?</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">Deschide</string>
-    
-    <string name="database_version_error_title">Eroare versiune la baza de date.</string>
-    <string name="database_version_error_msg">Versiunea bazei de date nu este suportată. Trebuie să instalați versiunea asociată cu această bază de date.</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">Mută</string>
-	
-	<string name="move_select">Selectează categorie</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">Mutat la %s</string>
-	
-	<string name="preferences">Configurări</string>
-	<string name="pref_title_external_access">Permite acces extern</string>
-	<string name="pref_summary_external_access">Permite altor aplicații să securizeze datele cu OI Safe</string>
-	<string name="dialog_title_external_access">OI Safe: Altă aplicație solicită acces.</string>
-	<string name="dialog_summary_external_access">Permite altor aplicații să securizeze datele cu OI Safe</string>
-	<string name="dialog_comment_external_access">Aceasta poate fi setată în meniul OI Safe / Configurări</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">Autoblocare la expirarea timpului</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">Numărul de minute înainte ca timpul să expire și să fie închis</string>
-	
-	<string name="pref_dialog_title_lock_timeout">Autoblocare la expirarea timpului</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">Blochează când ecranul se blochează</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">Blochează când ecranul se blochează</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">Tastatură numerică</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">Folosește tastatura numerică pentru a introduce parola principală</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">Oprește tastatura numerică</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">Oprește sunetul tastaturii numerice</string>
 
-	<string name="pref_title_autobackup">Autocopiere de rezervă</string>
-	<string name="pref_summary_autobackup">Solicită automat să copieze parolele</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">Stochează datele personale cu OI Safe.</string>
 
-	<string name="pref_title_autobackup_days">Zile în care se efectuează autocopierea de rezervă</string>
-	<string name="pref_summary_autobackup_days">Numărul de zile de așteptat până la următoarea autocopiere de rezervă</string>
-	<string name="pref_dialog_title_autobackup_days">Zile în care se efectuează autocopierea de rezervă</string>
-	
-	<string name="pref_title_backup_path">Calea implicită pentru copia de rezervă</string>
-	<string name="pref_title_export_path">Calea implicită pentru export</string>
-	    
-	
-	<string name="intent_decrypt">Decriptează (OI Safe)</string>
-	<string name="intent_encrypt">Criptează (OI Safe)</string>
-	<string name="intent_get_password">Solicită parolă (OI Safe)</string>
-	<string name="intent_set_password">Setează parolă (OI Safe)</string>
-	<string name="intent_restart_timer">Cronometru de repornire (OI Safe)</string>
-	<string name="open_safe">Deschide OI Safe</string>
-	<string name="lock">Blochează</string>
-	<string name="continue_text">Continuă</string>
-	<string name="generate_password">Generează parolă</string>
-	<string name="pass_gen_length">Lungimea parolei</string>
-	<string name="pass_gen_uppercase">Litere mari [A-Z]</string>
-	<string name="pass_gen_lowercase">Litere mici [a-z]</string>
-	<string name="pass_gen_numbers">Numere [0-9]</string>
-	<string name="pass_gen_symbols">Simboluri [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">Copiază în înregistrarea curentă</string>
-	<string name="pass_gen_copy_to_clipboard">Copiază în clipboard</string>
-	<string name="cancel">Renunță</string>
-	<string name="discard_changes">Renunță la modificări</string>
-	<string name="entry_saved">Înregistrare salvată</string>
-	<string name="entry_save_error">Imposibil de a salva datorită unei erori a bazei de date</string>
-	<string name="last_edited">Ultima editare</string>
-	<string name="last_edited_unknown">necunoscut</string>
-	<string name="crypto_error">Eroare de criptare</string>
-	<string name="uniquename">Nume unic</string>
-	<string name="package_access">Acces la pachet</string>
-	<string name="not_found">nu s-a găsit</string>
-	<string name="dialog_title_first_time_warning">Cheie principală nouă</string>
-	<string name="dialog_summary_first_time_warning">O nouă cheie principală aleatoare a fost creeată. Folosiți meniul &gt; copiază si stochează această cheie intr-un loc sigur. Fară această cheie puteți pierde datele criptate.</string>
-	<string name="switch_mode">Modul de comutare</string>
-	<string name="decrypt_progress">Se decriptează...</string>
-	<string name="search">Caută</string>
-	<string name="search_progress">Se caută...</string>
-	<string name="search_hint">Scrieți criteriul de căutare</string>
-	<string name="search_nothing_found">Nu s-a găsit nimic</string>
-	<string name="mute">Fără sunet</string>
-	<string name="sounds">Sunete</string>
-	<string name="previous">Precedent</string>
-	<string name="next">Înainte</string>
-	<string name="autobackup">Autocopiere de rezervă</string>
-	<string name="backup_never">Nicio copiere de rezervă nu a fost efectuată pană acum. Doriți să efectuați una acum ?</string>
-	<string name="backup_in_days">Ultima copiere de rezervă a fost efectuată în urmă cu %d (de) zile în urmă. Doriți să  efectuați una acum ?</string>
-	<string name="autobackup_turnoff">Oprește autocopierea de rezervă</string>
-	<string name="lock_timeout">Timp de blocare automată: %s</string>
-	<string name="download_oi_filemanager">Cât timp nu este descărcat, se va utiliza locația implicită.</string>
-	<string name="backup_file_found">S-a găsit un fișier copie de rezervă. Doriți să îl restabiliți?</string>
-	<string name="backup_file_found_label">Fișier copie de rezervă găsit</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI Safe</string>
+  <string name="empty_safe">Nu există parole pentru această categorie.</string>
+  <string name="empty_category">Nu există categorii. Vă rugăm adăugați una din Menu-&gt;Adaugă</string>
+  <string name="password_lock">Blochează</string>
+  <string name="password_view">Vizualizează</string>
+  <string name="password_edit">Modifică</string>
+  <string name="password_add">Adaugă</string>
+  <string name="password_delete">Șterge</string>
+  <string name="password">Parolă</string>
+  <string name="passwords">Parole</string>
+  <string name="master_password">Parola principală</string>
+  <string name="username">Utilizator</string>
+  <string name="website">Pagină web</string>
+  <string name="description">Descriere</string>
+  <string name="notes">Notițe</string>
+  <string name="save">Salvează</string>
+  <string name="invalid_password">Parolă incorectă. Încercați din nou.</string>
+  <string name="notify_blank_pass">Parola trebuie să conțină cel puțin 4 caractere</string>
+  <string name="notify_blank_desc">Descrierea nu poate fi goală</string>
+  <string name="notify_blank_name">Numele nu poate fi gol</string>
+  <string name="first_time">Introduceți parola mai jos, care va fi folosită pentru a vă păstra parolele în sigurață.</string>
+  <string name="logoff_explanation">În prezent sunteţi conectat în OI Safe, ceea ce înseamnă că alte aplicaţii pot solicita parolele lor şi pot decripta / cripta datele. Blocați pentru a preveni accesul în continuare până când tastaţi din nou parola.</string>
+  <string name="remote_ask">O altă aplicație solicită folosirea cheii principale. Introduceți parola pentru a o debloca.</string>
+  <string name="categories">Categorii</string>
+  <string name="category">Categorie</string>
+  <string name="category_business">Serviciu</string>
+  <string name="category_personal">Personal</string>
+  <string name="name">Nume</string>
+  <string name="category_not_empty">Categoria nu este goală. Trebuie sa stergeţi parola prima dată.</string>
+  <string name="cannot_decrypt_category">Categoria nu poate fi decriptată</string>
+  <string name="cannot_decrypt_password">Parola nu poate fi decriptată</string>
+  <string name="error_export">Eroare la exportarea bazei de data</string>
+  <string name="export_database">Exportă baze de date</string>
+  <string name="export_file_select">Selectează un fișier pentru export</string>
+  <string name="export_msg">Acesta va exporta baza de date cu parole într-un fişier text clar (plaintext). ACEASTĂ OPERAȚIUNE ESTE PERICULOASĂ. Asiguraţi-vă că ştergeţi fişierul după ce aţi terminat de lucrat cu el. Sunteţi sigur că doriţi să exportaţi?</string>
+  <string name="export_success">Exportul către „%s” a fost făcut cu succes. Atenție! Fișierul nu este criptat.</string>
+  <string name="export_file_error">Nu se poate crea fişierul de export „oisafe.csv” pe SDCARD. Ați putea încerca deconectarea USBului de la calculator.</string>
+  <string name="import_database">Importă baze de date</string>
+  <string name="import_file_select">Selectează un fișier pentru import</string>
+  <string name="import_file_missing">Importă fișierele lipsă:</string>
+  <string name="import_file_error">Imposibil de a importa fişierul „oisafe.csv” de la SDCARD. Ati putea încerca deconectarea USBului de la calculator.</string>
+  <string name="import_error_first_line">Prima linie din câmp lipsește.</string>
+  <string name="dialog_import_title">Importă</string>
+  <string name="dialog_import_msg">Doriți să înlocuiți baza de date (importați de la %s)?</string>
+  <string name="yes">Da</string>
+  <string name="no">Nu</string>
+  <string name="import_progress">Așteptați cât timp se importă...</string>
+  <string name="import_no_categories">Nu s-au găsit categorii.</string>
+  <string name="import_no_entries">Nu au fost găsite accesări în CSV.</string>
+  <string name="import_too_many_categories">Prea multe categorii.</string>
+  <string name="import_not_enough_fields">Nu sunt suficiente câmpuri</string>
+  <string name="import_blank_category">Categorie goală</string>
+  <string name="import_blank_description">Descriere goală</string>
+  <string name="dialog_delete_database_title">Șterge bază de date</string>
+  <string name="dialog_delete_database_msg">Sunteţi sigur că doriţi să ştergeţi baza de date? Acest lucru nu poate fi anulat.</string>
+  <string name="added">Adăugat</string>
+  <string name="entries">Inregistrări</string>
+  <string name="import_complete">Importare completă</string>
+  <string name="import_delete_csv">Deoarece nu este sigur să păstrați parolele în fișiere text CSV, ați vrea să le ștergeți</string>
+  <string name="edit_entry">Editează înregistrarea</string>
+  <string name="view_entry">Vizualizează intrarea</string>
+  <string name="help">Ajutor</string>
+  <string name="close">Închide</string>
+  <string name="go">Navighează</string>
+  <string name="dialog_delete_password_title">Șterge parola</string>
+  <string name="dialog_delete_password_msg">Sunteți sigur că doriți să ștergeți această parolă?</string>
+  <string name="change_password">Schimbă parola principală</string>
+  <string name="chg_pass_explaination">Folosiți aceasta pentru a schimba parola pe care o folosiți pentru a debloca OI Safe. Datele dumneavoastă vor fi recriptate cu noua parolă. Cu cat parola este mai complexă, cu atat datele vor fi mai securizate.</string>
+  <string name="old_password">Parolă veche</string>
+  <string name="new_password">Parolă nouă</string>
+  <string name="verify_password">Verifică parola</string>
+  <string name="new_verify_mismatch">Parola nouă si cea de verificare nu se potrivesc</string>
+  <string name="invalid_old_password">Parola veche este invalidă. Încercați din nou.</string>
+  <string name="error_changing_password">Eroare la schimbarea parolei</string>
+  <string name="password_changed">Parola principală a fost schimbată</string>
+  <string name="confirm">Confirmă</string>
+  <string name="confirm_pass_fail">Parolele nu se potrivesc.</string>
+  <string name="backup">Copie de siguranță</string>
+  <string name="backup_progress">Copiere de rezervă către</string>
+  <string name="backup_complete">Complet. Parolele de rezervă au fost copiate:</string>
+  <string name="backup_failed">Copierea de rezervă a eșuat</string>
+  <string name="backup_select_file">Selectează un fișier pentru o copie de rezervă</string>
+  <string name="backup_error">Eroare în timpul creării copiei de rezervă</string>
+  <string name="restore">Restabilește</string>
+  <string name="filename">Nume fișier</string>
+  <string name="restore_no_file">Fișierul de rezervă nu a fost găsit. Trebuie să efectuați o copiere de rezervă pentru a crea unul. Sau copiați unul de rezervă din PC-ul dumneavoastră</string>
+  <string name="restore_set_password">Introduceți parola folosită de către fișierul de rezervă. Parola dumneavoastră principală va fi setată ca acesta.</string>
+  <string name="restore_select_file">Selectează un fișier pentru restabilire</string>
+  <string name="restore_error">Eroare în timpul restaurării</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">Accesează parola principală</string>
-	<string name="oi_safe_permission_service_descr">Permite aplicației să acceseze cheia principală folosită pentru criptare si decriptare. Nu ar trebui folosită niciodată cu excepția OI Safe.</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">criptează și decriptează date</string>
-    <string name="oi_safe_permission_intents_descr">Permite aplicațiilor să cripteze și să decripteze text, și să acceseze parolele pe care le-au salvat in OI Safe.</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">Nu se poate deschide fișierul: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">Versiunea nu este suportată: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 minut</item>
-        <item>5 minute</item>
-        <item>10 minute</item>
-        <item>15 minute</item>
-        <item>30 de minute</item>  
-    </string-array>
+  <string name="restore_decrypt_error">Parolă greșită.</string>
+  <string name="dialog_restore_database_title">Restabilește baza de date.</string>
+  <string name="dialog_restore_database_msg">Sunteți sigur că doriți să înlocuiți datele curente?</string>
+  <string name="restore_found">S-au găsit %1$s parole din datele de rezervă %2$s.</string>
+  <string name="restore_complete">Complet. Parole restabilite: %s</string>
+  <string name="copied_to_clipboard">Copiat în Clipboard</string>
+  <string name="invalid_website">Pagină web invalidă</string>
+  <string name="database_error_title">Eroare bază de date</string>
+  <string name="database_error_msg">Eroare bază de date. Fară spațiu?</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1 zi</item>
-        <item>7 zile</item>
-        <item>30 de zile</item>
-        <item>60 de zile</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">Deschide</string>
+
+  <string name="database_version_error_title">Eroare versiune la baza de date.</string>
+  <string name="database_version_error_msg">Versiunea bazei de date nu este suportată. Trebuie să instalați versiunea asociată cu această bază de date.</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">Mută</string>
+
+  <string name="move_select">Selectează categorie</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">Mutat la %s</string>
+
+  <string name="preferences">Configurări</string>
+  <string name="pref_title_external_access">Permite acces extern</string>
+  <string name="pref_summary_external_access">Permite altor aplicații să securizeze datele cu OI Safe</string>
+  <string name="dialog_title_external_access">OI Safe: Altă aplicație solicită acces.</string>
+  <string name="dialog_summary_external_access">Permite altor aplicații să securizeze datele cu OI Safe</string>
+  <string name="dialog_comment_external_access">Aceasta poate fi setată în meniul OI Safe / Configurări</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">Autoblocare la expirarea timpului</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">Numărul de minute înainte ca timpul să expire și să fie închis</string>
+
+  <string name="pref_dialog_title_lock_timeout">Autoblocare la expirarea timpului</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">Blochează când ecranul se blochează</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">Blochează când ecranul se blochează</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">Tastatură numerică</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">Folosește tastatura numerică pentru a introduce parola principală</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">Oprește tastatura numerică</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">Oprește sunetul tastaturii numerice</string>
+
+  <string name="pref_title_autobackup">Autocopiere de rezervă</string>
+  <string name="pref_summary_autobackup">Solicită automat să copieze parolele</string>
+
+  <string name="pref_title_autobackup_days">Zile în care se efectuează autocopierea de rezervă</string>
+  <string name="pref_summary_autobackup_days">Numărul de zile de așteptat până la următoarea autocopiere de rezervă</string>
+  <string name="pref_dialog_title_autobackup_days">Zile în care se efectuează autocopierea de rezervă</string>
+
+  <string name="pref_title_backup_path">Calea implicită pentru copia de rezervă</string>
+  <string name="pref_title_export_path">Calea implicită pentru export</string>
+
+
+  <string name="intent_decrypt">Decriptează (OI Safe)</string>
+  <string name="intent_encrypt">Criptează (OI Safe)</string>
+  <string name="intent_get_password">Solicită parolă (OI Safe)</string>
+  <string name="intent_set_password">Setează parolă (OI Safe)</string>
+  <string name="intent_restart_timer">Cronometru de repornire (OI Safe)</string>
+  <string name="open_safe">Deschide OI Safe</string>
+  <string name="lock">Blochează</string>
+  <string name="continue_text">Continuă</string>
+  <string name="generate_password">Generează parolă</string>
+  <string name="pass_gen_length">Lungimea parolei</string>
+  <string name="pass_gen_uppercase">Litere mari [A-Z]</string>
+  <string name="pass_gen_lowercase">Litere mici [a-z]</string>
+  <string name="pass_gen_numbers">Numere [0-9]</string>
+  <string name="pass_gen_symbols">Simboluri [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">Copiază în înregistrarea curentă</string>
+  <string name="pass_gen_copy_to_clipboard">Copiază în clipboard</string>
+  <string name="cancel">Renunță</string>
+  <string name="discard_changes">Renunță la modificări</string>
+  <string name="entry_saved">Înregistrare salvată</string>
+  <string name="entry_save_error">Imposibil de a salva datorită unei erori a bazei de date</string>
+  <string name="last_edited">Ultima editare</string>
+  <string name="last_edited_unknown">necunoscut</string>
+  <string name="crypto_error">Eroare de criptare</string>
+  <string name="uniquename">Nume unic</string>
+  <string name="package_access">Acces la pachet</string>
+  <string name="not_found">nu s-a găsit</string>
+  <string name="dialog_title_first_time_warning">Cheie principală nouă</string>
+  <string name="dialog_summary_first_time_warning">O nouă cheie principală aleatoare a fost creeată. Folosiți meniul &gt; copiază si stochează această cheie intr-un loc sigur. Fară această cheie puteți pierde datele criptate.</string>
+  <string name="switch_mode">Modul de comutare</string>
+  <string name="decrypt_progress">Se decriptează...</string>
+  <string name="search">Caută</string>
+  <string name="search_progress">Se caută...</string>
+  <string name="search_hint">Scrieți criteriul de căutare</string>
+  <string name="search_nothing_found">Nu s-a găsit nimic</string>
+  <string name="mute">Fără sunet</string>
+  <string name="sounds">Sunete</string>
+  <string name="previous">Precedent</string>
+  <string name="next">Înainte</string>
+  <string name="autobackup">Autocopiere de rezervă</string>
+  <string name="backup_never">Nicio copiere de rezervă nu a fost efectuată pană acum. Doriți să efectuați una acum ?</string>
+  <string name="backup_in_days">Ultima copiere de rezervă a fost efectuată în urmă cu %d (de) zile în urmă. Doriți să  efectuați una acum ?</string>
+  <string name="autobackup_turnoff">Oprește autocopierea de rezervă</string>
+  <string name="lock_timeout">Timp de blocare automată: %s</string>
+  <string name="download_oi_filemanager">Cât timp nu este descărcat, se va utiliza locația implicită.</string>
+  <string name="backup_file_found">S-a găsit un fișier copie de rezervă. Doriți să îl restabiliți?</string>
+  <string name="backup_file_found_label">Fișier copie de rezervă găsit</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">Accesează parola principală</string>
+  <string name="oi_safe_permission_service_descr">Permite aplicației să acceseze cheia principală folosită pentru criptare si decriptare. Nu ar trebui folosită niciodată cu excepția OI Safe.</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">criptează și decriptează date</string>
+  <string name="oi_safe_permission_intents_descr">Permite aplicațiilor să cripteze și să decripteze text, și să acceseze parolele pe care le-au salvat in OI Safe.</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 minut</item>
+    <item>5 minute</item>
+    <item>10 minute</item>
+    <item>15 minute</item>
+    <item>30 de minute</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1 zi</item>
+    <item>7 zile</item>
+    <item>30 de zile</item>
+    <item>60 de zile</item>
+  </string-array>
+
+
 </resources>

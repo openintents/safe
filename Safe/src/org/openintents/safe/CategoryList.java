@@ -818,7 +818,7 @@ public class CategoryList extends ListActivity {
         super.onActivityResult(requestCode, resultCode, i);
 
         String path;
-		
+
 		/* Don't know what it is good for, just necessary
 		 * to get the same behavior as the one before this patch*/
         if (resultCode == RESULT_OK

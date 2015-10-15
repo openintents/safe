@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?><!--
 * Copyright 2007-2009 OpenIntents.org
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,281 +15,281 @@
 *
 -->
 <resources>
-	<!-- ***************************
-	     About information
-	     *************************** -->
-	
-	<!-- Automatically filled in by Launchpad: -->
+  <!-- ***************************
+       About information
+       *************************** -->
+
+  <!-- Automatically filled in by Launchpad: -->
 	<string name="about_translators">Launchpad Contributions:
   OpenIntents devs https://launchpad.net/~openintents-devs
   Peli https://launchpad.net/~peli0101
   bkiw https://launchpad.net/~bkiw
   thebowseat https://launchpad.net/~takeshimochida</string>
-	
-    <!-- Short explanation of the application (max. 80 characters) -->
-	<string name="about_comments">OI 金庫 でプライベートなデータを保管します。</string>  
-	 
-	<!-- ***************************
-	     Applicatio-specific strings
-	     *************************** -->
-	<!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
-    <string name="app_name">OI 金庫</string>
-    <string name="empty_safe">このカテゴリーのパスワードはありません。</string>
-    <string name="empty_category">カテゴリーがありません。メニュー-&gt;追加 でカテゴリーを追加してください。</string>
-    <string name="password_lock">ロック</string>
-    <string name="password_view">ビュー</string>
-    <string name="password_edit">編集</string>
-    <string name="password_add">追加</string>
-    <string name="password_delete">削除</string>
-    <string name="password">パスワード</string>
-    <string name="passwords">パスワード</string>
-    <string name="master_password">マスターパスワード</string>
-    <string name="username">ユーザー名</string>
-    <string name="website">Webサイト</string>
-    <string name="description">説明</string>
-    <string name="notes">ノート</string>
-    <string name="save">保存</string>
-    <string name="invalid_password">パスワードが間違っています。入力し直してください。</string>
-    <string name="notify_blank_pass">パスワードは4文字以上である必要があります</string>
-    <string name="notify_blank_desc">説明は空白にできません</string>
-    <string name="notify_blank_name">名前は空白にできません</string>
-    <string name="first_time">パスワードを安全にするために使用されるパスワードを下に入力してください。</string>
-    <string name="logoff_explanation">あなたは現在 OI 金庫 にログインしており、他のアプリケーションがパスワードをリクエストしてデータを暗号化・解読できるということです。サイドパスワードを入力するまでアクセスを防ぐためにはロックしてください。</string>
-    <string name="remote_ask">別のアプリケーションがマスターキーの使用をリクエストしています。アンロックするにはパスワードを入力してください。</string>
-    <string name="categories">カテゴリー</string>
-	<string name="category">カテゴリー</string>
-    <string name="category_business">ビジネス</string>
-    <string name="category_personal">個人</string>
-    <string name="name">名前</string>
-    <string name="category_not_empty">カテゴリーは空ではありません。パスワードを先に削除する必要があります。</string>
-	<string name="cannot_decrypt_category">カテゴリーを複合化できません</string>
-	<string name="cannot_decrypt_password">パスワードを複合化できません</string>
-	<string name="error_export">データベースのエクスポートでエラー</string>
-	<string name="export_database">データベースをエクスポート</string>
-	<string name="export_file_select">エクスポートするファイルを選択してください</string>
-	<string name="export_msg">これはパスワードデータベースを普通のテキストファイルにエクスポートします。これは大変危険です。使用した後は、ファイルを必ず削除してください。本当にエクスポートしたいですか？</string>
-	<string name="export_success">\'%s\' へのエクスポートに成功しました。エクスポートしたファイルは暗号化されていないので注意してください。</string>
-	<string name="export_file_error">SDカードへの\'oisafe.csv\'のエスクポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
-	<string name="import_database">データベースをインポート</string>
-	<string name="import_file_select">インポートするファイルを選択してください</string>
-	<string name="import_file_missing">ファイルのインポートに失敗:</string>
-	<string name="import_file_error">SDカードからの\'oisafe.csv\'のインポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
-	<string name="import_error_first_line">最初の行のフィールドが異常です。</string>
-	<string name="dialog_import_title">インポート</string>
-	<string name="dialog_import_msg">データベースを置き換えてもいいですか (%s からのインポート)？</string>
-	<string name="yes">はい</string>
-	<string name="no">いいえ</string>
-	<string name="import_progress">インポート中…</string>
-	<string name="import_no_categories">カテゴリーが見つかりません。</string>
-	<string name="import_no_entries">CSVからエントリーが見つかりませんでした。</string>
-	<string name="import_too_many_categories">カテゴリーが多すぎます。</string>
-	<string name="import_not_enough_fields">フィールドが足りません</string>
-	<string name="import_blank_category">空白のカテゴリー</string>
-	<string name="import_blank_description">空の説明</string>
-	<string name="dialog_delete_database_title">データベースを削除</string>
-	<string name="dialog_delete_database_msg">データベースを削除していいですか？この操作は元に戻せません。</string>
-	<string name="added">追加済み</string>
-	<string name="entries">エントリー</string>
-	<string name="import_complete">インポート完了</string>
-	<string name="import_delete_csv">パスワードをクリアテキストの CSV ファイルに保存するのは安全ではないので、削除したいですか？</string>
-	<string name="edit_entry">エントリーを編集</string>
-	<string name="view_entry">エントリーを閲覧</string>
-	<string name="help">ヘルプ</string>
-	<string name="close">閉じる</string>
-	<string name="go">実行</string>
-	<string name="dialog_delete_password_title">パスワードを削除</string>
-	<string name="dialog_delete_password_msg">このパスワードを削除してもいいですか？</string>
-	<string name="change_password">マスターパスワードを変更</string>
-	<string name="chg_pass_explaination">これを使って OI 金庫 をアンロックするパスワードを変更してください。データは新しいパスワードで暗号化されます。パスワードが複雑なほど、データは安全になります。</string>
-	<string name="old_password">今のパスワード</string>
-	<string name="new_password">新しいパスワード</string>
-	<string name="verify_password">確認用パスワード</string>
-	<string name="new_verify_mismatch">新しいパスワードと確認用パスワードが一致しません。</string>
-    <string name="invalid_old_password">今のパスワードが間違っています。入力し直してください。</string>
-    <string name="error_changing_password">パスワードを変更する際にエラー</string>
-    <string name="password_changed">マスターパスワードが変更されました</string>
-    <string name="confirm">確認</string>
-    <string name="confirm_pass_fail">パスワードが一致しません。</string>
-    <string name="backup">バックアップ</string>
-    <string name="backup_progress">バックアップ先</string>
-    <string name="backup_complete">パスワードのバックアップが完了:</string>
-    <string name="backup_failed">バックアップに失敗:</string>
-	<string name="backup_select_file">バックアップするファイルを選択してください</string>
-	<string name="backup_error">バックアップ中にエラーが発生しました</string>
-    <string name="restore">復元</string>
-    <string name="filename">ファイル名</string>
-    <string name="restore_no_file">バックアップファイルが見つかりません。バックアップを実行するかPCからコピーしてください。</string>
-    <string name="restore_set_password">バックアップファイルに使用されるパスワードを入力してください。マスターキーはこれにセットされます。</string>
-	<string name="restore_select_file">復元するファイルを選択してください</string>
-	<string name="restore_error">復元中にエラーが発生しました</string>
-    
-    <!-- Toast message. %s contains a more detailed error message. -->
-    <string name="restore_unable_to_open">ファイルを開けません: %s</string>
-    
-    <!-- Toast message. %s contains the version number of the database. -->
-    <string name="restore_bad_version">サポートしていないバージョン: %s</string>
-    
-    <string name="restore_decrypt_error">正しくないパスワード。</string>
-    <string name="dialog_restore_database_title">データベースを復元</string>
-    <string name="dialog_restore_database_msg">現在のデータで置き換えてもよろしいですか？</string>
-    <string name="restore_found">%2$s のバックアップから %1$s のパスワードが見つかりました。</string>
-    <string name="restore_complete">パスワードの復元が完了: %s</string>
-    <string name="copied_to_clipboard">クリップボードにコピーしました</string>
-    <string name="invalid_website">不正なwebsite</string>
-    <string name="database_error_title">データベース エラー</string>
-    <string name="database_error_msg">データベース エラーが発生しました。空き容量はありますか？</string>
-    
-    <!-- Menu label to open a category -->
-    <string name="open">開く</string>
-    
-    <string name="database_version_error_title">データベースのバージョンエラー</string>
-    <string name="database_version_error_msg">申し訳ありませんがこのデータベースのバージョンはサポートしていません。このデータベースに関連したバージョンのアプリケーションをインストールする必要があります。</string>
-	
-	<!-- Menu label to move a password to another category -->
-	<string name="move">移動</string>
-	
-	<string name="move_select">カテゴリーを選択</string>
-	
-	<!-- Toast that password has been moved to another category -->
-	<string name="moved_to">%s に移動</string>
-	
-	<string name="preferences">設定</string>
-	<string name="pref_title_external_access">外部からのアクセスを許可する</string>
-	<string name="pref_summary_external_access">他のアプリケーションが OI 金庫 でデータを保護するのを許可する</string>
-	<string name="dialog_title_external_access">OI 金庫： 別のアプリケーションがアクセスをリクエストしています。</string>
-	<string name="dialog_summary_external_access">他のアプリケーションが OI 金庫 でデータを保護するのを許可する。</string>
-	<string name="dialog_comment_external_access">これは OI 金庫 の メニュー/設定 でも設定できます。</string>
-	
-	<!-- Preference title for auto lock timeout -->
-	<string name="pref_title_lock_timeout">オートロックのタイムアウト</string>
-	
-	<!-- Preference summary for auto lock timeout -->
-	<string name="pref_summary_lock_timeout">タイムアウトして金庫がロックされるまでの分数</string>
-	
-	<string name="pref_dialog_title_lock_timeout">オートロックのタイムアウト</string>
-	
-	<!-- Preference title for lock (OI Safe) on screen lock (device) -->
-	<string name="pref_title_lock_on_screen_lock">スクリーンをロックする時、金庫もロックする</string>
-	
-	<!-- Preference summary for lock (OI Safe) on screen lock -->
-	<string name="pref_summary_lock_on_screen_lock">スクリーンがロックされた時、金庫もロックする</string>
-	
-	<!-- Preference title: use a numeric keypad to enter the password -->
-	<string name="pref_title_keypad">キーパッド</string>
-	
-	<!-- Preference summary: for a numeric keypad -->
-	<string name="pref_summary_keypad">マスターパスワードの入力にキーパッドを使う</string>
-	
-	<!-- Preference title for keypad mute -->
-	<string name="pref_title_keypad_mute">キーパッド ミュート</string>
-	
-	<!-- Preference summary: Make the keypad sounds mute. 
-	     If a user chooses this, then the keypad does not sound when pressing the keys. -->
-	<string name="pref_summary_keypad_mute">キーパッド音をミュートする</string>
 
-	<string name="pref_title_autobackup">自動バックアップ</string>
-	<string name="pref_summary_autobackup">自動的にパスワードをバックアップするよう促す</string>
+  <!-- Short explanation of the application (max. 80 characters) -->
+  <string name="about_comments">OI 金庫 でプライベートなデータを保管します。</string>
 
-	<string name="pref_title_autobackup_days">自動バックアップ日数</string>
-	<string name="pref_summary_autobackup_days">次の自動バックアップまで待つ日数</string>
-	<string name="pref_dialog_title_autobackup_days">自動バックアップ日数</string>
-	
-	<string name="pref_title_backup_path">デフォルトバックアップ場所</string>
-	<string name="pref_title_export_path">デフォルトエクスポート場所</string>
-	    
-	
-	<string name="intent_decrypt">複合化 (OI Safe)</string>
-	<string name="intent_encrypt">暗号化 (OI Safe)</string>
-	<string name="intent_get_password">パスワードを取得 (OI Safe)</string>
-	<string name="intent_set_password">パスワードを設定 (OI Safe)</string>
-	<string name="intent_restart_timer">タイマーの再実行 (OI Safe)</string>
-	<string name="open_safe">OI Safeを開く</string>
-	<string name="lock">ロック</string>
-	<string name="continue_text">続ける</string>
-	<string name="generate_password">パスワードを生成</string>
-	<string name="pass_gen_length">パスワードの長さ</string>
-	<string name="pass_gen_uppercase">大文字のアルファベット [A-Z]</string>
-	<string name="pass_gen_lowercase">小文字のアルファベット [a-z]</string>
-	<string name="pass_gen_numbers">数字 [0-9]</string>
-	<string name="pass_gen_symbols">記号 [!@#$%^\*]</string>
-	<string name="pass_gen_copy_to_current_entry">現在のエントリーにコピーする</string>
-	<string name="pass_gen_copy_to_clipboard">クリップボードへコピー</string>
-	<string name="cancel">キャンセル</string>
-	<string name="discard_changes">変更を破棄</string>
-	<string name="entry_saved">保存されたエントリー</string>
-	<string name="entry_save_error">データベースエラーにより保存することができません。</string>
-	<string name="last_edited">最後の編集</string>
-	<string name="last_edited_unknown">不明</string>
-	<string name="crypto_error">複合化のエラー:</string>
-	<string name="uniquename">ユニークな名前</string>
-	<string name="package_access">パッケージアクセス</string>
-	<string name="not_found">見つかりません</string>
-	<string name="dialog_title_first_time_warning">新規マスターキー</string>
-	<string name="dialog_summary_first_time_warning">新しいランダムなマスターキーが作成されました。メニュー &gt; バックアップ を使ってこのキーを安全た場所に保管してください。このキーがないと暗号化されたデータを失ってしまうかもしれません。</string>
-	<string name="switch_mode">モードの切り替え</string>
-	<string name="decrypt_progress">複合化中…</string>
-	<string name="search">検索</string>
-	<string name="search_progress">検索中...</string>
-	<string name="search_hint">タイプサーチ基準</string>
-	<string name="search_nothing_found">見つかりませんでした</string>
-	<string name="mute">ミュート</string>
-	<string name="sounds">サウンド</string>
-	<string name="previous">前</string>
-	<string name="next">次</string>
-	<string name="autobackup">自動バックアップ</string>
-	<string name="backup_never">バックアップがされていません。今すぐバックアップしたいですか？</string>
-	<string name="backup_in_days">最後のバックアップは %d 日前でした。今すぐバックアップしたいですか？</string>
-	<string name="autobackup_turnoff">自動バックアップを切る</string>
-	<string name="lock_timeout">自動ロックまでの時間： %s</string>
-	<string name="download_oi_filemanager">ダウンロードされない間は、デフォルトの場所が使用されます。</string>
-	<string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
-	<string name="backup_file_found_label">Backup file found</string>
-	<string name="zero">0</string>
-	<string name="one">1</string>
-	<string name="two">2</string>
-	<string name="three">3</string>
-	<string name="four">4</string>
-	<string name="five">5</string>
-	<string name="six">6</string>
-	<string name="seven">7</string>
-	<string name="eight">8</string>
-	<string name="nine">9</string>
-	<string name="numbersign">#</string>
-	<string name="asterisk">*</string>
-	<string name="invalid_url">Invalid URL</string>
-	
-	<!-- ***************************
-	     Permissions
-	     *************************** -->
+  <!-- ***************************
+       Applicatio-specific strings
+       *************************** -->
+  <!-- Name of application. Can be localized. OI = OpenIntents should stay unmodified. -->
+  <string name="app_name">OI 金庫</string>
+  <string name="empty_safe">このカテゴリーのパスワードはありません。</string>
+  <string name="empty_category">カテゴリーがありません。メニュー-&gt;追加 でカテゴリーを追加してください。</string>
+  <string name="password_lock">ロック</string>
+  <string name="password_view">ビュー</string>
+  <string name="password_edit">編集</string>
+  <string name="password_add">追加</string>
+  <string name="password_delete">削除</string>
+  <string name="password">パスワード</string>
+  <string name="passwords">パスワード</string>
+  <string name="master_password">マスターパスワード</string>
+  <string name="username">ユーザー名</string>
+  <string name="website">Webサイト</string>
+  <string name="description">説明</string>
+  <string name="notes">ノート</string>
+  <string name="save">保存</string>
+  <string name="invalid_password">パスワードが間違っています。入力し直してください。</string>
+  <string name="notify_blank_pass">パスワードは4文字以上である必要があります</string>
+  <string name="notify_blank_desc">説明は空白にできません</string>
+  <string name="notify_blank_name">名前は空白にできません</string>
+  <string name="first_time">パスワードを安全にするために使用されるパスワードを下に入力してください。</string>
+  <string name="logoff_explanation">あなたは現在 OI 金庫 にログインしており、他のアプリケーションがパスワードをリクエストしてデータを暗号化・解読できるということです。サイドパスワードを入力するまでアクセスを防ぐためにはロックしてください。</string>
+  <string name="remote_ask">別のアプリケーションがマスターキーの使用をリクエストしています。アンロックするにはパスワードを入力してください。</string>
+  <string name="categories">カテゴリー</string>
+  <string name="category">カテゴリー</string>
+  <string name="category_business">ビジネス</string>
+  <string name="category_personal">個人</string>
+  <string name="name">名前</string>
+  <string name="category_not_empty">カテゴリーは空ではありません。パスワードを先に削除する必要があります。</string>
+  <string name="cannot_decrypt_category">カテゴリーを複合化できません</string>
+  <string name="cannot_decrypt_password">パスワードを複合化できません</string>
+  <string name="error_export">データベースのエクスポートでエラー</string>
+  <string name="export_database">データベースをエクスポート</string>
+  <string name="export_file_select">エクスポートするファイルを選択してください</string>
+  <string name="export_msg">これはパスワードデータベースを普通のテキストファイルにエクスポートします。これは大変危険です。使用した後は、ファイルを必ず削除してください。本当にエクスポートしたいですか？</string>
+  <string name="export_success">\'%s\' へのエクスポートに成功しました。エクスポートしたファイルは暗号化されていないので注意してください。</string>
+  <string name="export_file_error">SDカードへの\'oisafe.csv\'のエスクポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
+  <string name="import_database">データベースをインポート</string>
+  <string name="import_file_select">インポートするファイルを選択してください</string>
+  <string name="import_file_missing">ファイルのインポートに失敗:</string>
+  <string name="import_file_error">SDカードからの\'oisafe.csv\'のインポートができません。コンピュータとのUSB接続を切る等の必要があります。</string>
+  <string name="import_error_first_line">最初の行のフィールドが異常です。</string>
+  <string name="dialog_import_title">インポート</string>
+  <string name="dialog_import_msg">データベースを置き換えてもいいですか (%s からのインポート)？</string>
+  <string name="yes">はい</string>
+  <string name="no">いいえ</string>
+  <string name="import_progress">インポート中…</string>
+  <string name="import_no_categories">カテゴリーが見つかりません。</string>
+  <string name="import_no_entries">CSVからエントリーが見つかりませんでした。</string>
+  <string name="import_too_many_categories">カテゴリーが多すぎます。</string>
+  <string name="import_not_enough_fields">フィールドが足りません</string>
+  <string name="import_blank_category">空白のカテゴリー</string>
+  <string name="import_blank_description">空の説明</string>
+  <string name="dialog_delete_database_title">データベースを削除</string>
+  <string name="dialog_delete_database_msg">データベースを削除していいですか？この操作は元に戻せません。</string>
+  <string name="added">追加済み</string>
+  <string name="entries">エントリー</string>
+  <string name="import_complete">インポート完了</string>
+  <string name="import_delete_csv">パスワードをクリアテキストの CSV ファイルに保存するのは安全ではないので、削除したいですか？</string>
+  <string name="edit_entry">エントリーを編集</string>
+  <string name="view_entry">エントリーを閲覧</string>
+  <string name="help">ヘルプ</string>
+  <string name="close">閉じる</string>
+  <string name="go">実行</string>
+  <string name="dialog_delete_password_title">パスワードを削除</string>
+  <string name="dialog_delete_password_msg">このパスワードを削除してもいいですか？</string>
+  <string name="change_password">マスターパスワードを変更</string>
+  <string name="chg_pass_explaination">これを使って OI 金庫 をアンロックするパスワードを変更してください。データは新しいパスワードで暗号化されます。パスワードが複雑なほど、データは安全になります。</string>
+  <string name="old_password">今のパスワード</string>
+  <string name="new_password">新しいパスワード</string>
+  <string name="verify_password">確認用パスワード</string>
+  <string name="new_verify_mismatch">新しいパスワードと確認用パスワードが一致しません。</string>
+  <string name="invalid_old_password">今のパスワードが間違っています。入力し直してください。</string>
+  <string name="error_changing_password">パスワードを変更する際にエラー</string>
+  <string name="password_changed">マスターパスワードが変更されました</string>
+  <string name="confirm">確認</string>
+  <string name="confirm_pass_fail">パスワードが一致しません。</string>
+  <string name="backup">バックアップ</string>
+  <string name="backup_progress">バックアップ先</string>
+  <string name="backup_complete">パスワードのバックアップが完了:</string>
+  <string name="backup_failed">バックアップに失敗:</string>
+  <string name="backup_select_file">バックアップするファイルを選択してください</string>
+  <string name="backup_error">バックアップ中にエラーが発生しました</string>
+  <string name="restore">復元</string>
+  <string name="filename">ファイル名</string>
+  <string name="restore_no_file">バックアップファイルが見つかりません。バックアップを実行するかPCからコピーしてください。</string>
+  <string name="restore_set_password">バックアップファイルに使用されるパスワードを入力してください。マスターキーはこれにセットされます。</string>
+  <string name="restore_select_file">復元するファイルを選択してください</string>
+  <string name="restore_error">復元中にエラーが発生しました</string>
 
-	<!-- OI Safe -->
-	<!-- Permission to access master password -->
-	<string name="oi_safe_permission_service">マスターパスワードへのアクセス</string>
-	<string name="oi_safe_permission_service_descr">アプリケーションが暗号化と解読に使用されるマスターキーをアクセスできるように、許可します。 OI 金庫 以外は絶対に使用しないでください。</string>	
-	<!-- Permission to encrypt and decrypt data -->
-	<string name="oi_safe_permission_intents">暗号化・複合化データ</string>
-    <string name="oi_safe_permission_intents_descr">他のアプリケーションがテキストを暗号化・複合化し、OI Safeにより保存されたパスワードにアクセスする事を許可する。</string>	
+  <!-- Toast message. %s contains a more detailed error message. -->
+  <string name="restore_unable_to_open">ファイルを開けません: %s</string>
 
-	<!-- ***************************
-	     Preferences
-	     *************************** -->
+  <!-- Toast message. %s contains the version number of the database. -->
+  <string name="restore_bad_version">サポートしていないバージョン: %s</string>
 
-	<!-- Time until auto lockout -->
-    <string-array name="pref_entries_lock_timeout">
-        <item>1 分</item>
-        <item>5 分</item>
-        <item>10 分</item>
-        <item>15分</item>
-        <item>30 分</item>  
-    </string-array>
+  <string name="restore_decrypt_error">正しくないパスワード。</string>
+  <string name="dialog_restore_database_title">データベースを復元</string>
+  <string name="dialog_restore_database_msg">現在のデータで置き換えてもよろしいですか？</string>
+  <string name="restore_found">%2$s のバックアップから %1$s のパスワードが見つかりました。</string>
+  <string name="restore_complete">パスワードの復元が完了: %s</string>
+  <string name="copied_to_clipboard">クリップボードにコピーしました</string>
+  <string name="invalid_website">不正なwebsite</string>
+  <string name="database_error_title">データベース エラー</string>
+  <string name="database_error_msg">データベース エラーが発生しました。空き容量はありますか？</string>
 
-	<!-- Number of days before next autobackup is prompted -->
-    <string-array name="pref_entries_autobackup_days">
-        <item>1日</item>
-        <item>7日</item>
-        <item>30日</item>
-        <item>60日</item>
-    </string-array>
-        
-        
+  <!-- Menu label to open a category -->
+  <string name="open">開く</string>
+
+  <string name="database_version_error_title">データベースのバージョンエラー</string>
+  <string name="database_version_error_msg">申し訳ありませんがこのデータベースのバージョンはサポートしていません。このデータベースに関連したバージョンのアプリケーションをインストールする必要があります。</string>
+
+  <!-- Menu label to move a password to another category -->
+  <string name="move">移動</string>
+
+  <string name="move_select">カテゴリーを選択</string>
+
+  <!-- Toast that password has been moved to another category -->
+  <string name="moved_to">%s に移動</string>
+
+  <string name="preferences">設定</string>
+  <string name="pref_title_external_access">外部からのアクセスを許可する</string>
+  <string name="pref_summary_external_access">他のアプリケーションが OI 金庫 でデータを保護するのを許可する</string>
+  <string name="dialog_title_external_access">OI 金庫： 別のアプリケーションがアクセスをリクエストしています。</string>
+  <string name="dialog_summary_external_access">他のアプリケーションが OI 金庫 でデータを保護するのを許可する。</string>
+  <string name="dialog_comment_external_access">これは OI 金庫 の メニュー/設定 でも設定できます。</string>
+
+  <!-- Preference title for auto lock timeout -->
+  <string name="pref_title_lock_timeout">オートロックのタイムアウト</string>
+
+  <!-- Preference summary for auto lock timeout -->
+  <string name="pref_summary_lock_timeout">タイムアウトして金庫がロックされるまでの分数</string>
+
+  <string name="pref_dialog_title_lock_timeout">オートロックのタイムアウト</string>
+
+  <!-- Preference title for lock (OI Safe) on screen lock (device) -->
+  <string name="pref_title_lock_on_screen_lock">スクリーンをロックする時、金庫もロックする</string>
+
+  <!-- Preference summary for lock (OI Safe) on screen lock -->
+  <string name="pref_summary_lock_on_screen_lock">スクリーンがロックされた時、金庫もロックする</string>
+
+  <!-- Preference title: use a numeric keypad to enter the password -->
+  <string name="pref_title_keypad">キーパッド</string>
+
+  <!-- Preference summary: for a numeric keypad -->
+  <string name="pref_summary_keypad">マスターパスワードの入力にキーパッドを使う</string>
+
+  <!-- Preference title for keypad mute -->
+  <string name="pref_title_keypad_mute">キーパッド ミュート</string>
+
+  <!-- Preference summary: Make the keypad sounds mute.
+       If a user chooses this, then the keypad does not sound when pressing the keys. -->
+  <string name="pref_summary_keypad_mute">キーパッド音をミュートする</string>
+
+  <string name="pref_title_autobackup">自動バックアップ</string>
+  <string name="pref_summary_autobackup">自動的にパスワードをバックアップするよう促す</string>
+
+  <string name="pref_title_autobackup_days">自動バックアップ日数</string>
+  <string name="pref_summary_autobackup_days">次の自動バックアップまで待つ日数</string>
+  <string name="pref_dialog_title_autobackup_days">自動バックアップ日数</string>
+
+  <string name="pref_title_backup_path">デフォルトバックアップ場所</string>
+  <string name="pref_title_export_path">デフォルトエクスポート場所</string>
+
+
+  <string name="intent_decrypt">複合化 (OI Safe)</string>
+  <string name="intent_encrypt">暗号化 (OI Safe)</string>
+  <string name="intent_get_password">パスワードを取得 (OI Safe)</string>
+  <string name="intent_set_password">パスワードを設定 (OI Safe)</string>
+  <string name="intent_restart_timer">タイマーの再実行 (OI Safe)</string>
+  <string name="open_safe">OI Safeを開く</string>
+  <string name="lock">ロック</string>
+  <string name="continue_text">続ける</string>
+  <string name="generate_password">パスワードを生成</string>
+  <string name="pass_gen_length">パスワードの長さ</string>
+  <string name="pass_gen_uppercase">大文字のアルファベット [A-Z]</string>
+  <string name="pass_gen_lowercase">小文字のアルファベット [a-z]</string>
+  <string name="pass_gen_numbers">数字 [0-9]</string>
+  <string name="pass_gen_symbols">記号 [!@#$%^\*]</string>
+  <string name="pass_gen_copy_to_current_entry">現在のエントリーにコピーする</string>
+  <string name="pass_gen_copy_to_clipboard">クリップボードへコピー</string>
+  <string name="cancel">キャンセル</string>
+  <string name="discard_changes">変更を破棄</string>
+  <string name="entry_saved">保存されたエントリー</string>
+  <string name="entry_save_error">データベースエラーにより保存することができません。</string>
+  <string name="last_edited">最後の編集</string>
+  <string name="last_edited_unknown">不明</string>
+  <string name="crypto_error">複合化のエラー:</string>
+  <string name="uniquename">ユニークな名前</string>
+  <string name="package_access">パッケージアクセス</string>
+  <string name="not_found">見つかりません</string>
+  <string name="dialog_title_first_time_warning">新規マスターキー</string>
+  <string name="dialog_summary_first_time_warning">新しいランダムなマスターキーが作成されました。メニュー &gt; バックアップ を使ってこのキーを安全た場所に保管してください。このキーがないと暗号化されたデータを失ってしまうかもしれません。</string>
+  <string name="switch_mode">モードの切り替え</string>
+  <string name="decrypt_progress">複合化中…</string>
+  <string name="search">検索</string>
+  <string name="search_progress">検索中...</string>
+  <string name="search_hint">タイプサーチ基準</string>
+  <string name="search_nothing_found">見つかりませんでした</string>
+  <string name="mute">ミュート</string>
+  <string name="sounds">サウンド</string>
+  <string name="previous">前</string>
+  <string name="next">次</string>
+  <string name="autobackup">自動バックアップ</string>
+  <string name="backup_never">バックアップがされていません。今すぐバックアップしたいですか？</string>
+  <string name="backup_in_days">最後のバックアップは %d 日前でした。今すぐバックアップしたいですか？</string>
+  <string name="autobackup_turnoff">自動バックアップを切る</string>
+  <string name="lock_timeout">自動ロックまでの時間： %s</string>
+  <string name="download_oi_filemanager">ダウンロードされない間は、デフォルトの場所が使用されます。</string>
+  <string name="backup_file_found">A backup file was found. Would you like to restore it?</string>
+  <string name="backup_file_found_label">Backup file found</string>
+  <string name="zero">0</string>
+  <string name="one">1</string>
+  <string name="two">2</string>
+  <string name="three">3</string>
+  <string name="four">4</string>
+  <string name="five">5</string>
+  <string name="six">6</string>
+  <string name="seven">7</string>
+  <string name="eight">8</string>
+  <string name="nine">9</string>
+  <string name="numbersign">#</string>
+  <string name="asterisk">*</string>
+  <string name="invalid_url">Invalid URL</string>
+
+  <!-- ***************************
+       Permissions
+       *************************** -->
+
+  <!-- OI Safe -->
+  <!-- Permission to access master password -->
+  <string name="oi_safe_permission_service">マスターパスワードへのアクセス</string>
+  <string name="oi_safe_permission_service_descr">アプリケーションが暗号化と解読に使用されるマスターキーをアクセスできるように、許可します。 OI 金庫 以外は絶対に使用しないでください。</string>
+  <!-- Permission to encrypt and decrypt data -->
+  <string name="oi_safe_permission_intents">暗号化・複合化データ</string>
+  <string name="oi_safe_permission_intents_descr">他のアプリケーションがテキストを暗号化・複合化し、OI Safeにより保存されたパスワードにアクセスする事を許可する。</string>
+
+  <!-- ***************************
+       Preferences
+       *************************** -->
+
+  <!-- Time until auto lockout -->
+  <string-array name="pref_entries_lock_timeout">
+    <item>1 分</item>
+    <item>5 分</item>
+    <item>10 分</item>
+    <item>15分</item>
+    <item>30 分</item>
+  </string-array>
+
+  <!-- Number of days before next autobackup is prompted -->
+  <string-array name="pref_entries_autobackup_days">
+    <item>1日</item>
+    <item>7日</item>
+    <item>30日</item>
+    <item>60日</item>
+  </string-array>
+
+
 </resources>

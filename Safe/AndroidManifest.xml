@@ -37,14 +37,14 @@
     android:name="org.openintents.safe.ACCESS_INTENTS"
     android:description="@string/oi_safe_permission_intents_descr"
     android:label="@string/oi_safe_permission_intents"
-    android:protectionLevel="dangerous"/>
+    android:protectionLevel="dangerous" />
   <permission
     android:name="org.openintents.safe.ACCESS_SERVICE"
     android:description="@string/oi_safe_permission_service_descr"
     android:exported="true"
     android:label="@string/oi_safe_permission_service"
     android:process=":remote"
-    android:protectionLevel="signature"/>
+    android:protectionLevel="signature" />
 
   <uses-feature
     android:name="android.hardware.touchscreen"
@@ -73,7 +73,7 @@
       android:name="Safe"
       class=".Safe"
       android:label="@string/app_name"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+      android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     <!-- FrontDoor was the original main activity prior to 1.2.4.   Now it
       is a place holder which extends Safe -->
     <activity
@@ -187,7 +187,7 @@
 
     <provider
       android:name=".CryptoContentProvider"
-      android:authorities="org.openintents.safe"/>
+      android:authorities="org.openintents.safe" />
     <provider
       android:name="org.openintents.safe.backup.MyBackupPro"
       android:authorities="org.openintents.safe.backup.MyBackupPro" />
