@@ -10,13 +10,13 @@ OI Safe пази в безопастност всичките Ви пароли 
 Това приложение е безплатно и не изисква интернет за ползването ѝ. 
 
 За пълен списък с промените и често задаваните въпроси,моля посетете: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Можете да помогнете за подобряване на превода на вашия език в Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Изходният код на това безплатно приложение с  отворен код е достъпен на адрес: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Характеристики: 
 * Предпазвай данни използвайки AES шифроване.

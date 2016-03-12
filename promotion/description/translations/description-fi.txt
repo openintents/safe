@@ -10,13 +10,13 @@ OI Safe safely protects all of your passwords and other private data using indus
 Tässä ohjelmassa EI OLE mainoksia ja ei vaadi internetyhteyttä ja -lupaa. 
 
 Täydellinen luettelo muutoksista ja lista usein kysytyistä kysymyksistä on saatavilla osoitteessa: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Voit auttaa parantamaan käännöksiä omalle kielellesi Launchpadissa: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Tämän ilmaisen ja avoimen lähdekoodin ohjelman lähdekoodi on saatavilla osoitteesta: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Ominaisuudet: 
 * Securely protect data using AES encryption.

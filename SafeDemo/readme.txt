@@ -19,7 +19,7 @@
 OI Safe Demo shows how to access OI Safe from an external application.
 
 To obtain the current release, visit
-  http://www.openintents.org
+  http://www.org.openintents.org
 
 ---------------------------------------------------------
 release: 1.0.1

@@ -10,13 +10,13 @@ OI सेफ सुरक्षित रूप से आपके पासव
 यह अनुप्रयोग विज्ञापन मुक्त है और  इसे  इंटरनेट की अनुमति की आवश्यकता नहीं है| 
 
 परिवर्तन और अक्सर पूछे जाने वाले प्रश्नों की पूरी सूची के लिए, कृपया यहाँ पर जाएँ: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 आप Launchpad पर अपनी भाषा के अनुवाद को बेहतर बनाने में मदद कर सकते हैं: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 इस स्वतंत्र और खुला स्रोत अनुप्रयोग का स्रोत कोड यहाँ पर उपलब्ध है: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 सुविधाएँ: 
 * सुरक्षित रूप से अपना डाटा को सुरक्षित रखें AES एन्क्र्य्प्शन इस्तमाल करते हुए.

@@ -10,13 +10,13 @@ OI Seifs droši aizsargā visas Jūsu paroles un citus privātos datus izmantojo
 Šī aplikācija ir bezmaksas un tai nevajag interneta atļauju. 
 
 Lai skatītu pilnīgu izmaiņu sarakstu un sarakstu ar biežāk uzdotajiem jautājumiem, lūdzu apmeklējiet: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Jūs varat palīdzēt uzlabot tulkojumu savā valodā izmantojot Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Pirmkods ir bezmaksas un atvērtā pirmkoda aplikācija ir pieejama: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Funkcijas: 
 * Aizsargājiet datus droši izmantojot AES šifrēšanu.

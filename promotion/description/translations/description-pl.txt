@@ -10,13 +10,13 @@ OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu st
 Ta aplikacja jest darmowa i nie wymaga dostępu do internetu. 
 
 Aby zobaczyć pełną listę zmian oraz FAQ, odwiedź: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Możesz poprawić tłumaczenie na Twój język: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Kod źródłowy tej darmowej i open-source'owej aplikacji jest dostępny pod adresem: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Cechy: 
 * Bezpieczna ochrona danych przy użyciu szyfrowania AES.

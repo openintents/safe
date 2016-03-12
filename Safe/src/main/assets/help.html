@@ -1,0 +1,172 @@
+<html>
+<head>
+    <style TYPE="text/css">
+        <!--
+        body {
+          background: black;
+          color: white; }
+        .warning {
+          color: red; }
+        -->
+    </style>
+</head>
+<body>
+<h1>Help</h1>
+
+<h2>Categories</h2>
+
+<p>Categories are used to contain passwords. You might have one for Work and
+    one for Personal. This helps keep your passwords organized.</p>
+
+<p>Begin by adding one via the Menu. After you've created one, you can touch it
+    to open that category. Once a category is selected you may then create password entries.</p>
+
+
+<h2>Passwords</h2>
+
+<p>After first selecting a category, you may Edit, Add or Delete password entries
+    from the Password List activity.</p>
+
+<p>Password entries consist of the following fields:
+
+<p>
+
+<dl>
+    <dt>Description</dt>
+    <dd>Description is a required field. This is what is shown in the password list.</dd>
+
+    <dt>Website</dt>
+    <dd>If appropriate, provide the full URL to the website associated with this entry.</dd>
+
+    <dt>Username</dt>
+    <dd>Username for the password, if appropriate.</dd>
+
+    <dt>Password</dt>
+    <dd>Finally the password itself.</dd>
+
+    <dt>Notes</dt>
+    <dd>Miscellaneous notes about this entry. You may type as much as you want, the field
+        will expand to accommodate.
+    </dd>
+</dl>
+
+<h2>Master Password</h2>
+
+<p>When you run OI Safe for the very first time, you are
+    prompted for a 'Master Password'. This password is
+    used to encrypt a generated Master Key. The Master Key is in turn
+    used to encrypt and decrypt all the password entries.</p>
+
+<p>Each time that you launch OI Safe, the Master Password that
+    you type is used to decrypt, or unlock, the Master Key. The Master
+    Key is used to decrypt/encrypt the password entries.</p>
+
+<p>The Master Key does not change. When you use the 'Change Master Password'
+    Menu option, you are merely re-encrypting the Master Key with a new
+    password. The encrypted password entries are untouched, since
+    they are encrypted with the Master Key.</p>
+
+<h2>Backup and Restore</h2>
+
+<p>You should backup your database of passwords from time to time. To do this
+    use Menu -> Backup. This will create a file named 'oisafe.xml' on
+    the sdcard. Connect your phone to a computer and allow the USB mounting.
+    Look for 'oisafe.xml' and copy that to a safe location on your computer.
+    The file is encrypted using the same encryption as the database on your phone.</p>
+
+<h2>Import and Export</h2>
+
+<p>You can import data into OI Safe using CSV files. It is easiest to
+    create and manage a CSV within a spreadsheet program like Excel or
+    OpenOffice. Create a file with the following columns in the first row.</p>
+
+<table border="1">
+    <tr>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Website</td>
+        <td>Username</td>
+        <td>Password</td>
+        <td>Notes</td>
+    </tr>
+</table>
+
+<p>OI Safe import is very sensitive about the first row,
+    so please specify the first
+    row exactly like the above list. You may also find it helpful to
+    put some data into the OI Safe and perform an export first, so
+    that you can see what the CSV should look like.</p>
+
+<p>Use the name 'oisafe.csv' for your filename. Connect the
+    phone to your computer and copy 'oisafe.csv' onto the phone.
+    The file must be in the base directory of the phone's USB storage.</p>
+
+<p>Once the CSV file is in place, use Menu -> Import to import the file.
+    Be sure that your phone is not connected to your computer as the sdcard
+    is not allowed to be accessed by both your computer and the phone at
+    the same time.</p>
+
+<p>Exporting is a snap. Just use Menu -> Export. This will create the
+    file 'oisafe.csv'. Connect your phone to a computer to retrieve
+    this file.
+
+<div class="warning">WARNING: The exported file is not encrypted!!
+    After exporting and working with the file, you should delete it
+    as soon as possible!
+</div>
+</p>
+
+<h2>Security Concerns</h2>
+
+<p>OI Safe was written to safely store your passwords so that nobody can see
+    them other than you.
+    The password you use to unlock OI Safe is used to encrypt the data.
+    Data is stored within a SQLite database within your phone. That database stays
+    local. It does not get transferred to the Internet. In fact, the application
+    doesn't have the security privileges to even access the Internet.</p>
+
+<p>Because OI Safe cannot access the Internet, the data is not
+    automatically backed up.
+    In order to backup, you will need to use Menu -> Backup.</p>
+
+<h3>Locking</h3>
+
+<p>Any of the following actions will cause OI Safe to lock:</p>
+
+<ul>
+    <li>The auto lock timer expires. This may be set to 1, 5 or 30 minutes.
+        The default is 5 minutes.
+    </li>
+    <li>The screen turns off. This is a default behavior of the phone and is controlled
+        in the phone's Settings -&gt; Sound &amp; display -> Screen timeout.
+        The default timeout is 1 minute.
+        After 1 minute the phone will go to sleep. When this happens, OI Safe will
+        lock itself.
+    </li>
+    <li>You select <i>Lock</i> from the Menu on the Categories screen.</li>
+</ul>
+
+<p>Really, the easiest way to lock is to just hit the power button on the phone briefly and
+    turn off the screen.</p>
+
+<h2>Credits</h2>
+
+<h3>Authors:</h3>
+<ul>
+    <li>Steven Osborn - <a href="http://steven.bitsetters.com">Blog</a></li>
+    <li>Randy McEoin</li>
+    <li>Isaac Potoczny-Jones</li>
+    <li>Peli</li>
+</ul>
+<p>Key Icon is Copyright <a href="http://www.icon-king.com/">David Vignoni</a>, and licensed
+    under the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU LGPL V2.1</a></p>
+
+<h2>More Information</h2>
+
+<p>For further information about this application, please visit the
+    <a href="http://code.google.com/p/openintents">OpenIntents</a>
+    project web page at
+    <a href="http://www.org.openintents.org">http://www.org.openintents.org/</a>.</p>
+
+</body>
+</html>

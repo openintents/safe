@@ -10,13 +10,13 @@ OI Κιβώτιο
 Αυτή η εφαρμογή δεν έχει διαφημήσεις και δεν απαιτεί άδεια στο διαδίκτυο. 
 
 Για την πλήρη λίστα των αλλαγών και μια λίστα συχνών ερωτημάτων, παρακαλώ επισκευτείτε: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Μπορείτε να βοηθήσετε στη βελτίωση της μετάφρασης στη γλώσσα σας στο Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Ο πηγαίος κώδικας αυτού είναι δωρεάν και η εφαρμογή ανοικτού κώδικα είναι διαθέσιμη στο: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Χαρακτηριστικά: 
 * Προστατεύει ε ασφάλεια τα δεδομένα χρησιμοποιώντας κρυπτογράφηση AES.

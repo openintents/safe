@@ -10,13 +10,13 @@ OI Sejf bezpečně ochraňuje všechna Vaše hesla a jiná soukromá data pomoc�
 Tato aplikace je bez reklam a nevyžaduje přístup k internetu. 
 
 Pro úplný seznam změn a seznam často kladených dotazů navštivte prosím: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Můžete také pomoci zlepšit překlad do Vašeho jazyka na Launchpadu: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Zdrojové kód této open source aplikace je dostupný na stránkách: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Vlastnosti: 
 * Bezpečně ochraňuje data pomocí AES šifrování.

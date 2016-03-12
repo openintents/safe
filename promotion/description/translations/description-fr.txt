@@ -10,13 +10,13 @@ OI Safe protège en toute sécurité tous vos mots de passe et autres données p
 Cette application est petite annonce gratuite et ne nécessite pas l'autorisation d'Internet. 
 
 Pour la liste complète des changements et une liste de questions fréquemment posées, s'il vous plaît visitez: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Vous pouvez contribuer à améliorer la traduction dans votre langue au Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Le code source de cette application libre et open source est disponible à l'adresse: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 caractéristiques: 
 * Solidement protéger les données en utilisant le cryptage AES.

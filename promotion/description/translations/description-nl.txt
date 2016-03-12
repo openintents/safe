@@ -10,13 +10,13 @@ OI Kluis beschermt privé-gegevens, zoals wachtwoorden, met de industriestandaar
 Deze applicatie is advertentievrij, en heeft geen internet toegang nodig. 
 
 Het complete overzicht van wijzigingen en de FAQ is te lezen op: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Jij kan helpen om de vertaling in je eigen taal te verbeteren via Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 De broncode van deze gratis en open source applicatie is beschikbaar op: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Eigenschappen: 
 * Data beschermen met AES versleuteling.

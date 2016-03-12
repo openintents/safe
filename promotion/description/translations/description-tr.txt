@@ -10,13 +10,13 @@ OI Safe güvenli bir şekilde sizin şifrelerini korur ve AES endüstri standard
 Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
 
 Değişiklikler ve sık sorulan sorular listesini tamamlamak için lütfen şurayı ziyaret edin: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Bunun kaynak kodu ücretsizdir ve açık kaynak uygulamalarına şuradan ulaşabilirsiniz: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Özellikler: 
 * AES şifreleme kullanarak verileri güvenli bir şekilde  korumak

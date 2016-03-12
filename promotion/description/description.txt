@@ -11,13 +11,13 @@ It also acts as an extension to OI Notepad to encrypt notes created in OI Notepa
 This application is ad free and does not require the internet permission.
 
 For the complete list of changes and a list of frequently asked questions, please visit:
-http://www.openintents.org
+http://www.org.openintents.org
 
 You can help to improve the translation into your language at Launchpad:
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 The source code of this free and open source application is available at:
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Features:
 * Securely protect data using AES encryption.

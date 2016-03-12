@@ -10,13 +10,13 @@ Ang OI Kaha ay nagpo-protekta ng lahat ng iyong mga password at iba pang mga pri
 Ang applikasyon na ito ay walang patalastas at hindi nangangailangan ng pahintulot ng internet. 
 
 Para sa kumpletong listahan ng mga pagbabago at ang listahan ng mga madalas itanong, mangyaring bisitahin ang: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Maaari kang makatulong upang mapabuti ang mga pagsasalin sa iyong wika sa Launchpad: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Ang pinagmulang kodigo ng mga ito ay libre at bukas na pinagkukunang kodigo ng applikasyon ay magagamit sa: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Tampok: 
 * Ligtas na protektahan ang mga datos sa pamamagitan ng AES encryption.

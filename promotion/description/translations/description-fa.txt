@@ -3,13 +3,13 @@ OI امن ایمن محافظت همه رمزهای عبور شما و دیگر 
 این نرم افزار تبلیغ رایگان است و اجازه به اینترنت نیاز ندارد. 
 
 برای لیست کامل تغییرات و یک لیست از سؤالاتی که مکررا پرسیده می، لطفا از سایت : 
-http://www.openintents.org
+http://www.org.openintents.org
 
 شما می توانید کمک به بهبود ترجمه به زبان خود را در گفتوگو : 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 کد منبع این نرم افزار منبع آزاد و باز در دسترس است : 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 ویژگی ها : 
 * ایمن محافظت از داده ها با استفاده از رمزگذاری AES.

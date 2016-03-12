@@ -3,13 +3,13 @@ OI Siguran bezbedno štiti sve vaše pasworde i ostale privatne podatke koriste�
 Ova aplikacija nema reklame i zahtijeva internet konkciju. 
 
 Za punu listu promena i listu ubičaeno pitanih pitanja, molimo posetite: 
-http://www.openintents.org
+http://www.org.openintents.org
 
 Možete pomoći u poboljšanju prevoda u vaš jezik na Launchpad-u: 
-https://translations.launchpad.net/openintents/trunk
+https://translations.launchpad.net/org.openintents/trunk
 
 Izvorni kod ovog programa je besplatan i otvoreni izvor aplikacije je dostupan na: 
-http://code.google.com/p/openintents
+http://code.google.com/p/org.openintents
 
 Značajke: 
 * Bezbedno zaštiti podatke koristeći AES šifrarnik.
