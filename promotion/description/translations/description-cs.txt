@@ -13,10 +13,10 @@ Pro úplný seznam změn a seznam často kladených dotazů navštivte prosím:
 http://www.openintents.org
 
 Můžete také pomoci zlepšit překlad do Vašeho jazyka na Launchpadu: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Zdrojové kód této open source aplikace je dostupný na stránkách: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Vlastnosti: 
 * Bezpečně ochraňuje data pomocí AES šifrování.

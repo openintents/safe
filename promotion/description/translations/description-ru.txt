@@ -13,10 +13,10 @@ OI Safe надежно защищает все ваши пароли и друг
 http://www.openintents.org
 
 Вы можете помочь улучшить перевод прилоежния на ваш язык, посетите Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Исходный код этой программы является свободным и открытым. Доступен по адресу: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Возможности: 
 * Надежная защита данных с помощью AES шифрования.

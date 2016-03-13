@@ -13,10 +13,10 @@ Täydellinen luettelo muutoksista ja lista usein kysytyistä kysymyksistä on sa
 http://www.openintents.org
 
 Voit auttaa parantamaan käännöksiä omalle kielellesi Launchpadissa: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Tämän ilmaisen ja avoimen lähdekoodin ohjelman lähdekoodi on saatavilla osoitteesta: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Ominaisuudet: 
 * Securely protect data using AES encryption.

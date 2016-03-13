@@ -6,10 +6,10 @@ Za punu listu promena i listu ubičaeno pitanih pitanja, molimo posetite:
 http://www.openintents.org
 
 Možete pomoći u poboljšanju prevoda u vaš jezik na Launchpad-u: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Izvorni kod ovog programa je besplatan i otvoreni izvor aplikacije je dostupan na: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Značajke: 
 * Bezbedno zaštiti podatke koristeći AES šifrarnik.

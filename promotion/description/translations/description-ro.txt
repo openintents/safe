@@ -13,10 +13,10 @@ Pentru lista completă cu modificări și o listă cu întrebări frecvente, viz
 http://www.openintents.org
 
 Puteți ajuta la îmbunătățirea traducerii în limba dumneavoastră la Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Codul sursă al acestei aplicații gratuite și cu sursă deschisă este disponibil la: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Caracteristici: 
 * Protejează datele în siguranță folosind criptarea AES.

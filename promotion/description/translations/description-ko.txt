@@ -13,10 +13,10 @@ OI 금고는 산업 표준 암호화 방식인 AES를 사용하여 당신의 비
 http://www.openintents.org
 
 당신의 언어로의 번역을 Launchpad에서 도울 수 있습니다: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 이 무료 오픈 소스 앱의 소스 코드는 다음 주소에서 받을 수 있습니다: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 기능: 
 * AES를 사용하여 정보를 안전하게 보호합니다.

@@ -13,10 +13,10 @@ OI Safe safely protects all of your passwords and other private data using indus
 http://www.openintents.org
 
 بۇ ئەپنى Launchpad تە ئۆز تىلىڭىزغا تەرجىمە قىلالايسىز: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 كودى ئوچۇق بۇ ئەپنىڭ ئەسلى كودى: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 ئىقتىدارلار: 
 * Securely protect data using AES encryption.

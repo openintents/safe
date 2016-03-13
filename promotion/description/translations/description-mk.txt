@@ -6,10 +6,10 @@ OI Сеф безбедно ги заштитува сите лозинки и д
 http://www.openintents.org
 
 Ти можеш да помогнеш да се подобри преводот во твојот јазик на Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Изворниот код на оваа бесплатна и со отворен код апликација е достапен на: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Карактеристики: 
 * 92.	Безбедно заштити податоци користејќи AES енкрипција.

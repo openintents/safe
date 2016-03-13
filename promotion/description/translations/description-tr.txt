@@ -13,10 +13,10 @@ Değişiklikler ve sık sorulan sorular listesini tamamlamak için lütfen şura
 http://www.openintents.org
 
 Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Bunun kaynak kodu ücretsizdir ve açık kaynak uygulamalarına şuradan ulaşabilirsiniz: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Özellikler: 
 * AES şifreleme kullanarak verileri güvenli bir şekilde  korumak

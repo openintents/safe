@@ -13,10 +13,10 @@ Store your private data with OI Safe.
 http://www.openintents.org
 
 אתם יכולים לעזור לשפר את התרגום בשפתכם ב-Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 קוד המקור של אפליקציה חינמית ובעלת קוד פתוח זמין אצל: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 מאפיינים: 
 * הגן על מידע על ידי שימוש בהצפנת AES.

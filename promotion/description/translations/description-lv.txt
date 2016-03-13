@@ -13,10 +13,10 @@ Lai skatītu pilnīgu izmaiņu sarakstu un sarakstu ar biežāk uzdotajiem jaut�
 http://www.openintents.org
 
 Jūs varat palīdzēt uzlabot tulkojumu savā valodā izmantojot Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Pirmkods ir bezmaksas un atvērtā pirmkoda aplikācija ir pieejama: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Funkcijas: 
 * Aizsargājiet datus droši izmantojot AES šifrēšanu.

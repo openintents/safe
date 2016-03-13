@@ -13,10 +13,10 @@ Pre úplný zoznam zmien a zoznam často kladených otázok, navštívte prosím
 http://www.openintents.org
 
 Môžete pomôcť zlepšit preklad do vášho jazyka na Launchpad-e: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Zdrojový kód tejto neplatenej a voľne prístupnej aplikácie je dostupný na: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Vlastnosti: 
 * Bezpečne chráni dáta pomocou AES šifrovania.
@@ -37,7 +37,7 @@ Aplikácie ktoré pracujú s "OI Správca Súborov":
 
 Kľúčové slová 
 * trezor, bezpečnosť, šifrovanie, heslo, ochrana, zabezpečenie
-* OI, IO, OpenIntents, Open Intents, org.openintents, openIntents, Openintents
+* OI, IO, OpenIntents, Open Intents, openintents, openIntents, Openintents
 
 Medzinárodné verzie: 
 OI Kaha, OI Kasa, OI Safe, OI Sarvu, OI Seifs, OI Sejf, OI Sicurezza, OI Trezor, OI Turva, OI kluis, OI Κιβώτιο, OI Безопасност, OI بىخەتەرلىك, OI सुरक्षित, OI 金庫, OI 금고, OI安全, כספת OI, حماية OI

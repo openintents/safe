@@ -13,10 +13,10 @@ Het complete overzicht van wijzigingen en de FAQ is te lezen op:
 http://www.openintents.org
 
 Jij kan helpen om de vertaling in je eigen taal te verbeteren via Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 De broncode van deze gratis en open source applicatie is beschikbaar op: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Eigenschappen: 
 * Data beschermen met AES versleuteling.

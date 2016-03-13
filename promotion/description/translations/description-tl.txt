@@ -13,10 +13,10 @@ Para sa kumpletong listahan ng mga pagbabago at ang listahan ng mga madalas itan
 http://www.openintents.org
 
 Maaari kang makatulong upang mapabuti ang mga pagsasalin sa iyong wika sa Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Ang pinagmulang kodigo ng mga ito ay libre at bukas na pinagkukunang kodigo ng applikasyon ay magagamit sa: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Tampok: 
 * Ligtas na protektahan ang mga datos sa pamamagitan ng AES encryption.

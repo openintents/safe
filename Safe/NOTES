@@ -18,4 +18,4 @@ adb uninstall org.openintents.safe
 
 To make the keyword Id update::
 
-svn propset svn:keywords Id org/org.openintents/safe/filename.java
+svn propset svn:keywords Id org/openintents/safe/filename.java

@@ -6,10 +6,10 @@ Per a una llista sencera de canvis i una llista de preguntes més freqüents, ve
 http://www.openintents.org
 
 Podeu ajudar a millorar la traducció al vostre idioma a Launchpad 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 El codi font d'això és lliure i l'aplicació de codi obert està disponible a: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Característiques 
 * Protegeix de forma segura dades emprant encriptació AES.

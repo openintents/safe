@@ -13,10 +13,10 @@ OI 金庫は業界基準の AES 暗号を使ってパスワードやほかのプ
 http://www.openintents.org
 
 あなたもこの言語の翻訳を Launchpad で改善することができます： 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 この無料でオープンソースのアプリケーションのソースコードは以下の場所から取得できます： 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 機能： 
 * AES 暗号を使ってデータを安全に暗号化。

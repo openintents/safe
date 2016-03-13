@@ -13,10 +13,10 @@ Für eine vollständige Liste der Änderungen und häufig gestellten Fragen besu
 http://www.openintents.org
 
 Sie können uns mit der Verbesserung der Übersetzung in ihre Sprache auf Launchpad unterstützen: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Der Quellcode dieser kostenlosen und quelloffenen Applikation ist verfügbar auf: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Leistungsmerkmale: 
 * Daten mit der AES Verschlüsselung schützen.

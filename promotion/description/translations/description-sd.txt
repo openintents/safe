@@ -13,10 +13,10 @@ AES इन्क्रिप्शन जो प्रयोग करे OI स
 http://www.openintents.org
 
 :तहां Launchpad ते पेंजी भाषा जे अनुवाद खे बेहतर ठायण में मदद करे ता सगो 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 :इन्ह स्वतंत्र अऊँ खुले स्रोत अनुप्रयोग जो स्रोत कोड हित्ते उपलब्ध आहे 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 :सुविधाऊँ 
 * AES जो प्रयोग करे पंजो डाटा सुरक्षित कयो

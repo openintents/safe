@@ -13,10 +13,10 @@ OI Safe safely protects all of your passwords and other private data using indus
 http://www.openintents.org
 
 可以翻译成您的语言： 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 本程序是开源免费的，它的源代码能在这里获得 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 功能 
 * Securely protect data using AES encryption.

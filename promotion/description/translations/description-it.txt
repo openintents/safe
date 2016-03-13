@@ -13,10 +13,10 @@ Per la lista completa con le modifiche e una lista con le domande frequenti, pre
 http://www.openintents.org
 
 Potete aiutare a migliorare la traduzione nella vostra lingua a Launchpad: 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Il codice sorgente dell' applicazione gratuita e con la sorgente aperta è disponibile a: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Caratteristiche: 
 * Protegge i dati in sicurezza utilizzando il criptaggio AES.

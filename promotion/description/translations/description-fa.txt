@@ -6,10 +6,10 @@ OI امن ایمن محافظت همه رمزهای عبور شما و دیگر 
 http://www.openintents.org
 
 شما می توانید کمک به بهبود ترجمه به زبان خود را در گفتوگو : 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 کد منبع این نرم افزار منبع آزاد و باز در دسترس است : 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 ویژگی ها : 
 * ایمن محافظت از داده ها با استفاده از رمزگذاری AES.

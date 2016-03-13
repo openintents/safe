@@ -13,10 +13,10 @@ For den komplette listen med endringer og en liste over vanlige spørsmål, venn
 http://www.openintents.org
 
 Du kan hjelpe til med å forbedre oversettelsen 
-https://translations.launchpad.net/org.openintents/trunk
+https://translations.launchpad.net/openintents/trunk
 
 Kildekoden til denne gratis applikasjonen med åpen kildekode er tilgjengelig hos: 
-http://code.google.com/p/org.openintents
+http://code.google.com/p/openintents
 
 Funksjoner: 
 * Trygt beskytt data ved bruk av AES-kryptering.
