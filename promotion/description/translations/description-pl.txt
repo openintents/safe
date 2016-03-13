@@ -10,7 +10,7 @@ OI Safe bezpiecznie chroni wszystkie hasła i inne prywatne dane przy użyciu st
 Ta aplikacja jest darmowa i nie wymaga dostępu do internetu. 
 
 Aby zobaczyć pełną listę zmian oraz FAQ, odwiedź: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Możesz poprawić tłumaczenie na Twój język: 
 https://translations.launchpad.net/org.openintents/trunk

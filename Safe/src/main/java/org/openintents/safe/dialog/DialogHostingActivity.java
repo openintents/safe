@@ -24,7 +24,7 @@ public class DialogHostingActivity extends Activity {
     public static final int DIALOG_ID_ALLOW_EXTERNAL_ACCESS = 4;
     public static final int DIALOG_ID_FIRST_TIME_WARNING = 5;
 
-    public static final String EXTRA_DIALOG_ID = "org.org.openintents.notepad.extra.dialog_id";
+    public static final String EXTRA_DIALOG_ID = "org.openintents.notepad.extra.dialog_id";
 
     /**
      * Whether dialog is simply pausing while hidden by another activity

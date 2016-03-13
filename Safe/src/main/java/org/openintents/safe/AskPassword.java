@@ -63,7 +63,7 @@ public class AskPassword extends DistributionLibraryActivity {
 
     private final static boolean debug = false;
     private static String TAG = "AskPassword";
-    public static String EXTRA_IS_LOCAL = "org.org.openintents.safe.bundle.EXTRA_IS_REMOTE";
+    public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
 
     public static final int REQUEST_RESTORE = 0;
     public static final int REQUEST_RESTORE_FIRST_TIME = 1;

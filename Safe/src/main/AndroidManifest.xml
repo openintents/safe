@@ -34,12 +34,12 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
   <permission
-    android:name="org.org.openintents.safe.ACCESS_INTENTS"
+    android:name="org.openintents.safe.ACCESS_INTENTS"
     android:description="@string/oi_safe_permission_intents_descr"
     android:label="@string/oi_safe_permission_intents"
     android:protectionLevel="dangerous" />
   <permission
-    android:name="org.org.openintents.safe.ACCESS_SERVICE"
+    android:name="org.openintents.safe.ACCESS_SERVICE"
     android:description="@string/oi_safe_permission_service_descr"
     android:exported="true"
     android:label="@string/oi_safe_permission_service"
@@ -66,7 +66,7 @@
 
     <!-- OI About metadata -->
     <meta-data
-      android:name="org.org.openintents.about"
+      android:name="org.openintents.about"
       android:resource="@xml/about" />
 
     <activity
@@ -187,10 +187,10 @@
 
     <provider
       android:name=".CryptoContentProvider"
-      android:authorities="org.org.openintents.safe" />
+      android:authorities="org.openintents.safe" />
     <provider
       android:name="org.openintents.safe.backup.MyBackupPro"
-      android:authorities="org.org.openintents.safe.backup.MyBackupPro" />
+      android:authorities="org.openintents.safe.backup.MyBackupPro" />
 
     <!-- Activities from OI Distribution Library -->
     <activity android:name="org.openintents.distribution.EulaActivity" />

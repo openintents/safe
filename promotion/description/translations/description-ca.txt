@@ -3,7 +3,7 @@ OI Safe protegeix de forma segura totes les teves contrasenyes i altres dades pr
 Aquesta aplicació no té anuncis i no necessita permisos a Internet. 
 
 Per a una llista sencera de canvis i una llista de preguntes més freqüents, vegeu: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Podeu ajudar a millorar la traducció al vostre idioma a Launchpad 
 https://translations.launchpad.net/org.openintents/trunk

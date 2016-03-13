@@ -10,7 +10,7 @@ OI Safe protège en toute sécurité tous vos mots de passe et autres données p
 Cette application est petite annonce gratuite et ne nécessite pas l'autorisation d'Internet. 
 
 Pour la liste complète des changements et une liste de questions fréquemment posées, s'il vous plaît visitez: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Vous pouvez contribuer à améliorer la traduction dans votre langue au Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

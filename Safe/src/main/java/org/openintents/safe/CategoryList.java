@@ -904,9 +904,9 @@ public class CategoryList extends ListActivity {
         }
         String filename = Preferences.getExportPath(this);
 
-        Intent intent = new Intent("org.org.openintents.action.PICK_FILE");
+        Intent intent = new Intent("org.openintents.action.PICK_FILE");
         intent.setData(Uri.parse("file://" + filename));
-        intent.putExtra("org.org.openintents.extra.TITLE", R.string.export_file_select);
+        intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
         if (intentCallable(intent)) {
             startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
         } else {

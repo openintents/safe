@@ -10,7 +10,7 @@ OI Safe protege todas sus contraseñas y otros datos privados usando el cifrado 
 Esta aplicación no tiene anuncios y no requiere permisos de internet. 
 
 Para la lista completa de cambios y la lista de preguntas frecuentes, por favor visite: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Usted puede ayudar a mejorar la traducción de su idioma en Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

@@ -10,7 +10,7 @@ OI Safe safely protects all of your passwords and other private data using indus
 Esta aplicação é livre e não requer permissões de Internet. 
 
 Para ver a lista de alterações e as perguntas frequentes, consulte: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Pode ajudar a traduzir as aplicações no Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

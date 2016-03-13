@@ -7,9 +7,9 @@ import android.os.Build;
 public class Intents {
     static android.content.Intent createPickFileIntent(String backupPath, int titleResource) {
         android.content.Intent intent;
-        intent = new android.content.Intent("org.org.openintents.action.PICK_FILE");
+        intent = new android.content.Intent("org.openintents.action.PICK_FILE");
         intent.setData(Uri.parse("file://" + backupPath));
-        intent.putExtra("org.org.openintents.extra.TITLE", titleResource);
+        intent.putExtra("org.openintents.extra.TITLE", titleResource);
         return intent;
     }
 

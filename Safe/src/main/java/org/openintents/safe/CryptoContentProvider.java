@@ -34,7 +34,7 @@ public class CryptoContentProvider extends ContentProvider {
 
     public static CryptoHelper ch = null;
 
-    public static final String AUTHORITY = "org.org.openintents.safe";
+    public static final String AUTHORITY = "org.openintents.safe";
     public static final Uri CONTENT_URI
             = Uri.parse("content://" + AUTHORITY);
 
@@ -105,7 +105,7 @@ public class CryptoContentProvider extends ContentProvider {
         ParcelFileDescriptor pfd = null;
         try {
             // get the /files/ directory for our application, which
-            // for us is /data/data/org.org.openintents.safe/files/
+            // for us is /data/data/org.openintents.safe/files/
             String filesDir = getContext().getFilesDir().toString();
 
             String path = filesDir;

@@ -10,7 +10,7 @@ OI Safe safely protects all of your passwords and other private data using indus
 Tässä ohjelmassa EI OLE mainoksia ja ei vaadi internetyhteyttä ja -lupaa. 
 
 Täydellinen luettelo muutoksista ja lista usein kysytyistä kysymyksistä on saatavilla osoitteessa: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Voit auttaa parantamaan käännöksiä omalle kielellesi Launchpadissa: 
 https://translations.launchpad.net/org.openintents/trunk

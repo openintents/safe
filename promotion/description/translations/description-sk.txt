@@ -10,7 +10,7 @@ OI Trezor bezpečne chráni všetky Vaše heslá a iné osobné dáta pomocou pr
 Táto aplikácia neobsahuje reklamy a nepotrebuje povolenie na používanie internetu. 
 
 Pre úplný zoznam zmien a zoznam často kladených otázok, navštívte prosím: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Môžete pomôcť zlepšit preklad do vášho jazyka na Launchpad-e: 
 https://translations.launchpad.net/org.openintents/trunk

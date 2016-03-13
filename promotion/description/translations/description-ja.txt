@@ -10,7 +10,7 @@ OI 金庫は業界基準の AES 暗号を使ってパスワードやほかのプ
 このアプリケーションは広告を含まず、インターネット許可を必要としません。 
 
 すべての変更リストや質問リストを見るには： 
-http://www.org.openintents.org
+http://www.openintents.org
 
 あなたもこの言語の翻訳を Launchpad で改善することができます： 
 https://translations.launchpad.net/org.openintents/trunk

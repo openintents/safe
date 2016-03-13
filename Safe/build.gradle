@@ -16,7 +16,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "org.org.openintents.safe"
+        applicationId "org.openintents.safe"
         versionCode 31
         versionName "1.4.2"
         minSdkVersion 4

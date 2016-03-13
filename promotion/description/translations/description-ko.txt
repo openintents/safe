@@ -10,7 +10,7 @@ OI 금고는 산업 표준 암호화 방식인 AES를 사용하여 당신의 비
 이 앱은 광고가 없으며 인터넷에 접속하지 않습니다. 
 
 모든 변경 내역과 FAQ는 다음 주소에서 볼 수 있습니다: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 당신의 언어로의 번역을 Launchpad에서 도울 수 있습니다: 
 https://translations.launchpad.net/org.openintents/trunk

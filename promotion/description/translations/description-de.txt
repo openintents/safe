@@ -10,7 +10,7 @@ OI Safe schützt alle ihre Passwörter und andere privaten Daten mithilfe der In
 Diese Applikation ist werbefrei und benötigt keine Internetverbindung. 
 
 Für eine vollständige Liste der Änderungen und häufig gestellten Fragen besuchen sie bitte: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Sie können uns mit der Verbesserung der Übersetzung in ihre Sprache auf Launchpad unterstützen: 
 https://translations.launchpad.net/org.openintents/trunk

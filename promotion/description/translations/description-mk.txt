@@ -3,7 +3,7 @@ OI Сеф безбедно ги заштитува сите лозинки и д
 Оваа апликација е без реклами и не и е потребно интернет дозвола. 
 
 За целосната листа на промени и често поставувани прашања, посетете ја: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Ти можеш да помогнеш да се подобри преводот во твојот јазик на Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

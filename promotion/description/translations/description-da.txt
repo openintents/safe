@@ -3,7 +3,7 @@ OI Safe safely protects all of your passwords and other private data using indus
 Dette program er reklamefrit og kræver ikke internetadgang. 
 
 For the complete list of changes and a list of frequently asked questions, please visit: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 You can help to improve the translation into your language at Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

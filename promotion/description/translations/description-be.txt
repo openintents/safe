@@ -10,7 +10,7 @@ OI Safe safely protects all of your passwords and other private data using indus
 У прыкладанні няма рэкламы і яно не патрабуе доступу ў інтэрнэт. 
 
 З поўным спісам змен і спісам пытянняў, якія часта задаюцца, можна азнаёміцца ​​на: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Вы можаце палепшыць пераклад на вашу мову пры дапамозе Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

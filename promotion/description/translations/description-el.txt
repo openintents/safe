@@ -10,7 +10,7 @@ OI Κιβώτιο
 Αυτή η εφαρμογή δεν έχει διαφημήσεις και δεν απαιτεί άδεια στο διαδίκτυο. 
 
 Για την πλήρη λίστα των αλλαγών και μια λίστα συχνών ερωτημάτων, παρακαλώ επισκευτείτε: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Μπορείτε να βοηθήσετε στη βελτίωση της μετάφρασης στη γλώσσα σας στο Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

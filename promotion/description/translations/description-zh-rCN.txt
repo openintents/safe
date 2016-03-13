@@ -10,7 +10,7 @@ OI Safe safely protects all of your passwords and other private data using indus
 本程序不含广告，也不需要网络权限 
 
 你可以在这里获得完整的改变列表和常见问题回答 
-http://www.org.openintents.org
+http://www.openintents.org
 
 可以翻译成您的语言： 
 https://translations.launchpad.net/org.openintents/trunk

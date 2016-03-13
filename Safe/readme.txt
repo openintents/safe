@@ -22,7 +22,7 @@ The core application stores your passwords. Other applications can encrypt
 or decrypt data, and get or set passwords by connecting to OI Safe.
 
 To obtain the current release, visit
-  http://www.org.openintents.org
+  http://www.openintents.org
 
 ----------------
 release: 1.4.2

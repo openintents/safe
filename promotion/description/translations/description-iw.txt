@@ -10,7 +10,7 @@ Store your private data with OI Safe.
 באפליקציה זאת אין פרסומות והיא לא דורשת אישור אינטרנט. 
 
 לרשימה המלאה של שינויים ולרשימה של שאלות נפוצות אנא לכו אל: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 אתם יכולים לעזור לשפר את התרגום בשפתכם ב-Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

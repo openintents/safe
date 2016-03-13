@@ -899,7 +899,7 @@ public class CryptoHelper {
             }
 
             // openFileOutput creates a file in /data/data/{packagename}/files/
-            // In our case, /data/data/org.org.openintents.safe/files/
+            // In our case, /data/data/org.openintents.safe/files/
             // This file is owned and only readable by our application
             os = ctx.openFileOutput(
                     sessionFile,

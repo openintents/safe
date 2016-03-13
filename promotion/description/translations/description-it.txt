@@ -10,7 +10,7 @@ OI Sicurezza protegge tutte le vostre password e gli altri dati privati utilizza
 Questa applicazione non contiene la pubblicità e non richiede la permissione di internet. 
 
 Per la lista completa con le modifiche e una lista con le domande frequenti, prego visitare: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Potete aiutare a migliorare la traduzione nella vostra lingua a Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

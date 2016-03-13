@@ -10,7 +10,7 @@ OI सेफ सुरक्षित रूप से आपके पासव
 यह अनुप्रयोग विज्ञापन मुक्त है और  इसे  इंटरनेट की अनुमति की आवश्यकता नहीं है| 
 
 परिवर्तन और अक्सर पूछे जाने वाले प्रश्नों की पूरी सूची के लिए, कृपया यहाँ पर जाएँ: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 आप Launchpad पर अपनी भाषा के अनुवाद को बेहतर बनाने में मदद कर सकते हैं: 
 https://translations.launchpad.net/org.openintents/trunk

@@ -10,7 +10,7 @@ OI  آمنة بأمان يحمي جميع كلمات المرور والبيان
 هذا التطبيق هو خالية من الإعلانات ولا يحتاج إذن الإنترنت. 
 
 لقائمة كاملة من التغييرات وقائمة بالأسئلة المطروحة بشكل متكرر، يرجى زيارة: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 يمكنك المساعدة على تحسين ترجمة إلى اللغة الخاصة بك في Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

@@ -11,7 +11,7 @@ It also acts as an extension to OI Notepad to encrypt notes created in OI Notepa
 This application is ad free and does not require the internet permission.
 
 For the complete list of changes and a list of frequently asked questions, please visit:
-http://www.org.openintents.org
+http://www.openintents.org
 
 You can help to improve the translation into your language at Launchpad:
 https://translations.launchpad.net/org.openintents/trunk

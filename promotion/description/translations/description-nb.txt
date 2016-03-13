@@ -10,7 +10,7 @@ OI Safe beskytter alle dine passord og andre private data ved bruk av AES-krypte
 Denne applikasjonen er reklamefri og trenger ikke inter 
 
 For den komplette listen med endringer og en liste over vanlige spørsmål, vennligst besøk: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Du kan hjelpe til med å forbedre oversettelsen 
 https://translations.launchpad.net/org.openintents/trunk

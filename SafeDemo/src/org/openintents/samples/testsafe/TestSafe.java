@@ -92,7 +92,7 @@ public class TestSafe extends Activity {
                     public void onClick(View arg0) {
                         Intent i = new Intent();
                         i.setAction(Intent.ACTION_MAIN);
-                        i.setClassName("org.org.openintents.safe", "org.org.openintents.safe.AskPassword");
+                        i.setClassName("org.openintents.safe", "org.openintents.safe.AskPassword");
                         startActivityForResult(i, SPOOF_REQUEST);
                     }
                 }
@@ -211,7 +211,7 @@ public class TestSafe extends Activity {
         boolean isLocal = action == null || action.equals(Intent.ACTION_MAIN);
         conn = new ServiceDispatchConnection(isLocal);
         Intent i = new Intent();
-        i.setClassName("org.org.openintents.safe", "org.org.openintents.safe.service.ServiceDispatchImpl");
+        i.setClassName("org.openintents.safe", "org.openintents.safe.service.ServiceDispatchImpl");
         try {
             startService(i);
             bindService(i, conn, Context.BIND_AUTO_CREATE);

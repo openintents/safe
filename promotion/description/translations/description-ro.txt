@@ -10,7 +10,7 @@ OI Safe vă protejează toate parolele si alte date private folosind standardul 
 Această aplicație nu conține reclame și nu necesită permisiunea de internet. 
 
 Pentru lista completă cu modificări și o listă cu întrebări frecvente, vizitați: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Puteți ajuta la îmbunătățirea traducerii în limba dumneavoastră la Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

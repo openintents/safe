@@ -10,7 +10,7 @@ OI Safe пази в безопастност всичките Ви пароли 
 Това приложение е безплатно и не изисква интернет за ползването ѝ. 
 
 За пълен списък с промените и често задаваните въпроси,моля посетете: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Можете да помогнете за подобряване на превода на вашия език в Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

@@ -10,7 +10,7 @@ OI Kluis beschermt privé-gegevens, zoals wachtwoorden, met de industriestandaar
 Deze applicatie is advertentievrij, en heeft geen internet toegang nodig. 
 
 Het complete overzicht van wijzigingen en de FAQ is te lezen op: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Jij kan helpen om de vertaling in je eigen taal te verbeteren via Launchpad: 
 https://translations.launchpad.net/org.openintents/trunk

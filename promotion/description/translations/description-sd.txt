@@ -10,7 +10,7 @@ AES इन्क्रिप्शन जो प्रयोग करे OI स
 ईयो अनुप्रयोग विज्ञापन मुक्त आहे अऊँ इनखे इंटरनेट जी अनुमति जी आवश्यकता काने 
 
 :परिवर्तन अऊँ अक्सर पुष्यन वनण वारा प्रश्नन जी पूरी सूची लाये, कृपया हेड़े वन्नो 
-http://www.org.openintents.org
+http://www.openintents.org
 
 :तहां Launchpad ते पेंजी भाषा जे अनुवाद खे बेहतर ठायण में मदद करे ता सगो 
 https://translations.launchpad.net/org.openintents/trunk

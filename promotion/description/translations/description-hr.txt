@@ -3,7 +3,7 @@ OI Siguran bezbedno štiti sve vaše pasworde i ostale privatne podatke koriste�
 Ova aplikacija nema reklame i zahtijeva internet konkciju. 
 
 Za punu listu promena i listu ubičaeno pitanih pitanja, molimo posetite: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Možete pomoći u poboljšanju prevoda u vaš jezik na Launchpad-u: 
 https://translations.launchpad.net/org.openintents/trunk

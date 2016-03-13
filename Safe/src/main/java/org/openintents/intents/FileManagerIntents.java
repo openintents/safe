@@ -30,9 +30,9 @@ public final class FileManagerIntents {
      * Data is the current file name or file name suggestion.
      * Returns a new file name as file URI in data.
      * <p/>
-     * <p>Constant Value: "org.org.openintents.action.PICK_FILE"</p>
+     * <p>Constant Value: "org.openintents.action.PICK_FILE"</p>
      */
-    public static final String ACTION_PICK_FILE = "org.org.openintents.action.PICK_FILE";
+    public static final String ACTION_PICK_FILE = "org.openintents.action.PICK_FILE";
 
     /**
      * Activity Action: Pick a directory through the file manager, or let user
@@ -40,26 +40,26 @@ public final class FileManagerIntents {
      * Data is the current directory name or directory name suggestion.
      * Returns a new directory name as file URI in data.
      * <p/>
-     * <p>Constant Value: "org.org.openintents.action.PICK_DIRECTORY"</p>
+     * <p>Constant Value: "org.openintents.action.PICK_DIRECTORY"</p>
      */
-    public static final String ACTION_PICK_DIRECTORY = "org.org.openintents.action.PICK_DIRECTORY";
+    public static final String ACTION_PICK_DIRECTORY = "org.openintents.action.PICK_DIRECTORY";
 
     /**
      * The title to display.
      * <p/>
      * <p>This is shown in the title bar of the file manager.</p>
      * <p/>
-     * <p>Constant Value: "org.org.openintents.extra.TITLE"</p>
+     * <p>Constant Value: "org.openintents.extra.TITLE"</p>
      */
-    public static final String EXTRA_TITLE = "org.org.openintents.extra.TITLE";
+    public static final String EXTRA_TITLE = "org.openintents.extra.TITLE";
 
     /**
      * The text on the button to display.
      * <p/>
      * <p>Depending on the use, it makes sense to set this to "Open" or "Save".</p>
      * <p/>
-     * <p>Constant Value: "org.org.openintents.extra.BUTTON_TEXT"</p>
+     * <p>Constant Value: "org.openintents.extra.BUTTON_TEXT"</p>
      */
-    public static final String EXTRA_BUTTON_TEXT = "org.org.openintents.extra.BUTTON_TEXT";
+    public static final String EXTRA_BUTTON_TEXT = "org.openintents.extra.BUTTON_TEXT";
 
 }

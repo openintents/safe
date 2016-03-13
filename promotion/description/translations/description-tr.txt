@@ -10,7 +10,7 @@ OI Safe güvenli bir şekilde sizin şifrelerini korur ve AES endüstri standard
 Bu uygulama ücretsiz reklamdır ve internet izni gerektirmez. 
 
 Değişiklikler ve sık sorulan sorular listesini tamamlamak için lütfen şurayı ziyaret edin: 
-http://www.org.openintents.org
+http://www.openintents.org
 
 Launchpad'te dilinize çevirileri geliştirmek için yardım edebilirsiniz: 
 https://translations.launchpad.net/org.openintents/trunk
