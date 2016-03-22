@@ -238,7 +238,7 @@ public class PassGen extends Activity {
     protected void onResume() {
         super.onResume();
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -272,7 +272,7 @@ public class PassGen extends Activity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

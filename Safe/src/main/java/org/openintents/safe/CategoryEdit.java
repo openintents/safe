@@ -212,7 +212,7 @@ public class CategoryEdit extends Activity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

@@ -125,7 +125,7 @@ public class AskPassword extends DistributionLibraryActivity {
         }
 
         dbHelper = new DBHelper(this);
-        if (dbHelper.isDatabaseOpen() == false) {
+        if (!dbHelper.isDatabaseOpen()) {
             Dialog dbError = new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle(R.string.database_error_title)
@@ -403,7 +403,7 @@ public class AskPassword extends DistributionLibraryActivity {
         if (debug) {
             Log.d(TAG, "onResume()");
         }
-        if (CategoryList.isSignedIn() == true) {
+        if (CategoryList.isSignedIn()) {
             if (debug) {
                 Log.d(TAG, "already signed in");
             }
@@ -416,7 +416,7 @@ public class AskPassword extends DistributionLibraryActivity {
         if (dbHelper == null) {
             dbHelper = new DBHelper(this);
         }
-        if (dbHelper.isDatabaseOpen() == false) {
+        if (!dbHelper.isDatabaseOpen()) {
             if (debug) {
                 Log.d(TAG, "eek! database is not open");
             }
@@ -592,7 +592,7 @@ public class AskPassword extends DistributionLibraryActivity {
         } catch (CryptoHelperException e) {
             Log.e(TAG, e.toString());
         }
-        if (ch.getStatus() == true) {
+        if (ch.getStatus()) {
             dbMasterKey = decryptedMasterKey;
             return true;
         }

@@ -119,7 +119,7 @@ public class ChangePass extends Activity {
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -182,10 +182,10 @@ public class ChangePass extends Activity {
             ch.init(CryptoHelper.EncryptionStrong, dbHelper.fetchSalt());
             ch.setPassword(oldPass);
             decryptedMasterKey = ch.decrypt(encryptedMasterKey);
-            if (ch.getStatus() == true) {    // successful decryption?
+            if (ch.getStatus()) {    // successful decryption?
                 ch.setPassword(newPass);
                 encryptedMasterKey = ch.encrypt(decryptedMasterKey);
-                if (ch.getStatus() == true) { // successful encryption?
+                if (ch.getStatus()) { // successful encryption?
                     dbHelper.storeMasterKey(encryptedMasterKey);
                     Passwords.InitCrypto(CryptoHelper.EncryptionMedium, dbHelper.fetchSalt(), decryptedMasterKey);
                     Passwords.Reset();
@@ -398,7 +398,7 @@ public class ChangePass extends Activity {
         dbHelper.close();
 
         // was decryption of the master key successful?
-        if (ch.getStatus() == true) {
+        if (ch.getStatus()) {
             return true;    // then we must have a good master password
         }
         return false;
@@ -412,7 +412,7 @@ public class ChangePass extends Activity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

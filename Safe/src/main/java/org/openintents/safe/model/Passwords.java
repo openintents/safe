@@ -332,7 +332,7 @@ public class Passwords {
                 passList.add(passEntry);
             }
         }
-        if (decrypt == true) {
+        if (decrypt) {
             Collections.sort(
                     passList, new Comparator<PassEntry>() {
                         public int compare(PassEntry o1, PassEntry o2) {
@@ -355,7 +355,7 @@ public class Passwords {
         if (passEntry == null) {
             return null;
         }
-        if (decrypt == false) {
+        if (!decrypt) {
             return passEntry;
         }
         if (passEntry.needsDecryptDescription) {
