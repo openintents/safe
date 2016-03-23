@@ -19,6 +19,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import javax.crypto.BadPaddingException;
@@ -241,10 +242,8 @@ public class CryptoHelper {
             try {
                 String hexByte = hex.substring(i, i + 2);
 
-                Integer I = Integer.valueOf(0);
-                I = Integer.decode("0x" + hexByte);
-                int k = I.intValue();
-                bytes[j++] = Integer.valueOf(k).byteValue();
+                Integer k = Integer.decode("0x" + hexByte);
+                bytes[j++] = k.byteValue();
             } catch (NumberFormatException e) {
                 Log.i(TAG, e.getLocalizedMessage());
                 return bytes;
@@ -272,13 +271,8 @@ public class CryptoHelper {
             pbeKey = keyFac.generateSecret(pbeKeySpec);
             pbeCipher = Cipher
                     .getInstance(algorithm, "BC");
-        } catch (InvalidKeySpecException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
-        } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
-        } catch (NoSuchProviderException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
-        } catch (NoSuchPaddingException e) {
+        } catch (InvalidKeySpecException | NoSuchAlgorithmException
+                | NoSuchPaddingException | NoSuchProviderException e) {
             Log.e(TAG, "setPassword(): " + e.toString());
         }
 
@@ -363,13 +357,8 @@ public class CryptoHelper {
             pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
             ciphertext = pbeCipher.doFinal(plaintext.getBytes());
             status = true;
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "encrypt(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "encrypt(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "encrypt(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException
+                | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "encrypt(): " + e.toString());
         }
 
@@ -405,13 +394,8 @@ public class CryptoHelper {
             pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
             plaintext = pbeCipher.doFinal(byteCiphertext);
             status = true;
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException
+                | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "decrypt(): " + e.toString());
         }
 
@@ -476,13 +460,8 @@ public class CryptoHelper {
         try {
             pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
             cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException
+                | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
         }
 
@@ -491,13 +470,8 @@ public class CryptoHelper {
             pbeCipher.init(Cipher.ENCRYPT_MODE, sessionPbeKey, pbeParamSpec);
             ciphertext = pbeCipher.doFinal(plaintext.getBytes());
             status = true;
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "encryptWithSessionKey2(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "encryptWithSessionKey2(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "encryptWithSessionKey2(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException
+                | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "encryptWithSessionKey2(): " + e.toString());
         }
 
@@ -564,13 +538,7 @@ public class CryptoHelper {
             pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
             byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
             status = true;
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "decrypt(): " + e.toString());
         }
 
@@ -592,13 +560,7 @@ public class CryptoHelper {
             pbeCipher.init(Cipher.DECRYPT_MODE, sessionPbeKey, pbeParamSpec);
             plaintext = pbeCipher.doFinal(byteCiphertext);
             status = true;
-        } catch (IllegalBlockSizeException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (BadPaddingException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
-        } catch (InvalidAlgorithmParameterException e) {
+        } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
             Log.e(TAG, "decrypt(): " + e.toString());
         }
 
@@ -663,16 +625,10 @@ public class CryptoHelper {
                 pbeCipher.init(Cipher.ENCRYPT_MODE, pbeKey, pbeParamSpec);
                 cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
                 status = true;
-            } catch (IllegalBlockSizeException e) {
-                Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-            } catch (BadPaddingException e) {
-                Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-            } catch (InvalidKeyException e) {
-                Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
-            } catch (InvalidAlgorithmParameterException e) {
+            } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
                 Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
             }
-            if (status == false) {
+            if (!status) {
                 return null;
             }
             status = false;
@@ -814,7 +770,7 @@ public class CryptoHelper {
             // pass back a Uri that can be used to read back the contents
             resultUri = Uri.fromFile(new File(outputPath)); //Uri.parse("file://" + outputPath); // TODO: UUEncode?
 
-            result = decryptStreamWithSessionKey(ctx, is, os);
+            result = decryptStreamWithSessionKey(is, os);
 
             // Close the input stream
             is.close();
@@ -910,7 +866,7 @@ public class CryptoHelper {
             // pass back a Uri that can be used to read back the contents
             resultUri = Uri.withAppendedPath(CryptoContentProvider.CONTENT_URI, "decrypt/" + decryptSession);
 
-            result = decryptStreamWithSessionKey(ctx, is, os);
+            result = decryptStreamWithSessionKey(is, os);
 
             // Close the input stream
             is.close();
@@ -936,16 +892,13 @@ public class CryptoHelper {
      * Unencrypt a file previously encrypted with
      * encryptFileWithSessionKey().
      *
-     * @param ctx                Context of activity in order to store temp file
-     * @param fileUri            Uri to either a stream or a file to read from
-     * @param useContentProvider true for using Content Provider,
-     *                           false for creating a file without ".oisafe" extension and
-     *                           deleting the original file.
+     * @param is                 a stream to read from
+     * @param os                 where to write the decrypted stream
      * @return True if successful, otherwise false.
      * @throws Exception
      * @author Peli
      */
-    public boolean decryptStreamWithSessionKey(Context ctx, InputStream is, OutputStream os) throws CryptoHelperException {
+    public boolean decryptStreamWithSessionKey(InputStream is, OutputStream os) throws CryptoHelperException {
         if (debug) {
             Log.d(TAG, "decryptStreamWithSessionKey");
         }

@@ -43,10 +43,10 @@ import org.openintents.safe.password.Master;
  *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class IntentHandler extends Activity {
+public class IntentHandlerActivity extends Activity {
 
     private static final boolean debug = true;
-    private static String TAG = "IntentHandler";
+    private static String TAG = "IntentHandlerActivity";
 
     private static final int REQUEST_CODE_ASK_PASSWORD = 1;
     private static final int REQUEST_CODE_ALLOW_EXTERNAL_ACCESS = 2;
@@ -144,7 +144,7 @@ public class IntentHandler extends Activity {
             return;
         }
 
-        boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+        boolean externalAccess = mPreferences.getBoolean(PreferenceActivity.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 
         if (action == null || action.equals(Intent.ACTION_MAIN)) {
             //TODO: When launched from debugger, action is null. Other such cases?
@@ -173,7 +173,7 @@ public class IntentHandler extends Activity {
                 } catch (CryptoHelperException e) {
                     Log.e(TAG, e.toString(), e);
                     Toast.makeText(
-                            IntentHandler.this,
+                            IntentHandlerActivity.this,
                             "There was a crypto error while retreiving the requested password: " + e.getMessage(),
                             Toast.LENGTH_SHORT
                     ).show();
@@ -181,7 +181,7 @@ public class IntentHandler extends Activity {
                     Log.e(TAG, e.toString(), e);
                     //TODO: Turn this into a proper error dialog.
                     Toast.makeText(
-                            IntentHandler.this,
+                            IntentHandlerActivity.this,
                             "There was an error in retreiving the requested password: " + e.getMessage(),
                             Toast.LENGTH_SHORT
                     ).show();
@@ -482,7 +482,7 @@ public class IntentHandler extends Activity {
                 finish();
             }
         } else {
-            boolean externalAccess = mPreferences.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+            boolean externalAccess = mPreferences.getBoolean(PreferenceActivity.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 
             if (askPassIsLocal || externalAccess) {
                 if (debug) {

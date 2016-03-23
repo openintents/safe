@@ -27,7 +27,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.Preferences;
+import org.openintents.safe.PreferenceActivity;
 import org.openintents.safe.password.Master;
 
 public class AutoLockService extends Service {
@@ -53,7 +53,7 @@ public class AutoLockService extends Service {
                         Log.d(TAG, "caught ACTION_SCREEN_OFF");
                     }
                     boolean lockOnScreenLock = mPreferences.getBoolean(
-                            Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true
+                            PreferenceActivity.PREFERENCE_LOCK_ON_SCREEN_LOCK, true
                     );
                     if (lockOnScreenLock) {
                         lockOut();
@@ -147,8 +147,8 @@ public class AutoLockService extends Service {
         }
         ServiceNotification.setNotification(AutoLockService.this);
         String timeout = mPreferences.getString(
-                Preferences.PREFERENCE_LOCK_TIMEOUT,
-                Preferences.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE
+                PreferenceActivity.PREFERENCE_LOCK_TIMEOUT,
+                PreferenceActivity.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE
         );
         int timeoutMinutes = 5; // default to 5
         try {

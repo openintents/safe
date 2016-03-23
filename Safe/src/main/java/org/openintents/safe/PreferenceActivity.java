@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
@@ -29,13 +28,13 @@ import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
-public class Preferences extends PreferenceActivity
+public class PreferenceActivity extends android.preference.PreferenceActivity
         implements OnSharedPreferenceChangeListener {
 
-    public static final String BACKUP_METHOD_DOCUMENT_PROVIDER = "document_provider";
-    public static final String BACKUP_METHOD_FILE = "file";
+    public static final String IO_METHOD_DOCUMENT_PROVIDER = "document_provider";
+    public static final String IO_METHOD_FILE = "file";
 
-    private static String TAG = "Preferences";
+    private static String TAG = "PreferenceActivity";
 
     public static final String PREFERENCE_ALLOW_EXTERNAL_ACCESS = "external_access";
     public static final String PREFERENCE_LOCK_TIMEOUT = "lock_timeout";
@@ -49,18 +48,23 @@ public class Preferences extends PreferenceActivity
     public static final String PREFERENCE_AUTOBACKUP = "autobackup";
     public static final String PREFERENCE_AUTOBACKUP_DAYS = "autobackup_days";
     public static final String PREFERENCE_AUTOBACKUP_DAYS_DEFAULT_VALUE = "7";
+
     public static final String PREFERENCE_BACKUP_PATH = "backup_path";
     public static final String PREFERENCE_BACKUP_DOCUMENT = "backup_document";
     public static final String PREFERENCE_BACKUP_METHOD = "backup_method";
     public static final String PREFERENCE_BACKUP_PATH_DEFAULT_VALUE =
             Environment.getExternalStorageDirectory().getAbsolutePath() + "/oisafe.xml";
     public static final String PREFERENCE_EXPORT_PATH = "export_path";
+    public static final String PREFERENCE_EXPORT_DOCUMENT = "export_document";
+    public static final String PREFERENCE_EXPORT_METHOD = "export_method";
     public static final String PREFERENCE_EXPORT_PATH_DEFAULT_VALUE =
             Environment.getExternalStorageDirectory().getAbsolutePath() + "/oisafe.csv";
 
-    public static final int REQUEST_BACKUP_FILENAME = 0;
-    public static final int REQUEST_BACKUP_DOCUMENT = 1;
-    public static final int REQUEST_EXPORT_FILENAME = 2;
+    private static final int REQUEST_BACKUP_FILENAME = 0;
+    private static final int REQUEST_BACKUP_DOCUMENT = 1;
+    private static final int REQUEST_EXPORT_FILENAME = 2;
+    private static final int REQUEST_EXPORT_DOCUMENT = 3;
+
 
     public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
 
@@ -99,7 +103,7 @@ public class Preferences extends PreferenceActivity
                             intent = Intents.createCreateDocumentIntent();
                             requestId = REQUEST_BACKUP_FILENAME;
                         } else {
-                            intent = Intents.createPickFileIntent(Preferences.getBackupPath(Preferences.this), R.string.backup_select_file);
+                            intent = Intents.createPickFileIntent(PreferenceActivity.getBackupPath(PreferenceActivity.this), R.string.backup_select_file);
                             requestId = REQUEST_BACKUP_FILENAME;
                         }
                         if (intentCallable(intent)) {
@@ -116,9 +120,12 @@ public class Preferences extends PreferenceActivity
         exportPathPref.setOnPreferenceClickListener(
                 new OnPreferenceClickListener() {
                     public boolean onPreferenceClick(Preference pref) {
-                        Intent intent = new Intent("org.openintents.action.PICK_FILE");
-                        intent.setData(Uri.parse("file://" + getExportPath(Preferences.this)));
-                        intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
+                        Intent intent;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            intent = Intents.createCreateDocumentIntent();
+                        } else {
+                            intent = Intents.createPickFileIntent(getExportPath(PreferenceActivity.this), R.string.export_file_select);
+                        }
                         if (intentCallable(intent)) {
                             startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
                         } else {
@@ -200,7 +207,7 @@ public class Preferences extends PreferenceActivity
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(PREFERENCE_BACKUP_PATH, path);
-        editor.putString(PREFERENCE_BACKUP_METHOD, BACKUP_METHOD_FILE);
+        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_FILE);
         editor.commit();
     }
 
@@ -213,14 +220,7 @@ public class Preferences extends PreferenceActivity
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(PREFERENCE_BACKUP_DOCUMENT, uriString);
-        editor.putString(PREFERENCE_BACKUP_METHOD, BACKUP_METHOD_DOCUMENT_PROVIDER);
-        editor.commit();
-    }
-
-    private static void setBackupMethod(Context context, String backupMethod) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREFERENCE_BACKUP_METHOD, backupMethod);
+        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
         editor.commit();
     }
 
@@ -229,12 +229,28 @@ public class Preferences extends PreferenceActivity
                 .getString(PREFERENCE_EXPORT_PATH, PREFERENCE_EXPORT_PATH_DEFAULT_VALUE);
     }
 
-    static void setExportPath(Context context, String path) {
+    static void setExportPathAndMethod(Context context, String path) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(PREFERENCE_EXPORT_PATH, path);
+        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_FILE);
         editor.commit();
     }
+
+    static String getExportDocument(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_EXPORT_DOCUMENT, null);
+    }
+
+    static void setExportDocumentAndMethod(Context context, String uriString) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_EXPORT_DOCUMENT, uriString);
+        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
+        editor.commit();
+    }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
@@ -242,19 +258,22 @@ public class Preferences extends PreferenceActivity
             case REQUEST_BACKUP_FILENAME:
                 if (resultCode == RESULT_OK) {
                     setBackupPathAndMethod(this, i.getData().getPath());
-                    setBackupMethod(this, BACKUP_METHOD_FILE);
                 }
                 break;
             case REQUEST_BACKUP_DOCUMENT:
                 if (resultCode == RESULT_OK) {
-                    setBackupPathAndMethod(this, i.getData().getPath());
-                    setBackupMethod(this, BACKUP_METHOD_DOCUMENT_PROVIDER);
+                    setBackupDocumentAndMethod(this, i.getData().getPath());
                 }
                 break;
 
             case REQUEST_EXPORT_FILENAME:
                 if (resultCode == RESULT_OK) {
-                    setExportPath(this, i.getData().getPath());
+                    setExportPathAndMethod(this, i.getData().getPath());
+                }
+                break;
+            case REQUEST_EXPORT_DOCUMENT:
+                if (resultCode == RESULT_OK) {
+                    setExportDocumentAndMethod(this, i.getData().getPath());
                 }
                 break;
         }

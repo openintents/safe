@@ -171,7 +171,7 @@ public class Backup {
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
             SharedPreferences.Editor editor = sp.edit();
-            editor.putInt(Preferences.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
+            editor.putInt(PreferenceActivity.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
             editor.commit();
 
             result = myCtx.getString(R.string.backup_complete) + " " +

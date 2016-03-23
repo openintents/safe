@@ -54,6 +54,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -111,8 +113,9 @@ public class CategoryList extends ListActivity {
     public static final int REQUEST_RESTORE = 4;
     public static final int REQUEST_IMPORT_FILENAME = 5;
     public static final int REQUEST_EXPORT_FILENAME = 6;
-    public static final int REQUEST_BACKUP_FILENAME = 7;
-    public static final int REQUEST_BACKUP_DOCUMENT = 8;
+    public static final int REQUEST_EXPORT_DOCUMENT = 7;
+    public static final int REQUEST_BACKUP_FILENAME = 8;
+    public static final int REQUEST_BACKUP_DOCUMENT = 9;
 
     private static final int ABOUT_KEY = 2;
 
@@ -122,7 +125,7 @@ public class CategoryList extends ListActivity {
 
     public static final String KEY_ID = "id";  // Intent keys
 
-    private static importTask taskImport = null;
+    private static ImportTask taskImport = null;
     private ProgressDialog importProgress = null;
     private static boolean importDeletedDatabase = false;
 
@@ -212,7 +215,7 @@ public class CategoryList extends ListActivity {
         }
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        lockOnScreenLock = sp.getBoolean(Preferences.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
+        lockOnScreenLock = sp.getBoolean(PreferenceActivity.PREFERENCE_LOCK_ON_SCREEN_LOCK, true);
 
         if (taskImport != null) {
             // taskImport still running
@@ -238,7 +241,7 @@ public class CategoryList extends ListActivity {
 
     private void checkForAutoBackup() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean prefAutobackup = sp.getBoolean(Preferences.PREFERENCE_AUTOBACKUP, true);
+        boolean prefAutobackup = sp.getBoolean(PreferenceActivity.PREFERENCE_AUTOBACKUP, true);
 
         if (prefAutobackup == false) {
             return;
@@ -252,8 +255,8 @@ public class CategoryList extends ListActivity {
 
         SharedPreferences.Editor editor = sp.edit();
 
-        int lastAutobackupCheck = sp.getInt(Preferences.PREFERENCE_LAST_AUTOBACKUP_CHECK, 0);
-        editor.putInt(Preferences.PREFERENCE_LAST_AUTOBACKUP_CHECK, julianDay);
+        int lastAutobackupCheck = sp.getInt(PreferenceActivity.PREFERENCE_LAST_AUTOBACKUP_CHECK, 0);
+        editor.putInt(PreferenceActivity.PREFERENCE_LAST_AUTOBACKUP_CHECK, julianDay);
         editor.commit();
         if (lastAutobackupCheck == 0) {
             // first time
@@ -262,10 +265,10 @@ public class CategoryList extends ListActivity {
             }
             return;
         }
-        int lastBackupJulian = sp.getInt(Preferences.PREFERENCE_LAST_BACKUP_JULIAN, 0);
+        int lastBackupJulian = sp.getInt(PreferenceActivity.PREFERENCE_LAST_BACKUP_JULIAN, 0);
         String maxDaysToAutobackupString = sp.getString(
-                Preferences.PREFERENCE_AUTOBACKUP_DAYS,
-                Preferences.PREFERENCE_AUTOBACKUP_DAYS_DEFAULT_VALUE
+                PreferenceActivity.PREFERENCE_AUTOBACKUP_DAYS,
+                PreferenceActivity.PREFERENCE_AUTOBACKUP_DAYS_DEFAULT_VALUE
         );
         int maxDaysToAutobackup = 7;
         try {
@@ -308,7 +311,7 @@ public class CategoryList extends ListActivity {
             if (daysSinceLastBackup == julianDay) {
                 builder.setMessage(R.string.backup_never);
             } else {
-                String backupInDays = String.format(getString(R.string.backup_in_days), daysSinceLastBackup);
+                String backupInDays = getString(R.string.backup_in_days, daysSinceLastBackup);
                 builder.setMessage(backupInDays);
             }
             autobackupDialog = builder.create();
@@ -321,7 +324,7 @@ public class CategoryList extends ListActivity {
         if (autobackupTurnoff.isChecked()) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean(Preferences.PREFERENCE_AUTOBACKUP, false);
+            editor.putBoolean(PreferenceActivity.PREFERENCE_AUTOBACKUP, false);
             editor.commit();
         }
     }
@@ -331,7 +334,7 @@ public class CategoryList extends ListActivity {
      */
     private void showFirstTimeWarningDialog() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean firstTimeWarning = sp.getBoolean(Preferences.PREFERENCE_FIRST_TIME_WARNING, false);
+        boolean firstTimeWarning = sp.getBoolean(PreferenceActivity.PREFERENCE_FIRST_TIME_WARNING, false);
 
         if (!firstTimeWarning) {
             Intent i = new Intent(this, DialogHostingActivity.class);
@@ -339,7 +342,7 @@ public class CategoryList extends ListActivity {
             startActivity(i);
 
             SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean(Preferences.PREFERENCE_FIRST_TIME_WARNING, true);
+            editor.putBoolean(PreferenceActivity.PREFERENCE_FIRST_TIME_WARNING, true);
             editor.commit();
         }
     }
@@ -570,9 +573,7 @@ public class CategoryList extends ListActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (restartTimerIntent != null) {
-            sendBroadcast(restartTimerIntent);
-        }
+        maybRestartTimer();
 
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         int position = -1;
@@ -657,7 +658,7 @@ public class CategoryList extends ListActivity {
                 restoreDatabase();
                 break;
             case PREFERENCES_INDEX:
-                Intent preferences = new Intent(this, Preferences.class);
+                Intent preferences = new Intent(this, PreferenceActivity.class);
                 startActivity(preferences);
                 break;
             case ABOUT_INDEX:
@@ -709,7 +710,7 @@ public class CategoryList extends ListActivity {
      * and permit the updating of the progress dialog.
      */
     private void backupThreadStart() {
-        String filename = Preferences.getBackupPath(this);
+        String filename = PreferenceActivity.getBackupPath(this);
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -757,10 +758,10 @@ public class CategoryList extends ListActivity {
     }
 
     private void backupToFile(String filename) {
-        OutputStreamData streamData = null;
+        OutputStreamData streamData;
         try {
             streamData = new OutputStreamData(filename);
-            backupToFile(streamData);
+            backupToStream(streamData);
         } catch (FileNotFoundException e) {
             showResultToast(getString(R.string.backup_failed) + " " + e.getLocalizedMessage());
         }
@@ -770,14 +771,14 @@ public class CategoryList extends ListActivity {
     private void backupToDocument(Uri documentUri) {
         try {
             OutputStreamData streamData = new OutputStreamData(documentUri, this);
-            backupToFile(streamData);
+            backupToStream(streamData);
         } catch (FileNotFoundException e) {
             showResultToast(getString(R.string.backup_failed) + " " + e.getLocalizedMessage());
         }
 
     }
 
-    public void backupToFile(OutputStreamData streamData) {
+    public void backupToStream(OutputStreamData streamData) {
         if (taskBackup != null) {
             // there's already a running backup
             return;
@@ -795,7 +796,7 @@ public class CategoryList extends ListActivity {
             );
             backupProgress.setMessage(
                     getString(R.string.backup_progress) + " "
-                            + Preferences.getBackupPath(CategoryList.this)
+                            + PreferenceActivity.getBackupPath(CategoryList.this)
             );
             backupProgress.setIndeterminate(false);
             backupProgress.setCancelable(false);
@@ -811,9 +812,7 @@ public class CategoryList extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        if (restartTimerIntent != null) {
-            sendBroadcast(restartTimerIntent);
-        }
+        maybRestartTimer();
         launchPassList(rows.get(position).id);
     }
 
@@ -852,13 +851,13 @@ public class CategoryList extends ListActivity {
                 if (resultCode == RESULT_OK) {
                     path = i.getData().getPath();
                     backupToFile(path);
-                    Preferences.setBackupPathAndMethod(this, path);
+                    PreferenceActivity.setBackupPathAndMethod(this, path);
                 }
                 break;
             case REQUEST_BACKUP_DOCUMENT:
                 if (resultCode == RESULT_OK) {
                     backupToDocument(i.getData());
-                    Preferences.setBackupDocumentAndMethod(this, i.getDataString());
+                    PreferenceActivity.setBackupDocumentAndMethod(this, i.getDataString());
                 }
                 break;
 
@@ -866,15 +865,23 @@ public class CategoryList extends ListActivity {
                 if (resultCode == RESULT_OK) {
                     path = i.getData().getPath();
                     exportDatabaseToFile(path);
-                    Preferences.setExportPath(this, path);
+                    PreferenceActivity.setExportPathAndMethod(this, path);
                 }
                 break;
+
+            case REQUEST_EXPORT_DOCUMENT:
+                if (resultCode == RESULT_OK) {
+                    exportDatabaseToDocument(i.getData());
+                    PreferenceActivity.setExportDocumentAndMethod(this, i.getDataString());
+                }
+                break;
+
 
             case REQUEST_IMPORT_FILENAME:
                 if (resultCode == RESULT_OK) {
                     path = i.getData().getPath();
                     importFile(path);
-                    Preferences.setExportPath(this, path);
+                    PreferenceActivity.setExportPathAndMethod(this, path);
                 }
                 break;
         }
@@ -899,24 +906,63 @@ public class CategoryList extends ListActivity {
     }
 
     public void exportDatabase() {
-        if (restartTimerIntent != null) {
-            sendBroadcast(restartTimerIntent);
+        maybRestartTimer();
+        String filename = PreferenceActivity.getExportPath(this);
+        Intent intent;
+        int requestId;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            intent = Intents.createCreateDocumentIntent();
+            requestId = REQUEST_EXPORT_DOCUMENT;
+        } else {
+            intent = Intents.createPickFileIntent(filename, R.string.export_file_select);
+            requestId = REQUEST_EXPORT_FILENAME;
         }
-        String filename = Preferences.getExportPath(this);
-
-        Intent intent = new Intent("org.openintents.action.PICK_FILE");
-        intent.setData(Uri.parse("file://" + filename));
-        intent.putExtra("org.openintents.extra.TITLE", R.string.export_file_select);
         if (intentCallable(intent)) {
-            startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
+            startActivityForResult(intent, requestId);
         } else {
             exportDatabaseToFile(filename);
         }
     }
 
+    private void maybRestartTimer() {
+        if (restartTimerIntent != null) {
+            sendBroadcast(restartTimerIntent);
+        }
+    }
+
     private void exportDatabaseToFile(final String filename) {
         try {
-            CSVWriter writer = new CSVWriter(new FileWriter(filename), ',');
+            exportDatabaseToWriter(new FileWriter(filename));
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(
+                    CategoryList.this, R.string.export_file_error,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+        String msg = getString(R.string.export_success, filename);
+        showResultToast(msg);
+    }
+
+    private void exportDatabaseToDocument(Uri data) {
+        try {
+            exportDatabaseToWriter(new OutputStreamWriter(getContentResolver().openOutputStream(data)));
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(
+                    CategoryList.this, R.string.export_file_error,
+                    Toast.LENGTH_SHORT
+            ).show();
+            return;
+        }
+        String msg = getString(R.string.export_success, data.toString());
+        showResultToast(msg);
+    }
+
+    private void exportDatabaseToWriter(Writer w) throws IOException {
+
+            CSVWriter writer = new CSVWriter(w, ',');
 
             String[] header = {getString(R.string.category),
                     getString(R.string.description),
@@ -945,16 +991,6 @@ public class CategoryList extends ListActivity {
                 writer.writeNext(rowEntries);
             }
             writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(
-                    CategoryList.this, R.string.export_file_error,
-                    Toast.LENGTH_SHORT
-            ).show();
-            return;
-        }
-        String msg = getString(R.string.export_success, filename);
-        showResultToast(msg);
     }
 
     private void deleteDatabaseNow() {
@@ -987,17 +1023,9 @@ public class CategoryList extends ListActivity {
     }
 
     public void importDatabase() {
-        String defaultExportFilename = Preferences.getExportPath(this);
-        final String filename;
-        File oiImport = new File(defaultExportFilename);
-        String pwsFilename = Environment.getExternalStorageDirectory()
-                .getPath() + PASSWORDSAFE_IMPORT_FILENAME;
-        File pwsImport = new File(pwsFilename);
-        if (oiImport.exists() || !pwsImport.exists()) {
-            filename = defaultExportFilename;
-        } else {
-            filename = pwsFilename;
-        }
+
+        final String filename = getFilenameForImport();
+
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -1015,7 +1043,22 @@ public class CategoryList extends ListActivity {
         }
     }
 
-    private class importTask extends AsyncTask<String, Void, String> {
+    private String getFilenameForImport() {
+        final String filename;
+        String defaultExportFilename = PreferenceActivity.getExportPath(this);
+        File oiImport = new File(defaultExportFilename);
+        String pwsFilename = Environment.getExternalStorageDirectory()
+                .getPath() + PASSWORDSAFE_IMPORT_FILENAME;
+        File pwsImport = new File(pwsFilename);
+        if (oiImport.exists() || !pwsImport.exists()) {
+            filename = defaultExportFilename;
+        } else {
+            filename = pwsFilename;
+        }
+        return filename;
+    }
+
+    private class ImportTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... filenames) {
             String response = "";
@@ -1041,9 +1084,7 @@ public class CategoryList extends ListActivity {
          * database.
          */
         private void importDatabaseFromCSV(String filename) {
-            if (restartTimerIntent != null) {
-                sendBroadcast(restartTimerIntent);
-            }
+            maybRestartTimer();
             try {
                 importMessage = "";
                 importedEntries = 0;
@@ -1286,7 +1327,7 @@ public class CategoryList extends ListActivity {
 
     public void performImportFile(String importFilename) {
         startImportProgressDialog();
-        taskImport = new importTask();
+        taskImport = new ImportTask();
         taskImport.setActivity(this);
         taskImport.execute(new String[]{importFilename});
     }
@@ -1314,9 +1355,7 @@ public class CategoryList extends ListActivity {
 //			frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
 //			startActivity(frontdoor);
         } else {
-            if (restartTimerIntent != null) {
-                sendBroadcast(restartTimerIntent);
-            }
+            maybRestartTimer();
         }
     }
 

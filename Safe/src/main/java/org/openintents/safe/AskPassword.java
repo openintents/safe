@@ -153,8 +153,8 @@ public class AskPassword extends DistributionLibraryActivity {
         dbMasterKey = dbHelper.fetchMasterKey();
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean prefKeypad = sp.getBoolean(Preferences.PREFERENCE_KEYPAD, false);
-        boolean prefKeypadMute = sp.getBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, false);
+        boolean prefKeypad = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD, false);
+        boolean prefKeypadMute = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD_MUTE, false);
         mute = prefKeypadMute;
 
         if (prefKeypad) {
@@ -354,12 +354,12 @@ public class AskPassword extends DistributionLibraryActivity {
     }
 
     private void checkForBackup() {
-        String backupFullname = Preferences.getBackupPath(this);
+        String backupFullname = PreferenceActivity.getBackupPath(this);
         File restoreFile = new File(backupFullname);
         if (!restoreFile.exists()) {
             return;
         }
-        startActivityForResult(new Intent(this, RestoreFirstTime.class), REQUEST_RESTORE_FIRST_TIME);
+        startActivityForResult(new Intent(this, RestoreFirstTimeActivity.class), REQUEST_RESTORE_FIRST_TIME);
     }
 
     @Override
@@ -511,11 +511,11 @@ public class AskPassword extends DistributionLibraryActivity {
         SharedPreferences.Editor spe = sp.edit();
         if (viewMode == VIEW_NORMAL) {
             viewMode = VIEW_KEYPAD;
-            spe.putBoolean(Preferences.PREFERENCE_KEYPAD, true);
+            spe.putBoolean(PreferenceActivity.PREFERENCE_KEYPAD, true);
             keypadInit();
         } else {
             viewMode = VIEW_NORMAL;
-            spe.putBoolean(Preferences.PREFERENCE_KEYPAD, false);
+            spe.putBoolean(PreferenceActivity.PREFERENCE_KEYPAD, false);
             normalInit();
         }
         if (!spe.commit()) {
@@ -536,7 +536,7 @@ public class AskPassword extends DistributionLibraryActivity {
             case MUTE_INDEX:
                 SharedPreferences msp = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor mspe = msp.edit();
-                mspe.putBoolean(Preferences.PREFERENCE_KEYPAD_MUTE, !mute);
+                mspe.putBoolean(PreferenceActivity.PREFERENCE_KEYPAD_MUTE, !mute);
                 mute = !mute;
                 if (!mspe.commit()) {
                     if (debug) {

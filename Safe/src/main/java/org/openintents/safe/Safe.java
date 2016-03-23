@@ -55,7 +55,7 @@ public class Safe extends Activity {
             //TODO: When launched from debugger, action is null. Other such cases?
             Intent i = new Intent(
                     getApplicationContext(),
-                    IntentHandler.class
+                    IntentHandlerActivity.class
             );
 //    		boolean autoLock = icicle != null ? icicle.getBoolean(FrontDoor.KEY_AUTOLOCK) : false;
             if (debug) {

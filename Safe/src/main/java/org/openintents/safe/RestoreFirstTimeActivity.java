@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import org.openintents.util.VersionUtils;
 
-public class RestoreFirstTime extends Activity {
+public class RestoreFirstTimeActivity extends Activity {
     private Button restore;
     private Button cancel;
     private String path;
@@ -21,7 +21,7 @@ public class RestoreFirstTime extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restore_first_time);
-        path = Preferences.getBackupPath(this);
+        path = PreferenceActivity.getBackupPath(this);
         restore = (Button) findViewById(R.id.restore);
         cancel = (Button) findViewById(R.id.cancel);
 
@@ -29,7 +29,7 @@ public class RestoreFirstTime extends Activity {
         restore.setOnClickListener(
                 new OnClickListener() {
                     public void onClick(View v) {
-                        Intent i = new Intent(RestoreFirstTime.this, Restore.class);
+                        Intent i = new Intent(RestoreFirstTimeActivity.this, Restore.class);
                         i.putExtra(Restore.KEY_FILE_PATH, path);
                         i.putExtra(Restore.KEY_FIRST_TIME, true);
                         startActivityForResult(i, REQUEST_RESTORE);

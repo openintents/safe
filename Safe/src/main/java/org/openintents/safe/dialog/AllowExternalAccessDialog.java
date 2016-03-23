@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 
-import org.openintents.safe.Preferences;
+import org.openintents.safe.PreferenceActivity;
 import org.openintents.safe.R;
 
 /**
@@ -46,7 +46,7 @@ public class AllowExternalAccessDialog extends AlertDialog implements OnClickLis
         setView(view);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-        boolean externalAccess = sp.getBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
+        boolean externalAccess = sp.getBoolean(PreferenceActivity.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 
         mCheckBox = (CheckBox) view.findViewById(R.id.checkbox);
         // mCheckBox.setText(R.string.pref_summary_external_access);
@@ -61,7 +61,7 @@ public class AllowExternalAccessDialog extends AlertDialog implements OnClickLis
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
             SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean(Preferences.PREFERENCE_ALLOW_EXTERNAL_ACCESS, externalAccess);
+            editor.putBoolean(PreferenceActivity.PREFERENCE_ALLOW_EXTERNAL_ACCESS, externalAccess);
             editor.commit();
 
         }

@@ -129,11 +129,11 @@ public class Restore extends Activity {
         if (backupPath != null) {
             restoreFromFile(backupPath);
         } else {
-            backupPath = Preferences.getBackupPath(this);
+            backupPath = PreferenceActivity.getBackupPath(this);
             Intent intent;
             int requestId;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent = Intents.createOpenDocumentIntents(Preferences.getBackupDocument(this));
+                intent = Intents.createOpenDocumentIntents(PreferenceActivity.getBackupDocument(this));
                 requestId = REQUEST_RESTORE_DOCUMENT;
             } else {
                 intent = Intents.createPickFileIntent(backupPath, R.string.restore_select_file);
@@ -152,7 +152,7 @@ public class Restore extends Activity {
         try {
             InputStreamData streamData = new InputStreamData(backupPath);
             restore(streamData);
-            Preferences.setBackupPathAndMethod(this, backupPath);
+            PreferenceActivity.setBackupPathAndMethod(this, backupPath);
         } catch (FileNotFoundException e) {
             updateNoRestoreFileUI();
         }
@@ -392,7 +392,7 @@ public class Restore extends Activity {
         // restore already.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean(Preferences.PREFERENCE_FIRST_TIME_WARNING, true);
+        editor.putBoolean(PreferenceActivity.PREFERENCE_FIRST_TIME_WARNING, true);
         editor.commit();
 
         setResult(RESULT_OK);
@@ -436,7 +436,7 @@ public class Restore extends Activity {
                     try {
                         InputStreamData streamData = new InputStreamData(documentUri, this);
                         restore(streamData);
-                        Preferences.setBackupDocumentAndMethod(this, i.getDataString());
+                        PreferenceActivity.setBackupDocumentAndMethod(this, i.getDataString());
                     } catch (FileNotFoundException e) {
                         updateNoRestoreFileUI();
                     }

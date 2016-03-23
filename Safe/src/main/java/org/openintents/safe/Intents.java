@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.os.Build;
 
 public class Intents {
-    static android.content.Intent createPickFileIntent(String backupPath, int titleResource) {
+    static android.content.Intent createPickFileIntent(String filename, int titleResource) {
         android.content.Intent intent;
         intent = new android.content.Intent("org.openintents.action.PICK_FILE");
-        intent.setData(Uri.parse("file://" + backupPath));
+        intent.setData(Uri.parse("file://" + filename));
         intent.putExtra("org.openintents.extra.TITLE", titleResource);
         return intent;
     }

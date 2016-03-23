@@ -19,7 +19,7 @@ android {
         applicationId "org.openintents.safe"
         versionCode 31
         versionName "1.4.2"
-        minSdkVersion 4
+        minSdkVersion 8
         targetSdkVersion 23
     }
 
