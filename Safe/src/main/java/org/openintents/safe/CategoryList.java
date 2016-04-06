@@ -50,7 +50,6 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -58,9 +57,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.TimeZone;
 
 import org.openintents.distribution.AboutDialog;
@@ -77,7 +74,6 @@ import org.openintents.safe.wrappers.CheckWrappers;
 import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
 import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.IntentUtils;
-import org.openintents.util.SecureDelete;
 
 /**
  * CategoryList Activity
@@ -86,8 +82,6 @@ import org.openintents.util.SecureDelete;
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class CategoryList extends ListActivity {
-
-    private static boolean debug = false;
     private static final String TAG = "CategoryList";
 
     // Menu Item order
@@ -112,10 +106,11 @@ public class CategoryList extends ListActivity {
     public static final int REQUEST_OPEN_CATEGORY = 3;
     public static final int REQUEST_RESTORE = 4;
     public static final int REQUEST_IMPORT_FILENAME = 5;
-    public static final int REQUEST_EXPORT_FILENAME = 6;
-    public static final int REQUEST_EXPORT_DOCUMENT = 7;
-    public static final int REQUEST_BACKUP_FILENAME = 8;
-    public static final int REQUEST_BACKUP_DOCUMENT = 9;
+    public static final int REQUEST_IMPORT_DOCUMENT = 6;
+    public static final int REQUEST_EXPORT_FILENAME = 7;
+    public static final int REQUEST_EXPORT_DOCUMENT = 8;
+    public static final int REQUEST_BACKUP_FILENAME = 9;
+    public static final int REQUEST_BACKUP_DOCUMENT = 10;
 
     private static final int ABOUT_KEY = 2;
 
@@ -125,9 +120,9 @@ public class CategoryList extends ListActivity {
 
     public static final String KEY_ID = "id";  // Intent keys
 
-    private static ImportTask taskImport = null;
-    private ProgressDialog importProgress = null;
-    private static boolean importDeletedDatabase = false;
+    static Import taskImport = null;
+    ProgressDialog importProgress = null;
+    static boolean importDeletedDatabase = false;
 
     private static backupTask taskBackup = null;
     private ProgressDialog backupProgress = null;
@@ -144,14 +139,14 @@ public class CategoryList extends ListActivity {
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                if (debug) {
+                if (BuildConfig.DEBUG) {
                     Log.d(TAG, "caught ACTION_SCREEN_OFF");
                 }
                 if (lockOnScreenLock) {
                     Master.setMasterKey(null);
                 }
             } else if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-                if (debug) {
+                if (BuildConfig.DEBUG) {
                     Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
                 }
                 lockAndShutFrontDoor();
@@ -166,7 +161,7 @@ public class CategoryList extends ListActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onCreate(" + icicle + ")");
         }
 
@@ -195,7 +190,7 @@ public class CategoryList extends ListActivity {
     protected void onResume() {
         super.onResume();
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onResume()");
         }
 
@@ -227,11 +222,11 @@ public class CategoryList extends ListActivity {
 
         ListAdapter la = getListAdapter();
         if (la != null) {
-            if (debug) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "onResume: count=" + la.getCount());
             }
         } else {
-            if (debug) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "onResume: no list");
             }
             fillData();
@@ -260,7 +255,7 @@ public class CategoryList extends ListActivity {
         editor.commit();
         if (lastAutobackupCheck == 0) {
             // first time
-            if (debug) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "first time autobackup");
             }
             return;
@@ -280,7 +275,7 @@ public class CategoryList extends ListActivity {
         int daysSinceLastBackup = julianDay - lastBackupJulian;
         if (((julianDay - lastAutobackupCheck) > (maxDaysToAutobackup - 1)) &&
                 ((daysSinceLastBackup) > (maxDaysToAutobackup - 1))) {
-            if (debug) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "in need of backup");
             }
             // used a custom layout in order to get the checkbox
@@ -351,7 +346,7 @@ public class CategoryList extends ListActivity {
     protected void onPause() {
         super.onPause();
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onPause()");
         }
 
@@ -375,7 +370,7 @@ public class CategoryList extends ListActivity {
     public void onStop() {
         super.onStop();
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onStop()");
         }
     }
@@ -384,7 +379,7 @@ public class CategoryList extends ListActivity {
     public void onDestroy() {
         super.onDestroy();
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onDestroy()");
         }
         try {
@@ -435,12 +430,12 @@ public class CategoryList extends ListActivity {
      */
     public static boolean isSignedIn() {
         if ((Master.getSalt() != null) && (Master.getMasterKey() != null)) {
-            if (debug) {
+            if (BuildConfig.DEBUG) {
                 Log.d(TAG, "isSignedIn: true");
             }
             return true;
         }
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "isSignedIn: false");
         }
         return false;
@@ -452,7 +447,7 @@ public class CategoryList extends ListActivity {
      * @see CategoryList#isSignedIn
      */
     public static void setSignedOut() {
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "setSignedOut()");
         }
         Master.setMasterKey(null);
@@ -461,13 +456,13 @@ public class CategoryList extends ListActivity {
     /**
      * Populates the category ListView
      */
-    private void fillData() {
-        if (debug) {
+    void fillData() {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "fillData()");
         }
 
         rows = Passwords.getCategoryEntries();
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "fillData: rows=" + rows.size());
         }
 
@@ -553,7 +548,7 @@ public class CategoryList extends ListActivity {
     }
 
     private void addCategoryActivity() {
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "addCategoryActivity()");
         }
         Intent i = new Intent(this, CategoryEdit.class);
@@ -753,7 +748,7 @@ public class CategoryList extends ListActivity {
         }
     }
 
-    private void showResultToast(String result) {
+    void showResultToast(String result) {
         Toast.makeText(this, result, Toast.LENGTH_LONG).show();
     }
 
@@ -879,9 +874,17 @@ public class CategoryList extends ListActivity {
 
             case REQUEST_IMPORT_FILENAME:
                 if (resultCode == RESULT_OK) {
-                    path = i.getData().getPath();
+                    path = i.getDataString();
                     importFile(path);
                     PreferenceActivity.setExportPathAndMethod(this, path);
+                }
+                break;
+
+            case REQUEST_IMPORT_DOCUMENT:
+                if (resultCode == RESULT_OK) {
+                    path = i.getDataString();
+                    importDocument(path);
+                    PreferenceActivity.setExportDocumentAndMethod(this, path);
                 }
                 break;
         }
@@ -892,8 +895,8 @@ public class CategoryList extends ListActivity {
         addCategory(getString(R.string.category_personal));
     }
 
-    private long addCategory(String name) {
-        if (debug) {
+    long addCategory(String name) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "addCategory(" + name + ")");
         }
         if ((name == null) || (name == "")) {
@@ -924,7 +927,7 @@ public class CategoryList extends ListActivity {
         }
     }
 
-    private void maybRestartTimer() {
+    void maybRestartTimer() {
         if (restartTimerIntent != null) {
             sendBroadcast(restartTimerIntent);
         }
@@ -997,7 +1000,7 @@ public class CategoryList extends ListActivity {
         Passwords.deleteAll();
     }
 
-    public void deleteDatabase4Import(final String filename) {
+    public void deleteDatabase4Import(final String importDetails) {
 //		Log.i(TAG,"deleteDatabase4Import");
         Dialog about = new AlertDialog.Builder(this)
                 .setIcon(R.drawable.passicon)
@@ -1007,7 +1010,7 @@ public class CategoryList extends ListActivity {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 deleteDatabaseNow();
                                 importDeletedDatabase = true;
-                                performImportFile(filename);
+                                performImportFile(importDetails);
                             }
                         }
                 )
@@ -1030,7 +1033,7 @@ public class CategoryList extends ListActivity {
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             intent = Intents.createCreateDocumentIntent();
-            requestId = REQUEST_IMPORT_FILENAME;
+            requestId = REQUEST_IMPORT_DOCUMENT;
         } else {
             intent = Intents.createPickFileIntent(filename, R.string.import_file_select);
             requestId = REQUEST_IMPORT_FILENAME;
@@ -1058,276 +1061,9 @@ public class CategoryList extends ListActivity {
         return filename;
     }
 
-    private class ImportTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... filenames) {
-            String response = "";
-            importDatabaseFromCSV(filenames[0]);
-            return response;
-        }
-
-        private String importedFilename = "";
-        private int importedEntries = 0;
-        private String importMessage = "";
-
-        CategoryList currentActivity = null;
-
-        /**
-         * Set the current activity to be used on PostExecute
-         */
-        public void setActivity(CategoryList categoryList) {
-            currentActivity = categoryList;
-        }
-
-        /**
-         * While running inside a thread, read from a CSV and import into the
-         * database.
-         */
-        private void importDatabaseFromCSV(String filename) {
-            maybRestartTimer();
-            try {
-                importMessage = "";
-                importedEntries = 0;
-
-                final int recordLength = 6;
-                CSVReader reader = new CSVReader(new FileReader(filename));
-                String[] nextLine;
-                nextLine = reader.readNext();
-                if (nextLine == null) {
-                    importMessage = getString(R.string.import_error_first_line);
-                    return;
-                }
-                if (nextLine.length < recordLength) {
-                    importMessage = getString(R.string.import_error_first_line);
-                    return;
-                }
-                if ((nextLine[0]
-                        .compareToIgnoreCase(getString(R.string.category)) != 0)
-                        || (nextLine[1]
-                        .compareToIgnoreCase(getString(R.string.description)) != 0)
-                        || (nextLine[2]
-                        .compareToIgnoreCase(getString(R.string.website)) != 0)
-                        || (nextLine[3]
-                        .compareToIgnoreCase(getString(R.string.username)) != 0)
-                        || (nextLine[4]
-                        .compareToIgnoreCase(getString(R.string.password)) != 0)
-                        || (nextLine[5]
-                        .compareToIgnoreCase(getString(R.string.notes)) != 0)) {
-                    importMessage = getString(R.string.import_error_first_line);
-                    return;
-                }
-                // Log.i(TAG,"first line is valid");
-
-                HashMap<String, Long> categoryToId = Passwords
-                        .getCategoryNameToId();
-                //
-                // take a pass through the CSV and collect any new Categories
-                //
-                HashMap<String, Long> categoriesFound = new HashMap<String, Long>();
-                int categoryCount = 0;
-                // int line=0;
-                while ((nextLine = reader.readNext()) != null) {
-                    // line++;
-                    if (isCancelled()) {
-                        if (debug) {
-                            Log.d(TAG, "cancelled");
-                        }
-                        return;
-                    }
-                    // nextLine[] is an array of values from the line
-                    if ((nextLine == null) || (nextLine[0] == "")) {
-                        continue; // skip blank categories
-                    }
-                    if (categoryToId.containsKey(nextLine[0])) {
-                        continue; // don't recreate existing categories
-                    }
-                    // if (debug)
-                    // Log.d(TAG,"line["+line+"] found category ("+nextLine[0]+")");
-                    Long passwordsInCategory = Long.valueOf(1);
-                    if (categoriesFound.containsKey(nextLine[0])) {
-                        // we've seen this category before, bump its count
-                        passwordsInCategory += categoriesFound.get(nextLine[0]);
-                    } else {
-                        // newly discovered category
-                        categoryCount++;
-                    }
-                    categoriesFound.put(nextLine[0], passwordsInCategory);
-                    if (categoryCount > MAX_CATEGORIES) {
-                        importMessage = getString(R.string.import_too_many_categories);
-                        return;
-                    }
-                }
-                if (debug) {
-                    Log.d(TAG, "found " + categoryCount + " categories");
-                }
-                if (categoryCount != 0) {
-                    Set<String> categorySet = categoriesFound.keySet();
-                    Iterator<String> i = categorySet.iterator();
-                    while (i.hasNext()) {
-                        addCategory(i.next());
-                    }
-                }
-                reader.close();
-
-                // re-read the categories to get id's of new categories
-                categoryToId = Passwords.getCategoryNameToId();
-                //
-                // read the whole file again to import the actual fields
-                //
-                reader = new CSVReader(new FileReader(filename));
-                nextLine = reader.readNext();
-                int newEntries = 0;
-                int lineNumber = 0;
-                String lineErrors = "";
-                int lineErrorsCount = 0;
-                final int maxLineErrors = 10;
-                while ((nextLine = reader.readNext()) != null) {
-                    lineNumber++;
-                    // Log.d(TAG,"lineNumber="+lineNumber);
-
-                    if (isCancelled()) {
-                        if (debug) {
-                            Log.d(TAG, "cancelled");
-                        }
-                        return;
-                    }
-
-                    // nextLine[] is an array of values from the line
-                    if (nextLine.length < 2) {
-                        if (lineErrorsCount < maxLineErrors) {
-                            lineErrors += "line "
-                                    + lineNumber
-                                    + ": "
-                                    + getString(R.string.import_not_enough_fields)
-                                    + "\n";
-                            lineErrorsCount++;
-                        }
-                        continue; // skip if not enough fields
-                    }
-                    if (nextLine.length < recordLength) {
-                        // if the fields after category and description are
-                        // missing,
-                        // just fill them in
-                        String[] replacement = new String[recordLength];
-                        for (int i = 0; i < nextLine.length; i++) {
-                            // copy over the fields we did get
-                            replacement[i] = nextLine[i];
-                        }
-                        for (int i = nextLine.length; i < recordLength; i++) {
-                            // flesh out the rest of the fields
-                            replacement[i] = "";
-                        }
-                        nextLine = replacement;
-                    }
-                    if ((nextLine == null) || (nextLine[0] == "")) {
-                        if (lineErrorsCount < maxLineErrors) {
-                            lineErrors += "line " + lineNumber + ": "
-                                    + getString(R.string.import_blank_category)
-                                    + "\n";
-                            lineErrorsCount++;
-                        }
-                        continue; // skip blank categories
-                    }
-                    String description = nextLine[1];
-                    if ((description == null) || (description == "")) {
-                        if (lineErrorsCount < maxLineErrors) {
-                            lineErrors += "line "
-                                    + lineNumber
-                                    + ": "
-                                    + getString(R.string.import_blank_description)
-                                    + "\n";
-                            lineErrorsCount++;
-                        }
-                        continue;
-                    }
-
-                    PassEntry entry = new PassEntry();
-                    entry.category = categoryToId.get(nextLine[0]);
-                    entry.plainDescription = description;
-                    entry.plainWebsite = nextLine[2];
-                    entry.plainUsername = nextLine[3];
-                    entry.plainPassword = nextLine[4];
-                    entry.plainNote = nextLine[5];
-                    entry.id = 0;
-                    Passwords.putPassEntry(entry);
-                    newEntries++;
-                }
-                reader.close();
-                if (lineErrors != "") {
-                    if (debug) {
-                        Log.d(TAG, lineErrors);
-                    }
-                }
-
-                importedEntries = newEntries;
-                if (newEntries == 0) {
-                    importMessage = getString(R.string.import_no_entries);
-                    return;
-                } else {
-                    importMessage = getString(R.string.added) + " "
-                            + newEntries + " " + getString(R.string.entries);
-                    importedFilename = filename;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                importMessage = getString(R.string.import_file_error);
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if (currentActivity != null) {
-                currentActivity.importProgress.dismiss();
-            }
-            if (importMessage != "") {
-                showResultToast(importMessage);
-            }
-            if (importedFilename != "") {
-                String deleteMsg = getString(R.string.import_delete_csv) + " "
-                        + importedFilename + "?";
-                Dialog about = new AlertDialog.Builder(CategoryList.this)
-                        .setIcon(R.drawable.passicon)
-                        .setTitle(R.string.import_complete)
-                        .setPositiveButton(
-                                R.string.yes,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int whichButton) {
-                                        File csvFile = new File(
-                                                importedFilename
-                                        );
-                                        // csvFile.delete();
-                                        SecureDelete.delete(csvFile);
-                                        importedFilename = "";
-                                    }
-                                }
-                        )
-                        .setNegativeButton(
-                                R.string.no,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int whichButton) {
-                                    }
-                                }
-                        ).setMessage(deleteMsg).create();
-                about.show();
-            }
-
-            if ((importedEntries != 0) || (importDeletedDatabase)) {
-                if (currentActivity != null) {
-                    currentActivity.fillData();
-                    if (currentActivity.importProgress != null) {
-                        currentActivity.importProgress.dismiss();
-                    }
-                }
-            }
-            taskImport = null;
-        }
-    }
-
     public void performImportFile(String importFilename) {
         startImportProgressDialog();
-        taskImport = new ImportTask();
+        taskImport = new Import();
         taskImport.setActivity(this);
         taskImport.execute(new String[]{importFilename});
     }
@@ -1346,7 +1082,7 @@ public class CategoryList extends ListActivity {
     public void onUserInteraction() {
         super.onUserInteraction();
 
-        if (debug) {
+        if (BuildConfig.DEBUG) {
             Log.d(TAG, "onUserInteraction()");
         }
 
@@ -1400,6 +1136,30 @@ public class CategoryList extends ListActivity {
                         }
                 )
                 .setMessage(getString(R.string.dialog_import_msg, filename))
+                .create();
+        about.show();
+    }
+
+    private void importDocument(final String documentName) {
+        Dialog about = new AlertDialog.Builder(this)
+                .setIcon(R.drawable.passicon)
+                .setTitle(R.string.dialog_import_title)
+                .setPositiveButton(
+                        R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                deleteDatabase4Import(documentName);
+                            }
+                        }
+                )
+                .setNegativeButton(
+                        R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                importDeletedDatabase = false;
+                                performImportFile(documentName);
+                            }
+                        }
+                )
+                .setMessage(getString(R.string.dialog_import_msg, documentName))
                 .create();
         about.show();
     }
