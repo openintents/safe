@@ -17,8 +17,8 @@ android {
 
     defaultConfig {
         applicationId "org.openintents.safe"
-        versionCode 31
-        versionName "1.4.2"
+        versionCode 32
+        versionName "1.4.3"
         minSdkVersion 8
         targetSdkVersion 23
     }
@@ -36,6 +36,10 @@ android {
         // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     buildTypes {

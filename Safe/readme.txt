@@ -25,8 +25,14 @@ To obtain the current release, visit
   http://www.openintents.org
 
 ----------------
+release: 1.4.3
+date: 2016-04-06
+
+- For ICS and higher, use system ui to pick files for export/import and backup/restore
+
+----------------
 release: 1.4.2
-date: 2012-??-??
+date: 2015-10-29
 
 - For ICS and higher, no longer show screenshot on recent apps for PassView and PassEdit
 - Fixed bug where master password would be required twice in order to open safe
