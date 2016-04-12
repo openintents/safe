@@ -17,7 +17,6 @@ public class Intents {
     static android.content.Intent createCreateDocumentIntent() {
         android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
-        intent.setType("text/*");
         return intent;
     }
 
@@ -27,7 +26,6 @@ public class Intents {
         if (backupDocument != null) {
             intent.setData(Uri.parse(backupDocument));
         }
-        intent.setType("text/*");
         intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
         return intent;
     }
