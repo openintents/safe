@@ -1,6 +1,7 @@
 package org.openintents.safe;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 
@@ -14,9 +15,11 @@ public class Intents {
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    static android.content.Intent createCreateDocumentIntent() {
+    static android.content.Intent createCreateDocumentIntent(String mimeType, String filename) {
         android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
+        intent.setType(mimeType);
+        intent.putExtra(Intent.EXTRA_TITLE, filename);
         return intent;
     }
 

@@ -52,13 +52,15 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
     public static final String PREFERENCE_BACKUP_PATH = "backup_path";
     public static final String PREFERENCE_BACKUP_DOCUMENT = "backup_document";
     public static final String PREFERENCE_BACKUP_METHOD = "backup_method";
+    public static final String OISAFE_XML = "oisafe.xml";
     public static final String PREFERENCE_BACKUP_PATH_DEFAULT_VALUE =
-            Environment.getExternalStorageDirectory().getAbsolutePath() + "/oisafe.xml";
+            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + OISAFE_XML;
     public static final String PREFERENCE_EXPORT_PATH = "export_path";
     public static final String PREFERENCE_EXPORT_DOCUMENT = "export_document";
     public static final String PREFERENCE_EXPORT_METHOD = "export_method";
+    public static final String OISAFE_CSV = "oisafe.csv";
     public static final String PREFERENCE_EXPORT_PATH_DEFAULT_VALUE =
-            Environment.getExternalStorageDirectory().getAbsolutePath() + "/oisafe.csv";
+            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + OISAFE_CSV;
 
     private static final int REQUEST_BACKUP_FILENAME = 0;
     private static final int REQUEST_BACKUP_DOCUMENT = 1;
@@ -100,7 +102,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
                         Intent intent;
                         int requestId;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            intent = Intents.createCreateDocumentIntent();
+                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_BACKUP, OISAFE_XML);
                             requestId = REQUEST_BACKUP_FILENAME;
                         } else {
                             intent = Intents.createPickFileIntent(PreferenceActivity.getBackupPath(PreferenceActivity.this), R.string.backup_select_file);
@@ -122,7 +124,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
                     public boolean onPreferenceClick(Preference pref) {
                         Intent intent;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            intent = Intents.createCreateDocumentIntent();
+                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_EXPORT, OISAFE_CSV);
                         } else {
                             intent = Intents.createPickFileIntent(getExportPath(PreferenceActivity.this), R.string.export_file_select);
                         }

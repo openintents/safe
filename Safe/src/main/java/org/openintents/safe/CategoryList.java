@@ -54,9 +54,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -66,7 +64,6 @@ import org.openintents.intents.CryptoIntents;
 
 import org.openintents.safe.dialog.DialogHostingActivity;
 import org.openintents.safe.model.CategoryEntry;
-import org.openintents.safe.model.PassEntry;
 import org.openintents.safe.model.Passwords;
 import org.openintents.safe.password.Master;
 import org.openintents.safe.service.AutoLockService;
@@ -119,6 +116,8 @@ public class CategoryList extends ListActivity {
     private static final String PASSWORDSAFE_IMPORT_FILENAME = "passwordsafe.csv";
 
     public static final String KEY_ID = "id";  // Intent keys
+    static final String MIME_TYPE_BACKUP = "text/xml";
+    static final String MIME_TYPE_EXPORT = "text/csv";
 
     static Import taskImport = null;
     ProgressDialog importProgress = null;
@@ -709,7 +708,7 @@ public class CategoryList extends ListActivity {
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            intent = Intents.createCreateDocumentIntent();
+            intent = Intents.createCreateDocumentIntent(MIME_TYPE_BACKUP, PreferenceActivity.OISAFE_XML);
             requestId = REQUEST_BACKUP_DOCUMENT;
         } else {
             intent = Intents.createPickFileIntent(filename, R.string.import_file_select);
@@ -914,7 +913,7 @@ public class CategoryList extends ListActivity {
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            intent = Intents.createCreateDocumentIntent();
+            intent = Intents.createCreateDocumentIntent(MIME_TYPE_EXPORT, PreferenceActivity.OISAFE_CSV);
             requestId = REQUEST_EXPORT_DOCUMENT;
         } else {
             intent = Intents.createPickFileIntent(filename, R.string.export_file_select);
@@ -935,7 +934,7 @@ public class CategoryList extends ListActivity {
 
     private void exportDatabaseToFile(final String filename) {
         try {
-            exportDatabaseToWriter(new FileWriter(filename));
+            Export.exportDatabaseToWriter(this, new FileWriter(filename));
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(
@@ -950,7 +949,7 @@ public class CategoryList extends ListActivity {
 
     private void exportDatabaseToDocument(Uri data) {
         try {
-            exportDatabaseToWriter(new OutputStreamWriter(getContentResolver().openOutputStream(data)));
+            Export.exportDatabaseToWriter(this, new OutputStreamWriter(getContentResolver().openOutputStream(data)));
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(
@@ -961,39 +960,6 @@ public class CategoryList extends ListActivity {
         }
         String msg = getString(R.string.export_success, data.toString());
         showResultToast(msg);
-    }
-
-    private void exportDatabaseToWriter(Writer w) throws IOException {
-
-            CSVWriter writer = new CSVWriter(w, ',');
-
-            String[] header = {getString(R.string.category),
-                    getString(R.string.description),
-                    getString(R.string.website),
-                    getString(R.string.username),
-                    getString(R.string.password),
-                    getString(R.string.notes),
-                    getString(R.string.last_edited)
-            };
-            writer.writeNext(header);
-
-            HashMap<Long, String> categories = Passwords.getCategoryIdToName();
-
-            List<PassEntry> rows;
-            rows = Passwords.getPassEntries(Long.valueOf(0), true, false);
-
-            for (PassEntry row : rows) {
-                String[] rowEntries = {categories.get(row.category),
-                        row.plainDescription,
-                        row.plainWebsite,
-                        row.plainUsername,
-                        row.plainPassword,
-                        row.plainNote,
-                        row.lastEdited
-                };
-                writer.writeNext(rowEntries);
-            }
-            writer.close();
     }
 
     private void deleteDatabaseNow() {
@@ -1032,7 +998,7 @@ public class CategoryList extends ListActivity {
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            intent = Intents.createCreateDocumentIntent();
+            intent = Intents.createOpenDocumentIntents(PreferenceActivity.getExportDocument(this));
             requestId = REQUEST_IMPORT_DOCUMENT;
         } else {
             intent = Intents.createPickFileIntent(filename, R.string.import_file_select);
