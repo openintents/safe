@@ -203,27 +203,7 @@ public class Restore extends Activity {
 
             restoreDataSet = myRestoreHandler.getParsedData();
 
-        } catch (ParserConfigurationException e) {
-            //e.printStackTrace();
-            Toast.makeText(
-                    Restore.this, getString(
-                            R.string.restore_unable_to_open,
-                            e.getLocalizedMessage()
-                    ),
-                    Toast.LENGTH_LONG
-            ).show();
-            return false;
-        } catch (SAXException e) {
-            //e.printStackTrace();
-            Toast.makeText(
-                    Restore.this, getString(
-                            R.string.restore_unable_to_open,
-                            e.getLocalizedMessage()
-                    ),
-                    Toast.LENGTH_LONG
-            ).show();
-            return false;
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             //e.printStackTrace();
             Toast.makeText(
                     Restore.this, getString(

@@ -138,9 +138,7 @@ public class CryptoHelper {
         try {
             keyFac = SecretKeyFactory
                     .getInstance(algorithm, "BC");
-        } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG, "CryptoHelper(): " + e.toString());
-        } catch (NoSuchProviderException e) {
+        } catch (NoSuchAlgorithmException | NoSuchProviderException e) {
             Log.e(TAG, "CryptoHelper(): " + e.toString());
         }
     }
@@ -208,9 +206,7 @@ public class CryptoHelper {
                 dIn.read();
             }
 
-        } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG, "md5String(): " + e.toString());
-        } catch (IOException e) {
+        } catch (NoSuchAlgorithmException | IOException e) {
             Log.e(TAG, "md5String(): " + e.toString());
         }
 
@@ -965,13 +961,8 @@ public class CryptoHelper {
                 pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
                 byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
                 status = true;
-            } catch (IllegalBlockSizeException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
-            } catch (BadPaddingException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
-            } catch (InvalidKeyException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
-            } catch (InvalidAlgorithmParameterException e) {
+            } catch (IllegalBlockSizeException | BadPaddingException 
+                    | InvalidKeyException | InvalidAlgorithmParameterException e) {
                 Log.e(TAG, "decrypt(): " + e.toString());
             }
 
