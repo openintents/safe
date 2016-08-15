@@ -17,9 +17,12 @@ package org.openintents.safe.test;
 
 import android.content.pm.ActivityInfo;
 import android.support.test.espresso.NoMatchingViewException;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.Smoke;
+
+import junit.framework.AssertionFailedError;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -44,6 +47,8 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
+import static android.support.test.espresso.matcher.ViewMatchers.withHint;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.startsWith;
@@ -53,7 +58,7 @@ public class SafeTest {
 
 
     @Rule
-    private ActivityTestRule rule = new ActivityTestRule(CategoryList.class);
+    public IntentsTestRule rule = new IntentsTestRule(CategoryList.class);
 
     private final String TAG = "SafeTest";
     private final String masterPassword = "1234";
@@ -68,7 +73,7 @@ public class SafeTest {
             onView(withId(R.id.pass_confirm)).perform(typeText(masterPassword));
             onView(withId(R.id.continue_button)).perform(click());
             onView(withText(android.R.string.ok)).perform(click());
-        } catch (NoMatchingViewException e) {
+        } catch (NoMatchingViewException | AssertionFailedError error) {
             //view not displayed logic
         }
 
@@ -124,6 +129,7 @@ public class SafeTest {
     public void testAAAAUnlock() throws Exception {
         unlockIfNeeded();
 
+        // only works when one password exists
         onView(withId(android.R.id.list)).check(matches(isDisplayed()));
     }
 
@@ -167,7 +173,7 @@ public class SafeTest {
     @Test
     @Smoke
     public void test_CategoryRemove() throws Exception {
-//		unlockIfNeeded();
+		unlockIfNeeded();
         onView(withText(startsWith("Category 1"))).perform(longClick());
         onView(withText(R.string.password_delete)).perform(click());
 
@@ -261,12 +267,12 @@ public class SafeTest {
     @Test
     @Smoke
     public void testSearch() throws Exception {
-        //	unlockIfNeeded();
-        openActionBarOverflowOrOptionsMenu(rule.getActivity());
-        onView(withText(R.string.search));
+        unlockIfNeeded();
+        //openActionBarOverflowOrOptionsMenu(rule.getActivity());
+        onView(withContentDescription(R.string.search)).perform(click());
 
-        onView(withId(R.id.search_criteria)).perform(typeText("ptest3"));
-        onView(withId(R.id.button1)).perform(click());
+        onView(withHint(R.string.search_hint)).perform(typeText("ptest3"));
+        onView(withText(R.string.search)).perform(click());
         intended(hasComponent(Search.class.getName()));
 
         onData(withId(android.R.id.list)).atPosition(0).perform(click());
