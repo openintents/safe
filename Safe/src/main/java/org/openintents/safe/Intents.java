@@ -5,31 +5,34 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 
+import static android.content.Intent.*;
+
 public class Intents {
-    static android.content.Intent createPickFileIntent(String filename, int titleResource) {
-        android.content.Intent intent;
-        intent = new android.content.Intent("org.openintents.action.PICK_FILE");
+    static Intent createPickFileIntent(String filename, int titleResource) {
+        Intent intent;
+        intent = new Intent("org.openintents.action.PICK_FILE");
         intent.setData(Uri.parse("file://" + filename));
         intent.putExtra("org.openintents.extra.TITLE", titleResource);
         return intent;
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    static android.content.Intent createCreateDocumentIntent(String mimeType, String filename) {
-        android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_CREATE_DOCUMENT);
-        intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
+    static Intent createCreateDocumentIntent(String mimeType, String filename) {
+        Intent intent = new Intent(ACTION_CREATE_DOCUMENT);
+        intent.addCategory(CATEGORY_OPENABLE);
         intent.setType(mimeType);
-        intent.putExtra(Intent.EXTRA_TITLE, filename);
+        intent.putExtra(EXTRA_TITLE, filename);
         return intent;
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    public static android.content.Intent createOpenDocumentIntents(String backupDocument) {
-        android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_OPEN_DOCUMENT);
+    public static Intent createOpenDocumentIntents(String mimeType, String backupDocument) {
+        Intent intent = new Intent(ACTION_OPEN_DOCUMENT);
         if (backupDocument != null) {
             intent.setData(Uri.parse(backupDocument));
         }
-        intent.addCategory(android.content.Intent.CATEGORY_OPENABLE);
+        intent.addCategory(CATEGORY_OPENABLE);
+        intent.setType(mimeType);
         return intent;
     }
 }

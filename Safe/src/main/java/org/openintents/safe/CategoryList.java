@@ -118,6 +118,7 @@ public class CategoryList extends ListActivity {
     public static final String KEY_ID = "id";  // Intent keys
     static final String MIME_TYPE_BACKUP = "text/xml";
     static final String MIME_TYPE_EXPORT = "text/csv";
+    private static final String MIME_TYPE_ANY_TEXT = "text/*";
 
     static Import taskImport = null;
     ProgressDialog importProgress = null;
@@ -998,7 +999,7 @@ public class CategoryList extends ListActivity {
         Intent intent;
         int requestId;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            intent = Intents.createOpenDocumentIntents(PreferenceActivity.getExportDocument(this));
+            intent = Intents.createOpenDocumentIntents(MIME_TYPE_ANY_TEXT, PreferenceActivity.getExportDocument(this));
             requestId = REQUEST_IMPORT_DOCUMENT;
         } else {
             intent = Intents.createPickFileIntent(filename, R.string.import_file_select);

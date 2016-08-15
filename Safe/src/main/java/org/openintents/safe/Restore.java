@@ -133,7 +133,7 @@ public class Restore extends Activity {
             Intent intent;
             int requestId;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent = Intents.createOpenDocumentIntents(PreferenceActivity.getBackupDocument(this));
+                intent = Intents.createOpenDocumentIntents(CategoryList.MIME_TYPE_BACKUP, PreferenceActivity.getBackupDocument(this));
                 requestId = REQUEST_RESTORE_DOCUMENT;
             } else {
                 intent = Intents.createPickFileIntent(backupPath, R.string.restore_select_file);
