@@ -1,6 +1,32 @@
 language: android
+env:
+  global:
+  - GRADLE_OPTS="-Xms40m -Xmx3g -XX:MaxPermSize=3g"
+  - secure: fi232B8c/CZ94uJdgi/lp4ksgwfHq8aWZ6DczxcIqkQNFauZq2XF1UADgcvSYuTIwqqzs0qth3pfTt+p4h9/uQcpUt7FOcY3vIJJQGU7uy1ymS8KfQTCAxIM2xkd50EdPbWc7KCfFE/0Cuzp9h1+hZ2BPnoJeeIuCLpXZOuBFTE=
+  - secure: FeDzaUloNC2A8G2v2Z5B1kx5kizTWGELnimtYeFO8VfYk+WVtvS+6dRfZN2whp0GxYJIvGr//6cnodxAUr039cXROm3zVXZu1/G7cHtJkb89/DGcKmIOaolWZ9BnggqdYTNU7xYoA0T7HNH5ILFs41L2f60rOBVzMMrEvzb8VfY=
+
 android:
   components:
-    - build-tools-23.0.1
-    - android-23
-    - sys-img-armeabi-v7a-android-23
+  - platform-tools
+  - tools
+  - android-23
+  - build-tools-23.0.2
+  - sys-img-armeabi-v7a-android-23
+
+before_install:
+- if [ -n "$GPG_PASS" ]; then echo $GPG_PASS | gpg --passphrase-fd 0 local.properties.gpg;
+  fi
+- if [ -n "$GPG_PASS" ]; then echo $GPG_PASS | gpg --passphrase-fd 0 settings/service_account.json.gpg;
+  fi
+- if [ -n "$GPG_PASS" ]; then echo $GPG_PASS | gpg --passphrase-fd 0 settings/release.keystore.gpg;
+  fi
+- if [ -z "$GPG_PASS"]; then touch local.properties; fi
+
+after_success:
+- if [ -n "$GITHUB_API_KEY" ]; then .buildscript/deploy_alpha.sh; fi
+
+script: "./gradlew check"
+
+branches:
+  except:
+  - gh-pages

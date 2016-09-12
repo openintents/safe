@@ -1,21 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "org.openintents.samples.testsafe"
         versionCode 2
         versionName "1.0.1"
         minSdkVersion 4
-        targetSdkVersion 23
+        targetSdkVersion rootProject.ext.targetSdkVersion
     }
 
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            resources.srcDirs = ['src']
+            java.srcDirs = ['src']
+            aidl.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
         }
