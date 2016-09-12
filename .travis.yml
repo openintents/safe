@@ -4,6 +4,7 @@ env:
   - GRADLE_OPTS="-Xms40m -Xmx3g -XX:MaxPermSize=3g"
   - secure: FeDzaUloNC2A8G2v2Z5B1kx5kizTWGELnimtYeFO8VfYk+WVtvS+6dRfZN2whp0GxYJIvGr//6cnodxAUr039cXROm3zVXZu1/G7cHtJkb89/DGcKmIOaolWZ9BnggqdYTNU7xYoA0T7HNH5ILFs41L2f60rOBVzMMrEvzb8VfY=
   - secure: VJYe/hgudROET8hXZwB4LlhE+hlIW6R+rt9ieWBAruLlH+Udl+dRBhq3d9Vh36ImqslgSP6yZsyk3Ey7mdSgdkFu70bF1WHs925D/DVSEtByIpMEINJ/pEFFajJOk1p54kxVxhGg0gBzD8hFhPb3FoeG/8MTF31s0aahJqmPEgI=
+jdk: oraclejdk8
 android:
   components:
   - tools
