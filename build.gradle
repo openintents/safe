@@ -16,8 +16,8 @@ ext {
     // Manifest version information!
     versionMajor = 1
     versionMinor = 4
-    versionPatch = 4
-    versionBuild = 3 // bump for dogfood builds, public betas, etc.
+    versionPatch = 5
+    versionBuild = 0 // bump for dogfood builds, public betas, etc.
 
     versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
     versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
