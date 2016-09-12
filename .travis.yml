@@ -6,11 +6,11 @@ env:
   - secure: VJYe/hgudROET8hXZwB4LlhE+hlIW6R+rt9ieWBAruLlH+Udl+dRBhq3d9Vh36ImqslgSP6yZsyk3Ey7mdSgdkFu70bF1WHs925D/DVSEtByIpMEINJ/pEFFajJOk1p54kxVxhGg0gBzD8hFhPb3FoeG/8MTF31s0aahJqmPEgI=
 android:
   components:
-  - platform-tools
   - tools
-  - android-23
-  - build-tools-23.0.2
-  - sys-img-armeabi-v7a-android-23
+  - tools
+  - platform-tools
+  - android-24
+  - build-tools-24.0.2
 before_install:
 - if [ -n "$GPG_PASS" ]; then echo $GPG_PASS | gpg --passphrase-fd 0 local.properties.gpg;
   fi

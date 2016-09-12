@@ -23,7 +23,7 @@ ext {
     versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 
     compileSdkVersion = 24
-    buildToolsVersion = "23.0.3"
+    buildToolsVersion = "24.0.2"
     targetSdkVersion = 24
 }
 
