@@ -8,8 +8,8 @@
 
 SLUG="openintents/safe"
 ORGA="openintents"
-USER_NAME="openintents"
-USER_EMAIL="support@openintents"
+USER_NAME="openintents-bot"
+USER_EMAIL="support@openintents.org"
 ALPHA_BRANCH='master';
 BETA_BRANCH='release';
 

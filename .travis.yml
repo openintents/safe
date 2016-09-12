@@ -21,7 +21,7 @@ before_install:
   fi
 - if [ -z "$GPG_PASS"]; then touch local.properties; fi
 after_success:
-- if [ -n "$GITHUB_API_KEY" ]; then .buildscript/deploy_alpha.sh; fi
+- if [ -n "$GITHUB_API_KEY" ]; then .buildscript/deploy_google_play.sh; fi
 script: "./gradlew check"
 branches:
   except:
