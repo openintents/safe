@@ -18,9 +18,7 @@ package org.openintents.safe.test;
 import android.content.pm.ActivityInfo;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.Smoke;
 
 import junit.framework.AssertionFailedError;
 
@@ -57,11 +55,9 @@ import static org.hamcrest.Matchers.startsWith;
 public class SafeTest {
 
 
+    private final String masterPassword = "1234";
     @Rule
     public IntentsTestRule rule = new IntentsTestRule(CategoryList.class);
-
-    private final String TAG = "SafeTest";
-    private final String masterPassword = "1234";
 
     private void unlockIfNeeded() throws Exception {
 
@@ -93,7 +89,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void test000Eula() {
         String accept = getAppString(org.openintents.distribution.R.string.oi_distribution_eula_accept);
         String cancel = getAppString(org.openintents.distribution.R.string.oi_distribution_eula_refuse);
@@ -109,7 +104,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void test001RecentChanges() {
         String recentChanges = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_recent_changes);
         String cont = getAppString(org.openintents.distribution.R.string.oi_distribution_newversion_continue);
@@ -125,7 +119,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testAAAAUnlock() throws Exception {
         unlockIfNeeded();
 
@@ -134,7 +127,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testCategoryAdd() throws Exception {
 //		unlockIfNeeded();
 
@@ -159,7 +151,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testCategoryEdit() throws Exception {
 //		unlockIfNeeded();
         onView(withText("Category 1")).perform(longClick());
@@ -171,9 +162,8 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void test_CategoryRemove() throws Exception {
-		unlockIfNeeded();
+        unlockIfNeeded();
         onView(withText(startsWith("Category 1"))).perform(longClick());
         onView(withText(R.string.password_delete)).perform(click());
 
@@ -187,7 +177,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testPasswordAdd() throws Exception {
 //		unlockIfNeeded();
 
@@ -228,7 +217,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testPasswordEdit() throws Exception {
         onView(withText("Category for Passwords")).perform(click());
 
@@ -265,7 +253,6 @@ public class SafeTest {
     }
 
     @Test
-    @Smoke
     public void testSearch() throws Exception {
         unlockIfNeeded();
         //openActionBarOverflowOrOptionsMenu(rule.getActivity());
@@ -299,7 +286,6 @@ public class SafeTest {
      * @throws Exception
      */
     @Test
-    @Smoke
     public void test_PasswordRemove() throws Exception {
         onView(withText("Category for Passwords")).perform(click());
 

@@ -32,7 +32,7 @@ public class Master {
     }
 
     /**
-     * @param salt the salt to set
+     * @param saltIn the salt to set
      */
     public synchronized static void setSalt(String saltIn) {
         salt = saltIn;
@@ -46,7 +46,7 @@ public class Master {
     }
 
     /**
-     * @param masterKey the masterKey to set
+     * @param masterKeyIn the masterKey to set
      */
     public synchronized static void setMasterKey(String masterKeyIn) {
         masterKey = masterKeyIn;
