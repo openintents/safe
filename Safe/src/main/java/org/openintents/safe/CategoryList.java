@@ -819,11 +819,11 @@ public class CategoryList extends ListActivity {
 		/* Don't know what it is good for, just necessary
 		 * to get the same behavior as the one before this patch*/
         if (resultCode == RESULT_OK
-                && requestCode == REQUEST_ONCREATE
+                && (requestCode == REQUEST_ONCREATE
                 || requestCode == REQUEST_EDIT_CATEGORY
                 || requestCode == REQUEST_ADD_CATEGORY
                 || requestCode == REQUEST_OPEN_CATEGORY
-                || requestCode == REQUEST_RESTORE) {
+                || requestCode == REQUEST_RESTORE)) {
             fillData();
         }
 
