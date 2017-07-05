@@ -97,6 +97,7 @@ public class Restore extends Activity {
     EditText passwordText;
     @InjectView(R.id.restore_button)
     Button restoreButton;
+    private boolean startRestore;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -106,6 +107,7 @@ public class Restore extends Activity {
             Log.d(TAG, "onCreate()");
         }
 
+        startRestore = true;
         firstTime = icicle != null ? icicle.getBoolean(Restore.KEY_FIRST_TIME) : false;
         if (firstTime == false) {
             Bundle extras = getIntent().getExtras();
@@ -128,22 +130,25 @@ public class Restore extends Activity {
         String backupPath = getIntent().getStringExtra(KEY_FILE_PATH);
         if (backupPath != null) {
             restoreFromFile(backupPath);
+        }
+    }
+
+    private void selectFileOrRestoreFromFile() {
+        String backupPath;
+        backupPath = PreferenceActivity.getBackupPath(this);
+        Intent intent;
+        int requestId;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            intent = Intents.createOpenDocumentIntents("*/*", PreferenceActivity.getBackupDocument(this));
+            requestId = REQUEST_RESTORE_DOCUMENT;
         } else {
-            backupPath = PreferenceActivity.getBackupPath(this);
-            Intent intent;
-            int requestId;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent = Intents.createOpenDocumentIntents(CategoryList.MIME_TYPE_BACKUP, PreferenceActivity.getBackupDocument(this));
-                requestId = REQUEST_RESTORE_DOCUMENT;
-            } else {
-                intent = Intents.createPickFileIntent(backupPath, R.string.restore_select_file);
-                requestId = REQUEST_RESTORE_FILENAME;
-            }
-            if (intentCallable(intent)) {
-                startActivityForResult(intent, requestId);
-            } else {
-                restoreFromFile(backupPath);
-            }
+            intent = Intents.createPickFileIntent(backupPath, R.string.restore_select_file);
+            requestId = REQUEST_RESTORE_FILENAME;
+        }
+        if (intentCallable(intent)) {
+            startActivityForResult(intent, requestId);
+        } else {
+            restoreFromFile(backupPath);
         }
     }
 
@@ -183,6 +188,10 @@ public class Restore extends Activity {
         }
         IntentFilter filter = new IntentFilter(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
         registerReceiver(mIntentReceiver, filter);
+
+        if (startRestore) {
+            selectFileOrRestoreFromFile();
+        }
     }
 
     public boolean read(InputStreamData streamData, String masterPassword) {
@@ -419,6 +428,11 @@ public class Restore extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
         super.onActivityResult(requestCode, resultCode, i);
+
+        if (resultCode == RESULT_OK) {
+            startRestore = false;
+        }
+
         switch (requestCode) {
             case REQUEST_RESTORE_FILENAME:
                 if (resultCode == RESULT_OK) {
@@ -467,7 +481,10 @@ public class Restore extends Activity {
                         passwordText = (EditText) findViewById(R.id.restore_password);
 
                         String masterPassword = passwordText.getText().toString();
-                        read(inputStreamData, masterPassword);
+                        boolean success = read(inputStreamData, masterPassword);
+                        if (!success) {
+                            finish();
+                        }
                     }
                 }
         );
