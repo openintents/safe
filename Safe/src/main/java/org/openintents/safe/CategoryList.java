@@ -40,6 +40,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -477,7 +478,7 @@ public class CategoryList extends ListActivity {
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (menu == null) {
+        if (menu == null || menu instanceof SubMenu) {
             return super.onMenuOpened(featureId, menu);
         }
         MenuItem miDelete = menu.findItem(DEL_CATEGORY_INDEX);
@@ -524,16 +525,17 @@ public class CategoryList extends ListActivity {
         menu.add(0, HELP_INDEX, 0, R.string.help)
                 .setIcon(android.R.drawable.ic_menu_help);
 
-        menu.add(0, EXPORT_INDEX, 0, R.string.export_database)
+        SubMenu passwordFileSubMenu = menu.addSubMenu(R.string.password_file);
+        passwordFileSubMenu.add(0, BACKUP_INDEX, 0, R.string.backup);
+        passwordFileSubMenu.add(0, RESTORE_INDEX, 0, R.string.restore);
+        passwordFileSubMenu.add(0, EXPORT_INDEX, 0, R.string.export_database)
                 .setIcon(android.R.drawable.ic_menu_upload);
-        menu.add(0, IMPORT_INDEX, 0, R.string.import_database)
+        passwordFileSubMenu.add(0, IMPORT_INDEX, 0, R.string.import_database)
                 .setIcon(android.R.drawable.ic_input_get);
+
 
         menu.add(0, CHANGE_PASS_INDEX, 0, R.string.change_password)
                 .setIcon(android.R.drawable.ic_menu_manage);
-
-        menu.add(0, BACKUP_INDEX, 0, R.string.backup);
-        menu.add(0, RESTORE_INDEX, 0, R.string.restore);
 
         menu.add(0, PREFERENCES_INDEX, 0, R.string.preferences);
 
@@ -548,9 +550,6 @@ public class CategoryList extends ListActivity {
     }
 
     private void addCategoryActivity() {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "addCategoryActivity()");
-        }
         Intent i = new Intent(this, CategoryEdit.class);
         startActivityForResult(i, REQUEST_ADD_CATEGORY);
     }
