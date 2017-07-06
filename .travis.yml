@@ -11,7 +11,7 @@ android:
   - tools
   - platform-tools
   - android-25
-  - build-tools-25.0.2
+  - build-tools-25.0.3
 before_install:
 - if [ -n "$GPG_PASS" ]; then echo $GPG_PASS | gpg --passphrase-fd 0 local.properties.gpg;
   fi
