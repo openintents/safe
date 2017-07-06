@@ -15,7 +15,7 @@ android {
         applicationId "org.openintents.safe"
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion rootProject.ext.targetSdkVersion
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
