@@ -123,7 +123,7 @@ public class Help extends Activity {
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -159,7 +159,7 @@ public class Help extends Activity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

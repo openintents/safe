@@ -200,7 +200,7 @@ public class PassList extends ListActivity {
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -597,7 +597,7 @@ public class PassList extends ListActivity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

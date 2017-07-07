@@ -199,7 +199,7 @@ public class SearchFragment extends ListFragment {
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }

@@ -109,7 +109,7 @@ public class Restore extends Activity {
 
         startRestore = true;
         firstTime = icicle != null ? icicle.getBoolean(Restore.KEY_FIRST_TIME) : false;
-        if (firstTime == false) {
+        if (!firstTime) {
             Bundle extras = getIntent().getExtras();
             firstTime = extras != null ? extras.getBoolean(Restore.KEY_FIRST_TIME) : false;
         }
@@ -182,7 +182,7 @@ public class Restore extends Activity {
             Log.d(TAG, "onResume()");
         }
 
-        if ((!firstTime) && (CategoryList.isSignedIn() == false)) {
+        if ((!firstTime) && (!CategoryList.isSignedIn())) {
             startActivity(frontdoor);
             return;
         }
@@ -282,7 +282,7 @@ public class Restore extends Activity {
             ).show();
             return false;
         }
-        if (ch.getStatus() == false) {
+        if (!ch.getStatus()) {
             Toast.makeText(
                     Restore.this, getString(R.string.restore_decrypt_error),
                     Toast.LENGTH_LONG
@@ -313,7 +313,7 @@ public class Restore extends Activity {
             } catch (CryptoHelperException e) {
                 Log.e(TAG, e.toString());
             }
-            if (ch.getStatus() == false) {
+            if (!ch.getStatus()) {
                 Toast.makeText(
                         Restore.this, getString(R.string.restore_decrypt_error),
                         Toast.LENGTH_LONG
@@ -416,7 +416,7 @@ public class Restore extends Activity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

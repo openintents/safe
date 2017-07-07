@@ -240,7 +240,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.pass_view, null);
         }
-        if (populateFields(rowids[position], view) == false) {
+        if (!populateFields(rowids[position], view)) {
             // failed to retreive record
             return null;
         }
@@ -283,7 +283,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
                 return;
             }
 
-            if (usernameCopiedToClipboard == false) {
+            if (!usernameCopiedToClipboard) {
                 // don't copy the password if username was already copied
                 clipboard(getString(R.string.password), passwordText.getText().toString());
             }
@@ -416,7 +416,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -687,7 +687,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

@@ -152,7 +152,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
     protected void onResume() {
         super.onResume();
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -179,7 +179,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

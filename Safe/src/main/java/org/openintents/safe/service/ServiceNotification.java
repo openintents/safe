@@ -72,7 +72,7 @@ public class ServiceNotification {
             Log.d(TAG, "builder=" + CheckWrappers.mNotificationBuilderAvailable);
         }
         if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-                || (CheckWrappers.mNotificationBuilderAvailable == false)) {
+                || (!CheckWrappers.mNotificationBuilderAvailable)) {
             notificationCompat = new NotificationCompat.Builder(context)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(
@@ -125,7 +125,7 @@ public class ServiceNotification {
     @SuppressLint("NewApi")
     public static void updateProgress(Context context, int max, int progress) {
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) &&
-                (CheckWrappers.mNotificationBuilderAvailable == true)) {
+                (CheckWrappers.mNotificationBuilderAvailable)) {
             wrapBuilder.setProgress(max, progress, false);
             wrapBuilder.notifyManager(mNotifyManager, NOTIFICATION_ID);
         }

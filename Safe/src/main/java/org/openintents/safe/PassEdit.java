@@ -79,7 +79,7 @@ public class PassEdit extends FragmentActivity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             // startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {

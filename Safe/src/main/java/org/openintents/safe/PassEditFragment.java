@@ -270,7 +270,7 @@ public class PassEditFragment extends Fragment {
             Log.d(TAG, "onPause()");
         }
 
-        if (getActivity().isFinishing() && discardEntry == false && allFieldsEmpty() == false) {
+        if (getActivity().isFinishing() && !discardEntry && !allFieldsEmpty()) {
             savePassword();
         }
         try {
@@ -296,7 +296,7 @@ public class PassEditFragment extends Fragment {
             Log.d(TAG, "onResume()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             // if (Passwords.isCryptoInitialized()) {
             // saveState();
             // }
@@ -436,7 +436,7 @@ public class PassEditFragment extends Fragment {
         if (debug) {
             Log.d(TAG, "populateFields()");
         }
-        if (pass_gen_ret == true) {
+        if (pass_gen_ret) {
             pass_gen_ret = false;
             return;
         }

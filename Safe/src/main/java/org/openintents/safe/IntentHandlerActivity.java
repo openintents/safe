@@ -67,7 +67,7 @@ public class IntentHandlerActivity extends Activity {
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (Passwords.Initialize(this) == false) {
+        if (!Passwords.Initialize(this)) {
             finish();
         }
     }

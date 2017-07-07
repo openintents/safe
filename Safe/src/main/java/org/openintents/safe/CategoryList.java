@@ -195,7 +195,7 @@ public class CategoryList extends ListActivity {
             Log.d(TAG, "onResume()");
         }
 
-        if (isSignedIn() == false) {
+        if (!isSignedIn()) {
             Intent frontdoor = new Intent(this, Safe.class);
             frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
             startActivity(frontdoor);
@@ -205,7 +205,7 @@ public class CategoryList extends ListActivity {
         registerReceiver(mIntentReceiver, filter);
 
         showFirstTimeWarningDialog();
-        if (Passwords.getPrePopulate() == true) {
+        if (Passwords.getPrePopulate()) {
             prePopulate();
             Passwords.clearPrePopulate();
         }
@@ -239,7 +239,7 @@ public class CategoryList extends ListActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean prefAutobackup = sp.getBoolean(PreferenceActivity.PREFERENCE_AUTOBACKUP, true);
 
-        if (prefAutobackup == false) {
+        if (!prefAutobackup) {
             return;
         }
         if (Passwords.countPasswords(-1) < 1) {
@@ -1052,7 +1052,7 @@ public class CategoryList extends ListActivity {
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			Intent frontdoor = new Intent(this, FrontDoor.class);
 //			frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
 //			startActivity(frontdoor);
