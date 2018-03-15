@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -8,7 +11,7 @@ android {
         applicationId "org.openintents.samples.testsafe"
         versionCode 2
         versionName "1.0.1"
-        minSdkVersion 4
+        minSdkVersion 14
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
 
@@ -38,11 +41,8 @@ android {
 
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        def fileName = outputFile.name.replace('.apk', "-${versionName}.apk")
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
+                    def file = output.outputFile
+                    output.outputFileName = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
                 }
             }
         }
@@ -67,4 +67,10 @@ android {
         println "For signed release apks you need to create a build-private.properties file"
     }
 
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

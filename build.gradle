@@ -1,11 +1,14 @@
 buildscript {
+    ext.kotlin_version = '1.2.30'
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.github.triplet.gradle:play-publisher:1.2.0'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -22,14 +25,15 @@ ext {
     versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
     versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 
-    compileSdkVersion = 25
-    buildToolsVersion = "25.0.3"
-    targetSdkVersion = 25
+    compileSdkVersion = 27
+    buildToolsVersion = "27.0.3"
+    targetSdkVersion = 27
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
         maven {
             url 'https://jitpack.io'
         }
