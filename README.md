@@ -1,6 +1,6 @@
 # OI Safe
 Password manager for Android
-Please see https://www.openintents.org/safe for description
+Please see https://www.openintents.org/safe for description using Trivium streaming encryption.
 
 ## Build
 Depends on OI Distribution.
