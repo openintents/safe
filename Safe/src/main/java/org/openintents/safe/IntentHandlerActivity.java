@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ import org.openintents.safe.password.Master;
  *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class IntentHandlerActivity extends Activity {
+public class IntentHandlerActivity extends AppCompatActivity {
 
     private static final boolean debug = true;
     private static String TAG = "IntentHandlerActivity";

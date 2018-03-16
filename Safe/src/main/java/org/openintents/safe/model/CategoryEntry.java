@@ -19,7 +19,7 @@ package org.openintents.safe.model;
 /**
  * @author Randy McEoin
  */
-public class CategoryEntry extends Object {
+public class CategoryEntry {
     public long id = -1;
     public String name;
     public boolean nameNeedsDecrypt;

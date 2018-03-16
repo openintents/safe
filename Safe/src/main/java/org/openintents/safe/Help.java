@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,7 +38,7 @@ import org.openintents.intents.CryptoIntents;
  *
  * @author Randy McEoin
  */
-public class Help extends Activity {
+public class Help extends AppCompatActivity {
 
     private static boolean debug = false;
     private static String TAG = "Help";

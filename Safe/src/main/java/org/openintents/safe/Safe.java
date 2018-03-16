@@ -19,6 +19,7 @@ package org.openintents.safe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import org.openintents.intents.CryptoIntents;
@@ -31,7 +32,7 @@ import org.openintents.intents.CryptoIntents;
  *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class Safe extends Activity {
+public class Safe extends AppCompatActivity {
 
     private static final String TAG = "FrontDoor";
     private static final boolean debug = false;

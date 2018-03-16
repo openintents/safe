@@ -17,9 +17,9 @@ package org.openintents.safe;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -33,6 +33,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -49,6 +50,16 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.openintents.distribution.AboutDialog;
+import org.openintents.intents.AboutMiniIntents;
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.dialog.DialogHostingActivity;
+import org.openintents.safe.model.CategoryEntry;
+import org.openintents.safe.model.Passwords;
+import org.openintents.safe.password.Master;
+import org.openintents.safe.service.AutoLockService;
+import org.openintents.util.IntentUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -59,29 +70,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.openintents.distribution.AboutDialog;
-import org.openintents.intents.AboutMiniIntents;
-import org.openintents.intents.CryptoIntents;
-
-import org.openintents.safe.dialog.DialogHostingActivity;
-import org.openintents.safe.model.CategoryEntry;
-import org.openintents.safe.model.Passwords;
-import org.openintents.safe.password.Master;
-import org.openintents.safe.service.AutoLockService;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
-import org.openintents.util.IntentUtils;
-
 /**
  * CategoryList Activity
  *
  * @author Randy McEoin
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class CategoryList extends ListActivity {
-    private static final String TAG = "CategoryList";
-
+public class CategoryList extends AppCompatActivity {
     // Menu Item order
     public static final int LOCK_CATEGORY_INDEX = Menu.FIRST;
     public static final int OPEN_CATEGORY_INDEX = Menu.FIRST + 1;
@@ -97,7 +92,6 @@ public class CategoryList extends ListActivity {
     public static final int RESTORE_INDEX = Menu.FIRST + 11;
     public static final int PREFERENCES_INDEX = Menu.FIRST + 12;
     public static final int ABOUT_INDEX = Menu.FIRST + 13;
-
     public static final int REQUEST_ONCREATE = 0;
     public static final int REQUEST_EDIT_CATEGORY = 1;
     public static final int REQUEST_ADD_CATEGORY = 2;
@@ -109,23 +103,19 @@ public class CategoryList extends ListActivity {
     public static final int REQUEST_EXPORT_DOCUMENT = 8;
     public static final int REQUEST_BACKUP_FILENAME = 9;
     public static final int REQUEST_BACKUP_DOCUMENT = 10;
-
-    private static final int ABOUT_KEY = 2;
-
     public static final int MAX_CATEGORIES = 256;
-
-    private static final String PASSWORDSAFE_IMPORT_FILENAME = "passwordsafe.csv";
-
     public static final String KEY_ID = "id";  // Intent keys
     static final String MIME_TYPE_BACKUP = "text/xml";
     static final String MIME_TYPE_EXPORT = "text/csv";
+    private static final String TAG = "CategoryList";
+    private static final int ABOUT_KEY = 2;
+    private static final String PASSWORDSAFE_IMPORT_FILENAME = "passwordsafe.csv";
     private static final String MIME_TYPE_ANY_TEXT = "text/*";
 
     static Import taskImport = null;
-    ProgressDialog importProgress = null;
     static boolean importDeletedDatabase = false;
-
     private static backupTask taskBackup = null;
+    ProgressDialog importProgress = null;
     private ProgressDialog backupProgress = null;
 
     private List<CategoryEntry> rows = null;
@@ -154,6 +144,37 @@ public class CategoryList extends ListActivity {
             }
         }
     };
+    private ListView list;
+
+    /**
+     * Returns the current status of signedIn.
+     *
+     * @return True if signed in
+     */
+    public static boolean isSignedIn() {
+        if ((Master.getSalt() != null) && (Master.getMasterKey() != null)) {
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, "isSignedIn: true");
+            }
+            return true;
+        }
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "isSignedIn: false");
+        }
+        return false;
+    }
+
+    /**
+     * Sets signedIn status to false.
+     *
+     * @see CategoryList#isSignedIn
+     */
+    public static void setSignedOut() {
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "setSignedOut()");
+        }
+        Master.setMasterKey(null);
+    }
 
     /**
      * Called when the activity is first created.
@@ -180,10 +201,12 @@ public class CategoryList extends ListActivity {
         filter.addAction(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT);
         registerReceiver(mIntentReceiver, filter);
 
-        final ListView list = getListView();
+        list = findViewById(android.R.id.list);
+        list.setEmptyView(findViewById(android.R.id.empty));
         list.setFocusable(true);
         list.setOnCreateContextMenuListener(this);
         list.setTextFilterEnabled(true);
+        list.setOnItemClickListener(this::onListItemClick);
         registerForContextMenu(list);
     }
 
@@ -221,7 +244,7 @@ public class CategoryList extends ListActivity {
         }
         Passwords.Initialize(this);
 
-        ListAdapter la = getListAdapter();
+        ListAdapter la = list.getAdapter();
         if (la != null) {
             if (BuildConfig.DEBUG) {
                 Log.d(TAG, "onResume: count=" + la.getCount());
@@ -425,36 +448,6 @@ public class CategoryList extends ListActivity {
     }
 
     /**
-     * Returns the current status of signedIn.
-     *
-     * @return True if signed in
-     */
-    public static boolean isSignedIn() {
-        if ((Master.getSalt() != null) && (Master.getMasterKey() != null)) {
-            if (BuildConfig.DEBUG) {
-                Log.d(TAG, "isSignedIn: true");
-            }
-            return true;
-        }
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "isSignedIn: false");
-        }
-        return false;
-    }
-
-    /**
-     * Sets signedIn status to false.
-     *
-     * @see CategoryList#isSignedIn
-     */
-    public static void setSignedOut() {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "setSignedOut()");
-        }
-        Master.setMasterKey(null);
-    }
-
-    /**
      * Populates the category ListView
      */
     void fillData() {
@@ -472,7 +465,7 @@ public class CategoryList extends ListActivity {
                         this, R.layout.cat_row,
                         rows
                 );
-        setListAdapter(catAdapter);
+        list.setAdapter(catAdapter);
 
     }
 
@@ -483,7 +476,7 @@ public class CategoryList extends ListActivity {
         }
         MenuItem miDelete = menu.findItem(DEL_CATEGORY_INDEX);
         MenuItem miEdit = menu.findItem(EDIT_CATEGORY_INDEX);
-        if (getSelectedItemPosition() > -1) {
+        if (list.getSelectedItemPosition() > -1) {
             miDelete.setEnabled(true);
             miEdit.setEnabled(true);
         } else {
@@ -500,9 +493,7 @@ public class CategoryList extends ListActivity {
         MenuItem item = menu.add(0, LOCK_CATEGORY_INDEX, 0, R.string.password_lock)
                 .setIcon(android.R.drawable.ic_lock_lock)
                 .setShortcut('0', 'l');
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.showIfRoom(item);
-        }
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         menu.add(0, EDIT_CATEGORY_INDEX, 0, R.string.password_edit)
                 .setIcon(android.R.drawable.ic_menu_edit)
@@ -514,9 +505,7 @@ public class CategoryList extends ListActivity {
 
         item = menu.add(0, SEARCH_INDEX, 0, R.string.search)
                 .setIcon(android.R.drawable.ic_menu_search);
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.showIfRoom(item);
-        }
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         menu.add(0, DEL_CATEGORY_INDEX, 0, R.string.password_delete)
                 .setIcon(android.R.drawable.ic_menu_delete)
@@ -572,7 +561,7 @@ public class CategoryList extends ListActivity {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         int position = -1;
         if (info == null) {
-            position = getSelectedItemPosition();
+            position = list.getSelectedItemPosition();
         } else {
             // used when this is called from a ContextMenu
             position = info.position;
@@ -601,7 +590,7 @@ public class CategoryList extends ListActivity {
                     if (position > -1) {
                         delCategory(rows.get(position).id);
                         if (position > 2) {
-                            setSelection(position - 1);
+                            list.setSelection(position - 1);
                         }
                     }
                 } catch (IndexOutOfBoundsException e) {
@@ -680,7 +669,7 @@ public class CategoryList extends ListActivity {
     private void lockAndShutFrontDoor() {
 
 		/* Clear the clipboard, if it contains the last password used */
-        ClipboardManager cb = ClipboardManager.newInstance(getApplication());
+        ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         if (cb.hasText()) {
             String clipboardText = cb.getText().toString();
             if (clipboardText.equals(Safe.last_used_password)) {
@@ -718,32 +707,6 @@ public class CategoryList extends ListActivity {
             startActivityForResult(intent, requestId);
         } else {
             backupToFile(filename);
-        }
-    }
-
-    private class backupTask extends AsyncTask<OutputStreamData, Void, String> {
-        CategoryList currentActivity = null;
-
-        public void setActivity(CategoryList cat) {
-            currentActivity = cat;
-        }
-
-        @Override
-        protected String doInBackground(OutputStreamData... streams) {
-
-            OutputStreamData streamData = streams[0];
-            String response = backupDatabase(streamData.getFilename(), streamData.getStream());
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            showResultToast(result);
-            if ((currentActivity != null)
-                    && (currentActivity.backupProgress != null)) {
-                currentActivity.backupProgress.dismiss();
-            }
-            taskBackup = null;
         }
     }
 
@@ -803,9 +766,7 @@ public class CategoryList extends ListActivity {
         startActivityForResult(i, REQUEST_RESTORE);
     }
 
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
+    protected void onListItemClick(AdapterView l, View v, int position, long id) {
         maybRestartTimer();
         launchPassList(rows.get(position).id);
     }
@@ -817,7 +778,7 @@ public class CategoryList extends ListActivity {
         String path;
 
 		/* Don't know what it is good for, just necessary
-		 * to get the same behavior as the one before this patch*/
+         * to get the same behavior as the one before this patch*/
         if (resultCode == RESULT_OK
                 && (requestCode == REQUEST_ONCREATE
                 || requestCode == REQUEST_EDIT_CATEGORY
@@ -830,7 +791,7 @@ public class CategoryList extends ListActivity {
         switch (requestCode) {
             case REQUEST_EDIT_CATEGORY:
                 if (resultCode == RESULT_OK) {
-                    setSelection(lastPosition);
+                    list.setSelection(lastPosition);
                 }
                 break;
 
@@ -1128,5 +1089,31 @@ public class CategoryList extends ListActivity {
                 .setMessage(getString(R.string.dialog_import_msg, documentName))
                 .create();
         about.show();
+    }
+
+    private class backupTask extends AsyncTask<OutputStreamData, Void, String> {
+        CategoryList currentActivity = null;
+
+        public void setActivity(CategoryList cat) {
+            currentActivity = cat;
+        }
+
+        @Override
+        protected String doInBackground(OutputStreamData... streams) {
+
+            OutputStreamData streamData = streams[0];
+            String response = backupDatabase(streamData.getFilename(), streamData.getStream());
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            showResultToast(result);
+            if ((currentActivity != null)
+                    && (currentActivity.backupProgress != null)) {
+                currentActivity.backupProgress.dismiss();
+            }
+            taskBackup = null;
+        }
     }
 }

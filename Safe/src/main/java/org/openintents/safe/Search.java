@@ -18,11 +18,12 @@ package org.openintents.safe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import org.openintents.intents.CryptoIntents;
 
-public class Search extends FragmentActivity {
+public class Search extends AppCompatActivity {
 
     private final boolean debug = false;
     private final String TAG = "Search";

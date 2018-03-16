@@ -40,16 +40,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.security.NoSuchAlgorithmException;
-
 import org.openintents.distribution.DistributionLibraryActivity;
-
 import org.openintents.safe.password.Master;
 import org.openintents.safe.service.AutoLockService;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 import org.openintents.util.VersionUtils;
+
+import java.io.File;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * AskPassword Activity
@@ -61,23 +58,19 @@ import org.openintents.util.VersionUtils;
  */
 public class AskPassword extends DistributionLibraryActivity {
 
-    private final static boolean debug = false;
-    private static String TAG = "AskPassword";
-    public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
-
     public static final int REQUEST_RESTORE = 0;
     public static final int REQUEST_RESTORE_FIRST_TIME = 1;
-
     // Menu Item order
     public static final int SWITCH_MODE_INDEX = Menu.FIRST;
     public static final int MUTE_INDEX = Menu.FIRST + 1;
+    public static final int VIEW_NORMAL = 0;
+    public static final int VIEW_KEYPAD = 1;
+    private final static boolean debug = false;
     private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST BE LAST
 
     private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
-
-    public static final int VIEW_NORMAL = 0;
-    public static final int VIEW_KEYPAD = 1;
-
+    public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
+    private static String TAG = "AskPassword";
     private int viewMode = VIEW_NORMAL;
 
     private EditText pbeKey;
@@ -196,9 +189,9 @@ public class AskPassword extends DistributionLibraryActivity {
                     }
                 }, 200
         );
-        introText = (TextView) findViewById(R.id.first_time);
-        remoteAsk = (TextView) findViewById(R.id.remote);
-        confirmPass = (EditText) findViewById(R.id.pass_confirm);
+        introText = findViewById(R.id.first_time);
+        remoteAsk = findViewById(R.id.remote);
+        confirmPass = findViewById(R.id.pass_confirm);
 //		confirmText = (TextView) findViewById(R.id.confirm_lbl);
         if (dbMasterKey.length() == 0) {
             firstTime = true;
@@ -463,9 +456,7 @@ public class AskPassword extends DistributionLibraryActivity {
 
         MenuItem item = menu.add(0, SWITCH_MODE_INDEX, 0, R.string.switch_mode);
         // icon set below in onPrepareOptionsMenu()
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.showIfRoom(item);
-        }
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         if (firstTime) {
             item.setEnabled(false);
         } else {
@@ -493,16 +484,11 @@ public class AskPassword extends DistributionLibraryActivity {
         super.onPrepareOptionsMenu(menu);
 
         MenuItem item = menu.findItem(SWITCH_MODE_INDEX);
-        if (CheckWrappers.mActionBarAvailable) {
-            if (viewMode == VIEW_NORMAL) {
-                item.setIcon(R.drawable.ic_menu_switch_numeric);
-            } else { // viewMode==VIEW_KEYPAD
-                item.setIcon(R.drawable.ic_menu_switch_alpha);
-            }
-        } else {
-            item.setIcon(android.R.drawable.ic_menu_directions);
+        if (viewMode == VIEW_NORMAL) {
+            item.setIcon(R.drawable.ic_menu_switch_numeric);
+        } else { // viewMode==VIEW_KEYPAD
+            item.setIcon(R.drawable.ic_menu_switch_alpha);
         }
-
         return true;
     }
 
@@ -523,9 +509,7 @@ public class AskPassword extends DistributionLibraryActivity {
                 Log.d(TAG, "commitment issues");
             }
         }
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.invalidateOptionsMenu(this);
-        }
+        invalidateOptionsMenu();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -592,7 +576,7 @@ public class AskPassword extends DistributionLibraryActivity {
         } catch (CryptoHelperException e) {
             Log.e(TAG, e.toString());
         }
-        if (ch.getStatus() == true) {
+        if (ch.getStatus()) {
             dbMasterKey = decryptedMasterKey;
             return true;
         }
@@ -777,9 +761,8 @@ public class AskPassword extends DistributionLibraryActivity {
                     }
                 }
         );
-        if (CheckWrappers.mActionBarAvailable) {
-            keypadSwitch.setVisibility(View.INVISIBLE);
-        }
+
+        keypadSwitch.setVisibility(View.INVISIBLE);
     }
 
     private void keypadOnDestroy() {

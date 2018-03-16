@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +39,7 @@ import org.openintents.safe.model.Passwords;
  *
  * @author Randy McEoin
  */
-public class CategoryEdit extends Activity {
+public class CategoryEdit extends AppCompatActivity {
 
     private static final boolean debug = false;
     private static String TAG = "CategoryEdit";

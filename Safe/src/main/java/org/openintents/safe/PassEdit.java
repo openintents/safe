@@ -17,7 +17,7 @@ package org.openintents.safe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,26 +25,18 @@ import android.view.WindowManager;
 
 import org.openintents.intents.CryptoIntents;
 
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
-
-public class PassEdit extends FragmentActivity {
-
-    private static final boolean debug = false;
-    private static final String TAG = "PassEdit";
+public class PassEdit extends AppCompatActivity {
 
     public static final int REQUEST_GEN_PASS = 10;
-
     public static final int SAVE_PASSWORD_INDEX = Menu.FIRST;
     public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
     public static final int DISCARD_PASSWORD_INDEX = Menu.FIRST + 2;
     public static final int GEN_PASSWORD_INDEX = Menu.FIRST + 3;
-
     public static final int RESULT_DELETED = RESULT_FIRST_USER;
-
-    private Intent restartTimerIntent = null;
-
+    private static final boolean debug = false;
+    private static final String TAG = "PassEdit";
     PassEditFragment fragment;
+    private Intent restartTimerIntent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +47,10 @@ public class PassEdit extends FragmentActivity {
         }
 
         // Prevent screen shot shown on recent apps
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
-            getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE
-            );
-        }
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE
+        );
 
         setContentView(R.layout.pass_edit);
 
@@ -95,10 +85,10 @@ public class PassEdit extends FragmentActivity {
         MenuItem saveItem = menu.add(0, SAVE_PASSWORD_INDEX, 0, R.string.save)
                 .setIcon(android.R.drawable.ic_menu_save).setShortcut('1', 's');
         fragment.setSaveItem(saveItem);
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.showIfRoom(saveItem);
-            saveItem.setVisible(!fragment.allFieldsEmpty());
-        }
+
+        saveItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        saveItem.setVisible(!fragment.allFieldsEmpty());
+
         menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete).setIcon(
                 android.R.drawable.ic_menu_delete
         );
@@ -133,16 +123,6 @@ public class PassEdit extends FragmentActivity {
                 startActivityForResult(i, REQUEST_GEN_PASS);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        if (!CheckWrappers.mActionBarAvailable) {
-            menu.findItem(SAVE_PASSWORD_INDEX).setEnabled(
-                    !fragment.allFieldsEmpty()
-            );
-        }
-        return super.onMenuOpened(featureId, menu);
     }
 
     /**

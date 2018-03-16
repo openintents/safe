@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -59,9 +60,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
-public class Restore extends Activity {
+public class Restore extends AppCompatActivity {
 
     private static final String TAG = "Restore";
 
@@ -89,13 +90,13 @@ public class Restore extends Activity {
             }
         }
     };
-    @InjectView(R.id.restore_filename)
+    @BindView(R.id.restore_filename)
     TextView filenameText;
-    @InjectView(R.id.restore_info)
+    @BindView(R.id.restore_info)
     TextView restoreInfoText;
-    @InjectView(R.id.restore_password)
+    @BindView(R.id.restore_password)
     EditText passwordText;
-    @InjectView(R.id.restore_button)
+    @BindView(R.id.restore_button)
     Button restoreButton;
     private boolean startRestore;
 
@@ -121,7 +122,7 @@ public class Restore extends Activity {
         Passwords.Initialize(this);
 
         setContentView(R.layout.restore);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         String title = getResources().getString(R.string.app_name) + " - " +
                 getResources().getString(R.string.restore);

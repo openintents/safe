@@ -16,11 +16,11 @@
  */
 package org.openintents.safe;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,45 +47,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import java.util.ArrayList;
-
 import org.openintents.intents.CryptoIntents;
-
 import org.openintents.safe.model.PassEntry;
 import org.openintents.safe.model.Passwords;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
+
+import java.util.ArrayList;
 
 /**
  * PassView Activity
  *
  * @author Randy McEoin
  */
-public class PassView extends Activity implements SimpleGestureFilter.SimpleGestureListener {
-
-    private static boolean debug = false;
-    private static String TAG = "PassView";
+public class PassView extends AppCompatActivity implements SimpleGestureFilter.SimpleGestureListener {
 
     public static final int EDIT_PASSWORD_INDEX = Menu.FIRST;
     public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
-
     public static final int REQUEST_EDIT_PASS = 1;
-
-    private Long RowId;
-    private Long CategoryId;
     public static boolean entryEdited = false;
-    private long[] rowids = null;
-    private int listPosition = -1;
-
-    ViewFlipper flipper = null;
-    private SimpleGestureFilter detector;
+    private static boolean debug = false;
+    private static String TAG = "PassView";
     private static int ANIMATION_DURATION = 300;
-    private boolean usernameCopiedToClipboard = false;
-
+    ViewFlipper flipper = null;
     Intent frontdoor;
-    private Intent restartTimerIntent = null;
-
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
@@ -95,6 +79,13 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             }
         }
     };
+    private Long RowId;
+    private Long CategoryId;
+    private long[] rowids = null;
+    private int listPosition = -1;
+    private SimpleGestureFilter detector;
+    private boolean usernameCopiedToClipboard = false;
+    private Intent restartTimerIntent = null;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -169,10 +160,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
 
         entryEdited = false;
 
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -244,14 +232,14 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             // failed to retreive record
             return null;
         }
-        Button previousButton = (Button) view.findViewById(R.id.prev_pass);
+        Button previousButton = view.findViewById(R.id.prev_pass);
         if (position > 0) {    // is there a previous?
             previousButton.setEnabled(true);
             previousButton.setOnClickListener(new prevButtonListener());
         } else {
             previousButton.setEnabled(false);
         }
-        Button nextButton = (Button) view.findViewById(R.id.next_pass);
+        Button nextButton = view.findViewById(R.id.next_pass);
         if (rowids.length > (position + 1)) {  // is there a next?
             nextButton.setEnabled(true);
             nextButton.setOnClickListener(new nextButtonListener());
@@ -259,54 +247,14 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             nextButton.setEnabled(false);
         }
 
-        Button goButton = (Button) view.findViewById(R.id.go);
+        Button goButton = view.findViewById(R.id.go);
         goButton.setOnClickListener(new goButtonListener());
 
-        TextView usernameText = (TextView) view.findViewById(R.id.username);
+        TextView usernameText = view.findViewById(R.id.username);
         usernameText.setOnClickListener(new usernameTextListener());
-        TextView passwordText = (TextView) view.findViewById(R.id.password);
+        TextView passwordText = view.findViewById(R.id.password);
         passwordText.setOnClickListener(new passwordTextListener());
         return view;
-    }
-
-    class goButtonListener implements View.OnClickListener {
-        public void onClick(View arg0) {
-            View current = flipper.getCurrentView();
-            TextView passwordText;
-            TextView websiteText;
-            websiteText = (TextView) current.findViewById(R.id.website);
-            passwordText = (TextView) current.findViewById(R.id.password);
-
-            String link = websiteText.getText().toString();
-            if (link == null || link.equals("") || link.equals("http://")) {
-                Toast.makeText(PassView.this, getString(R.string.invalid_url), Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (usernameCopiedToClipboard == false) {
-                // don't copy the password if username was already copied
-                clipboard(getString(R.string.password), passwordText.getText().toString());
-            }
-
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            Uri u = Uri.parse(link);
-            i.setData(u);
-            try {
-                startActivity(i);
-            } catch (ActivityNotFoundException e) {
-                // Let's try to catch the most common mistake: omitting http:
-                u = Uri.parse("http://" + link);
-                i.setData(u);
-                try {
-                    startActivity(i);
-                } catch (ActivityNotFoundException e2) {
-                    Toast.makeText(
-                            PassView.this, R.string.invalid_website,
-                            Toast.LENGTH_SHORT
-                    ).show();
-                }
-            }
-        }
     }
 
     private void showPreviousView(boolean isRightLeft) {
@@ -337,15 +285,6 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
         flipper.setDisplayedChild(newChildPosition);
     }
 
-    class prevButtonListener implements View.OnClickListener {
-        public void onClick(View arg0) {
-            if (debug) {
-                Log.d(TAG, "previousButton getDisplayedChild=" + flipper.getDisplayedChild());
-            }
-            showPreviousView(true);
-        }
-    }
-
     private void showNextView(boolean isRightLeft) {
         if ((listPosition + 1) == rowids.length) {
             // already at the end
@@ -368,15 +307,6 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             flipper.removeViewAt(0);
             View nextView = createView(listPosition + 1, first);
             flipper.addView(nextView, flipper.getChildCount());
-        }
-    }
-
-    class nextButtonListener implements View.OnClickListener {
-        public void onClick(View arg0) {
-            if (debug) {
-                Log.d(TAG, "nextButton getDisplayedChild=" + flipper.getDisplayedChild());
-            }
-            showNextView(true);
         }
     }
 
@@ -441,9 +371,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
 
         MenuItem item = menu.add(0, EDIT_PASSWORD_INDEX, 0, R.string.password_edit)
                 .setIcon(android.R.drawable.ic_menu_edit).setShortcut('1', 'e');
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar.showIfRoom(item);
-        }
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete)
                 .setIcon(android.R.drawable.ic_menu_delete).setShortcut('2', 'd');
@@ -579,14 +507,14 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
             TextView uniqueNameText;
             TextView packageAccessText;
 
-            descriptionText = (TextView) view.findViewById(R.id.description);
-            websiteText = (TextView) view.findViewById(R.id.website);
-            usernameText = (TextView) view.findViewById(R.id.username);
-            passwordText = (TextView) view.findViewById(R.id.password);
-            noteText = (TextView) view.findViewById(R.id.note);
-            lastEditedText = (TextView) view.findViewById(R.id.last_edited);
-            uniqueNameText = (TextView) view.findViewById(R.id.uniquename);
-            packageAccessText = (TextView) view.findViewById(R.id.packageaccess);
+            descriptionText = view.findViewById(R.id.description);
+            websiteText = view.findViewById(R.id.website);
+            usernameText = view.findViewById(R.id.username);
+            passwordText = view.findViewById(R.id.password);
+            noteText = view.findViewById(R.id.note);
+            lastEditedText = view.findViewById(R.id.last_edited);
+            uniqueNameText = view.findViewById(R.id.uniquename);
+            packageAccessText = view.findViewById(R.id.packageaccess);
 
             if (debug) {
                 Log.d(TAG, "populateFields: descriptionText=" + descriptionText);
@@ -637,31 +565,6 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
     }
 
     /**
-     * @author Billy Cui
-     *         refactored by Randy McEoin
-     */
-    class usernameTextListener implements View.OnClickListener {
-        public void onClick(View arg0) {
-            TextView usernameText = (TextView) arg0.findViewById(R.id.username);
-            if (debug) {
-                Log.d(TAG, "click " + usernameText.getText());
-            }
-            clipboard(getString(R.string.username), usernameText.getText().toString());
-            usernameCopiedToClipboard = true;
-        }
-    }
-
-    class passwordTextListener implements View.OnClickListener {
-        public void onClick(View arg0) {
-            TextView passwordText = (TextView) arg0.findViewById(R.id.password);
-            if (debug) {
-                Log.d(TAG, "click " + passwordText.getText());
-            }
-            clipboard(getString(R.string.password), passwordText.getText().toString());
-        }
-    }
-
-    /**
      * Copy to clipboard and toast to let user know that we have done so.
      *
      * @param fieldName Name of the field copied from
@@ -674,7 +577,7 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
                 Toast.LENGTH_SHORT
         ).show();
 
-        ClipboardManager cb = ClipboardManager.newInstance(getApplication());
+        ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         cb.setText(value);
         Safe.last_used_password = value;
     }
@@ -816,5 +719,88 @@ public class PassView extends Activity implements SimpleGestureFilter.SimpleGest
         Intent search = new Intent(this, Search.class);
         startActivity(search);
         return true;
+    }
+
+    class goButtonListener implements View.OnClickListener {
+        public void onClick(View arg0) {
+            View current = flipper.getCurrentView();
+            TextView passwordText;
+            TextView websiteText;
+            websiteText = current.findViewById(R.id.website);
+            passwordText = current.findViewById(R.id.password);
+
+            String link = websiteText.getText().toString();
+            if (link == null || link.equals("") || link.equals("http://")) {
+                Toast.makeText(PassView.this, getString(R.string.invalid_url), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (usernameCopiedToClipboard == false) {
+                // don't copy the password if username was already copied
+                clipboard(getString(R.string.password), passwordText.getText().toString());
+            }
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            Uri u = Uri.parse(link);
+            i.setData(u);
+            try {
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                // Let's try to catch the most common mistake: omitting http:
+                u = Uri.parse("http://" + link);
+                i.setData(u);
+                try {
+                    startActivity(i);
+                } catch (ActivityNotFoundException e2) {
+                    Toast.makeText(
+                            PassView.this, R.string.invalid_website,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+        }
+    }
+
+    class prevButtonListener implements View.OnClickListener {
+        public void onClick(View arg0) {
+            if (debug) {
+                Log.d(TAG, "previousButton getDisplayedChild=" + flipper.getDisplayedChild());
+            }
+            showPreviousView(true);
+        }
+    }
+
+    class nextButtonListener implements View.OnClickListener {
+        public void onClick(View arg0) {
+            if (debug) {
+                Log.d(TAG, "nextButton getDisplayedChild=" + flipper.getDisplayedChild());
+            }
+            showNextView(true);
+        }
+    }
+
+    /**
+     * @author Billy Cui
+     *         refactored by Randy McEoin
+     */
+    class usernameTextListener implements View.OnClickListener {
+        public void onClick(View arg0) {
+            TextView usernameText = arg0.findViewById(R.id.username);
+            if (debug) {
+                Log.d(TAG, "click " + usernameText.getText());
+            }
+            clipboard(getString(R.string.username), usernameText.getText().toString());
+            usernameCopiedToClipboard = true;
+        }
+    }
+
+    class passwordTextListener implements View.OnClickListener {
+        public void onClick(View arg0) {
+            TextView passwordText = arg0.findViewById(R.id.password);
+            if (debug) {
+                Log.d(TAG, "click " + passwordText.getText());
+            }
+            clipboard(getString(R.string.password), passwordText.getText().toString());
+        }
     }
 }

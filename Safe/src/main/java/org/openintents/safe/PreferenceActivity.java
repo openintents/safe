@@ -9,33 +9,26 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.List;
-
 import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
 
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
+import java.util.List;
 
-public class PreferenceActivity extends android.preference.PreferenceActivity
-        implements OnSharedPreferenceChangeListener {
+public class PreferenceActivity extends AppCompatActivity {
 
     public static final String IO_METHOD_DOCUMENT_PROVIDER = "document_provider";
     public static final String IO_METHOD_FILE = "file";
-
-    private static String TAG = "PreferenceActivity";
-
     public static final String PREFERENCE_ALLOW_EXTERNAL_ACCESS = "external_access";
     public static final String PREFERENCE_LOCK_TIMEOUT = "lock_timeout";
     public static final String PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE = "5";
@@ -48,7 +41,6 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
     public static final String PREFERENCE_AUTOBACKUP = "autobackup";
     public static final String PREFERENCE_AUTOBACKUP_DAYS = "autobackup_days";
     public static final String PREFERENCE_AUTOBACKUP_DAYS_DEFAULT_VALUE = "7";
-
     public static final String PREFERENCE_BACKUP_PATH = "backup_path";
     public static final String PREFERENCE_BACKUP_DOCUMENT = "backup_document";
     public static final String PREFERENCE_BACKUP_METHOD = "backup_method";
@@ -61,18 +53,13 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
     public static final String OISAFE_CSV = "oisafe.csv";
     public static final String PREFERENCE_EXPORT_PATH_DEFAULT_VALUE =
             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + OISAFE_CSV;
-
+    public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
     private static final int REQUEST_BACKUP_FILENAME = 0;
     private static final int REQUEST_BACKUP_DOCUMENT = 1;
     private static final int REQUEST_EXPORT_FILENAME = 2;
     private static final int REQUEST_EXPORT_DOCUMENT = 3;
-
-
-    public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
-
+    private static String TAG = "PreferenceActivity";
     Intent frontdoor;
-    private Intent restartTimerIntent = null;
-
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
@@ -83,76 +70,77 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
             }
         }
     };
+    private Intent restartTimerIntent = null;
+
+    static String getBackupPath(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_BACKUP_PATH, PREFERENCE_BACKUP_PATH_DEFAULT_VALUE);
+    }
+
+    static void setBackupPathAndMethod(Context context, String path) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_BACKUP_PATH, path);
+        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_FILE);
+        editor.apply();
+    }
+
+    public static String getBackupDocument(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_BACKUP_DOCUMENT, null);
+    }
+
+    static void setBackupDocumentAndMethod(Context context, String uriString) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_BACKUP_DOCUMENT, uriString);
+        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
+        editor.apply();
+    }
+
+    static String getExportPath(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_EXPORT_PATH, PREFERENCE_EXPORT_PATH_DEFAULT_VALUE);
+    }
+
+    static void setExportPathAndMethod(Context context, String path) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_EXPORT_PATH, path);
+        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_FILE);
+        editor.apply();
+    }
+
+    static String getExportDocument(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFERENCE_EXPORT_DOCUMENT, null);
+    }
+
+    static void setExportDocumentAndMethod(Context context, String uriString) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREFERENCE_EXPORT_DOCUMENT, uriString);
+        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
+        editor.apply();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.preferences);
         frontdoor = new Intent(this, Safe.class);
         frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
         restartTimerIntent = new Intent(CryptoIntents.ACTION_RESTART_TIMER);
 
-        // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.preferences);
-
-        Preference backupPathPref = findPreference(PREFERENCE_BACKUP_PATH);
-        backupPathPref.setOnPreferenceClickListener(
-                new OnPreferenceClickListener() {
-                    public boolean onPreferenceClick(Preference pref) {
-                        Intent intent;
-                        int requestId;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_BACKUP, OISAFE_XML);
-                            requestId = REQUEST_BACKUP_FILENAME;
-                        } else {
-                            intent = Intents.createPickFileIntent(PreferenceActivity.getBackupPath(PreferenceActivity.this), R.string.backup_select_file);
-                            requestId = REQUEST_BACKUP_FILENAME;
-                        }
-                        if (intentCallable(intent)) {
-                            startActivityForResult(intent, requestId);
-                        } else {
-                            askForFileManager();
-                        }
-                        return false;
-                    }
-                }
-        );
-
-        Preference exportPathPref = findPreference(PREFERENCE_EXPORT_PATH);
-        exportPathPref.setOnPreferenceClickListener(
-                new OnPreferenceClickListener() {
-                    public boolean onPreferenceClick(Preference pref) {
-                        Intent intent;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_EXPORT, OISAFE_CSV);
-                        } else {
-                            intent = Intents.createPickFileIntent(getExportPath(PreferenceActivity.this), R.string.export_file_select);
-                        }
-                        if (intentCallable(intent)) {
-                            startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
-                        } else {
-                            askForFileManager();
-                        }
-                        return false;
-                    }
-                }
-        );
-
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-        changePreferenceSummaryToCurrentValue(backupPathPref, getBackupPath(this));
-        changePreferenceSummaryToCurrentValue(exportPathPref, getExportPath(this));
-
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
             startActivity(frontdoor);
             return;
         }
@@ -179,7 +167,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
             Log.d(TAG, "onUserInteraction()");
         }
 
-        if (CategoryList.isSignedIn() == false) {
+        if (!CategoryList.isSignedIn()) {
 //			startActivity(frontdoor);
         } else {
             if (restartTimerIntent != null) {
@@ -199,60 +187,6 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
-    static String getBackupPath(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(PREFERENCE_BACKUP_PATH, PREFERENCE_BACKUP_PATH_DEFAULT_VALUE);
-    }
-
-    static void setBackupPathAndMethod(Context context, String path) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREFERENCE_BACKUP_PATH, path);
-        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_FILE);
-        editor.commit();
-    }
-
-    public static String getBackupDocument(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(PREFERENCE_BACKUP_DOCUMENT, null);
-    }
-
-    static void setBackupDocumentAndMethod(Context context, String uriString) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREFERENCE_BACKUP_DOCUMENT, uriString);
-        editor.putString(PREFERENCE_BACKUP_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
-        editor.commit();
-    }
-
-    static String getExportPath(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(PREFERENCE_EXPORT_PATH, PREFERENCE_EXPORT_PATH_DEFAULT_VALUE);
-    }
-
-    static void setExportPathAndMethod(Context context, String path) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREFERENCE_EXPORT_PATH, path);
-        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_FILE);
-        editor.commit();
-    }
-
-    static String getExportDocument(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(PREFERENCE_EXPORT_DOCUMENT, null);
-    }
-
-    static void setExportDocumentAndMethod(Context context, String uriString) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREFERENCE_EXPORT_DOCUMENT, uriString);
-        editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
-        editor.commit();
-    }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
@@ -281,19 +215,6 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
         }
     }
 
-    private boolean intentCallable(Intent intent) {
-        List<ResolveInfo> list = getPackageManager().queryIntentActivities(
-                intent,
-                PackageManager.MATCH_DEFAULT_ONLY
-        );
-        return list.size() > 0;
-    }
-
-    private void askForFileManager() {
-        Toast.makeText(this, R.string.download_oi_filemanager, Toast.LENGTH_LONG).show();
-        showDialog(DIALOG_DOWNLOAD_OI_FILEMANAGER);
-    }
-
     @Override
     protected Dialog onCreateDialog(int id) {
         Dialog d = super.onCreateDialog(id);
@@ -319,23 +240,89 @@ public class PreferenceActivity extends android.preference.PreferenceActivity
         }
     }
 
-    private void changePreferenceSummaryToCurrentValue(Preference pref, String value) {
-        pref.setSummary(value);
-    }
+    public static class PreferenceFragment extends PreferenceFragmentCompat implements OnSharedPreferenceChangeListener {
 
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-                                          String key) {
-        if (key.equals(PREFERENCE_BACKUP_PATH)) {
-            changePreferenceSummaryToCurrentValue(
-                    findPreference(PREFERENCE_BACKUP_PATH),
-                    getBackupPath(this)
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            addPreferencesFromResource(R.xml.preferences);
+
+            Preference backupPathPref = findPreference(PREFERENCE_BACKUP_PATH);
+            backupPathPref.setOnPreferenceClickListener(
+                    pref -> {
+                        Intent intent;
+                        int requestId;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_BACKUP, OISAFE_XML);
+                            requestId = REQUEST_BACKUP_FILENAME;
+                        } else {
+                            intent = Intents.createPickFileIntent(PreferenceActivity.getBackupPath(getActivity()), R.string.backup_select_file);
+                            requestId = REQUEST_BACKUP_FILENAME;
+                        }
+                        if (intentCallable(intent)) {
+                            startActivityForResult(intent, requestId);
+                        } else {
+                            askForFileManager();
+                        }
+                        return false;
+                    }
             );
-        } else if (key.equals(PREFERENCE_EXPORT_PATH)) {
-            changePreferenceSummaryToCurrentValue(
-                    findPreference(PREFERENCE_EXPORT_PATH),
-                    getExportPath(this)
+
+            Preference exportPathPref = findPreference(PREFERENCE_EXPORT_PATH);
+            exportPathPref.setOnPreferenceClickListener(
+                    pref -> {
+                        Intent intent;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            intent = Intents.createCreateDocumentIntent(CategoryList.MIME_TYPE_EXPORT, OISAFE_CSV);
+                        } else {
+                            intent = Intents.createPickFileIntent(getExportPath(getActivity()), R.string.export_file_select);
+                        }
+                        if (intentCallable(intent)) {
+                            startActivityForResult(intent, REQUEST_EXPORT_FILENAME);
+                        } else {
+                            askForFileManager();
+                        }
+                        return false;
+                    }
             );
+
+            getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+            changePreferenceSummaryToCurrentValue(backupPathPref, getBackupPath(getActivity()));
+            changePreferenceSummaryToCurrentValue(exportPathPref, getExportPath(getActivity()));
         }
-    }
 
+
+        private boolean intentCallable(Intent intent) {
+            List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(
+                    intent,
+                    PackageManager.MATCH_DEFAULT_ONLY
+            );
+            return list.size() > 0;
+        }
+
+        private void askForFileManager() {
+            Toast.makeText(getActivity(), R.string.download_oi_filemanager, Toast.LENGTH_LONG).show();
+            getActivity().showDialog(DIALOG_DOWNLOAD_OI_FILEMANAGER);
+        }
+
+
+        private void changePreferenceSummaryToCurrentValue(Preference pref, String value) {
+            pref.setSummary(value);
+        }
+
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+                                              String key) {
+            if (key.equals(PREFERENCE_BACKUP_PATH)) {
+                changePreferenceSummaryToCurrentValue(
+                        findPreference(PREFERENCE_BACKUP_PATH),
+                        getBackupPath(getActivity())
+                );
+            } else if (key.equals(PREFERENCE_EXPORT_PATH)) {
+                changePreferenceSummaryToCurrentValue(
+                        findPreference(PREFERENCE_EXPORT_PATH),
+                        getExportPath(getActivity())
+                );
+            }
+        }
+
+    }
 }

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
 
@@ -13,7 +14,7 @@ import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.FileManagerIntents;
 import org.openintents.util.IntentUtils;
 
-public class DialogHostingActivity extends Activity {
+public class DialogHostingActivity extends AppCompatActivity {
 
     private static final String TAG = "DialogHostingActivity";
     private static final boolean debug = false;

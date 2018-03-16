@@ -16,12 +16,13 @@
  */
 package org.openintents.safe;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -36,54 +37,48 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
 import org.openintents.intents.CryptoIntents;
 
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 /**
  * PassGen Activity
  *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class PassGen extends Activity {
-
-    private static boolean debug = false;
-    private static String TAG = "PassGen";
+public class PassGen extends AppCompatActivity {
 
     public static final int CHANGE_ENTRY_RESULT = 2;
     public static final String NEW_PASS_KEY = "new_pass";
-
+    private static boolean debug = false;
+    private static String TAG = "PassGen";
+    private final OnClickListener cancel_listener = new OnClickListener() {
+        public void onClick(View v) {
+            finish();
+        }
+    };
     EditText pass_view;
+    private final OnClickListener copy_clip_listener = new OnClickListener() {
+        public void onClick(View v) {
+            ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            cb.setText(pass_view.getText().toString());
+            finish();
+        }
+    };
+    private final OnClickListener copy_entry_listener = new OnClickListener() {
+        public void onClick(View v) {
+            getIntent().putExtra(PassGen.NEW_PASS_KEY, pass_view.getText().toString());
+            setResult(CHANGE_ENTRY_RESULT, getIntent());
+            finish();
+        }
+    };
     EditText pass_len;
     CheckBox pass_upper;
     CheckBox pass_lower;
     CheckBox pass_num;
     CheckBox pass_symbol;
     String charset = "";
-
-    Button copy_clip;
-    Button copy_entry;
-    Button cancel;
-
-    Intent frontdoor;
-    private Intent restartTimerIntent = null;
-
-    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
-                if (debug) {
-                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
-                }
-                startActivity(frontdoor);
-            }
-        }
-    };
-
     private final OnClickListener update_click = new OnClickListener() {
         public void onClick(View v) {
             genPassword();
@@ -107,28 +102,21 @@ public class PassGen extends Activity {
             genPassword();
         }
     };
-
-    private final OnClickListener cancel_listener = new OnClickListener() {
-        public void onClick(View v) {
-            finish();
+    Button copy_clip;
+    Button copy_entry;
+    Button cancel;
+    Intent frontdoor;
+    BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
+                if (debug) {
+                    Log.d(TAG, "caught ACTION_CRYPTO_LOGGED_OUT");
+                }
+                startActivity(frontdoor);
+            }
         }
     };
-
-    private final OnClickListener copy_clip_listener = new OnClickListener() {
-        public void onClick(View v) {
-            ClipboardManager cb = ClipboardManager.newInstance(getApplication());
-            cb.setText(pass_view.getText().toString());
-            finish();
-        }
-    };
-
-    private final OnClickListener copy_entry_listener = new OnClickListener() {
-        public void onClick(View v) {
-            getIntent().putExtra(PassGen.NEW_PASS_KEY, pass_view.getText().toString());
-            setResult(CHANGE_ENTRY_RESULT, getIntent());
-            finish();
-        }
-    };
+    private Intent restartTimerIntent = null;
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -166,10 +154,8 @@ public class PassGen extends Activity {
         copy_entry.setOnClickListener(copy_entry_listener);
         cancel.setOnClickListener(cancel_listener);
 
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-        }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

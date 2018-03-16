@@ -269,6 +269,8 @@
   <string name="oi_safe_permission_intents">encrypt and decrypt data</string>
   <string name="oi_safe_permission_intents_descr">Allows the application to encrypt and decrypt text, and access the passwords they have stored in OI Safe.</string>
   <string name="password_file">Password file</string>
+  <string name="notif_channel_title">Auto lock</string>
+  <string name="notif_channel_description">Notification when OI Safe is unlocked</string>
 
   <!-- ***************************
        Preferences

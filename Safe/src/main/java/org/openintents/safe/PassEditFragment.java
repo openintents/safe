@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -40,42 +42,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.openintents.intents.CryptoIntents;
-
 import org.openintents.safe.model.PassEntry;
 import org.openintents.safe.model.Passwords;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.ClipboardManager;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 public class PassEditFragment extends Fragment {
 
-    private static final String TAG = "PassEditFragment";
-    private static final boolean debug = false;
     public static final int REQUEST_GEN_PASS = 10;
-
     public static final int SAVE_PASSWORD_INDEX = Menu.FIRST;
     public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 1;
     public static final int DISCARD_PASSWORD_INDEX = Menu.FIRST + 2;
     public static final int GEN_PASSWORD_INDEX = Menu.FIRST + 3;
-
     public static final int RESULT_DELETED = Activity.RESULT_FIRST_USER;
-
-    private EditText descriptionText;
-    public EditText passwordText;
-    private EditText usernameText;
-    private EditText websiteText;
-    private EditText noteText;
-    private Long RowId;
-    private Long CategoryId;
-    public boolean pass_gen_ret = false;
-    private boolean discardEntry = false;
+    private static final String TAG = "PassEditFragment";
+    private static final boolean debug = false;
     public static boolean entryEdited = false;
+    public EditText passwordText;
+    public boolean pass_gen_ret = false;
     boolean populated = false;
-    private MenuItem saveItem = null;
-
     Intent frontdoor;
-    private Intent restartTimerIntent = null;
-
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(
@@ -88,6 +72,15 @@ public class PassEditFragment extends Fragment {
             }
         }
     };
+    private EditText descriptionText;
+    private EditText usernameText;
+    private EditText websiteText;
+    private EditText noteText;
+    private Long RowId;
+    private Long CategoryId;
+    private boolean discardEntry = false;
+    private MenuItem saveItem = null;
+    private Intent restartTimerIntent = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -147,82 +140,77 @@ public class PassEditFragment extends Fragment {
         entryEdited = false;
 
         goButton.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
+                arg0 -> {
 
-                        String link = websiteText.getText().toString();
-                        if (link == null || link.equals("") || link.equals("http://")) {
-                            Toast.makeText(
-                                    getActivity(),
-                                    getString(R.string.invalid_url), Toast.LENGTH_SHORT
-                            )
-                                    .show();
-                            return;
-                        }
-
+                    String link = websiteText.getText().toString();
+                    if (link == null || link.equals("") || link.equals("http://")) {
                         Toast.makeText(
                                 getActivity(),
-                                getString(R.string.password) + " "
-                                        + getString(R.string.copied_to_clipboard),
-                                Toast.LENGTH_SHORT
-                        ).show();
+                                getString(R.string.invalid_url), Toast.LENGTH_SHORT
+                        )
+                                .show();
+                        return;
+                    }
 
-                        ClipboardManager cb = ClipboardManager
-                                .newInstance(getActivity().getApplication());
-                        cb.setText(passwordText.getText().toString());
+                    Toast.makeText(
+                            getActivity(),
+                            getString(R.string.password) + " "
+                                    + getString(R.string.copied_to_clipboard),
+                            Toast.LENGTH_SHORT
+                    ).show();
 
-                        Intent i = new Intent(Intent.ACTION_VIEW);
+                    ClipboardManager cb = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    cb.setText(passwordText.getText().toString());
 
-                        Uri u = Uri.parse(link);
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+
+                    Uri u = Uri.parse(link);
+                    i.setData(u);
+                    try {
+                        startActivity(i);
+                    } catch (ActivityNotFoundException e) {
+                        // Let's try to catch the most common mistake: omitting
+                        // http:
+                        u = Uri.parse("http://" + link);
                         i.setData(u);
                         try {
                             startActivity(i);
-                        } catch (ActivityNotFoundException e) {
-                            // Let's try to catch the most common mistake: omitting
-                            // http:
-                            u = Uri.parse("http://" + link);
-                            i.setData(u);
-                            try {
-                                startActivity(i);
-                            } catch (ActivityNotFoundException e2) {
-                                Toast.makeText(
-                                        getActivity(), R.string.invalid_website,
-                                        Toast.LENGTH_SHORT
-                                ).show();
-                            }
+                        } catch (ActivityNotFoundException e2) {
+                            Toast.makeText(
+                                    getActivity(), R.string.invalid_website,
+                                    Toast.LENGTH_SHORT
+                            ).show();
                         }
                     }
                 }
         );
         // restoreMe();
 
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar bar = new WrapActionBar(getActivity());
-            bar.setDisplayHomeAsUpEnabled(true);
 
-            // if Action Bar is available, save button needs to be updated more
-            // often
-            TextWatcher textWatcher = new TextWatcher() {
-                public void afterTextChanged(Editable s) {
-                }
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-                public void beforeTextChanged(CharSequence s, int start,
-                                              int count, int after) {
-                }
+        // if Action Bar is available, save button needs to be updated more
+        // often
+        TextWatcher textWatcher = new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+            }
 
-                public void onTextChanged(CharSequence s, int start,
-                                          int before, int count) {
-                    if (saveItem != null) {
-                        saveItem.setVisible(!allFieldsEmpty());
-                    }
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                if (saveItem != null) {
+                    saveItem.setVisible(!allFieldsEmpty());
                 }
-            };
-            descriptionText.addTextChangedListener(textWatcher);
-            passwordText.addTextChangedListener(textWatcher);
-            usernameText.addTextChangedListener(textWatcher);
-            noteText.addTextChangedListener(textWatcher);
-            websiteText.addTextChangedListener(textWatcher);
-        }
+            }
+        };
+        descriptionText.addTextChangedListener(textWatcher);
+        passwordText.addTextChangedListener(textWatcher);
+        usernameText.addTextChangedListener(textWatcher);
+        noteText.addTextChangedListener(textWatcher);
+        websiteText.addTextChangedListener(textWatcher);
 
         getActivity().sendBroadcast(restartTimerIntent);
         return root;

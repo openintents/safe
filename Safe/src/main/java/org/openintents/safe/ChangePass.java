@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,7 @@ import org.openintents.safe.password.Master;
  *
  * @author Randy McEoin
  */
-public class ChangePass extends Activity {
+public class ChangePass extends AppCompatActivity {
 
     private static boolean debug = false;
     private static final String TAG = "ChangePass";

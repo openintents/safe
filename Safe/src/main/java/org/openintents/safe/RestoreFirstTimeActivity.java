@@ -3,6 +3,7 @@ package org.openintents.safe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 import org.openintents.util.VersionUtils;
 
-public class RestoreFirstTimeActivity extends Activity {
+public class RestoreFirstTimeActivity extends AppCompatActivity {
     private Button restore;
     private Button cancel;
     private String path;

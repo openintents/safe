@@ -1,9 +1,9 @@
 package org.openintents.safe.dialog;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.support.v7.app.AlertDialog;
 import android.widget.CheckBox;
 
 import org.openintents.safe.R;

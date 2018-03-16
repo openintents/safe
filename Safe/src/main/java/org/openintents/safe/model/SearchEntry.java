@@ -21,7 +21,7 @@ import android.os.Parcelable;
 /**
  * @author Randy McEoin
  */
-public class SearchEntry extends Object implements Parcelable {
+public class SearchEntry implements Parcelable {
     public long id = -1;
     public String name;
     public String category;

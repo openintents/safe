@@ -18,7 +18,6 @@ package org.openintents.safe;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -40,19 +40,16 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.model.PassEntry;
+import org.openintents.safe.model.Passwords;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import org.openintents.intents.CryptoIntents;
-
-import org.openintents.safe.model.PassEntry;
-import org.openintents.safe.model.Passwords;
-import org.openintents.safe.wrappers.CheckWrappers;
-import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
 
 /**
  * PassList Activity
@@ -63,10 +60,7 @@ import org.openintents.safe.wrappers.honeycomb.WrapActionBar;
  *
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class PassList extends ListActivity {
-
-    private static final boolean debug = false;
-    private static final String TAG = "PassList";
+public class PassList extends AppCompatActivity {
 
     // Menu Item order
     public static final int VIEW_PASSWORD_INDEX = Menu.FIRST;
@@ -74,35 +68,23 @@ public class PassList extends ListActivity {
     public static final int ADD_PASSWORD_INDEX = Menu.FIRST + 2;
     public static final int DEL_PASSWORD_INDEX = Menu.FIRST + 3;
     public static final int MOVE_PASSWORD_INDEX = Menu.FIRST + 4;
-
     public static final int REQUEST_VIEW_PASSWORD = 1;
     public static final int REQUEST_EDIT_PASSWORD = 2;
     public static final int REQUEST_ADD_PASSWORD = 3;
     public static final int REQUEST_MOVE_PASSWORD = 4;
-
-    protected static final int MSG_UPDATE_LIST = 0x101;
-
     public static final String KEY_ID = "id";  // Intent keys
     public static final String KEY_CATEGORY_ID = "categoryId";  // Intent keys
     public static final String KEY_ROWIDS = "rowids";
     public static final String KEY_LIST_POSITION = "position";
-
-    private Long CategoryId = null;
-
-    Intent frontdoor;
-    private Intent restartTimerIntent = null;
-
+    protected static final int MSG_UPDATE_LIST = 0x101;
+    private static final boolean debug = false;
+    private static final String TAG = "PassList";
     private static fillerTask taskFiller = null;
-    private ProgressDialog decryptProgress = null;
-
-    private List<PassEntry> rows = null;
-    private int lastPosition = 0;
-
+    Intent frontdoor;
     // passDescriptions is updated by the background thread
     List<String> passDescriptions = new ArrayList<String>();
     // passDescriptions4Adapter must only be modified by the UI thread
     List<String> passDescriptions4Adapter = new ArrayList<String>();
-
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(CryptoIntents.ACTION_CRYPTO_LOGGED_OUT)) {
@@ -113,6 +95,30 @@ public class PassList extends ListActivity {
             }
         }
     };
+    private Long CategoryId = null;
+    private Intent restartTimerIntent = null;
+    private ProgressDialog decryptProgress = null;
+    private List<PassEntry> rows = null;
+    private int lastPosition = 0;
+    private ListView list;
+
+    public static long[] getRowsIds(List<PassEntry> rows) {
+        if (debug) {
+            Log.d(TAG, "getRowsIds() rows=" + rows);
+        }
+        if (rows != null) {
+            long[] ids = new long[rows.size()];
+            Iterator<PassEntry> passIter = rows.iterator();
+            int i = 0;
+            while (passIter.hasNext()) {
+                ids[i] = passIter.next().id;
+                i++;
+            }
+            return ids;
+        } else {
+            return null;
+        }
+    }
 
     /**
      * Called when the activity is first created.
@@ -144,16 +150,15 @@ public class PassList extends ListActivity {
 
         setContentView(R.layout.pass_list);
 
-        final ListView list = getListView();
+        list = findViewById(android.R.id.list);
+        list.setEmptyView(findViewById(android.R.id.empty));
         list.setFocusable(true);
         list.setOnCreateContextMenuListener(this);
         list.setTextFilterEnabled(true);
+        list.setOnItemClickListener(this::onListItemClick);
         registerForContextMenu(list);
 
-        if (CheckWrappers.mActionBarAvailable) {
-            WrapActionBar bar = new WrapActionBar(this);
-            bar.setDisplayHomeAsUpEnabled(true);
-        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sendBroadcast(restartTimerIntent);
     }
@@ -220,7 +225,7 @@ public class PassList extends ListActivity {
             taskFiller.setActivity(this);
             startDecryptProgressDialog();
         }
-        ListAdapter la = getListAdapter();
+        ListAdapter la = list.getAdapter();
         if (la != null) {
             if (debug) {
                 Log.d(TAG, "onResume: count=" + la.getCount());
@@ -235,7 +240,7 @@ public class PassList extends ListActivity {
 //			List<String> l = new ArrayList<String>();
 //			l.add("");
 //			setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, l));
-			/* /HACK */
+            /* /HACK */
             fillData();
         }
     }
@@ -301,71 +306,6 @@ public class PassList extends ListActivity {
         taskFiller.execute(new String[]{null});
     }
 
-    private class fillerTask extends AsyncTask<String, Void, String> {
-        PassList currentActivity = null;
-
-        public void setActivity(PassList act) {
-            currentActivity = act;
-        }
-
-        @Override
-        protected String doInBackground(String... unused) {
-
-            if (debug) {
-                Log.d(TAG, "CategoryId=" + CategoryId);
-            }
-            rows = Passwords.getPassEntries(CategoryId, true, true);
-            passDescriptions.clear();
-            if (rows != null) {
-                Iterator<PassEntry> passIter = rows.iterator();
-                while (passIter.hasNext()) {
-                    PassEntry passEntry = passIter.next();
-                    passDescriptions.add(passEntry.plainDescription);
-                }
-            }
-            if (debug) {
-                Log.d(TAG, "doInBackground complete");
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if (currentActivity != null) {
-                // because the activity can change on orientation change, we
-                // need to be sure to set values
-                // on the currentActivity. Otherwise the user can change
-                // orientation while we're working on the background
-                // task and we won't be setting values against the activity
-                // that's being displayed
-                passDescriptions4Adapter.clear();
-                passDescriptions4Adapter.addAll(passDescriptions);
-                ArrayAdapter<String> entries = new ArrayAdapter<String>(
-                        PassList.this, android.R.layout.simple_list_item_1,
-                        passDescriptions4Adapter
-                );
-                currentActivity.setListAdapter(entries);
-                currentActivity.rows = rows;
-                if (debug) {
-                    Log.d(TAG, "entries.getCount=" + entries.getCount());
-                }
-                if (debug) {
-                    Log.d(TAG, "lastPosition=" + currentActivity.lastPosition);
-                }
-                if (currentActivity.lastPosition > 2) {
-                    currentActivity
-                            .setSelection(currentActivity.lastPosition - 1);
-                    currentActivity.lastPosition = 0;
-                }
-                if (currentActivity.decryptProgress != null) {
-                    currentActivity.decryptProgress.dismiss();
-                }
-            }
-
-            taskFiller = null;
-        }
-    }
-
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         if (restartTimerIntent != null) {
@@ -377,7 +317,7 @@ public class PassList extends ListActivity {
         }
         MenuItem miDel = menu.findItem(DEL_PASSWORD_INDEX);
         MenuItem miMove = menu.findItem(MOVE_PASSWORD_INDEX);
-        if (getSelectedItemPosition() > -1) {
+        if (list.getSelectedItemPosition() > -1) {
             miDel.setEnabled(true);
             miMove.setEnabled(true);
         } else {
@@ -393,12 +333,10 @@ public class PassList extends ListActivity {
 
         MenuItem item = menu.add(0, ADD_PASSWORD_INDEX, 0, R.string.password_add);
         item.setShortcut('2', 'a');
-        if (CheckWrappers.mActionBarAvailable) {
-            item.setIcon(R.drawable.ic_menu_add_password);
-            WrapActionBar.showIfRoom(item);
-        } else {
-            item.setIcon(android.R.drawable.ic_menu_add);
-        }
+
+        item.setIcon(R.drawable.ic_menu_add_password);
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
 
         menu.add(0, DEL_PASSWORD_INDEX, 0, R.string.password_delete)
                 .setIcon(android.R.drawable.ic_menu_delete)
@@ -499,24 +437,6 @@ public class PassList extends ListActivity {
                 .show();
     }
 
-    public static long[] getRowsIds(List<PassEntry> rows) {
-        if (debug) {
-            Log.d(TAG, "getRowsIds() rows=" + rows);
-        }
-        if (rows != null) {
-            long[] ids = new long[rows.size()];
-            Iterator<PassEntry> passIter = rows.iterator();
-            int i = 0;
-            while (passIter.hasNext()) {
-                ids[i] = passIter.next().id;
-                i++;
-            }
-            return ids;
-        } else {
-            return null;
-        }
-    }
-
     private void viewPassword(int position) {
         Intent vi = new Intent(this, PassView.class);
         vi.putExtra(KEY_ID, rows.get(position).id);
@@ -533,7 +453,7 @@ public class PassList extends ListActivity {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         int position = -1;
         if (info == null) {
-            position = getSelectedItemPosition();
+            position = list.getSelectedItemPosition();
         } else {
             // used when this is called from a ContextMenu
             position = info.position;
@@ -570,9 +490,7 @@ public class PassList extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
+    protected void onListItemClick(AdapterView l, View v, int position, long id) {
         viewPassword(position);
     }
 
@@ -610,5 +528,70 @@ public class PassList extends ListActivity {
         Intent search = new Intent(this, Search.class);
         startActivity(search);
         return true;
+    }
+
+    private class fillerTask extends AsyncTask<String, Void, String> {
+        PassList currentActivity = null;
+
+        public void setActivity(PassList act) {
+            currentActivity = act;
+        }
+
+        @Override
+        protected String doInBackground(String... unused) {
+
+            if (debug) {
+                Log.d(TAG, "CategoryId=" + CategoryId);
+            }
+            rows = Passwords.getPassEntries(CategoryId, true, true);
+            passDescriptions.clear();
+            if (rows != null) {
+                Iterator<PassEntry> passIter = rows.iterator();
+                while (passIter.hasNext()) {
+                    PassEntry passEntry = passIter.next();
+                    passDescriptions.add(passEntry.plainDescription);
+                }
+            }
+            if (debug) {
+                Log.d(TAG, "doInBackground complete");
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (currentActivity != null) {
+                // because the activity can change on orientation change, we
+                // need to be sure to set values
+                // on the currentActivity. Otherwise the user can change
+                // orientation while we're working on the background
+                // task and we won't be setting values against the activity
+                // that's being displayed
+                passDescriptions4Adapter.clear();
+                passDescriptions4Adapter.addAll(passDescriptions);
+                ArrayAdapter<String> entries = new ArrayAdapter<String>(
+                        PassList.this, android.R.layout.simple_list_item_1,
+                        passDescriptions4Adapter
+                );
+                currentActivity.list.setAdapter(entries);
+                currentActivity.rows = rows;
+                if (debug) {
+                    Log.d(TAG, "entries.getCount=" + entries.getCount());
+                }
+                if (debug) {
+                    Log.d(TAG, "lastPosition=" + currentActivity.lastPosition);
+                }
+                if (currentActivity.lastPosition > 2) {
+                    currentActivity.list
+                            .setSelection(currentActivity.lastPosition - 1);
+                    currentActivity.lastPosition = 0;
+                }
+                if (currentActivity.decryptProgress != null) {
+                    currentActivity.decryptProgress.dismiss();
+                }
+            }
+
+            taskFiller = null;
+        }
     }
 }

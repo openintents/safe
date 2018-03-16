@@ -16,7 +16,7 @@
  */
 package org.openintents.safe.model;
 
-public class PackageAccessEntry extends Object {
+public class PackageAccessEntry {
     public boolean needsDecrypt;
     public boolean needsEncrypt = true;
     public String packageAccess;

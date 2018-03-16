@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * @author Steven Osborn - http://steven.bitsetters.com
  */
-public class PassEntry extends Object {
+public class PassEntry {
     public long id = -1;
     public boolean needsDecryptDescription;
     public boolean needsDecrypt;

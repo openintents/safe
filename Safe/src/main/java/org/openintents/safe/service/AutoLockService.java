@@ -40,6 +40,7 @@ public class AutoLockService extends Service {
     private static long timeRemaining = 0;
 
     SharedPreferences mPreferences;
+    private ServiceNotification serviceNotification;
 
     @Override
     public void onCreate() {
@@ -72,7 +73,7 @@ public class AutoLockService extends Service {
         registerReceiver(mIntentReceiver, filter);
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        serviceNotification = new ServiceNotification(this);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class AutoLockService extends Service {
         if (Master.getMasterKey() != null) {
             lockOut();
         }
-        ServiceNotification.clearNotification(AutoLockService.this);
+        serviceNotification.clearNotification();
         if (t != null) {
             t.cancel();
         }
@@ -123,7 +124,7 @@ public class AutoLockService extends Service {
      */
     private void lockOut() {
         Master.setMasterKey(null);
-        ServiceNotification.clearNotification(AutoLockService.this);
+        serviceNotification.clearNotification();
         if (t != null) {
             t.cancel();
         }
@@ -139,13 +140,13 @@ public class AutoLockService extends Service {
      */
     private void startTimer() {
         if (Master.getMasterKey() == null) {
-            ServiceNotification.clearNotification(AutoLockService.this);
+            serviceNotification.clearNotification();
             if (t != null) {
                 t.cancel();
             }
             return;
         }
-        ServiceNotification.setNotification(AutoLockService.this);
+        serviceNotification.setNotification(AutoLockService.this);
         String timeout = mPreferences.getString(
                 PreferenceActivity.PREFERENCE_LOCK_TIMEOUT,
                 PreferenceActivity.PREFERENCE_LOCK_TIMEOUT_DEFAULT_VALUE
@@ -176,8 +177,8 @@ public class AutoLockService extends Service {
                     }
                     lockOut();
                 } else {
-                    ServiceNotification.updateProgress(
-                            AutoLockService.this, (int) timeoutUntilStop,
+                    serviceNotification.updateProgress(
+                            (int) timeoutUntilStop,
                             (int) timeRemaining
                     );
                 }

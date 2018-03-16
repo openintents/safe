@@ -59,28 +59,17 @@
     android:label="@string/app_name"
     android:fullBackupContent="false"
     android:allowBackup="false"
+    android:theme="@style/AppTheme"
     tools:replace="android:label">
-
-    <!-- aTrackDog metadata -->
-    <meta-data
-      android:name="com.a0soft.gphone.aTrackDog.testVersion"
-      android:value="26" />
-
-    <!-- OI About metadata -->
-    <meta-data
-      android:name="org.openintents.about"
-      android:resource="@xml/about" />
 
     <activity
       android:name=".Safe"
-      class=".Safe"
       android:label="@string/app_name"
       android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     <!-- FrontDoor was the original main activity prior to 1.2.4.   Now it
       is a place holder which extends Safe -->
     <activity
       android:name=".FrontDoor"
-      class=".FrontDoor"
       android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -90,7 +79,6 @@
 
     <activity
       android:name=".IntentHandlerActivity"
-      class=".IntentHandler"
       android:label="@string/app_name"
       android:permission="org.openintents.safe.ACCESS_INTENTS">
       <intent-filter android:label="@string/intent_encrypt">
@@ -123,56 +111,43 @@
 
     <activity
       android:name=".PassGen"
-      class=".PassGen"
       android:label="@string/app_name" />
     <activity
       android:name=".CategoryEdit"
-      class=".CategoryEdit"
       android:label="@string/app_name" />
     <activity
       android:name=".PassView"
-      class=".PassView"
       android:label="@string/app_name" />
     <activity
       android:name=".PassList"
-      class=".PassList"
       android:label="@string/app_name" />
     <activity
       android:name=".PassEdit"
-      class=".PassEdit"
       android:label="@string/app_name" />
     <activity
       android:name=".CategoryList"
-      class=".CategoryList"
       android:label="@string/app_name" />
     <activity
       android:name=".Search"
-      class=".Search"
       android:label="@string/app_name" />
     <activity
       android:name=".AskPassword"
-      class=".AskPassword"
       android:label="@string/app_name"
       android:windowSoftInputMode="adjustPan" />
     <activity
       android:name=".Help"
-      class=".Help"
       android:label="@string/app_name" />
     <activity
       android:name=".ChangePass"
-      class=".ChangePass"
       android:label="@string/app_name" />
     <activity
       android:name=".Restore"
-      class=".Restore"
       android:label="@string/app_name" />
     <activity
       android:name=".PreferenceActivity"
-      class=".Preferences"
       android:label="@string/app_name" />
     <activity
       android:name=".LogOffActivity"
-      class=".LogOffActivity"
       android:label="@string/app_name" />
     <activity
       android:name=".dialog.DialogHostingActivity"
@@ -180,7 +155,6 @@
       android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     <activity
       android:name=".RestoreFirstTimeActivity"
-      class=".RestoreFirstTime"
       android:label="@string/backup_file_found_label" />
 
     <service
