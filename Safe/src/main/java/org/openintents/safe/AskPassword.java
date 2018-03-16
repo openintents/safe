@@ -19,14 +19,12 @@ package org.openintents.safe;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -123,11 +121,7 @@ public class AskPassword extends DistributionLibraryActivity {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle(R.string.database_error_title)
                     .setPositiveButton(
-                            android.R.string.ok, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    finish();
-                                }
-                            }
+                            android.R.string.ok, (dialog, whichButton) -> finish()
                     )
                     .setMessage(R.string.database_error_msg)
                     .create();
@@ -170,7 +164,7 @@ public class AskPassword extends DistributionLibraryActivity {
     private void normalInit() {
         // Setup layout
         setContentView(R.layout.front_door);
-        TextView header = (TextView) findViewById(R.id.entry_header);
+        TextView header = findViewById(R.id.entry_header);
         String version = VersionUtils.getVersionNumber(this);
         String appName = VersionUtils.getApplicationName(this);
         String head = appName + " " + version;
@@ -179,14 +173,12 @@ public class AskPassword extends DistributionLibraryActivity {
         Intent thisIntent = getIntent();
         boolean isLocal = thisIntent.getBooleanExtra(EXTRA_IS_LOCAL, false);
 
-        pbeKey = (EditText) findViewById(R.id.password);
+        pbeKey = findViewById(R.id.password);
         pbeKey.requestFocus();
         pbeKey.postDelayed(
-                new Runnable() {
-                    public void run() {
-                        InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                        keyboard.showSoftInput(pbeKey, 0);
-                    }
+                () -> {
+                    InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    keyboard.showSoftInput(pbeKey, 0);
                 }, 200
         );
         introText = findViewById(R.id.first_time);
@@ -207,38 +199,29 @@ public class AskPassword extends DistributionLibraryActivity {
         }
         if (firstTime) {
             confirmPass.setOnEditorActionListener(
-                    new TextView.OnEditorActionListener() {
-                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                                handleContinue();
-                                return true;
-                            }
-                            return false;
+                    (v, actionId, event) -> {
+                        if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            handleContinue();
+                            return true;
                         }
+                        return false;
                     }
             );
         } else {
             pbeKey.setOnEditorActionListener(
-                    new TextView.OnEditorActionListener() {
-                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                                handleContinue();
-                                return true;
-                            }
-                            return false;
+                    (v, actionId, event) -> {
+                        if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            handleContinue();
+                            return true;
                         }
+                        return false;
                     }
             );
         }
-        Button continueButton = (Button) findViewById(R.id.continue_button);
+        Button continueButton = findViewById(R.id.continue_button);
 
         continueButton.setOnClickListener(
-                new View.OnClickListener() {
-
-                    public void onClick(View arg0) {
-                        handleContinue();
-                    }
-                }
+                arg0 -> handleContinue()
         );
     }
 
@@ -254,10 +237,7 @@ public class AskPassword extends DistributionLibraryActivity {
             confirmPass.setText("");
             pbeKey.requestFocus();
             blankPasswordToast.show();
-            Animation shake = AnimationUtils
-                    .loadAnimation(AskPassword.this, R.anim.shake);
-
-            findViewById(R.id.password).startAnimation(shake);
+            shakePassword();
             return;
         }
 
@@ -274,10 +254,7 @@ public class AskPassword extends DistributionLibraryActivity {
             ) != 0) {
                 confirmPass.setText("");
                 confirmPasswordFailToast.show();
-                Animation shake = AnimationUtils
-                        .loadAnimation(AskPassword.this, R.anim.shake);
-
-                findViewById(R.id.password).startAnimation(shake);
+                shakePassword();
                 return;
             }
             try {
@@ -313,13 +290,20 @@ public class AskPassword extends DistributionLibraryActivity {
             // message if it's wrong
             pbeKey.setText("");
             invalidPasswordToast.show();
-            Animation shake = AnimationUtils
-                    .loadAnimation(AskPassword.this, R.anim.shake);
-
-            findViewById(R.id.password).startAnimation(shake);
+            shakePassword();
             return;
         }
         gotPassword();
+    }
+
+    private void shakePassword() {
+        Animation shake = AnimationUtils
+                .loadAnimation(AskPassword.this, R.anim.shake);
+
+        View password = findViewById(R.id.password);
+        if (password != null) {
+            password.startAnimation(shake);
+        }
     }
 
     private void gotPassword() {
@@ -396,7 +380,7 @@ public class AskPassword extends DistributionLibraryActivity {
         if (debug) {
             Log.d(TAG, "onResume()");
         }
-        if (CategoryList.isSignedIn() == true) {
+        if (CategoryList.isSignedIn()) {
             if (debug) {
                 Log.d(TAG, "already signed in");
             }
@@ -409,7 +393,7 @@ public class AskPassword extends DistributionLibraryActivity {
         if (dbHelper == null) {
             dbHelper = new DBHelper(this);
         }
-        if (dbHelper.isDatabaseOpen() == false) {
+        if (!dbHelper.isDatabaseOpen()) {
             if (debug) {
                 Log.d(TAG, "eek! database is not open");
             }
@@ -540,11 +524,9 @@ public class AskPassword extends DistributionLibraryActivity {
                 .setIcon(R.drawable.passicon)
                 .setTitle(R.string.database_version_error_title)
                 .setPositiveButton(
-                        android.R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                setResult(RESULT_CANCELED);
-                                finish();
-                            }
+                        android.R.string.ok, (dialog, whichButton) -> {
+                            setResult(RESULT_CANCELED);
+                            finish();
                         }
                 )
                 .setMessage(R.string.database_version_error_msg)
@@ -607,159 +589,127 @@ public class AskPassword extends DistributionLibraryActivity {
 
         setContentView(R.layout.keypad);
 
-        TextView header = (TextView) findViewById(R.id.entry_header);
+        TextView header = findViewById(R.id.entry_header);
         String version = VersionUtils.getVersionNumber(this);
         String appName = VersionUtils.getApplicationName(this);
         String head = appName + " " + version;
         header.setText(head);
 
-        Button keypad1 = (Button) findViewById(R.id.keypad1);
+        Button keypad1 = findViewById(R.id.keypad1);
         keypad1.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "1";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "1";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad2 = (Button) findViewById(R.id.keypad2);
+        Button keypad2 = findViewById(R.id.keypad2);
         keypad2.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "2";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "2";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad3 = (Button) findViewById(R.id.keypad3);
+        Button keypad3 = findViewById(R.id.keypad3);
         keypad3.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "3";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "3";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad4 = (Button) findViewById(R.id.keypad4);
+        Button keypad4 = findViewById(R.id.keypad4);
         keypad4.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "4";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "4";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad5 = (Button) findViewById(R.id.keypad5);
+        Button keypad5 = findViewById(R.id.keypad5);
         keypad5.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "5";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "5";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad6 = (Button) findViewById(R.id.keypad6);
+        Button keypad6 = findViewById(R.id.keypad6);
         keypad6.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "6";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "6";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad7 = (Button) findViewById(R.id.keypad7);
+        Button keypad7 = findViewById(R.id.keypad7);
         keypad7.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "7";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "7";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad8 = (Button) findViewById(R.id.keypad8);
+        Button keypad8 = findViewById(R.id.keypad8);
         keypad8.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "8";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "8";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad9 = (Button) findViewById(R.id.keypad9);
+        Button keypad9 = findViewById(R.id.keypad9);
         keypad9.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "9";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "9";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypadStar = (Button) findViewById(R.id.keypad_star);
+        Button keypadStar = findViewById(R.id.keypad_star);
         keypadStar.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "*";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "*";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypad0 = (Button) findViewById(R.id.keypad0);
+        Button keypad0 = findViewById(R.id.keypad0);
         keypad0.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "0";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "0";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypadPound = (Button) findViewById(R.id.keypad_pound);
+        Button keypadPound = findViewById(R.id.keypad_pound);
         keypadPound.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadPassword += "#";
-                        if (!mute) {
-                            mpDigitBeep.start();
-                        }
+                arg0 -> {
+                    keypadPassword += "#";
+                    if (!mute) {
+                        mpDigitBeep.start();
                     }
                 }
         );
-        Button keypadContinue = (Button) findViewById(R.id.keypad_continue);
+        Button keypadContinue = findViewById(R.id.keypad_continue);
         keypadContinue.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        keypadTryPassword(keypadPassword);
-                    }
-                }
+                arg0 -> keypadTryPassword(keypadPassword)
         );
-        ImageView keypadSwitch = (ImageView) findViewById(R.id.switch_button);
+        ImageView keypadSwitch = findViewById(R.id.switch_button);
         keypadSwitch.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View arg0) {
-                        switchView();
-                    }
-                }
+                arg0 -> switchView()
         );
 
         keypadSwitch.setVisibility(View.INVISIBLE);

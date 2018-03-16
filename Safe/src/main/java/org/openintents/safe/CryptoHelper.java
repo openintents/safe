@@ -265,6 +265,9 @@ public class CryptoHelper {
         if (debug) {
             Log.d(TAG, "setPassword(" + pass + ")");
         }
+        if (pass == null)  {
+            return;
+        }
         password = pass;
         pbeKeySpec = new PBEKeySpec(password.toCharArray());
         try {

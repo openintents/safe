@@ -187,11 +187,21 @@ public class Passwords {
         Collections.sort(
                 catList, new Comparator<CategoryEntry>() {
                     public int compare(CategoryEntry o1, CategoryEntry o2) {
-                        return o1.plainName.compareToIgnoreCase(o2.plainName);
+                        String o1PlainName = plainName(o1);
+                        String o2PlainName = plainName(o2);
+                        return o1PlainName.compareToIgnoreCase(o2PlainName);
                     }
                 }
         );
         return catList;
+    }
+
+    private static String plainName(CategoryEntry categoryEntry) {
+        if (categoryEntry == null || categoryEntry.plainName == null) {
+            return "";
+        } else {
+            return categoryEntry.plainName;
+        }
     }
 
     public static List<String> getCategoryNames() {

@@ -127,6 +127,10 @@ public class SimpleGestureFilter extends SimpleOnGestureListener {
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                            float velocityY) {
 
+        if (e1 == null || e2 == null) {
+            return false;
+        }
+
         final float xDistance = Math.abs(e1.getX() - e2.getX());
         final float yDistance = Math.abs(e1.getY() - e2.getY());
 
@@ -170,7 +174,6 @@ public class SimpleGestureFilter extends SimpleOnGestureListener {
     @Override
     public boolean onDoubleTap(MotionEvent arg0) {
         this.listener.onDoubleTap();
-        ;
         return true;
     }
 
