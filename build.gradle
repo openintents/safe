@@ -17,10 +17,10 @@ ext {
     preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
 
     // Manifest version information!
-    versionMajor = 1
-    versionMinor = 4
-    versionPatch = 6
-    versionBuild = 2 // bump for dogfood builds, public betas, etc.
+    versionMajor = 2
+    versionMinor = 0
+    versionPatch = 0
+    versionBuild = 0 // bump for dogfood builds, public betas, etc.
 
     versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
     versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
