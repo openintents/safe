@@ -19,58 +19,63 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <PreferenceCategory android:title="@string/preferences">
+    <PreferenceCategory android:title="@string/preferences">
 
-    <CheckBoxPreference
-      android:title="@string/pref_title_external_access"
-      android:summary="@string/pref_summary_external_access"
-      android:key="external_access"
-      android:defaultValue="false" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="external_access"
+            android:summary="@string/pref_summary_external_access"
+            android:title="@string/pref_title_external_access"/>
 
-    <ListPreference
-      android:key="lock_timeout"
-      android:title="@string/pref_title_lock_timeout"
-      android:summary="@string/pref_summary_lock_timeout"
-      android:entries="@array/pref_entries_lock_timeout"
-      android:entryValues="@array/pref_entryvalues_lock_timeout"
-      android:dialogTitle="@string/pref_dialog_title_lock_timeout"
-      android:defaultValue="5" />
-    <CheckBoxPreference
-      android:title="@string/pref_title_lock_on_screen_lock"
-      android:summary="@string/pref_summary_lock_on_screen_lock"
-      android:key="lock_on_screen_lock"
-      android:defaultValue="true" />
-    <CheckBoxPreference
-      android:title="@string/pref_title_keypad"
-      android:summary="@string/pref_summary_keypad"
-      android:key="keypad"
-      android:defaultValue="false" />
-    <CheckBoxPreference
-      android:title="@string/pref_title_keypad_mute"
-      android:summary="@string/pref_summary_keypad_mute"
-      android:key="keypad_mute"
-      android:defaultValue="false"
-      android:dependency="keypad" />
-    <CheckBoxPreference
-      android:title="@string/pref_title_autobackup"
-      android:summary="@string/pref_summary_autobackup"
-      android:key="autobackup"
-      android:defaultValue="true" />
-    <ListPreference
-      android:key="autobackup_days"
-      android:title="@string/pref_title_autobackup_days"
-      android:summary="@string/pref_summary_autobackup_days"
-      android:entries="@array/pref_entries_autobackup_days"
-      android:entryValues="@array/pref_entryvalues_autobackup_days"
-      android:dialogTitle="@string/pref_dialog_title_autobackup_days"
-      android:defaultValue="7"
-      android:dependency="autobackup" />
-    <Preference
-      android:title="@string/pref_title_backup_path"
-      android:key="backup_path" />
-    <Preference
-      android:title="@string/pref_title_export_path"
-      android:key="export_path" />
+        <ListPreference
+            android:defaultValue="5"
+            android:dialogTitle="@string/pref_dialog_title_lock_timeout"
+            android:entries="@array/pref_entries_lock_timeout"
+            android:entryValues="@array/pref_entryvalues_lock_timeout"
+            android:key="lock_timeout"
+            android:summary="@string/pref_summary_lock_timeout"
+            android:title="@string/pref_title_lock_timeout"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="lock_on_screen_lock"
+            android:summary="@string/pref_summary_lock_on_screen_lock"
+            android:title="@string/pref_title_lock_on_screen_lock"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="keypad"
+            android:summary="@string/pref_summary_keypad"
+            android:title="@string/pref_title_keypad"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="keypad"
+            android:key="keypad_mute"
+            android:summary="@string/pref_summary_keypad_mute"
+            android:title="@string/pref_title_keypad_mute"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_fingerprint"
+            android:summary="@string/fingerprint_description"
+            android:title="@string/use_fingerprint_in_future"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="autobackup"
+            android:summary="@string/pref_summary_autobackup"
+            android:title="@string/pref_title_autobackup"/>
+        <ListPreference
+            android:defaultValue="7"
+            android:dependency="autobackup"
+            android:dialogTitle="@string/pref_dialog_title_autobackup_days"
+            android:entries="@array/pref_entries_autobackup_days"
+            android:entryValues="@array/pref_entryvalues_autobackup_days"
+            android:key="autobackup_days"
+            android:summary="@string/pref_summary_autobackup_days"
+            android:title="@string/pref_title_autobackup_days"/>
+        <Preference
+            android:key="backup_path"
+            android:title="@string/pref_title_backup_path"/>
+        <Preference
+            android:key="export_path"
+            android:title="@string/pref_title_export_path"/>
 
-  </PreferenceCategory>
+    </PreferenceCategory>
 </PreferenceScreen>

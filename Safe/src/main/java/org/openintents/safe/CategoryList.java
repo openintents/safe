@@ -218,7 +218,7 @@ public class CategoryList extends AppCompatActivity {
             Log.d(TAG, "onResume()");
         }
 
-        if (isSignedIn() == false) {
+        if (!isSignedIn()) {
             Intent frontdoor = new Intent(this, Safe.class);
             frontdoor.setAction(CryptoIntents.ACTION_AUTOLOCK);
             startActivity(frontdoor);
@@ -228,7 +228,7 @@ public class CategoryList extends AppCompatActivity {
         registerReceiver(mIntentReceiver, filter);
 
         showFirstTimeWarningDialog();
-        if (Passwords.getPrePopulate() == true) {
+        if (Passwords.getPrePopulate()) {
             prePopulate();
             Passwords.clearPrePopulate();
         }

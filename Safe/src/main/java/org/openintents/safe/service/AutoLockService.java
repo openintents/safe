@@ -32,27 +32,25 @@ import org.openintents.safe.password.Master;
 
 public class AutoLockService extends Service {
 
-    private static final boolean debug = false;
     private static String TAG = "AutoLockService";
-
+    private static long timeRemaining = 0;
+    SharedPreferences mPreferences;
     private CountDownTimer t;
     private BroadcastReceiver mIntentReceiver;
-    private static long timeRemaining = 0;
-
-    SharedPreferences mPreferences;
     private ServiceNotification serviceNotification;
+
+    /**
+     * @return time remaining in milliseconds before auto lock
+     */
+    public static long getTimeRemaining() {
+        return timeRemaining;
+    }
 
     @Override
     public void onCreate() {
-        if (debug) {
-            Log.d(TAG, "onCreate");
-        }
         mIntentReceiver = new BroadcastReceiver() {
             public void onReceive(Context context, Intent intent) {
                 if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                    if (debug) {
-                        Log.d(TAG, "caught ACTION_SCREEN_OFF");
-                    }
                     boolean lockOnScreenLock = mPreferences.getBoolean(
                             PreferenceActivity.PREFERENCE_LOCK_ON_SCREEN_LOCK, true
                     );
@@ -78,20 +76,11 @@ public class AutoLockService extends Service {
 
     @Override
     public void onStart(Intent intent, int startid) {
-        if (debug) {
-            Log.d(TAG, "onStart");
-        }
         startTimer();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (debug) {
-            Log.d(
-                    TAG, "Received start id " + startId + ": " + intent + ": "
-                            + this
-            );
-        }
         startTimer();
         // We want this service to continue running until it is explicitly
         // stopped, so return sticky.
@@ -100,9 +89,6 @@ public class AutoLockService extends Service {
 
     @Override
     public void onDestroy() {
-        if (debug) {
-            Log.d(TAG, "onDestroy");
-        }
         unregisterReceiver(mIntentReceiver);
         if (Master.getMasterKey() != null) {
             lockOut();
@@ -159,22 +145,12 @@ public class AutoLockService extends Service {
         }
         final long timeoutUntilStop = timeoutMinutes * 60000;
 
-        if (debug) {
-            Log.d(TAG, "startTimer with timeoutUntilStop=" + timeoutUntilStop);
-        }
-
         t = new CountDownTimer(timeoutUntilStop, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 // doing nothing.
-                if (debug) {
-                    Log.d(TAG, "tick: " + millisUntilFinished + " this=" + this);
-                }
                 timeRemaining = millisUntilFinished;
                 if (Master.getMasterKey() == null) {
-                    if (debug) {
-                        Log.d(TAG, "detected masterKey=null");
-                    }
                     lockOut();
                 } else {
                     serviceNotification.updateProgress(
@@ -185,18 +161,12 @@ public class AutoLockService extends Service {
             }
 
             public void onFinish() {
-                if (debug) {
-                    Log.d(TAG, "onFinish()");
-                }
                 lockOut();
                 timeRemaining = 0;
             }
         };
         t.start();
         timeRemaining = timeoutUntilStop;
-        if (debug) {
-            Log.d(TAG, "Timer started with: " + timeoutUntilStop);
-        }
     }
 
     /**
@@ -204,19 +174,9 @@ public class AutoLockService extends Service {
      */
     private void restartTimer() {
         // must be started with startTimer first.
-        if (debug) {
-            Log.d(TAG, "timer restarted");
-        }
         if (t != null) {
             t.cancel();
             t.start();
         }
-    }
-
-    /**
-     * @return time remaining in milliseconds before auto lock
-     */
-    public static long getTimeRemaining() {
-        return timeRemaining;
     }
 }

@@ -15,26 +15,29 @@
  */
 package org.openintents.safe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.openintents.intents.CryptoIntents;
-
 import org.openintents.safe.dialog.DialogHostingActivity;
+import org.openintents.safe.fingerprint.AskFingerprint;
 import org.openintents.safe.model.CategoryEntry;
 import org.openintents.safe.model.PassEntry;
 import org.openintents.safe.model.Passwords;
 import org.openintents.safe.password.Master;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_FIRST_TIME;
+import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_SETUP_FINGERPRINT;
 
 /**
  * FrontDoor Activity
@@ -46,15 +49,16 @@ import org.openintents.safe.password.Master;
  */
 public class IntentHandlerActivity extends AppCompatActivity {
 
-    private static final boolean debug = true;
-    private static String TAG = "IntentHandlerActivity";
-
+    private static final boolean debug = BuildConfig.DEBUG;
     private static final int REQUEST_CODE_ASK_PASSWORD = 1;
     private static final int REQUEST_CODE_ALLOW_EXTERNAL_ACCESS = 2;
+    private static final int REQUEST_CODE_ASK_SETUP_FINGERPRINT = 3;
+    private static final String STATE_WAIT_FOR_USER = "waitForUser";
 
-    private CryptoHelper ch;
-
+    private static String TAG = "IntentHandlerActivity";
     SharedPreferences mPreferences;
+    private CryptoHelper ch;
+    private boolean mWaitForUser = false;
 
     /**
      * Called when the activity is first created.
@@ -62,15 +66,22 @@ public class IntentHandlerActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        if (debug) {
-            Log.d(TAG, "onCreate(" + icicle + ")");
+
+        if (icicle != null) {
+            mWaitForUser = icicle.getBoolean(STATE_WAIT_FOR_USER);
         }
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (Passwords.Initialize(this) == false) {
+        if (!Passwords.Initialize(this)) {
             finish();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(STATE_WAIT_FOR_USER, mWaitForUser);
+        super.onSaveInstanceState(outState);
     }
 
     //currently only handles result from askPassword function.
@@ -85,8 +96,9 @@ public class IntentHandlerActivity extends AppCompatActivity {
                     if (debug) {
                         Log.d(TAG, "RESULT_OK");
                     }
-                    actionDispatch();
-
+                    // dispatchAction in onResume
+                } else if (resultCode == AskPassword.RESULT_FINGERPRINT_ALTERNATIVE_REQUESTED) {
+                    // dispatchAction in onResume
                 } else { // resultCode == RESULT_CANCELED, which means the user hit Back at AskPassword
                     if (debug) {
                         Log.d(TAG, "RESULT_CANCELED");
@@ -95,6 +107,9 @@ public class IntentHandlerActivity extends AppCompatActivity {
                     setResult(RESULT_CANCELED);
                     finish();
                 }
+                break;
+            case REQUEST_CODE_ASK_SETUP_FINGERPRINT:
+                // dispatchAction in onResume
                 break;
             case REQUEST_CODE_ALLOW_EXTERNAL_ACCESS:
                 // Check again, regardless whether user pressed "OK" or "Cancel".
@@ -107,6 +122,11 @@ public class IntentHandlerActivity extends AppCompatActivity {
                 break;
         }
 
+    }
+
+    private boolean askSetupFingerprint() {
+        return PreferenceActivity.isFirstTimeFingerprint(this)
+                && FingerprintManagerCompat.from(this).isHardwareDetected();
     }
 
     /**
@@ -451,7 +471,7 @@ public class IntentHandlerActivity extends AppCompatActivity {
         return isLocal;
     }
 
-    public void startUp() {
+    private void startUp() {
         boolean askPassIsLocal = isIntentLocal();
 
         if (Master.getMasterKey() == null) {
@@ -460,24 +480,12 @@ public class IntentHandlerActivity extends AppCompatActivity {
                 Log.d(TAG, "Prompt for password: " + promptforpassword);
             }
             if (promptforpassword) {
-                if (debug) {
-                    Log.d(TAG, "ask for password");
-                }
-                Intent askPass = new Intent(
-                        getApplicationContext(),
-                        AskPassword.class
-                );
-
-                String inputBody = getIntent().getStringExtra(CryptoIntents.EXTRA_TEXT);
-
-                askPass.putExtra(CryptoIntents.EXTRA_TEXT, inputBody);
-                askPass.putExtra(AskPassword.EXTRA_IS_LOCAL, askPassIsLocal);
-                //TODO: Is there a way to make sure all the extras are set?
-                startActivityForResult(askPass, REQUEST_CODE_ASK_PASSWORD);
+                startActivityForResult(AskPassword.createIntent(this,
+                        getIntent().getStringExtra(CryptoIntents.EXTRA_TEXT),
+                        askPassIsLocal,
+                        mWaitForUser || CryptoIntents.ACTION_AUTOLOCK.equals(getIntent().getAction())),
+                        REQUEST_CODE_ASK_PASSWORD);
             } else {
-                if (debug) {
-                    Log.d(TAG, "ask for password");
-                }
                 // Don't prompt but cancel
                 setResult(RESULT_CANCELED);
                 finish();
@@ -486,11 +494,16 @@ public class IntentHandlerActivity extends AppCompatActivity {
             boolean externalAccess = mPreferences.getBoolean(PreferenceActivity.PREFERENCE_ALLOW_EXTERNAL_ACCESS, false);
 
             if (askPassIsLocal || externalAccess) {
-                if (debug) {
-                    Log.d(TAG, "starting actiondispatch");
+                if (askSetupFingerprint()) {
+                    startActivityForResult(new Intent(this, AskFingerprint.class)
+                            .putExtra(EXTRA_SETUP_FINGERPRINT, true)
+                            .putExtra(EXTRA_FIRST_TIME, true), REQUEST_CODE_ASK_SETUP_FINGERPRINT);
+                } else {
+                    if (debug) {
+                        Log.d(TAG, "starting actiondispatch");
+                    }
+                    actionDispatch();
                 }
-
-                actionDispatch();
             } else {
                 if (debug) {
                     Log.d(TAG, "start showDialogAllowExternalAccess()");

@@ -12,7 +12,9 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceManager;
@@ -20,10 +22,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
 import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.fingerprint.AskFingerprint;
 
 import java.util.List;
+
+import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_SETUP_FINGERPRINT;
 
 public class PreferenceActivity extends AppCompatActivity {
 
@@ -50,14 +56,19 @@ public class PreferenceActivity extends AppCompatActivity {
     public static final String PREFERENCE_EXPORT_PATH = "export_path";
     public static final String PREFERENCE_EXPORT_DOCUMENT = "export_document";
     public static final String PREFERENCE_EXPORT_METHOD = "export_method";
+    public static final String PREFERENCE_USE_FINGERPRINT = "use_fingerprint";
+    public static final String PREFKEY_FINGERPRINT_ENCRYPTED_MASTER = "fingerprint_encrypted_master";
     public static final String OISAFE_CSV = "oisafe.csv";
     public static final String PREFERENCE_EXPORT_PATH_DEFAULT_VALUE =
             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + OISAFE_CSV;
     public static final int DIALOG_DOWNLOAD_OI_FILEMANAGER = 0;
+    private static final String PREFERENCE_FIRST_TIME_FINGERPRINT = "first_time_fingerprint";
     private static final int REQUEST_BACKUP_FILENAME = 0;
     private static final int REQUEST_BACKUP_DOCUMENT = 1;
     private static final int REQUEST_EXPORT_FILENAME = 2;
     private static final int REQUEST_EXPORT_DOCUMENT = 3;
+    private static final int REQUEST_FINGERPRINT = 4;
+
     private static String TAG = "PreferenceActivity";
     Intent frontdoor;
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
@@ -123,6 +134,30 @@ public class PreferenceActivity extends AppCompatActivity {
         editor.putString(PREFERENCE_EXPORT_METHOD, IO_METHOD_DOCUMENT_PROVIDER);
         editor.apply();
     }
+
+
+    static boolean canUseFingerprint(Context context) {
+        String encryptedKey = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PREFKEY_FINGERPRINT_ENCRYPTED_MASTER, null);
+        return encryptedKey != null && !encryptedKey.isEmpty();
+    }
+
+    public static void setUseFingerprint(@NotNull Context context, boolean useFingerprint) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                .putBoolean(PREFERENCE_USE_FINGERPRINT, useFingerprint).apply();
+    }
+
+    public static boolean isFirstTimeFingerprint(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(PREFERENCE_FIRST_TIME_FINGERPRINT, true);
+    }
+
+    public static void setFirstTimeFingerprint(Context context, boolean firstTime) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                .putBoolean(PREFERENCE_FIRST_TIME_FINGERPRINT, firstTime).apply();
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,6 +323,9 @@ public class PreferenceActivity extends AppCompatActivity {
             getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
             changePreferenceSummaryToCurrentValue(backupPathPref, getBackupPath(getActivity()));
             changePreferenceSummaryToCurrentValue(exportPathPref, getExportPath(getActivity()));
+
+            findPreference(PREFERENCE_USE_FINGERPRINT)
+                    .setVisible(FingerprintManagerCompat.from(getActivity()).isHardwareDetected());
         }
 
 
@@ -321,6 +359,13 @@ public class PreferenceActivity extends AppCompatActivity {
                         findPreference(PREFERENCE_EXPORT_PATH),
                         getExportPath(getActivity())
                 );
+            } else if (key.equals(PREFERENCE_USE_FINGERPRINT)) {
+                CheckBoxPreference p = (CheckBoxPreference) findPreference(PREFERENCE_USE_FINGERPRINT);
+                if (p.isChecked()) {
+                    startActivityForResult(new Intent(getContext(), AskFingerprint.class).putExtra(EXTRA_SETUP_FINGERPRINT, true), REQUEST_FINGERPRINT);
+                } else {
+                    sharedPreferences.edit().remove(PREFKEY_FINGERPRINT_ENCRYPTED_MASTER).apply();
+                }
             }
         }
 

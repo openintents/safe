@@ -80,5 +80,23 @@
       android:text="@string/restore"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/use_fingerprint_description"
+        android:text="@string/fingerprint_first_time_description"
+        android:layout_marginTop="@dimen/default_margin_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/use_fingerprint_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/default_margin_small"
+        android:text="@string/use_fingerprint"
+        android:textColor="?android:attr/textColorPrimaryInverse"/>
+
   </LinearLayout>
 </ScrollView>

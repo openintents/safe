@@ -19,11 +19,13 @@ package org.openintents.safe;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,6 +41,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.openintents.distribution.DistributionLibraryActivity;
+import org.openintents.intents.CryptoIntents;
+import org.openintents.safe.fingerprint.AskFingerprint;
 import org.openintents.safe.password.Master;
 import org.openintents.safe.service.AutoLockService;
 import org.openintents.util.VersionUtils;
@@ -56,21 +60,24 @@ import java.security.NoSuchAlgorithmException;
  */
 public class AskPassword extends DistributionLibraryActivity {
 
-    public static final int REQUEST_RESTORE = 0;
-    public static final int REQUEST_RESTORE_FIRST_TIME = 1;
+
+    public static final int RESULT_FINGERPRINT_ALTERNATIVE_REQUESTED = RESULT_FIRST_USER;
+    public static final String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
+    public static final String EXTRA_WAIT_FOR_USER = "org.openintents.safe.bundle.EXTRA_WAIT_FOR_USER";
+    private static final int REQUEST_RESTORE_FIRST_TIME = 1;
+    private static final int REQUEST_FINGERPRINT = 2;
     // Menu Item order
-    public static final int SWITCH_MODE_INDEX = Menu.FIRST;
-    public static final int MUTE_INDEX = Menu.FIRST + 1;
-    public static final int VIEW_NORMAL = 0;
-    public static final int VIEW_KEYPAD = 1;
-    private final static boolean debug = false;
+    private static final int SWITCH_MODE_INDEX = Menu.FIRST;
+    private static final int MUTE_INDEX = Menu.FIRST + 1;
+    private static final int FINGERPRINT_INDEX = Menu.FIRST + 2;
+    private static final int VIEW_NORMAL = 0;
+    private static final int VIEW_KEYPAD = 1;
+    private static final boolean debug = false;
     private static final int MENU_DISTRIBUTION_START = Menu.FIRST + 100; // MUST BE LAST
-
     private static final int DIALOG_DISTRIBUTION_START = 100; // MUST BE LAST
-    public static String EXTRA_IS_LOCAL = "org.openintents.safe.bundle.EXTRA_IS_REMOTE";
-    private static String TAG = "AskPassword";
-    private int viewMode = VIEW_NORMAL;
+    private static final String TAG = "AskPassword";
 
+    private int viewMode = VIEW_NORMAL;
     private EditText pbeKey;
     private DBHelper dbHelper = null;
     private TextView introText;
@@ -95,6 +102,14 @@ public class AskPassword extends DistributionLibraryActivity {
     private Toast invalidPasswordToast = null;
     private Toast confirmPasswordFailToast = null;
 
+    public static Intent createIntent(Context context, String inputBody, boolean askPassIsLocal, boolean waitForUser) {
+        Intent askPass = new Intent(context, AskPassword.class);
+        askPass.putExtra(CryptoIntents.EXTRA_TEXT, inputBody);
+        askPass.putExtra(EXTRA_IS_LOCAL, askPassIsLocal);
+        askPass.putExtra(EXTRA_WAIT_FOR_USER, waitForUser);
+        return askPass;
+    }
+
     /**
      * Called when the activity is first created.
      */
@@ -116,7 +131,7 @@ public class AskPassword extends DistributionLibraryActivity {
         }
 
         dbHelper = new DBHelper(this);
-        if (dbHelper.isDatabaseOpen() == false) {
+        if (!dbHelper.isDatabaseOpen()) {
             Dialog dbError = new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle(R.string.database_error_title)
@@ -141,8 +156,8 @@ public class AskPassword extends DistributionLibraryActivity {
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean prefKeypad = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD, false);
-        boolean prefKeypadMute = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD_MUTE, false);
-        mute = prefKeypadMute;
+        mute = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD_MUTE, false);
+        boolean prefUseFingerPrint = sp.getBoolean(PreferenceActivity.PREFERENCE_USE_FINGERPRINT, false);
 
         if (prefKeypad) {
             viewMode = VIEW_KEYPAD;
@@ -155,10 +170,15 @@ public class AskPassword extends DistributionLibraryActivity {
         } else {
             keypadInit();
         }
-
         blankPasswordToast = Toast.makeText(AskPassword.this, R.string.notify_blank_pass, Toast.LENGTH_SHORT);
         invalidPasswordToast = Toast.makeText(AskPassword.this, R.string.invalid_password, Toast.LENGTH_SHORT);
         confirmPasswordFailToast = Toast.makeText(AskPassword.this, R.string.confirm_pass_fail, Toast.LENGTH_SHORT);
+        if (prefUseFingerPrint && getClass() == AskPassword.class) {
+            startActivityForResult(new Intent(this, AskFingerprint.class)
+                            .putExtra(EXTRA_WAIT_FOR_USER, getIntent().getBooleanExtra(EXTRA_WAIT_FOR_USER, false)),
+                    REQUEST_FINGERPRINT);
+
+        }
     }
 
     private void normalInit() {
@@ -169,6 +189,9 @@ public class AskPassword extends DistributionLibraryActivity {
         String appName = VersionUtils.getApplicationName(this);
         String head = appName + " " + version;
         header.setText(head);
+
+        findViewById(R.id.use_fingerprint_description).setVisibility(View.GONE);
+        findViewById(R.id.use_fingerprint_button).setVisibility(View.GONE);
 
         Intent thisIntent = getIntent();
         boolean isLocal = thisIntent.getBooleanExtra(EXTRA_IS_LOCAL, false);
@@ -457,6 +480,11 @@ public class AskPassword extends DistributionLibraryActivity {
         }
         miMute.setVisible(viewMode == VIEW_KEYPAD);
 
+        FingerprintManagerCompat fingerprintManager = FingerprintManagerCompat.from(this);
+        if (fingerprintManager.isHardwareDetected()) {
+            menu.add(0, FINGERPRINT_INDEX, 0, R.string.use_fingerprint);
+        }
+
         // Add distribution menu items last.
         mDistribution.onCreateOptionsMenu(menu);
 
@@ -472,6 +500,11 @@ public class AskPassword extends DistributionLibraryActivity {
             item.setIcon(R.drawable.ic_menu_switch_numeric);
         } else { // viewMode==VIEW_KEYPAD
             item.setIcon(R.drawable.ic_menu_switch_alpha);
+        }
+
+        item = menu.findItem(FINGERPRINT_INDEX);
+        if (item != null) {
+            item.setVisible(PreferenceActivity.canUseFingerprint(this));
         }
         return true;
     }
@@ -512,6 +545,8 @@ public class AskPassword extends DistributionLibraryActivity {
                     }
                 }
                 break;
+            case FINGERPRINT_INDEX:
+                startActivityForResult(new Intent(this, AskFingerprint.class), REQUEST_FINGERPRINT);
             default:
                 Log.e(TAG, "Unknown itemId");
                 break;
@@ -565,18 +600,20 @@ public class AskPassword extends DistributionLibraryActivity {
         return false;
     }
 
+    /////////////// Keypad Functions /////////////////////
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent i) {
         super.onActivityResult(requestCode, resultCode, i);
 
         if ((requestCode == REQUEST_RESTORE_FIRST_TIME) && (resultCode == RESULT_OK)) {
-            Intent callbackIntent = new Intent();
-            setResult(RESULT_OK, callbackIntent);
+            setResult(RESULT_OK);
+            finish();
+        } else if (requestCode == REQUEST_FINGERPRINT) {
+            setResult(resultCode);
             finish();
         }
     }
-
-    /////////////// Keypad Functions /////////////////////
 
     private void keypadInit() {
         if (mpDigitBeep == null) {

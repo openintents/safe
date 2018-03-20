@@ -1,5 +1,6 @@
 package org.openintents.safe;
 
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -64,10 +65,10 @@ public class LogOffActivity extends AppCompatActivity {
 				/* Clear the clipboard, if it contains the last password used */
                         ClipboardManager cb = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
-                        if (cb.hasText()) {
-                            String clipboardText = cb.getText().toString();
+                        if (cb != null && cb.hasPrimaryClip()) {
+                            String clipboardText = cb.getPrimaryClip().toString();
                             if (clipboardText.equals(Safe.last_used_password)) {
-                                cb.setText("");
+                                cb.setPrimaryClip(null);
                             }
                         }
 

@@ -16,6 +16,8 @@
  */
 package org.openintents.safe.password;
 
+import android.util.Log;
+
 /**
  * Centrally stores the Master Key and Salt for all other classes to use.
  */
@@ -35,6 +37,7 @@ public class Master {
      * @param saltIn the salt to set
      */
     public synchronized static void setSalt(String saltIn) {
+        Log.d("Master", "salt: "+ saltIn);
         salt = saltIn;
     }
 
@@ -49,6 +52,7 @@ public class Master {
      * @param masterKeyIn the masterKey to set
      */
     public synchronized static void setMasterKey(String masterKeyIn) {
+        Log.d("Master", "key: " + masterKeyIn);
         masterKey = masterKeyIn;
     }
 
