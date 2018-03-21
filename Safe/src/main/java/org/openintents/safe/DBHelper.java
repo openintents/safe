@@ -54,6 +54,16 @@ public class DBHelper {
     private static final String TABLE_SALT = "salt";
     private static final String TABLE_PACKAGE_ACCESS = "package_access";
     private static final String TABLE_CIPHER_ACCESS = "cipher_access";
+    private static final String VERSION = "version";
+    private static final String SQLITE_EXCEPTION = "SQLite exception: ";
+    private static final String DESCRIPTION = "description";
+    private static final String WEBSITE = "website";
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
+    private static final String CATEGORY = "category";
+    private static final String UNIQUE_NAME = "unique_name";
+    private static final String LAST_DATE_TIME_EDIT = "lastdatetimeedit";
+    
     private static final int DATABASE_VERSION = 4;
     private static String TAG = "DBHelper";
     Context myCtx;
@@ -65,7 +75,8 @@ public class DBHelper {
     private static final String PASSWORDS_CREATE =
             "create table " + TABLE_PASSWORDS + " ("
                     + "id integer primary key autoincrement, "
-                    + "category integer not null, "
+                    + CATEGORY
+                    + " integer not null, "
                     + "password text not null, "
                     + "description text not null, "
                     + "username text, "
@@ -110,7 +121,7 @@ public class DBHelper {
                     + "dateadded text not null);";
 
 //    private static final String CIPHER_ACCESS_DROP =
-//    	"drop table " + TABLE_CIPHER_ACCESS + ";";
+//    	DROP_TABLE + TABLE_CIPHER_ACCESS + ";";
 
     private SQLiteDatabase db = null;
     private static boolean needsPrePopulation = false;
@@ -142,7 +153,7 @@ public class DBHelper {
             } else {
                 int version = 0;
                 Cursor vc = db.query(
-                        true, TABLE_DBVERSION, new String[]{"version"},
+                        true, TABLE_DBVERSION, new String[]{VERSION},
                         null, null, null, null, null, null
                 );
                 if (vc.getCount() > 0) {
@@ -163,7 +174,7 @@ public class DBHelper {
                 Log.d(TAG, "SQLite DiskIO exception: db=" + db);
             }
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -179,7 +190,7 @@ public class DBHelper {
         try {
             db.execSQL(DBVERSION_CREATE);
             ContentValues args = new ContentValues();
-            args.put("version", DATABASE_VERSION);
+            args.put(VERSION, DATABASE_VERSION);
             db.insert(TABLE_DBVERSION, null, args);
 
             db.execSQL(CATEGORIES_CREATE);
@@ -191,7 +202,7 @@ public class DBHelper {
             db.execSQL(MASTER_KEY_CREATE);
             db.execSQL(SALT_CREATE);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -206,7 +217,7 @@ public class DBHelper {
             db.execSQL(PACKAGE_ACCESS_DROP);
             db.execSQL(PACKAGE_ACCESS_CREATE);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -241,7 +252,7 @@ public class DBHelper {
         try {
             Cursor c = db.query(
                     true, TABLE_DBVERSION,
-                    new String[]{"version"},
+                    new String[]{VERSION},
                     null, null, null, null, null, null
             );
             if (c.getCount() > 0) {
@@ -250,7 +261,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return version;
     }
@@ -278,7 +289,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return salt;
     }
@@ -295,7 +306,7 @@ public class DBHelper {
             args.put("salt", salt);
             db.insert(TABLE_SALT, null, args);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -317,7 +328,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return key;
     }
@@ -329,7 +340,7 @@ public class DBHelper {
             args.put("encryptedkey", MasterKey);
             db.insert(TABLE_MASTER_KEY, null, args);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -363,7 +374,7 @@ public class DBHelper {
             try {
                 rowID = db.insert(TABLE_CATEGORIES, null, initialValues);
             } catch (SQLException e) {
-                Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+                Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
             }
         }
         c.close();
@@ -377,7 +388,7 @@ public class DBHelper {
         try {
             db.delete(TABLE_CATEGORIES, "id=" + Id, null);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -407,7 +418,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return ret;
     }
@@ -435,7 +446,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return row;
     }
@@ -444,14 +455,14 @@ public class DBHelper {
         int count = 0;
         try {
             Cursor c =
-                    db.rawQuery("SELECT count(*) FROM " + TABLE_PASSWORDS + " WHERE category=" + Id, null);
+                    db.rawQuery("SELECT count(*) FROM " + TABLE_PASSWORDS + " WHERE "+ CATEGORY + "=" + Id, null);
             if (c.getCount() > 0) {
                 c.moveToFirst();
                 count = c.getInt(0);
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return count;
     }
@@ -467,7 +478,7 @@ public class DBHelper {
         try {
             db.update(TABLE_CATEGORIES, args, "id=" + Id, null);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -481,7 +492,7 @@ public class DBHelper {
         try {
             String selection = null;
             if (categoryId > 0) {
-                selection = "category=" + categoryId;
+                selection = CATEGORY + "=" + categoryId;
             }
             Cursor c = db.query(
                     TABLE_PASSWORDS, new String[]{
@@ -492,7 +503,7 @@ public class DBHelper {
             count = c.getInt(0);
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         //Log.i(TAG,"count="+count);
         return count;
@@ -512,16 +523,16 @@ public class DBHelper {
             if (CategoryId == 0) {
                 c = db.query(
                         TABLE_PASSWORDS, new String[]{
-                                "id", "password", "description", "username", "website",
-                                "note", "category", "unique_name", "lastdatetimeedit"},
+                                "id", PASSWORD, DESCRIPTION, USERNAME, WEBSITE,
+                                "note", CATEGORY, UNIQUE_NAME, LAST_DATE_TIME_EDIT},
                         null, null, null, null, null
                 );
             } else {
                 c = db.query(
                         TABLE_PASSWORDS, new String[]{
-                                "id", "password", "description", "username", "website",
-                                "note", "category", "unique_name", "lastdatetimeedit"},
-                        "category=" + CategoryId, null, null, null, null
+                                "id", PASSWORD, DESCRIPTION, USERNAME, WEBSITE,
+                                "note", CATEGORY, UNIQUE_NAME, LAST_DATE_TIME_EDIT}, 
+                        CATEGORY + "=" + CategoryId, null, null, null, null
                 );
             }
             int numRows = c.getCount();
@@ -545,7 +556,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return ret;
     }
@@ -561,8 +572,8 @@ public class DBHelper {
             Cursor c =
                     db.query(
                             true, TABLE_PASSWORDS, new String[]{
-                                    "id", "password", "description", "username", "website",
-                                    "note", "category, unique_name", "lastdatetimeedit"},
+                                    "id", PASSWORD, DESCRIPTION, USERNAME, WEBSITE,
+                                    "note", CATEGORY + ", unique_name", LAST_DATE_TIME_EDIT},
                             "id=" + Id, null, null, null, null, null
                     );
             if (c.getCount() > 0) {
@@ -584,7 +595,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return row;
     }
@@ -597,8 +608,8 @@ public class DBHelper {
             Cursor c =
                     db.query(
                             true, TABLE_PASSWORDS, new String[]{
-                                    "id", "password", "description", "username", "website",
-                                    "note", "category", "unique_name", "lastdatetimeedit"},
+                                    "id", PASSWORD, DESCRIPTION, USERNAME, WEBSITE,
+                                    "note", CATEGORY, UNIQUE_NAME, LAST_DATE_TIME_EDIT},
                             "unique_name='" + uniqueName + "'",
                             null, null, null, null, null
                     );
@@ -618,7 +629,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return row;
     }
@@ -641,7 +652,7 @@ public class DBHelper {
                 }
             }
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         } finally {
             if (c != null) {
                 c.close();
@@ -681,7 +692,7 @@ public class DBHelper {
                 }
             }
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         } finally {
             if (c != null) {
                 c.close();
@@ -698,7 +709,7 @@ public class DBHelper {
         try {
             db.insert(TABLE_PACKAGE_ACCESS, null, packageAccessValues);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -709,19 +720,19 @@ public class DBHelper {
      */
     public long updatePassword(long Id, PassEntry entry) {
         ContentValues args = new ContentValues();
-        args.put("description", entry.description);
-        args.put("username", entry.username);
-        args.put("password", entry.password);
-        args.put("website", entry.website);
+        args.put(DESCRIPTION, entry.description);
+        args.put(USERNAME, entry.username);
+        args.put(PASSWORD, entry.password);
+        args.put(WEBSITE, entry.website);
         args.put("note", entry.note);
-        args.put("unique_name", entry.uniqueName);
+        args.put(UNIQUE_NAME, entry.uniqueName);
         DateFormat dateFormatter = DateFormat.getDateTimeInstance(
                 DateFormat.DEFAULT,
                 DateFormat.FULL
         );
         Date today = new Date();
         String dateOut = dateFormatter.format(today);
-        args.put("lastdatetimeedit", dateOut);
+        args.put(LAST_DATE_TIME_EDIT, dateOut);
         try {
             db.update(TABLE_PASSWORDS, args, "id=" + Id, null);
         } catch (SQLException e) {
@@ -744,12 +755,12 @@ public class DBHelper {
         }
         ContentValues args = new ContentValues();
 
-        args.put("category", newCategoryId);
+        args.put(CATEGORY, newCategoryId);
 
         try {
             db.update(TABLE_PASSWORDS, args, "id=" + Id, null);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -767,25 +778,25 @@ public class DBHelper {
         if (entry.id != 0) {
             initialValues.put("id", entry.id);
         }
-        initialValues.put("category", entry.category);
-        initialValues.put("password", entry.password);
-        initialValues.put("description", entry.description);
-        initialValues.put("username", entry.username);
-        initialValues.put("website", entry.website);
+        initialValues.put(CATEGORY, entry.category);
+        initialValues.put(PASSWORD, entry.password);
+        initialValues.put(DESCRIPTION, entry.description);
+        initialValues.put(USERNAME, entry.username);
+        initialValues.put(WEBSITE, entry.website);
         initialValues.put("note", entry.note);
-        initialValues.put("unique_name", entry.uniqueName);
+        initialValues.put(UNIQUE_NAME, entry.uniqueName);
         DateFormat dateFormatter = DateFormat.getDateTimeInstance(
                 DateFormat.DEFAULT,
                 DateFormat.FULL
         );
         Date today = new Date();
         String dateOut = dateFormatter.format(today);
-        initialValues.put("lastdatetimeedit", dateOut);
+        initialValues.put(LAST_DATE_TIME_EDIT, dateOut);
 
         try {
             id = db.insertOrThrow(TABLE_PASSWORDS, null, initialValues);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
             id = -1;
         }
         return (id);
@@ -799,7 +810,7 @@ public class DBHelper {
             db.delete(TABLE_PASSWORDS, "id=" + Id, null);
             db.delete(TABLE_PACKAGE_ACCESS, "id=" + Id, null);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -826,7 +837,7 @@ public class DBHelper {
         try {
             db.insert(TABLE_CIPHER_ACCESS, null, initialValues);
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -850,7 +861,7 @@ public class DBHelper {
             }
             c.close();
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
         return expires;
     }
@@ -864,7 +875,7 @@ public class DBHelper {
         try {
             db.execSQL("begin transaction;");
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
             return false;
         }
         return true;
@@ -878,7 +889,7 @@ public class DBHelper {
         try {
             db.execSQL("commit;");
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 
@@ -890,7 +901,7 @@ public class DBHelper {
         try {
             db.execSQL("rollback;");
         } catch (SQLException e) {
-            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+            Log.d(TAG, SQLITE_EXCEPTION + e.getLocalizedMessage());
         }
     }
 }

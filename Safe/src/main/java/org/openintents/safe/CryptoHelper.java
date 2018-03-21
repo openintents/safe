@@ -64,6 +64,16 @@ import estreamj.framework.ESJException;
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class CryptoHelper {
+    private static final String GENERATE_MASTER_KEY = "generateMasterKey(): ";
+    private static final String SET_PASSWORD = "setPassword(): ";
+    private static final String ENCRYPT = "encrypt(): ";
+    private static final String MUST_CALL_SET_PASSWORD_BEFORE_RUNNING_DECRYPT = "Must call setPassword before running decrypt.";
+    private static final String DECRYPT = "decrypt(): ";
+    private static final String ENCRYPT_WITH_SESSION_KEY = "encryptWithSessionKey(): ";
+    private static final String ENCRYPT_WITH_SESSION_KEY2 = "encryptWithSessionKey2(): ";
+    private static final String FILE_NOT_FOUND = "File not found";
+    private static final String DECRYPT_INPUT_FROM = "Decrypt: Input from ";
+    private static final String IO_EXCEPTION = "IOException";
 
     private static final boolean debug = false;
     private static String TAG = "CryptoHelper";
@@ -179,7 +189,7 @@ public class CryptoHelper {
             SecretKey genDesKey = keygen.generateKey();
             return toHexString(genDesKey.getEncoded());
         } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG, "generateMasterKey(): " + e.toString());
+            Log.e(TAG, GENERATE_MASTER_KEY + e.toString());
             throw e;
         }
     }
@@ -276,7 +286,7 @@ public class CryptoHelper {
                     .getInstance(algorithm, "BC");
         } catch (InvalidKeySpecException | NoSuchAlgorithmException
                 | NoSuchPaddingException | NoSuchProviderException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
+            Log.e(TAG, SET_PASSWORD + e.toString());
         }
 
         // Every time we set a new password, also the session key changes:
@@ -362,7 +372,7 @@ public class CryptoHelper {
             status = true;
         } catch (IllegalBlockSizeException | BadPaddingException
                 | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "encrypt(): " + e.toString());
+            Log.e(TAG, ENCRYPT + e.toString());
         }
 
         String stringCiphertext = toHexString(ciphertext);
@@ -379,7 +389,7 @@ public class CryptoHelper {
     public String decrypt(String ciphertext) throws CryptoHelperException {
         status = false; // assume failure
         if (password == null) {
-            String msg = "Must call setPassword before running decrypt.";
+            String msg = MUST_CALL_SET_PASSWORD_BEFORE_RUNNING_DECRYPT;
             throw new CryptoHelperException(msg);
         }
         if (salt == null) {
@@ -399,7 +409,7 @@ public class CryptoHelper {
             status = true;
         } catch (IllegalBlockSizeException | BadPaddingException
                 | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
+            Log.e(TAG, DECRYPT + e.toString());
         }
 
         return new String(plaintext);
@@ -447,7 +457,7 @@ public class CryptoHelper {
             sessionKeyEncoded = sessionKey.getEncoded();
             sessionKeyString = new String(sessionKeyEncoded);
         } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG, "generateMasterKey(): " + e.toString());
+            Log.e(TAG, GENERATE_MASTER_KEY + e.toString());
         }
 
         // Convert this to a Pbe key
@@ -456,7 +466,7 @@ public class CryptoHelper {
         try {
             sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
         } catch (InvalidKeySpecException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
+            Log.e(TAG, SET_PASSWORD + e.toString());
         }
 
         // Encrypt the session key using the master key
@@ -465,7 +475,7 @@ public class CryptoHelper {
             cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
         } catch (IllegalBlockSizeException | BadPaddingException
                 | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
+            Log.e(TAG, ENCRYPT_WITH_SESSION_KEY + e.toString());
         }
 
         // Now encrypt the text using the session key
@@ -475,7 +485,7 @@ public class CryptoHelper {
             status = true;
         } catch (IllegalBlockSizeException | BadPaddingException
                 | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "encryptWithSessionKey2(): " + e.toString());
+            Log.e(TAG, ENCRYPT_WITH_SESSION_KEY2 + e.toString());
         }
 
         String stringCipherVersion = "A";
@@ -508,7 +518,7 @@ public class CryptoHelper {
     public String decryptWithSessionKey(String ciphertext) throws CryptoHelperException {
         status = false; // assume failure
         if (password == null) {
-            String msg = "Must call setPassword before running decrypt.";
+            String msg = MUST_CALL_SET_PASSWORD_BEFORE_RUNNING_DECRYPT;
             throw new CryptoHelperException(msg);
         }
 
@@ -542,7 +552,7 @@ public class CryptoHelper {
             byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
             status = true;
         } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
+            Log.e(TAG, DECRYPT + e.toString());
         }
 
         // Convert the session key into a Pbe key
@@ -552,7 +562,7 @@ public class CryptoHelper {
         try {
             sessionPbeKey = keyFac.generateSecret(sessionPbeKeySpec);
         } catch (InvalidKeySpecException e) {
-            Log.e(TAG, "setPassword(): " + e.toString());
+            Log.e(TAG, SET_PASSWORD + e.toString());
         }
 
         // Use the session key to decrypt the text
@@ -564,7 +574,7 @@ public class CryptoHelper {
             plaintext = pbeCipher.doFinal(byteCiphertext);
             status = true;
         } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
-            Log.e(TAG, "decrypt(): " + e.toString());
+            Log.e(TAG, DECRYPT + e.toString());
         }
 
         return new String(plaintext);
@@ -619,7 +629,7 @@ public class CryptoHelper {
                 sessionKeyEncoded = sessionKey.getEncoded();
 //				sessionKeyString = new String(sessionKeyEncoded);
             } catch (NoSuchAlgorithmException e) {
-                Log.e(TAG, "generateMasterKey(): " + e.toString());
+                Log.e(TAG, GENERATE_MASTER_KEY + e.toString());
                 return null;
             }
 
@@ -629,7 +639,7 @@ public class CryptoHelper {
                 cipherSessionKey = pbeCipher.doFinal(sessionKeyEncoded);
                 status = true;
             } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | InvalidKeyException e) {
-                Log.e(TAG, "encryptWithSessionKey(): " + e.toString());
+                Log.e(TAG, ENCRYPT_WITH_SESSION_KEY + e.toString());
             }
             if (!status) {
                 return null;
@@ -691,7 +701,7 @@ public class CryptoHelper {
                 Log.e(TAG, "Error encrypting file", e);
             }
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "File not found", e);
+            Log.e(TAG, FILE_NOT_FOUND, e);
         } catch (IOException e) {
             Log.e(TAG, "IO Exception", e);
         }
@@ -751,7 +761,7 @@ public class CryptoHelper {
                 inputPath = fileUri.getPath();
                 is = new java.io.FileInputStream(inputPath);
                 if (debug) {
-                    Log.d(TAG, "Decrypt: Input from " + inputPath);
+                    Log.d(TAG, DECRYPT_INPUT_FROM + inputPath);
                 }
                 if (inputPath.endsWith(OISAFE_EXTENSION)) {
                     outputPath = inputPath.substring(0, inputPath.length() - OISAFE_EXTENSION.length());
@@ -759,7 +769,7 @@ public class CryptoHelper {
             } else {
                 is = contentResolver.openInputStream(fileUri);
                 if (debug) {
-                    Log.d(TAG, "Decrypt: Input from " + fileUri.toString());
+                    Log.d(TAG, DECRYPT_INPUT_FROM + fileUri.toString());
                 }
             }
 
@@ -780,9 +790,9 @@ public class CryptoHelper {
             os.close();
 
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "File not found", e);
+            Log.e(TAG, FILE_NOT_FOUND, e);
         } catch (IOException e) {
-            Log.e(TAG, "IOException", e);
+            Log.e(TAG, IO_EXCEPTION, e);
         } catch (IllegalArgumentException e) {
             Log.e(TAG, "IllegalArgumentException", e);
         }
@@ -833,12 +843,12 @@ public class CryptoHelper {
             if (fileUri.getScheme().equals("file")) {
                 is = new java.io.FileInputStream(fileUri.getPath());
                 if (debug) {
-                    Log.d(TAG, "Decrypt: Input from " + fileUri.getPath());
+                    Log.d(TAG, DECRYPT_INPUT_FROM + fileUri.getPath());
                 }
             } else {
                 is = contentResolver.openInputStream(fileUri);
                 if (debug) {
-                    Log.d(TAG, "Decrypt: Input from " + fileUri.toString());
+                    Log.d(TAG, DECRYPT_INPUT_FROM + fileUri.toString());
                 }
             }
             FileOutputStream os = null;
@@ -876,9 +886,9 @@ public class CryptoHelper {
             os.close();
 
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "File not found", e);
+            Log.e(TAG, FILE_NOT_FOUND, e);
         } catch (IOException e) {
-            Log.e(TAG, "IOException", e);
+            Log.e(TAG, IO_EXCEPTION, e);
         }
 
         if (result == false) {
@@ -907,7 +917,7 @@ public class CryptoHelper {
         }
         status = false; // assume failure
         if (password == null) {
-            String msg = "Must call setPassword before running decrypt.";
+            String msg = MUST_CALL_SET_PASSWORD_BEFORE_RUNNING_DECRYPT;
             throw new CryptoHelperException(msg);
         }
 
@@ -969,13 +979,13 @@ public class CryptoHelper {
                 byteSessionKey = pbeCipher.doFinal(byteCipherSessionKey);
                 status = true;
             } catch (IllegalBlockSizeException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
+                Log.e(TAG, DECRYPT + e.toString());
             } catch (BadPaddingException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
+                Log.e(TAG, DECRYPT + e.toString());
             } catch (InvalidKeyException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
+                Log.e(TAG, DECRYPT + e.toString());
             } catch (InvalidAlgorithmParameterException e) {
-                Log.e(TAG, "decrypt(): " + e.toString());
+                Log.e(TAG, DECRYPT + e.toString());
             }
 
             // Now decrypt the message
@@ -1015,7 +1025,7 @@ public class CryptoHelper {
             }
 
         } catch (IOException e) {
-            Log.e(TAG, "IOException", e);
+            Log.e(TAG, IO_EXCEPTION, e);
         }
 
         return status;
