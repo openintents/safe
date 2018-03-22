@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 import org.openintents.intents.CryptoIntents;
 import org.openintents.safe.dialog.DialogHostingActivity;
-import org.openintents.safe.fingerprint.AskFingerprint;
+import org.openintents.safe.fingerprint.AskPasswordFingerprint;
 import org.openintents.safe.model.CategoryEntry;
 import org.openintents.safe.model.PassEntry;
 import org.openintents.safe.model.Passwords;
@@ -36,8 +36,8 @@ import org.openintents.safe.password.Master;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_FIRST_TIME;
-import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_SETUP_FINGERPRINT;
+import static org.openintents.safe.fingerprint.AskPasswordFingerprintKt.EXTRA_FIRST_TIME;
+import static org.openintents.safe.fingerprint.AskPasswordFingerprintKt.EXTRA_SETUP_FINGERPRINT;
 
 /**
  * FrontDoor Activity
@@ -495,7 +495,7 @@ public class IntentHandlerActivity extends AppCompatActivity {
 
             if (askPassIsLocal || externalAccess) {
                 if (askSetupFingerprint()) {
-                    startActivityForResult(new Intent(this, AskFingerprint.class)
+                    startActivityForResult(new Intent(this, AskPasswordFingerprint.class)
                             .putExtra(EXTRA_SETUP_FINGERPRINT, true)
                             .putExtra(EXTRA_FIRST_TIME, true), REQUEST_CODE_ASK_SETUP_FINGERPRINT);
                 } else {

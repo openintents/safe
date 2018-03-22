@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 import org.openintents.distribution.DistributionLibraryActivity;
 import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.fingerprint.AskFingerprint;
+import org.openintents.safe.fingerprint.AskPasswordFingerprint;
 import org.openintents.safe.password.Master;
 import org.openintents.safe.service.AutoLockService;
 import org.openintents.util.VersionUtils;
@@ -157,7 +157,7 @@ public class AskPassword extends DistributionLibraryActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean prefKeypad = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD, false);
         mute = sp.getBoolean(PreferenceActivity.PREFERENCE_KEYPAD_MUTE, false);
-        boolean prefUseFingerPrint = sp.getBoolean(PreferenceActivity.PREFERENCE_USE_FINGERPRINT, false);
+        boolean prefUseFingerprint = sp.getBoolean(PreferenceActivity.PREFERENCE_USE_FINGERPRINT, false);
 
         if (prefKeypad) {
             viewMode = VIEW_KEYPAD;
@@ -173,12 +173,17 @@ public class AskPassword extends DistributionLibraryActivity {
         blankPasswordToast = Toast.makeText(AskPassword.this, R.string.notify_blank_pass, Toast.LENGTH_SHORT);
         invalidPasswordToast = Toast.makeText(AskPassword.this, R.string.invalid_password, Toast.LENGTH_SHORT);
         confirmPasswordFailToast = Toast.makeText(AskPassword.this, R.string.confirm_pass_fail, Toast.LENGTH_SHORT);
-        if (prefUseFingerPrint && getClass() == AskPassword.class) {
-            startActivityForResult(new Intent(this, AskFingerprint.class)
-                            .putExtra(EXTRA_WAIT_FOR_USER, getIntent().getBooleanExtra(EXTRA_WAIT_FOR_USER, false)),
-                    REQUEST_FINGERPRINT);
+        if (prefUseFingerprint && !showFingerprintUI()) {
+            navigateToAskFingerprint();
 
         }
+    }
+
+    private void navigateToAskFingerprint() {
+        startActivityForResult(new Intent(this, AskPasswordFingerprint.class)
+                        .putExtra(EXTRA_IS_LOCAL, getIntent().getBooleanExtra(EXTRA_IS_LOCAL, false))
+                        .putExtra(EXTRA_WAIT_FOR_USER, getIntent().getBooleanExtra(EXTRA_WAIT_FOR_USER, false)),
+                REQUEST_FINGERPRINT);
     }
 
     private void normalInit() {
@@ -190,28 +195,36 @@ public class AskPassword extends DistributionLibraryActivity {
         String head = appName + " " + version;
         header.setText(head);
 
-        findViewById(R.id.use_fingerprint_description).setVisibility(View.GONE);
-        findViewById(R.id.use_fingerprint_button).setVisibility(View.GONE);
+        if (showFingerprintUI()) {
+            findViewById(R.id.use_fingerprint_description).setVisibility(View.VISIBLE);
+            findViewById(R.id.use_fingerprint_button).setVisibility(View.VISIBLE);
+        }
 
         Intent thisIntent = getIntent();
         boolean isLocal = thisIntent.getBooleanExtra(EXTRA_IS_LOCAL, false);
 
+        Button continueButton = findViewById(R.id.continue_button);
+        continueButton.setOnClickListener(b -> handleContinue());
+
         pbeKey = findViewById(R.id.password);
-        pbeKey.requestFocus();
-        pbeKey.postDelayed(
-                () -> {
-                    InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                    keyboard.showSoftInput(pbeKey, 0);
-                }, 200
-        );
+        if (!showFingerprintUI()) {
+            pbeKey.requestFocus();
+            pbeKey.postDelayed(
+                    () -> {
+                        InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                        keyboard.showSoftInput(pbeKey, 0);
+                    }, 200
+            );
+        } else {
+            findViewById(R.id.use_fingerprint_button).requestFocus();
+        }
+
         introText = findViewById(R.id.first_time);
         remoteAsk = findViewById(R.id.remote);
         confirmPass = findViewById(R.id.pass_confirm);
-//		confirmText = (TextView) findViewById(R.id.confirm_lbl);
         if (dbMasterKey.length() == 0) {
             firstTime = true;
             introText.setVisibility(View.VISIBLE);
-//			confirmText.setVisibility(View.VISIBLE);
             confirmPass.setVisibility(View.VISIBLE);
             checkForBackup();
         }
@@ -241,11 +254,10 @@ public class AskPassword extends DistributionLibraryActivity {
                     }
             );
         }
-        Button continueButton = findViewById(R.id.continue_button);
+    }
 
-        continueButton.setOnClickListener(
-                arg0 -> handleContinue()
-        );
+    protected boolean showFingerprintUI() {
+        return false;
     }
 
     private void handleContinue() {
@@ -366,10 +378,6 @@ public class AskPassword extends DistributionLibraryActivity {
     protected void onPause() {
         super.onPause();
 
-        if (debug) {
-            Log.d(TAG, "onPause()");
-        }
-
         if (blankPasswordToast != null) {
             blankPasswordToast.cancel();
         }
@@ -482,7 +490,9 @@ public class AskPassword extends DistributionLibraryActivity {
 
         FingerprintManagerCompat fingerprintManager = FingerprintManagerCompat.from(this);
         if (fingerprintManager.isHardwareDetected()) {
-            menu.add(0, FINGERPRINT_INDEX, 0, R.string.use_fingerprint);
+            menu.add(0, FINGERPRINT_INDEX, 0, R.string.use_fingerprint)
+                    .setIcon(R.drawable.ic_menu_fingerprint)
+                    .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         }
 
         // Add distribution menu items last.
@@ -504,7 +514,7 @@ public class AskPassword extends DistributionLibraryActivity {
 
         item = menu.findItem(FINGERPRINT_INDEX);
         if (item != null) {
-            item.setVisible(PreferenceActivity.canUseFingerprint(this));
+            item.setVisible(!showFingerprintUI() && PreferenceActivity.canUseFingerprint(this));
         }
         return true;
     }
@@ -546,7 +556,8 @@ public class AskPassword extends DistributionLibraryActivity {
                 }
                 break;
             case FINGERPRINT_INDEX:
-                startActivityForResult(new Intent(this, AskFingerprint.class), REQUEST_FINGERPRINT);
+                navigateToAskFingerprint();
+                break;
             default:
                 Log.e(TAG, "Unknown itemId");
                 break;

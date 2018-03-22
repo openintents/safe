@@ -39,7 +39,6 @@ import java.util.TimeZone;
 
 public class Backup {
 
-    private static boolean debug = false;
     private static final String TAG = "Backup";
 
     public static int CURRENT_VERSION = 1;
@@ -53,9 +52,6 @@ public class Backup {
     }
 
     public boolean write(String filename, OutputStream str) {
-        if (debug) {
-            Log.d(TAG, "write(" + filename + ",)");
-        }
 
         try {
             org.xmlpull.v1.XmlSerializer serializer = Xml.newSerializer();
@@ -165,14 +161,11 @@ public class Backup {
 
             TimeZone tz = TimeZone.getDefault();
             int julianDay = Time.getJulianDay((new Date()).getTime(), tz.getRawOffset());
-            if (debug) {
-                Log.d(TAG, "julianDay=" + julianDay);
-            }
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(myCtx);
             SharedPreferences.Editor editor = sp.edit();
             editor.putInt(PreferenceActivity.PREFERENCE_LAST_BACKUP_JULIAN, julianDay);
-            editor.commit();
+            editor.apply();
 
             result = myCtx.getString(R.string.backup_complete) + " " +
                     Integer.toString(totalPasswords);

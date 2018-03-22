@@ -16,7 +16,6 @@
  */
 package org.openintents.safe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,12 +32,7 @@ import org.openintents.intents.CryptoIntents;
  * @author Steven Osborn - http://steven.bitsetters.com
  */
 public class Safe extends AppCompatActivity {
-
-    private static final String TAG = "FrontDoor";
-    private static final boolean debug = false;
     public static String last_used_password = null;
-
-//	public static final String KEY_AUTOLOCK = "autolock";
 
     /**
      * Called when the activity is first created.
@@ -47,9 +41,6 @@ public class Safe extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        if (debug) {
-            Log.d(TAG, "onCreate()");
-        }
         final Intent thisIntent = getIntent();
         final String action = thisIntent.getAction();
         if (action == null || action.equals(Intent.ACTION_MAIN) || action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
@@ -58,13 +49,6 @@ public class Safe extends AppCompatActivity {
                     getApplicationContext(),
                     IntentHandlerActivity.class
             );
-//    		boolean autoLock = icicle != null ? icicle.getBoolean(FrontDoor.KEY_AUTOLOCK) : false;
-            if (debug) {
-                Log.d(TAG, "action=" + action);
-            }
-//			if (action.equals(CryptoIntents.ACTION_AUTOLOCK)) {
-            //			i.setAction(CryptoIntents.ACTION_AUTOLOCK);
-            //	}
             i.setAction(action);
             startActivity(i);
         }  // otherwise, do not start intents, those must be protected by permissions

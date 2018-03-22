@@ -31,7 +31,6 @@ import android.security.keystore.KeyProperties
 import android.security.keystore.KeyProperties.*
 import android.support.annotation.RequiresApi
 import android.util.Base64
-import android.util.Log
 import android.view.View
 import com.example.android.fingerprintdialog.DEFAULT_KEY_NAME
 import com.example.android.fingerprintdialog.FingerprintAuthenticationDialogFragment
@@ -56,7 +55,7 @@ const val EXTRA_SETUP_FINGERPRINT = "use_master"
 const val EXTRA_FIRST_TIME = "first_time"
 
 @RequiresApi(Build.VERSION_CODES.M)
-class AskFingerprint : AskPassword(),
+class AskPasswordFingerprint : AskPassword(),
         FingerprintAuthenticationDialogFragment.Callback {
 
     private lateinit var keyStore: KeyStore
@@ -66,16 +65,14 @@ class AskFingerprint : AskPassword(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        use_fingerprint_description.visibility = View.VISIBLE
-        use_fingerprint_button.visibility = View.VISIBLE
-        remote.visibility = View.GONE
-
         setupKeyStoreAndKeyGenerator()
 
         val cipher = setupCipher()
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         setUpButton(cipher)
     }
+
+    override fun showFingerprintUI() = true
 
     /**
      * Enables or disables purchase buttons and sets the appropriate click listeners.
@@ -278,7 +275,6 @@ class AskFingerprint : AskPassword(),
             initCipher(cipher, Cipher.ENCRYPT_MODE, true)
             val bytes = cipher.doFinal(password.toByteArray())
             val encrypted = Base64.encodeToString(bytes, Base64.NO_WRAP)
-            Log.d("Master encrypted", "encypt: " + encrypted + " " + Base64.encode(cipher.parameters.getEncoded(null), Base64.NO_WRAP))
             sharedPreferences.edit().putString(PREFKEY_FINGERPRINT_ENCRYPTED_MASTER, encrypted).apply()
         } catch (exception: IllegalBlockSizeException) {
             throw RuntimeException("Failed to encrypt password", exception)
@@ -292,7 +288,6 @@ class AskFingerprint : AskPassword(),
         try {
             initCipher(cipher, Cipher.DECRYPT_MODE, false)
             val encoded = sharedPreferences.getString(PREFKEY_FINGERPRINT_ENCRYPTED_MASTER, null)
-            Log.d("Master encrypted", "decrypt: " + encoded + " " + Base64.encode(cipher.parameters.getEncoded(null), Base64.NO_WRAP))
             val bytes = Base64.decode(encoded, Base64.NO_WRAP)
             return String(cipher.doFinal(bytes))
         } catch (exception: IllegalBlockSizeException) {
@@ -355,7 +350,7 @@ class AskFingerprint : AskPassword(),
         override fun onClick(view: View) {
             val fragment = FingerprintAuthenticationDialogFragment()
             fragment.setCryptoObject(FingerprintManager.CryptoObject(cipher))
-            fragment.setCallback(this@AskFingerprint)
+            fragment.setCallback(this@AskPasswordFingerprint)
 
             val fingerprintSetup = isFingerprintSetup();
             // Set up the crypto object for later, which will be authenticated by fingerprint usage.

@@ -25,11 +25,11 @@ import android.widget.Toast;
 import org.jetbrains.annotations.NotNull;
 import org.openintents.distribution.DownloadOIAppDialog;
 import org.openintents.intents.CryptoIntents;
-import org.openintents.safe.fingerprint.AskFingerprint;
+import org.openintents.safe.fingerprint.AskPasswordFingerprint;
 
 import java.util.List;
 
-import static org.openintents.safe.fingerprint.AskFingerprintKt.EXTRA_SETUP_FINGERPRINT;
+import static org.openintents.safe.fingerprint.AskPasswordFingerprintKt.EXTRA_SETUP_FINGERPRINT;
 
 public class PreferenceActivity extends AppCompatActivity {
 
@@ -362,7 +362,7 @@ public class PreferenceActivity extends AppCompatActivity {
             } else if (key.equals(PREFERENCE_USE_FINGERPRINT)) {
                 CheckBoxPreference p = (CheckBoxPreference) findPreference(PREFERENCE_USE_FINGERPRINT);
                 if (p.isChecked()) {
-                    startActivityForResult(new Intent(getContext(), AskFingerprint.class).putExtra(EXTRA_SETUP_FINGERPRINT, true), REQUEST_FINGERPRINT);
+                    startActivityForResult(new Intent(getContext(), AskPasswordFingerprint.class).putExtra(EXTRA_SETUP_FINGERPRINT, true), REQUEST_FINGERPRINT);
                 } else {
                     sharedPreferences.edit().remove(PREFKEY_FINGERPRINT_ENCRYPTED_MASTER).apply();
                 }

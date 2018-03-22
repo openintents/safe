@@ -17,6 +17,7 @@
 package org.openintents.safe;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import org.openintents.safe.model.CategoryEntry;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Randy McEoin
@@ -40,28 +42,24 @@ import java.util.List;
  */
 public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
 
-    private static boolean debug = false;
-    private static final String TAG = "CategoryListItemAdapter";
     private List<CategoryEntry> filteredItems;
     private List<CategoryEntry> allItems;
     private final Object lock = new Object();
     private Filter filter = null;
 
-    int resource;
+    private int resource;
 
     public CategoryListItemAdapter(Context _context, int _resource,
                                    List<CategoryEntry> _items) {
         super(_context, _resource, _items);
         resource = _resource;
         filteredItems = _items;
-        allItems = new ArrayList<CategoryEntry>();
-        for (CategoryEntry item : _items) {
-            allItems.add(item);
-        }
+        allItems = new ArrayList<>(_items);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         LinearLayout categoryListView;
 
         CategoryEntry item = getItem(position);
@@ -79,14 +77,11 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
             categoryListView = (LinearLayout) convertView;
         }
 
-        TextView nameView = (TextView) categoryListView.findViewById(R.id.rowName);
-        TextView countView = (TextView) categoryListView.findViewById(R.id.rowCount);
+        TextView nameView = categoryListView.findViewById(R.id.rowName);
+        TextView countView = categoryListView.findViewById(R.id.rowCount);
 
-        if (debug) {
-            Log.d(TAG, "count=" + count);
-        }
         nameView.setText(name);
-        countView.setText(Integer.toString(count));
+        countView.setText(String.format(Locale.getDefault(), "%d", count));
 
         return categoryListView;
     }
@@ -105,7 +100,7 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
 
     @Override
     public CategoryEntry getItem(int item) {
-        CategoryEntry gi = null;
+        CategoryEntry gi;
         synchronized (lock) {
             gi = filteredItems != null ? filteredItems.get(item) : null;
 
@@ -113,6 +108,7 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
         return gi;
     }
 
+    @NonNull
     public Filter getFilter() {
         if (filter == null) {
             filter = new CategoryEntryFilter();
@@ -132,17 +128,16 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
             } else {
                 synchronized (lock) {
                     String q = search.toString().toLowerCase();
-                    final ArrayList<CategoryEntry> filtered = new ArrayList<CategoryEntry>();
+                    final ArrayList<CategoryEntry> filtered = new ArrayList<>();
                     final int count = allItems.size();
 
                     for (int i = 0; i < count; i++) {
                         CategoryEntry item = allItems.get(i);
                         String itemName = item.plainName.toLowerCase();
                         String[] words = itemName.split(" ");
-                        int wordCount = words.length;
 
-                        for (int k = 0; k < wordCount; k++) {
-                            if (words[k].startsWith(q)) {
+                        for (String word : words) {
+                            if (word.startsWith(q)) {
                                 filtered.add(item);
                                 break;
                             }
@@ -163,9 +158,7 @@ public class CategoryListItemAdapter extends ArrayAdapter<CategoryEntry> {
                 @SuppressWarnings("unchecked")
                 final ArrayList<CategoryEntry> localItems = (ArrayList<CategoryEntry>) results.values;
                 clear();
-                Iterator<CategoryEntry> iterator = localItems.iterator();
-                while (iterator.hasNext()) {
-                    CategoryEntry gi = (CategoryEntry) iterator.next();
+                for (CategoryEntry gi : localItems) {
                     add(gi);
                 }
                 notifyDataSetChanged();
