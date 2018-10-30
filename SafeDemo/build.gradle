@@ -41,8 +41,10 @@ android {
 
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
+                    def relativeRootDir = output.packageApplication.outputDirectory.toPath()
+                            .relativize(rootDir.toPath()).toFile()
                     def file = output.outputFile
-                    output.outputFileName = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
+                    output.outputFileName = new File("$relativeRootDir/release", file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
                 }
             }
         }
@@ -72,5 +74,5 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

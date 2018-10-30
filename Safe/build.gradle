@@ -25,7 +25,7 @@ android {
     sourceSets {
 
         // Move the tests to tests/java, tests/res, etc...
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
@@ -49,8 +49,10 @@ android {
 
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
+                    def relativeRootDir = output.packageApplication.outputDirectory.toPath()
+                            .relativize(rootDir.toPath()).toFile()
                     def file = output.outputFile
-                    output.outputFileName = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
+                    output.outputFileName = new File("$relativeRootDir/release", file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
                 }
             }
         }
@@ -88,21 +90,21 @@ play {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile 'com.github.openintents:distribution:3.0.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    implementation 'com.github.openintents:distribution:3.0.1'
+    implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.android.support:support-annotations:27.1.0'
-    compile 'com.android.support:support-fragment:27.1.0'
-    compile 'com.android.support:preference-v7:27.1.0'
-    compile 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.android.support:support-fragment:28.0.0'
+    implementation 'com.android.support:preference-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
 
-    androidTestCompile 'com.android.support:support-annotations:27.1.0'
-    androidTestCompile 'com.android.support.test:runner:1.0.1'
-    androidTestCompile 'com.android.support.test:rules:1.0.1'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:3.0.1"
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.0.2"
 }
 repositories {
     mavenCentral()
