@@ -149,6 +149,10 @@ public class AskPassword extends DistributionLibraryActivity {
             switch (dbHelper.fetchVersion()) {
                 case 2:
                     databaseVersionError();
+                    break;
+                case 4:
+                    dbHelper.updateDbVersion4to5();
+                    break;
             }
         }
         dbSalt = dbHelper.fetchSalt();

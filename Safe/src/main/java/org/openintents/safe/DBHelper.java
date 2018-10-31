@@ -54,7 +54,8 @@ public class DBHelper {
     private static final String TABLE_SALT = "salt";
     private static final String TABLE_PACKAGE_ACCESS = "package_access";
     private static final String TABLE_CIPHER_ACCESS = "cipher_access";
-    private static final int DATABASE_VERSION = 4;
+    private static final String TABLE_HAS_UNBACKED_CHANGE = "has_change_to_backup";
+    private static final int DATABASE_VERSION = 5;
     private static String TAG = "DBHelper";
     Context myCtx;
 
@@ -76,6 +77,10 @@ public class DBHelper {
 
     private static final String PASSWORDS_DROP =
             "drop table " + TABLE_PASSWORDS + ";";
+
+    private static final String HAS_UNBACKED_CHANGE_CREATE =
+            "create table if not exists " + TABLE_HAS_UNBACKED_CHANGE + " ("
+                    + "has_change boolean default 1);";
 
     private static final String PACKAGE_ACCESS_CREATE =
             "create table " + TABLE_PACKAGE_ACCESS + " ("
@@ -190,6 +195,9 @@ public class DBHelper {
             db.execSQL(CIPHER_ACCESS_CREATE);
             db.execSQL(MASTER_KEY_CREATE);
             db.execSQL(SALT_CREATE);
+
+            createHasChangeTable();
+
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }
@@ -210,8 +218,41 @@ public class DBHelper {
         }
     }
 
-    public boolean needsUpgrade() {
+    boolean needsUpgrade() {
         return needsUpgrade;
+    }
+
+    /**
+     * Create {@link DBHelper#TABLE_HAS_UNBACKED_CHANGE} table of simple boolean, to facilitate
+     * quick determination as to whether an autobackup should be prompted.
+     *
+     * Default value is false so we don't prompt for a backup before any data has been stored in the db.
+     *
+     * @throws SQLException
+     */
+    private void createHasChangeTable() throws SQLException {
+
+        db.execSQL(HAS_UNBACKED_CHANGE_CREATE);
+
+        ContentValues defaultValue = new ContentValues();
+        defaultValue.put("has_change", 0);
+        db.insert(TABLE_HAS_UNBACKED_CHANGE, null, defaultValue);
+    }
+
+    /**
+     * Apply to DB ver 4 to update to DB ver 5.
+     * Calls {@link DBHelper#createHasChangeTable()} and updates the DB version to 5.
+     */
+    void updateDbVersion4to5() {
+        try {
+            createHasChangeTable();
+
+            ContentValues dbVersion = new ContentValues();
+            dbVersion.put("version", DATABASE_VERSION);
+            db.update(TABLE_DBVERSION, dbVersion, "version=" + fetchVersion(), null);
+        } catch (SQLException e) {
+            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+        }
     }
 
     public boolean getPrePopulate() {
@@ -236,7 +277,7 @@ public class DBHelper {
         }
     }
 
-    public int fetchVersion() {
+    int fetchVersion() {
         int version = 0;
         try {
             Cursor c = db.query(
@@ -362,6 +403,7 @@ public class DBHelper {
 
             try {
                 rowID = db.insert(TABLE_CATEGORIES, null, initialValues);
+                setDbHasChanged();
             } catch (SQLException e) {
                 Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
             }
@@ -376,6 +418,7 @@ public class DBHelper {
     public void deleteCategory(long Id) {
         try {
             db.delete(TABLE_CATEGORIES, "id=" + Id, null);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }
@@ -466,6 +509,7 @@ public class DBHelper {
 
         try {
             db.update(TABLE_CATEGORIES, args, "id=" + Id, null);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }
@@ -496,6 +540,57 @@ public class DBHelper {
         }
         //Log.i(TAG,"count="+count);
         return count;
+    }
+
+    /**
+     * To be called only after backup is successful.
+     */
+    void setChangesSaved() {
+        setDbHasChangedFlag(false);
+    }
+
+    /**
+     * Set the flag to indicate that an autobackup should be prompted at the next opportunity.
+     */
+    private void setDbHasChanged() {
+        setDbHasChangedFlag(true);
+    }
+
+    /**
+     * Sets has_change bit.
+     */
+    private void setDbHasChangedFlag(boolean hasChanged) {
+        ContentValues value = new ContentValues();
+        value.put("has_change", hasChanged);
+        try {
+            db.update(TABLE_HAS_UNBACKED_CHANGE, value, null, null);
+        } catch (SQLException e) {
+            Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+        }
+    }
+
+    /**
+     *
+     * @return true if a change has been registered in the db.
+     */
+    boolean getDbHasChanged() {
+        boolean hasChanged = true;
+        if (db != null) {
+            try {
+                Cursor c = db.query(
+                        true, TABLE_HAS_UNBACKED_CHANGE, new String[]{"has_change"},
+                        null, null, null, null, null, null);
+                if (c.getCount() > 0) {
+                    c.moveToFirst();
+                    hasChanged = c.getShort(0) == 1;
+                } else setDbHasChanged();  // Bit was never set? Set it now.
+                c.close();
+            } catch (SQLException e) {
+                Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
+                setDbHasChanged(); // Bit was never set? Set it now.
+            }
+        }
+        return hasChanged;
     }
 
     /**
@@ -724,6 +819,7 @@ public class DBHelper {
         args.put("lastdatetimeedit", dateOut);
         try {
             db.update(TABLE_PASSWORDS, args, "id=" + Id, null);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "updatePassword: SQLite exception: " + e.getLocalizedMessage());
             return -1;
@@ -748,6 +844,7 @@ public class DBHelper {
 
         try {
             db.update(TABLE_PASSWORDS, args, "id=" + Id, null);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }
@@ -784,6 +881,7 @@ public class DBHelper {
 
         try {
             id = db.insertOrThrow(TABLE_PASSWORDS, null, initialValues);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
             id = -1;
@@ -798,6 +896,7 @@ public class DBHelper {
         try {
             db.delete(TABLE_PASSWORDS, "id=" + Id, null);
             db.delete(TABLE_PACKAGE_ACCESS, "id=" + Id, null);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }
@@ -825,6 +924,7 @@ public class DBHelper {
         initialValues.put("dateadded", dateOut);
         try {
             db.insert(TABLE_CIPHER_ACCESS, null, initialValues);
+            setDbHasChanged();
         } catch (SQLException e) {
             Log.d(TAG, "SQLite exception: " + e.getLocalizedMessage());
         }

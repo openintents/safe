@@ -302,39 +302,44 @@ public class CategoryList extends AppCompatActivity {
             if (BuildConfig.DEBUG) {
                 Log.d(TAG, "in need of backup");
             }
-            // used a custom layout in order to get the checkbox
-            AlertDialog.Builder builder;
 
-            LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-            View layout = inflater.inflate(R.layout.auto_backup, null);
+            boolean hasUnsavedChange = new DBHelper(this).getDbHasChanged();
 
-            builder = new AlertDialog.Builder(this);
-            builder.setView(layout);
-            builder.setTitle(getString(R.string.autobackup));
-            builder.setIcon(android.R.drawable.ic_menu_save);
-            builder.setNegativeButton(
-                    R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            checkAutobackupTurnoff();
+            if (hasUnsavedChange) {
+                // used a custom layout in order to get the checkbox
+                AlertDialog.Builder builder;
+
+                LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+                View layout = inflater.inflate(R.layout.auto_backup, null);
+
+                builder = new AlertDialog.Builder(this);
+                builder.setView(layout);
+                builder.setTitle(getString(R.string.autobackup));
+                builder.setIcon(android.R.drawable.ic_menu_save);
+                builder.setNegativeButton(
+                        R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                checkAutobackupTurnoff();
+                            }
                         }
-                    }
-            );
-            builder.setPositiveButton(
-                    R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            checkAutobackupTurnoff();
-                            backupThreadStart();
+                );
+                builder.setPositiveButton(
+                        R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                checkAutobackupTurnoff();
+                                backupThreadStart();
+                            }
                         }
-                    }
-            );
-            if (daysSinceLastBackup == julianDay) {
-                builder.setMessage(R.string.backup_never);
-            } else {
-                String backupInDays = getString(R.string.backup_in_days, daysSinceLastBackup);
-                builder.setMessage(backupInDays);
+                );
+                if (daysSinceLastBackup == julianDay) {
+                    builder.setMessage(R.string.backup_never);
+                } else {
+                    String backupInDays = getString(R.string.backup_in_days, daysSinceLastBackup);
+                    builder.setMessage(backupInDays);
+                }
+                autobackupDialog = builder.create();
+                autobackupDialog.show();
             }
-            autobackupDialog = builder.create();
-            autobackupDialog.show();
         }
     }
 
@@ -662,7 +667,8 @@ public class CategoryList extends AppCompatActivity {
 
     private String backupDatabase(String filename, OutputStream str) {
         Backup backup = new Backup(this);
-        backup.write(filename, str);
+        boolean changesSaved = backup.write(filename, str);
+        if (changesSaved) new DBHelper(this).setChangesSaved();
         return backup.getResult();
     }
 
